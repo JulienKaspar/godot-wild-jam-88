@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://b86lbtpyigxs5"]
+[gd_scene load_steps=7 format=3 uid="uid://b86lbtpyigxs5"]
 
 [ext_resource type="Script" uid="uid://din06hqtbjn7p" path="res://Characters/Player/logic/player_body.gd" id="1_codw7"]
 [ext_resource type="PackedScene" uid="uid://wfy3mktwjjp1" path="res://Assets/Characters/Drunk/drunk.gltf" id="1_wnhn1"]
 [ext_resource type="Script" uid="uid://26b81t0og4ju" path="res://Characters/Player/logic/player_armature.gd" id="2_codw7"]
+[ext_resource type="Script" uid="uid://cnh1i21mdu6qb" path="res://Characters/Player/logic/foot_step_target.gd" id="4_3aftw"]
+[ext_resource type="Script" uid="uid://bofc06yletic2" path="res://Characters/Player/logic/foot_ik_target.gd" id="4_wsmry"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_wsmry"]
+radius = 0.05
+height = 0.1
 
 [node name="PlayerBody" type="Node3D" node_paths=PackedStringArray("animation_player")]
 script = ExtResource("1_codw7")
@@ -16,8 +22,44 @@ script = ExtResource("2_codw7")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="."]
 
-[node name="LeftFootTarget" type="Marker3D" parent="."]
+[node name="LeftFootIKTarget" type="Marker3D" parent="." node_paths=PackedStringArray("step_target", "other_foot")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24782154, 0, 0)
+top_level = true
+script = ExtResource("4_wsmry")
+step_target = NodePath("../StepTarget/LeftRayCast/LeftFootStepTarget")
+other_foot = NodePath("../RightFootIKTarget")
 
-[node name="RightFootTarget" type="Marker3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LeftFootIKTarget"]
+mesh = SubResource("SphereMesh_wsmry")
+
+[node name="RightFootIKTarget" type="Marker3D" parent="." node_paths=PackedStringArray("step_target", "other_foot")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27868828, 0, 0)
+top_level = true
+script = ExtResource("4_wsmry")
+step_target = NodePath("../StepTarget/RightRayCast/RightFootStepTarget")
+other_foot = NodePath("../LeftFootIKTarget")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RightFootIKTarget"]
+mesh = SubResource("SphereMesh_wsmry")
+
+[node name="StepTarget" type="Node3D" parent="."]
+
+[node name="LeftRayCast" type="RayCast3D" parent="StepTarget" node_paths=PackedStringArray("step_target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24782154, 3, 0)
+top_level = true
+target_position = Vector3(0, -4, 0)
+script = ExtResource("4_3aftw")
+step_target = NodePath("LeftFootStepTarget")
+
+[node name="LeftFootStepTarget" type="Marker3D" parent="StepTarget/LeftRayCast"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
+
+[node name="RightRayCast" type="RayCast3D" parent="StepTarget" node_paths=PackedStringArray("step_target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27868828, 3, 0)
+top_level = true
+target_position = Vector3(0, -4, 0)
+script = ExtResource("4_3aftw")
+step_target = NodePath("RightFootStepTarget")
+
+[node name="RightFootStepTarget" type="Marker3D" parent="StepTarget/RightRayCast"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)

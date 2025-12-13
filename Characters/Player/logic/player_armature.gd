@@ -3,8 +3,8 @@ extends Node3D
 @onready var player_body: Node3D = $".."
 @onready var skeleton_3d: Skeleton3D = $Armature/Skeleton3D
 
-@onready var left_foot_target: Marker3D = $"../LeftFootTarget"
-@onready var right_foot_target: Marker3D = $"../RightFootTarget"
+@onready var left_foot_target: Marker3D = $"../LeftFootIKTarget"
+@onready var right_foot_target: Marker3D = $"../RightFootIKTarget"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
