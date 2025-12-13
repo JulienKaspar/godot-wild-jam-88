@@ -21,7 +21,7 @@ script = ExtResource("1_codw7")
 animation_player = NodePath("PlayerArmature/AnimationPlayer")
 
 [node name="PlayerArmature" parent="." instance=ExtResource("1_wnhn1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3148061, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.093919516, 0)
 script = ExtResource("2_codw7")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
@@ -53,7 +53,7 @@ mesh = SubResource("SphereMesh_wsmry")
 [node name="StepTarget" type="Node3D" parent="."]
 
 [node name="LeftRayCast" type="RayCast3D" parent="StepTarget" node_paths=PackedStringArray("step_target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24782154, 3, 0)
+transform = Transform3D(0.99742955, -0.07165412, 0, 0.07165412, 0.99742955, 0, 0, 0, 1, 0.08403608, 3, 0)
 target_position = Vector3(0, -4, 0)
 script = ExtResource("4_3aftw")
 step_target = NodePath("LeftFootStepTarget")
@@ -66,7 +66,7 @@ material_override = SubResource("StandardMaterial3D_wsmry")
 mesh = SubResource("SphereMesh_wsmry")
 
 [node name="RightRayCast" type="RayCast3D" parent="StepTarget" node_paths=PackedStringArray("step_target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27868828, 3, 0)
+transform = Transform3D(0.9983237, 0.057877664, 0, -0.057877664, 0.9983237, 0, 0, 0, 1, -0.095353216, 3, 0)
 target_position = Vector3(0, -4, 0)
 script = ExtResource("4_3aftw")
 step_target = NodePath("RightFootStepTarget")
