@@ -73,7 +73,6 @@ unique_name_in_owner = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBally3D/upper_body_pivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7315148, 0)
-visible = false
 mesh = SubResource("CapsuleMesh_jkj6u")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBally3D/upper_body_pivot"]

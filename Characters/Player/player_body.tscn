@@ -9,6 +9,7 @@ script = ExtResource("1_codw7")
 animation_player = NodePath("PlayerArmature/AnimationPlayer")
 
 [node name="PlayerArmature" parent="." instance=ExtResource("1_wnhn1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.09966099, 0)
 script = ExtResource("2_codw7")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
