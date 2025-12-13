@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="WildJam88"
-run/main_scene="uid://dpj3ak675hn33"
+run/main_scene="uid://csh7g60ebb2xa"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 <<<<<<<Updatedupstreamrun/main_scene="uid://dpj3ak675hn33"
 
@@ -41,6 +41,10 @@ move_back={
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":1,"axis_value":1.0,"script":null)
 ]
 }
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
 
 [rendering]
 

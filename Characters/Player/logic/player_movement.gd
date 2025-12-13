@@ -13,6 +13,7 @@ static var drunk_fall_factor = 1.01 #how fast the falling will escalate
 
 var drunk_noise_vector = Vector2(0,0)
 var drunk_amount = 0
+var player_move_dir = Vector2(0,0)
 
 #----------------Utility-------
 
@@ -30,14 +31,14 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	$upper_body_pivot.global_rotation = Vector3(0,0,0)
+	
 
 func _physics_process(delta: float) -> void:
 	update_drunk_vector(delta)
 	# `velocity` will be a Vector2 between `Vector2(-1.0, -1.0)` and `Vector2(1.0, 1.0)`
 	var playerInputDir = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 
-	
 	var move_force = playerInputDir * player_input_strength
 	move_force += drunk_noise_vector * drunk_input_strength
 	move_force *= delta * move_force_multiplier

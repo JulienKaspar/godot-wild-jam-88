@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cx2qst5txs1af"]
+[gd_scene load_steps=10 format=3 uid="uid://cx2qst5txs1af"]
 
 [ext_resource type="Script" uid="uid://cdppyptuftkiw" path="res://Characters/Player/logic/player_movement.gd" id="1_oj1ta"]
 
@@ -8,19 +8,67 @@ radius = 0.25
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_056gf"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_oj1ta"]
+[sub_resource type="SphereMesh" id="SphereMesh_jkj6u"]
+radial_segments = 5
+rings = 2
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_jkj6u"]
+radius = 0.25
+height = 1.65
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jkj6u"]
+height = 0.01
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jkj6u"]
+transparency = 1
+albedo_color = Color(0, 0, 0, 0.59607846)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jkj6u"]
+radius = 0.25
+height = 1.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6yvek"]
+radius = 0.25
+height = 1.0
 
 [node name="PlayerController" type="Node3D"]
 
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
+[node name="RigidBally3D" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.251, 0)
 mass = 50.0
 script = ExtResource("1_oj1ta")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBally3D"]
 shape = SubResource("SphereShape3D_056gf")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
-transform = Transform3D(0.43, 0, 0, 0, 0.43, 0, 0, 0, 0.43, 0, 0, 0)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBally3D"]
+transform = Transform3D(0.52, 0, 0, 0, 0.52, 0, 0, 0, 0.52, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_056gf")
-mesh = SubResource("BoxMesh_oj1ta")
+mesh = SubResource("SphereMesh_jkj6u")
+
+[node name="upper_body_pivot" type="Node3D" parent="RigidBally3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBally3D/upper_body_pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5899879, 0)
+mesh = SubResource("CapsuleMesh_jkj6u")
+
+[node name="helper_leaning" type="MeshInstance3D" parent="RigidBally3D/upper_body_pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2206907, 0)
+mesh = SubResource("CylinderMesh_jkj6u")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_jkj6u")
+
+[node name="RigidUpperBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9679019, 0)
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidUpperBody3D"]
+shape = SubResource("CapsuleShape3D_jkj6u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidUpperBody3D"]
+mesh = SubResource("CapsuleMesh_6yvek")
+
+[node name="ConeTwistJoint3D" type="ConeTwistJoint3D" parent="."]
+transform = Transform3D(0.5977091, 0.80171305, 0, -0.80171305, 0.5977091, 0, 0, 0, 1, 0, 0.471245, 0)
+node_a = NodePath("../RigidBally3D")
+node_b = NodePath("../RigidUpperBody3D")

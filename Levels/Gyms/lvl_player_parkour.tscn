@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://csh7g60ebb2xa"]
+[gd_scene load_steps=10 format=3 uid="uid://csh7g60ebb2xa"]
 
 [ext_resource type="PackedScene" uid="uid://cx2qst5txs1af" path="res://Characters/Player/player_controller.tscn" id="1_nguoo"]
+[ext_resource type="PackedScene" uid="uid://c8m223mcy8u2o" path="res://Objects/Props/prop_box.tscn" id="2_g5tv7"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_f1dn2"]
 
@@ -12,6 +13,9 @@
 albedo_color = Color(0.35906908, 0.35906908, 0.35906908, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_eojk7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g5tv7"]
+size = Vector3(1, 4.13562, 10.459595)
 
 [sub_resource type="Environment" id="Environment_f1dn2"]
 ambient_light_color = Color(0.47359985, 0.7973309, 0.92022985, 1)
@@ -37,9 +41,50 @@ transform = Transform3D(10, 0, 0, 0, -4.371139e-07, 10, 0, -10, -4.371139e-07, 0
 material_override = SubResource("StandardMaterial3D_8yh5p")
 mesh = SubResource("QuadMesh_eojk7")
 
+[node name="Obsticles" type="Node3D" parent="."]
+
+[node name="Props" type="Node3D" parent="Obsticles"]
+
+[node name="PropBox" parent="Obsticles/Props" instance=ExtResource("2_g5tv7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.915783, 0.25, 1.3811442)
+
+[node name="PropBox2" parent="Obsticles/Props" instance=ExtResource("2_g5tv7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.296811, 0.25, 1.2604448)
+
+[node name="PropBox3" parent="Obsticles/Props" instance=ExtResource("2_g5tv7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9633616, 0.25, 1.0246342)
+
+[node name="PropBox4" parent="Obsticles/Props" instance=ExtResource("2_g5tv7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7838677, 0.25, 1.6883658)
+
+[node name="PropBox5" parent="Obsticles/Props" instance=ExtResource("2_g5tv7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.40283966, 0.25, 1.5676664)
+
+[node name="PropBox6" parent="Obsticles/Props" instance=ExtResource("2_g5tv7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.73628914, 0.25, 1.3318559)
+
+[node name="PropBox7" parent="Obsticles/Props" instance=ExtResource("2_g5tv7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3845072, 0.25, -0.15010059)
+
+[node name="PropBox8" parent="Obsticles/Props" instance=ExtResource("2_g5tv7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0034792, 0.25, -0.2708)
+
+[node name="PropBox9" parent="Obsticles/Props" instance=ExtResource("2_g5tv7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3369288, 0.25, -0.5066105)
+
+[node name="Walls" type="Node3D" parent="Obsticles"]
+
+[node name="wall1" type="StaticBody3D" parent="Obsticles/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.95084, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Obsticles/Walls/wall1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0385132, -0.11468506)
+shape = SubResource("BoxShape3D_g5tv7")
+
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.6600934, 0.7511835, 0, -0.7511835, 0.6600934, 0, 3.4976892, 5.45792)
+transform = Transform3D(1, 0, 0, 0, 0.8338087, 0.5520534, 0, -0.5520534, 0.8338087, 9.536743e-07, 7.222043, 11.40207)
 current = true
+fov = 31.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_f1dn2")
