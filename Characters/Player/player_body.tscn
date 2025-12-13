@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b86lbtpyigxs5"]
+
+[node name="PlayerBody" type="Node3D"]
+
+[node name="Skeleton3D" type="Skeleton3D" parent="."]
+
+[node name="SkeletonIK3D" type="SkeletonIK3D" parent="Skeleton3D"]
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="."]

@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cgnbs1s27gc3v"]
+
+[node name="PfxExplosionDefaultA" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]

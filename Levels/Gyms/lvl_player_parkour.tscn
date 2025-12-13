@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://csh7g60ebb2xa"]
+
+[ext_resource type="PackedScene" uid="uid://cx2qst5txs1af" path="res://Characters/Player/player_controller.tscn" id="1_nguoo"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_f1dn2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nguoo"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_6idyo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8yh5p"]
+albedo_color = Color(0.35906908, 0.35906908, 0.35906908, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_eojk7"]
+
+[sub_resource type="Environment" id="Environment_f1dn2"]
+ambient_light_color = Color(0.47359985, 0.7973309, 0.92022985, 1)
+fog_enabled = true
+
+[node name="LvlPlayerParkour" type="Node3D"]
+
+[node name="Floor" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+physics_material_override = SubResource("PhysicsMaterial_f1dn2")
+
+[node name="CollisionShape3D_floor" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -5, 0)
+shape = SubResource("BoxShape3D_nguoo")
+
+[node name="CollisionShape3D_Boundary" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_6idyo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(10, 0, 0, 0, -4.371139e-07, 10, 0, -10, -4.371139e-07, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_8yh5p")
+mesh = SubResource("QuadMesh_eojk7")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.6600934, 0.7511835, 0, -0.7511835, 0.6600934, 0, 3.4976892, 5.45792)
+current = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_f1dn2")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(0.51487356, -0.6396395, 0.57075965, 0, 0.6657905, 0.74613875, -0.8572661, -0.3841671, 0.34279794, 0, 0, 0)
+
+[node name="PlayerController" parent="." instance=ExtResource("1_nguoo")]

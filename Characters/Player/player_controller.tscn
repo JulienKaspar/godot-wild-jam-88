@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cx2qst5txs1af"]
+
+[ext_resource type="Script" uid="uid://cdppyptuftkiw" path="res://Characters/Player/logic/player_movement.gd" id="1_oj1ta"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_056gf"]
+margin = 0.0
+radius = 0.25
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_056gf"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_oj1ta"]
+
+[node name="PlayerController" type="Node3D"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.251, 0)
+mass = 50.0
+script = ExtResource("1_oj1ta")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("SphereShape3D_056gf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(0.43, 0, 0, 0, 0.43, 0, 0, 0, 0.43, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_056gf")
+mesh = SubResource("BoxMesh_oj1ta")
