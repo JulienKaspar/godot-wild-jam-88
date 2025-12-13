@@ -1,11 +1,17 @@
-[gd_scene format=3 uid="uid://b86lbtpyigxs5"]
+[gd_scene load_steps=4 format=3 uid="uid://b86lbtpyigxs5"]
+
+[ext_resource type="Script" path="res://Characters/Player/logic/player_body.gd" id="1_codw7"]
+[ext_resource type="PackedScene" uid="uid://wfy3mktwjjp1" path="res://Assets/Characters/Drunk/drunk.gltf" id="1_wnhn1"]
+[ext_resource type="Script" path="res://Characters/Player/logic/player_armature.gd" id="2_codw7"]
 
 [node name="PlayerBody" type="Node3D"]
+script = ExtResource("1_codw7")
 
-[node name="Skeleton3D" type="Skeleton3D" parent="."]
-
-[node name="SkeletonIK3D" type="SkeletonIK3D" parent="Skeleton3D"]
+[node name="PlayerArmature" parent="." instance=ExtResource("1_wnhn1")]
+script = ExtResource("2_codw7")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 
 [node name="SpringArm3D" type="SpringArm3D" parent="."]
+
+[editable path="PlayerArmature"]

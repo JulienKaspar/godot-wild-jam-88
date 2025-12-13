@@ -1,10 +1,36 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqjqmhnbk3ssj"]
+[gd_scene load_steps=6 format=3 uid="uid://cqjqmhnbk3ssj"]
 
 [ext_resource type="PackedScene" uid="uid://cx2qst5txs1af" path="res://Characters/Player/player_controller.tscn" id="1_j341n"]
 [ext_resource type="PackedScene" uid="uid://b86lbtpyigxs5" path="res://Characters/Player/player_body.tscn" id="2_cue0d"]
+[ext_resource type="Script" uid="uid://cw4emr5i7rkes" path="res://Characters/Player/logic/player.gd" id="3_cue0d"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_cue0d"]
+radius = 0.05
+height = 0.1
+
+[sub_resource type="SphereMesh" id="SphereMesh_bqsbk"]
+radius = 0.05
+height = 0.1
 
 [node name="Player" type="Node3D"]
+script = ExtResource("3_cue0d")
 
 [node name="PlayerController" parent="." instance=ExtResource("1_j341n")]
 
-[node name="PlayerBody" parent="PlayerController" instance=ExtResource("2_cue0d")]
+[node name="PlayerBody" parent="." node_paths=PackedStringArray("left_hand_target") instance=ExtResource("2_cue0d")]
+left_hand_target = NodePath("../LeftHandTarget")
+
+[node name="LeftHandTarget" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4582014, 1, 1)
+top_level = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LeftHandTarget"]
+mesh = SubResource("SphereMesh_cue0d")
+
+[node name="RightHandTarget" type="Node3D" parent="."]
+top_level = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RightHandTarget"]
+mesh = SubResource("SphereMesh_bqsbk")
+
+[editable path="PlayerController"]

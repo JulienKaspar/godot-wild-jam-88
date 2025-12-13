@@ -47,6 +47,7 @@ material_override = SubResource("StandardMaterial3D_056gf")
 mesh = SubResource("SphereMesh_jkj6u")
 
 [node name="upper_body_pivot" type="Node3D" parent="RigidBally3D"]
+unique_name_in_owner = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBally3D/upper_body_pivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5899879, 0)
