@@ -32,5 +32,3 @@ top_level = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RightHandTarget"]
 mesh = SubResource("SphereMesh_bqsbk")
-
-[editable path="PlayerController"]

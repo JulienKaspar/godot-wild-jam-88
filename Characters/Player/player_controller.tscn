@@ -19,7 +19,7 @@ albedo_color = Color(0.74509805, 0, 0.7607843, 0.5647059)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_jkj6u"]
 material = SubResource("StandardMaterial3D_6yvek")
 radius = 0.25
-height = 1.9
+height = 1.8
 
 [sub_resource type="PrismMesh" id="PrismMesh_jkj6u"]
 size = Vector3(0.52, 1.215, 0.06)
@@ -64,6 +64,7 @@ shape = SubResource("SphereShape3D_056gf")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBally3D"]
 transform = Transform3D(0.52, 0, 0, 0, 0.52, 0, 0, 0, 0.52, 0, 0, 0)
+visible = false
 material_override = SubResource("StandardMaterial3D_056gf")
 mesh = SubResource("SphereMesh_jkj6u")
 
@@ -72,6 +73,7 @@ unique_name_in_owner = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBally3D/upper_body_pivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7315148, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_jkj6u")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBally3D/upper_body_pivot"]

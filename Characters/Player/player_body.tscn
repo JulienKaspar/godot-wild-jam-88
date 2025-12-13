@@ -14,3 +14,9 @@ script = ExtResource("2_codw7")
 [node name="RayCast3D" type="RayCast3D" parent="."]
 
 [node name="SpringArm3D" type="SpringArm3D" parent="."]
+
+[node name="LeftFootTarget" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24782154, 0, 0)
+
+[node name="RightFootTarget" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27868828, 0, 0)

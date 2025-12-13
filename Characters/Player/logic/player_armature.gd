@@ -1,9 +1,10 @@
-@tool
-
 extends Node3D
 
 @onready var player_body: Node3D = $".."
 @onready var skeleton_3d: Skeleton3D = $Armature/Skeleton3D
+
+@onready var left_foot_target: Marker3D = $"../LeftFootTarget"
+@onready var right_foot_target: Marker3D = $"../RightFootTarget"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,6 +15,24 @@ func _ready() -> void:
 	left_arm_ik.target_node = player_body.left_hand_target.get_path()
 	left_arm_ik.start()
 	skeleton_3d.add_child(left_arm_ik)
+	
+	var left_leg_ik = SkeletonIK3D.new()
+	left_leg_ik.root_bone = "Leg_L"
+	left_leg_ik.tip_bone = "Leg_IK_target-L"
+	left_leg_ik.target_node = left_foot_target.get_path()
+	left_leg_ik.use_magnet = true
+	left_leg_ik.magnet = Vector3(0, 0, 1)
+	left_leg_ik.start()
+	skeleton_3d.add_child(left_leg_ik)
+	
+	var right_leg_ik = SkeletonIK3D.new()
+	right_leg_ik.root_bone = "Leg_R"
+	right_leg_ik.tip_bone = "Leg_IK_target-R"
+	right_leg_ik.target_node = right_foot_target.get_path()
+	right_leg_ik.use_magnet = true
+	right_leg_ik.magnet = Vector3(0, 0, 1)
+	right_leg_ik.start()
+	skeleton_3d.add_child(right_leg_ik)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
