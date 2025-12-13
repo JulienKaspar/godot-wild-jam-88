@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqjqmhnbk3ssj"]
+
+[ext_resource type="PackedScene" uid="uid://cx2qst5txs1af" path="res://Characters/Player/player_controller.tscn" id="1_j341n"]
+[ext_resource type="PackedScene" uid="uid://b86lbtpyigxs5" path="res://Characters/Player/player_body.tscn" id="2_cue0d"]
+
+[node name="Player" type="Node3D"]
+
+[node name="PlayerController" parent="." instance=ExtResource("1_j341n")]
+
+[node name="PlayerBody" parent="PlayerController" instance=ExtResource("2_cue0d")]
