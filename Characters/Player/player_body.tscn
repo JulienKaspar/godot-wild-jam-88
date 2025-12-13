@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b86lbtpyigxs5"]
+[gd_scene load_steps=9 format=3 uid="uid://b86lbtpyigxs5"]
 
 [ext_resource type="Script" uid="uid://din06hqtbjn7p" path="res://Characters/Player/logic/player_body.gd" id="1_codw7"]
 [ext_resource type="PackedScene" uid="uid://wfy3mktwjjp1" path="res://Assets/Characters/Drunk/drunk.gltf" id="1_wnhn1"]
@@ -6,16 +6,22 @@
 [ext_resource type="Script" uid="uid://cnh1i21mdu6qb" path="res://Characters/Player/logic/foot_step_target.gd" id="4_3aftw"]
 [ext_resource type="Script" uid="uid://bofc06yletic2" path="res://Characters/Player/logic/foot_ik_target.gd" id="4_wsmry"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hu15c"]
+albedo_color = Color(0.25567532, 0.15522826, 1, 1)
+
 [sub_resource type="SphereMesh" id="SphereMesh_wsmry"]
 radius = 0.05
 height = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wsmry"]
+albedo_color = Color(0.7828577, 0.24109468, 0, 1)
 
 [node name="PlayerBody" type="Node3D" node_paths=PackedStringArray("animation_player")]
 script = ExtResource("1_codw7")
 animation_player = NodePath("PlayerArmature/AnimationPlayer")
 
 [node name="PlayerArmature" parent="." instance=ExtResource("1_wnhn1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.09966099, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3148061, 0)
 script = ExtResource("2_codw7")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
@@ -30,6 +36,7 @@ step_target = NodePath("../StepTarget/LeftRayCast/LeftFootStepTarget")
 other_foot = NodePath("../RightFootIKTarget")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="LeftFootIKTarget"]
+material_override = SubResource("StandardMaterial3D_hu15c")
 mesh = SubResource("SphereMesh_wsmry")
 
 [node name="RightFootIKTarget" type="Marker3D" parent="." node_paths=PackedStringArray("step_target", "other_foot")]
@@ -40,13 +47,13 @@ step_target = NodePath("../StepTarget/RightRayCast/RightFootStepTarget")
 other_foot = NodePath("../LeftFootIKTarget")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RightFootIKTarget"]
+material_override = SubResource("StandardMaterial3D_hu15c")
 mesh = SubResource("SphereMesh_wsmry")
 
 [node name="StepTarget" type="Node3D" parent="."]
 
 [node name="LeftRayCast" type="RayCast3D" parent="StepTarget" node_paths=PackedStringArray("step_target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24782154, 3, 0)
-top_level = true
 target_position = Vector3(0, -4, 0)
 script = ExtResource("4_3aftw")
 step_target = NodePath("LeftFootStepTarget")
@@ -54,12 +61,19 @@ step_target = NodePath("LeftFootStepTarget")
 [node name="LeftFootStepTarget" type="Marker3D" parent="StepTarget/LeftRayCast"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StepTarget/LeftRayCast/LeftFootStepTarget"]
+material_override = SubResource("StandardMaterial3D_wsmry")
+mesh = SubResource("SphereMesh_wsmry")
+
 [node name="RightRayCast" type="RayCast3D" parent="StepTarget" node_paths=PackedStringArray("step_target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27868828, 3, 0)
-top_level = true
 target_position = Vector3(0, -4, 0)
 script = ExtResource("4_3aftw")
 step_target = NodePath("RightFootStepTarget")
 
 [node name="RightFootStepTarget" type="Marker3D" parent="StepTarget/RightRayCast"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StepTarget/RightRayCast/RightFootStepTarget"]
+material_override = SubResource("StandardMaterial3D_wsmry")
+mesh = SubResource("SphereMesh_wsmry")

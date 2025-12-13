@@ -4,7 +4,7 @@ extends Marker3D
 
 @export var other_foot: Node3D
 
-const step_distance: float = 1.0
+const step_distance: float = 0.8
 const step_speed: float = 0.1
 
 var is_stepping := false
@@ -17,10 +17,10 @@ func step():
 	is_stepping = true
 	var target_pos = step_target.global_position
 	var half_way = (global_position + step_target.global_position) / 2
-	
+	var high_point = owner.basis.y + Vector3(0, -0.4, 0)
 	# Animate acring step
 	var t = get_tree().create_tween()
-	t.tween_property(self, "global_position", half_way + owner.basis.y, step_speed)
+	t.tween_property(self, "global_position", half_way + high_point, step_speed)
 	t.tween_property(self, "global_position", target_pos, step_speed)
 	t.tween_callback(func(): is_stepping = false)
 	
