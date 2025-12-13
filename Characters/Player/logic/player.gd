@@ -8,4 +8,4 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _physics_process(delta: float) -> void:
-	player_body.global_transform = upper_body_pivot.global_transform
+	player_body.global_transform = lerp(player_body.global_transform, upper_body_pivot.global_transform, .5)
