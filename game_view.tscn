@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpj3ak675hn33"]
+
+[ext_resource type="PackedScene" uid="uid://bcredxkb7jfdu" path="res://UI/MainMenu/main_menu.tscn" id="1_0lsib"]
+[ext_resource type="Script" uid="uid://bexi8qx87vns3" path="res://Scripts/game_view.gd" id="1_lqkpn"]
+[ext_resource type="PackedScene" uid="uid://betq65km7cbe3" path="res://UI/SettingsMenu/settings_menu.tscn" id="2_lqkpn"]
+
+[node name="GameView" type="Node"]
+script = ExtResource("1_lqkpn")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MenuDisplayer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MainMenu" parent="CanvasLayer/MenuDisplayer" instance=ExtResource("1_0lsib")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SettingsMenu" parent="CanvasLayer/MenuDisplayer" instance=ExtResource("2_lqkpn")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2

@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcredxkb7jfdu"]
+
+[ext_resource type="Script" uid="uid://c3pnv4i4pub4u" path="res://UI/MainMenu/main_menu.gd" id="1_jld46"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kf43y"]
+
+[node name="MainMenu" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_kf43y")
+script = ExtResource("1_jld46")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Party Foul"
+horizontal_alignment = 1
+
+[node name="SubTitleLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.581033, 0.58103293, 0.5810329, 1)
+theme_override_font_sizes/font_size = 20
+text = "A Game for Godot Wild # 88"
+horizontal_alignment = 1
+
+[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Start"
+
+[node name="SettingsMenu" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+
+[node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Exit"
