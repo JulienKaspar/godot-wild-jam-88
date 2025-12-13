@@ -67,7 +67,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.915783, 0.25, 1.3811442)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.296811, 0.25, 1.2604448)
 
 [node name="PropBox3" parent="Obsticles/Props" instance=ExtResource("2_g5tv7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9633616, 0.25, 1.0246342)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0054715276, 1.8376266, -0.041978955)
 
 [node name="PropBox4" parent="Obsticles/Props" instance=ExtResource("2_g5tv7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7838677, 0.25, 1.6883658)
