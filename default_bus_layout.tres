@@ -29,11 +29,14 @@ depth = 0.1
 [sub_resource type="AudioEffectDelay" id="AudioEffectDelay_j3pel"]
 resource_name = "Delay"
 tap1_delay_ms = 133.0
+tap1_level_db = -60.0
 tap1_pan = 1.0
 tap2_delay_ms = 200.0
+tap2_level_db = -60.0
 tap2_pan = -1.0
 feedback_active = true
 feedback_delay_ms = 300.0
+feedback_level_db = -60.0
 
 [sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_j3pel"]
 resource_name = "Limiter"
