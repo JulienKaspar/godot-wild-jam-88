@@ -1,0 +1,124 @@
+[gd_scene load_steps=19 format=3 uid="uid://bc3p2wg2lxxy1"]
+
+[ext_resource type="Script" uid="uid://cx6hg5805vnqx" path="res://Audio/music_manager.gd" id="1_1unlh"]
+[ext_resource type="AudioStream" uid="uid://bjev4yirikmvx" path="res://Assets/Audio/Music/music_theme_A.ogg" id="1_q2r52"]
+[ext_resource type="AudioStream" uid="uid://dr7dq2ioo2i3c" path="res://Assets/Audio/Music/music_theme_A_drunk_low.ogg" id="2_l2aqf"]
+[ext_resource type="AudioStream" uid="uid://dq8cjxds040l7" path="res://Assets/Audio/Music/music_theme_A_drunk_high.ogg" id="3_hef1n"]
+[ext_resource type="AudioStream" uid="uid://joqhwq62sgaq" path="res://Assets/Audio/Music/music_theme_B.ogg" id="4_lefm4"]
+[ext_resource type="AudioStream" uid="uid://mt384b1a81i2" path="res://Assets/Audio/Music/music_theme_B_drunk_low.ogg" id="5_1unlh"]
+[ext_resource type="AudioStream" uid="uid://1xxq27rvl6hr" path="res://Assets/Audio/Music/music_theme_B_drunk_high.ogg" id="6_0bh0l"]
+[ext_resource type="AudioStream" uid="uid://cvskc7g8df8sj" path="res://Assets/Audio/Music/music_theme_C.ogg" id="7_q521t"]
+[ext_resource type="AudioStream" uid="uid://celrhaifj8yg0" path="res://Assets/Audio/Music/music_theme_C_drunk_low.ogg" id="8_tixif"]
+[ext_resource type="AudioStream" uid="uid://d2x1vmy11js3u" path="res://Assets/Audio/Music/music_theme_C_drunk_high.ogg" id="9_3okmj"]
+[ext_resource type="AudioStream" uid="uid://slst07y7r8jk" path="res://Assets/Audio/Music/music_theme_D.ogg" id="10_dkhsf"]
+[ext_resource type="AudioStream" uid="uid://c1sm53ewdutbp" path="res://Assets/Audio/Music/music_theme_D_drunk_low.ogg" id="11_g6wje"]
+[ext_resource type="AudioStream" uid="uid://34ycluciqip0" path="res://Assets/Audio/Music/music_theme_D_drunk_high.ogg" id="12_4b6gb"]
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_oubgs"]
+stream_count = 3
+stream_0/stream = ExtResource("1_q2r52")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("2_l2aqf")
+stream_1/volume = -60.0
+stream_2/stream = ExtResource("3_hef1n")
+stream_2/volume = -60.0
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_86rpc"]
+stream_count = 3
+stream_0/stream = ExtResource("4_lefm4")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("5_1unlh")
+stream_1/volume = -60.0
+stream_2/stream = ExtResource("6_0bh0l")
+stream_2/volume = -60.0
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_twohr"]
+stream_count = 3
+stream_0/stream = ExtResource("7_q521t")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("8_tixif")
+stream_1/volume = -60.0
+stream_2/stream = ExtResource("9_3okmj")
+stream_2/volume = -60.0
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_gm6kx"]
+stream_count = 3
+stream_0/stream = ExtResource("10_dkhsf")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("11_g6wje")
+stream_1/volume = 0.0
+stream_2/stream = ExtResource("12_4b6gb")
+stream_2/volume = 0.0
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_sxgk8"]
+clip_count = 4
+clip_0/name = &"theme_a"
+clip_0/stream = SubResource("AudioStreamSynchronized_oubgs")
+clip_0/auto_advance = 0
+clip_1/name = &"theme_b"
+clip_1/stream = SubResource("AudioStreamSynchronized_86rpc")
+clip_1/auto_advance = 0
+clip_2/name = &"theme_c"
+clip_2/stream = SubResource("AudioStreamSynchronized_twohr")
+clip_2/auto_advance = 0
+clip_3/name = &"theme_d"
+clip_3/stream = SubResource("AudioStreamSynchronized_gm6kx")
+clip_3/auto_advance = 0
+_transitions = {
+Vector2i(-1, -1): {
+"fade_beats": 0.0,
+"fade_mode": 0,
+"from_time": 2,
+"to_time": 1
+}
+}
+
+[node name="MusicManager" type="Node"]
+script = ExtResource("1_1unlh")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamInteractive_sxgk8")
+volume_db = -6.0
+bus = &"Music"
+
+[node name="DebugLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="DebugLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DebugLayer/Control"]
+layout_mode = 0
+offset_right = 113.0
+offset_bottom = 51.0
+
+[node name="ThemeOptionLabel" type="Label" parent="DebugLayer/Control/VBoxContainer"]
+layout_mode = 2
+text = "Music Theme Selected:"
+
+[node name="ThemeOptionButton" type="OptionButton" parent="DebugLayer/Control/VBoxContainer"]
+layout_mode = 2
+selected = 0
+item_count = 4
+popup/item_0/text = "Theme A"
+popup/item_0/id = 0
+popup/item_1/text = "Theme B"
+popup/item_1/id = 1
+popup/item_2/text = "Theme C"
+popup/item_2/id = 2
+popup/item_3/text = "Theme D"
+popup/item_3/id = 3
+
+[node name="DrunknessLabel" type="Label" parent="DebugLayer/Control/VBoxContainer"]
+layout_mode = 2
+text = "Drunkness: 0.0"
+
+[node name="DrunknessSlider" type="HSlider" parent="DebugLayer/Control/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
