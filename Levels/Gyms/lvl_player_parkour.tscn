@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://csh7g60ebb2xa"]
+[gd_scene load_steps=15 format=3 uid="uid://csh7g60ebb2xa"]
 
 [ext_resource type="PackedScene" uid="uid://cqjqmhnbk3ssj" path="res://Characters/Player/player.tscn" id="2_1tl4p"]
 [ext_resource type="PackedScene" uid="uid://c8m223mcy8u2o" path="res://Objects/Props/prop_box.tscn" id="2_g5tv7"]
@@ -16,6 +16,21 @@ albedo_color = Color(0.35906908, 0.35906908, 0.35906908, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g5tv7"]
 size = Vector3(1, 4.13562, 10.459595)
+
+[sub_resource type="BoxMesh" id="BoxMesh_g5tv7"]
+size = Vector3(1, 4.13562, 10.459595)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1tl4p"]
+size = Vector3(1.5734787, 1, 4.6469727)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1tl4p"]
+size = Vector3(1.5734787, 1, 4.6469727)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g78i3"]
+albedo_color = Color(0.6901961, 0.28235295, 0.2509804, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jvag8"]
+size = Vector3(0.268, 1, 4.647)
 
 [sub_resource type="Environment" id="Environment_f1dn2"]
 ambient_light_color = Color(0.47359985, 0.7973309, 0.92022985, 1)
@@ -64,22 +79,79 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.40283966, 0.25, 1.5676664)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.73628914, 0.25, 1.3318559)
 
 [node name="PropBox7" parent="Obsticles/Props" instance=ExtResource("2_g5tv7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3845072, 0.25, -0.15010059)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.917051, 0.75196815, -0.42338014)
 
 [node name="PropBox8" parent="Obsticles/Props" instance=ExtResource("2_g5tv7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0034792, 0.25, -0.2708)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5360231, 0.75196815, -0.54407954)
 
 [node name="PropBox9" parent="Obsticles/Props" instance=ExtResource("2_g5tv7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3369288, 0.25, -0.5066105)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8694727, 0.75196815, -0.77989006)
 
 [node name="Walls" type="Node3D" parent="Obsticles"]
 
 [node name="wall1" type="StaticBody3D" parent="Obsticles/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.95084, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.375144, 1.9788156, -0.11603451)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Obsticles/Walls/wall1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0385132, -0.11468506)
 shape = SubResource("BoxShape3D_g5tv7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Obsticles/Walls/wall1"]
+mesh = SubResource("BoxMesh_g5tv7")
+
+[node name="wall2" type="StaticBody3D" parent="Obsticles/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.358596, 2.086485, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Obsticles/Walls/wall2"]
+shape = SubResource("BoxShape3D_g5tv7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Obsticles/Walls/wall2"]
+mesh = SubResource("BoxMesh_g5tv7")
+
+[node name="wall3" type="StaticBody3D" parent="Obsticles/Walls"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.25288343, 2.086485, -5.216015)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Obsticles/Walls/wall3"]
+shape = SubResource("BoxShape3D_g5tv7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Obsticles/Walls/wall3"]
+mesh = SubResource("BoxMesh_g5tv7")
+
+[node name="wall4" type="StaticBody3D" parent="Obsticles/Walls"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.25288343, 1.865751, 5.406537)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Obsticles/Walls/wall4"]
+shape = SubResource("BoxShape3D_g5tv7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Obsticles/Walls/wall4"]
+visible = false
+mesh = SubResource("BoxMesh_g5tv7")
+
+[node name="Stairs" type="Node3D" parent="Obsticles"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Obsticles/Stairs"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Obsticles/Stairs/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0862923, 0, -2.480957)
+shape = SubResource("BoxShape3D_1tl4p")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Obsticles/Stairs/StaticBody3D"]
+transform = Transform3D(0.86224854, -0.50648534, 0, 0.50648534, 0.86224854, 0, 0, 0, 1, 2.8722286, -0.33572853, -2.480957)
+shape = SubResource("BoxShape3D_1tl4p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Obsticles/Stairs/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0862923, 0, -2.480957)
+mesh = SubResource("BoxMesh_1tl4p")
+surface_material_override/0 = SubResource("StandardMaterial3D_g78i3")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Obsticles/Stairs/StaticBody3D"]
+transform = Transform3D(0.99976546, 0.021657843, 0, -0.021657843, 0.99976546, 0, 0, 0, 1, 3.162317, -0.1785666, -2.480957)
+mesh = SubResource("BoxMesh_jvag8")
+surface_material_override/0 = SubResource("StandardMaterial3D_g78i3")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Obsticles/Stairs/StaticBody3D"]
+transform = Transform3D(0.99976546, 0.021657843, 0, -0.021657843, 0.99976546, 0, 0, 0, 1, 2.8891256, -0.3008023, -2.480957)
+mesh = SubResource("BoxMesh_jvag8")
+surface_material_override/0 = SubResource("StandardMaterial3D_g78i3")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.8338087, 0.5520534, 0, -0.5520534, 0.8338087, 9.536743e-07, 7.222043, 11.40207)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cx2qst5txs1af"]
+[gd_scene load_steps=11 format=3 uid="uid://cx2qst5txs1af"]
 
 [ext_resource type="Script" uid="uid://cdppyptuftkiw" path="res://Characters/Player/logic/player_movement.gd" id="1_oj1ta"]
 
@@ -12,7 +12,12 @@ radius = 0.25
 radial_segments = 5
 rings = 2
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6yvek"]
+transparency = 1
+albedo_color = Color(0.74509805, 0, 0.7607843, 0.5647059)
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_jkj6u"]
+material = SubResource("StandardMaterial3D_6yvek")
 radius = 0.25
 height = 1.65
 
@@ -23,13 +28,13 @@ height = 0.01
 transparency = 1
 albedo_color = Color(0, 0, 0, 0.59607846)
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jkj6u"]
-radius = 0.25
-height = 1.0
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_on8bp"]
+transparency = 1
+albedo_color = Color(1, 0, 0, 0.59607846)
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_6yvek"]
-radius = 0.25
-height = 1.0
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fy1gk"]
+transparency = 1
+albedo_color = Color(0, 0.8980392, 0, 0.59607846)
 
 [node name="PlayerController" type="Node3D"]
 
@@ -53,23 +58,22 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5899879, 0)
 mesh = SubResource("CapsuleMesh_jkj6u")
 
-[node name="helper_leaning" type="MeshInstance3D" parent="RigidBally3D/upper_body_pivot"]
+[node name="up_aligned" type="Node3D" parent="RigidBally3D"]
+
+[node name="helper_leaning" type="MeshInstance3D" parent="RigidBally3D/up_aligned"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2206907, 0)
 mesh = SubResource("CylinderMesh_jkj6u")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_jkj6u")
 
-[node name="RigidUpperBody3D" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9679019, 0)
-visible = false
+[node name="helper_drunk_dir" type="MeshInstance3D" parent="RigidBally3D/up_aligned"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2206907, 0)
+mesh = SubResource("CylinderMesh_jkj6u")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_on8bp")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidUpperBody3D"]
-shape = SubResource("CapsuleShape3D_jkj6u")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidUpperBody3D"]
-mesh = SubResource("CapsuleMesh_6yvek")
-
-[node name="ConeTwistJoint3D" type="ConeTwistJoint3D" parent="."]
-transform = Transform3D(0.5977091, 0.80171305, 0, -0.80171305, 0.5977091, 0, 0, 0, 1, 0, 0.471245, 0)
-node_a = NodePath("../RigidBally3D")
-node_b = NodePath("../RigidUpperBody3D")
+[node name="helper_player_dir" type="MeshInstance3D" parent="RigidBally3D/up_aligned"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2206907, 0)
+mesh = SubResource("CylinderMesh_jkj6u")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_fy1gk")
