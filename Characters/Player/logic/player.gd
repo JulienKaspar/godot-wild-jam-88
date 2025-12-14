@@ -10,6 +10,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _physics_process(delta: float) -> void:
+	# Make the body follow the controller
 	player_body.global_transform = lerp(player_body.global_transform, upper_body_pivot.global_transform, .5)
 	
 	# Hip animation 
