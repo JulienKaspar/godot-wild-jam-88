@@ -89,7 +89,7 @@ albedo_color = Color(0, 0.1882353, 0.9098039, 0.59607846)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jkj6u"]
 radius = 0.25
-height = 1.2
+height = 1.634668
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_6yvek"]
 radius = 0.25
@@ -173,7 +173,6 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0
 node_a = NodePath("../NoRotateBall")
 node_b = NodePath("../UpperBody")
 swing_span = 1.5707964
-twist_span = 6.2831855
 
 [node name="NoRotateBall" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
@@ -191,6 +190,7 @@ collision_layer = 2
 collision_mask = 61
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="UpperBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.21733397, 0)
 shape = SubResource("CapsuleShape3D_jkj6u")
 
 [node name="helper_body_col" type="MeshInstance3D" parent="UpperBody"]
