@@ -1,7 +1,11 @@
 [gd_scene load_steps=16 format=3 uid="uid://csh7g60ebb2xa"]
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [ext_resource type="PackedScene" path="res://Characters/Player/player.tscn" id="2_1tl4p"]
+=======
+[ext_resource type="PackedScene" uid="uid://bo1p1dvgr50f4" path="res://Objects/Props/drunkness_pickup_banana.tscn" id="2_1tl4p"]
+>>>>>>> Stashed changes
 =======
 [ext_resource type="PackedScene" uid="uid://bo1p1dvgr50f4" path="res://Objects/Props/drunkness_pickup_banana.tscn" id="2_1tl4p"]
 >>>>>>> Stashed changes
