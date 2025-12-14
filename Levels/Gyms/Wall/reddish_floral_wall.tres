@@ -5,6 +5,7 @@ viewport_path = NodePath("SubViewport")
 
 [resource]
 resource_local_to_scene = true
+diffuse_mode = 3
 albedo_texture = SubResource("ViewportTexture_fdle5")
 roughness = 0.0
 uv1_scale = Vector3(0.24, 0.25, 0.15)
