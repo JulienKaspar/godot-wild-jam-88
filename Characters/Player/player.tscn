@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqjqmhnbk3ssj"]
+[gd_scene load_steps=9 format=3 uid="uid://cqjqmhnbk3ssj"]
 
 [ext_resource type="PackedScene" uid="uid://cx2qst5txs1af" path="res://Characters/Player/player_controller.tscn" id="1_j341n"]
 [ext_resource type="PackedScene" uid="uid://b86lbtpyigxs5" path="res://Characters/Player/player_body.tscn" id="2_cue0d"]
 [ext_resource type="Script" uid="uid://cw4emr5i7rkes" path="res://Characters/Player/logic/player.gd" id="3_cue0d"]
+[ext_resource type="Script" uid="uid://bjbv1gqsn4eao" path="res://Gameplay/Drunkness/player_drunkness.gd" id="4_bqsbk"]
+[ext_resource type="Script" uid="uid://c04lkn4hohoj4" path="res://Characters/Player/pickup_radius.gd" id="5_xf5fp"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_cue0d"]
 radius = 0.05
@@ -11,6 +13,10 @@ height = 0.1
 [sub_resource type="SphereMesh" id="SphereMesh_bqsbk"]
 radius = 0.05
 height = 0.1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bqsbk"]
+margin = 0.0
+radius = 3.0
 
 [node name="Player" type="Node3D"]
 script = ExtResource("3_cue0d")
@@ -32,3 +38,13 @@ top_level = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RightHandTarget"]
 mesh = SubResource("SphereMesh_bqsbk")
+
+[node name="Drunkness" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("4_bqsbk")
+
+[node name="PickupRadius" type="ShapeCast3D" parent="."]
+shape = SubResource("SphereShape3D_bqsbk")
+target_position = Vector3(0, 0, 0)
+collision_mask = 16
+script = ExtResource("5_xf5fp")

@@ -1,6 +1,10 @@
 [gd_scene load_steps=16 format=3 uid="uid://csh7g60ebb2xa"]
 
 [ext_resource type="PackedScene" path="res://Characters/Player/player.tscn" id="2_1tl4p"]
+
+[ext_resource type="PackedScene" uid="uid://bo1p1dvgr50f4" path="res://Objects/Props/drunkness_pickup_banana.tscn" id="2_1tl4p"]
+
+[ext_resource type="PackedScene" uid="uid://bo1p1dvgr50f4" path="res://Objects/Props/drunkness_pickup_banana.tscn" id="2_1tl4p"]
 [ext_resource type="PackedScene" uid="uid://c8m223mcy8u2o" path="res://Objects/Props/prop_box.tscn" id="2_g5tv7"]
 [ext_resource type="PackedScene" uid="uid://b32xnjnsc6xts" path="res://Levels/Gyms/wall.tscn" id="2_g78i3"]
 
@@ -159,4 +163,5 @@ environment = SubResource("Environment_f1dn2")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(0.51487356, -0.6396395, 0.57075965, 0, 0.6657905, 0.74613875, -0.8572661, -0.3841671, 0.34279794, 0, 0, 0)
 
-[node name="Player" parent="." instance=ExtResource("2_1tl4p")]
+[node name="DrunknessPickup" parent="." instance=ExtResource("2_1tl4p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.72499, 0.025762774, -1.9445195)
