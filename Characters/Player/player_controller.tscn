@@ -228,7 +228,6 @@ collision_layer = 2
 shape = SubResource("CapsuleShape3D_jkj6u")
 
 [node name="helper_body_col" type="MeshInstance3D" parent="UpperBody"]
-visible = false
 mesh = SubResource("CapsuleMesh_6yvek")
 
 [node name="helper_body_hat" type="MeshInstance3D" parent="UpperBody/helper_body_col"]
