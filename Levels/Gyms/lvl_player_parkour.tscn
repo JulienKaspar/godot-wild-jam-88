@@ -121,11 +121,6 @@ transform = Transform3D(0.99976546, 0.021657843, 0, -0.021657843, 0.99976546, 0,
 mesh = SubResource("BoxMesh_jvag8")
 surface_material_override/0 = SubResource("StandardMaterial3D_g78i3")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.8338087, 0.5520534, 0, -0.5520534, 0.8338087, 9.536743e-07, 7.222043, 11.40207)
-current = true
-fov = 31.0
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_f1dn2")
 

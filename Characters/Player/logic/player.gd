@@ -44,7 +44,7 @@ func _process(_delta: float) -> void:
 	player_body.global_transform = lerp(player_body.global_transform, body_attach_point.global_transform, .5)
 	left_hand_target.global_transform = lerp(left_hand_target.global_transform, rb_arm_l.global_transform, 0.5)
 	right_hand_target.global_transform = lerp(right_hand_target.global_transform, rb_arm_r.global_transform, 0.5)
-
+	
 	# ------- Input Handling ------
 	if Input.is_action_pressed("grab_left"):
 		grabbingL = true
