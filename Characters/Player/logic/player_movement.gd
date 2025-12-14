@@ -74,10 +74,10 @@ func _physics_process(delta: float) -> void:
 	updateDebugHelpers(playerInputDir)
 	self.apply_central_impulse(impulse)
 	
-	var body_offset = self.global_position - $"../RigidBody3D".global_position
+	var body_offset = self.global_position - $"../UpperBody".global_position
 	body_offset.y = 0.0
 	body_offset = body_offset * 1.5
 	
-	$"../RigidBody3D".apply_impulse(body_offset)
+	$"../UpperBody".apply_impulse(body_offset)
 	
 	

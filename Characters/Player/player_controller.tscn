@@ -51,7 +51,7 @@ func _ready() -> void:
 		$RigidBally3D/up_aligned/helper_drunk_dir,
 		$RigidBally3D/up_aligned/helper_player_dir,
 		$RigidBally3D/up_aligned/helper_player_facing,
-		$RigidBody3D/helper_body_col,
+		$UpperBody/helper_body_col,
 		$ArmL/helper_arm_left,
 		$ArmR/helper_arm_right
 	]
