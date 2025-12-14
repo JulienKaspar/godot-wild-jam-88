@@ -38,8 +38,9 @@ albedo_color = Color(0.6901961, 0.28235295, 0.2509804, 1)
 size = Vector3(0.268, 1, 4.647)
 
 [sub_resource type="Environment" id="Environment_f1dn2"]
-ambient_light_color = Color(0.47359985, 0.7973309, 0.92022985, 1)
-fog_enabled = true
+ambient_light_source = 2
+ambient_light_color = Color(0.51386654, 0.29520002, 0.82, 1)
+ambient_light_energy = 1.05
 
 [node name="LvlPlayerParkour" type="Node3D"]
 
@@ -161,7 +162,26 @@ fov = 31.0
 environment = SubResource("Environment_f1dn2")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
-transform = Transform3D(0.51487356, -0.6396395, 0.57075965, 0, 0.6657905, 0.74613875, -0.8572661, -0.3841671, 0.34279794, 0, 0, 0)
+transform = Transform3D(0.22277379, -0.7273883, 0.64905936, 1.3335839e-09, 0.66579044, 0.7461387, -0.97487015, -0.1662202, 0.14832065, 0, 0, 0)
+light_color = Color(1, 0.8333334, 0, 1)
+light_energy = 2.729
+
+[node name="SpotLight3D" type="SpotLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3.978702, 0)
+light_color = Color(1, 0.8413333, 0.65999997, 1)
+light_energy = 1.688
+shadow_enabled = true
+shadow_blur = 0.0
+spot_range = 10.529033
+spot_angle = 77.75029
+
+[node name="OmniLight3D" type="OmniLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.373744, 1.5085208, 2.3914418)
+light_color = Color(0.7083334, 1, 0.3, 1)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4041052, 1.5085213, -4.2164483)
+light_color = Color(0.7083334, 1, 0.3, 1)
 
 [node name="DrunknessPickup" parent="." instance=ExtResource("2_1tl4p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.72499, 0.025762774, -1.9445195)
