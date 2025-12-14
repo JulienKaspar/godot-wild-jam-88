@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bm4oa8hhq82dd"
+uid="uid://bh3nxhhyrdo07"
 path="res://.godot/imported/teen3.gltf-4e9489de7ccf927b44b3659301d07246.scn"
 
 [deps]
@@ -37,14 +37,6 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={
-"materials": {
-"teen1": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://Assets/Characters/Teens/teen_material.tres",
-"use_external/path": "uid://bkpy44rodafk4"
-}
-}
-}
+_subresources={}
 gltf/naming_version=2
 gltf/embedded_image_handling=1
