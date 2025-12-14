@@ -94,10 +94,7 @@ func get_pickups_in_range() -> Array[DrunknessPickup]:
 	return items_in_range
 	
 func update_step_targets():
-	var step_rect: Node3D = $PlayerController/RigidBally3D/step_rect
 	var root_pos = player_rb.global_position + Vector3(0, -0.25, 0)
-	step_rect.global_position = player_rb.global_position + Vector3(0, -0.2, 0)
-	step_rect.global_rotation = Vector3(0, -atan2(player_facing_dir.y, player_facing_dir.x) + PI/2, 0)
 
 	var balance_vec = player_global_mass_pos - root_pos
 	var speed = upper_body.linear_velocity.length() * 1.5
