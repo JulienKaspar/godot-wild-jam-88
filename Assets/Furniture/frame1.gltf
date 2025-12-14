@@ -20,8 +20,23 @@
 				0,
 				-1,
 				0,
-				1.6292068494294654e-07
+				1.6292069915380125e-07
+			],
+			"scale":[
+				1.7758994102478027,
+				1.7758994102478027,
+				1.7758994102478027
 			]
+		}
+	],
+	"materials":[
+		{
+			"doubleSided":true,
+			"name":"Material",
+			"pbrMetallicRoughness":{
+				"metallicFactor":0,
+				"roughnessFactor":0.5
+			}
 		}
 	],
 	"meshes":[
@@ -35,7 +50,8 @@
 						"TEXCOORD_0":2,
 						"COLOR_0":3
 					},
-					"indices":4
+					"indices":4,
+					"material":0
 				}
 			]
 		}
@@ -71,10 +87,9 @@
 		},
 		{
 			"bufferView":3,
-			"componentType":5123,
+			"componentType":5126,
 			"count":97,
-			"normalized":true,
-			"type":"VEC4"
+			"type":"VEC3"
 		},
 		{
 			"bufferView":4,
@@ -104,20 +119,20 @@
 		},
 		{
 			"buffer":0,
-			"byteLength":776,
+			"byteLength":1164,
 			"byteOffset":3104,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":432,
-			"byteOffset":3880,
+			"byteOffset":4268,
 			"target":34963
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":4312,
+			"byteLength":4700,
 			"uri":"frame1.bin"
 		}
 	]

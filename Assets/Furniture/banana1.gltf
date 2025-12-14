@@ -23,10 +23,25 @@
 				0.5
 			],
 			"scale":[
-				1.9750455617904663,
-				1.9750455617904663,
-				1.9750455617904663
+				3.189236879348755,
+				3.189236879348755,
+				3.189236879348755
+			],
+			"translation":[
+				0,
+				0.039502643048763275,
+				0
 			]
+		}
+	],
+	"materials":[
+		{
+			"doubleSided":true,
+			"name":"props",
+			"pbrMetallicRoughness":{
+				"metallicFactor":0,
+				"roughnessFactor":0.5
+			}
 		}
 	],
 	"meshes":[
@@ -40,7 +55,8 @@
 						"TEXCOORD_0":2,
 						"COLOR_0":3
 					},
-					"indices":4
+					"indices":4,
+					"material":0
 				}
 			]
 		}
@@ -76,10 +92,9 @@
 		},
 		{
 			"bufferView":3,
-			"componentType":5123,
+			"componentType":5126,
 			"count":42,
-			"normalized":true,
-			"type":"VEC4"
+			"type":"VEC3"
 		},
 		{
 			"bufferView":4,
@@ -109,20 +124,20 @@
 		},
 		{
 			"buffer":0,
-			"byteLength":336,
+			"byteLength":504,
 			"byteOffset":1344,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":324,
-			"byteOffset":1680,
+			"byteOffset":1848,
 			"target":34963
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":2004,
+			"byteLength":2172,
 			"uri":"banana1.bin"
 		}
 	]

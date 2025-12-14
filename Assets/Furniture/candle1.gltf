@@ -17,10 +17,20 @@
 			"mesh":0,
 			"name":"Candle",
 			"scale":[
-				0.024937504902482033,
-				0.024937504902482033,
-				0.024937504902482033
+				0.04582473635673523,
+				0.04582473635673523,
+				0.04582473635673523
 			]
+		}
+	],
+	"materials":[
+		{
+			"doubleSided":true,
+			"name":"props",
+			"pbrMetallicRoughness":{
+				"metallicFactor":0,
+				"roughnessFactor":0.5
+			}
 		}
 	],
 	"meshes":[
@@ -34,7 +44,8 @@
 						"TEXCOORD_0":2,
 						"COLOR_0":3
 					},
-					"indices":4
+					"indices":4,
+					"material":0
 				}
 			]
 		}
@@ -70,10 +81,9 @@
 		},
 		{
 			"bufferView":3,
-			"componentType":5123,
+			"componentType":5126,
 			"count":50,
-			"normalized":true,
-			"type":"VEC4"
+			"type":"VEC3"
 		},
 		{
 			"bufferView":4,
@@ -103,20 +113,20 @@
 		},
 		{
 			"buffer":0,
-			"byteLength":400,
+			"byteLength":600,
 			"byteOffset":1600,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":234,
-			"byteOffset":2000,
+			"byteOffset":2200,
 			"target":34963
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":2236,
+			"byteLength":2436,
 			"uri":"candle1.bin"
 		}
 	]

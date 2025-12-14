@@ -17,10 +17,20 @@
 			"mesh":0,
 			"name":"Apple",
 			"scale":[
-				0.05132347717881203,
-				0.05132347717881203,
-				0.05132347717881203
+				0.0794941782951355,
+				0.0794941782951355,
+				0.0794941782951355
 			]
+		}
+	],
+	"materials":[
+		{
+			"doubleSided":true,
+			"name":"props",
+			"pbrMetallicRoughness":{
+				"metallicFactor":0,
+				"roughnessFactor":0.5
+			}
 		}
 	],
 	"meshes":[
@@ -34,7 +44,8 @@
 						"TEXCOORD_0":2,
 						"COLOR_0":3
 					},
-					"indices":4
+					"indices":4,
+					"material":0
 				}
 			]
 		}
@@ -46,12 +57,12 @@
 			"count":51,
 			"max":[
 				0.9032809138298035,
-				1.0506988763809204,
+				1.8247287273406982,
 				0.8459952473640442
 			],
 			"min":[
 				-0.8919222354888916,
-				-0.7917288541793823,
+				-0.017698943614959717,
 				-0.9490486979484558
 			],
 			"type":"VEC3"
@@ -70,10 +81,9 @@
 		},
 		{
 			"bufferView":3,
-			"componentType":5123,
+			"componentType":5126,
 			"count":51,
-			"normalized":true,
-			"type":"VEC4"
+			"type":"VEC3"
 		},
 		{
 			"bufferView":4,
@@ -103,20 +113,20 @@
 		},
 		{
 			"buffer":0,
-			"byteLength":408,
+			"byteLength":612,
 			"byteOffset":1632,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":306,
-			"byteOffset":2040,
+			"byteOffset":2244,
 			"target":34963
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":2348,
+			"byteLength":2552,
 			"uri":"apple1.bin"
 		}
 	]
