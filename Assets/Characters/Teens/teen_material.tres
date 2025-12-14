@@ -1,0 +1,5 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bkpy44rodafk4"]
+
+[resource]
+diffuse_mode = 3
+vertex_color_use_as_albedo = true
