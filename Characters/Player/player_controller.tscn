@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cx2qst5txs1af"]
+[gd_scene load_steps=20 format=3 uid="uid://cx2qst5txs1af"]
 
 [ext_resource type="Script" uid="uid://cdppyptuftkiw" path="res://Characters/Player/logic/player_movement.gd" id="1_oj1ta"]
 
@@ -8,7 +8,19 @@ script/source = "extends Node3D
 
 @export var DebugDraw = true
 
+enum MoveStates {IDLE, MOVING, FALLING, ROLLING, FLASKY, FELL} 
+
+
 var helpers = []
+
+# --- player state
+var grabbingL = false
+var grabbingR = false
+var inMoveState = MoveStates.IDLE
+var canRoll = true
+
+
+
 
 # Called when the node enters the scene tree for the first time.
 func toggleDebugDraw() -> void:
@@ -27,6 +39,9 @@ func hideelpers() -> void:
 	for helper in helpers:
 		helper.hide()
 
+func goRoll() -> void:
+	pass
+
 func _ready() -> void:
 	helpers = [
 		$RigidBally3D/helper_ball,
@@ -35,20 +50,36 @@ func _ready() -> void:
 		$RigidBally3D/up_aligned/helper_leaning,
 		$RigidBally3D/up_aligned/helper_drunk_dir,
 		$RigidBally3D/up_aligned/helper_player_dir,
-		$RigidBally3D/up_aligned/helper_player_facing
+		$RigidBally3D/up_aligned/helper_player_facing,
+		$RigidBody3D/helper_body_col
 	]
 	if DebugDraw:
 		showHelpers()
 	else:
 		hideelpers()
-		
-	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed(\"debug_DrawHelpers\"):
 		toggleDebugDraw()
-	pass
+
+	# ------- Grabbing ------
+	if Input.is_action_pressed(\"grab_left\"):
+		grabbingL = true
+	else:
+		grabbingL = false
+		
+	if Input.is_action_pressed(\"grab_right\"):
+		grabbingR = true
+	else:
+		grabbingR = false
+		
+	if Input.is_action_just_pressed(\"roll\"):
+		if canRoll:
+			goRoll()
+		else:
+			# WIP, player feedback fo unsuccessfull roll?
+			pass
 "
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_056gf"]
@@ -101,12 +132,26 @@ height = 0.01
 transparency = 1
 albedo_color = Color(0, 0.1882353, 0.9098039, 0.59607846)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_jkj6u"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jkj6u"]
+radius = 0.25
+height = 1.2
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6yvek"]
+radius = 0.25
+height = 1.2
+
+[sub_resource type="PrismMesh" id="PrismMesh_6yvek"]
+size = Vector3(0.525, 0.505, 0.12)
+
 [node name="PlayerController" type="Node3D"]
 script = SubResource("GDScript_jkj6u")
 DebugDraw = false
 
 [node name="RigidBally3D" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.251, 0)
+collision_layer = 2
 mass = 50.0
 script = ExtResource("1_oj1ta")
 
@@ -158,3 +203,39 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2206907, 0.9966068)
 mesh = SubResource("CylinderMesh_6yvek")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_vokij")
+
+[node name="PinJoint3D" type="PinJoint3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+node_a = NodePath("../RigidBally3D")
+node_b = NodePath("../NoRotateBall")
+
+[node name="ConeTwistJoint3D" type="ConeTwistJoint3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.25, 0)
+node_a = NodePath("../NoRotateBall")
+node_b = NodePath("../RigidBody3D")
+swing_span = 1.5707964
+twist_span = 6.2831855
+
+[node name="NoRotateBall" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+collision_layer = 0
+collision_mask = 0
+lock_rotation = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NoRotateBall"]
+shape = SubResource("SphereShape3D_jkj6u")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.164401, 0)
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("CapsuleShape3D_jkj6u")
+
+[node name="helper_body_col" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = SubResource("CapsuleMesh_6yvek")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/helper_body_col"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.570469, 0.02934675)
+mesh = SubResource("PrismMesh_6yvek")
+skeleton = NodePath("../..")
