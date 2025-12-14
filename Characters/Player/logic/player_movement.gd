@@ -21,6 +21,8 @@ var player_move_dir = Vector2(0,0)
 var player_speed = 0.0
 var player_facing_dir = Vector2(0,1.0)
 var leaning = 0.0
+var player_global_pos = Vector3(0,0,0)
+var player_global_mass_pos = Vector3(0,0,0)
 
 
 #----------------Utility-------
@@ -42,6 +44,11 @@ func update_vectors() -> void:
 	player_move_dir.y = self.linear_velocity.z
 	player_speed = player_move_dir.length()
 
+	player_global_pos = self.global_position
+	player_global_pos.y -= 0.25
+	player_global_mass_pos = $"../UpperBody".global_position
+	player_global_mass_pos.y = player_global_pos.y
+
 func update_rotation(delta) -> void:
 	if player_speed > 0.3:
 		player_facing_dir = lerp(player_facing_dir, player_move_dir, player_turn_speed*delta).normalized()
@@ -56,6 +63,8 @@ func sendStatsToPlayer() -> void:
 	$"../../".player_move_dir = player_move_dir
 	$"../../".player_facing_dir = player_facing_dir
 	$"../../".leaning = leaning
+	$"../../".player_global_pos = player_global_mass_pos
+	$"../../".player_global_mass_pos = player_global_mass_pos
 
 #----------------Process-------
 
@@ -88,6 +97,7 @@ func _physics_process(delta: float) -> void:
 	body_fwd_dir = body_fwd_dir.normalized()
 	var body_fwd_2D = Vector2(body_fwd_dir.x, body_fwd_dir.z)
 	body_torque.y = body_fwd_2D.dot(player_facing_dir) * 1000 * delta
+
 
 	$"../UpperBody".apply_impulse(body_offset)
 	$"../UpperBody".apply_torque(body_torque)

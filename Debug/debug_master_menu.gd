@@ -18,6 +18,10 @@ func _process(_delta: float) -> void:
 		ImGui.Text("Player R Hand State " + str(player.HandRState))
 		ImGui.Text("Player Facing Vector" + str(player.player_facing_dir))
 		ImGui.Text("Player Move Direction" + str(player.player_move_dir))
+		ImGui.Text("Player Pos" + str(player.player_global_pos))
+		ImGui.Text("Player Mass Pos" + str(player.player_global_mass_pos))
+		ImGui.Text("Player leaning" + str(player.leaning))
+		ImGui.Text("Player Speed" + str(player.player_speed))
 		ImGui.End()
 
 func _unhandled_input(event: InputEvent) -> void:

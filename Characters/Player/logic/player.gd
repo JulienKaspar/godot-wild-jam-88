@@ -29,6 +29,8 @@ var HandRState = HandStates.DANGLY
 var canRoll = true
 var player_speed = 0.0 # owned by player_controller
 var player_move_dir = Vector2(0,0) # owned by player_controller
+var player_global_pos = Vector3(0,0,0) # owned by player_controller
+var player_global_mass_pos = Vector3(0,0,0) # owned by player_controller
 var player_facing_dir = Vector2(0,1.0) # owned by player_controller
 var leaning = 0.0 # owned by player_controller
 
