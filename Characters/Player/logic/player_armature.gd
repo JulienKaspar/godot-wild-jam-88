@@ -32,7 +32,7 @@ func _ready() -> void:
 	left_leg_ik.tip_bone = "Leg_IK_target-L"
 	left_leg_ik.target_node = left_foot_target.get_path()
 	left_leg_ik.use_magnet = true
-	left_leg_ik.magnet = Vector3(0, 0, 1)
+	left_leg_ik.magnet = Vector3(1, 0, 1)
 	left_leg_ik.start()
 	skeleton_3d.add_child(left_leg_ik)
 	
@@ -41,6 +41,6 @@ func _ready() -> void:
 	right_leg_ik.tip_bone = "Leg_IK_target-R"
 	right_leg_ik.target_node = right_foot_target.get_path()
 	right_leg_ik.use_magnet = true
-	right_leg_ik.magnet = Vector3(0, 0, 1)
+	right_leg_ik.magnet = Vector3(-1, 0, 1)
 	right_leg_ik.start()
 	skeleton_3d.add_child(right_leg_ik)
