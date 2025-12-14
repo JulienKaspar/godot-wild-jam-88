@@ -23,9 +23,10 @@ func _process(_delta: float) -> void:
 		var lean = abs(global_position.distance_to(step_target.global_position))
 		if lean > step_distance:
 			step()
+		# Update the feet positions every so often to make sure the body is in a stable position
 		if lean > lean_distance && check_lean.is_stopped():
 			step()
-			check_lean.start(1.0)
+			check_lean.start(randf_range(0.5, 1.0))
 
 func step():
 	is_stepping = true

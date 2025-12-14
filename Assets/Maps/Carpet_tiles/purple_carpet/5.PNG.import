@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://das5hnrgfvukh"
-path="res://.godot/imported/3.PNG-d48aee8788b59a0f0fb2233bf3980365.ctex"
+uid="uid://i67ne8x2r4gg"
+path="res://.godot/imported/5.PNG-9a51f7c9926b9d12013c8e6c8df22d51.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Maps/Carpet_tiles/purple_carpet/purple_carpet/3.PNG"
-dest_files=["res://.godot/imported/3.PNG-d48aee8788b59a0f0fb2233bf3980365.ctex"]
+source_file="res://Assets/Maps/Carpet_tiles/purple_carpet/5.PNG"
+dest_files=["res://.godot/imported/5.PNG-9a51f7c9926b9d12013c8e6c8df22d51.ctex"]
 
 [params]
 
