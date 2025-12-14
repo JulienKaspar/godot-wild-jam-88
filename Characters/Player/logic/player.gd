@@ -11,3 +11,4 @@ func _physics_process(_delta: float) -> void:
 	
 func animate_hips() -> void:
 	player_body.position.y = sin(Time.get_ticks_msec() / float(1000) * 0.5) * 0.05
+
