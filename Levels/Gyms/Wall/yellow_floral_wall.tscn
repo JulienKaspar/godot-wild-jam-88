@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=4 uid="uid://vyau441cbd2o"]
+[gd_scene load_steps=7 format=4 uid="uid://vyau441cbd2o"]
 
 [ext_resource type="Texture2D" uid="uid://djpkkont0tpva" path="res://Assets/Maps/Walls/yellow_floral_wallpaper/atlas.png" id="1_k2qng"]
+[ext_resource type="Material" uid="uid://cf6v2ddtk8ckb" path="res://Levels/Gyms/Wall/yellow_floral_wall.tres" id="2_nrxwc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k2qng"]
 texture = ExtResource("1_k2qng")
@@ -12,16 +13,6 @@ texture_region_size = Vector2i(618, 3616)
 [sub_resource type="TileSet" id="TileSet_kmt04"]
 tile_size = Vector2i(618, 3616)
 sources/4 = SubResource("TileSetAtlasSource_k2qng")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_qyp24"]
-viewport_path = NodePath("SubViewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dnrna"]
-resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_qyp24")
-uv1_scale = Vector3(0.24, 0.25, 0.15)
-uv1_offset = Vector3(0.02, 0.5, 0)
-uv1_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_qyp24"]
 size = Vector3(0.25, 4, 10)
@@ -41,7 +32,7 @@ tile_set = SubResource("TileSet_kmt04")
 [node name="wall" type="StaticBody3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="wall"]
-material_override = SubResource("StandardMaterial3D_dnrna")
+material_override = ExtResource("2_nrxwc")
 mesh = SubResource("BoxMesh_qyp24")
 skeleton = NodePath("../..")
 

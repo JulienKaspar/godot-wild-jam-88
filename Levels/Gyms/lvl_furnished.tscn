@@ -1,7 +1,8 @@
-[gd_scene load_steps=27 format=3 uid="uid://dm386yfmjf84v"]
+[gd_scene load_steps=28 format=3 uid="uid://dm386yfmjf84v"]
 
-[ext_resource type="PackedScene" uid="uid://vyau441cbd2o" path="res://Levels/Gyms/Wall/floral_wall.tscn" id="2_h8x84"]
+[ext_resource type="PackedScene" uid="uid://vyau441cbd2o" path="res://Levels/Gyms/Wall/yellow_floral_wall.tscn" id="2_h8x84"]
 [ext_resource type="PackedScene" uid="uid://b32xnjnsc6xts" path="res://Levels/Gyms/Wall/wooden_wall.tscn" id="2_jc5s1"]
+[ext_resource type="PackedScene" uid="uid://q6130w2iv3id" path="res://Levels/Gyms/Wall/reddish_floral_wall.tscn" id="3_8fmlr"]
 [ext_resource type="PackedScene" uid="uid://bo1p1dvgr50f4" path="res://Objects/Props/drunkness_pickup_banana.tscn" id="3_pifnr"]
 [ext_resource type="PackedScene" uid="uid://c0d87wbdbi2al" path="res://Objects/Architypes/Furniture/couch1.tscn" id="4_bhby1"]
 [ext_resource type="PackedScene" uid="uid://b7ee7to73wtp6" path="res://Levels/Gyms/Floor/floor1.tscn" id="4_r27bf"]
@@ -63,7 +64,7 @@ mesh = SubResource("BoxMesh_g5tv7")
 [node name="wall3" parent="Obsticles/Walls" instance=ExtResource("2_jc5s1")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.049, 1.89, -5.117)
 
-[node name="wall2" parent="Obsticles/Walls" instance=ExtResource("2_h8x84")]
+[node name="wall2" parent="Obsticles/Walls" instance=ExtResource("3_8fmlr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.16, 1.89, 0)
 
 [node name="wall1" parent="Obsticles/Walls" instance=ExtResource("2_h8x84")]
