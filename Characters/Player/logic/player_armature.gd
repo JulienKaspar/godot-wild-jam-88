@@ -6,7 +6,6 @@ extends Node3D
 @onready var left_foot_target: Marker3D = $"../LeftFootIKTarget"
 @onready var right_foot_target: Marker3D = $"../RightFootIKTarget"
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Setup IK for left arm
 	var left_arm_ik = SkeletonIK3D.new()
@@ -33,7 +32,3 @@ func _ready() -> void:
 	right_leg_ik.magnet = Vector3(0, 0, 1)
 	right_leg_ik.start()
 	skeleton_3d.add_child(right_leg_ik)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
