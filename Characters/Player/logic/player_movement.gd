@@ -1,6 +1,8 @@
 extends RigidBody3D
 class_name PlayerController
 
+signal PlayerMovementDataUptade
+
 #----------------Settings-----------------------
 
 static var move_force_multiplier = 100.0 # phys impulse scale
@@ -74,6 +76,16 @@ func _physics_process(delta: float) -> void:
 	body_offset.y = 0.0
 	body_offset = body_offset * 1.5
 	
-	$"../UpperBody".apply_impulse(body_offset)
+	var body_torque = Vector3(0,0,0)
+	var body_fwd_dir = $"../UpperBody".global_transform.basis.x
+	print(body_fwd_dir)
+	body_fwd_dir.y = 0
+	body_fwd_dir = body_fwd_dir.normalized()
+	var body_fwd_2D = Vector2(body_fwd_dir.x, body_fwd_dir.z)
+	body_torque.y = body_fwd_2D.dot(player_facing_dir) * 1000 * delta
+
 	
+	
+	$"../UpperBody".apply_impulse(body_offset)
+	$"../UpperBody".apply_torque(body_torque)
 	
