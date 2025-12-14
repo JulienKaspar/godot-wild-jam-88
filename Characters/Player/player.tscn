@@ -23,8 +23,9 @@ script = ExtResource("3_cue0d")
 
 [node name="PlayerController" parent="." instance=ExtResource("1_j341n")]
 
-[node name="PlayerBody" parent="." node_paths=PackedStringArray("left_hand_target") instance=ExtResource("2_cue0d")]
+[node name="PlayerBody" parent="." node_paths=PackedStringArray("left_hand_target", "right_hand_target") instance=ExtResource("2_cue0d")]
 left_hand_target = NodePath("../LeftHandTarget")
+right_hand_target = NodePath("../RightHandTarget")
 
 [node name="LeftHandTarget" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4582014, 1, 1)

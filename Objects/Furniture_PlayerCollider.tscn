@@ -1,5 +1,9 @@
-[gd_scene load_steps=0 format=3 uid="uid://dxqkcox7mndm2"]
+[gd_scene load_steps=2 format=3 uid="uid://dxqkcox7mndm2"]
+
+[ext_resource type="Script" uid="uid://d1ns4f8nsxmyd" path="res://Objects/furniture_player_collider.gd" id="1_0d0ip"]
 
 [node name="Furniture_PlayerCollider" type="StaticBody3D"]
 collision_layer = 8
 collision_mask = 2
+script = ExtResource("1_0d0ip")
+metadata/_custom_type_script = "uid://d1ns4f8nsxmyd"
