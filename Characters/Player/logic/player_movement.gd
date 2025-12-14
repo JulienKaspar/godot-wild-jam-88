@@ -51,6 +51,12 @@ func updateDebugHelpers(playerInputDir):
 	$up_aligned/helper_drunk_dir.position = Vector3(drunk_noise_vector.x,-0.21,drunk_noise_vector.y)
 	$up_aligned/helper_player_facing.position = Vector3(player_facing_dir.x,-0.20,player_facing_dir.y)
 
+func sendStatsToPlayer() -> void:
+	$"../../".player_speed = player_speed
+	$"../../".player_move_dir = player_move_dir
+	$"../../".player_facing_dir = player_facing_dir
+	$"../../".leaning = leaning
+
 #----------------Process-------
 
 func _process(delta: float) -> void:
@@ -78,14 +84,12 @@ func _physics_process(delta: float) -> void:
 	
 	var body_torque = Vector3(0,0,0)
 	var body_fwd_dir = $"../UpperBody".global_transform.basis.x
-	print(body_fwd_dir)
 	body_fwd_dir.y = 0
 	body_fwd_dir = body_fwd_dir.normalized()
 	var body_fwd_2D = Vector2(body_fwd_dir.x, body_fwd_dir.z)
 	body_torque.y = body_fwd_2D.dot(player_facing_dir) * 1000 * delta
 
-	
-	
 	$"../UpperBody".apply_impulse(body_offset)
 	$"../UpperBody".apply_torque(body_torque)
 	
+	sendStatsToPlayer()
