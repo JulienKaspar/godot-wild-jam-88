@@ -1,6 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bcredxkb7jfdu"]
+[gd_scene load_steps=8 format=3 uid="uid://bcredxkb7jfdu"]
 
 [ext_resource type="Script" uid="uid://c3pnv4i4pub4u" path="res://UI/MainMenu/main_menu.gd" id="1_jld46"]
+[ext_resource type="Texture2D" uid="uid://frr2qsjtumwm" path="res://Assets/2D_Assets/Menu_Art/house_1.png" id="2_h8rmy"]
+[ext_resource type="Texture2D" uid="uid://4pyna2f4x4mw" path="res://Assets/2D_Assets/Menu_Art/sky_0.png" id="2_iyy2y"]
+[ext_resource type="Texture2D" uid="uid://b8rxa7p6j26ld" path="res://Assets/2D_Assets/Menu_Art/fence_3.png" id="2_t17p2"]
+[ext_resource type="Texture2D" uid="uid://c1tqhcgn5b56s" path="res://Assets/2D_Assets/Menu_Art/table_2.png" id="3_iyy2y"]
+[ext_resource type="Script" uid="uid://jjhbwpi77cq1" path="res://UI/MainMenu/main_menu_camera.gd" id="6_trkrl"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kf43y"]
 
@@ -15,37 +20,68 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_kf43y")
 script = ExtResource("1_jld46")
 
+[node name="ParallaxBackground" type="Node2D" parent="."]
+position = Vector2(750, 423)
+scale = Vector2(0.5, 0.5)
+
+[node name="SkyLayer" type="Parallax2D" parent="ParallaxBackground"]
+scroll_scale = Vector2(0.1, 0.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/SkyLayer"]
+texture = ExtResource("2_iyy2y")
+
+[node name="HouseLayer" type="Parallax2D" parent="ParallaxBackground"]
+scroll_scale = Vector2(0.82, 0.82)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/HouseLayer"]
+texture = ExtResource("2_h8rmy")
+
+[node name="TableLayer" type="Parallax2D" parent="ParallaxBackground"]
+scroll_scale = Vector2(0.85, 0.85)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/TableLayer"]
+texture = ExtResource("3_iyy2y")
+
+[node name="FenceLayer" type="Parallax2D" parent="ParallaxBackground"]
+scroll_scale = Vector2(0.9, 0.9)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/FenceLayer"]
+texture = ExtResource("2_t17p2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("6_trkrl")
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_right = 50
+theme_override_constants/margin_left = 25
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 alignment = 1
 
-[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Party Foul"
 horizontal_alignment = 1
 
-[node name="SubTitleLabel" type="Label" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.581033, 0.58103293, 0.5810329, 1)
-theme_override_font_sizes/font_size = 20
-text = "A Game for Godot Wild # 88"
-horizontal_alignment = 1
-
-[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="StartButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Start"
 
-[node name="SettingsMenu" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Button2" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Settings"
 
-[node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Button3" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Exit"
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5

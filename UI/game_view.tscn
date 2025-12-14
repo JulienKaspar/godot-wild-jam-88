@@ -45,10 +45,10 @@ layout_mode = 2
 
 [node name="MainMenu" parent="CanvasLayer/MenuDisplayer" instance=ExtResource("3_e62du")]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 
 [node name="World" parent="." instance=ExtResource("3_h1w64")]
+visible = false
 
 [node name="Player" parent="World" instance=ExtResource("5_lwr8f")]
 unique_name_in_owner = true
@@ -58,6 +58,7 @@ unique_name_in_owner = true
 [node name="DebugMasterMenu" parent="Debug" instance=ExtResource("6_ri6ga")]
 
 [node name="GameCamera" type="Camera3D" parent="." node_paths=PackedStringArray("player")]
+visible = false
 script = ExtResource("8_gjcnd")
 player = NodePath("../World/Player")
 metadata/_custom_type_script = "uid://bx8wkgx47tjj6"

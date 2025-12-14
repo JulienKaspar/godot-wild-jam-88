@@ -41,7 +41,7 @@ _subresources={
 "materials": {
 "furniture": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://Assets/teen_material.tres",
+"use_external/fallback_path": "res://Assets/Materials/generic_soft.tres",
 "use_external/path": "uid://bkpy44rodafk4"
 }
 }
