@@ -12,6 +12,7 @@ size = Vector3(0.3, 0.5, 0.2)
 [node name="PropBox" type="Node3D"]
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
+collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 shape = SubResource("BoxShape3D_35uva")

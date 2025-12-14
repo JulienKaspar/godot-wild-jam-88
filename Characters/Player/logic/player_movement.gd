@@ -17,9 +17,8 @@ var drunk_amount = 0.0
 var player_move_dir = Vector2(0,0)
 var player_speed = 0.0
 var player_facing_dir = Vector2(0,1.0)
+var leaning = 0.0
 
-var grabbingL = false
-var grabbingR = false
 
 #----------------Utility-------
 
@@ -68,4 +67,12 @@ func _physics_process(delta: float) -> void:
 	var impulse = Vector3(move_force.x, 0, move_force.y)
 	
 	updateDebugHelpers(playerInputDir)
-	self.apply_impulse(impulse)
+	self.apply_central_impulse(impulse)
+	
+	var body_offset = self.global_position - $"../UpperBody".global_position
+	body_offset.y = 0.0
+	body_offset = body_offset * 1.5
+	
+	$"../UpperBody".apply_impulse(body_offset)
+	
+	
