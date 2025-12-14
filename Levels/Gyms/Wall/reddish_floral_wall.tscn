@@ -1,0 +1,52 @@
+[gd_scene load_steps=11 format=4 uid="uid://q6130w2iv3id"]
+
+[ext_resource type="Texture2D" uid="uid://ctbdtwu3u1lk7" path="res://Assets/Maps/Walls/reddish_floral_wallpaper/reddish_floral_wallpaper_1.png" id="1_7njy2"]
+[ext_resource type="Texture2D" uid="uid://beog8ldu2vfle" path="res://Assets/Maps/Walls/reddish_floral_wallpaper/reddish_floral_wallpaper_2.png" id="2_ebh73"]
+[ext_resource type="Texture2D" uid="uid://i8w5f0aa212f" path="res://Assets/Maps/Walls/reddish_floral_wallpaper/reddish_floral_wallpaper_3.png" id="3_uo0dv"]
+[ext_resource type="Material" uid="uid://dkipd1yakrsqs" path="res://Levels/Gyms/Wall/reddish_floral_wall.tres" id="4_n5qmw"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_udth8"]
+texture = ExtResource("1_7njy2")
+texture_region_size = Vector2i(618, 3616)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4rvpv"]
+texture = ExtResource("2_ebh73")
+texture_region_size = Vector2i(618, 3616)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5xof6"]
+texture = ExtResource("3_uo0dv")
+texture_region_size = Vector2i(618, 3616)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_kmt04"]
+tile_size = Vector2i(618, 3616)
+sources/1 = SubResource("TileSetAtlasSource_udth8")
+sources/2 = SubResource("TileSetAtlasSource_4rvpv")
+sources/3 = SubResource("TileSetAtlasSource_5xof6")
+
+[sub_resource type="BoxMesh" id="BoxMesh_qyp24"]
+size = Vector3(0.25, 4, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dnrna"]
+size = Vector3(0.25, 4, 10)
+
+[node name="Wall" type="Node3D"]
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(5562, 3616)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="SubViewport"]
+tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAABAAAAAwAAAAAAAAACAAAAAQAAAAAAAAADAAAAAgAAAAAAAAAEAAAAAgAAAAAAAAAFAAAAAwAAAAAAAAAGAAAAAgAAAAAAAAAHAAAAAQAAAAAAAAAIAAAAAgAAAAAAAAAJAAAAAgAAAAAAAAAKAAAAAQAAAAAAAAALAAAAAgAAAAAAAAA=")
+tile_set = SubResource("TileSet_kmt04")
+
+[node name="wall" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="wall"]
+material_override = ExtResource("4_n5qmw")
+mesh = SubResource("BoxMesh_qyp24")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall"]
+shape = SubResource("BoxShape3D_dnrna")
