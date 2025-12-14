@@ -1,5 +1,6 @@
 extends Node3D
 @export var left_hand_target: Node3D
+@export var right_hand_target: Node3D
 
 @export var animation_player: AnimationPlayer
 
