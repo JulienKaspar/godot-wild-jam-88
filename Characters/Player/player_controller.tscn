@@ -5,22 +5,7 @@
 [sub_resource type="GDScript" id="GDScript_jkj6u"]
 resource_name = "movcon_settings"
 script/source = "extends Node3D
-
 @export var DebugDraw = true
-
-enum MoveStates {IDLE, MOVING, FALLING, ROLLING, FLASKY, FELL} 
-
-
-var helpers = []
-
-# --- player state
-var grabbingL = false
-var grabbingR = false
-var inMoveState = MoveStates.IDLE
-var canRoll = true
-
-
-
 
 # Called when the node enters the scene tree for the first time.
 func toggleDebugDraw() -> void:
@@ -37,9 +22,6 @@ func hideelpers() -> void:
 	DebugDraw = false
 	self.hide()
 
-func goRoll() -> void:
-	pass
-
 func _ready() -> void:
 	if DebugDraw:
 		showHelpers()
@@ -49,24 +31,6 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed(\"debug_DrawHelpers\"):
 		toggleDebugDraw()
-
-	# ------- Grabbing ------
-	if Input.is_action_pressed(\"grab_left\"):
-		grabbingL = true
-	else:
-		grabbingL = false
-		
-	if Input.is_action_pressed(\"grab_right\"):
-		grabbingR = true
-	else:
-		grabbingR = false
-		
-	if Input.is_action_just_pressed(\"roll\"):
-		if canRoll:
-			goRoll()
-		else:
-			# WIP, player feedback fo unsuccessfull roll?
-			pass
 "
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_056gf"]
