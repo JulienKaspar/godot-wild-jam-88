@@ -66,6 +66,12 @@ func sendStatsToPlayer() -> void:
 	$"../../".player_global_pos = player_global_mass_pos
 	$"../../".player_global_mass_pos = player_global_mass_pos
 
+func check_furniture_contact() -> void:
+	
+	for body in get_colliding_bodies():
+		if body is FurniturePlayerCollider:
+			body.on_player_collision(linear_velocity)
+
 #----------------Process-------
 
 func _process(delta: float) -> void:
@@ -103,3 +109,5 @@ func _physics_process(delta: float) -> void:
 	$"../UpperBody".apply_torque(body_torque)
 	
 	sendStatsToPlayer()
+	
+	check_furniture_contact()

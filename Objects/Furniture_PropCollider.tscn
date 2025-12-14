@@ -1,5 +1,7 @@
-[gd_scene load_steps=0 format=3 uid="uid://bcsr7n75rjc4x"]
+[gd_scene format=3 uid="uid://bcsr7n75rjc4x"]
 
-[node name="Furniture_PropCollider" type="StaticBody3D"]
+[node name="Furniture_PropCollider" type="RigidBody3D"]
 collision_layer = 8
 collision_mask = 44
+freeze = true
+freeze_mode = 1
