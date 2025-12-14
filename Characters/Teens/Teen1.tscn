@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddteva4k7c36x"]
+
+[ext_resource type="PackedScene" uid="uid://cilspwuvfwfqf" path="res://Assets/Characters/Teens/teen1.gltf" id="1_en8y6"]
+[ext_resource type="PackedScene" uid="uid://b4vog6lh883if" path="res://Characters/Teens/logic/TeenLogic.tscn" id="2_58ab3"]
+
+[node name="Teen1" type="Node3D"]
+
+[node name="CH-teen1" parent="." instance=ExtResource("1_en8y6")]
+
+[node name="Skeleton3D" parent="CH-teen1/Armature" index="0"]
+bones/1/rotation = Quaternion(0.009828916, -0.0009972276, 0.99881285, -0.04770017)
+bones/3/rotation = Quaternion(0.5832149, -0.027455173, -0.05555287, 0.80995095)
+bones/6/rotation = Quaternion(0.21989618, 0.086554244, -0.9219916, 0.3067337)
+bones/7/rotation = Quaternion(0.2062821, 0.006735584, -0.02127576, 0.9782381)
+bones/11/rotation = Quaternion(0.21989597, -0.08655432, 0.9219917, 0.3067337)
+bones/12/rotation = Quaternion(0.20628206, -0.0067355973, 0.021275759, 0.9782381)
+bones/14/rotation = Quaternion(-0.009828916, -0.0009972275, 0.99881285, 0.04770018)
+bones/16/rotation = Quaternion(0.5832149, 0.027455173, 0.05555287, 0.80995095)
+
+[node name="TeenLogic" parent="." instance=ExtResource("2_58ab3")]
+
+[editable path="CH-teen1"]
