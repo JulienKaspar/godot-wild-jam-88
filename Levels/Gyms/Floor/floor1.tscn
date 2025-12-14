@@ -1,0 +1,99 @@
+[gd_scene load_steps=10 format=4 uid="uid://b7ee7to73wtp6"]
+
+[ext_resource type="Texture2D" uid="uid://cdu2wjhgj7mo2" path="res://Assets/Maps/Carpet_tiles/green_carpet/atlas.PNG" id="1_b3sac"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cc3fi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mhk5d"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_y6mdt"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_muu7e"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kj50h"]
+resource_local_to_scene = true
+albedo_color = Color(0.35906908, 0.35906908, 0.35906908, 1)
+albedo_texture = SubResource("ViewportTexture_muu7e")
+uv1_scale = Vector3(1.59, 1.59, 1.59)
+uv1_triplanar = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_fgpxm"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k11fn"]
+texture = ExtResource("1_b3sac")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_gyn61"]
+tile_size = Vector2i(100, 100)
+sources/1 = SubResource("TileSetAtlasSource_k11fn")
+
+[node name="Floor" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_cc3fi")
+
+[node name="CollisionShape3D_floor" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -5, 0)
+shape = SubResource("BoxShape3D_mhk5d")
+
+[node name="CollisionShape3D_Boundary" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_y6mdt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, -4.371139e-07, 10, 0, -10, -4.371139e-07, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_kj50h")
+mesh = SubResource("QuadMesh_fgpxm")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(1000, 1000)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="SubViewport"]
+tile_map_data = PackedByteArray("AAAAAAAAAQANAAIAAAABAAAAAQAJAAAAAAACAAAAAQAOAAAAAAADAAAAAQAMAAAAAAAEAAAAAQAKAAIAAAAFAAAAAQACAAAAAAAGAAAAAQAIAAAAAAAHAAAAAQAHAAEAAAAIAAAAAQAEAAAAAAAJAAAAAQAMAAIAAAAKAAAAAQAKAAIAAAAAAAEAAQAOAAIAAAAAAAIAAQAHAAEAAAAAAAMAAQADAAEAAAAAAAQAAQAIAAIAABAAAAUAAQAGAAIAAAAAAAYAAQABAAAAAAAAAAcAAQACAAIAAAAAAAgAAQAHAAIAAAAAAAkAAQANAAAAAAABAAkAAQACAAEAAAACAAkAAQAHAAEAAAADAAkAAQAJAAEAAAAEAAkAAQAOAAIAAAAFAAkAAQADAAAAAAAGAAkAAQAAAAEAAAAHAAkAAQACAAAAAAAIAAkAAQANAAEAAAAJAAkAAQACAAEAAAAJAAgAAQAIAAAAAAAJAAcAAQADAAIAAAAJAAYAAQACAAEAAAAJAAUAAQADAAAAAAAJAAQAAQAOAAIAAAAJAAMAAQAAAAAAAAAJAAIAAQAFAAEAAAAJAAEAAQACAAEAAAABAAQAAQACAAAAABACAAQAAQAOAAEAABADAAQAAQAGAAEAABAEAAQAAQAHAAEAABAFAAQAAQALAAIAABABAAEAAQAKAAEAADABAAIAAQAFAAEAADABAAMAAQAKAAAAADABAAUAAQAHAAEAACACAAUAAQACAAEAABADAAUAAQALAAIAACAEAAUAAQADAAAAACAFAAUAAQAAAAAAACAGAAUAAQAGAAIAACAHAAUAAQAFAAAAACAIAAUAAQADAAIAACAIAAEAAQAHAAIAACAIAAIAAQAFAAEAACAIAAMAAQAAAAAAACAIAAQAAQALAAEAACAFAAIAAQAIAAEAACAFAAEAAQAHAAAAACAEAAEAAQAEAAEAACADAAEAAQACAAIAACACAAEAAQAOAAAAACACAAIAAQAGAAIAACACAAMAAQAAAAEAACADAAMAAQAOAAAAACADAAIAAQAKAAIAACAEAAIAAQAMAAIAACAEAAMAAQACAAIAACAFAAMAAQAOAAIAACAGAAMAAQANAAAAACAGAAIAAQABAAEAACAGAAEAAQALAAEAACAHAAEAAQANAAEAACAHAAIAAQACAAIAACAHAAMAAQACAAIAACAHAAQAAQAKAAAAACAGAAQAAQAIAAEAACAEAAcAAQAKAAAAACAEAAYAAQAHAAIAACADAAYAAQAAAAAAACACAAYAAQAOAAAAACABAAYAAQAGAAAAACABAAcAAQAAAAIAACABAAgAAQABAAIAACACAAgAAQAEAAIAACACAAcAAQADAAAAACADAAcAAQAAAAAAACADAAgAAQAHAAIAACAEAAgAAQAAAAAAACAFAAgAAQAOAAEAACAFAAcAAQAKAAAAACAFAAYAAQAHAAAAACAGAAYAAQALAAAAACAGAAcAAQALAAIAACAGAAgAAQAGAAEAACAHAAgAAQAGAAAAABAHAAcAAQANAAAAACAHAAYAAQAAAAEAACAIAAYAAQAIAAEAACAIAAcAAQAOAAAAACAIAAgAAQAJAAEAACA=")
+tile_set = SubResource("TileSet_gyn61")
