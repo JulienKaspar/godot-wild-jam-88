@@ -21,12 +21,8 @@ script = ExtResource("1_codw7")
 animation_player = NodePath("PlayerArmature/AnimationPlayer")
 
 [node name="PlayerArmature" parent="." instance=ExtResource("1_wnhn1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.093919516, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.26931596, 0)
 script = ExtResource("2_codw7")
-
-[node name="RayCast3D" type="RayCast3D" parent="."]
-
-[node name="SpringArm3D" type="SpringArm3D" parent="."]
 
 [node name="LeftFootIKTarget" type="Marker3D" parent="." node_paths=PackedStringArray("step_target", "other_foot")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24782154, 0, 0)

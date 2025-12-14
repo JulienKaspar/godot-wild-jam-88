@@ -27,8 +27,8 @@ func on_has_start_stepping():
 	
 func hip_step():
 	var starting = player_armature.position
-	var target1 = starting + Vector3(0, -0.05, 0)
-	var target2 = starting + Vector3(0, 0.02, 0)
+	var target1 = starting + Vector3(0, -0.03, 0)
+	var target2 = starting + Vector3(0, 0.04, 0)
 	# Animate acring step
 	var t = get_tree().create_tween()
 	t.tween_property(player_armature, "position", target1, 0.2).set_ease(Tween.EASE_OUT)
