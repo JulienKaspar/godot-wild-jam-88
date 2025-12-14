@@ -10,10 +10,6 @@ class_name Player
 
 func _physics_process(_delta: float) -> void:
 	player_body.global_transform = lerp(player_body.global_transform, upper_body_pivot.global_transform, .5)
-	animate_hips()
-	
-func animate_hips() -> void:
-	player_body.position.y = sin(Time.get_ticks_msec() / float(1000) * 0.5) * 0.05
 
 func _unhandled_input(event: InputEvent) -> void:
 	#replace with hand handling (haha get it)
