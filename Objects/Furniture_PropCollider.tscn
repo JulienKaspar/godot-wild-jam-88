@@ -1,0 +1,5 @@
+[gd_scene load_steps=0 format=3 uid="uid://bcsr7n75rjc4x"]
+
+[node name="Furniture_PropCollider" type="StaticBody3D"]
+collision_layer = 8
+collision_mask = 44
