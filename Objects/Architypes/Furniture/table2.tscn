@@ -53,15 +53,12 @@ shape = SubResource("BoxShape3D_5iult")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Furniture_PlayerCollider"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0575885, 0.42333984, 0)
-visible = false
 shape = SubResource("CylinderShape3D_l1lum")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Furniture_PlayerCollider"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0490303, 0.42333984, 0)
-visible = false
 shape = SubResource("CylinderShape3D_l1lum")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Furniture_PlayerCollider"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.020263672, 0.40844727, 0.0020751953)
-visible = false
 shape = SubResource("BoxShape3D_5iult")
