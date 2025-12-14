@@ -12,6 +12,3 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	# Make the body follow the controller
 	player_body.global_transform = lerp(player_body.global_transform, upper_body_pivot.global_transform, .5)
-	
-	# Hip animation 
-	player_body.position.y = sin(Time.get_ticks_msec() / 1000 * 0.5) * 0.05
