@@ -15,5 +15,5 @@ func _process(_delta: float) -> void:
 		ImGui.End()
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action("open_debug_menu"):
+	if event.is_action_pressed("open_debug_menu"):
 		displayed = !displayed

@@ -5,8 +5,10 @@ class_name DrunknessPickup
 
 @export var drunkness_increase: float = 1
 
-func pickup() -> void:
-	print("picked up!")
+func pickup(player: Player) -> void:
+	var drunkness: PlayerDrunkness = player.get_node("%Drunkness")
+	drunkness.current_drunkness += drunkness_increase
+	queue_free()
 	
 func display_prompt() -> void: 
 	pickup_prompt.show()
