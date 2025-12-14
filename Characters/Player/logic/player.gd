@@ -14,4 +14,4 @@ func _physics_process(_delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	#replace with hand handling (haha get it)
 	if event.is_action_pressed("pickup"):
-		
+		pass
