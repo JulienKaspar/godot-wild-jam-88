@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dh3i5uan6dujl"]
+
+[ext_resource type="PackedScene" uid="uid://du6ahheqsmli" path="res://Assets/Furniture/plant_palm1.gltf" id="1_smggl"]
+[ext_resource type="PackedScene" uid="uid://dxqkcox7mndm2" path="res://Objects/Furniture_PlayerCollider.tscn" id="1_xwr0a"]
+[ext_resource type="PackedScene" uid="uid://bcsr7n75rjc4x" path="res://Objects/Furniture_PropCollider.tscn" id="3_ed848"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_0vm3a"]
+height = 1.3618164
+radius = 0.24658203
+
+[node name="Plant1" type="Node3D"]
+
+[node name="Furniture_PlayerCollider" parent="." instance=ExtResource("1_xwr0a")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Furniture_PlayerCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6809082, 0)
+shape = SubResource("CylinderShape3D_0vm3a")
+
+[node name="plant_palm1" parent="Furniture_PlayerCollider" instance=ExtResource("1_smggl")]
+
+[node name="Furniture_PropCollider" parent="Furniture_PlayerCollider" instance=ExtResource("3_ed848")]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Furniture_PlayerCollider/Furniture_PropCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6809082, 0)
+shape = SubResource("CylinderShape3D_0vm3a")

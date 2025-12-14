@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2vcgl4k66dnb"]
+
+[ext_resource type="PackedScene" uid="uid://cuv608t8ws87b" path="res://Assets/Furniture/napkin1.gltf" id="1_rwnjg"]
+
+[node name="Napkin" type="Node3D"]
+
+[node name="napkin" parent="." instance=ExtResource("1_rwnjg")]

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cw4hnqrfs07cf"]
+
+[ext_resource type="PackedScene" uid="uid://b000ktj5kppjg" path="res://Assets/Furniture/apple1.gltf" id="1_hbceu"]
+[ext_resource type="PackedScene" path="res://Objects/PropCollider.tscn" id="2_ry0ma"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ry0ma"]
+radius = 0.075
+
+[node name="Apple" type="Node3D"]
+
+[node name="PropCollider" parent="." instance=ExtResource("2_ry0ma")]
+
+[node name="apple" parent="PropCollider" instance=ExtResource("1_hbceu")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PropCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06689453, 0)
+shape = SubResource("SphereShape3D_ry0ma")

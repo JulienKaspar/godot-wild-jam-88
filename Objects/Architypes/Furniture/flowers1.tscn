@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://l4nbchy8y1g1"]
+
+[ext_resource type="PackedScene" uid="uid://bhl3yc3cmsqrc" path="res://Assets/Furniture/flower1.gltf" id="1_ec8ns"]
+[ext_resource type="PackedScene" path="res://Objects/PropCollider.tscn" id="2_f1tku"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ec8ns"]
+height = 0.5761719
+radius = 0.119628906
+
+[node name="Flowers1" type="Node3D"]
+
+[node name="PropCollider" parent="." instance=ExtResource("2_f1tku")]
+
+[node name="flowers" parent="PropCollider" instance=ExtResource("1_ec8ns")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PropCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.28808594, 0)
+shape = SubResource("CylinderShape3D_ec8ns")

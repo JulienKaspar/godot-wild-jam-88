@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkigsk0khpxet"]
+
+[ext_resource type="PackedScene" uid="uid://cri5otcpu2ukq" path="res://Assets/Furniture/frame1.gltf" id="1_4ytm0"]
+
+[node name="Frame1" type="Node3D"]
+
+[node name="frame1" parent="." instance=ExtResource("1_4ytm0")]

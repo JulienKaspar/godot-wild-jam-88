@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkm1uu37o63vq"]
+
+[ext_resource type="PackedScene" uid="uid://cva3qsuy7piry" path="res://Assets/Furniture/shelf1.gltf" id="1_r8bb5"]
+[ext_resource type="PackedScene" uid="uid://dxqkcox7mndm2" path="res://Objects/Furniture_PlayerCollider.tscn" id="2_c46ya"]
+[ext_resource type="PackedScene" uid="uid://bcsr7n75rjc4x" path="res://Objects/Furniture_PropCollider.tscn" id="3_nstji"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c46ya"]
+size = Vector3(1.975, 2.9770508, 0.5258789)
+
+[node name="Shelf1" type="Node3D"]
+
+[node name="Furniture_PlayerCollider" parent="." instance=ExtResource("2_c46ya")]
+
+[node name="shelf1" parent="Furniture_PlayerCollider" instance=ExtResource("1_r8bb5")]
+
+[node name="Furniture_PropCollider" parent="Furniture_PlayerCollider" instance=ExtResource("3_nstji")]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Furniture_PlayerCollider/Furniture_PropCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4885254, 0.23706055)
+shape = SubResource("BoxShape3D_c46ya")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Furniture_PlayerCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4885254, 0.23706055)
+shape = SubResource("BoxShape3D_c46ya")
