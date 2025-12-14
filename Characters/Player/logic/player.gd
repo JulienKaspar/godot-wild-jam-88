@@ -5,10 +5,10 @@ extends Node3D
 @onready var player_rb: Node3D = $PlayerController/RigidBally3D
 @onready var upper_body_pivot: Node3D = $PlayerController/RigidBally3D/upper_body_pivot
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-func _physics_process(delta: float) -> void:
-	# Make the body follow the controller
+func _physics_process(_delta: float) -> void:
 	player_body.global_transform = lerp(player_body.global_transform, upper_body_pivot.global_transform, .5)
+	animate_hips()
+	
+func animate_hips() -> void:
+	player_body.position.y = sin(Time.get_ticks_msec() / float(1000) * 0.5) * 0.05
+

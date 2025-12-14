@@ -18,7 +18,7 @@ func _ready() -> void:
 	check_lean.one_shot = true
 	add_child(check_lean)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if !is_stepping && !other_foot.is_stepping:
 		var lean = abs(global_position.distance_to(step_target.global_position))
 		if lean > step_distance:
