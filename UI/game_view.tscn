@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dpj3ak675hn33"]
+[gd_scene load_steps=7 format=3 uid="uid://dpj3ak675hn33"]
 
 [ext_resource type="Script" uid="uid://bexi8qx87vns3" path="res://UI/game_view.gd" id="1_lqkpn"]
 [ext_resource type="PackedScene" uid="uid://betq65km7cbe3" path="res://UI/SettingsMenu/settings_menu.tscn" id="2_lqkpn"]
 [ext_resource type="PackedScene" uid="uid://bcredxkb7jfdu" path="res://UI/MainMenu/main_menu.tscn" id="3_e62du"]
 [ext_resource type="PackedScene" uid="uid://csh7g60ebb2xa" path="res://Levels/Gyms/lvl_player_parkour.tscn" id="3_h1w64"]
+[ext_resource type="PackedScene" uid="uid://cqjqmhnbk3ssj" path="res://Characters/Player/player.tscn" id="5_lwr8f"]
+[ext_resource type="PackedScene" uid="uid://lgsnoy1y1gsg" path="res://Debug/debug_master_menu.tscn" id="6_ri6ga"]
 
 [node name="GameView" type="Node"]
 script = ExtResource("1_lqkpn")
@@ -29,4 +31,11 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="LvlPlayerParkour" parent="." instance=ExtResource("3_h1w64")]
+[node name="World" parent="." instance=ExtResource("3_h1w64")]
+
+[node name="Player" parent="World" instance=ExtResource("5_lwr8f")]
+unique_name_in_owner = true
+
+[node name="Debug" type="Node" parent="."]
+
+[node name="DebugMasterMenu" parent="Debug" instance=ExtResource("6_ri6ga")]

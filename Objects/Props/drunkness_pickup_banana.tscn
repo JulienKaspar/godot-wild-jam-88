@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://bo1p1dvgr50f4"]
+
+[ext_resource type="Script" uid="uid://b3w4gu3se7vnv" path="res://Gameplay/Pickups/drunkness_pickup.gd" id="1_fwtl3"]
+[ext_resource type="PackedScene" uid="uid://dah5q3vw2jba7" path="res://Assets/Furniture/banana1.gltf" id="1_wir5q"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fwtl3"]
+size = Vector3(0.21875, 0.15429688, 0.16601563)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_fwtl3"]
+viewport_path = NodePath("PickupPrompt/SubViewport")
+
+[node name="DrunknessPickup" type="RigidBody3D"]
+collision_layer = 17
+script = ExtResource("1_fwtl3")
+
+[node name="banana" parent="." instance=ExtResource("1_wir5q")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0007324219, 0.036132813, 0)
+shape = SubResource("BoxShape3D_fwtl3")
+
+[node name="PickupPrompt" type="Sprite3D" parent="."]
+unique_name_in_owner = true
+billboard = 1
+texture = SubResource("ViewportTexture_fwtl3")
+
+[node name="SubViewport" type="SubViewport" parent="PickupPrompt"]
+transparent_bg = true
+size = Vector2i(200, 50)
+
+[node name="Label" type="Label" parent="PickupPrompt/SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+text = "Press Space to pickup
+"
+horizontal_alignment = 1
+vertical_alignment = 1

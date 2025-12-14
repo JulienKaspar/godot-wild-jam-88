@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://lgsnoy1y1gsg"]
+
+[ext_resource type="Script" uid="uid://kahkwrgscema" path="res://Debug/debug_master_menu.gd" id="1_xmwow"]
+
+[node name="DebugMasterMenu" type="Node"]
+script = ExtResource("1_xmwow")

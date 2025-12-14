@@ -13,6 +13,7 @@ enum MoveStates {IDLE, MOVING, FALLING, ROLLING, FLASKY, FELL}
 
 var helpers = []
 
+<<<<<<< Updated upstream
 # --- player state
 var grabbingL = false
 var grabbingR = false
@@ -23,6 +24,8 @@ var canRoll = true
 
 
 # Called when the node enters the scene tree for the first time.
+=======
+>>>>>>> Stashed changes
 func toggleDebugDraw() -> void:
 	if DebugDraw:
 		hideelpers()
@@ -46,8 +49,7 @@ func _ready() -> void:
 	else:
 		hideelpers()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed(\"debug_DrawHelpers\"):
 		toggleDebugDraw()
 
