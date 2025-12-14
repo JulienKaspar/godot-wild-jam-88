@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://3kn1j5376oof"]
+[gd_scene load_steps=10 format=3 uid="uid://3kn1j5376oof"]
 
 [ext_resource type="PackedScene" uid="uid://dxqkcox7mndm2" path="res://Objects/Furniture_PlayerCollider.tscn" id="1_wxtwn"]
 [ext_resource type="PackedScene" uid="uid://w3a7ylbcyorp" path="res://Assets/Furniture/table2.gltf" id="2_wxtwn"]
@@ -14,6 +14,17 @@ radius = 0.12451172
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5iult"]
 size = Vector3(1.748291, 0.14575195, 1.0380859)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ttlm1"]
+height = 0.8857422
+radius = 0.55908203
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_2x3ad"]
+height = 0.8857422
+radius = 0.55908203
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eod2f"]
+size = Vector3(1.748291, 0.85546875, 1.0380859)
 
 [node name="Table2" type="Node3D"]
 
@@ -53,12 +64,12 @@ shape = SubResource("BoxShape3D_5iult")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Furniture_PlayerCollider"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0575885, 0.42333984, 0)
-shape = SubResource("CylinderShape3D_l1lum")
+shape = SubResource("CylinderShape3D_ttlm1")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Furniture_PlayerCollider"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0490303, 0.42333984, 0)
-shape = SubResource("CylinderShape3D_l1lum")
+shape = SubResource("CylinderShape3D_2x3ad")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Furniture_PlayerCollider"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.020263672, 0.40844727, 0.0020751953)
-shape = SubResource("BoxShape3D_5iult")
+shape = SubResource("BoxShape3D_eod2f")

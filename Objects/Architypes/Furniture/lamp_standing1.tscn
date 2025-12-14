@@ -1,12 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://d24k31i312cc1"]
+[gd_scene load_steps=6 format=3 uid="uid://d24k31i312cc1"]
 
 [ext_resource type="PackedScene" uid="uid://bfvmktf6bn5sj" path="res://Assets/Furniture/lamp_standing1.gltf" id="1_3hufe"]
-[ext_resource type="PackedScene" uid="uid://dxqkcox7mndm2" path="res://Objects/Furniture_PlayerCollider.tscn" id="1_e0a4j"]
-[ext_resource type="PackedScene" uid="uid://bcsr7n75rjc4x" path="res://Objects/Furniture_PropCollider.tscn" id="3_0qdrh"]
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_8ehxy"]
-height = 1.7631836
-radius = 0.23242188
+[ext_resource type="PackedScene" uid="uid://142xvokhmr2g" path="res://Objects/PropCollider.tscn" id="1_nytpp"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_e0a4j"]
 radius = 0.20108448
@@ -21,24 +16,18 @@ radius = 0.22265625
 
 [node name="LampStanding1" type="Node3D"]
 
-[node name="Furniture_PlayerCollider" parent="." instance=ExtResource("1_e0a4j")]
+[node name="PropCollider" parent="." instance=ExtResource("1_nytpp")]
 
-[node name="lamp_standing1" parent="Furniture_PlayerCollider" instance=ExtResource("1_3hufe")]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Furniture_PlayerCollider"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8815918, 0)
-shape = SubResource("CylinderShape3D_8ehxy")
-
-[node name="Furniture_PropCollider" parent="Furniture_PlayerCollider" instance=ExtResource("3_0qdrh")]
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Furniture_PlayerCollider/Furniture_PropCollider"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="PropCollider"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.034820557, 0)
 shape = SubResource("SphereShape3D_e0a4j")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="Furniture_PlayerCollider/Furniture_PropCollider"]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="PropCollider"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.87847686, 0)
 shape = SubResource("CylinderShape3D_0qdrh")
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="Furniture_PlayerCollider/Furniture_PropCollider"]
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="PropCollider"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5635145, 0)
 shape = SubResource("CylinderShape3D_4r6fo")
+
+[node name="lamp_standing1" parent="PropCollider" instance=ExtResource("1_3hufe")]
