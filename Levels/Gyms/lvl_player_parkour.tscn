@@ -1,23 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://csh7g60ebb2xa"]
-
-[ext_resource type="PackedScene" path="res://Characters/Player/player.tscn" id="2_1tl4p"]
-
-[ext_resource type="PackedScene" uid="uid://bo1p1dvgr50f4" path="res://Objects/Props/drunkness_pickup_banana.tscn" id="2_1tl4p"]
+[gd_scene load_steps=12 format=3 uid="uid://csh7g60ebb2xa"]
 
 [ext_resource type="PackedScene" uid="uid://bo1p1dvgr50f4" path="res://Objects/Props/drunkness_pickup_banana.tscn" id="2_1tl4p"]
 [ext_resource type="PackedScene" uid="uid://c8m223mcy8u2o" path="res://Objects/Props/prop_box.tscn" id="2_g5tv7"]
 [ext_resource type="PackedScene" uid="uid://b32xnjnsc6xts" path="res://Levels/Gyms/wall.tscn" id="2_g78i3"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_f1dn2"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_nguoo"]
-
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_6idyo"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8yh5p"]
-albedo_color = Color(0.35906908, 0.35906908, 0.35906908, 1)
-
-[sub_resource type="QuadMesh" id="QuadMesh_eojk7"]
+[ext_resource type="PackedScene" uid="uid://b7ee7to73wtp6" path="res://Levels/Gyms/Floor/floor1.tscn" id="4_g78i3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g5tv7"]
 size = Vector3(1, 4.13562, 10.459595)
@@ -43,24 +29,6 @@ ambient_light_color = Color(0.51386654, 0.29520002, 0.82, 1)
 ambient_light_energy = 1.05
 
 [node name="LvlPlayerParkour" type="Node3D"]
-
-[node name="Floor" type="Node3D" parent="."]
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
-physics_material_override = SubResource("PhysicsMaterial_f1dn2")
-
-[node name="CollisionShape3D_floor" type="CollisionShape3D" parent="Floor/StaticBody3D"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -5, 0)
-shape = SubResource("BoxShape3D_nguoo")
-
-[node name="CollisionShape3D_Boundary" type="CollisionShape3D" parent="Floor/StaticBody3D"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-shape = SubResource("WorldBoundaryShape3D_6idyo")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
-transform = Transform3D(10, 0, 0, 0, -4.371139e-07, 10, 0, -10, -4.371139e-07, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_8yh5p")
-mesh = SubResource("QuadMesh_eojk7")
 
 [node name="Obsticles" type="Node3D" parent="."]
 
@@ -185,3 +153,5 @@ light_color = Color(0.7083334, 1, 0.3, 1)
 
 [node name="DrunknessPickup" parent="." instance=ExtResource("2_1tl4p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.72499, 0.025762774, -1.9445195)
+
+[node name="Floor" parent="." instance=ExtResource("4_g78i3")]
