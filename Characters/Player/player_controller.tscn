@@ -149,6 +149,7 @@ DebugDraw = false
 [node name="RigidBally3D" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.251, 0)
 collision_layer = 2
+collision_mask = 61
 mass = 50.0
 script = ExtResource("1_oj1ta")
 
@@ -223,6 +224,7 @@ shape = SubResource("SphereShape3D_jkj6u")
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.164401, 0)
 collision_layer = 2
+collision_mask = 61
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="UpperBody"]
 shape = SubResource("CapsuleShape3D_jkj6u")
@@ -252,6 +254,7 @@ swing_span = 1.3229595
 unique_name_in_owner = true
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.802604, 1.3483973, 2.3841858e-07)
 collision_layer = 2
+collision_mask = 61
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ArmL"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23290259, 0)
@@ -265,6 +268,7 @@ mesh = SubResource("CapsuleMesh_on8bp")
 unique_name_in_owner = true
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -0.803, 1.348, 0)
 collision_layer = 2
+collision_mask = 61
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ArmR"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23290259, 0)
