@@ -90,6 +90,15 @@ debug_drawSomething={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="House"
+3d_physics/layer_2="Player"
+3d_physics/layer_3="Props"
+3d_physics/layer_4="Furniture"
+3d_physics/layer_5="People"
+3d_physics/layer_6="Bottles"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
