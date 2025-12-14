@@ -1,6 +1,55 @@
-[gd_scene load_steps=15 format=3 uid="uid://cx2qst5txs1af"]
+[gd_scene load_steps=16 format=3 uid="uid://cx2qst5txs1af"]
 
 [ext_resource type="Script" uid="uid://cdppyptuftkiw" path="res://Characters/Player/logic/player_movement.gd" id="1_oj1ta"]
+
+[sub_resource type="GDScript" id="GDScript_jkj6u"]
+resource_name = "movcon_settings"
+script/source = "extends Node3D
+
+@export var DebugDraw = true
+
+var helpers = []
+
+# Called when the node enters the scene tree for the first time.
+func toggleDebugDraw() -> void:
+	if DebugDraw:
+		hideelpers()
+	else:
+		showHelpers()
+
+func showHelpers() -> void:
+	DebugDraw = true
+	for helper in helpers:
+		helper.show()
+
+func hideelpers() -> void:
+	DebugDraw = false
+	for helper in helpers:
+		helper.hide()
+
+func _ready() -> void:
+	helpers = [
+		$RigidBally3D/helper_ball,
+		$RigidBally3D/upper_body_pivot/helper_Body,
+		$RigidBally3D/upper_body_pivot/helper_BodyDir,
+		$RigidBally3D/up_aligned/helper_leaning,
+		$RigidBally3D/up_aligned/helper_drunk_dir,
+		$RigidBally3D/up_aligned/helper_player_dir,
+		$RigidBally3D/up_aligned/helper_player_facing
+	]
+	if DebugDraw:
+		showHelpers()
+	else:
+		hideelpers()
+		
+	pass # Replace with function body.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed(\"debug_DrawHelpers\"):
+		toggleDebugDraw()
+	pass
+"
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_056gf"]
 margin = 0.0
@@ -53,6 +102,8 @@ transparency = 1
 albedo_color = Color(0, 0.1882353, 0.9098039, 0.59607846)
 
 [node name="PlayerController" type="Node3D"]
+script = SubResource("GDScript_jkj6u")
+DebugDraw = false
 
 [node name="RigidBally3D" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.251, 0)
@@ -62,23 +113,20 @@ script = ExtResource("1_oj1ta")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBally3D"]
 shape = SubResource("SphereShape3D_056gf")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBally3D"]
+[node name="helper_ball" type="MeshInstance3D" parent="RigidBally3D"]
 transform = Transform3D(0.52, 0, 0, 0, 0.52, 0, 0, 0, 0.52, 0, 0, 0)
-visible = false
 material_override = SubResource("StandardMaterial3D_056gf")
 mesh = SubResource("SphereMesh_jkj6u")
 
 [node name="upper_body_pivot" type="Node3D" parent="RigidBally3D"]
 unique_name_in_owner = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBally3D/upper_body_pivot"]
+[node name="helper_Body" type="MeshInstance3D" parent="RigidBally3D/upper_body_pivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7315148, 0)
-visible = false
 mesh = SubResource("CapsuleMesh_jkj6u")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBally3D/upper_body_pivot"]
+[node name="helper_BodyDir" type="MeshInstance3D" parent="RigidBally3D/upper_body_pivot"]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.15997481, 0.047753245)
-visible = false
 mesh = SubResource("PrismMesh_jkj6u")
 surface_material_override/0 = SubResource("StandardMaterial3D_t5fyq")
 

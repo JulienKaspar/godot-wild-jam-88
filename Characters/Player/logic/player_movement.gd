@@ -2,12 +2,12 @@ extends RigidBody3D
 
 #----------------Settings-----------------------
 
-static var move_force_multiplier = 100.0
-static var player_input_strength = 1.0
-static var player_turn_speed = 2.0
+static var move_force_multiplier = 100.0 # phys impulse scale
+static var player_input_strength = 1.0 # how much player has control
+static var player_turn_speed = 2.0 # how fast character should turn
 static var drunk_input_strength = 1.0
-static var drunk_chaos_speed = 1.0
-static var drunk_chaos_strength = 0.2
+static var drunk_chaos_speed = 1.0 # how fast drunk changes direction
+static var drunk_chaos_strength = 0.2 # how strong is drunk input
 static var drunk_fall_factor = 4.0 #how fast the falling will escalate
 
 #----------------State-----------------------
@@ -17,6 +17,9 @@ var drunk_amount = 0.0
 var player_move_dir = Vector2(0,0)
 var player_speed = 0.0
 var player_facing_dir = Vector2(0,1.0)
+
+var grabbingL = false
+var grabbingR = false
 
 #----------------Utility-------
 
