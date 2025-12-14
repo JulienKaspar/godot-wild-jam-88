@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="WildJam88"
+config/name="PartyFoul"
 run/main_scene="uid://csh7g60ebb2xa"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 <<<<<<<Updatedupstreamrun/main_scene="uid://dpj3ak675hn33"
