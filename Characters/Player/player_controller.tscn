@@ -31,30 +31,16 @@ func toggleDebugDraw() -> void:
 
 func showHelpers() -> void:
 	DebugDraw = true
-	for helper in helpers:
-		helper.show()
+	self.show()
 
 func hideelpers() -> void:
 	DebugDraw = false
-	for helper in helpers:
-		helper.hide()
+	self.hide()
 
 func goRoll() -> void:
 	pass
 
 func _ready() -> void:
-	helpers = [
-		$RigidBally3D/helper_ball,
-		$RigidBally3D/upper_body_pivot/helper_Body,
-		$RigidBally3D/upper_body_pivot/helper_BodyDir,
-		$RigidBally3D/up_aligned/helper_leaning,
-		$RigidBally3D/up_aligned/helper_drunk_dir,
-		$RigidBally3D/up_aligned/helper_player_dir,
-		$RigidBally3D/up_aligned/helper_player_facing,
-		$UpperBody/helper_body_col,
-		$ArmL/helper_arm_left,
-		$ArmR/helper_arm_right
-	]
 	if DebugDraw:
 		showHelpers()
 	else:
