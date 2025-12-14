@@ -11,5 +11,8 @@ export_credentials.cfg
 # Imported translations (automatically generated from CSV files)
 *.translation
 
+# Automatic generated Mac files
+.DS_Store
+
 # Export directory
 builds/
