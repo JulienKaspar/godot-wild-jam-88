@@ -46,11 +46,13 @@ size_flags_vertical = 8
 text = "Sensitivity"
 
 [node name="SensitivityNumber" type="Label" parent="MarginContainer/TabContainer/Controls/Controls/Sensitivity"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 8
 text = "0"
 
 [node name="SensitivitySlider" type="HSlider" parent="MarginContainer/TabContainer/Controls/Controls/Sensitivity"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4

@@ -1,8 +1,8 @@
 extends PanelContainer
 class_name SettingsMenu
 
-@onready var sensitivity_slider: HSlider = $MarginContainer/VBoxContainer/Sensitivity/SensitivitySlider
-@onready var sensitivity_number: Label = $MarginContainer/VBoxContainer/Sensitivity/SensitivityNumber
+@onready var sensitivity_slider: HSlider = %SensitivitySlider
+@onready var sensitivity_number: Label = %SensitivityNumber
 @onready var main_menu_button: Button = %MainMenuButton
 
 signal main_menu_button_pressed()
