@@ -249,6 +249,10 @@ node_a = NodePath("..")
 node_b = NodePath("../../ArmR")
 swing_span = 1.3229595
 
+[node name="BodyAttachPoint" type="Node3D" parent="UpperBody"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.164, 0)
+
 [node name="ArmL" type="RigidBody3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.802604, 1.3483973, 2.3841858e-07)
