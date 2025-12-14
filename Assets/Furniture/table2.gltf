@@ -18,19 +18,29 @@
 			"mesh":0,
 			"name":"Cube",
 			"scale":[
-				0.09827834367752075,
-				0.09827834367752075,
-				0.09827834367752075
+				0.08330473303794861,
+				0.08330473303794861,
+				0.08330473303794861
 			]
 		},
 		{
 			"mesh":1,
 			"name":"Cylinder.001",
 			"scale":[
-				0.30892008543014526,
-				0.01664915680885315,
-				0.2611405849456787
+				0.26185327768325806,
+				0.014112505130469799,
+				0.2213534116744995
 			]
+		}
+	],
+	"materials":[
+		{
+			"doubleSided":true,
+			"name":"furniture",
+			"pbrMetallicRoughness":{
+				"metallicFactor":0,
+				"roughnessFactor":0.5
+			}
 		}
 	],
 	"meshes":[
@@ -44,7 +54,8 @@
 						"TEXCOORD_0":2,
 						"COLOR_0":3
 					},
-					"indices":4
+					"indices":4,
+					"material":0
 				}
 			]
 		},
@@ -58,7 +69,8 @@
 						"TEXCOORD_0":7,
 						"COLOR_0":8
 					},
-					"indices":9
+					"indices":9,
+					"material":0
 				}
 			]
 		}
@@ -94,10 +106,9 @@
 		},
 		{
 			"bufferView":3,
-			"componentType":5123,
+			"componentType":5126,
 			"count":160,
-			"normalized":true,
-			"type":"VEC4"
+			"type":"VEC3"
 		},
 		{
 			"bufferView":4,
@@ -135,10 +146,9 @@
 		},
 		{
 			"bufferView":8,
-			"componentType":5123,
+			"componentType":5126,
 			"count":81,
-			"normalized":true,
-			"type":"VEC4"
+			"type":"VEC3"
 		},
 		{
 			"bufferView":9,
@@ -168,50 +178,50 @@
 		},
 		{
 			"buffer":0,
-			"byteLength":1280,
+			"byteLength":1920,
 			"byteOffset":5120,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":480,
-			"byteOffset":6400,
+			"byteOffset":7040,
 			"target":34963
 		},
 		{
 			"buffer":0,
 			"byteLength":972,
-			"byteOffset":6880,
+			"byteOffset":7520,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":972,
-			"byteOffset":7852,
+			"byteOffset":8492,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":648,
-			"byteOffset":8824,
+			"byteOffset":9464,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":648,
-			"byteOffset":9472,
+			"byteLength":972,
+			"byteOffset":10112,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":828,
-			"byteOffset":10120,
+			"byteOffset":11084,
 			"target":34963
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":10948,
+			"byteLength":11912,
 			"uri":"table2.bin"
 		}
 	]
