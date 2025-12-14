@@ -30,7 +30,7 @@ func update_drunk_vector(delta) -> void:
 	drunk_noise_vector = lerp(drunk_noise_vector, new_noise, drunk_chaos_strength)
 	
 
-func update_body_pose(delta) -> void:
+func update_body_pose(_delta) -> void:
 	var angle = atan2(player_facing_dir.x, player_facing_dir.y)
 	$up_aligned.global_rotation = Vector3(0,0,0)
 	$upper_body_pivot.global_rotation = Vector3(0,angle,0)
@@ -51,11 +51,6 @@ func updateDebugHelpers(playerInputDir):
 
 #----------------Process-------
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	update_body_pose(delta)
 	$up_aligned/helper_leaning.position = Vector3(player_move_dir.x,-0.22,player_move_dir.y)
