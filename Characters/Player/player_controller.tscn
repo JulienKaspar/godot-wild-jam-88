@@ -13,8 +13,6 @@ enum MoveStates {IDLE, MOVING, FALLING, ROLLING, FLASKY, FELL}
 
 var helpers = []
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 # --- player state
 var grabbingL = false
 var grabbingR = false
@@ -25,10 +23,6 @@ var canRoll = true
 
 
 # Called when the node enters the scene tree for the first time.
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 func toggleDebugDraw() -> void:
 	if DebugDraw:
 		hideelpers()
