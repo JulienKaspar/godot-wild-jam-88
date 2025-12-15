@@ -1,13 +1,14 @@
-[gd_scene load_steps=30 format=3 uid="uid://dm386yfmjf84v"]
+[gd_scene load_steps=28 format=3 uid="uid://dm386yfmjf84v"]
 
 [ext_resource type="PackedScene" path="res://Levels/Gyms/Wall/yellow_floral_wall.tscn" id="2_h8x84"]
 [ext_resource type="PackedScene" uid="uid://b32xnjnsc6xts" path="res://Levels/Gyms/Wall/wooden_wall.tscn" id="2_jc5s1"]
-[ext_resource type="PackedScene" path="res://Levels/Gyms/Wall/reddish_floral_wall.tscn" id="3_8fmlr"]
+[ext_resource type="PackedScene" uid="uid://q6130w2iv3id" path="res://Levels/Gyms/Wall/reddish_floral_wall.tscn" id="3_8fmlr"]
 [ext_resource type="PackedScene" uid="uid://bo1p1dvgr50f4" path="res://Objects/Props/drunkness_pickup_banana.tscn" id="3_pifnr"]
 [ext_resource type="PackedScene" uid="uid://c0d87wbdbi2al" path="res://Objects/Architypes/Furniture/couch1.tscn" id="4_bhby1"]
 [ext_resource type="PackedScene" uid="uid://b7ee7to73wtp6" path="res://Levels/Gyms/Floor/floor1.tscn" id="4_r27bf"]
 [ext_resource type="PackedScene" uid="uid://dkigsk0khpxet" path="res://Objects/Architypes/Furniture/frame1.tscn" id="5_ym8yn"]
 [ext_resource type="PackedScene" uid="uid://d24k31i312cc1" path="res://Objects/Architypes/Furniture/lamp_standing1.tscn" id="6_8a5ck"]
+[ext_resource type="PackedScene" uid="uid://d62n5s8htyn7" path="res://Characters/Teens/logic/TeenStanding.tscn" id="7_8fmlr"]
 [ext_resource type="PackedScene" uid="uid://bkm1uu37o63vq" path="res://Objects/Architypes/Furniture/shelf1.tscn" id="7_pwn3i"]
 [ext_resource type="PackedScene" uid="uid://cs4digbuoekpl" path="res://Objects/Architypes/Furniture/shelf2.tscn" id="8_h8x84"]
 [ext_resource type="PackedScene" uid="uid://d2fq258dik5oo" path="res://Objects/Architypes/Furniture/table1.tscn" id="9_8fmlr"]
@@ -17,9 +18,6 @@
 [ext_resource type="PackedScene" uid="uid://bwm23c42sbbui" path="res://Objects/Architypes/Furniture/lamp_table1.tscn" id="13_664f8"]
 [ext_resource type="PackedScene" uid="uid://l4nbchy8y1g1" path="res://Objects/Architypes/Furniture/flowers1.tscn" id="14_hwksa"]
 [ext_resource type="PackedScene" uid="uid://wrdfnbkf7w2k" path="res://Objects/Architypes/Furniture/candle1.tscn" id="15_ql2pv"]
-[ext_resource type="PackedScene" uid="uid://ddteva4k7c36x" path="res://Characters/Teens/Teen1.tscn" id="16_pwn3i"]
-[ext_resource type="PackedScene" uid="uid://bq5qgi374en3b" path="res://Characters/Teens/Teen2.tscn" id="17_h8x84"]
-[ext_resource type="PackedScene" uid="uid://cvrgrh3m5x2er" path="res://Characters/Teens/Teen3.tscn" id="18_8fmlr"]
 [ext_resource type="PackedScene" uid="uid://c3nkcb3esyxsx" path="res://Objects/Architypes/Furniture/couch2.tscn" id="21_luaoq"]
 [ext_resource type="PackedScene" uid="uid://cugf77dasisxg" path="res://Objects/Architypes/Furniture/couch3.tscn" id="22_85n6a"]
 
@@ -131,6 +129,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5556746, 1.3672953, 3.53426
 [node name="Couch1" parent="." instance=ExtResource("4_bhby1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5846326, 0.005937904, -4.2220173)
 
+[node name="TeenStanding6" parent="Couch1" instance=ExtResource("7_8fmlr")]
+transform = Transform3D(0.86693305, 0.01945956, -0.49804473, 0.12983863, 0.95592123, 0.26335627, 0.4812163, -0.29297772, 0.8261931, 0.48764586, 0.026019186, 0.47115636)
+animation = "SleepCouch1"
+
 [node name="Frame1" parent="." instance=ExtResource("5_ym8yn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1332183, 2.227622, -5.1466775)
 
@@ -148,6 +150,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20229551, 0.005311489, -4.
 
 [node name="Shelf2" parent="." instance=ExtResource("8_h8x84")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.7034802, 0, -0.05430025)
+
+[node name="TeenStanding8" parent="Shelf2" instance=ExtResource("7_8fmlr")]
+transform = Transform3D(0.14694636, 0, 0.98914456, 0, 1, 0, -0.98914456, 0, 0.14694636, 0.0769742, 1.0060561, 0.3051734)
+animation = "Worm"
 
 [node name="Table1" parent="." instance=ExtResource("9_8fmlr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9268818, 0.0067982036, -2.2458487)
@@ -212,32 +218,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13921845, 0.83297414, 2.328
 [node name="DrunknessPickup3" parent="." instance=ExtResource("3_pifnr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8680503, 0.82579106, -2.2078133)
 
-[node name="Teen1" parent="." instance=ExtResource("16_pwn3i")]
-transform = Transform3D(0.716509, 0, 0.6975779, 0, 1, 0, -0.6975779, 0, 0.716509, -3.896625, 0, 1.7161052)
-
-[node name="Teen2" parent="." instance=ExtResource("17_h8x84")]
-transform = Transform3D(-0.7076373, 0, -0.7065759, 0, 1, 0, 0.7065759, 0, -0.7076373, -3.1701837, 0, 2.3273044)
-
-[node name="Teen3" parent="." instance=ExtResource("16_pwn3i")]
-transform = Transform3D(-0.21115418, 0, 0.97745275, 0, 1, 0, -0.97745275, 0, -0.21115418, -3.7511568, 0, 3.9431205)
-
-[node name="Teen4" parent="." instance=ExtResource("17_h8x84")]
-transform = Transform3D(0.37462276, 0, 0.9271773, 0, 1, 0, -0.9271773, 0, 0.37462276, 4.278455, 0.5, -2.4227295)
-
-[node name="Teen5" parent="." instance=ExtResource("18_8fmlr")]
-transform = Transform3D(0.7913516, 0, -0.6113613, 0, 1, 0, 0.6113613, 0, 0.7913516, 3.6694818, 0.5, -3.034812)
-
-[node name="Teen6" parent="." instance=ExtResource("18_8fmlr")]
-transform = Transform3D(-0.79263026, 0, -0.6097026, 0, 1, 0, 0.6097026, 0, -0.79263026, 3.7944365, 0, 2.6454)
-
-[node name="Teen7" parent="." instance=ExtResource("18_8fmlr")]
-transform = Transform3D(0.5479137, 0, 0.83653486, 0, 1, 0, -0.83653486, 0, 0.5479137, 2.078135, 0, 1.4224687)
-
-[node name="Teen8" parent="." instance=ExtResource("17_h8x84")]
-transform = Transform3D(-0.9865921, 0, -0.16320533, 0, 1, 0, 0.16320533, 0, -0.9865921, 2.430975, 0, 2.17602)
-
 [node name="Couch2" parent="." instance=ExtResource("21_luaoq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6076002, 0.005937904, -4.145459)
 
 [node name="Couch3" parent="." instance=ExtResource("22_85n6a")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.447929, 0.00027632713, -2.8087442)
+
+[node name="TeenStanding" parent="." instance=ExtResource("7_8fmlr")]
+transform = Transform3D(0.47988668, 0, 0.8773305, 0, 1, 0, -0.8773305, 0, 0.47988668, -4.2552886, 4.7683716e-07, 2.110605)
+
+[node name="TeenStanding2" parent="." instance=ExtResource("7_8fmlr")]
+transform = Transform3D(0.89939, 0, -0.4371472, 0, 1, 0, 0.4371472, 0, 0.89939, -3.5877516, 4.7683716e-07, 1.3553329)
+
+[node name="TeenStanding7" parent="." instance=ExtResource("7_8fmlr")]
+transform = Transform3D(-0.52858645, 0, 0.84887946, 0, 1, 0, -0.84887946, 0, -0.52858645, -0.33412173, 4.7683716e-07, 2.9445512)
+animation = "Pls"
+
+[node name="TeenStanding3" parent="." instance=ExtResource("7_8fmlr")]
+transform = Transform3D(-0.010576546, 0, -0.99994403, 0, 1, 0, 0.99994403, 0, -0.010576546, 4.891117, 9.536743e-07, 1.035002)
+animation = "Wall"
+
+[node name="TeenStanding4" parent="." instance=ExtResource("7_8fmlr")]
+transform = Transform3D(0.5674557, 0, -0.8234039, 0, 1, 0, 0.8234039, 0, 0.5674557, 4.315468, 0.4936297, -2.8113697)
+animation = "Dico1"
+
+[node name="TeenStanding5" parent="." instance=ExtResource("7_8fmlr")]
+transform = Transform3D(-0.13260242, 0, 0.9911693, 0, 1, 0, -0.9911693, 0, -0.13260242, -4.5329423, 0.33627415, -3.0461845)
+animation = "DiscoJump"
