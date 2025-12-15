@@ -1,13 +1,13 @@
 [gd_scene load_steps=10 format=3 uid="uid://7v5jiybjrlkl"]
 
-[ext_resource type="Script" uid="uid://bexi8qx87vns3" path="res://UI/game_view.gd" id="1_lqkpn"]
+[ext_resource type="Script" path="res://UI/game_view.gd" id="1_lqkpn"]
 [ext_resource type="PackedScene" uid="uid://betq65km7cbe3" path="res://UI/SettingsMenu/settings_menu.tscn" id="2_lqkpn"]
 [ext_resource type="PackedScene" uid="uid://bcredxkb7jfdu" path="res://UI/MainMenu/main_menu.tscn" id="3_e62du"]
 [ext_resource type="PackedScene" uid="uid://csh7g60ebb2xa" path="res://Levels/Gyms/lvl_player_parkour.tscn" id="3_h1w64"]
 [ext_resource type="Shader" uid="uid://c7jc6g65ws5pi" path="res://Shaders/post_process.gdshader" id="4_u3b6e"]
 [ext_resource type="PackedScene" uid="uid://cqjqmhnbk3ssj" path="res://Characters/Player/player.tscn" id="5_lwr8f"]
 [ext_resource type="PackedScene" uid="uid://lgsnoy1y1gsg" path="res://Debug/debug_master_menu.tscn" id="6_ri6ga"]
-[ext_resource type="Script" uid="uid://bx8wkgx47tjj6" path="res://UI/game_camera.gd" id="8_gjcnd"]
+[ext_resource type="Script" path="res://UI/game_camera.gd" id="8_gjcnd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gjcnd"]
 shader = ExtResource("4_u3b6e")
@@ -20,6 +20,7 @@ shader_parameter/drunkness = 0.0
 script = ExtResource("1_lqkpn")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="PostProcessing" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_gjcnd")
@@ -48,7 +49,6 @@ unique_name_in_owner = true
 layout_mode = 2
 
 [node name="World" parent="." instance=ExtResource("3_h1w64")]
-visible = false
 
 [node name="Player" parent="World" instance=ExtResource("5_lwr8f")]
 unique_name_in_owner = true
@@ -59,6 +59,7 @@ unique_name_in_owner = true
 
 [node name="GameCamera" type="Camera3D" parent="." node_paths=PackedStringArray("player")]
 visible = false
+fov = 55.0
 script = ExtResource("8_gjcnd")
+follow_distance = 4.0
 player = NodePath("../World/Player")
-metadata/_custom_type_script = "uid://bx8wkgx47tjj6"

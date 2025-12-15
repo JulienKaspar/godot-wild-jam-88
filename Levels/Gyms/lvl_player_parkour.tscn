@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://csh7g60ebb2xa"]
+[gd_scene load_steps=14 format=3 uid="uid://csh7g60ebb2xa"]
 
 [ext_resource type="PackedScene" uid="uid://bo1p1dvgr50f4" path="res://Objects/Props/drunkness_pickup_banana.tscn" id="2_1tl4p"]
 [ext_resource type="PackedScene" uid="uid://c8m223mcy8u2o" path="res://Objects/Props/prop_box.tscn" id="2_g5tv7"]
 [ext_resource type="PackedScene" uid="uid://b32xnjnsc6xts" path="res://Levels/Gyms/Wall/wooden_wall.tscn" id="2_g78i3"]
 [ext_resource type="PackedScene" uid="uid://vyau441cbd2o" path="res://Levels/Gyms/Wall/yellow_floral_wall.tscn" id="3_jvag8"]
 [ext_resource type="PackedScene" uid="uid://b7ee7to73wtp6" path="res://Levels/Gyms/Floor/floor1.tscn" id="4_g78i3"]
+[ext_resource type="PackedScene" uid="uid://d62n5s8htyn7" path="res://Characters/Teens/logic/TeenStanding.tscn" id="6_cqxer"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g5tv7"]
 size = Vector3(1, 4.13562, 10.459595)
@@ -42,7 +43,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.915783, 0.25, 1.3811442)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.296811, 0.25, 1.2604448)
 
 [node name="PropBox3" parent="Obsticles/Props" instance=ExtResource("2_g5tv7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0054715276, 1.8376266, -0.041978955)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0436337, 0.42830455, -0.041978955)
 
 [node name="PropBox4" parent="Obsticles/Props" instance=ExtResource("2_g5tv7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7838677, 0.25, 1.6883658)
@@ -139,3 +140,19 @@ light_color = Color(0.7083334, 1, 0.3, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.72499, 0.025762774, -1.9445195)
 
 [node name="Floor" parent="." instance=ExtResource("4_g78i3")]
+
+[node name="Teens" type="Node3D" parent="."]
+
+[node name="TeenStanding" parent="Teens" instance=ExtResource("6_cqxer")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7744911, 9.536743e-07, -0.9332844)
+wobble = true
+
+[node name="TeenStanding3" parent="Teens" instance=ExtResource("6_cqxer")]
+transform = Transform3D(-0.4095249, 0, -0.912299, 0, 1, 0, 0.912299, 0, -0.4095249, 1.8271258, 0, 0.7171595)
+animation = 1
+
+[node name="TeenStanding2" parent="Teens" instance=ExtResource("6_cqxer")]
+transform = Transform3D(0.2759729, 0, 0.9611654, 0, 1, 0, -0.9611654, 0, 0.2759729, -2.8194213, 4.7683716e-07, -0.15503109)
+wobble = true
+animation = 1
+has_loot = true

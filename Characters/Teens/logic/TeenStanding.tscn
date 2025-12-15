@@ -1,0 +1,91 @@
+[gd_scene load_steps=8 format=3 uid="uid://d62n5s8htyn7"]
+
+[ext_resource type="Script" uid="uid://b20xy0qkushk8" path="res://Characters/Teens/logic/teen_standing.gd" id="1_048jv"]
+[ext_resource type="PackedScene" uid="uid://cilspwuvfwfqf" path="res://Assets/Characters/Teens/teen1.gltf" id="2_6mc1t"]
+[ext_resource type="PackedScene" uid="uid://b4vog6lh883if" path="res://Characters/Teens/logic/TeenLogic.tscn" id="3_ijlkk"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_048jv"]
+height = 1.5
+radius = 0.3
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6mc1t"]
+radius = 0.25
+height = 1.55
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_048jv"]
+radius = 0.25
+height = 1.55
+radial_segments = 8
+rings = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6mc1t"]
+transparency = 1
+albedo_color = Color(0.8980392, 0, 0.22352941, 0.68235296)
+
+[node name="TeenStanding" type="Node3D"]
+script = ExtResource("1_048jv")
+
+[node name="CH-teen1" parent="." instance=ExtResource("2_6mc1t")]
+
+[node name="Skeleton3D" parent="CH-teen1/Armature" index="0"]
+bones/0/position = Vector3(0, -0.002940625, 0)
+bones/0/scale = Vector3(1, 1.1909722, 1)
+bones/1/position = Vector3(0.003954318, 0.6666998, 0.047815364)
+bones/1/rotation = Quaternion(-0.027889378, 0.002381325, -0.059405707, 0.9978415)
+bones/1/scale = Vector3(1.002004, 1.024095, 0.9989698)
+bones/2/position = Vector3(0.06324627, 0.016162114, -0.011108118)
+bones/2/rotation = Quaternion(0.024469152, -0.021494862, 0.99911803, -0.026505243)
+bones/3/rotation = Quaternion(-0.018087126, -0.017652662, 0.015276095, 0.99956393)
+bones/4/rotation = Quaternion(0.5097767, -0.35545334, 0.16211222, 0.76648563)
+bones/5/rotation = Quaternion(0.04257614, 0.007004342, 0.06630341, 0.99686617)
+bones/5/scale = Vector3(1, 0.90613645, 0.9999596)
+bones/6/rotation = Quaternion(0.25388667, 0.009500227, -0.887677, 0.38403213)
+bones/7/rotation = Quaternion(-0.010850598, 0.035798237, 0.82590616, 0.5625653)
+bones/8/rotation = Quaternion(-0.11415731, 0.058252834, -0.3869306, 0.91315913)
+bones/9/rotation = Quaternion(0.07557275, -0.003926706, 0.013262053, 0.9970443)
+bones/10/rotation = Quaternion(-0.09259113, 0.022722788, 0.021279508, 0.99521744)
+bones/11/rotation = Quaternion(-0.0028818306, -0.03575716, 0.91210705, 0.40837955)
+bones/11/scale = Vector3(0.99999994, 1, 1)
+bones/12/rotation = Quaternion(-0.054817572, 0.045237366, 0.7308858, 0.6787891)
+bones/13/rotation = Quaternion(0.31581104, 0.6105065, 0.33705392, 0.6433817)
+bones/14/rotation = Quaternion(-0.009828916, -0.0009972275, 0.99881285, 0.04770018)
+bones/15/position = Vector3(-0.06324628, 0.016162073, -0.011108148)
+bones/15/rotation = Quaternion(-0.1431286, 0.14010663, 0.9789616, 0.03896846)
+bones/16/rotation = Quaternion(-0.45851284, 0.011480681, 0.08865558, 0.88418)
+bones/17/rotation = Quaternion(0.5419907, -0.012594642, -0.09809733, 0.8345444)
+bones/18/position = Vector3(2.9722331e-09, 0.27280796, -3.7252903e-09)
+bones/18/rotation = Quaternion(0.042576134, 0.0070043444, 0.066303425, 0.99686617)
+bones/18/scale = Vector3(1, 0.9061365, 0.9999596)
+
+[node name="TeenLogic" parent="." instance=ExtResource("3_ijlkk")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 32768
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.79140335, 0)
+shape = SubResource("CylinderShape3D_048jv")
+debug_color = Color(0, 0, 0, 0.41960785)
+
+[node name="ConeTwistJoint3D" type="ConeTwistJoint3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.051080048, 0)
+node_a = NodePath("..")
+node_b = NodePath("../TeenBodyCollider")
+twist_span = 0.0
+
+[node name="TeenBodyCollider" type="RigidBody3D" parent="StaticBody3D"]
+collision_layer = 16
+collision_mask = 39
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/TeenBodyCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.78, 0)
+shape = SubResource("CapsuleShape3D_6mc1t")
+
+[node name="debug_collision" type="MeshInstance3D" parent="StaticBody3D/TeenBodyCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.78, 0)
+visible = false
+mesh = SubResource("CapsuleMesh_048jv")
+surface_material_override/0 = SubResource("StandardMaterial3D_6mc1t")
+
+[editable path="CH-teen1"]
