@@ -10,22 +10,6 @@ signal ChangeHandTargetR(trgt_right: Object, isValid: bool) # set isValid=false 
 signal ChangeMovement(state: MoveStates)
 signal ConsumedDrunkness(value:float)
 
-@onready var player_body: Node3D = $PlayerBody
-@onready var step_target: Node3D = $PlayerBody/StepTarget
-@onready var left_step_target: RayCast3D = $PlayerBody/StepTarget/LeftRayCast
-@onready var right_step_target: RayCast3D = $PlayerBody/StepTarget/RightRayCast
-
-@onready var player_rb: RigidBody3D = $PlayerController/RigidBally3D
-@onready var rb_arm_l: Node3D = $PlayerController/ArmL
-@onready var rb_arm_r: Node3D = $PlayerController/ArmR
-
-@onready var upper_body: RigidBody3D = $PlayerController/UpperBody
-@onready var body_attach_point: Node3D = $PlayerController/UpperBody/BodyAttachPoint
-@onready var pickup_radius: ShapeCast3D = $PickupRadius
-
-@onready var left_hand_target: Node3D = $LeftHandTarget
-@onready var right_hand_target: Node3D = $RightHandTarget
-
 ### statess 
 enum MoveStates {IDLE, MOVING, FALLING, ROLLING, FLASKY, FELL}
 enum HandStates {DANGLY, REACHING, HOLD, DRINKING, ROLLING, FIXED}
@@ -52,6 +36,14 @@ var drunk_amount = 0.5
 
 
 #----------------------------------------
+func _ready() -> void:
+	# need to set these from here as they might not exist in the body when its ready
+	$PlayerBody.player_rb = $PlayerController/RigidBally3D
+	$PlayerBody.rb_arm_l = $PlayerController/ArmL
+	$PlayerBody.rb_arm_r = $PlayerController/ArmR
+	$PlayerBody.upper_body = $PlayerController/UpperBody
+	$PlayerBody.body_attach_point = $PlayerController/UpperBody/BodyAttachPoint
+	$PlayerBody.pickup_radius = $PickupRadius
 
 func goRoll() -> void:
 	pass
@@ -61,16 +53,12 @@ func setHandLState(state: HandStates):
 	self.ChangeHandLeft.emit(state)
 
 func setHandRState(state: HandStates):
-	HandLState = state
+	HandRState = state
 	self.ChangeHandRight.emit(state)
 
 func _process(_delta: float) -> void:
 	# Make the armature follow the physics bodies
-	player_body.global_transform = lerp(player_body.global_transform, body_attach_point.global_transform, .5)
-	left_hand_target.global_transform = lerp(left_hand_target.global_transform, rb_arm_l.global_transform, 0.5)
-	right_hand_target.global_transform = lerp(right_hand_target.global_transform, rb_arm_r.global_transform, 0.5)
 
-	update_step_targets()
 	# ------- Input Handling ------
 	if Input.is_action_pressed("grab_left"):
 		grabbingL = true
@@ -97,19 +85,7 @@ func _process(_delta: float) -> void:
 			# WIP, player feedback fo unsuccessfull roll?
 			pass
 	
-func update_step_targets():
-	var root_pos = player_rb.global_position + Vector3(0, -0.25, 0)
 
-	var balance_vec = player_global_mass_pos - root_pos
-	var speed = upper_body.linear_velocity.length()
-	var left_inv_transform = player_body.global_transform.inverse().basis
-	var local_balance_vec = left_inv_transform * balance_vec
-	
-	left_step_target.target_position.x = local_balance_vec.x * speed
-	left_step_target.target_position.z = local_balance_vec.z * speed
-	
-	right_step_target.target_position.x = local_balance_vec.x * speed
-	right_step_target.target_position.z = local_balance_vec.z * speed
 
 func _on_player_body_reached_target_left(item) -> void:
 	if item.get_script().get_global_name() == "DrunknessPickup":
