@@ -91,9 +91,9 @@ func sendStatsToPlayer() -> void:
 	$"../".player_global_mass_pos = player_global_mass_pos
 
 func check_furniture_contact() -> void:
-	for body in %UpperBody.get_colliding_bodies():
+	for body in PlayerBallCollider.get_colliding_bodies():
 		if body is FurniturePlayerCollider:
-			body.on_player_collision($RigidBally3D.linear_velocity)
+			body.on_player_collision(PlayerBallCollider.linear_velocity)
 
 func executeRoll():
 	$"AnimationPlayer".play("roll")

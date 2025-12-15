@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://csh7g60ebb2xa"]
+[gd_scene load_steps=15 format=3 uid="uid://csh7g60ebb2xa"]
 
 [ext_resource type="PackedScene" uid="uid://bo1p1dvgr50f4" path="res://Objects/Props/drunkness_pickup_banana.tscn" id="2_1tl4p"]
 [ext_resource type="PackedScene" uid="uid://c8m223mcy8u2o" path="res://Objects/Props/prop_box.tscn" id="2_g5tv7"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://vyau441cbd2o" path="res://Levels/Gyms/Wall/yellow_floral_wall.tscn" id="3_jvag8"]
 [ext_resource type="PackedScene" uid="uid://b7ee7to73wtp6" path="res://Levels/Gyms/Floor/floor1.tscn" id="4_g78i3"]
 [ext_resource type="PackedScene" uid="uid://d62n5s8htyn7" path="res://Characters/Teens/logic/TeenStanding.tscn" id="6_cqxer"]
+[ext_resource type="PackedScene" uid="uid://3kn1j5376oof" path="res://Objects/Architypes/Furniture/table2.tscn" id="7_ioif7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g5tv7"]
 size = Vector3(1, 4.13562, 10.459595)
@@ -149,10 +150,11 @@ wobble = true
 
 [node name="TeenStanding3" parent="Teens" instance=ExtResource("6_cqxer")]
 transform = Transform3D(-0.4095249, 0, -0.912299, 0, 1, 0, 0.912299, 0, -0.4095249, 1.8271258, 0, 0.7171595)
-animation = 1
 
 [node name="TeenStanding2" parent="Teens" instance=ExtResource("6_cqxer")]
 transform = Transform3D(0.2759729, 0, 0.9611654, 0, 1, 0, -0.9611654, 0, 0.2759729, -2.8194213, 4.7683716e-07, -0.15503109)
 wobble = true
-animation = 1
 has_loot = true
+
+[node name="Table2" parent="." instance=ExtResource("7_ioif7")]
+transform = Transform3D(0.9954512, 0, 0.09527243, 0, 1, 0, -0.09527243, 0, 0.9954512, -0.39679515, -4.7683716e-07, -3.0328772)
