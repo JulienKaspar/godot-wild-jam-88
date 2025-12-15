@@ -67,7 +67,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	
 	if animation != previous_animation:
-		print("play animation")
 		animation_player.play(animation)
 		previous_animation = animation
 	
