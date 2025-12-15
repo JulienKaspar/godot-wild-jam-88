@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://0citmm75hpfv"]
 
-[ext_resource type="PackedScene" uid="uid://dxqkcox7mndm2" path="res://Objects/Furniture_PlayerCollider.tscn" id="1_t1t5c"]
+[ext_resource type="Script" uid="uid://d1ns4f8nsxmyd" path="res://Objects/furniture_player_collider.gd" id="1_t1t5c"]
 [ext_resource type="PackedScene" uid="uid://byqqielm2jptn" path="res://Assets/Furniture/couch4.gltf" id="2_t1t5c"]
 [ext_resource type="PackedScene" uid="uid://bcsr7n75rjc4x" path="res://Objects/Furniture_PropCollider.tscn" id="3_wjxxj"]
 
@@ -13,23 +13,22 @@ size = Vector3(0.9, 0.4985674, 0.893)
 [sub_resource type="BoxShape3D" id="BoxShape3D_3gjot"]
 size = Vector3(0.95, 0.47106397, 0.5025127)
 
-[node name="Couch3" type="Node3D"]
+[node name="Couch3" type="StaticBody3D"]
+script = ExtResource("1_t1t5c")
+metadata/_custom_type_script = "uid://d1ns4f8nsxmyd"
 
-[node name="Furniture_PlayerCollider" parent="." instance=ExtResource("1_t1t5c")]
-wobble_angle = 10.0
+[node name="couch4" parent="." instance=ExtResource("2_t1t5c")]
 
-[node name="couch4" parent="Furniture_PlayerCollider" instance=ExtResource("2_t1t5c")]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Furniture_PlayerCollider"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34118652, -0.042870194)
 shape = SubResource("BoxShape3D_d3q6s")
 
-[node name="Furniture_PropCollider" parent="Furniture_PlayerCollider" instance=ExtResource("3_wjxxj")]
+[node name="Furniture_PropCollider" parent="." instance=ExtResource("3_wjxxj")]
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Furniture_PlayerCollider/Furniture_PropCollider"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Furniture_PropCollider"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24952099, -0.03139192)
 shape = SubResource("BoxShape3D_ihdhw")
 
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="Furniture_PlayerCollider/Furniture_PropCollider"]
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Furniture_PropCollider"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.59943384, -0.37319064)
 shape = SubResource("BoxShape3D_3gjot")

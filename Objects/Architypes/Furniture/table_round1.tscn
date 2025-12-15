@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://j1b5yvs8pnux"]
 
 [ext_resource type="PackedScene" uid="uid://dxvnrp0252dr0" path="res://Assets/Furniture/table_round1.gltf" id="1_ghiql"]
-[ext_resource type="PackedScene" uid="uid://dxqkcox7mndm2" path="res://Objects/Furniture_PlayerCollider.tscn" id="1_pvixw"]
+[ext_resource type="Script" uid="uid://d1ns4f8nsxmyd" path="res://Objects/furniture_player_collider.gd" id="1_qsuv7"]
 [ext_resource type="PackedScene" uid="uid://bcsr7n75rjc4x" path="res://Objects/Furniture_PropCollider.tscn" id="3_qsuv7"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_pvixw"]
@@ -16,25 +16,22 @@ radius = 0.5629883
 height = 1.0
 radius = 0.18
 
-[node name="TableRound1" type="Node3D"]
+[node name="TableRound1" type="StaticBody3D"]
+script = ExtResource("1_qsuv7")
+metadata/_custom_type_script = "uid://d1ns4f8nsxmyd"
 
-[node name="PlayerCollider" parent="." instance=ExtResource("1_pvixw")]
-wobble_angle = 20.0
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="PlayerCollider"]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CylinderShape3D_pvixw")
 
-[node name="table_round1" parent="PlayerCollider" instance=ExtResource("1_ghiql")]
+[node name="table_round1" parent="." instance=ExtResource("1_ghiql")]
 
-[node name="PropCollider" parent="PlayerCollider" instance=ExtResource("3_qsuv7")]
+[node name="PropCollider" parent="." instance=ExtResource("3_qsuv7")]
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="PlayerCollider/PropCollider"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="PropCollider"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8909142, 0)
 shape = SubResource("CylinderShape3D_du7jq")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerCollider/PropCollider"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PropCollider"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CylinderShape3D_ojjn2")
-
-[editable path="PlayerCollider"]

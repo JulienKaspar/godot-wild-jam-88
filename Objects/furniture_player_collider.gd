@@ -9,8 +9,10 @@ var wobble_strength := 0.0
 @onready var ramming_tween : Tween
 
 func _ready() -> void:
-	pass
-	#mouse_entered.connect(on_player_collision.bind(Vector3.RIGHT))
+	set_collision_layer_value(1, false)
+	set_collision_layer_value(4, true)
+	set_collision_mask_value(1, false)
+	set_collision_mask_value(2, true)
 
 
 func _process(_delta: float) -> void:
