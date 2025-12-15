@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ys3ue7e3oact"]
+
+[ext_resource type="Texture2D" uid="uid://b6x2rvyujy2v2" path="res://Assets/Maps/Rugs/big_beige_rose_roman_rug.png" id="1_7i1qq"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+diffuse_mode = 3
+albedo_texture = ExtResource("1_7i1qq")
