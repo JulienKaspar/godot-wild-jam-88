@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://buy2ulxn62u1a"]
+
+[ext_resource type="Texture2D" uid="uid://ogav63wwcoyk" path="res://Assets/Maps/Rugs/big_rose_and_gold_rug.png" id="1_oxwfk"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+diffuse_mode = 3
+albedo_texture = ExtResource("1_oxwfk")
