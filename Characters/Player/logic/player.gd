@@ -9,8 +9,6 @@ signal ChangeHandTargetL(trgt_left: Object, isValid: bool) # set isValid=false i
 signal ChangeHandTargetR(trgt_right: Object, isValid: bool) # set isValid=false if theres none
 signal ChangeMovement(state: MoveStates)
 
-
-
 @onready var player_body: Node3D = $PlayerBody
 @onready var step_target: Node3D = $PlayerBody/StepTarget
 @onready var left_step_target: RayCast3D = $PlayerBody/StepTarget/LeftRayCast
@@ -54,6 +52,7 @@ var leaning = 0.0 # owned by player_controller
 # health and safety
 var drunk_amount = 0.5
 
+
 #----------------------------------------
 
 func goRoll() -> void:
@@ -85,9 +84,10 @@ func _process(_delta: float) -> void:
 			pass
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("pickup"):
+	pass
+	#if event.is_action_pressed("pickup"):
 		#replace with hand handling (haha get it)
-		attempt_pickup()
+		#attempt_pickup()
 
 func attempt_pickup() -> void:
 	var items := get_pickups_in_range()
