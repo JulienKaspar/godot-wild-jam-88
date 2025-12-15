@@ -79,10 +79,16 @@ func check_furniture_contact() -> void:
 		if body is FurniturePlayerCollider:
 			body.on_player_collision(linear_velocity)
 
+func executeRoll():
+	$"../AnimationPlayer".play("roll")
+	$"../TimerRoll".start()
 #----------------Process-------
 
 func _process(delta: float) -> void:
 	update_body_pose(delta)
+	if Input.is_action_just_pressed("roll") && $"../../".canRoll:
+		executeRoll()
+
 	$up_aligned/helper_leaning.position = Vector3(player_move_dir.x,-0.22,player_move_dir.y)
 
 func _physics_process(delta: float) -> void:
@@ -126,3 +132,7 @@ func _physics_process(delta: float) -> void:
 
 func stateTransitionTo(targetState: Player.MoveStates):
 	pass
+
+
+func _on_timer_roll_timeout() -> void:
+	pass # Replace with function body.
