@@ -13,7 +13,7 @@ func _ready() -> void:
 	#mouse_entered.connect(on_player_collision.bind(Vector3.RIGHT))
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	
 	if not ramming_tween:
 		return

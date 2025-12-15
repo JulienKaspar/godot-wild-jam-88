@@ -1,7 +1,7 @@
 extends Node3D
 class_name Player
 
-
+@warning_ignore_start('unused_signal')
 signal ChangeHandLeft(active: HandStates)
 signal ChangeHandRight(active: HandStates)
 signal ChangeMovement(state: MoveStates)

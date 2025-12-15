@@ -158,7 +158,7 @@ func _physics_process(delta: float) -> void:
 
 #------------------ Signals Receivers ------------------------------------------
 
-func stateTransitionTo(targetState: Player.MoveStates):
+func stateTransitionTo(_targetState: Player.MoveStates):
 	pass
 
 

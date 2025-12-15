@@ -11,7 +11,7 @@ enum TeenVariation {Type1, Type2, Type3}
 @export var has_loot: bool
 @export var loot_type: LootTypes
 
-func updateWobble(delta) -> void:
+func updateWobble(_delta) -> void:
 	pass
 	
 
