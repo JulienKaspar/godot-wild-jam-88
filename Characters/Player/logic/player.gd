@@ -4,7 +4,11 @@ class_name Player
 @warning_ignore_start('unused_signal')
 signal ChangeHandLeft(active: HandStates)
 signal ChangeHandRight(active: HandStates)
+signal ChangeFeet(active: FeetStates)
+signal ChangeHandTargetL(trgt_left: Object, isValid: bool) # set isValid=false if theres none
+signal ChangeHandTargetR(trgt_right: Object, isValid: bool) # set isValid=false if theres none
 signal ChangeMovement(state: MoveStates)
+
 
 
 @onready var player_body: Node3D = $PlayerBody
@@ -28,7 +32,8 @@ signal ChangeMovement(state: MoveStates)
 
 ### statess 
 enum MoveStates {IDLE, MOVING, FALLING, ROLLING, FLASKY, FELL}
-enum HandStates {DANGLY, REACHING, HOLD, DRINKING, ROLLING}
+enum HandStates {DANGLY, REACHING, HOLD, DRINKING, ROLLING, FIXED}
+enum FeetStates {IK, REACHING, HOLD, DRINKING, ROLLING, FIXED}
 
 # input states
 var grabbingL = false
