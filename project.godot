@@ -16,9 +16,9 @@ config/features=PackedStringArray("4.5", "GL Compatibility")
 
 [autoload]
 
-GameStateManager="*res://Gameplay/game_state_manager.gd"
 ImGuiRoot="*res://addons/imgui-godot/data/ImGuiRoot.tscn"
 UserSettings="*res://Settings/user_settings.gd"
+GameStateManager="*res://Gameplay/game_state_manager.tscn"
 
 [display]
 

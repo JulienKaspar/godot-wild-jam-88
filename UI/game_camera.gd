@@ -7,6 +7,7 @@ var follow_target: Node3D
 
 func _ready() -> void:
 	follow_target = player.get_node("PlayerBody")
+	position = follow_target.position + Vector3(0,follow_distance,follow_distance)
 
 func _physics_process(_delta: float) -> void:
 	position = follow_target.position
