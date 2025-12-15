@@ -11,10 +11,10 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gjcnd"]
 shader = ExtResource("4_u3b6e")
-shader_parameter/offset_scale = 0.10000000475
-shader_parameter/noise_scale = 2.000000095
+shader_parameter/offset_scale = 0.0800000038
+shader_parameter/noise_scale = 3.0000001425
 shader_parameter/distortion_samples = 8
-shader_parameter/drunkness = 0.250000011875
+shader_parameter/drunkness = 0.150000007125
 
 [node name="GameView" type="Node"]
 script = ExtResource("1_lqkpn")
