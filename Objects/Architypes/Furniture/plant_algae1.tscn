@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dq8pax2pwl72a"]
+
+[ext_resource type="PackedScene" uid="uid://142xvokhmr2g" path="res://Objects/PropCollider.tscn" id="1_3ni0i"]
+[ext_resource type="PackedScene" uid="uid://t6novjc1bl2i" path="res://Assets/Furniture/plant_algae1.gltf" id="2_3ni0i"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_0vm3a"]
+height = 1.3618164
+radius = 0.359375
+
+[node name="Plant2" type="Node3D"]
+
+[node name="PropCollider" parent="." instance=ExtResource("1_3ni0i")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PropCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6809082, 0)
+shape = SubResource("CylinderShape3D_0vm3a")
+
+[node name="plant_algae" parent="PropCollider" instance=ExtResource("2_3ni0i")]
