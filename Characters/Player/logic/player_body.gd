@@ -45,3 +45,15 @@ func _on_player_change_hand_left(active: Player.HandStates) -> void:
 
 func _on_player_change_hand_right(active: Player.HandStates) -> void:
 	pass # Replace with function body.
+
+
+func _on_player_change_feet(active: Player.FeetStates) -> void:
+	pass # Replace with function body.
+
+
+func _on_player_change_hand_target_l(trgt_left: Object, isValid: bool) -> void:
+	pass # Replace with function body.
+
+
+func _on_player_change_hand_target_r(trgt_right: Object, isValid: bool) -> void:
+	pass # Replace with function body.

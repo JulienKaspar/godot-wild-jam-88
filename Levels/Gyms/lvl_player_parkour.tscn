@@ -1,12 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://csh7g60ebb2xa"]
+[gd_scene load_steps=16 format=3 uid="uid://csh7g60ebb2xa"]
 
-[ext_resource type="PackedScene" uid="uid://bo1p1dvgr50f4" path="res://Objects/Props/drunkness_pickup_banana.tscn" id="2_1tl4p"]
 [ext_resource type="PackedScene" uid="uid://c8m223mcy8u2o" path="res://Objects/Props/prop_box.tscn" id="2_g5tv7"]
 [ext_resource type="PackedScene" uid="uid://b32xnjnsc6xts" path="res://Levels/Gyms/Wall/wooden_wall.tscn" id="2_g78i3"]
 [ext_resource type="PackedScene" uid="uid://vyau441cbd2o" path="res://Levels/Gyms/Wall/yellow_floral_wall.tscn" id="3_jvag8"]
 [ext_resource type="PackedScene" uid="uid://b7ee7to73wtp6" path="res://Levels/Gyms/Floor/floor1.tscn" id="4_g78i3"]
 [ext_resource type="PackedScene" uid="uid://d62n5s8htyn7" path="res://Characters/Teens/logic/TeenStanding.tscn" id="6_cqxer"]
+[ext_resource type="PackedScene" uid="uid://d3unw205fanv5" path="res://Objects/Loot/pickup_beer.tscn" id="7_advv7"]
 [ext_resource type="PackedScene" uid="uid://3kn1j5376oof" path="res://Objects/Architypes/Furniture/table2.tscn" id="7_ioif7"]
+[ext_resource type="PackedScene" uid="uid://bo1p1dvgr50f4" path="res://Objects/Loot/pickup_banana.tscn" id="8_advv7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g5tv7"]
 size = Vector3(1, 4.13562, 10.459595)
@@ -137,12 +138,10 @@ light_color = Color(0.7083334, 1, 0.3, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4041052, 1.5085213, -4.2164483)
 light_color = Color(0.7083334, 1, 0.3, 1)
 
-[node name="DrunknessPickup" parent="." instance=ExtResource("2_1tl4p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.72499, 0.025762774, -1.9445195)
-
 [node name="Floor" parent="." instance=ExtResource("4_g78i3")]
 
 [node name="Teens" type="Node3D" parent="."]
+visible = false
 
 [node name="TeenStanding" parent="Teens" instance=ExtResource("6_cqxer")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7744911, 9.536743e-07, -0.9332844)
@@ -158,3 +157,23 @@ has_loot = true
 
 [node name="Table2" parent="." instance=ExtResource("7_ioif7")]
 transform = Transform3D(0.9954512, 0, 0.09527243, 0, 1, 0, -0.09527243, 0, 0.9954512, -0.39679515, -4.7683716e-07, -3.0328772)
+
+[node name="Loot" type="Node3D" parent="."]
+
+[node name="DrunknessPickup" parent="Loot" instance=ExtResource("7_advv7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4190791, 0.8443067, -2.699389)
+
+[node name="DrunknessPickup2" parent="Loot" instance=ExtResource("7_advv7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2162056, 0.8443067, -3.1547353)
+
+[node name="DrunknessPickup3" parent="Loot" instance=ExtResource("7_advv7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5500355, 0.9314556, -0.5635946)
+
+[node name="DrunknessPickup" parent="." instance=ExtResource("8_advv7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9179133, 0.8382794, -2.5721056)
+
+[node name="DrunknessPickup2" parent="." instance=ExtResource("8_advv7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7835407, 0.502098, 1.7201093)
+
+[node name="DrunknessPickup3" parent="." instance=ExtResource("8_advv7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3724215, 0.10012102, 0.0153950155)

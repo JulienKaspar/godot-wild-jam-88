@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bo1p1dvgr50f4"]
+[gd_scene load_steps=6 format=3 uid="uid://bo1p1dvgr50f4"]
 
-[ext_resource type="Script" uid="uid://b3w4gu3se7vnv" path="res://Gameplay/Pickups/drunkness_pickup.gd" id="1_fwtl3"]
-[ext_resource type="PackedScene" uid="uid://dah5q3vw2jba7" path="res://Assets/Furniture/banana1.gltf" id="1_wir5q"]
+[ext_resource type="Script" uid="uid://b3w4gu3se7vnv" path="res://Gameplay/Pickups/drunkness_pickup.gd" id="1_4iwu5"]
+[ext_resource type="PackedScene" uid="uid://dah5q3vw2jba7" path="res://Assets/Furniture/banana1.gltf" id="2_0boxb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fwtl3"]
 size = Vector3(0.21875, 0.15429688, 0.16601563)
@@ -9,12 +9,16 @@ size = Vector3(0.21875, 0.15429688, 0.16601563)
 [sub_resource type="ViewportTexture" id="ViewportTexture_fwtl3"]
 viewport_path = NodePath("PickupPrompt/SubViewport")
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_gbqmf"]
+radius = 0.1
+
 [node name="DrunknessPickup" type="RigidBody3D"]
 collision_layer = 32
 collision_mask = 63
-script = ExtResource("1_fwtl3")
+script = ExtResource("1_4iwu5")
+drunkness_increase = -0.5
 
-[node name="banana" parent="." instance=ExtResource("1_wir5q")]
+[node name="banana" parent="." instance=ExtResource("2_0boxb")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0007324219, 0.036132813, 0)
@@ -41,3 +45,9 @@ text = "Press Space to pickup
 "
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Area3D" type="Area3D" parent="."]
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_gbqmf")
