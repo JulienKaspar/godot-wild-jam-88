@@ -19,6 +19,7 @@ size = Vector3(0.285, 0.6469795, 1.03)
 [node name="Couch1" type="Node3D"]
 
 [node name="Furniture_PlayerCollider" parent="." instance=ExtResource("2_ihdhw")]
+wobble_angle = 10.0
 
 [node name="couch1" parent="Furniture_PlayerCollider" instance=ExtResource("1_d3q6s")]
 

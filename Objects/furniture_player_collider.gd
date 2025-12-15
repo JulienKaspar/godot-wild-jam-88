@@ -1,8 +1,10 @@
 extends StaticBody3D
 class_name FurniturePlayerCollider
 
-var wobble_strength := 0.0
+@export_range(0.0, 45.0) var wobble_angle := 15.0
+@export var wobble_time := 1.0
 
+var wobble_strength := 0.0
 
 @onready var ramming_tween : Tween
 
@@ -19,11 +21,30 @@ func _process(delta: float) -> void:
 		return
 	
 	var sine_scale := 0.01
-	var rotation_max := deg_to_rad(10)
-	rotation.x = rotation_max * wobble_strength * sin(Time.get_ticks_msec() * sine_scale)
+	var rotation_max := deg_to_rad(wobble_angle)
+	
+	# Adjust the beginning of the wobble to prevent props flying off and shelves devouring the player.
+	var less_agressive_wobble_strength := wobble_strength
+	if wobble_strength > 0.975:
+		less_agressive_wobble_strength = remap(
+			less_agressive_wobble_strength,
+			0.975,
+			1.0,
+			0.9,
+			0.0
+		)
+	#print("less_agressive_wobble_strength = " + str(less_agressive_wobble_strength))
+	
+	var current_rotation := (
+		rotation_max
+		* less_agressive_wobble_strength
+		* (sin(Time.get_ticks_msec() * sine_scale))
+	)
+	
+	rotation.x = current_rotation
 
 
-func on_player_collision(velocity : Vector3) -> void:
+func on_player_collision(collision_velocity : Vector3) -> void:
 	
 	if ramming_tween:
 		if ramming_tween.is_running():
@@ -31,9 +52,7 @@ func on_player_collision(velocity : Vector3) -> void:
 	
 	wobble_strength = 1.0
 	
-	print("velocity length = " + str(velocity.length()))
-	
 	ramming_tween = get_tree().create_tween()
 	#ramming_tween.set_trans(Tween.TRANS_QUART)
 	ramming_tween.set_ease(Tween.EASE_OUT)
-	ramming_tween.tween_property(self, "wobble_strength", 0.0, 1.0)
+	ramming_tween.tween_property(self, "wobble_strength", 0.0, wobble_time)

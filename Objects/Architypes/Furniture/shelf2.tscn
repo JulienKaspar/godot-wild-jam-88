@@ -13,6 +13,7 @@ size = Vector3(1.975, 2.9770508, 0.6563721)
 [node name="Shelf2" type="Node3D"]
 
 [node name="Furniture_PlayerCollider" parent="." instance=ExtResource("1_hgmj5")]
+wobble_angle = 5.0
 
 [node name="shelf2" parent="Furniture_PlayerCollider" instance=ExtResource("2_hgmj5")]
 
