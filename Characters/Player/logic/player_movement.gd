@@ -96,8 +96,8 @@ func check_furniture_contact() -> void:
 			body.on_player_collision($RigidBally3D.linear_velocity)
 
 func executeRoll():
-	$"../AnimationPlayer".play("roll")
-	$"../TimerRoll".start()
+	$"AnimationPlayer".play("roll")
+	$"TimerRoll".start()
 	
 #----------------Process--------------------------------------------------------
 #-------------------------------------------------------------------------------
@@ -163,4 +163,8 @@ func stateTransitionTo(targetState: Player.MoveStates):
 
 
 func _on_timer_roll_timeout() -> void:
+	pass # Replace with function body.
+
+
+func _on_player_change_movement(state: Player.MoveStates) -> void:
 	pass # Replace with function body.
