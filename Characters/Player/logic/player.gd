@@ -8,6 +8,7 @@ signal ChangeFeet(active: FeetStates)
 signal ChangeHandTargetL(trgt_left: Object, isValid: bool) # set isValid=false if theres none
 signal ChangeHandTargetR(trgt_right: Object, isValid: bool) # set isValid=false if theres none
 signal ChangeMovement(state: MoveStates)
+signal ConsumedDrunkness(value:float)
 
 @onready var player_body: Node3D = $PlayerBody
 @onready var step_target: Node3D = $PlayerBody/StepTarget
@@ -24,9 +25,6 @@ signal ChangeMovement(state: MoveStates)
 
 @onready var left_hand_target: Node3D = $LeftHandTarget
 @onready var right_hand_target: Node3D = $RightHandTarget
-
-
-
 
 ### statess 
 enum MoveStates {IDLE, MOVING, FALLING, ROLLING, FLASKY, FELL}
@@ -57,6 +55,14 @@ var drunk_amount = 0.5
 
 func goRoll() -> void:
 	pass
+	
+func setHandLState(state: HandStates):
+	HandLState = state
+	self.ChangeHandLeft.emit(state)
+
+func setHandRState(state: HandStates):
+	HandLState = state
+	self.ChangeHandRight.emit(state)
 
 func _process(_delta: float) -> void:
 	# Make the armature follow the physics bodies
@@ -68,13 +74,21 @@ func _process(_delta: float) -> void:
 	# ------- Input Handling ------
 	if Input.is_action_pressed("grab_left"):
 		grabbingL = true
+		if HandLState == HandStates.DANGLY: 
+			setHandLState(HandStates.REACHING)
 	else:
 		grabbingL = false
-		
+		if HandLState == HandStates.REACHING: 
+			setHandLState(HandStates.DANGLY)
+			
 	if Input.is_action_pressed("grab_right"):
 		grabbingR = true
+		if HandRState == HandStates.DANGLY: 
+			setHandRState(HandStates.REACHING)
 	else:
 		grabbingR = false
+		if HandRState == HandStates.REACHING: 
+			setHandRState(HandStates.DANGLY)
 		
 	if Input.is_action_just_pressed("roll"):
 		if canRoll:
@@ -82,29 +96,6 @@ func _process(_delta: float) -> void:
 		else:
 			# WIP, player feedback fo unsuccessfull roll?
 			pass
-
-func _unhandled_input(event: InputEvent) -> void:
-	pass
-	#if event.is_action_pressed("pickup"):
-		#replace with hand handling (haha get it)
-		#attempt_pickup()
-
-func attempt_pickup() -> void:
-	var items := get_pickups_in_range()
-	if items.size() == 0:
-		return
-	
-	var pickup: DrunknessPickup = items[0]
-	pickup.pickup(self)
-
-func get_pickups_in_range() -> Array[DrunknessPickup]:
-	var amount_of_items_in_range: int = pickup_radius.get_collision_count()
-	var items_in_range: Array[DrunknessPickup] = []
-	for i in amount_of_items_in_range:
-		var item = pickup_radius.get_collider(i)
-		if item is DrunknessPickup:
-			items_in_range.append(item)
-	return items_in_range
 	
 func update_step_targets():
 	var root_pos = player_rb.global_position + Vector3(0, -0.25, 0)
@@ -119,4 +110,15 @@ func update_step_targets():
 	
 	right_step_target.target_position.x = local_balance_vec.x * speed
 	right_step_target.target_position.z = local_balance_vec.z * speed
-	
+
+func _on_player_body_reached_target_left(item) -> void:
+	if item.get_script().get_global_name() == "DrunknessPickup":
+		setHandLState(HandStates.HOLD)
+	else:
+		setHandLState(HandStates.FIXED)
+
+func _on_player_body_reached_target_right(item) -> void:
+	if item.get_script().get_global_name() == "DrunknessPickup":
+		setHandRState(HandStates.HOLD)
+	else:
+		setHandRState(HandStates.FIXED)
