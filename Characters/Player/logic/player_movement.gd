@@ -1,5 +1,9 @@
-extends RigidBody3D
+extends Node3D
 class_name PlayerController
+
+@export var DebugDraw = true
+@onready var PlayerBodyCollider = %UpperBody
+@onready var PlayerBallCollider = $RigidBally3D
 
 #---------------- Movement Settings -----------------------
 static var player_input_strength = 1.0 # how much player has control
@@ -16,7 +20,6 @@ static var move_force_multiplier = 100.0 # phys impulse scale
 static var upper_body_stiffness = 1.5 # scales impulse to bring body back to target
 static var body_leaning_force = 0.1 # how much move direction is added to pose correction
 
-
 #---------------- State -----------------------------------
 
 var drunk_noise_vector = Vector2(0,0)
@@ -32,6 +35,19 @@ var drunk_amount = 0.0
 
 #----------------Utility-------
 
+func toggleDebugDraw() -> void:
+	if DebugDraw: hideelpers()
+	else: showHelpers()
+
+func showHelpers() -> void:
+	DebugDraw = true
+	self.show()
+
+func hideelpers() -> void:
+	DebugDraw = false
+	self.hide()
+
+
 # generate some noise direction but tend to fall in one direction
 func update_drunk_vector(delta) -> void:
 	var new_noise = Vector2(randf() - 0.5,randf() - 0.5)
@@ -41,20 +57,20 @@ func update_drunk_vector(delta) -> void:
 
 func update_body_pose(_delta) -> void:
 	var angle = atan2(player_facing_dir.x, player_facing_dir.y)
-	$up_aligned.global_rotation = Vector3(0,0,0)
-	$upper_body_pivot.global_rotation = Vector3(0,angle,0)
+	%up_aligned.global_rotation = Vector3(0,0,0)
+	%upper_body_pivot.global_rotation = Vector3(0,angle,0)
 
 func update_vectors() -> void:
-	player_move_dir.x = self.linear_velocity.x
-	player_move_dir.y = self.linear_velocity.z
+	player_move_dir.x = PlayerBallCollider.linear_velocity.x
+	player_move_dir.y = PlayerBallCollider.linear_velocity.z
 	player_speed = player_move_dir.length()
 
-	player_global_pos = self.global_position
+	player_global_pos = PlayerBallCollider.global_position
 	player_global_pos.y -= 0.25
-	player_global_mass_pos = $"../UpperBody".global_position
+	player_global_mass_pos = PlayerBodyCollider.global_position
 	player_global_mass_pos.y = player_global_pos.y
 	
-	leaning =  $"../UpperBody".global_transform.basis.y.dot(refUpVector)
+	leaning =  PlayerBodyCollider.global_transform.basis.y.dot(refUpVector)
 	leaning = 1 -clampf(leaning, 0, 1)
 
 func update_rotation(delta) -> void:
@@ -62,34 +78,45 @@ func update_rotation(delta) -> void:
 		player_facing_dir = lerp(player_facing_dir, player_move_dir, player_turn_speed*delta).normalized()
 
 func updateDebugHelpers(playerInputDir):
-	$up_aligned/helper_player_dir.position = Vector3(playerInputDir.x,-0.21,playerInputDir.y)
-	$up_aligned/helper_drunk_dir.position = Vector3(drunk_noise_vector.x,-0.21,drunk_noise_vector.y)
-	$up_aligned/helper_player_facing.position = Vector3(player_facing_dir.x,-0.20,player_facing_dir.y)
+	%up_aligned/helper_player_dir.position = Vector3(playerInputDir.x,-0.21,playerInputDir.y)
+	%up_aligned/helper_drunk_dir.position = Vector3(drunk_noise_vector.x,-0.21,drunk_noise_vector.y)
+	%up_aligned/helper_player_facing.position = Vector3(player_facing_dir.x,-0.20,player_facing_dir.y)
 
 func sendStatsToPlayer() -> void:
-	$"../../".player_speed = player_speed
-	$"../../".player_move_dir = player_move_dir
-	$"../../".player_facing_dir = player_facing_dir
-	$"../../".leaning = leaning
-	$"../../".player_global_pos = player_global_mass_pos
-	$"../../".player_global_mass_pos = player_global_mass_pos
+	$"../".player_speed = player_speed
+	$"../".player_move_dir = player_move_dir
+	$"../".player_facing_dir = player_facing_dir
+	$"../".leaning = leaning
+	$"../".player_global_pos = player_global_mass_pos
+	$"../".player_global_mass_pos = player_global_mass_pos
 
 func check_furniture_contact() -> void:
-	for body in get_colliding_bodies():
+	for body in %UpperBody.get_colliding_bodies():
 		if body is FurniturePlayerCollider:
-			body.on_player_collision(linear_velocity)
+			body.on_player_collision($RigidBally3D.linear_velocity)
 
 func executeRoll():
 	$"../AnimationPlayer".play("roll")
 	$"../TimerRoll".start()
-#----------------Process-------
+	
+#----------------Process--------------------------------------------------------
+#-------------------------------------------------------------------------------
+func _ready() -> void:
+	if DebugDraw:
+		showHelpers()
+	else:
+		hideelpers()
 
 func _process(delta: float) -> void:
 	update_body_pose(delta)
-	if Input.is_action_just_pressed("roll") && $"../../".canRoll:
+	if Input.is_action_just_pressed("roll") && $"../".canRoll:
 		executeRoll()
+	
+	# ------------- Debug ----------------------------
+	if Input.is_action_just_pressed("debug_DrawHelpers"):
+		toggleDebugDraw()
 
-	$up_aligned/helper_leaning.position = Vector3(player_move_dir.x,-0.22,player_move_dir.y)
+	%up_aligned/helper_leaning.position = Vector3(player_move_dir.x,-0.22,player_move_dir.y)
 
 func _physics_process(delta: float) -> void:
 	# -------- player input ------------
@@ -106,29 +133,30 @@ func _physics_process(delta: float) -> void:
 	move_force += drunk_noise_vector * drunk_input_strength
 	move_force *= delta * move_force_multiplier
 	var impulse = Vector3(move_force.x, 0, move_force.y)
-	self.apply_central_impulse(impulse)
+	PlayerBallCollider.apply_central_impulse(impulse)
 	
 	# -------- push upper body ----------
-	var body_offset = self.global_position - $"../UpperBody".global_position
+	var body_offset = PlayerBallCollider.global_position - PlayerBodyCollider.global_position
 	body_offset.y = 0.0
 	body_offset.x += player_move_dir.x * body_leaning_force
 	body_offset.z += player_move_dir.y * body_leaning_force
 	body_offset = body_offset * upper_body_stiffness
-	$"../UpperBody".apply_impulse(body_offset)
+	PlayerBodyCollider.apply_impulse(body_offset)
 	
 	# -------- rotate upper body ----------
 	var body_torque = Vector3(0,0,0)
-	var body_fwd_dir = $"../UpperBody".global_transform.basis.x
+	var body_fwd_dir = PlayerBodyCollider.global_transform.basis.x
 	body_fwd_dir.y = 0
 	body_fwd_dir = body_fwd_dir.normalized()
 	
 	var body_fwd_2D = Vector2(body_fwd_dir.x, body_fwd_dir.z)
 	body_torque.y = body_fwd_2D.dot(player_facing_dir) * 10 * delta
-	$"../UpperBody".apply_torque_impulse(body_torque)
+	PlayerBodyCollider.apply_torque_impulse(body_torque)
 	
 	sendStatsToPlayer()
 	check_furniture_contact()
 
+#------------------ Signals Receivers ------------------------------------------
 
 func stateTransitionTo(targetState: Player.MoveStates):
 	pass

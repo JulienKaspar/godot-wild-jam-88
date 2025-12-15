@@ -1,6 +1,12 @@
 extends Node3D
 class_name Player
 
+
+signal ChangeHandLeft(active: HandStates)
+signal ChangeHandRight(active: HandStates)
+signal ChangeMovement(state: MoveStates)
+
+
 @onready var player_body: Node3D = $PlayerBody
 @onready var step_target: Node3D = $PlayerBody/StepTarget
 @onready var left_step_target: RayCast3D = $PlayerBody/StepTarget/LeftRayCast
@@ -18,9 +24,11 @@ class_name Player
 @onready var right_hand_target: Node3D = $RightHandTarget
 
 
+
+
 ### statess 
 enum MoveStates {IDLE, MOVING, FALLING, ROLLING, FLASKY, FELL}
-enum HandStates {DANGLY, REACHING, HOLD, DRINKING}
+enum HandStates {DANGLY, REACHING, HOLD, DRINKING, ROLLING}
 
 # input states
 var grabbingL = false

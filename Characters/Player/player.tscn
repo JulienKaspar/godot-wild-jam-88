@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b86lbtpyigxs5" path="res://Characters/Player/player_body.tscn" id="2_cue0d"]
 [ext_resource type="Script" uid="uid://cw4emr5i7rkes" path="res://Characters/Player/logic/player.gd" id="3_cue0d"]
 [ext_resource type="Script" uid="uid://bjbv1gqsn4eao" path="res://Gameplay/Drunkness/player_drunkness.gd" id="4_bqsbk"]
-[ext_resource type="Script" uid="uid://c04lkn4hohoj4" path="res://Characters/Player/pickup_radius.gd" id="5_xf5fp"]
+[ext_resource type="Script" path="res://Characters/Player/pickup_radius.gd" id="5_xf5fp"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_cue0d"]
 radius = 0.05
@@ -22,6 +22,7 @@ radius = 3.0
 script = ExtResource("3_cue0d")
 
 [node name="PlayerController" parent="." instance=ExtResource("1_j341n")]
+DebugDraw = false
 
 [node name="PlayerBody" parent="." node_paths=PackedStringArray("left_hand_target", "right_hand_target") instance=ExtResource("2_cue0d")]
 left_hand_target = NodePath("../LeftHandTarget")
@@ -50,3 +51,5 @@ shape = SubResource("SphereShape3D_bqsbk")
 target_position = Vector3(0, 0, 0)
 collision_mask = 32
 script = ExtResource("5_xf5fp")
+
+[connection signal="ChangeMovement" from="." to="PlayerController" method="_on_player_change_movement"]

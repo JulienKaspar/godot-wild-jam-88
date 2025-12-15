@@ -1,37 +1,6 @@
-[gd_scene load_steps=26 format=3 uid="uid://cx2qst5txs1af"]
+[gd_scene load_steps=25 format=3 uid="uid://cx2qst5txs1af"]
 
-[ext_resource type="Script" uid="uid://cdppyptuftkiw" path="res://Characters/Player/logic/player_movement.gd" id="1_oj1ta"]
-
-[sub_resource type="GDScript" id="GDScript_jkj6u"]
-resource_name = "movcon_settings"
-script/source = "extends Node3D
-@export var DebugDraw = true
-
-# Called when the node enters the scene tree for the first time.
-func toggleDebugDraw() -> void:
-	if DebugDraw:
-		hideelpers()
-	else:
-		showHelpers()
-
-func showHelpers() -> void:
-	DebugDraw = true
-	self.show()
-
-func hideelpers() -> void:
-	DebugDraw = false
-	self.hide()
-
-func _ready() -> void:
-	if DebugDraw:
-		showHelpers()
-	else:
-		hideelpers()
-
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed(\"debug_DrawHelpers\"):
-		toggleDebugDraw()
-"
+[ext_resource type="Script" uid="uid://cdppyptuftkiw" path="res://Characters/Player/logic/player_movement.gd" id="1_jkj6u"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_056gf"]
 margin = 0.0
@@ -106,6 +75,12 @@ height = 0.76420593
 radius = 0.082
 height = 0.764
 
+[sub_resource type="Animation" id="Animation_6yvek"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_on8bp"]
+resource_name = "flasky_drink"
+
 [sub_resource type="Animation" id="Animation_jkj6u"]
 resource_name = "roll"
 tracks/0/type = "bezier"
@@ -175,12 +150,6 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0, 1)
 }
 
-[sub_resource type="Animation" id="Animation_6yvek"]
-length = 0.001
-
-[sub_resource type="Animation" id="Animation_on8bp"]
-resource_name = "flasky_drink"
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_on8bp"]
 _data = {
 &"RESET": SubResource("Animation_6yvek"),
@@ -189,17 +158,16 @@ _data = {
 }
 
 [node name="PlayerController" type="Node3D"]
-script = SubResource("GDScript_jkj6u")
-DebugDraw = false
+script = ExtResource("1_jkj6u")
 
 [node name="RigidBally3D" type="RigidBody3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.251, 0)
 collision_layer = 2
 collision_mask = 61
 mass = 50.0
 contact_monitor = true
 max_contacts_reported = 10
-script = ExtResource("1_oj1ta")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBally3D"]
 shape = SubResource("SphereShape3D_056gf")
@@ -222,6 +190,7 @@ mesh = SubResource("PrismMesh_jkj6u")
 surface_material_override/0 = SubResource("StandardMaterial3D_t5fyq")
 
 [node name="up_aligned" type="Node3D" parent="RigidBally3D"]
+unique_name_in_owner = true
 
 [node name="helper_leaning" type="MeshInstance3D" parent="RigidBally3D/up_aligned"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2206907, 0)
@@ -340,4 +309,4 @@ one_shot = true
 wait_time = 10.0
 one_shot = true
 
-[connection signal="timeout" from="TimerRoll" to="RigidBally3D" method="_on_timer_roll_timeout"]
+[connection signal="timeout" from="TimerRoll" to="." method="_on_timer_roll_timeout"]
