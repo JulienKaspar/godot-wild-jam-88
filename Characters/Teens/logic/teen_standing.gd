@@ -1,15 +1,56 @@
+@tool
 extends Node3D
-
 class_name Teen
-enum CharacterAnims {Chatting, Disco, Drinking, Idle, Omg, Wall }
+
+#enum CharacterAnims {
+	#Chatting,
+	#CouchThinking,
+	#Dancing1,
+	#Dancing2,
+	#Dico1,
+	#DiscoJump,
+	#Drinking,
+	#HeavyHead,
+	#Idle,
+	#Omg,
+	#Pls,
+	#SleepCouch1,
+	#SurprizedConfused,
+	#SurprizedMad,
+	#Wall,
+	#Worm
+	#}
 enum LootTypes {Beer, Pizza }
 enum TeenVariation {Type1, Type2, Type3}
 
+# References
+@export var animation_player : AnimationPlayer
+
+var previous_animation := "None"
+@export_enum(
+	"Chatting",
+	"CouchThinking",
+	"Dancing",
+	"Dancing2",
+	"Dico1",
+	"DiscoJump",
+	"Drinking",
+	"HeavyHead",
+	"Idle",
+	"Omg",
+	"Pls",
+	"SleepCouch1",
+	"SuprizedConfused",
+	"SuprizedMad",
+	"Wall",
+	"Worm"
+	) var animation := "Idle"
+
 @export var variation: TeenVariation
 @export var wobble: bool
-@export var animation: CharacterAnims
 @export var has_loot: bool
 @export var loot_type: LootTypes
+
 
 func updateWobble(delta) -> void:
 	pass
@@ -24,6 +65,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
+	if animation != previous_animation:
+		print("play animation")
+		animation_player.play(animation)
+		previous_animation = animation
+	
 	if wobble:
 		updateWobble(delta)
 	
