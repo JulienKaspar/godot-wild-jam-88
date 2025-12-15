@@ -21,14 +21,16 @@ static var upper_body_stiffness = 1.5 # scales impulse to bring body back to tar
 static var body_leaning_force = 0.1 # how much move direction is added to pose correction
 
 #---------------- State -----------------------------------
+@onready var player_facing_dir = Vector2(0, 0)
+#@onready var player_global_pos = %RigidBally3D.global_position - Vector3(0,0.25,0)
+@onready var player_global_pos = Vector3(0,0,0)
+@onready var player_global_mass_pos = Vector3(0,0,0)
 
 var drunk_noise_vector = Vector2(0,0)
 var player_move_dir = Vector2(0,0)
 var player_speed = 0.0
-var player_facing_dir = Vector2(0,1.0)
 var leaning = 0.0
-var player_global_pos = Vector3(0,0,0)
-var player_global_mass_pos = Vector3(0,0,0)
+
 
 # outside influence
 var drunk_amount = 0.0
@@ -102,6 +104,7 @@ func executeRoll():
 #----------------Process--------------------------------------------------------
 #-------------------------------------------------------------------------------
 func _ready() -> void:
+	
 	if DebugDraw:
 		showHelpers()
 	else:
@@ -161,10 +164,34 @@ func _physics_process(delta: float) -> void:
 func stateTransitionTo(_targetState: Player.MoveStates):
 	pass
 
-
 func _on_timer_roll_timeout() -> void:
 	pass # Replace with function body.
 
 
 func _on_player_change_movement(state: Player.MoveStates) -> void:
 	pass # Replace with function body.
+
+func Reset(newpos: Vector3) -> void:
+	PlayerBodyCollider.freeze = true
+	PlayerBallCollider.freeze = true
+	
+	newpos.y += 0.25
+	PlayerBallCollider.global_position = newpos
+	PlayerBallCollider.rotation = Vector3(0,0,0)
+	
+	$NoRotateBall.global_position = newpos
+	newpos.y += 0.914
+	PlayerBodyCollider.global_position = newpos
+	PlayerBodyCollider.rotation = Vector3(0,0,0)
+
+	drunk_noise_vector = Vector2(0,0)
+	player_move_dir = Vector2(0,0)
+	player_speed = 0.0
+	player_facing_dir = Vector2(0,1.0)
+	leaning = 0.0
+	player_global_pos = Vector3(0,0,0)
+	player_global_mass_pos = Vector3(0,0,0)
+
+	PlayerBodyCollider.freeze = false
+	PlayerBallCollider.freeze = false
+	pass

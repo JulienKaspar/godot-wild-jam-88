@@ -40,7 +40,8 @@ func hip_step():
 	t.tween_property(player_armature, "position", starting, 0.2).set_ease(Tween.EASE_OUT)
 	t.tween_callback(func(): stepping = false)
 	
-
+func Reset() -> void:
+	pass
 
 func _on_player_change_hand_left(active: Player.HandStates) -> void:
 	pass
