@@ -101,9 +101,9 @@ func update_step_targets():
 	var root_pos = player_rb.global_position + Vector3(0, -0.25, 0)
 
 	var balance_vec = player_global_mass_pos - root_pos
-	var speed = upper_body.linear_velocity.length() * 1.5
+	var speed = upper_body.linear_velocity.length()
 	var left_inv_transform = player_body.global_transform.inverse().basis
-	var local_balance_vec = left_inv_transform * (balance_vec * 2)
+	var local_balance_vec = left_inv_transform * balance_vec
 	
 	left_step_target.target_position.x = local_balance_vec.x * speed
 	left_step_target.target_position.z = local_balance_vec.z * speed

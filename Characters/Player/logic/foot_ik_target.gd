@@ -5,7 +5,7 @@ signal has_started_stepping()
 @export var step_target: Node3D
 @export var other_foot: Node3D
 
-var step_distance: float = 0.7
+var step_distance: float = 0.5
 var lean_distance: float = 0.2
 var step_speed: float = 0.1
 
