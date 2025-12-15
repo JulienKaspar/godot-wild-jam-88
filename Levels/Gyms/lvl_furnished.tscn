@@ -1,6 +1,6 @@
 [gd_scene load_steps=28 format=3 uid="uid://dm386yfmjf84v"]
 
-[ext_resource type="PackedScene" uid="uid://ca1my6sln27or" path="res://Levels/Gyms/Wall/floral_wall.tscn" id="2_h8x84"]
+[ext_resource type="PackedScene" path="res://Levels/Gyms/Wall/yellow_floral_wall.tscn" id="2_h8x84"]
 [ext_resource type="PackedScene" uid="uid://b32xnjnsc6xts" path="res://Levels/Gyms/Wall/wooden_wall.tscn" id="2_jc5s1"]
 [ext_resource type="PackedScene" path="res://Levels/Gyms/Wall/reddish_floral_wall.tscn" id="3_8fmlr"]
 [ext_resource type="PackedScene" uid="uid://bo1p1dvgr50f4" path="res://Objects/Props/drunkness_pickup_banana.tscn" id="3_pifnr"]
