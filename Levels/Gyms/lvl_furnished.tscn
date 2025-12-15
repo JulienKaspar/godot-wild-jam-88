@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dm386yfmjf84v"]
+[gd_scene load_steps=30 format=3 uid="uid://dm386yfmjf84v"]
 
 [ext_resource type="PackedScene" path="res://Levels/Gyms/Wall/yellow_floral_wall.tscn" id="2_h8x84"]
 [ext_resource type="PackedScene" uid="uid://b32xnjnsc6xts" path="res://Levels/Gyms/Wall/wooden_wall.tscn" id="2_jc5s1"]
@@ -20,6 +20,8 @@
 [ext_resource type="PackedScene" uid="uid://ddteva4k7c36x" path="res://Characters/Teens/Teen1.tscn" id="16_pwn3i"]
 [ext_resource type="PackedScene" uid="uid://bq5qgi374en3b" path="res://Characters/Teens/Teen2.tscn" id="17_h8x84"]
 [ext_resource type="PackedScene" uid="uid://cvrgrh3m5x2er" path="res://Characters/Teens/Teen3.tscn" id="18_8fmlr"]
+[ext_resource type="PackedScene" uid="uid://c3nkcb3esyxsx" path="res://Objects/Architypes/Furniture/couch2.tscn" id="21_luaoq"]
+[ext_resource type="PackedScene" uid="uid://cugf77dasisxg" path="res://Objects/Architypes/Furniture/couch3.tscn" id="22_85n6a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g5tv7"]
 size = Vector3(1, 4.13562, 10.459595)
@@ -145,7 +147,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3400307, 0.01974529, -4.77
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20229551, 0.005311489, -4.769736)
 
 [node name="Shelf2" parent="." instance=ExtResource("8_h8x84")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.7034802, 0, -0.7238312)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.7034802, 0, -0.05430025)
 
 [node name="Table1" parent="." instance=ExtResource("9_8fmlr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9268818, 0.0067982036, -2.2458487)
@@ -160,7 +162,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.159515, 0.5000005, -3.88253
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8380394, 0, 3.7092438)
 
 [node name="Plant1" parent="." instance=ExtResource("12_85n6a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.470716, -4.7683716e-07, 0.7187376)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.470716, -4.7683716e-07, 1.186525)
 
 [node name="Plant2" parent="." instance=ExtResource("12_85n6a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4318624, 0.5000005, -0.84835386)
@@ -211,10 +213,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13921845, 0.83297414, 2.328
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8680503, 0.82579106, -2.2078133)
 
 [node name="Teen1" parent="." instance=ExtResource("16_pwn3i")]
-transform = Transform3D(0.716509, 0, 0.6975779, 0, 1, 0, -0.6975779, 0, 0.716509, -4.239352, 0, 1.7161052)
+transform = Transform3D(0.716509, 0, 0.6975779, 0, 1, 0, -0.6975779, 0, 0.716509, -3.896625, 0, 1.7161052)
 
 [node name="Teen2" parent="." instance=ExtResource("17_h8x84")]
-transform = Transform3D(-0.7076373, 0, -0.7065759, 0, 1, 0, 0.7065759, 0, -0.7076373, -3.6293232, 0, 2.3273044)
+transform = Transform3D(-0.7076373, 0, -0.7065759, 0, 1, 0, 0.7065759, 0, -0.7076373, -3.1701837, 0, 2.3273044)
 
 [node name="Teen3" parent="." instance=ExtResource("16_pwn3i")]
 transform = Transform3D(-0.21115418, 0, 0.97745275, 0, 1, 0, -0.97745275, 0, -0.21115418, -3.7511568, 0, 3.9431205)
@@ -233,3 +235,9 @@ transform = Transform3D(0.5479137, 0, 0.83653486, 0, 1, 0, -0.83653486, 0, 0.547
 
 [node name="Teen8" parent="." instance=ExtResource("17_h8x84")]
 transform = Transform3D(-0.9865921, 0, -0.16320533, 0, 1, 0, 0.16320533, 0, -0.9865921, 2.430975, 0, 2.17602)
+
+[node name="Couch2" parent="." instance=ExtResource("21_luaoq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6076002, 0.005937904, -4.145459)
+
+[node name="Couch3" parent="." instance=ExtResource("22_85n6a")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.447929, 0.00027632713, -2.8087442)
