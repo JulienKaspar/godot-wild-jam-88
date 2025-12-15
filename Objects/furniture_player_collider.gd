@@ -49,6 +49,9 @@ func on_player_collision(collision_velocity : Vector3) -> void:
 	if ramming_tween:
 		if ramming_tween.is_running():
 			return
+	# NOTE: This doesn't take the direction into account where the character is moving towards.
+	if collision_velocity.length() < 0.5:
+		return
 	
 	wobble_strength = 1.0
 	
