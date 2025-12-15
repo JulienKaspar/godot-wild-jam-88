@@ -1,0 +1,204 @@
+[gd_scene load_steps=13 format=3 uid="uid://ry1d71pwwil2"]
+
+[ext_resource type="PackedScene" uid="uid://d62n5s8htyn7" path="res://Characters/Teens/logic/TeenStanding.tscn" id="1_heiu2"]
+[ext_resource type="PackedScene" uid="uid://csh5kgfnsuy4w" path="res://Assets/Characters/Teens/teen2.gltf" id="2_nl8db"]
+[ext_resource type="PackedScene" uid="uid://dkigsk0khpxet" path="res://Objects/Architypes/Furniture/frame1.tscn" id="3_5xgo6"]
+[ext_resource type="PackedScene" uid="uid://l4nbchy8y1g1" path="res://Objects/Architypes/Furniture/flowers1.tscn" id="4_55vo0"]
+[ext_resource type="PackedScene" uid="uid://d2vcgl4k66dnb" path="res://Objects/Architypes/Furniture/napkin.tscn" id="5_hlpl7"]
+[ext_resource type="PackedScene" uid="uid://j1b5yvs8pnux" path="res://Objects/Architypes/Furniture/table_round1.tscn" id="6_x0cel"]
+[ext_resource type="PackedScene" uid="uid://b000ktj5kppjg" path="res://Assets/Furniture/apple1.gltf" id="7_nxwkq"]
+[ext_resource type="PackedScene" uid="uid://fhobspyhyvwu" path="res://Objects/big_rose_and_gold_rug.tscn" id="8_nl8db"]
+[ext_resource type="PackedScene" uid="uid://b7ee7to73wtp6" path="res://Levels/Gyms/Floor/floor1.tscn" id="10_5xgo6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nl8db"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5xgo6"]
+albedo_color = Color(0.6036159, 0.18418261, 0.019744918, 1)
+
+[sub_resource type="Environment" id="Environment_tdfor"]
+ambient_light_source = 2
+ambient_light_color = Color(0.4304682, 0.17465052, 0.155936, 1)
+ambient_light_energy = 3.34
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Wall" type="Node3D" parent="."]
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Wall"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.2338815, 1.6362383, 2.0804307)
+use_collision = true
+collision_mask = 0
+size = Vector3(2.4208593, 3.5, 0.4)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36228037, 1.7706788, 1.0260972)
+visible = false
+use_collision = true
+collision_mask = 0
+size = Vector3(9.319038, 3.5, 0.4)
+material = SubResource("StandardMaterial3D_nl8db")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.46758938, 1.6362383, -1.1789486)
+use_collision = true
+collision_mask = 0
+size = Vector3(7.5940647, 3.5, 0.4)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Wall"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.766, 1.6362383, 0.9524939)
+use_collision = true
+collision_mask = 0
+size = Vector3(4.6247344, 3.5, 0.4)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0142736, 1.6362383, -1.179)
+use_collision = true
+collision_mask = 0
+size = Vector3(3.0954533, 3.5, 0.4)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9010336, 2.6699905, -1.1831611)
+use_collision = true
+collision_mask = 0
+size = Vector3(1.1806484, 1.4324951, 0.4)
+
+[node name="door" type="CSGBox3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9008377, 0.9229481, -1.179)
+use_collision = true
+collision_mask = 0
+size = Vector3(1.181, 2.045, 0.2)
+material = SubResource("StandardMaterial3D_5xgo6")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_tdfor")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(-0.41089964, -0.6516663, 0.6375678, 0.017207442, 0.69366425, 0.720093, -0.9115182, 0.30685687, -0.2738129, 0, 1.6362383, 0)
+light_color = Color(0.8891911, 0.8390671, 0.7895975, 1)
+light_energy = 0.529
+
+[node name="SpotLight3D" type="SpotLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.5420866, 3.4680166, -0.7072842)
+light_color = Color(0.6411898, 0.8314428, 0.5997428, 1)
+light_energy = 4.773
+shadow_enabled = true
+shadow_blur = 0.0
+spot_range = 3.818
+spot_angle = 38.64
+
+[node name="OmniLight3D" type="OmniLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.373744, 3.3897529, -0.006321907)
+light_color = Color(0.5694015, 0.44519466, 0.97951835, 1)
+light_energy = 1.39
+light_volumetric_fog_energy = 1.15
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.0276313, 3.4559631, 0.6234254)
+light_color = Color(0.6246443, 0.82377195, 0.70055354, 1)
+light_energy = 1.553
+shadow_enabled = true
+shadow_blur = 0.0
+spot_range = 3.818
+spot_angle = 14.09
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.84357643, 3.3175263, 0.6234254)
+light_color = Color(0.4981299, 0.83834016, 0.834424, 1)
+light_energy = 1.553
+shadow_enabled = true
+shadow_blur = 0.0
+spot_range = 3.818
+spot_angle = 14.09
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5625076, 3.3897529, -0.006321907)
+light_color = Color(0.5694015, 0.44519466, 0.97951835, 1)
+light_energy = 1.39
+light_volumetric_fog_energy = 1.15
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8257375, 3.3897529, -0.006321907)
+light_color = Color(0.5694015, 0.44519466, 0.97951835, 1)
+light_energy = 1.39
+light_volumetric_fog_energy = 1.15
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -6.8172755, 3.6530848, -0.19405448)
+light_color = Color(0.950905, 0.7283645, 0.32356453, 1)
+light_energy = 0.088
+shadow_enabled = true
+shadow_blur = 0.0
+spot_range = 3.818
+spot_attenuation = -4.12
+spot_angle = 26.15
+
+[node name="Crowd" type="Node3D" parent="."]
+
+[node name="TeenStanding" parent="Crowd" instance=ExtResource("1_heiu2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.063377, -0.06573212, 0.13043046)
+animation = "Chatting"
+
+[node name="CH-teen2" parent="Crowd" instance=ExtResource("2_nl8db")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2.063377, -0.09873021, 0.6324589)
+
+[node name="TeenStanding2" parent="Crowd" instance=ExtResource("1_heiu2")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.47419262, -0.10673845, 0.19901931)
+
+[node name="TeenStanding3" parent="Crowd" instance=ExtResource("1_heiu2")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -3.9, -0.102761626, -0.793)
+animation = "HeavyHead"
+
+[node name="TeenStanding4" parent="Crowd" instance=ExtResource("1_heiu2")]
+transform = Transform3D(0.99026805, 0, 0.1391731, 0, 1, 0, -0.1391731, 0, 0.99026805, 2.583676, -0.088540316, -0.81763226)
+animation = "Wall"
+
+[node name="TeenStanding5" parent="Crowd" instance=ExtResource("1_heiu2")]
+transform = Transform3D(-0.80901706, 0, 0.5877852, 0, 1, 0, -0.5877852, 0, -0.80901706, 2.314, -0.11047089, 0.036)
+animation = "Omg"
+
+[node name="TeenStanding6" parent="Crowd" instance=ExtResource("1_heiu2")]
+transform = Transform3D(-0.7071068, 0, -0.7071067, 0, 1, 0, 0.7071067, 0, -0.7071068, 3.124, -0.08876169, -0.06130594)
+animation = "Drinking"
+loot_type = 1
+
+[node name="TeenStanding7" parent="Crowd" instance=ExtResource("1_heiu2")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7.341136, 0.92265403, 0.19901931)
+animation = "Pls"
+
+[node name="Furniture" type="Node3D" parent="."]
+
+[node name="Frame2" parent="Furniture" instance=ExtResource("3_5xgo6")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0.46357012, 1.5673324, -0.9643502)
+
+[node name="Flowers2" parent="Furniture" instance=ExtResource("4_55vo0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.83595765, 1.8682384, 0.579)
+
+[node name="Frame1" parent="Furniture" instance=ExtResource("3_5xgo6")]
+transform = Transform3D(2.1, 0, 0, 0, 2.1, 0, 0, 0, 2.1, -0.5890535, 1.8487335, -0.967144)
+
+[node name="Frame3" parent="Furniture" instance=ExtResource("3_5xgo6")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -1.6454387, 1.5593172, -0.9643502)
+
+[node name="Napkin" parent="Furniture" instance=ExtResource("5_hlpl7")]
+transform = Transform3D(-8.1740296e-08, 0, 1, 0, 1, 0, -1.87, 0, -4.371139e-08, 0.81585073, 1.853502, 0.67312443)
+
+[node name="Flowers3" parent="Furniture" instance=ExtResource("4_55vo0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0415273, 2.041552, 0.579)
+
+[node name="Napkin2" parent="Furniture" instance=ExtResource("5_hlpl7")]
+transform = Transform3D(-8.1740296e-08, 0, 1, 0, 1, 0, -1.87, 0, -4.371139e-08, -2.061634, 2.026816, 0.67312443)
+
+[node name="TableRound1" parent="Furniture" instance=ExtResource("6_x0cel")]
+transform = Transform3D(0.63, 0, 0, 0, 1, 0, 0, 0, 1.06, -7.20931, -0.11026478, 0)
+
+[node name="apple" parent="Furniture" instance=ExtResource("7_nxwkq")]
+transform = Transform3D(0.94596845, -0.017524382, 0.32378465, -0.0173568, 0.99437046, 0.104528464, -0.32379365, -0.1045005, 0.9403389, 0, -0.101117134, 0.7586068)
+
+[node name="Rug" parent="Furniture" instance=ExtResource("8_nl8db")]
+transform = Transform3D(2.2, 0, 0, 0, 1, 0, 0, 0, 0.74, 0, -0.12001431, 0)
+
+[node name="Floor2" parent="." instance=ExtResource("10_5xgo6")]
+transform = Transform3D(1.2, 0, 0, 0, 1, 0, 0, 0, 0.19, -1.7603836, -0.121440426, -0.01727438)
+
+[node name="Floor3" parent="." instance=ExtResource("10_5xgo6")]
+transform = Transform3D(0.24, 0, 0, 0, 1, 0, 0, 0, 0.26, -6.4357014, -0.121440426, 1.9223652)

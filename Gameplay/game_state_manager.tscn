@@ -1,9 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cgoqnt51vn7qh"]
+[gd_scene load_steps=5 format=3 uid="uid://ddjihknalfmo6"]
 
 [ext_resource type="Script" uid="uid://nq3n22eyxno3" path="res://Gameplay/game_state_manager.gd" id="1_fnjh8"]
 [ext_resource type="PackedScene" uid="uid://dm386yfmjf84v" path="res://Levels/Gyms/lvl_furnished.tscn" id="2_54mul"]
 [ext_resource type="PackedScene" uid="uid://csh7g60ebb2xa" path="res://Levels/Gyms/lvl_player_parkour.tscn" id="3_84fyh"]
+[ext_resource type="PackedScene" uid="uid://da5k3eruedwcd" path="res://Levels/lvl_corridor.tscn" id="4_84fyh"]
 
 [node name="GameStateManager" type="Node"]
 script = ExtResource("1_fnjh8")
-levels = Array[PackedScene]([ExtResource("2_54mul"), ExtResource("3_84fyh")])
+levels = Array[PackedScene]([ExtResource("2_54mul"), ExtResource("3_84fyh"), ExtResource("4_84fyh")])
