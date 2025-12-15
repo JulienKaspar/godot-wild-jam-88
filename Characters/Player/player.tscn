@@ -1,10 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cqjqmhnbk3ssj"]
+[gd_scene load_steps=10 format=3 uid="uid://cqjqmhnbk3ssj"]
 
 [ext_resource type="PackedScene" uid="uid://cx2qst5txs1af" path="res://Characters/Player/player_controller.tscn" id="1_j341n"]
 [ext_resource type="PackedScene" uid="uid://b86lbtpyigxs5" path="res://Characters/Player/player_body.tscn" id="2_cue0d"]
 [ext_resource type="Script" uid="uid://cw4emr5i7rkes" path="res://Characters/Player/logic/player.gd" id="3_cue0d"]
 [ext_resource type="Script" uid="uid://bjbv1gqsn4eao" path="res://Gameplay/Drunkness/player_drunkness.gd" id="4_bqsbk"]
-[ext_resource type="Script" path="res://Characters/Player/pickup_radius.gd" id="5_xf5fp"]
+[ext_resource type="Script" uid="uid://c04lkn4hohoj4" path="res://Characters/Player/pickup_radius.gd" id="5_xf5fp"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_cue0d"]
 radius = 0.05
@@ -14,9 +14,13 @@ height = 0.1
 radius = 0.05
 height = 0.1
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_bqsbk"]
-margin = 0.0
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_klx3t"]
+height = 3.0
 radius = 3.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_osktb"]
+radius = 0.194
+height = 6.16
 
 [node name="Player" type="Node3D"]
 script = ExtResource("3_cue0d")
@@ -45,13 +49,39 @@ mesh = SubResource("SphereMesh_bqsbk")
 unique_name_in_owner = true
 script = ExtResource("4_bqsbk")
 
-[node name="PickupRadius" type="ShapeCast3D" parent="."]
+[node name="PickupTracker" type="Node3D" parent="."]
 unique_name_in_owner = true
-shape = SubResource("SphereShape3D_bqsbk")
-target_position = Vector3(0, 0, 0)
-collision_mask = 32
 script = ExtResource("5_xf5fp")
 
+[node name="grab_area_left" type="Area3D" parent="PickupTracker"]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 1.222, 1.313, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PickupTracker/grab_area_left"]
+shape = SubResource("CylinderShape3D_klx3t")
+debug_color = Color(0.8627451, 0, 0.45882353, 0.8784314)
+
+[node name="grab_area_right" type="Area3D" parent="PickupTracker"]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -1.222, 1.313, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PickupTracker/grab_area_right"]
+shape = SubResource("CylinderShape3D_klx3t")
+debug_color = Color(0.8627451, 0, 0.45882353, 0.8784314)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PickupTracker"]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 1.3114471, 0)
+visible = false
+mesh = SubResource("CapsuleMesh_osktb")
+
+[connection signal="ChangeFeet" from="." to="PlayerBody" method="_on_player_change_feet"]
 [connection signal="ChangeHandLeft" from="." to="PlayerBody" method="_on_player_change_hand_left"]
 [connection signal="ChangeHandRight" from="." to="PlayerBody" method="_on_player_change_hand_right"]
+[connection signal="ChangeHandTargetL" from="." to="PlayerBody" method="_on_player_change_hand_target_l"]
+[connection signal="ChangeHandTargetR" from="." to="PlayerBody" method="_on_player_change_hand_target_r"]
 [connection signal="ChangeMovement" from="." to="PlayerController" method="_on_player_change_movement"]
+[connection signal="ConsumedDrunkness" from="." to="Drunkness" method="_on_player_consumed_drunkness"]
+[connection signal="ReachedTargetLeft" from="PlayerBody" to="." method="_on_player_body_reached_target_left"]
+[connection signal="ReachedTargetRight" from="PlayerBody" to="." method="_on_player_body_reached_target_right"]
+[connection signal="area_entered" from="PickupTracker/grab_area_left" to="PickupTracker" method="_on_grab_area_left_area_entered"]
+[connection signal="area_exited" from="PickupTracker/grab_area_left" to="PickupTracker" method="_on_grab_area_left_area_exited"]
+[connection signal="area_entered" from="PickupTracker/grab_area_right" to="PickupTracker" method="_on_grab_area_right_area_entered"]
+[connection signal="area_exited" from="PickupTracker/grab_area_right" to="PickupTracker" method="_on_grab_area_right_area_exited"]

@@ -9,6 +9,9 @@ extends Node3D
 @onready var left_foot_ik_target: Marker3D = $LeftFootIKTarget
 @onready var right_foot_ik_target: Marker3D = $RightFootIKTarget
 
+signal ReachedTargetLeft(item: Object)
+signal ReachedTargetRight(item: Object)
+
 var stepping := false
 
 # Called when the node enters the scene tree for the first time.
@@ -40,8 +43,20 @@ func hip_step():
 
 
 func _on_player_change_hand_left(active: Player.HandStates) -> void:
-	pass # Replace with function body.
+	pass
 
 
 func _on_player_change_hand_right(active: Player.HandStates) -> void:
+	pass
+
+
+func _on_player_change_feet(active: Player.FeetStates) -> void:
+	pass # Replace with function body.
+
+
+func _on_player_change_hand_target_l(trgt_left: Object, isValid: bool) -> void:
+	pass # Replace with function body.
+
+
+func _on_player_change_hand_target_r(trgt_right: Object, isValid: bool) -> void:
 	pass # Replace with function body.

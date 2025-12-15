@@ -32,3 +32,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	current_drunkness -= drunkness_decay_per_second * delta
+
+
+func _on_player_consumed_drunkness(value: float) -> void:
+	set_drunkness(current_drunkness + value)
