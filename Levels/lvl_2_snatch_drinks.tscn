@@ -64,7 +64,6 @@ shadow_enabled = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/GroundPlane"]
 shape = SubResource("WorldBoundaryShape3D_wj60t")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Floor" type="Node3D" parent="Layout"]
 
@@ -72,18 +71,21 @@ debug_color = Color(0, 0.6, 0.7, 0.42)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3955865, -0.5000005, -1.6960824)
 material_override = ExtResource("1_kknvj")
 use_collision = true
+collision_layer = 65
 size = Vector3(11.71788, 1, 4.6362457)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Layout/Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3762593, -0.5000005, -7.778)
 material_override = ExtResource("1_kknvj")
 use_collision = true
+collision_layer = 65
 size = Vector3(7.679226, 1, 7.8176346)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Layout/Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.263742, -0.5000005, -9.897221)
 material_override = ExtResource("1_kknvj")
 use_collision = true
+collision_layer = 65
 size = Vector3(8.955573, 1, 3.0606098)
 
 [node name="Walls" type="Node3D" parent="Layout"]
@@ -131,7 +133,6 @@ collision_mask = 39
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Walls/InvisibleWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2009122, 1.6382172, 0)
 shape = SubResource("BoxShape3D_6bpar")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="InvisibleWall2" type="StaticBody3D" parent="Layout/Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.408123, 4.7683716e-07, -8.321512)
@@ -140,7 +141,6 @@ collision_mask = 39
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Walls/InvisibleWall2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.004119873, 1.6382172, 0)
 shape = SubResource("BoxShape3D_6bpar")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Stairs" type="Node3D" parent="Layout"]
 
@@ -150,25 +150,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.666163, 0, -9.694054)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Stairs/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19699478, 0, -0.19127655)
 shape = SubResource("BoxShape3D_d6w3h")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Layout/Stairs/StaticBody3D"]
 transform = Transform3D(0.86224854, -0.50648534, 0, 0.50648534, 0.86224854, 0, 0, 0, 1, -1.0170689, -0.33572853, -0.19127655)
 shape = SubResource("BoxShape3D_d6w3h")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Layout/Stairs/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.6476377, 0.19095421, 0, -0.19127655)
+layers = 65
 mesh = SubResource("BoxMesh_3nw73")
 surface_material_override/0 = SubResource("StandardMaterial3D_v87f2")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Layout/Stairs/StaticBody3D"]
 transform = Transform3D(0.99976546, 0.021657843, 0, -0.021657843, 0.99976546, 0, 0, 0, 0.6476377, -0.73302174, -0.1785666, -0.19127655)
+layers = 65
 mesh = SubResource("BoxMesh_05dd3")
 surface_material_override/0 = SubResource("StandardMaterial3D_v87f2")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Layout/Stairs/StaticBody3D"]
 transform = Transform3D(0.99976546, 0.021657843, 0, -0.021657843, 0.99976546, 0, 0, 0, 0.6476377, -1.0062132, -0.3008023, -0.19127655)
+layers = 65
 mesh = SubResource("BoxMesh_05dd3")
 surface_material_override/0 = SubResource("StandardMaterial3D_v87f2")
 

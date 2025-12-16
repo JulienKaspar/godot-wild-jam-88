@@ -88,6 +88,7 @@ shape = SubResource("WorldBoundaryShape3D_y6mdt")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, -4.371139e-07, 10, 0, -10, -4.371139e-07, 0, 0, 0)
+layers = 65
 material_override = SubResource("StandardMaterial3D_kj50h")
 mesh = SubResource("QuadMesh_fgpxm")
 
