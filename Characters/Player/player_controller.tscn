@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cdppyptuftkiw" path="res://Characters/Player/logic/player_movement.gd" id="1_jkj6u"]
 [ext_resource type="PackedScene" uid="uid://cyksrihj0achx" path="res://Particles/Player/pfx_falling_indicator.tscn" id="2_6yvek"]
-[ext_resource type="Script" path="res://Characters/Player/logic/rigid_bally.gd" id="2_fy1gk"]
+[ext_resource type="Script" uid="uid://b5ewjdm5d53je" path="res://Characters/Player/logic/rigid_bally.gd" id="2_fy1gk"]
 [ext_resource type="PackedScene" uid="uid://bhvwgh4ef0sj6" path="res://Particles/Player/pfx_bodyfall.tscn" id="3_on8bp"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_on8bp"]
@@ -274,7 +274,6 @@ mesh = SubResource("CapsuleMesh_6yvek")
 [node name="helper_body_hat" type="MeshInstance3D" parent="UpperBody/helper_body_col"]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.570469, 0.02934675)
 mesh = SubResource("PrismMesh_6yvek")
-skeleton = NodePath("../..")
 
 [node name="joint_arm_left" type="ConeTwistJoint3D" parent="UpperBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1701982, 0.23231983, 0)
@@ -308,6 +307,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.164, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0583978, 0)
 visible = false
 mesh = SubResource("CapsuleMesh_fy1gk")
+
+[node name="AttachPointFootR" type="Node3D" parent="UpperBody/BodyAttachPoint"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.16933973, 0.42215487, 0.001949653)
+
+[node name="AttachPointFootL" type="Node3D" parent="UpperBody/BodyAttachPoint"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.169, 0.422, 0.002)
 
 [node name="PfxBodyfall" parent="UpperBody" instance=ExtResource("3_on8bp")]
 

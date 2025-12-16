@@ -11,6 +11,10 @@ class_name PlayerController
 @onready var PlayerBallCollider = $RigidBally3D
 @onready var PlayerRoot = $"../"
 
+@onready var debugHelpers = [%RigidBally3D,	$UpperBody/helper_body_col,	%ArmL,	
+				%ArmR,	$LegL,	$LegR]
+	
+
 #---------------- Movement Settings -----------------------
 static var player_input_strength = 1.0 # how much player has control
 static var player_turn_speed = 2.0 # how fast character should turn
@@ -26,12 +30,16 @@ static var move_force_multiplier = 100.0 # phys impulse scale
 static var upper_body_stiffness = 1.5 # scales impulse to bring body back to target
 static var body_leaning_force = 0.1 # how much move direction is added to pose correction
 
+
+# 
+
 #---------------- State -----------------------------------
 #need to update these properly for when player spawns at not 0
 @onready var player_facing_dir = Vector2(0, 0)
 @onready var player_global_pos = Vector3(0,0,0)
 @onready var player_global_mass_pos = Vector3(0,0,0)
 
+var upper_body_stiffness_current = upper_body_stiffness
 var drunk_noise_vector = Vector2(0,0)
 var player_move_dir = Vector2(0,0)
 var player_speed = 0.0
@@ -59,21 +67,13 @@ func toggleDebugStats() -> void:
 
 func showHelpers() -> void:
 	DebugDraw = true
-	%RigidBally3D.show()
-	$UpperBody/helper_body_col.show()
-	%ArmL.show()
-	%ArmR.show()
-	$LegL.show()
-	$LegR.show()
+	for helper in debugHelpers:
+		helper.show()
 	
 func hideelpers() -> void:
 	DebugDraw = false
-	%RigidBally3D.hide()
-	$UpperBody/helper_body_col.hide()
-	%ArmL.hide()
-	%ArmR.hide()
-	$LegL.hide()
-	$LegR.hide()
+	for helper in debugHelpers:
+		helper.hide()
 
 # generate some noise direction but tend to fall in one direction
 func update_drunk_vector(delta) -> void:
@@ -111,12 +111,12 @@ func updateDebugHelpers(playerInputDir):
 	$NoRotateBall/Label3D.text = Player.MoveStates.keys()[PlayerRoot.inMoveState]
 	
 func sendStatsToPlayer() -> void:
-	$"../".player_speed = player_speed
-	$"../".player_move_dir = player_move_dir
-	$"../".player_facing_dir = player_facing_dir
-	$"../".leaning = leaning
-	$"../".player_global_pos = player_global_mass_pos
-	$"../".player_global_mass_pos = player_global_mass_pos
+	PlayerRoot.player_speed = player_speed
+	PlayerRoot.player_move_dir = player_move_dir
+	PlayerRoot.player_facing_dir = player_facing_dir
+	PlayerRoot.leaning = leaning
+	PlayerRoot.player_global_pos = player_global_mass_pos
+	PlayerRoot.player_global_mass_pos = player_global_mass_pos
 
 func check_furniture_contact() -> void:
 	for body in PlayerBallCollider.get_colliding_bodies():
@@ -158,7 +158,7 @@ func pushBody(delta: float) -> void:
 	body_offset.y = 0.0
 	body_offset.x += player_move_dir.x * body_leaning_force
 	body_offset.z += player_move_dir.y * body_leaning_force
-	body_offset = body_offset * upper_body_stiffness
+	body_offset = body_offset * upper_body_stiffness_current
 	PlayerBodyCollider.apply_impulse(body_offset)
 	
 	# -------- rotate upper body ----------
@@ -206,6 +206,10 @@ func stateTransitionTo(_targetState: Player.MoveStates):
 
 func _on_player_change_movement(state: Player.MoveStates) -> void:
 	match state:
+		Player.MoveStates.ROLLING: upper_body_stiffness_current = 10
+		_: upper_body_stiffness_current = upper_body_stiffness
+		
+	match state:
 		Player.MoveStates.FALLING: 
 			$TimerFalling.start()
 			keepUpright = true
@@ -216,14 +220,19 @@ func _on_player_change_movement(state: Player.MoveStates) -> void:
 		Player.MoveStates.STANDUP: 
 			$TimerStandUp.start()
 		_: 
-			PlayerBallCollider.angular_damp = 0
-			PlayerBallCollider.linear_damp = 0
 			keepUpright = true
 			$TimerFalling.stop()
+			match state:
+				Player.MoveStates.ROLLING:
+					PlayerBallCollider.angular_damp = 1
+					PlayerBallCollider.linear_damp = 1
+				_:
+					PlayerBallCollider.angular_damp = 0
+					PlayerBallCollider.linear_damp = 0
+
 
 func Reset(newpos: Vector3) -> void:
 	pass
-	
 	
 # ------------------ Timers ------------------------
 
