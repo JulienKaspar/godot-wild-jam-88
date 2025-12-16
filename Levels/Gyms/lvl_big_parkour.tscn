@@ -1,9 +1,14 @@
-[gd_scene load_steps=18 format=3 uid="uid://dbtkwlffndd80"]
+[gd_scene load_steps=23 format=3 uid="uid://dbtkwlffndd80"]
 
 [ext_resource type="Material" uid="uid://hg5ppfcn0qd7" path="res://Levels/Gyms/Floor/floor1_v2.tres" id="1_3e7wy"]
 [ext_resource type="Material" uid="uid://dxyb0pq2y84ds" path="res://Levels/Gyms/Wall/reddish_floral_wall_v2.tres" id="2_lb2wt"]
 [ext_resource type="Material" uid="uid://bdchormsmw1jv" path="res://Levels/Gyms/Wall/wooden_wall_v2.tres" id="3_i5ry1"]
 [ext_resource type="Material" uid="uid://rfvsy8jw033o" path="res://Levels/Gyms/Wall/yellow_floral_wall_v2.tres" id="4_277pc"]
+[ext_resource type="PackedScene" uid="uid://j1b5yvs8pnux" path="res://Objects/Architypes/Furniture/table_round1.tscn" id="5_y2dxn"]
+[ext_resource type="PackedScene" uid="uid://d3unw205fanv5" path="res://Objects/Loot/pickup_beer.tscn" id="6_hlsyq"]
+[ext_resource type="PackedScene" uid="uid://3kn1j5376oof" path="res://Objects/Architypes/Furniture/table2.tscn" id="7_hlsyq"]
+[ext_resource type="PackedScene" uid="uid://c3nkcb3esyxsx" path="res://Objects/Architypes/Furniture/couch2.tscn" id="8_8om6w"]
+[ext_resource type="PackedScene" uid="uid://d2fq258dik5oo" path="res://Objects/Architypes/Furniture/table1.tscn" id="8_ufje4"]
 
 [sub_resource type="Environment" id="Environment_vu8ij"]
 background_mode = 1
@@ -112,7 +117,7 @@ collision_layer = 65
 size = Vector3(7.679226, 1, 7.8176346)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Layout/Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4009776, -0.5000005, -5.66397)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4119468, -0.5082693, -5.665875)
 material_override = ExtResource("1_3e7wy")
 use_collision = true
 collision_layer = 65
@@ -304,3 +309,41 @@ mesh = SubResource("BoxMesh_v87f2")
 [node name="Teens" type="Node3D" parent="."]
 
 [node name="Furniture" type="Node3D" parent="."]
+
+[node name="TableRound1" parent="Furniture" instance=ExtResource("5_y2dxn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3285446, 0, -5.8144603)
+
+[node name="Table2" parent="Furniture" instance=ExtResource("7_hlsyq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4190168, 0, -3.2622533)
+
+[node name="Couch2" parent="Furniture" instance=ExtResource("8_8om6w")]
+transform = Transform3D(0.96098703, 0, -0.2765935, 0, 1, 0, 0.2765935, 0, 0.96098703, 3.4344769, 0.005937904, -4.963167)
+
+[node name="Couch4" parent="Furniture" instance=ExtResource("8_8om6w")]
+transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, 3.3277159, 0.005938381, -2.0478723)
+
+[node name="Couch3" parent="Furniture" instance=ExtResource("8_8om6w")]
+transform = Transform3D(0.9831466, 0, 0.18281896, 0, 1, 0, -0.18281896, 0, 0.9831466, 1.599617, 0.005938381, -4.911805)
+
+[node name="Table3" parent="Furniture" instance=ExtResource("7_hlsyq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.618924, 0, -3.081932)
+
+[node name="Table1" parent="Furniture" instance=ExtResource("8_ufje4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6221943, 0.006920274, -9.023985)
+
+[node name="beer" type="Node3D" parent="."]
+
+[node name="DrunknessPickup" parent="beer" instance=ExtResource("6_hlsyq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.109909, 1.0259137, -5.8414803)
+
+[node name="DrunknessPickup2" parent="beer" instance=ExtResource("6_hlsyq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.886716, 0.85339355, -9.154507)
+
+[node name="DrunknessPickup3" parent="beer" instance=ExtResource("6_hlsyq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5495763, 0.82385254, -8.709302)
+
+[node name="DrunknessPickup4" parent="beer" instance=ExtResource("6_hlsyq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.858612, 0.86621094, -3.192299)
+
+[node name="DrunknessPickup5" parent="beer" instance=ExtResource("6_hlsyq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.525011, 0.86621094, -2.9084616)
