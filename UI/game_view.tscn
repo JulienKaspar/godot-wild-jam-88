@@ -1,13 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://7v5jiybjrlkl"]
+[gd_scene load_steps=12 format=3 uid="uid://7v5jiybjrlkl"]
 
-[ext_resource type="Script" uid="uid://bexi8qx87vns3" path="res://UI/game_view.gd" id="1_lqkpn"]
+[ext_resource type="Script" path="res://UI/game_view.gd" id="1_lqkpn"]
 [ext_resource type="PackedScene" uid="uid://betq65km7cbe3" path="res://UI/SettingsMenu/settings_menu.tscn" id="2_lqkpn"]
 [ext_resource type="PackedScene" uid="uid://bcredxkb7jfdu" path="res://UI/MainMenu/main_menu.tscn" id="3_e62du"]
 [ext_resource type="Shader" uid="uid://c7jc6g65ws5pi" path="res://Shaders/post_process.gdshader" id="4_u3b6e"]
-[ext_resource type="Script" path="res://UI/level_loader.gd" id="5_4eh1a"]
-[ext_resource type="PackedScene" uid="uid://drwswyc7ed01p" path="res://UI/dialogue_system.tscn" id="5_4fmj7"]
+[ext_resource type="Script" uid="uid://lhxpah8mvpgj" path="res://UI/level_loader.gd" id="5_4eh1a"]
+[ext_resource type="PackedScene" path="res://UI/dialogue_system.tscn" id="5_4fmj7"]
 [ext_resource type="PackedScene" uid="uid://cqjqmhnbk3ssj" path="res://Characters/Player/player.tscn" id="5_lwr8f"]
-[ext_resource type="PackedScene" uid="uid://oklexjbph231" path="res://UI/hud.tscn" id="5_qrf3k"]
 [ext_resource type="PackedScene" uid="uid://lgsnoy1y1gsg" path="res://Debug/debug_master_menu.tscn" id="6_ri6ga"]
 [ext_resource type="Script" uid="uid://bx8wkgx47tjj6" path="res://UI/game_camera.gd" id="8_gjcnd"]
 [ext_resource type="PackedScene" uid="uid://bc3p2wg2lxxy1" path="res://Audio/Music/music_manager.tscn" id="9_4eh1a"]
@@ -33,6 +32,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MenuDisplayer" type="MarginContainer" parent="CanvasLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -49,9 +49,6 @@ layout_mode = 2
 [node name="MainMenu" parent="CanvasLayer/MenuDisplayer" instance=ExtResource("3_e62du")]
 unique_name_in_owner = true
 visible = false
-layout_mode = 2
-
-[node name="HUD" parent="CanvasLayer/MenuDisplayer" instance=ExtResource("5_qrf3k")]
 layout_mode = 2
 
 [node name="DialogueSystem" parent="CanvasLayer" instance=ExtResource("5_4fmj7")]

@@ -5,6 +5,7 @@ class_name DialogueSystem
 @onready var dialogue_text: Label = %DialogueText
 @onready var flasky_base: TextureRect = %FlaskyBase
 @onready var gradient: TextureRect = %Gradient
+
 @onready var dialogue_starting_position: Vector2 = dialogue_prompt.position
 
 @export var display_time_seconds: float = 13
@@ -23,6 +24,7 @@ class_name DialogueSystem
 @export var gradient_start_transparency: Color
 @export var gradient_end_transparency: Color
 
+@onready var babble_sounds = %BabbleSounds
 
 var displayed_time: float = 0
 
@@ -57,6 +59,7 @@ func _process(delta: float) -> void:
 		
 		if displayed_time >= display_time_seconds:
 			dialogue_prompt.hide()
+			babble_sounds.stop()
 		if displayed_time + fade_out_duration >= display_time_seconds:
 			fade_out_flasky()
 
@@ -84,3 +87,8 @@ func start_showing_text() -> void:
 	visible_ratio_tween.tween_property(dialogue_text, "visible_ratio", 0.5, text_bubble_up_time_seconds_middle).set_ease(Tween.EASE_IN_OUT)
 	visible_ratio_tween.tween_property(dialogue_text, "visible_ratio", 0.75, text_bubble_up_time_seconds_late).set_ease(Tween.EASE_IN_OUT)
 	visible_ratio_tween.tween_property(dialogue_text, "visible_ratio", 1, text_bubble_up_time_seconds_final).set_ease(Tween.EASE_IN_OUT)
+	
+	
+	babble_sounds.finished.connect(babble_sounds.play) # infinite loop!
+	babble_sounds.play()
+	visible_ratio_tween.finished.connect(func(): babble_sounds.finished.disconnect(babble_sounds.play))
