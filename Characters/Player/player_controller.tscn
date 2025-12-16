@@ -227,7 +227,7 @@ mesh = SubResource("CylinderMesh_6yvek")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_vokij")
 
-[node name="RayCast3D" type="RayCast3D" parent="RigidBally3D"]
+[node name="RayCastStairs" type="RayCast3D" parent="RigidBally3D"]
 collision_mask = 128
 
 [node name="PinJoint3D" type="PinJoint3D" parent="."]
@@ -251,6 +251,12 @@ shape = SubResource("SphereShape3D_jkj6u")
 
 [node name="PfxFallingIndicator" parent="NoRotateBall" instance=ExtResource("2_6yvek")]
 emitting = false
+
+[node name="Label3D" type="Label3D" parent="NoRotateBall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6758566, 0)
+visible = false
+text = "JA"
+outline_size = 50
 
 [node name="UpperBody" type="RigidBody3D" parent="."]
 unique_name_in_owner = true
@@ -296,7 +302,7 @@ twist_span = 0.0
 
 [node name="BodyAttachPoint" type="Node3D" parent="UpperBody"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.9999993, 0.0011852421, 0, -0.0011852421, 0.9999993, 0, -1.164, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.164, 0)
 
 [node name="body_ref_mesh" type="MeshInstance3D" parent="UpperBody/BodyAttachPoint"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0583978, 0)
@@ -341,8 +347,7 @@ libraries = {
 [node name="TimerRoll" type="Timer" parent="."]
 one_shot = true
 
-[node name="TimerDrinkFlasky" type="Timer" parent="."]
-wait_time = 10.0
+[node name="TimerStandUp" type="Timer" parent="."]
 one_shot = true
 
 [node name="TimerFalling" type="Timer" parent="."]
@@ -378,4 +383,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39960164, 0)
 mesh = SubResource("CapsuleMesh_on8bp")
 
 [connection signal="timeout" from="TimerRoll" to="." method="_on_timer_roll_timeout"]
+[connection signal="timeout" from="TimerStandUp" to="." method="_on_timer_stand_up_timeout"]
 [connection signal="timeout" from="TimerFalling" to="." method="_on_timer_falling_timeout"]

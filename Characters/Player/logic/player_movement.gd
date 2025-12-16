@@ -5,9 +5,11 @@ class_name PlayerController
 @warning_ignore_start('unused_variable')
 @warning_ignore_start('unused_parameter')
 
-@export var DebugDraw = true
+@export var DebugDraw = false
+@export var DebugStats =  false
 @onready var PlayerBodyCollider = %UpperBody
 @onready var PlayerBallCollider = $RigidBally3D
+@onready var PlayerRoot = $"../"
 
 #---------------- Movement Settings -----------------------
 static var player_input_strength = 1.0 # how much player has control
@@ -46,6 +48,14 @@ var drunk_amount = 0.0
 func toggleDebugDraw() -> void:
 	if DebugDraw: hideelpers()
 	else: showHelpers()
+
+func toggleDebugStats() -> void:
+	if DebugStats: 
+		$NoRotateBall/Label3D.hide()
+		DebugStats = false
+	else: 
+		$NoRotateBall/Label3D.show()
+		DebugStats = true
 
 func showHelpers() -> void:
 	DebugDraw = true
@@ -98,7 +108,8 @@ func updateDebugHelpers(playerInputDir):
 	%up_aligned/helper_player_dir.position = Vector3(playerInputDir.x,-0.21,playerInputDir.y)
 	%up_aligned/helper_drunk_dir.position = Vector3(drunk_noise_vector.x,-0.21,drunk_noise_vector.y)
 	%up_aligned/helper_player_facing.position = Vector3(player_facing_dir.x,-0.20,player_facing_dir.y)
-
+	$NoRotateBall/Label3D.text = Player.MoveStates.keys()[PlayerRoot.inMoveState]
+	
 func sendStatsToPlayer() -> void:
 	$"../".player_speed = player_speed
 	$"../".player_move_dir = player_move_dir
@@ -116,7 +127,6 @@ func executeRoll() -> void:
 	$"AnimationPlayer".play("roll")
 	$"TimerRoll".start()
 
-
 func standUp() -> void:
 	PlayerBodyCollider.apply_impulse(Vector3(0,7,0))
 	keepUpright = true
@@ -129,11 +139,16 @@ func _ready() -> void:
 	else:
 		hideelpers()
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("debug_DrawHelpers"):
+		toggleDebugDraw()
+	if event.is_action_pressed("debug_drawStats"):
+		toggleDebugStats()
+
+		
 func _process(delta: float) -> void:
 	update_body_pose(delta)	
 	# ------------- Debug ----------------------------
-	if Input.is_action_just_pressed("debug_DrawHelpers"):
-		toggleDebugDraw()
 
 	%up_aligned/helper_leaning.position = Vector3(player_move_dir.x,-0.22,player_move_dir.y)
 
@@ -163,10 +178,6 @@ func pushBally(delta: float, playerInputDir) -> void:
 	var impulse = Vector3(move_force.x, moveUpForce, move_force.y)
 	PlayerBallCollider.apply_central_impulse(impulse)
 
-func slowBally(delta: float) -> void:
-	PlayerBallCollider.angular_damp = 5000
-	PlayerBallCollider.linear_damp = 5000
-
 func _physics_process(delta: float) -> void:
 	# -------- player input ------------
 	var playerInputDir = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
@@ -177,10 +188,9 @@ func _physics_process(delta: float) -> void:
 	update_rotation(delta)
 	updateDebugHelpers(playerInputDir) # can remove when shipped
 
-	match $"../".inMoveState:
+	match PlayerRoot.inMoveState:
 		Player.MoveStates.FELL: 
 			if keepUpright:pushBody(delta)
-			if keepUpright:slowBally(delta)
 		_:
 			if keepUpright:pushBally(delta, playerInputDir)
 			if keepUpright:pushBody(delta)
@@ -193,22 +203,35 @@ func _physics_process(delta: float) -> void:
 func stateTransitionTo(_targetState: Player.MoveStates):
 	pass
 
-func _on_timer_roll_timeout() -> void:
-	pass # Replace with function body.
 
 func _on_player_change_movement(state: Player.MoveStates) -> void:
 	match state:
 		Player.MoveStates.FALLING: 
 			$TimerFalling.start()
 			keepUpright = true
-		Player.MoveStates.FELL: keepUpright = false
+		Player.MoveStates.FELL: 
+			keepUpright = false
+			PlayerBallCollider.angular_damp = 5
+			PlayerBallCollider.linear_damp = 5
+		Player.MoveStates.STANDUP: 
+			$TimerStandUp.start()
 		_: 
+			PlayerBallCollider.angular_damp = 0
+			PlayerBallCollider.linear_damp = 0
 			keepUpright = true
 			$TimerFalling.stop()
 
 func Reset(newpos: Vector3) -> void:
 	pass
+	
+	
+# ------------------ Timers ------------------------
 
+func _on_timer_roll_timeout() -> void:
+	PlayerRoot.setMoveState(Player.MoveStates.MOVING)
 
 func _on_timer_falling_timeout() -> void:
 	keepUpright = false
+
+func _on_timer_stand_up_timeout() -> void:
+	PlayerRoot.setMoveState(Player.MoveStates.MOVING)
