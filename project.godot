@@ -22,11 +22,6 @@ UserSettings="*res://Settings/user_settings.gd"
 GameStateManager="*res://Gameplay/game_state_manager.tscn"
 AudioManager="*res://Audio/audio_manager.tscn"
 
-[debug]
-
-shapes/collision/shape_color=Color(0, 0.5950001, 0.7, 1)
-shapes/collision/contact_color=Color(1, 0.20500004, 0.100000024, 1)
-
 [display]
 
 window/size/viewport_width=1920
