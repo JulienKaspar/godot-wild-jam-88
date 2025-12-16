@@ -7,6 +7,7 @@ extends Node3D
 @export var right_hand_target: Node3D
 
 @export var animation_player: AnimationPlayer
+@export var footstep_audio_player : AudioStreamPlayer3D
 
 @onready var player_armature: Node3D = $PlayerArmature
 
@@ -38,6 +39,8 @@ func _ready() -> void:
 	
 	left_foot_ik_target.has_started_stepping.connect(on_has_start_stepping)
 	right_foot_ik_target.has_started_stepping.connect(on_has_start_stepping)
+	left_foot_ik_target.has_finished_stepping.connect(footstep_audio_player.play)
+	right_foot_ik_target.has_finished_stepping.connect(footstep_audio_player.play)
 
 	
 func on_has_start_stepping():

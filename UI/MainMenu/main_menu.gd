@@ -21,5 +21,5 @@ func parralax() -> void:
 @onready var title_screen_ambience : AudioStreamPlayer = %TitleScreenAmbience
 
 func enter_menu_ambience():
-	AudioManager.fade_audio(title_screen_ambience, 1.0, 2.5)
+	AudioManager.fade_audio_in(title_screen_ambience, 0.0, 2.5)
 	title_screen_ambience.play()

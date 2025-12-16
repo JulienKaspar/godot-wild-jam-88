@@ -1,6 +1,7 @@
 extends Marker3D
 
 signal has_started_stepping()
+signal has_finished_stepping()
 
 @export var step_target: Node3D
 @export var other_foot: Node3D
@@ -38,6 +39,9 @@ func step():
 	var t = get_tree().create_tween()
 	t.tween_property(self, "global_position", half_way + high_point, step_speed)
 	t.tween_property(self, "global_position", target_pos, step_speed)
-	t.tween_callback(func(): is_stepping = false)
+	t.tween_callback(func(): 
+		is_stepping = false
+		has_finished_stepping.emit()
+	)
 	
 	

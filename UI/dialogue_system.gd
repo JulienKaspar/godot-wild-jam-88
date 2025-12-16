@@ -87,8 +87,13 @@ func start_showing_text() -> void:
 	visible_ratio_tween.tween_property(dialogue_text, "visible_ratio", 0.5, text_bubble_up_time_seconds_middle).set_ease(Tween.EASE_IN_OUT)
 	visible_ratio_tween.tween_property(dialogue_text, "visible_ratio", 0.75, text_bubble_up_time_seconds_late).set_ease(Tween.EASE_IN_OUT)
 	visible_ratio_tween.tween_property(dialogue_text, "visible_ratio", 1, text_bubble_up_time_seconds_final).set_ease(Tween.EASE_IN_OUT)
-	
-	
+
+	# Duck music
+	AudioManager.music_manager.duck_volume()
 	babble_sounds.finished.connect(babble_sounds.play) # infinite loop!
 	babble_sounds.play()
-	visible_ratio_tween.finished.connect(func(): babble_sounds.finished.disconnect(babble_sounds.play))
+	visible_ratio_tween.finished.connect(
+		func(): 
+			babble_sounds.finished.disconnect(babble_sounds.play)
+			AudioManager.music_manager.restore_volume()
+	)

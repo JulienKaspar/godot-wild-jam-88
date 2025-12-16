@@ -30,7 +30,10 @@ func _connect_debug_ui():
 	drunkness_slider.value_changed.connect(_set_drunkness)
 #endregion
 
+
+
 @onready var music_player : AudioStreamPlayer = %MusicPlayer
+const _DEFAULT_VOLUME_DB : float = -6.0
 
 ## TODO: save bus layout structure to ensure consistent effect indexing
 var stereo_enhancer_effect : AudioEffectStereoEnhance = AudioServer.get_bus_effect(AudioManager.BUS.MUSIC, AudioManager.FX.STEREO_ENHANCE)
@@ -39,13 +42,40 @@ var phaser_effect : AudioEffectPhaser = AudioServer.get_bus_effect(AudioManager.
 var delay_effect : AudioEffectDelay = AudioServer.get_bus_effect(AudioManager.BUS.MUSIC, AudioManager.FX.DELAY)
 
 func _ready():
+	if !AudioManager.music_manager:
+		AudioManager.music_manager = self
 	_connect_signals()
 	_check_debug()
-	#start_music()
+	AudioManager.fade_audio_in(music_player, _DEFAULT_VOLUME_DB, 3.5)
+	start_music()
+	_setup_random_chord_changes()
+	
+func _setup_random_chord_changes():
+	var chord_change_timer : Timer = Timer.new()
+	chord_change_timer.wait_time = 10.0
+	chord_change_timer.one_shot = false
+	chord_change_timer.timeout.connect(_change_theme_randomly)
+	add_child(chord_change_timer)
+	chord_change_timer.start()
 
+func _change_theme_randomly() -> void:
+	if (randf() < 0.5): return # chance to skip
+	var _target_theme : int = current_theme
+	while(_target_theme == current_theme): # skip if same
+		_target_theme = randi_range(0, MUSIC_THEMES.size() - 1)
+	switch_music_to_theme(_target_theme)
+	
 
 func _connect_signals():
 	switch_music.connect(switch_music_to_theme)
+	GameStateManager.player_drunkness.on_drunkness_changed.connect(
+		# TODO: keep updated with PlayerDrunkness values
+		func(drunk_value): drunkness_intensity = remap(
+			drunk_value, 
+			GameStateManager.player_drunkness.min_drunkness, # input range
+			GameStateManager.player_drunkness.max_drunkness, # input range
+			0.0, 1.0) # output range
+	)
 
 
 
@@ -72,9 +102,15 @@ const MUSIC_BANK : Dictionary[MUSIC_THEMES, String] = {
 func start_music():
 	music_player.play()
 	update_drunkness_effect()
-	
+
 func stop_music():
 	music_player.stop()
+
+func duck_volume():
+	AudioManager.tween_volume_db(music_player, (_DEFAULT_VOLUME_DB - 4.5), 1.5)
+
+func restore_volume():
+	AudioManager.tween_volume_db(music_player, _DEFAULT_VOLUME_DB, 2.5)
 
 func switch_music_to_theme(theme : MUSIC_THEMES):
 	var _playback : AudioStreamPlaybackInteractive = music_player.get_stream_playback()
