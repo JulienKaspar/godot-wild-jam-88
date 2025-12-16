@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://drwswyc7ed01p"]
+[gd_scene load_steps=11 format=3 uid="uid://drwswyc7ed01p"]
 
 [ext_resource type="FontFile" uid="uid://bo4ccwxk8mrea" path="res://Assets/Fonts/SquaredHand.otf" id="1_vlkau"]
 [ext_resource type="Texture2D" uid="uid://dnv5axqu0tbkl" path="res://Assets/2D_Assets/Dialogue_Art/flasky_base.png" id="2_bbhjd"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dv8s4yu1h6fcn" path="res://Assets/2D_Assets/Dialogue_Art/pupil_left.png" id="3_fkwb6"]
 [ext_resource type="Texture2D" uid="uid://cg0nw86fh8ief" path="res://Assets/2D_Assets/Dialogue_Art/pupil_right.png" id="4_kcolf"]
 [ext_resource type="AudioStream" uid="uid://d2f0my2oc0fyi" path="res://Audio/SFX/babble_sounds.tres" id="6_eaacc"]
+[ext_resource type="Texture2D" uid="uid://c4nasmu81tv3g" path="res://Assets/2D_Assets/Dialogue_Art/flasky_glossy_eye_layer.png" id="6_v3t8y"]
 
 [sub_resource type="Theme" id="Theme_fkwb6"]
 default_font = ExtResource("1_vlkau")
@@ -87,29 +88,29 @@ layout_mode = 0
 offset_left = 985.0
 offset_top = 37.0
 offset_right = 1278.0
-offset_bottom = 393.0
+offset_bottom = 338.0
 pivot_offset = Vector2(131.59, 172.07)
 texture = ExtResource("2_bbhjd")
 stretch_mode = 4
 
 [node name="PupilLeft" type="TextureRect" parent="Control2/DialoguePrompt/FlaskyBase"]
-custom_minimum_size = Vector2(40, 40)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
-offset_left = 50.0
-offset_top = 131.0
-offset_right = 90.0
-offset_bottom = 171.0
+offset_left = 52.0
+offset_top = 119.0
+offset_right = 102.0
+offset_bottom = 169.0
 texture = ExtResource("3_fkwb6")
 expand_mode = 3
 stretch_mode = 5
 
 [node name="PupilRight" type="TextureRect" parent="Control2/DialoguePrompt/FlaskyBase"]
-custom_minimum_size = Vector2(40, 40)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
-offset_left = 158.0
+offset_left = 163.0
 offset_top = 125.0
-offset_right = 198.0
-offset_bottom = 165.0
+offset_right = 213.0
+offset_bottom = 175.0
 texture = ExtResource("4_kcolf")
 expand_mode = 3
 stretch_mode = 5
@@ -122,6 +123,21 @@ offset_right = -2.0
 offset_bottom = 184.0
 theme_override_font_sizes/font_size = 50
 text = "\\"
+
+[node name="TextureRect" type="TextureRect" parent="Control2/DialoguePrompt/FlaskyBase"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = -2.0
+offset_right = 5.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_v3t8y")
+expand_mode = 2
+stretch_mode = 4
 
 [node name="BabbleSounds" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
