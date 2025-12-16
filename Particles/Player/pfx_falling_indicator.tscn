@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=3 uid="uid://cyksrihj0achx"]
+
+[ext_resource type="Texture2D" uid="uid://dj7qr1suvy7ha" path="res://Textures/Sprites/smoke_a_diff.png" id="1_bllyg"]
+
+[sub_resource type="Curve" id="Curve_bllyg"]
+_data = [Vector2(0, 0.011235952), 0.0, 0.0, 0, 0, Vector2(0.21645023, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_tsxdo"]
+curve = SubResource("Curve_bllyg")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mv2ra"]
+lifetime_randomness = 0.31
+emission_shape_offset = Vector3(0, -0.25, 0)
+emission_shape_scale = Vector3(0.5, 0, 0.5)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+angle_min = -179.99998
+angle_max = 180.00002
+inherit_velocity_ratio = 1.0
+direction = Vector3(0, 0.2, 0)
+spread = 11.077
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+radial_velocity_min = 0.09997764
+radial_velocity_max = 0.19997764
+gravity = Vector3(0, 0.1, 0)
+damping_min = 0.5
+damping_max = 2.0
+scale_max = 1.1999999
+color = Color(1, 1, 1, 0.6039216)
+alpha_curve = SubResource("CurveTexture_tsxdo")
+turbulence_enabled = true
+turbulence_noise_scale = 0.613
+turbulence_noise_speed_random = 0.46
+turbulence_influence_min = 0.043
+turbulence_influence_max = 0.052
+turbulence_initial_displacement_min = 1.490116e-06
+turbulence_initial_displacement_max = 1.490116e-06
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bllyg"]
+transparency = 2
+alpha_scissor_threshold = 0.228
+alpha_antialiasing_mode = 0
+shading_mode = 2
+diffuse_mode = 1
+specular_mode = 2
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_color = Color(0.47788018, 0.47788012, 0.47788012, 1)
+albedo_texture = ExtResource("1_bllyg")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+stencil_flags = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_tsxdo"]
+material = SubResource("StandardMaterial3D_bllyg")
+
+[node name="PfxFallingIndicator" type="GPUParticles3D"]
+amount = 10
+lifetime = 0.7
+process_material = SubResource("ParticleProcessMaterial_mv2ra")
+draw_pass_1 = SubResource("QuadMesh_tsxdo")

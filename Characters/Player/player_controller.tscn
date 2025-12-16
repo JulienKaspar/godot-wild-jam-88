@@ -1,6 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://cx2qst5txs1af"]
+[gd_scene load_steps=27 format=3 uid="uid://cx2qst5txs1af"]
 
 [ext_resource type="Script" uid="uid://cdppyptuftkiw" path="res://Characters/Player/logic/player_movement.gd" id="1_jkj6u"]
+[ext_resource type="PackedScene" uid="uid://cyksrihj0achx" path="res://Particles/Player/pfx_falling_indicator.tscn" id="2_6yvek"]
+[ext_resource type="PackedScene" uid="uid://bhvwgh4ef0sj6" path="res://Particles/Player/pfx_bodyfall.tscn" id="3_on8bp"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_056gf"]
 margin = 0.0
@@ -235,6 +237,9 @@ lock_rotation = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NoRotateBall"]
 shape = SubResource("SphereShape3D_jkj6u")
 
+[node name="PfxFallingIndicator" parent="NoRotateBall" instance=ExtResource("2_6yvek")]
+emitting = false
+
 [node name="UpperBody" type="RigidBody3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.164401, 0)
@@ -268,6 +273,8 @@ swing_span = 1.3229595
 [node name="BodyAttachPoint" type="Node3D" parent="UpperBody"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.164, 0)
+
+[node name="PfxBodyfall" parent="UpperBody" instance=ExtResource("3_on8bp")]
 
 [node name="ArmL" type="RigidBody3D" parent="."]
 unique_name_in_owner = true
@@ -309,4 +316,9 @@ one_shot = true
 wait_time = 10.0
 one_shot = true
 
+[node name="TimerFalling" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
 [connection signal="timeout" from="TimerRoll" to="." method="_on_timer_roll_timeout"]
+[connection signal="timeout" from="TimerFalling" to="." method="_on_timer_falling_timeout"]

@@ -21,8 +21,8 @@ static var upper_body_stiffness = 1.5 # scales impulse to bring body back to tar
 static var body_leaning_force = 0.1 # how much move direction is added to pose correction
 
 #---------------- State -----------------------------------
+#need to update these properly for when player spawns at not 0
 @onready var player_facing_dir = Vector2(0, 0)
-#@onready var player_global_pos = %RigidBally3D.global_position - Vector3(0,0.25,0)
 @onready var player_global_pos = Vector3(0,0,0)
 @onready var player_global_mass_pos = Vector3(0,0,0)
 
@@ -30,6 +30,8 @@ var drunk_noise_vector = Vector2(0,0)
 var player_move_dir = Vector2(0,0)
 var player_speed = 0.0
 var leaning = 0.0
+
+var keepUpright = true
 
 
 # outside influence
@@ -43,11 +45,17 @@ func toggleDebugDraw() -> void:
 
 func showHelpers() -> void:
 	DebugDraw = true
-	self.show()
-
+	%RigidBally3D.show()
+	$UpperBody/helper_body_col.show()
+	%ArmL.show()
+	%ArmR.show()
+	
 func hideelpers() -> void:
 	DebugDraw = false
-	self.hide()
+	%RigidBally3D.hide()
+	$UpperBody/helper_body_col.hide()
+	%ArmL.hide()
+	%ArmR.hide()
 
 
 # generate some noise direction but tend to fall in one direction
@@ -104,7 +112,6 @@ func executeRoll():
 #----------------Process--------------------------------------------------------
 #-------------------------------------------------------------------------------
 func _ready() -> void:
-	
 	if DebugDraw:
 		showHelpers()
 	else:
@@ -121,24 +128,8 @@ func _process(delta: float) -> void:
 
 	%up_aligned/helper_leaning.position = Vector3(player_move_dir.x,-0.22,player_move_dir.y)
 
-func _physics_process(delta: float) -> void:
-	# -------- player input ------------
-	var playerInputDir = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
-
-	# -------- update targets ----------
-	update_vectors()
-	update_drunk_vector(delta)
-	update_rotation(delta)
-	updateDebugHelpers(playerInputDir) # can remove when shipped
-
-	# -------- push Bally ---------------
-	var move_force = playerInputDir * player_input_strength
-	move_force += drunk_noise_vector * drunk_input_strength
-	move_force *= delta * move_force_multiplier
-	var impulse = Vector3(move_force.x, 0, move_force.y)
-	PlayerBallCollider.apply_central_impulse(impulse)
-	
-	# -------- push upper body ----------
+func pushBody(delta: float) -> void:
+		# -------- push upper body ----------
 	var body_offset = PlayerBallCollider.global_position - PlayerBodyCollider.global_position
 	body_offset.y = 0.0
 	body_offset.x += player_move_dir.x * body_leaning_force
@@ -155,6 +146,28 @@ func _physics_process(delta: float) -> void:
 	var body_fwd_2D = Vector2(body_fwd_dir.x, body_fwd_dir.z)
 	body_torque.y = body_fwd_2D.dot(player_facing_dir) * 10 * delta
 	PlayerBodyCollider.apply_torque_impulse(body_torque)
+
+func pushBally(delta: float, playerInputDir) -> void:
+	
+	var move_force = playerInputDir * player_input_strength
+	move_force += drunk_noise_vector * drunk_input_strength
+	move_force *= delta * move_force_multiplier
+	var impulse = Vector3(move_force.x, 0, move_force.y)
+	PlayerBallCollider.apply_central_impulse(impulse)
+
+func _physics_process(delta: float) -> void:
+	# -------- player input ------------
+	var playerInputDir = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
+
+	# -------- update targets ----------
+	update_vectors()
+	update_drunk_vector(delta)
+	update_rotation(delta)
+	updateDebugHelpers(playerInputDir) # can remove when shipped
+
+	#match $"../".inM
+	if keepUpright:pushBally(delta, playerInputDir)
+	if keepUpright:pushBody(delta)
 	
 	sendStatsToPlayer()
 	check_furniture_contact()
@@ -167,31 +180,15 @@ func stateTransitionTo(_targetState: Player.MoveStates):
 func _on_timer_roll_timeout() -> void:
 	pass # Replace with function body.
 
-
 func _on_player_change_movement(state: Player.MoveStates) -> void:
-	pass # Replace with function body.
+	match state:
+		2: $TimerFalling.start()
+		5: keepUpright = false
+		_: $TimerFalling.stop()
 
 func Reset(newpos: Vector3) -> void:
-	PlayerBodyCollider.freeze = true
-	PlayerBallCollider.freeze = true
-	
-	newpos.y += 0.25
-	PlayerBallCollider.global_position = newpos
-	PlayerBallCollider.rotation = Vector3(0,0,0)
-	
-	$NoRotateBall.global_position = newpos
-	newpos.y += 0.914
-	PlayerBodyCollider.global_position = newpos
-	PlayerBodyCollider.rotation = Vector3(0,0,0)
-
-	drunk_noise_vector = Vector2(0,0)
-	player_move_dir = Vector2(0,0)
-	player_speed = 0.0
-	player_facing_dir = Vector2(0,1.0)
-	leaning = 0.0
-	player_global_pos = Vector3(0,0,0)
-	player_global_mass_pos = Vector3(0,0,0)
-
-	PlayerBodyCollider.freeze = false
-	PlayerBallCollider.freeze = false
 	pass
+
+
+func _on_timer_falling_timeout() -> void:
+	keepUpright = false

@@ -77,6 +77,7 @@ mesh = SubResource("CapsuleMesh_osktb")
 [connection signal="ChangeHandRight" from="." to="PlayerBody" method="_on_player_change_hand_right"]
 [connection signal="ChangeHandTargetL" from="." to="PlayerBody" method="_on_player_change_hand_target_l"]
 [connection signal="ChangeHandTargetR" from="." to="PlayerBody" method="_on_player_change_hand_target_r"]
+[connection signal="ChangeMovement" from="." to="." method="_on_change_movement"]
 [connection signal="ChangeMovement" from="." to="PlayerController" method="_on_player_change_movement"]
 [connection signal="ConsumedDrunkness" from="." to="Drunkness" method="_on_player_consumed_drunkness"]
 [connection signal="ReachedTargetLeft" from="PlayerBody" to="." method="_on_player_body_reached_target_left"]

@@ -68,6 +68,7 @@ func update_step_targets():
 	right_step_target.target_position.z = local_balance_vec.z * speed
 
 func _process(delta: float) -> void:
+	# Make the armature follow the physics bodies
 	self.global_transform = lerp(self.global_transform, body_attach_point.global_transform, .5)
 	left_hand_target.global_transform = lerp(left_hand_target.global_transform, rb_arm_l.global_transform, 0.5)
 	right_hand_target.global_transform = lerp(right_hand_target.global_transform, rb_arm_r.global_transform, 0.5)

@@ -10,6 +10,15 @@ signal ChangeHandTargetR(trgt_right: Object, isValid: bool) # set isValid=false 
 signal ChangeMovement(state: MoveStates)
 signal ConsumedDrunkness(value:float)
 
+@onready var pfx_falling = $PlayerController/NoRotateBall/PfxFallingIndicator
+@onready var pfx_bodyfall = $PlayerController/UpperBody/PfxBodyfall
+
+#--------------- Settings -----------------------------------------------------
+var fallStartPoint = 0.2
+var fallNoRecoverPoint = 0.6
+
+
+#------------------------------------------------------------------------------
 ### statess 
 enum MoveStates {IDLE, MOVING, FALLING, ROLLING, FLASKY, FELL}
 enum HandStates {DANGLY, REACHING, HOLD, DRINKING, ROLLING, FIXED}
@@ -20,7 +29,7 @@ var grabbingL = false
 var grabbingR = false
 
 # move state
-var inMoveState = MoveStates.IDLE
+var inMoveState = MoveStates.MOVING
 var HandLState = HandStates.DANGLY
 var HandRState = HandStates.DANGLY
 var canRoll = true
@@ -32,7 +41,6 @@ var player_facing_dir = Vector2(0,1.0) # owned by player_controller
 var leaning = 0.0 # owned by player_controller
 
 # health and safety
-var drunk_amount = 0.5
 
 
 #----------------------------------------
@@ -56,8 +64,39 @@ func setHandRState(state: HandStates):
 	HandRState = state
 	self.ChangeHandRight.emit(state)
 
+func setMovetate(state: MoveStates):
+	inMoveState = state
+	self.ChangeMovement.emit(state)
+
+func checkFalling() -> void:
+	if leaning > fallNoRecoverPoint:
+		setMovetate(MoveStates.FELL)
+	elif leaning > fallStartPoint:
+		if inMoveState != MoveStates.FALLING:
+			setMovetate(MoveStates.FALLING)
+	elif inMoveState != MoveStates.MOVING:
+		setMovetate(MoveStates.MOVING)
+
+
 func _process(_delta: float) -> void:
-	# Make the armature follow the physics bodies
+	# state machine
+	match inMoveState:
+		0: #IDLE
+			pass
+		1: #MOVING
+			checkFalling()
+		2: #FALLING
+			checkFalling()
+		3:#ROLLING
+			pass
+		4: #FLASKY
+			pass
+		5: #FELL
+			pass	
+	
+	match HandLState:
+		1: pass
+
 
 	# ------- Input Handling ------
 	if Input.is_action_pressed("grab_left"):
@@ -86,7 +125,6 @@ func _process(_delta: float) -> void:
 			pass
 	
 
-
 func _on_player_body_reached_target_left(item) -> void:
 	if item.get_script().get_global_name() == "DrunknessPickup":
 		setHandLState(HandStates.HOLD)
@@ -98,3 +136,14 @@ func _on_player_body_reached_target_right(item) -> void:
 		setHandRState(HandStates.HOLD)
 	else:
 		setHandRState(HandStates.FIXED)
+
+func _on_change_movement(state: Player.MoveStates) -> void:
+	# stateTransitions
+	# --- Particles
+	match state:
+		2: pfx_falling.set_emitting(true)
+		_: pfx_falling.set_emitting(false)
+
+	match state:
+		5: pfx_bodyfall.set_emitting(true)
+		_: pfx_bodyfall.set_emitting(false)	
