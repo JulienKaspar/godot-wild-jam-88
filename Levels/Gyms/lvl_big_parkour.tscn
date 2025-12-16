@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dbtkwlffndd80"]
+[gd_scene load_steps=31 format=3 uid="uid://dbtkwlffndd80"]
 
 [ext_resource type="Material" uid="uid://hg5ppfcn0qd7" path="res://Levels/Gyms/Floor/floor1_v2.tres" id="1_3e7wy"]
 [ext_resource type="Material" uid="uid://dxyb0pq2y84ds" path="res://Levels/Gyms/Wall/reddish_floral_wall_v2.tres" id="2_lb2wt"]
@@ -35,6 +35,9 @@ size = Vector3(3.1313477, 3.7873535, 12.549988)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qdxjv"]
 size = Vector3(3.4970703, 4.3398438, 3.756836)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wtfsr"]
+size = Vector3(2.045166, 3.9852905, 9.482056)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ufje4"]
 size = Vector3(11.668411, 3.45717, 0.2)
@@ -190,6 +193,20 @@ use_collision = true
 collision_layer = 65
 size = Vector3(7.679226, 1, 7.8176346)
 
+[node name="CSGBox3D9" type="CSGBox3D" parent="Layout/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.731998, 0.26206565, -10.504431)
+material_override = ExtResource("1_3e7wy")
+use_collision = true
+collision_layer = 65
+size = Vector3(4.579468, 1.6694336, 1.7258606)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Layout/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.777844, 0.82158494, -10.50456)
+material_override = ExtResource("1_3e7wy")
+use_collision = true
+collision_layer = 65
+size = Vector3(4.884369, 2.777832, 1.7256012)
+
 [node name="CSGBox3D4" type="CSGBox3D" parent="Layout/Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4119468, -0.5082693, -5.665875)
 material_override = ExtResource("1_3e7wy")
@@ -306,16 +323,31 @@ use_collision = true
 size = Vector3(0.2, 3.336, 5.1048155)
 
 [node name="CSG_WoodenlWall2" type="CSGBox3D" parent="Layout/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.541491, 2.3238745, -8.723059)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.541491, 2.3238745, -7.7911234)
 material_override = ExtResource("3_i5ry1")
 use_collision = true
-size = Vector3(0.2, 4.6524973, 5.3478575)
+size = Vector3(0.2, 4.6524973, 3.4839873)
+
+[node name="CSG_WoodenlWall3" type="CSGBox3D" parent="Layout/Walls"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.814079, 2.3238745, -9.429675)
+material_override = ExtResource("3_i5ry1")
+use_collision = true
+size = Vector3(0.2, 4.6524973, 8.560694)
+script = ExtResource("3_qdxjv")
+metadata/_custom_type_script = "uid://dogbj3gtx3mxu"
+
+[node name="Area3D" type="Area3D" parent="Layout/Walls/CSG_WoodenlWall3"]
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Walls/CSG_WoodenlWall3/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.877512, 0.39102173, -0.3546753)
+shape = SubResource("BoxShape3D_wtfsr")
 
 [node name="CSG_YellowlWall" type="CSGBox3D" parent="Layout/Walls"]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.330403, 2.346968, -11.35713)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.9759154, 2.346968, -11.35713)
 material_override = ExtResource("4_277pc")
 use_collision = true
-size = Vector3(0.2, 4.698685, 23.760187)
+size = Vector3(0.2, 4.698685, 32.469162)
 
 [node name="CSG_YellowlWall3" type="CSGBox3D" parent="Layout/Walls"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 24.108322, 1.6656253, 4.1150503)
@@ -430,3 +462,11 @@ wall_material = SubResource("StandardMaterial3D_tnewr")
 [node name="Stairs_thin2" parent="." instance=ExtResource("12_wtfsr")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.4940305, 0.4224391, -10.529)
 wall_material = SubResource("StandardMaterial3D_6fmut")
+
+[node name="Stairs_thin4" parent="." instance=ExtResource("12_wtfsr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.8654532, 1.513356, -10.546213)
+wall_material = SubResource("StandardMaterial3D_6fmut")
+
+[node name="Stairs_thin3" parent="." instance=ExtResource("12_wtfsr")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.870738, 0.4224391, -10.529)
+wall_material = ExtResource("1_3e7wy")
