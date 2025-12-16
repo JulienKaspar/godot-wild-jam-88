@@ -10,10 +10,25 @@ class_name MusicManager
 
 signal switch_music(theme : MUSIC_THEMES)
 
-## === DEBUG === ##
+#region DEBUG
+@export var _debug : bool = false
+@onready var debug_layer = $DebugLayer
 @onready var theme_options = $DebugLayer/Control/VBoxContainer/ThemeOptionButton
 @onready var drunkness_slider = $DebugLayer/Control/VBoxContainer/DrunknessSlider
 @onready var drunkness_label = $DebugLayer/Control/VBoxContainer/DrunknessLabel
+
+func _check_debug():
+	if _debug:
+		_connect_debug_ui()
+		debug_layer.show()
+	else:
+		debug_layer.hide()
+		debug_layer.process_mode = Node.PROCESS_MODE_DISABLED
+
+func _connect_debug_ui():
+	theme_options.item_selected.connect(switch_music_to_theme)
+	drunkness_slider.value_changed.connect(_set_drunkness)
+#endregion
 
 @onready var music_player = %MusicPlayer
 
@@ -25,19 +40,16 @@ var delay_effect : AudioEffectDelay = AudioServer.get_bus_effect(AudioManager.BU
 
 func _ready():
 	_connect_signals()
-	_connect_debug_ui()
+	_check_debug()
 	#start_music()
 
-func _connect_debug_ui():
-	theme_options.item_selected.connect(switch_music_to_theme)
-	drunkness_slider.value_changed.connect(_set_drunkness)
 
 func _connect_signals():
 	switch_music.connect(switch_music_to_theme)
 
 
 
-## === MUSIC === ###
+#region MUSIC
 # Music themes - enum makes it easily callable from other scripts
 enum MUSIC_THEMES {
 	THEME_A,
@@ -69,10 +81,10 @@ func switch_music_to_theme(theme : MUSIC_THEMES):
 	_playback.switch_to_clip_by_name(MUSIC_BANK[theme])
 	current_theme = theme
 	update_drunkness_effect()
+#endregion
 
 
-
-### === DRUNKNESS EFFECT === ##
+#region DRUNKNESS EFFECT
 # Stream layers of music for each layer of drunkness_intensity
 enum DRUNKNESS_STREAMS {
 	DEFAULT = 0,
@@ -144,3 +156,4 @@ func _get_current_theme_stream() -> AudioStreamSynchronized:
 	var _interactive_stream : AudioStreamInteractive = music_player.stream
 	
 	return _interactive_stream.get_clip_stream(_clip_index) as AudioStreamSynchronized
+#endregion
