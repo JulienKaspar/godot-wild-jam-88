@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://cyrgcx64104qc"]
+
+[ext_resource type="PackedScene" uid="uid://142xvokhmr2g" path="res://Objects/PropCollider.tscn" id="1_hlnuj"]
+[ext_resource type="PackedScene" uid="uid://bctmoem1dvblc" path="res://Assets/Furniture/garden_chair.gltf" id="2_hlnuj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_422ut"]
+size = Vector3(1.1601563, 0.37402344, 0.97558594)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hlnuj"]
+size = Vector3(1.0412598, 0.9844971, 0.068359375)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sssrd"]
+size = Vector3(0.23266602, 0.14941406, 0.63964844)
+
+[node name="Radio" type="Node3D"]
+
+[node name="PropCollider" parent="." instance=ExtResource("1_hlnuj")]
+
+[node name="garden_chair" parent="PropCollider" instance=ExtResource("2_hlnuj")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PropCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18795776, 0)
+shape = SubResource("BoxShape3D_422ut")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="PropCollider"]
+transform = Transform3D(1, 0, 0, 0, 0.93282783, 0.36032245, 0, -0.36032245, 0.93282783, 0, 0.80004853, -0.63138217)
+shape = SubResource("BoxShape3D_hlnuj")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="PropCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.52905464, 0.57073534, 0)
+shape = SubResource("BoxShape3D_sssrd")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="PropCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46383774, 0.57073534, 0)
+shape = SubResource("BoxShape3D_sssrd")

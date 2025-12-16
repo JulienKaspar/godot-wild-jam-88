@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://brhckpuqlnhm6"]
+
+[ext_resource type="PackedScene" uid="uid://142xvokhmr2g" path="res://Objects/PropCollider.tscn" id="1_3f086"]
+[ext_resource type="PackedScene" uid="uid://d2eq7vvvrjy06" path="res://Assets/Furniture/bbq.gltf" id="2_3f086"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sssrd"]
+size = Vector3(1.9248047, 1.0048828, 1.0986328)
+
+[node name="Radio" type="Node3D"]
+
+[node name="PropCollider" parent="." instance=ExtResource("1_3f086")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PropCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.51464844, 0)
+shape = SubResource("BoxShape3D_sssrd")
+
+[node name="bbq" parent="PropCollider" instance=ExtResource("2_3f086")]

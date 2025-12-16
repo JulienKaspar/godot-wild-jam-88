@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnaagrenu83ty"]
+
+[ext_resource type="PackedScene" uid="uid://142xvokhmr2g" path="res://Objects/PropCollider.tscn" id="1_kbgbg"]
+[ext_resource type="PackedScene" uid="uid://cwfeibvrckf0f" path="res://Assets/Furniture/garden_table.gltf" id="2_kbgbg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sssrd"]
+size = Vector3(0.96972656, 0.9746094, 0.8408203)
+
+[node name="Radio" type="Node3D"]
+
+[node name="PropCollider" parent="." instance=ExtResource("1_kbgbg")]
+
+[node name="garden_table" parent="PropCollider" instance=ExtResource("2_kbgbg")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PropCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49951172, 0)
+shape = SubResource("BoxShape3D_sssrd")
