@@ -17,10 +17,12 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	player_drunkness.current_drunkness -= player_drunkness.drunkness_decay_per_second * delta
+	update_drunk_visual_effect()
+
+func update_drunk_visual_effect() -> void:
 	var effect_intensity: float = 0.05
 	var drunk_effect_intensity = player_drunkness.current_drunkness * effect_intensity * UserSettings.drunk_visual_effect_intensity
 	post_processing.material.set('shader_parameter/drunkness', drunk_effect_intensity)
-
 
 func _unhandled_input(event: InputEvent) -> void:
 	var drunkness_per_drink: float = 2
