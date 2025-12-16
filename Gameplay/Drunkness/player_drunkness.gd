@@ -31,6 +31,3 @@ func set_drunkness(_new_value: float) -> void:
 func _init() -> void:
 	current_drunkness = starting_drunkness
 	
-
-func _on_player_consumed_drunkness(value: float) -> void:
-	set_drunkness(current_drunkness + value)

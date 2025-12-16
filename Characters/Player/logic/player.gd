@@ -19,6 +19,8 @@ signal ConsumedDrunkness(value:float)
 #--------------- Settings -----------------------------------------------------
 var fallStartPoint = 0.2
 var fallNoRecoverPoint = 0.6
+var DrunkCost_Roll = -1.0
+var DrunkCost_HitFurniture = -0.1
 
 
 #------------------------------------------------------------------------------
@@ -57,6 +59,7 @@ func _ready() -> void:
 
 func goRoll() -> void:
 	$PlayerController.executeRoll()
+	setMoveState(MoveStates.ROLLING)
 	
 func riseAndShine() -> void:
 	$PlayerController.standUp()
@@ -138,9 +141,13 @@ func _on_change_movement(state: Player.MoveStates) -> void:
 	# stateTransitions
 	# --- Particles
 	match state:
-		2: pfx_falling.set_emitting(true)
+		MoveStates.ROLLING:
+			GameStateManager.player_drunkness.current_drunkness += DrunkCost_Roll
+	
+	match state:
+		MoveStates.FALLING: pfx_falling.set_emitting(true)
 		_: pfx_falling.set_emitting(false)
 
 	match state:
-		5: pfx_bodyfall.set_emitting(true)
+		MoveStates.FELL: pfx_bodyfall.set_emitting(true)
 		_: pfx_bodyfall.set_emitting(false)	
