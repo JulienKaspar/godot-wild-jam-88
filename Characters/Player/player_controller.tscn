@@ -1,8 +1,11 @@
-[gd_scene load_steps=28 format=3 uid="uid://cx2qst5txs1af"]
+[gd_scene load_steps=30 format=3 uid="uid://cx2qst5txs1af"]
 
 [ext_resource type="Script" uid="uid://cdppyptuftkiw" path="res://Characters/Player/logic/player_movement.gd" id="1_jkj6u"]
 [ext_resource type="PackedScene" uid="uid://cyksrihj0achx" path="res://Particles/Player/pfx_falling_indicator.tscn" id="2_6yvek"]
+[ext_resource type="Script" uid="uid://b5ewjdm5d53je" path="res://Characters/Player/logic/rigid_bally.gd" id="2_fy1gk"]
 [ext_resource type="PackedScene" uid="uid://bhvwgh4ef0sj6" path="res://Particles/Player/pfx_bodyfall.tscn" id="3_on8bp"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_on8bp"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_056gf"]
 margin = 0.0
@@ -172,8 +175,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.251, 0)
 collision_layer = 2
 collision_mask = 61
 mass = 50.0
+physics_material_override = SubResource("PhysicsMaterial_on8bp")
 contact_monitor = true
 max_contacts_reported = 10
+script = ExtResource("2_fy1gk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBally3D"]
 shape = SubResource("SphereShape3D_056gf")
@@ -345,6 +350,7 @@ one_shot = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16108675, 0.015062436, 4.7683716e-07)
 collision_layer = 2
 collision_mask = 61
+mass = 0.3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LegL"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39960164, 0)
@@ -358,6 +364,7 @@ mesh = SubResource("CapsuleMesh_on8bp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.161, 0.015, 0)
 collision_layer = 2
 collision_mask = 61
+mass = 0.3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LegR"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39960164, 0)

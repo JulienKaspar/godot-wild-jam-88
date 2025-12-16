@@ -32,7 +32,7 @@ var player_speed = 0.0
 var leaning = 0.0
 
 var keepUpright = true
-
+var moveUpForce = 0.0
 
 # outside influence
 var drunk_amount = 0.0
@@ -108,10 +108,15 @@ func check_furniture_contact() -> void:
 		if body is FurniturePlayerCollider:
 			body.on_player_collision(PlayerBallCollider.linear_velocity)
 
-func executeRoll():
+func executeRoll() -> void:
 	$"AnimationPlayer".play("roll")
 	$"TimerRoll".start()
-	
+
+
+func standUp() -> void:
+	PlayerBodyCollider.apply_impulse(Vector3(0,7,0))
+	keepUpright = true
+
 #----------------Process--------------------------------------------------------
 #-------------------------------------------------------------------------------
 func _ready() -> void:
@@ -121,10 +126,7 @@ func _ready() -> void:
 		hideelpers()
 
 func _process(delta: float) -> void:
-	update_body_pose(delta)
-	if Input.is_action_just_pressed("roll") && $"../".canRoll:
-		executeRoll()
-	
+	update_body_pose(delta)	
 	# ------------- Debug ----------------------------
 	if Input.is_action_just_pressed("debug_DrawHelpers"):
 		toggleDebugDraw()
@@ -151,12 +153,15 @@ func pushBody(delta: float) -> void:
 	PlayerBodyCollider.apply_torque_impulse(body_torque)
 
 func pushBally(delta: float, playerInputDir) -> void:
-	
 	var move_force = playerInputDir * player_input_strength
 	move_force += drunk_noise_vector * drunk_input_strength
 	move_force *= delta * move_force_multiplier
-	var impulse = Vector3(move_force.x, 0, move_force.y)
+	var impulse = Vector3(move_force.x, moveUpForce, move_force.y)
 	PlayerBallCollider.apply_central_impulse(impulse)
+
+func slowBally(delta: float) -> void:
+	PlayerBallCollider.angular_damp = 5000
+	PlayerBallCollider.linear_damp = 5000
 
 func _physics_process(delta: float) -> void:
 	# -------- player input ------------
@@ -168,9 +173,13 @@ func _physics_process(delta: float) -> void:
 	update_rotation(delta)
 	updateDebugHelpers(playerInputDir) # can remove when shipped
 
-	#match $"../".inM
-	if keepUpright:pushBally(delta, playerInputDir)
-	if keepUpright:pushBody(delta)
+	match $"../".inMoveState:
+		Player.MoveStates.FELL: 
+			if keepUpright:pushBody(delta)
+			if keepUpright:slowBally(delta)
+		_:
+			if keepUpright:pushBally(delta, playerInputDir)
+			if keepUpright:pushBody(delta)
 	
 	sendStatsToPlayer()
 	check_furniture_contact()
@@ -185,9 +194,13 @@ func _on_timer_roll_timeout() -> void:
 
 func _on_player_change_movement(state: Player.MoveStates) -> void:
 	match state:
-		2: $TimerFalling.start()
-		5: keepUpright = false
-		_: $TimerFalling.stop()
+		Player.MoveStates.FALLING: 
+			$TimerFalling.start()
+			keepUpright = true
+		Player.MoveStates.FELL: keepUpright = false
+		_: 
+			keepUpright = true
+			$TimerFalling.stop()
 
 func Reset(newpos: Vector3) -> void:
 	pass

@@ -2,9 +2,9 @@ extends Node3D
 class_name Player
 
 @warning_ignore_start('unused_signal')
-signal ChangeHandLeft(active: HandStates)
-signal ChangeHandRight(active: HandStates)
-signal ChangeFeet(active: FeetStates)
+signal ChangeHandLeft(state: HandStates)
+signal ChangeHandRight(state: HandStates)
+signal ChangeFeet(state: FeetStates)
 signal ChangeHandTargetL(trgt_left: Object, isValid: bool) # set isValid=false if theres none
 signal ChangeHandTargetR(trgt_right: Object, isValid: bool) # set isValid=false if theres none
 signal ChangeMovement(state: MoveStates)
@@ -51,10 +51,13 @@ func _ready() -> void:
 	$PlayerBody.rb_arm_r = $PlayerController/ArmR
 	$PlayerBody.upper_body = $PlayerController/UpperBody
 	$PlayerBody.body_attach_point = $PlayerController/UpperBody/BodyAttachPoint
-	$PlayerBody.pickup_radius = $PickupRadius
 
 func goRoll() -> void:
-	pass
+	$PlayerController.executeRoll()
+	
+func riseAndShine() -> void:
+	$PlayerController.standUp()
+	setMoveState(MoveStates.MOVING)
 	
 func setHandLState(state: HandStates):
 	HandLState = state
@@ -64,35 +67,28 @@ func setHandRState(state: HandStates):
 	HandRState = state
 	self.ChangeHandRight.emit(state)
 
-func setMovetate(state: MoveStates):
+func setMoveState(state: MoveStates):
 	inMoveState = state
 	self.ChangeMovement.emit(state)
 
 func checkFalling() -> void:
 	if leaning > fallNoRecoverPoint:
-		setMovetate(MoveStates.FELL)
+		setMoveState(MoveStates.FELL)
 	elif leaning > fallStartPoint:
 		if inMoveState != MoveStates.FALLING:
-			setMovetate(MoveStates.FALLING)
+			setMoveState(MoveStates.FALLING)
 	elif inMoveState != MoveStates.MOVING:
-		setMovetate(MoveStates.MOVING)
+		setMoveState(MoveStates.MOVING)
 
 
 func _process(_delta: float) -> void:
 	# state machine
 	match inMoveState:
-		0: #IDLE
-			pass
-		1: #MOVING
+		MoveStates.MOVING:
 			checkFalling()
-		2: #FALLING
+		MoveStates.FALLING: #FALLING
 			checkFalling()
-		3:#ROLLING
-			pass
-		4: #FLASKY
-			pass
-		5: #FELL
-			pass	
+		_: pass
 	
 	match HandLState:
 		1: pass
@@ -118,11 +114,9 @@ func _process(_delta: float) -> void:
 			setHandRState(HandStates.DANGLY)
 		
 	if Input.is_action_just_pressed("roll"):
-		if canRoll:
-			goRoll()
-		else:
-			# WIP, player feedback fo unsuccessfull roll?
-			pass
+		match inMoveState:
+			MoveStates.FALLING: goRoll()
+			MoveStates.FELL: riseAndShine()
 	
 
 func _on_player_body_reached_target_left(item) -> void:
