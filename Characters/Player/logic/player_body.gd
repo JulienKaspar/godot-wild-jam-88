@@ -3,8 +3,8 @@ extends Node3D
 @warning_ignore_start('unused_variable')
 @warning_ignore_start('unused_parameter')
 
-@export var left_hand_target: Node3D
-@export var right_hand_target: Node3D
+@onready var left_hand_target: Marker3D = $LeftHandTarget
+@onready var right_hand_target: Marker3D = $RightHandTarget
 
 @export var animation_player: AnimationPlayer
 @export var footstep_audio_player : AudioStreamPlayer3D
@@ -26,11 +26,26 @@ extends Node3D
 @onready var body_attach_point: Node3D
 @onready var pickup_radius: ShapeCast3D
 
-
 signal ReachedTargetLeft(item: Object)
 signal ReachedTargetRight(item: Object)
 
 var stepping := false
+
+# ----------------- debug 
+var debugDraw = true
+@onready var debugHelpers = [$RightFootIKTarget/debug_right_foot, $LeftFootIKTarget/debug_left_foot,
+$StepTarget/LeftRayCast/LeftFootStepTarget/debug_fs_L, $StepTarget/RightRayCast/RightFootStepTarget/debug_fs_R]
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("debug_DrawIK"):
+		if debugDraw: 
+			for helper in debugHelpers:
+				helper.show()
+			debugDraw = false
+		else: 
+			for helper in debugHelpers:
+				helper.show()
+			debugDraw = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -77,8 +92,12 @@ func update_step_targets():
 func _process(delta: float) -> void:
 	# Make the armature follow the physics bodies
 	self.global_transform = lerp(self.global_transform, body_attach_point.global_transform, .5)
+	
+	#move hand targets
 	left_hand_target.global_transform = lerp(left_hand_target.global_transform, rb_arm_l.global_transform, 0.5)
 	right_hand_target.global_transform = lerp(right_hand_target.global_transform, rb_arm_r.global_transform, 0.5)
+	
+	#move feet targets
 	update_step_targets()
 	
 func Reset() -> void:

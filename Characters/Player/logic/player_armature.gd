@@ -5,13 +5,15 @@ extends Node3D
 
 @onready var left_foot_target: Marker3D = $"../LeftFootIKTarget"
 @onready var right_foot_target: Marker3D = $"../RightFootIKTarget"
+@onready var left_hand_target: Marker3D = $"../LeftHandTarget"
+@onready var right_hand_target: Marker3D = $"../RightHandTarget"
 
 func _ready() -> void:
 	# Setup IK for left arm
 	var left_arm_ik = SkeletonIK3D.new()
 	left_arm_ik.root_bone = "Arm_L"
 	left_arm_ik.tip_bone = "Hand_L"
-	left_arm_ik.target_node = player_body.left_hand_target.get_path()
+	left_arm_ik.target_node = left_hand_target.get_path()
 	left_arm_ik.use_magnet = true
 	left_arm_ik.magnet = Vector3(1, 0, -1)
 	left_arm_ik.start()
@@ -21,7 +23,7 @@ func _ready() -> void:
 	var right_arm_ik = SkeletonIK3D.new()
 	right_arm_ik.root_bone = "Arm_R"
 	right_arm_ik.tip_bone = "Hand_R"
-	right_arm_ik.target_node = player_body.right_hand_target.get_path()
+	right_arm_ik.target_node = right_hand_target.get_path()
 	right_arm_ik.use_magnet = true
 	right_arm_ik.magnet = Vector3(-1, 0, -1)
 	right_arm_ik.start()
