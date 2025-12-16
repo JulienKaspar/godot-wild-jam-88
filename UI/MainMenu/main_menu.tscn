@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://bcredxkb7jfdu"]
+[gd_scene load_steps=9 format=3 uid="uid://bcredxkb7jfdu"]
 
 [ext_resource type="Script" uid="uid://c3pnv4i4pub4u" path="res://UI/MainMenu/main_menu.gd" id="1_jld46"]
 [ext_resource type="Texture2D" uid="uid://frr2qsjtumwm" path="res://Assets/2D_Assets/Menu_Art/house_1.png" id="2_h8rmy"]
 [ext_resource type="Texture2D" uid="uid://4pyna2f4x4mw" path="res://Assets/2D_Assets/Menu_Art/sky_0.png" id="2_iyy2y"]
 [ext_resource type="Texture2D" uid="uid://b8rxa7p6j26ld" path="res://Assets/2D_Assets/Menu_Art/fence_3.png" id="2_t17p2"]
 [ext_resource type="Texture2D" uid="uid://c1tqhcgn5b56s" path="res://Assets/2D_Assets/Menu_Art/table_2.png" id="3_iyy2y"]
-[ext_resource type="Script" uid="uid://jjhbwpi77cq1" path="res://UI/MainMenu/main_menu_camera.gd" id="6_trkrl"]
+[ext_resource type="Script" path="res://UI/MainMenu/main_menu_camera.gd" id="6_trkrl"]
+[ext_resource type="AudioStream" uid="uid://bwkhlcxqvfarj" path="res://Audio/Ambience/title_screen_ambience.tres" id="7_bddxb"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kf43y"]
 
@@ -85,3 +86,8 @@ text = "Exit"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.5
+
+[node name="TitleScreenAmbience" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("7_bddxb")
+bus = &"Ambience"
