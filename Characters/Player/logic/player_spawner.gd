@@ -1,14 +1,15 @@
 extends Node3D
-
+class_name PlayerSpawner
 const PLAYER = preload("res://Characters/Player/player.tscn")
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var object = PLAYER.instantiate()
-	self.add_child(object)
+	GameStateManager.player_spawner = self
 
-func on_respawn():
+func respawn(new_position: Vector3) -> Player:
+	self.position = new_position
 	for player in get_children():
 		player.free()
 	var object = PLAYER.instantiate()
 	self.add_child(object)
+	
+	return object as Player

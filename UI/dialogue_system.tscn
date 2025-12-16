@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cevigrxvpesvq"]
+[gd_scene load_steps=10 format=3 uid="uid://drwswyc7ed01p"]
 
 [ext_resource type="FontFile" uid="uid://bo4ccwxk8mrea" path="res://Assets/Fonts/SquaredHand.otf" id="1_vlkau"]
 [ext_resource type="Texture2D" uid="uid://dnv5axqu0tbkl" path="res://Assets/2D_Assets/Dialogue_Art/flasky_base.png" id="2_bbhjd"]
@@ -55,9 +55,9 @@ texture = SubResource("GradientTexture1D_fxece")
 unique_name_in_owner = true
 anchors_preset = 0
 offset_left = 623.0
-offset_top = 648.0
+offset_top = 654.0
 offset_right = 1903.0
-offset_bottom = 1004.0
+offset_bottom = 1010.0
 size_flags_vertical = 3
 
 [node name="Spacer" type="Control" parent="Control2/DialoguePrompt"]

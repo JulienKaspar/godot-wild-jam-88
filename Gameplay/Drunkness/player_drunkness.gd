@@ -1,10 +1,10 @@
 extends Node
 class_name PlayerDrunkness
 
-@export var min_drunkness: float = 0
-@export var max_drunkness: float = 10
-@export var starting_drunkness: float = 5
-@export var drunkness_decay_per_second: float = 0.1
+var min_drunkness: float = 0
+var max_drunkness: float = 10
+var starting_drunkness: float = 5
+var drunkness_decay_per_second: float = 0.1
 
 signal on_drunkness_changed(new_value: float)
 
@@ -27,11 +27,9 @@ func set_drunkness(_new_value: float) -> void:
 		on_too_drunk.emit()
 		return
 	
-func _ready() -> void:
+func _init() -> void:
 	current_drunkness = starting_drunkness
 
-func _process(delta: float) -> void:
-	current_drunkness -= drunkness_decay_per_second * delta
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	var drunkness_per_drink: float = 2

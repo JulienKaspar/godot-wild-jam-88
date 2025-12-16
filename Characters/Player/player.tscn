@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cqjqmhnbk3ssj"]
+[gd_scene load_steps=9 format=3 uid="uid://cqjqmhnbk3ssj"]
 
 [ext_resource type="PackedScene" uid="uid://cx2qst5txs1af" path="res://Characters/Player/player_controller.tscn" id="1_j341n"]
 [ext_resource type="PackedScene" uid="uid://b86lbtpyigxs5" path="res://Characters/Player/player_body.tscn" id="2_cue0d"]
 [ext_resource type="Script" uid="uid://cw4emr5i7rkes" path="res://Characters/Player/logic/player.gd" id="3_cue0d"]
-[ext_resource type="Script" uid="uid://bjbv1gqsn4eao" path="res://Gameplay/Drunkness/player_drunkness.gd" id="4_bqsbk"]
 [ext_resource type="Script" uid="uid://c04lkn4hohoj4" path="res://Characters/Player/pickup_radius.gd" id="5_xf5fp"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_cue0d"]
@@ -62,10 +61,6 @@ top_level = true
 visible = false
 mesh = SubResource("SphereMesh_cue0d")
 
-[node name="Drunkness" type="Node" parent="."]
-unique_name_in_owner = true
-script = ExtResource("4_bqsbk")
-
 [node name="PickupTracker" type="Node3D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("5_xf5fp")
@@ -96,7 +91,6 @@ mesh = SubResource("CapsuleMesh_osktb")
 [connection signal="ChangeHandTargetR" from="." to="PlayerBody" method="_on_player_change_hand_target_r"]
 [connection signal="ChangeMovement" from="." to="." method="_on_change_movement"]
 [connection signal="ChangeMovement" from="." to="PlayerController" method="_on_player_change_movement"]
-[connection signal="ConsumedDrunkness" from="." to="Drunkness" method="_on_player_consumed_drunkness"]
 [connection signal="ReachedTargetLeft" from="PlayerBody" to="." method="_on_player_body_reached_target_left"]
 [connection signal="ReachedTargetRight" from="PlayerBody" to="." method="_on_player_body_reached_target_right"]
 [connection signal="area_entered" from="PickupTracker/grab_area_left" to="PickupTracker" method="_on_grab_area_left_area_entered"]

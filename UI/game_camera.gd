@@ -2,14 +2,13 @@ extends Camera3D
 class_name GameCamera
 
 @export var follow_distance: float = 5
-@export var player: Node3D
 var follow_target: Node3D
 
 func _ready() -> void:
-	follow_target = player.get_node("PlayerController/RigidBally3D")
-	position = follow_target.global_position + Vector3(0,follow_distance,follow_distance)
+	GameStateManager.game_camera = self
 
 func _physics_process(_delta: float) -> void:
+	if follow_target == null: return
 	position = follow_target.global_position
 	position += Vector3(0, follow_distance, follow_distance)
 	look_at(follow_target.global_position)

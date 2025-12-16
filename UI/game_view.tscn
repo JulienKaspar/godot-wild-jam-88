@@ -6,11 +6,11 @@
 [ext_resource type="Shader" uid="uid://c7jc6g65ws5pi" path="res://Shaders/post_process.gdshader" id="4_u3b6e"]
 [ext_resource type="Script" path="res://UI/level_loader.gd" id="5_4eh1a"]
 [ext_resource type="PackedScene" uid="uid://drwswyc7ed01p" path="res://UI/dialogue_system.tscn" id="5_4fmj7"]
-[ext_resource type="PackedScene" uid="uid://cqjqmhnbk3ssj" path="res://Characters/Player/player.tscn" id="5_lwr8f"]
 [ext_resource type="PackedScene" uid="uid://oklexjbph231" path="res://UI/hud.tscn" id="5_qrf3k"]
 [ext_resource type="PackedScene" uid="uid://lgsnoy1y1gsg" path="res://Debug/debug_master_menu.tscn" id="6_ri6ga"]
 [ext_resource type="Script" uid="uid://bx8wkgx47tjj6" path="res://UI/game_camera.gd" id="8_gjcnd"]
 [ext_resource type="PackedScene" uid="uid://bc3p2wg2lxxy1" path="res://Audio/Music/music_manager.tscn" id="9_4eh1a"]
+[ext_resource type="PackedScene" path="res://Characters/Player/player_spawner.tscn" id="11_qrf3k"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gjcnd"]
 shader = ExtResource("4_u3b6e")
@@ -56,9 +56,6 @@ layout_mode = 2
 
 [node name="DialogueSystem" parent="CanvasLayer" instance=ExtResource("5_4fmj7")]
 
-[node name="Player" parent="." instance=ExtResource("5_lwr8f")]
-unique_name_in_owner = true
-
 [node name="LoadedLevel" type="Node" parent="."]
 script = ExtResource("5_4eh1a")
 
@@ -66,10 +63,11 @@ script = ExtResource("5_4eh1a")
 
 [node name="DebugMasterMenu" parent="Debug" instance=ExtResource("6_ri6ga")]
 
-[node name="GameCamera" type="Camera3D" parent="." node_paths=PackedStringArray("player")]
+[node name="GameCamera" type="Camera3D" parent="."]
 fov = 55.0
 script = ExtResource("8_gjcnd")
 follow_distance = 4.0
-player = NodePath("../Player")
 
 [node name="MusicManager" parent="." instance=ExtResource("9_4eh1a")]
+
+[node name="PlayerSpawner" parent="." instance=ExtResource("11_qrf3k")]

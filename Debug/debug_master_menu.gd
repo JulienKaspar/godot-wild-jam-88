@@ -3,7 +3,7 @@ class_name DebugMasterMenu
 
 @onready var player: Player = %Player
 
-@onready var player_drunkness: PlayerDrunkness = %Player/%Drunkness
+@onready var player_drunkness: PlayerDrunkness = GameStateManager.player_drunkness
 
 
 var displayed: bool = false
