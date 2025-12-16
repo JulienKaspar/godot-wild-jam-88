@@ -130,6 +130,7 @@ open_debug_menu={
 3d_physics/layer_5="People"
 3d_physics/layer_6="Bottles"
 3d_physics/layer_7="IK Raycast"
+3d_physics/layer_8="Stairs"
 
 [physics]
 
