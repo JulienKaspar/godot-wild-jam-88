@@ -73,48 +73,56 @@ debug_color = Color(0, 0.5950001, 0.7, 0.1882353)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.963631, -0.5000005, -1.6960824)
 material_override = ExtResource("1_3e7wy")
 use_collision = true
+collision_layer = 65
 size = Vector3(16.85397, 1, 4.6362457)
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="Layout/Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.745517, -0.5000005, 4.041746)
 material_override = ExtResource("1_3e7wy")
 use_collision = true
+collision_layer = 65
 size = Vector3(5.3313503, 1, 7.759554)
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="Layout/Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.127563, -0.5000005, 5.4710636)
 material_override = ExtResource("1_3e7wy")
 use_collision = true
+collision_layer = 65
 size = Vector3(4.2606997, 1, 2.648934)
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="Layout/Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.748108, -0.5038314, 3.4913077)
 material_override = ExtResource("1_3e7wy")
 use_collision = true
+collision_layer = 65
 size = Vector3(6.8224134, 1, 6.633561)
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="Layout/Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.395443, -0.5000005, -5.553111)
 material_override = ExtResource("1_3e7wy")
 use_collision = true
+collision_layer = 65
 size = Vector3(3.623702, 1, 12.02335)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Layout/Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3762593, -0.5000005, -7.778)
 material_override = ExtResource("1_3e7wy")
 use_collision = true
+collision_layer = 65
 size = Vector3(7.679226, 1, 7.8176346)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Layout/Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4009776, -0.5000005, -5.66397)
 material_override = ExtResource("1_3e7wy")
 use_collision = true
+collision_layer = 65
 size = Vector3(4.0695934, 1, 3.6437387)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Layout/Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5119095, -0.5000005, -9.897221)
 material_override = ExtResource("1_3e7wy")
 use_collision = true
+collision_layer = 65
 size = Vector3(13.451908, 1, 3.0606098)
 
 [node name="Walls" type="Node3D" parent="Layout"]
