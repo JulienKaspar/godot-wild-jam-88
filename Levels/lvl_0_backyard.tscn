@@ -53,7 +53,6 @@ shadow_enabled = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/GroundPlane"]
 shape = SubResource("WorldBoundaryShape3D_wj60t")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Floor" type="Node3D" parent="Layout"]
 
@@ -61,6 +60,7 @@ debug_color = Color(0, 0.6, 0.7, 0.42)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.250279, -0.5000005, -4.9027786)
 material_override = ExtResource("1_mr8n6")
 use_collision = true
+collision_layer = 65
 size = Vector3(7.6834373, 1, 14.672182)
 
 [node name="Walls" type="Node3D" parent="Layout"]
@@ -103,25 +103,26 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.17
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Stairs/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19699478, 0, -0.19127655)
 shape = SubResource("BoxShape3D_d6w3h")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Layout/Stairs/StaticBody3D"]
 transform = Transform3D(0.86224854, -0.50648534, 0, 0.50648534, 0.86224854, 0, 0, 0, 1, -1.0170689, -0.33572853, -0.19127655)
 shape = SubResource("BoxShape3D_d6w3h")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Layout/Stairs/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.6476377, 0.19095421, 0, -0.19127655)
+layers = 65
 mesh = SubResource("BoxMesh_3nw73")
 surface_material_override/0 = SubResource("StandardMaterial3D_v87f2")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Layout/Stairs/StaticBody3D"]
-transform = Transform3D(0.99976546, 0.021657843, 0, -0.021657843, 0.99976546, 0, 0, 0, 0.6476377, -0.73302174, -0.1785666, -0.19127655)
+transform = Transform3D(0.99976546, 0.021657843, 0, -0.021657843, 0.99976546, 0, 3.5527137e-15, 0, 0.64763767, -0.73302174, -0.1785666, -0.19127655)
+layers = 65
 mesh = SubResource("BoxMesh_05dd3")
 surface_material_override/0 = SubResource("StandardMaterial3D_v87f2")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Layout/Stairs/StaticBody3D"]
-transform = Transform3D(0.99976546, 0.021657843, 0, -0.021657843, 0.99976546, 0, 0, 0, 0.6476377, -1.0062132, -0.3008023, -0.19127655)
+transform = Transform3D(0.99976546, 0.021657843, 0, -0.021657843, 0.99976546, 0, 3.5527137e-15, 0, 0.64763767, -1.0062132, -0.3008023, -0.19127655)
+layers = 65
 mesh = SubResource("BoxMesh_05dd3")
 surface_material_override/0 = SubResource("StandardMaterial3D_v87f2")
 

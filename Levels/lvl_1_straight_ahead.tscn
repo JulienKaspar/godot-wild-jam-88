@@ -53,18 +53,19 @@ shadow_enabled = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/GroundPlane"]
 shape = SubResource("WorldBoundaryShape3D_wj60t")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Floor" type="Node3D" parent="Layout"]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Layout/Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9268379, -0.5000005, -0.7213471)
+layers = 65
 material_override = ExtResource("1_y345g")
 use_collision = true
 size = Vector3(2.707282, 1, 2.6867752)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Layout/Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6203617, -0.5000005, -5.528644)
+layers = 65
 material_override = ExtResource("1_y345g")
 use_collision = true
 size = Vector3(2.6442583, 1, 12.316346)
@@ -108,7 +109,6 @@ collision_mask = 39
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Walls/InvisibleWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3365853, 1.6382172, 0)
 shape = SubResource("BoxShape3D_6bpar")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Stairs" type="Node3D" parent="Layout"]
 
@@ -118,25 +118,26 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.01
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Stairs/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19699478, 0, -1.4310017)
 shape = SubResource("BoxShape3D_d6w3h")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Layout/Stairs/StaticBody3D"]
 transform = Transform3D(0.86224854, -0.50648534, 0, 0.50648534, 0.86224854, 0, 0, 0, 1, -1.0170689, -0.33572853, -1.4310017)
 shape = SubResource("BoxShape3D_d6w3h")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Layout/Stairs/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.6476377, 0.19095421, 0, -1.4310017)
+layers = 65
 mesh = SubResource("BoxMesh_3nw73")
 surface_material_override/0 = SubResource("StandardMaterial3D_v87f2")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Layout/Stairs/StaticBody3D"]
 transform = Transform3D(0.99976546, 0.021657843, 0, -0.021657843, 0.99976546, 0, 0, 0, 0.6476377, -0.73302174, -0.1785666, -1.4310017)
+layers = 65
 mesh = SubResource("BoxMesh_05dd3")
 surface_material_override/0 = SubResource("StandardMaterial3D_v87f2")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Layout/Stairs/StaticBody3D"]
 transform = Transform3D(0.99976546, 0.021657843, 0, -0.021657843, 0.99976546, 0, 0, 0, 0.6476377, -1.0062132, -0.3008023, -1.4310017)
+layers = 65
 mesh = SubResource("BoxMesh_05dd3")
 surface_material_override/0 = SubResource("StandardMaterial3D_v87f2")
 
