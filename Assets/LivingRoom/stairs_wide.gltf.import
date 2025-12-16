@@ -39,6 +39,11 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "materials": {
+"floor": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Levels/Gyms/Floor/floor1_v2.tres",
+"use_external/path": "uid://hg5ppfcn0qd7"
+},
 "steps": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://Assets/Materials/generic_soft.tres",
