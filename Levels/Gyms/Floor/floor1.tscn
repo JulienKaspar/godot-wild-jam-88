@@ -76,6 +76,7 @@ sources/1 = SubResource("TileSetAtlasSource_k11fn")
 [node name="Floor" type="Node3D"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 65
 physics_material_override = SubResource("PhysicsMaterial_cc3fi")
 
 [node name="CollisionShape3D_floor" type="CollisionShape3D" parent="StaticBody3D"]
