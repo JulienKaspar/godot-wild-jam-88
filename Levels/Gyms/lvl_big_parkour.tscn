@@ -330,17 +330,20 @@ metadata/_custom_type_script = "uid://b6j4xt2oyttve"
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Layout/Stairs/StaticBody3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.048415184, 0.27390957, -0.09029007)
-layers = 65
+use_collision = true
+collision_layer = 65
 size = Vector3(4.8150635, 1, 2.996582)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Layout/Stairs/StaticBody3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.048415184, -0.032437027, -0.09029007)
-layers = 65
+use_collision = true
+collision_layer = 65
 size = Vector3(5.411133, 1, 2.996582)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Layout/Stairs/StaticBody3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.048415184, -0.28270853, -0.09029007)
-layers = 65
+use_collision = true
+collision_layer = 65
 size = Vector3(5.948242, 1, 2.996582)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Stairs/StaticBody3D2"]
@@ -352,6 +355,12 @@ debug_color = Color(0, 0.85000014, 1, 1)
 transform = Transform3D(0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0, 1, 2.3361511, -0.08631674, 0)
 shape = SubResource("BoxShape3D_jx6i6")
 debug_color = Color(0, 0.85000014, 1, 1)
+
+[node name="DrunknessPickup" parent="Layout/Stairs/StaticBody3D2" instance=ExtResource("6_hlsyq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.640602, 0.86621094, 6.4019904)
+
+[node name="DrunknessPickup2" parent="Layout/Stairs/StaticBody3D2" instance=ExtResource("6_hlsyq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.672271, 0.86621094, 6.8377647)
 
 [node name="StaticBody3D3" type="StaticBody3D" parent="Layout/Stairs"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.10190636, 9.536743e-07, -8.473417)
