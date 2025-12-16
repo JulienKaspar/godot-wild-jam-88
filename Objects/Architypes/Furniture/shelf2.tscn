@@ -12,6 +12,7 @@ size = Vector3(1.975, 2.9770508, 0.6563721)
 
 [node name="Shelf2" type="StaticBody3D"]
 script = ExtResource("1_hgmj5")
+wobble_angle = 8.0
 metadata/_custom_type_script = "uid://d1ns4f8nsxmyd"
 
 [node name="shelf2" parent="." instance=ExtResource("2_hgmj5")]
