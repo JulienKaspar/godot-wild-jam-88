@@ -4,8 +4,8 @@ class_name DrunknessPickup
 @onready var pickup_prompt: Sprite3D = %PickupPrompt
 @export var drunkness_increase: float = 1
 
-func pickup(player: Player) -> void:
-	var drunkness: PlayerDrunkness = player.get_node("%Drunkness")
+func pickup() -> void:
+	var drunkness: PlayerDrunkness = GameStateManager.player_drunkness
 	drunkness.current_drunkness += drunkness_increase
 	queue_free()
 	

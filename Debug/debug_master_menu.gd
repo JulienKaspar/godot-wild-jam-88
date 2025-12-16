@@ -1,8 +1,6 @@
 extends Node
 class_name DebugMasterMenu
 
-@onready var player: Player = %Player
-
 @onready var player_drunkness: PlayerDrunkness = GameStateManager.player_drunkness
 
 
@@ -41,6 +39,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		displayed = !displayed
 
 func display_player_info() -> void:
+	
+		var player = GameStateManager.current_player
 		ImGui.Text("Player Stats")
 		ImGui.Text("Drunkness: " + str(player_drunkness.current_drunkness))
 		ImGui.Text("Player State" + str(player.inMoveState))
