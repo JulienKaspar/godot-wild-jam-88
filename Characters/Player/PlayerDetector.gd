@@ -8,4 +8,4 @@ func _process(_delta: float) -> void:
 	var distance: float = (player_position - position).length()
 	
 	if distance < detetection_radius:
-		print("YELL")
+		pass
