@@ -1,9 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://oklexjbph231"]
+[gd_scene load_steps=13 format=3 uid="uid://oklexjbph231"]
 
 [ext_resource type="Script" uid="uid://dpfibn6rvgqgy" path="res://UI/hud.gd" id="1_ne75i"]
 [ext_resource type="Texture2D" uid="uid://bxwq8k3qy44bt" path="res://UI/Drunkmeter/drunkness_frame.png" id="2_bytes"]
 [ext_resource type="Texture2D" uid="uid://b2viu5axws648" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_liquid.png" id="3_2o5uh"]
 [ext_resource type="Texture2D" uid="uid://cdx6ybpshgxao" path="res://UI/Drunkmeter/current_drunkness_marker.png" id="4_b1lf8"]
+[ext_resource type="Script" uid="uid://bwlkqvsm2d4vs" path="res://UI/drunkness_meter.gd" id="4_rnl6m"]
+[ext_resource type="Texture2D" uid="uid://7rmgr237ysdp" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_liquid_1.png" id="5_23s3h"]
+[ext_resource type="Texture2D" uid="uid://clgu6ny11phb" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_liquid_2.png" id="6_phrgc"]
+[ext_resource type="Texture2D" uid="uid://eftimly4kovu" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_liquid_3.png" id="7_8nmcf"]
+[ext_resource type="Texture2D" uid="uid://i8bp6aqg2mfp" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_liquid_4.png" id="8_sab3h"]
+[ext_resource type="Texture2D" uid="uid://8sedvt3xf75w" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_liquid_5.png" id="9_vdnig"]
+[ext_resource type="Texture2D" uid="uid://7buwjgvvg6m5" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_liquid_6.png" id="10_pueji"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bytes"]
 
@@ -33,6 +40,9 @@ size_flags_horizontal = 0
 step = 0.001
 texture_over = ExtResource("2_bytes")
 texture_progress = ExtResource("3_2o5uh")
+script = ExtResource("4_rnl6m")
+frames = Array[Texture2D]([ExtResource("5_23s3h"), ExtResource("6_phrgc"), ExtResource("7_8nmcf"), ExtResource("8_sab3h"), ExtResource("9_vdnig"), ExtResource("10_pueji")])
+base_framerate = 12.0
 
 [node name="DrunknessMarker" type="TextureRect" parent="HBoxContainer/MarginContainer/DrunknessMeter"]
 unique_name_in_owner = true
