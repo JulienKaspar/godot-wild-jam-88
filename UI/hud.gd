@@ -1,8 +1,9 @@
 extends PanelContainer
 class_name HUD
 
-@onready var drunkness_meter: ProgressBar = %DrunknessMeter
+@onready var drunkness_meter: TextureProgressBar = %DrunknessMeter
 @onready var player_drunkness: PlayerDrunkness = %Player/%Drunkness
+@onready var drunkness_marker: TextureRect = %DrunknessMarker
 
 func _ready() -> void:
 	drunkness_meter.min_value = player_drunkness.min_drunkness
