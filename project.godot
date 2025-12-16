@@ -20,6 +20,7 @@ run/max_fps=60
 ImGuiRoot="*res://addons/imgui-godot/data/ImGuiRoot.tscn"
 UserSettings="*res://Settings/user_settings.gd"
 GameStateManager="*res://Gameplay/game_state_manager.tscn"
+AudioManager="*res://Audio/audio_manager.tscn"
 
 [display]
 
