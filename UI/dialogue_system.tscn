@@ -1,0 +1,121 @@
+[gd_scene load_steps=9 format=3 uid="uid://drwswyc7ed01p"]
+
+[ext_resource type="FontFile" uid="uid://bo4ccwxk8mrea" path="res://Assets/Fonts/SquaredHand.otf" id="1_vlkau"]
+[ext_resource type="Texture2D" uid="uid://dnv5axqu0tbkl" path="res://Assets/2D_Assets/Dialogue_Art/flasky_base.png" id="2_bbhjd"]
+[ext_resource type="Script" uid="uid://dro6nrxfyhgmf" path="res://UI/dialogue_system.gd" id="2_kcolf"]
+[ext_resource type="Texture2D" uid="uid://dv8s4yu1h6fcn" path="res://Assets/2D_Assets/Dialogue_Art/pupil_left.png" id="3_fkwb6"]
+[ext_resource type="Texture2D" uid="uid://cg0nw86fh8ief" path="res://Assets/2D_Assets/Dialogue_Art/pupil_right.png" id="4_kcolf"]
+
+[sub_resource type="Theme" id="Theme_fkwb6"]
+default_font = ExtResource("1_vlkau")
+
+[sub_resource type="Gradient" id="Gradient_kcolf"]
+offsets = PackedFloat32Array(0, 0.29746836, 0.4050633)
+colors = PackedColorArray(0, 0, 0, 0.70980394, 0, 0, 0, 0.21960784, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fxece"]
+gradient = SubResource("Gradient_kcolf")
+width = 250
+
+[node name="DialogueSystem" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_fkwb6")
+script = ExtResource("2_kcolf")
+gradient_start_transparency = Color(0.9851293, 0.9873226, 0.98717993, 0)
+gradient_end_transparency = Color(1, 1, 1, 1)
+
+[node name="Control2" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 17.0
+offset_top = 422.0
+offset_right = 1297.0
+offset_bottom = 1142.0
+
+[node name="Gradient" type="TextureRect" parent="Control2"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -466.26
+offset_top = 333.0
+offset_right = -166.26001
+offset_bottom = 3333.0
+rotation = -1.5707964
+scale = Vector2(2.8482533, 0.7897397)
+texture = SubResource("GradientTexture1D_fxece")
+
+[node name="DialoguePrompt" type="Control" parent="Control2"]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = -2.0
+offset_top = 289.0
+offset_right = 1278.0
+offset_bottom = 645.0
+size_flags_vertical = 3
+
+[node name="Spacer" type="Control" parent="Control2/DialoguePrompt"]
+anchors_preset = 0
+offset_right = 348.0
+offset_bottom = 356.0
+size_flags_horizontal = 3
+
+[node name="DialogueText" type="Label" parent="Control2/DialoguePrompt"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 0
+offset_left = 358.0
+offset_top = 56.0
+offset_right = 958.0
+offset_bottom = 265.0
+theme_override_font_sizes/font_size = 50
+text = "That kid had it coming! And some other stuff to make thins longer too!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+visible_characters_behavior = 2
+
+[node name="FlaskyBase" type="TextureRect" parent="Control2/DialoguePrompt"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 985.0
+offset_top = 37.0
+offset_right = 1278.0
+offset_bottom = 393.0
+pivot_offset = Vector2(131.59, 172.07)
+texture = ExtResource("2_bbhjd")
+
+[node name="PupilLeft" type="TextureRect" parent="Control2/DialoguePrompt/FlaskyBase"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 0
+offset_left = 50.0
+offset_top = 155.0
+offset_right = 90.0
+offset_bottom = 195.0
+texture = ExtResource("3_fkwb6")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="PupilRight" type="TextureRect" parent="Control2/DialoguePrompt/FlaskyBase"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 0
+offset_left = 179.0
+offset_top = 153.0
+offset_right = 219.0
+offset_bottom = 193.0
+texture = ExtResource("4_kcolf")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="DialogueStem" type="Label" parent="Control2/DialoguePrompt/FlaskyBase"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = 134.0
+offset_right = -2.0
+offset_bottom = 184.0
+theme_override_font_sizes/font_size = 50
+text = "\\"

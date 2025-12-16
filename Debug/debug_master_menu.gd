@@ -5,11 +5,14 @@ class_name DebugMasterMenu
 
 @onready var player_drunkness: PlayerDrunkness = %Player/%Drunkness
 
+
 var displayed: bool = false
 var player_info_open: bool = false
 var level_selector_open: bool = false
 var selected_level_index: int
 var selected_level_name: String = "None Selected"
+var dialogue_menu_open: bool = false
+var dialogue_text: Array[String] = ["Howdy partner lets get wasted"]
 
 func _process(_delta: float) -> void:
 	if displayed:
@@ -22,8 +25,14 @@ func _process(_delta: float) -> void:
 		if ImGui.Button("Level Selector"):
 			level_selector_open = !level_selector_open
 		
+		if ImGui.Button("Dialogue Debug"):
+			dialogue_menu_open = !dialogue_menu_open
+		
 		if level_selector_open:
 			display_level_selector()
+		
+		if dialogue_menu_open: 
+			display_dialogue_debug()
 		
 		ImGui.End()
 
@@ -56,3 +65,8 @@ func display_level_selector() -> void:
 	if selected_level_index != null:
 		if ImGui.Button("Load Selected Level"):
 			GameStateManager.load_level_by_index(selected_level_index)
+
+func display_dialogue_debug() -> void:
+	ImGui.InputText("Dialogue Text", dialogue_text, 100)
+	if ImGui.Button("Send text"):
+		GameStateManager.show_dialogue(dialogue_text[0])

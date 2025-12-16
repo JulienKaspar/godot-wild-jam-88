@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dpa3wpntxnjto"
-path="res://.godot/imported/atlas.png-877d011bbb54a04ef797cc90f20fdf91.ctex"
+path="res://.godot/imported/atlas.PNG-eb0a013753ffb0e8379d9907fca8232f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Maps/Walls/wood_paneling/atlas.png"
-dest_files=["res://.godot/imported/atlas.png-877d011bbb54a04ef797cc90f20fdf91.ctex"]
+source_file="res://Assets/Maps/Walls/wood_paneling/atlas.PNG"
+dest_files=["res://.godot/imported/atlas.PNG-eb0a013753ffb0e8379d9907fca8232f.ctex"]
 
 [params]
 
