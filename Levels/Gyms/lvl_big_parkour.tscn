@@ -1,8 +1,9 @@
-[gd_scene load_steps=23 format=3 uid="uid://dbtkwlffndd80"]
+[gd_scene load_steps=24 format=3 uid="uid://dbtkwlffndd80"]
 
 [ext_resource type="Material" uid="uid://hg5ppfcn0qd7" path="res://Levels/Gyms/Floor/floor1_v2.tres" id="1_3e7wy"]
 [ext_resource type="Material" uid="uid://dxyb0pq2y84ds" path="res://Levels/Gyms/Wall/reddish_floral_wall_v2.tres" id="2_lb2wt"]
 [ext_resource type="Material" uid="uid://bdchormsmw1jv" path="res://Levels/Gyms/Wall/wooden_wall_v2.tres" id="3_i5ry1"]
+[ext_resource type="Script" uid="uid://dogbj3gtx3mxu" path="res://Objects/hideable_wall.gd" id="3_qdxjv"]
 [ext_resource type="Material" uid="uid://rfvsy8jw033o" path="res://Levels/Gyms/Wall/yellow_floral_wall_v2.tres" id="4_277pc"]
 [ext_resource type="PackedScene" uid="uid://j1b5yvs8pnux" path="res://Objects/Architypes/Furniture/table_round1.tscn" id="5_y2dxn"]
 [ext_resource type="PackedScene" uid="uid://d3unw205fanv5" path="res://Objects/Loot/pickup_beer.tscn" id="6_hlsyq"]
@@ -19,20 +20,20 @@ tonemap_mode = 4
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_wj60t"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_6bpar"]
-size = Vector3(10.458893, 3.45717, 0.2)
+[sub_resource type="BoxShape3D" id="BoxShape3D_jbk67"]
+size = Vector3(3.1313477, 3.7873535, 12.549988)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_hlsyq"]
-size = Vector3(3.8324776, 3.45717, 0.2)
+[sub_resource type="BoxShape3D" id="BoxShape3D_qdxjv"]
+size = Vector3(3.4970703, 4.3398438, 3.756836)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ufje4"]
+size = Vector3(11.668411, 3.45717, 0.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y2dxn"]
 size = Vector3(5.449463, 3.45717, 0.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x82ea"]
 size = Vector3(10.660001, 3.45717, 0.2)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_gbk7k"]
-size = Vector3(12.476978, 3.45717, 0.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d6w3h"]
 size = Vector3(1.5734787, 1, 3.0681152)
@@ -180,6 +181,22 @@ material_override = ExtResource("2_lb2wt")
 use_collision = true
 size = Vector3(0.2, 3.336, 9.363835)
 
+[node name="CSG_ReddishWall12" type="CSGBox3D" parent="Layout/Walls"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12.346891, 1.6656258, -8.301039)
+material_override = ExtResource("2_lb2wt")
+use_collision = true
+size = Vector3(0.2, 3.336, 12.562899)
+script = ExtResource("3_qdxjv")
+metadata/_custom_type_script = "uid://dogbj3gtx3mxu"
+
+[node name="Area3D" type="Area3D" parent="Layout/Walls/CSG_ReddishWall12"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Walls/CSG_ReddishWall12/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4653883, 0, -0.011627197)
+shape = SubResource("BoxShape3D_jbk67")
+debug_color = Color(1.92523e-06, 0.6958382, 0.8179438, 1)
+
 [node name="CSG_ReddishWall9" type="CSGBox3D" parent="Layout/Walls"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 17.00895, 1.6656263, 0.16521965)
 material_override = ExtResource("2_lb2wt")
@@ -192,11 +209,26 @@ material_override = ExtResource("2_lb2wt")
 use_collision = true
 size = Vector3(0.2, 3.336, 3.8270123)
 
+[node name="CSG_ReddishWall11" type="CSGBox3D" parent="Layout/Walls"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.4809265, 1.6656258, -3.8912032)
+material_override = ExtResource("2_lb2wt")
+use_collision = true
+size = Vector3(0.2, 3.336, 3.8314748)
+script = ExtResource("3_qdxjv")
+metadata/_custom_type_script = "uid://dogbj3gtx3mxu"
+
+[node name="Area3D" type="Area3D" parent="Layout/Walls/CSG_ReddishWall11"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Walls/CSG_ReddishWall11/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5802636, 0, 0.028686523)
+shape = SubResource("BoxShape3D_qdxjv")
+
 [node name="CSG_WoodenlWall" type="CSGBox3D" parent="Layout/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.541491, 1.6656258, -1.8882809)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.541491, 1.6656258, -1.9530606)
 material_override = ExtResource("3_i5ry1")
 use_collision = true
-size = Vector3(0.2, 3.336, 4.975256)
+size = Vector3(0.2, 3.336, 5.1048155)
 
 [node name="CSG_WoodenlWall2" type="CSGBox3D" parent="Layout/Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.541491, 1.6656258, -8.723059)
@@ -233,17 +265,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6976855, 4.7683716e-07, 0.4
 collision_mask = 39
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Walls/InvisibleWall"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2009122, 1.6382172, 0)
-shape = SubResource("BoxShape3D_6bpar")
-debug_color = Color(0, 0.84705883, 0.99215686, 1)
-
-[node name="InvisibleWall5" type="StaticBody3D" parent="Layout/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.3239293, 1.66893e-06, -3.898356)
-collision_mask = 39
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Walls/InvisibleWall5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.836309, 1.6382172, 0)
-shape = SubResource("BoxShape3D_hlsyq")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.596153, 1.6382172, 0)
+shape = SubResource("BoxShape3D_ufje4")
 debug_color = Color(0, 0.84705883, 0.99215686, 1)
 
 [node name="InvisibleWall3" type="StaticBody3D" parent="Layout/Walls"]
@@ -263,15 +286,6 @@ collision_mask = 39
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.301466, 1.6382172, 0)
 shape = SubResource("BoxShape3D_x82ea")
 debug_color = Color(7.508397e-06, 0.84571165, 0.99219066, 1)
-
-[node name="InvisibleWall2" type="StaticBody3D" parent="Layout/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.408123, 4.7683716e-07, -8.321512)
-collision_mask = 39
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Walls/InvisibleWall2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9663029, 1.6382172, 0)
-shape = SubResource("BoxShape3D_gbk7k")
-debug_color = Color(0, 0.84705883, 0.99215686, 1)
 
 [node name="Stairs" type="Node3D" parent="Layout"]
 
