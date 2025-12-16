@@ -1,0 +1,17 @@
+[gd_resource type="AudioStreamSynchronized" load_steps=5 format=3 uid="uid://bwkhlcxqvfarj"]
+
+[ext_resource type="AudioStream" uid="uid://sa7g671cimie" path="res://Assets/Audio/Ambience/ambience_crickets0.ogg" id="1_pk0pa"]
+[ext_resource type="AudioStream" uid="uid://brc0gdp873p3j" path="res://Assets/Audio/Ambience/ambience_crickets1.ogg" id="2_irk0q"]
+[ext_resource type="AudioStream" uid="uid://cwxgr2yf2jjkg" path="res://Assets/Audio/Ambience/ambience_crickets2.ogg" id="3_xha1n"]
+[ext_resource type="AudioStream" uid="uid://b0agua7xlrot5" path="res://Assets/Audio/Ambience/ambience_wind.ogg" id="4_qjykv"]
+
+[resource]
+stream_count = 4
+stream_0/stream = ExtResource("1_pk0pa")
+stream_0/volume = -6.0
+stream_1/stream = ExtResource("2_irk0q")
+stream_1/volume = 0.0
+stream_2/stream = ExtResource("3_xha1n")
+stream_2/volume = -3.0
+stream_3/stream = ExtResource("4_qjykv")
+stream_3/volume = -4.5

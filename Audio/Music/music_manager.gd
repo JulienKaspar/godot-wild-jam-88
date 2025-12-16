@@ -30,7 +30,7 @@ func _connect_debug_ui():
 	drunkness_slider.value_changed.connect(_set_drunkness)
 #endregion
 
-@onready var music_player = %MusicPlayer
+@onready var music_player : AudioStreamPlayer = %MusicPlayer
 
 ## TODO: save bus layout structure to ensure consistent effect indexing
 var stereo_enhancer_effect : AudioEffectStereoEnhance = AudioServer.get_bus_effect(AudioManager.BUS.MUSIC, AudioManager.FX.STEREO_ENHANCE)
