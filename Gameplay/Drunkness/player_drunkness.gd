@@ -33,6 +33,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	current_drunkness -= drunkness_decay_per_second * delta
 
+func _unhandled_key_input(event: InputEvent) -> void:
+	var drunkness_per_drink: float = 2
+	if event.is_action_pressed("grab_left"):
+		current_drunkness += drunkness_per_drink
+	if event.is_action_pressed("grab_right"):
+		current_drunkness += drunkness_per_drink
+	
 
 func _on_player_consumed_drunkness(value: float) -> void:
 	set_drunkness(current_drunkness + value)
