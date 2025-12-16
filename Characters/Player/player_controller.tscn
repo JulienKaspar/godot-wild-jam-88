@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cx2qst5txs1af"]
+[gd_scene load_steps=28 format=3 uid="uid://cx2qst5txs1af"]
 
 [ext_resource type="Script" uid="uid://cdppyptuftkiw" path="res://Characters/Player/logic/player_movement.gd" id="1_jkj6u"]
 [ext_resource type="PackedScene" uid="uid://cyksrihj0achx" path="res://Particles/Player/pfx_falling_indicator.tscn" id="2_6yvek"]
@@ -69,6 +69,10 @@ height = 1.2
 [sub_resource type="PrismMesh" id="PrismMesh_6yvek"]
 size = Vector3(0.525, 0.505, 0.12)
 
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_fy1gk"]
+radius = 0.3
+height = 1.0
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6yvek"]
 radius = 0.08203125
 height = 0.76420593
@@ -103,9 +107,9 @@ tracks/1/path = NodePath("UpperBody/BodyAttachPoint:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 2, 0),
-"points": PackedFloat32Array(-1.164, -0.25, 0, 0.25, 0, 0.018393356, -0.13333336, -0.19548249, 0.13080421, 0.19177447, -1.164, -0.19999999, -0.56283355, 0, 0),
-"times": PackedFloat32Array(0, 0.53333336, 1)
+"handle_modes": PackedInt32Array(0, 2, 2, 2, 0),
+"points": PackedFloat32Array(-1.164, -0.25, 0, 0.26666668, 0.022952914, -0.46906802, -0.06666666, -0.40532067, 0.019559946, 0.118920766, 0.55490005, -0.03333333, -0.021332681, 0.06762935, 0.043281466, -0.373071, -0.032743838, 0.419108, 0.100000024, -1.2799602, -1.164, -0.16666669, 0.48160535, 0, 0),
+"times": PackedFloat32Array(0, 0.33333334, 0.46666667, 0.56666666, 1)
 }
 tracks/2/type = "bezier"
 tracks/2/imported = false
@@ -114,9 +118,9 @@ tracks/2/path = NodePath("UpperBody/BodyAttachPoint:position:z")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 2, 2, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -0.33630908, -0.061111115, 0, 0.10555556, 0, 0.2703014, -0.038888894, -0.02065056, 0.06666666, 0.035400953, 0, -0.16111112, 0, 0, 0),
-"times": PackedFloat32Array(0, 0.36666667, 0.73333335, 1)
+"handle_modes": PackedInt32Array(0, 0, 2, 2, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.13985342, 0.13386804, -1.0877154, -0.061111115, 0, 0.10555556, 0, 0.58689904, -0.04922843, -0.37018627, 0.06666666, 0.50131774, -0.010415651, -0.09686451, 0.51142865, 0.06666666, -0.35198903, 0, -0.100000024, -0.021081984, 0, 0),
+"times": PackedFloat32Array(0, 0.33333334, 0.53333336, 0.73333335, 1)
 }
 tracks/3/type = "bezier"
 tracks/3/imported = false
@@ -126,8 +130,8 @@ tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "handle_modes": PackedInt32Array(0, 2, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.4, 0.09518182, 4.3593273, -0.09488855, -1.4691511, 0.19999999, 3.096582, 6.282, -0.19999999, -0.019036293, 0, 0),
-"times": PackedFloat32Array(0, 0.6, 1)
+"points": PackedFloat32Array(0, -0.25, 0, 0.23463735, 0.06491547, 3.9597936, -0.09488855, -1.4691511, 0.19999999, 3.096582, 6.282, -0.19999999, -0.019036293, 0, 0),
+"times": PackedFloat32Array(0, 0.53333336, 1)
 }
 tracks/4/type = "bezier"
 tracks/4/imported = false
@@ -284,7 +288,12 @@ twist_span = 0.0
 
 [node name="BodyAttachPoint" type="Node3D" parent="UpperBody"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.164, 0)
+transform = Transform3D(1, 0, 0, 0, 0.9999993, 0.0011852421, 0, -0.0011852421, 0.9999993, 0, -1.164, 0)
+
+[node name="body_ref_mesh" type="MeshInstance3D" parent="UpperBody/BodyAttachPoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0583978, 0)
+visible = false
+mesh = SubResource("CapsuleMesh_fy1gk")
 
 [node name="PfxBodyfall" parent="UpperBody" instance=ExtResource("3_on8bp")]
 

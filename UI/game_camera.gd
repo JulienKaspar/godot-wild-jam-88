@@ -6,7 +6,7 @@ class_name GameCamera
 var follow_target: Node3D
 
 func _ready() -> void:
-	follow_target = player.get_node("PlayerBody")
+	follow_target = player.get_node("PlayerController/RigidBally3D")
 	position = follow_target.global_position + Vector3(0,follow_distance,follow_distance)
 
 func _physics_process(_delta: float) -> void:

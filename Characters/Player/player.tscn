@@ -33,17 +33,34 @@ left_hand_target = NodePath("../LeftHandTarget")
 right_hand_target = NodePath("../RightHandTarget")
 
 [node name="LeftHandTarget" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4582014, 1, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 1.3, 0)
 top_level = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="LeftHandTarget"]
 mesh = SubResource("SphereMesh_cue0d")
 
 [node name="RightHandTarget" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.33, 1.3, 0)
 top_level = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RightHandTarget"]
 mesh = SubResource("SphereMesh_bqsbk")
+
+[node name="LeftFootTarget" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7427746, 0.10124403, 0)
+top_level = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LeftFootTarget"]
+visible = false
+mesh = SubResource("SphereMesh_cue0d")
+
+[node name="RightFootTarget" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.743, 0.101, 0)
+top_level = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RightFootTarget"]
+visible = false
+mesh = SubResource("SphereMesh_cue0d")
 
 [node name="Drunkness" type="Node" parent="."]
 unique_name_in_owner = true
