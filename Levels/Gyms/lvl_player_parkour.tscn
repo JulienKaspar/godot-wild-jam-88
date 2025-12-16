@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://csh7g60ebb2xa"]
+[gd_scene load_steps=18 format=3 uid="uid://csh7g60ebb2xa"]
 
 [ext_resource type="PackedScene" uid="uid://c8m223mcy8u2o" path="res://Objects/Props/prop_box.tscn" id="2_g5tv7"]
 [ext_resource type="PackedScene" uid="uid://b32xnjnsc6xts" path="res://Levels/Gyms/Wall/wooden_wall.tscn" id="2_g78i3"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://3kn1j5376oof" path="res://Objects/Architypes/Furniture/table2.tscn" id="7_ioif7"]
 [ext_resource type="PackedScene" uid="uid://bo1p1dvgr50f4" path="res://Objects/Loot/pickup_banana.tscn" id="8_advv7"]
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="9_b8gvx"]
+[ext_resource type="PackedScene" uid="uid://kjsxiqub7l7a" path="res://Gameplay/level_teleporter.tscn" id="10_8y3n1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g5tv7"]
 size = Vector3(1, 4.13562, 10.459595)
@@ -183,3 +184,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3724215, 0.10012102, 0.015
 transform = Transform3D(1, 0, 0, 0, 0.9960875, -0.08837276, 0, 0.08837276, 0.9960875, 4.051409, 2.3841858e-07, 1.8273134)
 script = ExtResource("9_b8gvx")
 metadata/_custom_type_script = "uid://cm1uqdo37kpmi"
+
+[node name="LevelTeleporter" parent="." instance=ExtResource("10_8y3n1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22855115, 0, 3.7291195)

@@ -1,9 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://cqjqmhnbk3ssj"]
+[gd_scene load_steps=11 format=3 uid="uid://cqjqmhnbk3ssj"]
 
 [ext_resource type="PackedScene" uid="uid://cx2qst5txs1af" path="res://Characters/Player/player_controller.tscn" id="1_j341n"]
 [ext_resource type="PackedScene" uid="uid://b86lbtpyigxs5" path="res://Characters/Player/player_body.tscn" id="2_cue0d"]
 [ext_resource type="Script" uid="uid://cw4emr5i7rkes" path="res://Characters/Player/logic/player.gd" id="3_cue0d"]
+[ext_resource type="Script" uid="uid://cbtis817tkhj2" path="res://Characters/Player/PlayerDetector.gd" id="5_osktb"]
 [ext_resource type="Script" uid="uid://c04lkn4hohoj4" path="res://Characters/Player/pickup_radius.gd" id="5_xf5fp"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7vev3"]
+radius = 3.3642578
+height = 6.7285156
 
 [sub_resource type="SphereMesh" id="SphereMesh_cue0d"]
 radius = 0.05
@@ -26,6 +31,13 @@ script = ExtResource("3_cue0d")
 
 [node name="PlayerController" parent="." instance=ExtResource("1_j341n")]
 DebugDraw = false
+
+[node name="Area3D" type="Area3D" parent="PlayerController"]
+script = ExtResource("5_osktb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerController/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9436035, 0)
+shape = SubResource("CapsuleShape3D_7vev3")
 
 [node name="PlayerBody" parent="." node_paths=PackedStringArray("left_hand_target", "right_hand_target") instance=ExtResource("2_cue0d")]
 left_hand_target = NodePath("../LeftHandTarget")
