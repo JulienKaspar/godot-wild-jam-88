@@ -33,17 +33,27 @@ func register_level_loader(loader: LevelLoader) -> void:
 	level_loader = loader
 
 func initialize_game() -> void:
-	level_loader.load_level(levels[0])
 	Engine.time_scale = 1
-	var player = player_spawner.respawn(Vector3(0,0,0))
-	current_player = player
-	call_deferred(set_follow_camera.get_method(),player)
+	load_level_by_index(0)
+
+func find_spawn_point_in_level(level: Node3D) -> Vector3:
+	for child in level.get_children():
+		if child is PlayerSpawnPoint:
+			return child.position
+	return Vector3(0,0,0)
 
 func set_follow_camera(player: Player) -> void:
 	game_camera.follow_target = player.get_node("PlayerController/RigidBally3D")
 
 func load_level_by_index(index: int) -> void:
-	level_loader.load_level(levels[index])
+	var loaded_level = level_loader.load_level(levels[index])
+	var spawn_point = find_spawn_point_in_level(loaded_level)
+	var player = player_spawner.respawn(spawn_point)
+	if current_player != null:
+		current_player.queue_free()
+	current_player = player
+	call_deferred(set_follow_camera.get_method(),player)
+
 
 func startup_dialogue() -> void:
 	dialogue_system.display_dialogue("HOWDY PARTNER LETS GET WASTED")
