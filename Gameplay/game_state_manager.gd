@@ -7,11 +7,12 @@ signal move_player_and_reset(position: Vector3)
 @export var levels: Array[PackedScene]
 var level_loader: LevelLoader
 var dialogue_system: DialogueSystem
+var player: Player
 
 func _ready() -> void:
 	call_deferred(initialize_game.get_method())
 	call_deferred(startup_dialogue.get_method())
-		
+	
 
 func register_level_loader(loader: LevelLoader) -> void:
 	level_loader = loader

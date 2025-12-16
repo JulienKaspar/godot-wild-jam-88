@@ -19,7 +19,7 @@ var current_drunkness: float:
 		set_drunkness(value)
 
 func set_drunkness(_new_value: float) -> void:
-	on_drunkness_changed.emit()
+	on_drunkness_changed.emit(_new_value)
 	if current_drunkness < min_drunkness:
 		on_sobriety.emit()
 		return
