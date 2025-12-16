@@ -107,10 +107,10 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":93,
+			"count":75,
 			"max":[
-				1.3064690828323364,
-				1.7047581672668457,
+				1.2318484783172607,
+				1.704419493675232,
 				0.8904142379760742
 			],
 			"min":[
@@ -123,31 +123,31 @@
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":93,
+			"count":75,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":93,
+			"count":75,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":3,
 			"componentType":5126,
-			"count":93,
+			"count":75,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":4,
 			"componentType":5123,
-			"count":336,
+			"count":300,
 			"type":"SCALAR"
 		},
 		{
 			"bufferView":5,
 			"componentType":5126,
-			"count":180,
+			"count":231,
 			"max":[
 				1.3064690828323364,
 				1.789048194885254,
@@ -163,87 +163,87 @@
 		{
 			"bufferView":6,
 			"componentType":5126,
-			"count":180,
+			"count":231,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":7,
 			"componentType":5126,
-			"count":180,
+			"count":231,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":8,
 			"componentType":5126,
-			"count":180,
+			"count":231,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":9,
 			"componentType":5123,
-			"count":372,
+			"count":792,
 			"type":"SCALAR"
 		}
 	],
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":1116,
+			"byteLength":900,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":1116,
-			"byteOffset":1116,
+			"byteLength":900,
+			"byteOffset":900,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":744,
-			"byteOffset":2232,
+			"byteLength":600,
+			"byteOffset":1800,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":1116,
-			"byteOffset":2976,
+			"byteLength":900,
+			"byteOffset":2400,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":672,
-			"byteOffset":4092,
+			"byteLength":600,
+			"byteOffset":3300,
 			"target":34963
 		},
 		{
 			"buffer":0,
-			"byteLength":2160,
-			"byteOffset":4764,
+			"byteLength":2772,
+			"byteOffset":3900,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":2160,
-			"byteOffset":6924,
+			"byteLength":2772,
+			"byteOffset":6672,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":1440,
-			"byteOffset":9084,
+			"byteLength":1848,
+			"byteOffset":9444,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":2160,
-			"byteOffset":10524,
+			"byteLength":2772,
+			"byteOffset":11292,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":744,
-			"byteOffset":12684,
+			"byteLength":1584,
+			"byteOffset":14064,
 			"target":34963
 		}
 	],
@@ -255,7 +255,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":13428,
+			"byteLength":15648,
 			"uri":"stairs_thin.bin"
 		}
 	]
