@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://b6vbg26wkrdh3"]
+[gd_scene load_steps=16 format=3 uid="uid://b6vbg26wkrdh3"]
 
 [ext_resource type="Material" uid="uid://hg5ppfcn0qd7" path="res://Levels/Gyms/Floor/floor1_v2.tres" id="1_mr8n6"]
-[ext_resource type="PackedScene" uid="uid://dslryaow6821f" path="res://Assets/Furniture/couch2.gltf" id="2_w1bpg"]
-[ext_resource type="PackedScene" uid="uid://d24k31i312cc1" path="res://Objects/Architypes/Furniture/lamp_standing1.tscn" id="8_avm5o"]
+[ext_resource type="PackedScene" uid="uid://cyrgcx64104qc" path="res://Objects/Architypes/Props/garden_chair.tscn" id="3_8wfei"]
+[ext_resource type="PackedScene" uid="uid://cnaagrenu83ty" path="res://Objects/Architypes/Props/garden_table.tscn" id="4_d4xos"]
+[ext_resource type="PackedScene" uid="uid://brhckpuqlnhm6" path="res://Objects/Architypes/Props/bbq.tscn" id="5_xweag"]
+[ext_resource type="PackedScene" uid="uid://byi1vrdra1og3" path="res://Objects/Architypes/Props/radio.tscn" id="6_8wfei"]
 [ext_resource type="PackedScene" uid="uid://d3unw205fanv5" path="res://Objects/Loot/pickup_beer.tscn" id="9_22u0x"]
-[ext_resource type="PackedScene" uid="uid://j1b5yvs8pnux" path="res://Objects/Architypes/Furniture/table_round1.tscn" id="15_15v2t"]
 
 [sub_resource type="Environment" id="Environment_vu8ij"]
 ambient_light_source = 2
@@ -86,15 +87,6 @@ use_collision = true
 size = Vector3(0.05, 1.843595, 7.629689)
 material = SubResource("StandardMaterial3D_ccu56")
 
-[node name="couch2" parent="Layout/Walls" instance=ExtResource("2_w1bpg")]
-transform = Transform3D(-0.44835195, 0, -0.89385706, 0, 1, 0, 0.89385706, 0, -0.44835195, 2.220078, 0.005938381, -1.3309081)
-
-[node name="couch4" parent="Layout/Walls" instance=ExtResource("2_w1bpg")]
-transform = Transform3D(0.80767095, 0, -0.58963335, 0, 1, 0, 0.58963335, 0, 0.80767095, 0.8965695, 0.005938381, -3.5220294)
-
-[node name="couch3" parent="Layout/Walls" instance=ExtResource("2_w1bpg")]
-transform = Transform3D(-0.46304858, 0, -0.886333, 0, 1, 0, 0.886333, 0, -0.46304858, 3.3504696, 0.005938858, -6.8155565)
-
 [node name="Stairs" type="Node3D" parent="Layout"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Layout/Stairs"]
@@ -133,19 +125,22 @@ mesh = SubResource("BoxMesh_v87f2")
 
 [node name="Furniture" type="Node3D" parent="."]
 
-[node name="LampStanding2" parent="Furniture" instance=ExtResource("8_avm5o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.638543, 0, -0.4891634)
-
-[node name="TableRound1" parent="Furniture" instance=ExtResource("15_15v2t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0613163, 0, -7.117623)
-
 [node name="drinks" type="Node3D" parent="."]
 
-[node name="DrunknessPickup" parent="drinks" instance=ExtResource("9_22u0x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.085624, 1, -7.175687)
+[node name="Radio" parent="." instance=ExtResource("3_8wfei")]
+transform = Transform3D(-0.39487213, 0, -0.9187361, 0, 1, 0, 0.9187361, 0, -0.39487213, 1.8195436, 0.010397613, -1.5148752)
 
-[node name="DrunknessPickup2" parent="drinks" instance=ExtResource("9_22u0x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43314373, 1.0350711, -1.9680204)
+[node name="Radio2" parent="." instance=ExtResource("3_8wfei")]
+transform = Transform3D(0.98393184, 0, -0.17854466, 0, 1, 0, 0.17854466, 0, 0.98393184, 0.5294087, 0.010397613, -3.5177164)
 
-[node name="TableRound1" parent="." instance=ExtResource("15_15v2t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3670231, 0, -1.8301244)
+[node name="Radio3" parent="." instance=ExtResource("4_d4xos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18894911, 0, -1.8146331)
+
+[node name="Radio4" parent="." instance=ExtResource("5_xweag")]
+transform = Transform3D(0.41689956, 0, -0.90895253, 0, 1, 0, 0.90895253, 0, 0.41689956, 2.6504188, 0.02212277, -7.0027924)
+
+[node name="DrunknessPickup" parent="." instance=ExtResource("9_22u0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.875751, 1.0392127, -6.219991)
+
+[node name="Radio5" parent="." instance=ExtResource("6_8wfei")]
+transform = Transform3D(0.94451976, 0, 0.32845455, 0, 1, 0, -0.32845455, 0, 0.94451976, 0.20140606, 0.98733175, -1.8354789)

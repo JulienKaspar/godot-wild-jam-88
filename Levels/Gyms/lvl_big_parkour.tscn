@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dbtkwlffndd80"]
+[gd_scene load_steps=33 format=3 uid="uid://dbtkwlffndd80"]
 
 [ext_resource type="Material" uid="uid://hg5ppfcn0qd7" path="res://Levels/Gyms/Floor/floor1_v2.tres" id="1_3e7wy"]
 [ext_resource type="Material" uid="uid://dxyb0pq2y84ds" path="res://Levels/Gyms/Wall/reddish_floral_wall_v2.tres" id="2_lb2wt"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://fhev4d48q1qy" path="res://Objects/Architypes/LivingRoom/stairs_wide.tscn" id="7_tnewr"]
 [ext_resource type="PackedScene" uid="uid://c3nkcb3esyxsx" path="res://Objects/Architypes/Furniture/couch2.tscn" id="8_8om6w"]
 [ext_resource type="PackedScene" uid="uid://dci81bvxxl4nx" path="res://Objects/Architypes/LivingRoom/stairs_thin.tscn" id="12_wtfsr"]
+[ext_resource type="Texture2D" uid="uid://cdu2wjhgj7mo2" path="res://Assets/Maps/Carpet_tiles/green_carpet/atlas.PNG" id="13_tnewr"]
 [ext_resource type="Texture2D" uid="uid://djpkkont0tpva" path="res://Assets/Maps/Walls/yellow_floral_wallpaper/atlas.png" id="13_wtfsr"]
 
 [sub_resource type="Environment" id="Environment_vu8ij"]
@@ -120,6 +121,28 @@ subsurf_scatter_strength = 1.0
 subsurf_scatter_skin_mode = true
 uv1_scale = Vector3(0.45, 0.298, 0.45)
 uv1_offset = Vector3(0.02, 0, 0)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hu445"]
+resource_local_to_scene = true
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0.49747366, 0.49747366, 0.49747366, 0)
+albedo_texture = ExtResource("13_wtfsr")
+rim = 0.47
+subsurf_scatter_strength = 1.0
+subsurf_scatter_skin_mode = true
+uv1_scale = Vector3(0.45, 0.298, 0.45)
+uv1_offset = Vector3(0.02, 0, 0)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1inml"]
+resource_local_to_scene = true
+albedo_color = Color(0.35906908, 0.35906908, 0.35906908, 1)
+albedo_texture = ExtResource("13_tnewr")
+uv1_scale = Vector3(0.149, 0.149, 0.656)
 uv1_triplanar = true
 uv1_world_triplanar = true
 
@@ -476,8 +499,8 @@ wall_material = SubResource("StandardMaterial3D_6fmut")
 
 [node name="Stairs_thin4" parent="." instance=ExtResource("12_wtfsr")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.8654532, 1.513356, -12.16537)
-wall_material = SubResource("StandardMaterial3D_6fmut")
+wall_material = SubResource("StandardMaterial3D_hu445")
 
 [node name="Stairs_thin3" parent="." instance=ExtResource("12_wtfsr")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.870738, 0.4224391, -12.148157)
-wall_material = ExtResource("1_3e7wy")
+wall_material = SubResource("StandardMaterial3D_1inml")
