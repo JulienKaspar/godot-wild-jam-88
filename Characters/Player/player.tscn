@@ -30,7 +30,6 @@ height = 6.16
 script = ExtResource("3_cue0d")
 
 [node name="PlayerController" parent="." instance=ExtResource("1_j341n")]
-DebugDraw = false
 
 [node name="Area3D" type="Area3D" parent="PlayerController"]
 script = ExtResource("5_osktb")

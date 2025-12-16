@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://e3iygjxhg00v"]
+[gd_scene load_steps=13 format=3 uid="uid://e3iygjxhg00v"]
 
 [ext_resource type="PackedScene" path="res://Characters/Teens/logic/TeenStanding.tscn" id="1_heiu2"]
 [ext_resource type="PackedScene" uid="uid://csh5kgfnsuy4w" path="res://Assets/Characters/Teens/teen2.gltf" id="2_nl8db"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d2vcgl4k66dnb" path="res://Objects/Architypes/Furniture/napkin.tscn" id="5_hlpl7"]
 [ext_resource type="PackedScene" uid="uid://j1b5yvs8pnux" path="res://Objects/Architypes/Furniture/table_round1.tscn" id="6_x0cel"]
 [ext_resource type="PackedScene" uid="uid://b000ktj5kppjg" path="res://Assets/Furniture/apple1.gltf" id="7_nxwkq"]
+[ext_resource type="Script" uid="uid://cbtis817tkhj2" path="res://Characters/Player/PlayerDetector.gd" id="9_nl8db"]
 [ext_resource type="PackedScene" uid="uid://b7ee7to73wtp6" path="res://Levels/Gyms/Floor/floor1.tscn" id="10_5xgo6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nl8db"]
@@ -198,3 +199,8 @@ transform = Transform3D(1.2, 0, 0, 0, 1, 0, 0, 0, 0.19, -1.7603836, -0.121440426
 
 [node name="Floor3" parent="." instance=ExtResource("10_5xgo6")]
 transform = Transform3D(0.24, 0, 0, 0, 1, 0, 0, 0, 0.26, -6.4357014, -0.121440426, 1.9223652)
+
+[node name="PlayerDetector" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5071216, 4.7683716e-07, 0.22518766)
+script = ExtResource("9_nl8db")
+metadata/_custom_type_script = "uid://cbtis817tkhj2"

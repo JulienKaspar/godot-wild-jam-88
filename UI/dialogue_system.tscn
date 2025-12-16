@@ -90,14 +90,15 @@ offset_right = 1278.0
 offset_bottom = 393.0
 pivot_offset = Vector2(131.59, 172.07)
 texture = ExtResource("2_bbhjd")
+stretch_mode = 4
 
 [node name="PupilLeft" type="TextureRect" parent="Control2/DialoguePrompt/FlaskyBase"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 0
 offset_left = 50.0
-offset_top = 155.0
+offset_top = 131.0
 offset_right = 90.0
-offset_bottom = 195.0
+offset_bottom = 171.0
 texture = ExtResource("3_fkwb6")
 expand_mode = 3
 stretch_mode = 5
@@ -105,10 +106,10 @@ stretch_mode = 5
 [node name="PupilRight" type="TextureRect" parent="Control2/DialoguePrompt/FlaskyBase"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 0
-offset_left = 179.0
-offset_top = 153.0
-offset_right = 219.0
-offset_bottom = 193.0
+offset_left = 158.0
+offset_top = 125.0
+offset_right = 198.0
+offset_bottom = 165.0
 texture = ExtResource("4_kcolf")
 expand_mode = 3
 stretch_mode = 5
