@@ -1,13 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://ry1d71pwwil2"]
+[gd_scene load_steps=12 format=3 uid="uid://e3iygjxhg00v"]
 
-[ext_resource type="PackedScene" uid="uid://d62n5s8htyn7" path="res://Characters/Teens/logic/TeenStanding.tscn" id="1_heiu2"]
+[ext_resource type="PackedScene" path="res://Characters/Teens/logic/TeenStanding.tscn" id="1_heiu2"]
 [ext_resource type="PackedScene" uid="uid://csh5kgfnsuy4w" path="res://Assets/Characters/Teens/teen2.gltf" id="2_nl8db"]
 [ext_resource type="PackedScene" uid="uid://dkigsk0khpxet" path="res://Objects/Architypes/Furniture/frame1.tscn" id="3_5xgo6"]
 [ext_resource type="PackedScene" uid="uid://l4nbchy8y1g1" path="res://Objects/Architypes/Furniture/flowers1.tscn" id="4_55vo0"]
 [ext_resource type="PackedScene" uid="uid://d2vcgl4k66dnb" path="res://Objects/Architypes/Furniture/napkin.tscn" id="5_hlpl7"]
 [ext_resource type="PackedScene" uid="uid://j1b5yvs8pnux" path="res://Objects/Architypes/Furniture/table_round1.tscn" id="6_x0cel"]
 [ext_resource type="PackedScene" uid="uid://b000ktj5kppjg" path="res://Assets/Furniture/apple1.gltf" id="7_nxwkq"]
-[ext_resource type="PackedScene" uid="uid://fhobspyhyvwu" path="res://Objects/big_rose_and_gold_rug.tscn" id="8_nl8db"]
 [ext_resource type="PackedScene" uid="uid://b7ee7to73wtp6" path="res://Levels/Gyms/Floor/floor1.tscn" id="10_5xgo6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nl8db"]
@@ -193,9 +192,6 @@ transform = Transform3D(0.63, 0, 0, 0, 1, 0, 0, 0, 1.06, -7.20931, -0.11026478, 
 
 [node name="apple" parent="Furniture" instance=ExtResource("7_nxwkq")]
 transform = Transform3D(0.94596845, -0.017524382, 0.32378465, -0.0173568, 0.99437046, 0.104528464, -0.32379365, -0.1045005, 0.9403389, 0, -0.101117134, 0.7586068)
-
-[node name="Rug" parent="Furniture" instance=ExtResource("8_nl8db")]
-transform = Transform3D(2.2, 0, 0, 0, 1, 0, 0, 0, 0.74, 0, -0.12001431, 0)
 
 [node name="Floor2" parent="." instance=ExtResource("10_5xgo6")]
 transform = Transform3D(1.2, 0, 0, 0, 1, 0, 0, 0, 0.19, -1.7603836, -0.121440426, -0.01727438)
