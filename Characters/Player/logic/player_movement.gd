@@ -49,6 +49,8 @@ func showHelpers() -> void:
 	$UpperBody/helper_body_col.show()
 	%ArmL.show()
 	%ArmR.show()
+	$LegL.show()
+	$LegR.show()
 	
 func hideelpers() -> void:
 	DebugDraw = false
@@ -56,7 +58,8 @@ func hideelpers() -> void:
 	$UpperBody/helper_body_col.hide()
 	%ArmL.hide()
 	%ArmR.hide()
-
+	$LegL.hide()
+	$LegR.hide()
 
 # generate some noise direction but tend to fall in one direction
 func update_drunk_vector(delta) -> void:

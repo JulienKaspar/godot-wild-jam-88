@@ -270,6 +270,18 @@ node_a = NodePath("..")
 node_b = NodePath("../../ArmR")
 swing_span = 1.3229595
 
+[node name="joint_leg_left" type="ConeTwistJoint3D" parent="UpperBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1692875, -0.392967, -0.004346937)
+node_a = NodePath("..")
+node_b = NodePath("../../LegL")
+twist_span = 0.0
+
+[node name="joint_leg_right" type="ConeTwistJoint3D" parent="UpperBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.169, -0.393, -0.004)
+node_a = NodePath("..")
+node_b = NodePath("../../LegR")
+twist_span = 0.0
+
 [node name="BodyAttachPoint" type="Node3D" parent="UpperBody"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.164, 0)
@@ -319,6 +331,32 @@ one_shot = true
 [node name="TimerFalling" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
+
+[node name="LegL" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16108675, 0.015062436, 4.7683716e-07)
+collision_layer = 2
+collision_mask = 61
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LegL"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39960164, 0)
+shape = SubResource("CapsuleShape3D_6yvek")
+
+[node name="helper_arm_left" type="MeshInstance3D" parent="LegL"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39960164, 0)
+mesh = SubResource("CapsuleMesh_on8bp")
+
+[node name="LegR" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.161, 0.015, 0)
+collision_layer = 2
+collision_mask = 61
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LegR"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39960164, 0)
+shape = SubResource("CapsuleShape3D_6yvek")
+
+[node name="helper_arm_left" type="MeshInstance3D" parent="LegR"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39960164, 0)
+mesh = SubResource("CapsuleMesh_on8bp")
 
 [connection signal="timeout" from="TimerRoll" to="." method="_on_timer_roll_timeout"]
 [connection signal="timeout" from="TimerFalling" to="." method="_on_timer_falling_timeout"]

@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bdchormsmw1jv"]
+
+[ext_resource type="Texture2D" uid="uid://dpa3wpntxnjto" path="res://Assets/Maps/Walls/wood_paneling/atlas.PNG" id="1_gnhsi"]
+
+[resource]
+resource_local_to_scene = true
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0.49747366, 0.49747366, 0.49747366, 0)
+albedo_texture = ExtResource("1_gnhsi")
+rim = 0.47
+subsurf_scatter_strength = 1.0
+subsurf_scatter_skin_mode = true
+uv1_scale = Vector3(0.45, 0.16, 0.45)
+uv1_offset = Vector3(0, 0.238, 0)
+uv1_triplanar = true
+uv1_world_triplanar = true
