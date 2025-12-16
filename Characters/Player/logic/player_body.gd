@@ -1,4 +1,8 @@
 extends Node3D
+@warning_ignore_start('unused_signal')
+@warning_ignore_start('unused_variable')
+@warning_ignore_start('unused_parameter')
+
 @export var left_hand_target: Node3D
 @export var right_hand_target: Node3D
 

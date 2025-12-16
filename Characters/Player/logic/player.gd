@@ -2,6 +2,9 @@ extends Node3D
 class_name Player
 
 @warning_ignore_start('unused_signal')
+@warning_ignore_start('unused_variable')
+@warning_ignore_start('unused_parameter')
+
 signal ChangeHandLeft(state: HandStates)
 signal ChangeHandRight(state: HandStates)
 signal ChangeFeet(state: FeetStates)
@@ -20,7 +23,7 @@ var fallNoRecoverPoint = 0.6
 
 #------------------------------------------------------------------------------
 ### statess 
-enum MoveStates {IDLE, MOVING, FALLING, ROLLING, FLASKY, FELL}
+enum MoveStates {STANDUP, MOVING, FALLING, ROLLING, FLASKY, FELL}
 enum HandStates {DANGLY, REACHING, HOLD, DRINKING, ROLLING, FIXED}
 enum FeetStates {IK, REACHING, HOLD, DRINKING, ROLLING, FIXED}
 
@@ -57,7 +60,7 @@ func goRoll() -> void:
 	
 func riseAndShine() -> void:
 	$PlayerController.standUp()
-	setMoveState(MoveStates.MOVING)
+	setMoveState(MoveStates.STANDUP)
 	
 func setHandLState(state: HandStates):
 	HandLState = state

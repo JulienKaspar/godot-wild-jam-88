@@ -31,7 +31,7 @@ func _init() -> void:
 	current_drunkness = starting_drunkness
 
 
-func _unhandled_key_input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	var drunkness_per_drink: float = 2
 	if event.is_action_pressed("grab_left"):
 		current_drunkness += drunkness_per_drink
