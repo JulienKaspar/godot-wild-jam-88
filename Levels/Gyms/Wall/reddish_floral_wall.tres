@@ -1,13 +1,23 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dkipd1yakrsqs"]
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dkipd1yakrsqs"]
+
+[ext_resource type="Shader" uid="uid://bdlurewdnnc80" path="res://Shaders/reddish_floral_wall.gdshader" id="1_tgdje"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_fdle5"]
 viewport_path = NodePath("SubViewport")
 
 [resource]
-resource_local_to_scene = true
-diffuse_mode = 3
-albedo_texture = SubResource("ViewportTexture_fdle5")
-roughness = 0.0
-uv1_scale = Vector3(0.24, 0.25, 0.15)
-uv1_offset = Vector3(0, 0.5, 0)
-uv1_triplanar = true
+render_priority = 0
+shader = ExtResource("1_tgdje")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = SubResource("ViewportTexture_fdle5")
+shader_parameter/albedo_texture_size = Vector2i(0, 0)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 0.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/uv1_blend_sharpness = 1.0
+shader_parameter/uv1_scale = Vector3(0.24, 0.25, 0.15)
+shader_parameter/uv1_offset = Vector3(0, 0.5, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)

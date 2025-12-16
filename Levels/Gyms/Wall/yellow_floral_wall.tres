@@ -4,7 +4,6 @@
 viewport_path = NodePath("SubViewport")
 
 [resource]
-resource_local_to_scene = true
 diffuse_mode = 3
 specular_mode = 2
 albedo_texture = SubResource("ViewportTexture_qyp24")

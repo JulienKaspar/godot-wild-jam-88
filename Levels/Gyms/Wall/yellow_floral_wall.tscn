@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://vyau441cbd2o"]
+[gd_scene load_steps=7 format=4 uid="uid://cmjvgsx842pmq"]
 
 [ext_resource type="Texture2D" uid="uid://djpkkont0tpva" path="res://Assets/Maps/Walls/yellow_floral_wallpaper/atlas.png" id="1_k2qng"]
 [ext_resource type="Material" uid="uid://cf6v2ddtk8ckb" path="res://Levels/Gyms/Wall/yellow_floral_wall.tres" id="2_nrxwc"]
