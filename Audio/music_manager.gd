@@ -1,3 +1,10 @@
+## music_manager.gd
+# =================
+# start_music()
+# stop_music()
+# switch_music(theme : MusicManager.MUSIC_THEMES) - check enum for possible themes
+# drunkness_intensity : float - range 0.0 to 1.0
+# _update_drunkness_effect() - called when "drunkness_intensity" is updated
 extends Node
 class_name MusicManager
 
