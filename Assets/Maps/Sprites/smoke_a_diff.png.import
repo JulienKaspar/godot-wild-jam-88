@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dj7qr1suvy7ha"
-path.s3tc="res://.godot/imported/smoke_a_diff.png-7d2b269e0b618c588e3944dd40e23238.s3tc.ctex"
+path.s3tc="res://.godot/imported/smoke_a_diff.png-c90f1fcb8eb0a526532ba0af92760a1e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/Sprites/smoke_a_diff.png"
-dest_files=["res://.godot/imported/smoke_a_diff.png-7d2b269e0b618c588e3944dd40e23238.s3tc.ctex"]
+source_file="res://Assets/Maps/Sprites/smoke_a_diff.png"
+dest_files=["res://.godot/imported/smoke_a_diff.png-c90f1fcb8eb0a526532ba0af92760a1e.s3tc.ctex"]
 
 [params]
 
