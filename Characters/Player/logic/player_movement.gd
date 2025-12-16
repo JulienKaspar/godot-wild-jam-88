@@ -1,6 +1,10 @@
 extends Node3D
 class_name PlayerController
 
+@warning_ignore_start('unused_signal')
+@warning_ignore_start('unused_variable')
+@warning_ignore_start('unused_parameter')
+
 @export var DebugDraw = true
 @onready var PlayerBodyCollider = %UpperBody
 @onready var PlayerBallCollider = $RigidBally3D

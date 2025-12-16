@@ -1,5 +1,9 @@
 extends Node3D
 
+@warning_ignore_start('unused_signal')
+@warning_ignore_start('unused_variable')
+@warning_ignore_start('unused_parameter')
+
 #object
 var inRangeLeft = []
 var inRangeRight = []
