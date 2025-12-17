@@ -108,7 +108,9 @@ func updateDebugHelpers(playerInputDir):
 	%up_aligned/helper_player_dir.position = Vector3(playerInputDir.x,-0.21,playerInputDir.y)
 	%up_aligned/helper_drunk_dir.position = Vector3(drunk_noise_vector.x,-0.21,drunk_noise_vector.y)
 	%up_aligned/helper_player_facing.position = Vector3(player_facing_dir.x,-0.20,player_facing_dir.y)
-	$NoRotateBall/Label3D.text = Player.MoveStates.keys()[PlayerRoot.inMoveState]
+	$NoRotateBall/Label3D.text = Player.MoveStates.keys()[PlayerRoot.inMoveState] + "\nLeftHand: "
+	$NoRotateBall/Label3D.text += Player.HandStates.keys()[PlayerRoot.HandLState] + "\nRightHand: "
+	$NoRotateBall/Label3D.text += Player.HandStates.keys()[PlayerRoot.HandRState]
 	
 func sendStatsToPlayer() -> void:
 	PlayerRoot.player_speed = player_speed

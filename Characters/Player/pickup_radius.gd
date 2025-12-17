@@ -7,8 +7,6 @@ extends Node3D
 #object
 var inRangeLeft = []
 var inRangeRight = []
-var closestLeft: Object
-var closestRight: Object
 var ItemsinReachLeft = false
 var ItemsinReachRight = false
 
@@ -38,17 +36,17 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if NeedsSortLeft:
 		if inRangeLeft.is_empty():
-			closestLeft = null
+			$"..".closestLeft = null
 			ItemsinReachLeft = false
 		else:
-			closestLeft = getClosest(inRangeLeft)
+			$"..".closestLeft = getClosest(inRangeLeft)
 			ItemsinReachLeft = true
 	if NeedsSortRight:
 		if inRangeRight.is_empty():
-			closestRight = null
+			$"..".closestRight = null
 			ItemsinReachRight = false
 		else:
-			closestRight = getClosest(inRangeRight)
+			$"..".closestRight = getClosest(inRangeRight)
 			ItemsinReachRight = true
 
 func _on_grab_area_left_area_entered(area: Area3D) -> void:

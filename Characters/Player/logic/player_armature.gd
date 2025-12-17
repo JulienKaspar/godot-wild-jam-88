@@ -8,8 +8,12 @@ extends Node3D
 @onready var left_hand_target: Marker3D = $"../LeftHandTarget"
 @onready var right_hand_target: Marker3D = $"../RightHandTarget"
 
+var hand_attach_l: BoneAttachment3D
+var hand_attach_r: BoneAttachment3D
+
 func _ready() -> void:
 	# Setup IK for left arm
+	get_tree()
 	var left_arm_ik = SkeletonIK3D.new()
 	left_arm_ik.root_bone = "Arm_L"
 	left_arm_ik.tip_bone = "Hand_L"
@@ -46,3 +50,8 @@ func _ready() -> void:
 	right_leg_ik.magnet = Vector3(-1, 0, 1)
 	right_leg_ik.start()
 	skeleton_3d.add_child(right_leg_ik)
+	
+	hand_attach_l = BoneAttachment3D.new()
+	hand_attach_r = BoneAttachment3D.new()
+	hand_attach_l.bone_name = "Hand_L"
+	hand_attach_r.bone_name = "Hand_L"

@@ -11,7 +11,8 @@ signal ChangeFeet(state: FeetStates)
 signal ChangeHandTargetL(trgt_left: Object, isValid: bool) # set isValid=false if theres none
 signal ChangeHandTargetR(trgt_right: Object, isValid: bool) # set isValid=false if theres none
 signal ChangeMovement(state: MoveStates)
-signal ConsumedDrunkness(value:float)
+
+#---------------- PFX ---------------------------------------------------------
 
 @onready var pfx_falling = $PlayerController/NoRotateBall/PfxFallingIndicator
 @onready var pfx_bodyfall = $PlayerController/UpperBody/PfxBodyfall
@@ -21,13 +22,22 @@ var fallStartPoint = 0.2
 var fallNoRecoverPoint = 0.6
 var DrunkCost_Roll = -1.0
 var DrunkCost_HitFurniture = -0.1
+var DrunkCost_StandUp = -2.0
+var PickupThreshold = 0.2
 
+#---------------- IK ----------------------------------------------------------
+
+var closestLeft: Object
+var closestRight: Object
+
+var holdingLeft: Object
+var holdingRight: Object
 
 #------------------------------------------------------------------------------
 ### statess 
 enum MoveStates {STANDUP, MOVING, FALLING, ROLLING, FLASKY, FELL}
 enum HandStates {DANGLY, REACHING, HOLD, DRINKING, ROLLING, FIXED}
-enum FeetStates {IK, REACHING, HOLD, DRINKING, ROLLING, FIXED}
+enum FeetStates {STEPPING, HOLD, ROLLING, FIXED}
 
 # input states
 var grabbingL = false
@@ -35,6 +45,7 @@ var grabbingR = false
 
 # move state
 var inMoveState = MoveStates.MOVING
+var inFeetState = FeetStates.STEPPING
 var HandLState = HandStates.DANGLY
 var HandRState = HandStates.DANGLY
 var canRoll = true
@@ -45,10 +56,8 @@ var player_global_mass_pos = Vector3(0,0,0) # owned by player_controller
 var player_facing_dir = Vector2(0,1.0) # owned by player_controller
 var leaning = 0.0 # owned by player_controller
 
-# health and safety
-
-
 #----------------------------------------
+
 func _ready() -> void:
 	# need to set these from here as they might not exist in the body when its ready
 	$PlayerBody.player_rb = $PlayerController/RigidBally3D
@@ -77,6 +86,10 @@ func setMoveState(state: MoveStates):
 	inMoveState = state
 	self.ChangeMovement.emit(state)
 
+func setFeetState(state: FeetStates):
+	inFeetState = state
+	self.ChangeFeet.emit(state)
+
 func checkFalling() -> void:
 	if leaning > fallNoRecoverPoint:
 		setMoveState(MoveStates.FELL)
@@ -86,7 +99,6 @@ func checkFalling() -> void:
 	elif inMoveState != MoveStates.MOVING:
 		setMoveState(MoveStates.MOVING)
 
-
 func _process(_delta: float) -> void:
 	# state machine
 	match inMoveState:
@@ -95,10 +107,6 @@ func _process(_delta: float) -> void:
 		MoveStates.FALLING: #FALLING
 			checkFalling()
 		_: pass
-	
-	match HandLState:
-		1: pass
-
 
 	# ------- Input Handling ------
 	if Input.is_action_pressed("grab_left"):
@@ -112,28 +120,33 @@ func _process(_delta: float) -> void:
 			
 	if Input.is_action_pressed("grab_right"):
 		grabbingR = true
-		if HandRState == HandStates.DANGLY: 
-			setHandRState(HandStates.REACHING)
+		match HandRState:
+			HandStates.DANGLY: setHandRState(HandStates.REACHING)
 	else:
 		grabbingR = false
-		if HandRState == HandStates.REACHING: 
-			setHandRState(HandStates.DANGLY)
+		match HandRState:
+			HandStates.REACHING: setHandRState(HandStates.DANGLY)
+			HandStates.ROLLING: setHandRState(HandStates.DANGLY)
+			HandStates.FIXED: setHandRState(HandStates.DANGLY)
 		
 	if Input.is_action_just_pressed("roll"):
 		match inMoveState:
 			MoveStates.FALLING: goRoll()
 			MoveStates.FELL: riseAndShine()
+			
 	
 
 func _on_player_body_reached_target_left(item) -> void:
 	if item.get_script().get_global_name() == "DrunknessPickup":
 		setHandLState(HandStates.HOLD)
+		holdingLeft = item
 	else:
 		setHandLState(HandStates.FIXED)
 
 func _on_player_body_reached_target_right(item) -> void:
 	if item.get_script().get_global_name() == "DrunknessPickup":
 		setHandRState(HandStates.HOLD)
+		holdingRight = item
 	else:
 		setHandRState(HandStates.FIXED)
 
@@ -141,9 +154,11 @@ func _on_change_movement(state: Player.MoveStates) -> void:
 	# stateTransitions
 	# --- Particles
 	match state:
-		MoveStates.ROLLING:
+		MoveStates.ROLLING:	
 			GameStateManager.player_drunkness.current_drunkness += DrunkCost_Roll
-	
+		MoveStates.STANDUP:	
+			GameStateManager.player_drunkness.current_drunkness += DrunkCost_StandUp
+		
 	match state:
 		MoveStates.FALLING: pfx_falling.set_emitting(true)
 		_: pfx_falling.set_emitting(false)
@@ -151,3 +166,13 @@ func _on_change_movement(state: Player.MoveStates) -> void:
 	match state:
 		MoveStates.FELL: pfx_bodyfall.set_emitting(true)
 		_: pfx_bodyfall.set_emitting(false)	
+
+
+func _on_change_hand_left(state: Player.HandStates) -> void:
+	pass # Replace with function body.
+
+func _on_change_hand_right(state: Player.HandStates) -> void:
+	pass # Replace with function body.
+
+func _on_change_feet(state: Player.FeetStates) -> void:
+	pass # Replace with function body.

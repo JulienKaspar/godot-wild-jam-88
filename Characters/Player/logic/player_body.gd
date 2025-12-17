@@ -3,6 +3,11 @@ extends Node3D
 @warning_ignore_start('unused_variable')
 @warning_ignore_start('unused_parameter')
 
+enum Hands {LEFT, RIGHT}
+
+@onready var PlayerRoot = $"../"
+@onready var skeleton: Skeleton3D = $PlayerArmature/Armature/Skeleton3D
+
 @onready var left_hand_target: Marker3D = $LeftHandTarget
 @onready var right_hand_target: Marker3D = $RightHandTarget
 
@@ -18,6 +23,13 @@ extends Node3D
 @onready var left_step_target: RayCast3D = $StepTarget/LeftRayCast
 @onready var right_step_target: RayCast3D = $StepTarget/RightRayCast
 
+@onready var Hand_L_idx: int = skeleton.find_bone("Hand_L")
+@onready var Hand_R_idx: int = skeleton.find_bone("Hand_R")
+
+@onready var left_shoulder_ray: RayCast3D = $ShoulderLRayCast
+@onready var right_shoulder_ray: RayCast3D = $ShoulderRRayCast
+
+# ---------------------- External Targets --------------------------------------
 @onready var player_rb: RigidBody3D
 @onready var rb_arm_l: Node3D
 @onready var rb_arm_r: Node3D
@@ -89,13 +101,41 @@ func update_step_targets():
 	right_step_target.target_position.x = local_balance_vec.x * speed
 	right_step_target.target_position.z = local_balance_vec.z * speed
 
+func moveHand(hand: Object, target: Object) -> void:
+	hand.global_transform = lerp(hand.global_transform, target.global_transform, 0.5)
+
+func checkDistance(bone_idx, target: Object, hand: Hands) -> void:
+	var d = ($PlayerArmature.hand_attach_l.global_position - target.global_position).length()
+	$debug_hand.global_position = $PlayerArmature.hand_attach_l.global_position
+	$debug_target.global_position = target.global_position
+	if d < PlayerRoot.PickupThreshold:
+		print("----- PICKUP -----")
+		
+	else:
+		#print(str(local_bone_transform) + " - " + str(global_bone_pos))
+		print(d)
+
 func _process(delta: float) -> void:
 	# Make the armature follow the physics bodies
 	self.global_transform = lerp(self.global_transform, body_attach_point.global_transform, .5)
 	
 	#move hand targets
-	left_hand_target.global_transform = lerp(left_hand_target.global_transform, rb_arm_l.global_transform, 0.5)
-	right_hand_target.global_transform = lerp(right_hand_target.global_transform, rb_arm_r.global_transform, 0.5)
+	match PlayerRoot.HandLState:
+		Player.HandStates.REACHING: 
+			if PlayerRoot.closestLeft: 
+				moveHand(left_hand_target, PlayerRoot.closestLeft)
+				#checkDistance(Hand_L_idx, PlayerRoot.closestLeft, Hands.LEFT)
+			else: moveHand(left_hand_target, rb_arm_l)
+		_: moveHand(left_hand_target, rb_arm_l)
+			
+	match PlayerRoot.HandRState:
+		Player.HandStates.REACHING: 
+			if PlayerRoot.closestRight: 
+				moveHand(right_hand_target, PlayerRoot.closestRight)
+				#checkDistance(Hand_R_idx, PlayerRoot.closestRight, Hands.RIGHT)
+			else: moveHand(right_hand_target, rb_arm_r)
+		_: moveHand(right_hand_target, rb_arm_r)
+
 	
 	#move feet targets
 	update_step_targets()
@@ -104,19 +144,15 @@ func Reset() -> void:
 	pass
 
 func _on_player_change_hand_left(state: Player.HandStates) -> void:
-	pass
-
+	match state:
+		Player.HandStates.REACHING: pass
+		Player.HandStates.DANGLY: pass
+		
 func _on_player_change_hand_right(state: Player.HandStates) -> void:
 	pass
 
 func _on_player_change_feet(state: Player.FeetStates) -> void:
 	match state:
-		Player.FeetStates.IK: pass
+		Player.FeetStates.STEPPING: pass
 		Player.FeetStates.ROLLING: pass
 		
-
-func _on_player_change_hand_target_l(trgt_left: Object, isValid: bool) -> void:
-	pass # Replace with function body.
-
-func _on_player_change_hand_target_r(trgt_right: Object, isValid: bool) -> void:
-	pass # Replace with function body.

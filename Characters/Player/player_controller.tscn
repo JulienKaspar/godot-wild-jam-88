@@ -253,8 +253,9 @@ shape = SubResource("SphereShape3D_jkj6u")
 emitting = false
 
 [node name="Label3D" type="Label3D" parent="NoRotateBall"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6758566, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8597615, 0)
 visible = false
+pixel_size = 0.004
 text = "JA"
 outline_size = 50
 

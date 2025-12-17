@@ -49,11 +49,12 @@ transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -1.2
 shape = SubResource("CylinderShape3D_klx3t")
 debug_color = Color(0.8627451, 0, 0.45882353, 0.8784314)
 
+[connection signal="ChangeFeet" from="." to="." method="_on_change_feet"]
 [connection signal="ChangeFeet" from="." to="PlayerBody" method="_on_player_change_feet"]
+[connection signal="ChangeHandLeft" from="." to="." method="_on_change_hand_left"]
 [connection signal="ChangeHandLeft" from="." to="PlayerBody" method="_on_player_change_hand_left"]
+[connection signal="ChangeHandRight" from="." to="." method="_on_change_hand_right"]
 [connection signal="ChangeHandRight" from="." to="PlayerBody" method="_on_player_change_hand_right"]
-[connection signal="ChangeHandTargetL" from="." to="PlayerBody" method="_on_player_change_hand_target_l"]
-[connection signal="ChangeHandTargetR" from="." to="PlayerBody" method="_on_player_change_hand_target_r"]
 [connection signal="ChangeMovement" from="." to="." method="_on_change_movement"]
 [connection signal="ChangeMovement" from="." to="PlayerController" method="_on_player_change_movement"]
 [connection signal="ReachedTargetLeft" from="PlayerBody" to="." method="_on_player_body_reached_target_left"]
