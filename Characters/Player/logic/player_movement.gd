@@ -10,6 +10,7 @@ class_name PlayerController
 @onready var PlayerBodyCollider = %UpperBody
 @onready var PlayerBallCollider = $RigidBally3D
 @onready var PlayerRoot = $"../"
+@onready var StairsRay = $NoRotateBall/StairsRay
 
 @onready var debugHelpers = [%RigidBally3D,	$UpperBody/helper_body_col,	%ArmL,	
 				%ArmR,	$LegL,	$LegR]
@@ -29,9 +30,8 @@ static var refUpVector = Vector3(0,1,0)
 static var move_force_multiplier = 100.0 # phys impulse scale
 static var upper_body_stiffness = 1.5 # scales impulse to bring body back to target
 static var body_leaning_force = 0.1 # how much move direction is added to pose correction
-
-
-# 
+static var stair_up_impulse = 350 # how much force should be added to go up stairs
+ 
 
 #---------------- State -----------------------------------
 #need to update these properly for when player spawns at not 0
@@ -44,6 +44,7 @@ var drunk_noise_vector = Vector2(0,0)
 var player_move_dir = Vector2(0,0)
 var player_speed = 0.0
 var leaning = 0.0
+var isOnStairs = false
 
 var keepUpright = true
 var moveUpForce = 0.0
@@ -108,7 +109,9 @@ func updateDebugHelpers(playerInputDir):
 	%up_aligned/helper_player_dir.position = Vector3(playerInputDir.x,-0.21,playerInputDir.y)
 	%up_aligned/helper_drunk_dir.position = Vector3(drunk_noise_vector.x,-0.21,drunk_noise_vector.y)
 	%up_aligned/helper_player_facing.position = Vector3(player_facing_dir.x,-0.20,player_facing_dir.y)
-	$NoRotateBall/Label3D.text = Player.MoveStates.keys()[PlayerRoot.inMoveState] + "\nLeftHand: "
+	$NoRotateBall/Label3D.text = Player.MoveStates.keys()[PlayerRoot.inMoveState]
+	if isOnStairs: $NoRotateBall/Label3D.text +=  " - ON STAIRS\nLeftHand: "
+	else: $NoRotateBall/Label3D.text += "\nLeftHand: "
 	$NoRotateBall/Label3D.text += Player.HandStates.keys()[PlayerRoot.HandLState] + "\nRightHand: "
 	$NoRotateBall/Label3D.text += Player.HandStates.keys()[PlayerRoot.HandRState]
 	
@@ -136,6 +139,7 @@ func standUp() -> void:
 #----------------Process--------------------------------------------------------
 #-------------------------------------------------------------------------------
 func _ready() -> void:
+	StairsRay.target_position.y = -0.5
 	if DebugDraw:
 		showHelpers()
 	else:
@@ -174,6 +178,9 @@ func pushBody(delta: float) -> void:
 	PlayerBodyCollider.apply_torque_impulse(body_torque)
 
 func pushBally(delta: float, playerInputDir) -> void:
+	if isOnStairs: moveUpForce = stair_up_impulse * delta
+	else: moveUpForce = 0.0
+	
 	var move_force = playerInputDir * player_input_strength
 	move_force += drunk_noise_vector * drunk_input_strength
 	move_force *= delta * move_force_multiplier
@@ -184,6 +191,12 @@ func _physics_process(delta: float) -> void:
 	# -------- player input ------------
 	var playerInputDir = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 
+	# stairs check
+	var normalInput = playerInputDir.normalized()
+	StairsRay.target_position.x = normalInput.x * 0.5
+	StairsRay.target_position.z = normalInput.y * 0.5
+	isOnStairs = StairsRay.is_colliding()
+	
 	# -------- update targets ----------
 	update_vectors()
 	update_drunk_vector(delta)
