@@ -38,4 +38,4 @@ func show_settings_menu() -> void:
 func show_game_ui() -> void:
 	main_menu.hide()
 	settings_menu.hide()
-	hud.show()
+	hud.show() 	

@@ -17,9 +17,7 @@ func get_player_distance() -> float:
 	
 	return distance
 
-func _process(_delta):
-	print(get_player_distance())
-	
+func _process(_delta):	
 	if get_player_distance() < voice_trigger_radius:
 		voice_active = true
 	else:
