@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b3w4gu3se7vnv" path="res://Gameplay/Pickups/drunkness_pickup.gd" id="1_4iwu5"]
 [ext_resource type="PackedScene" uid="uid://dah5q3vw2jba7" path="res://Assets/Furniture/banana1.gltf" id="2_0boxb"]
-[ext_resource type="Script" uid="uid://dov4lhtuyrycf" path="res://Gameplay/Pickups/pick_point.gd" id="3_0boxb"]
+[ext_resource type="Script" path="res://Gameplay/Pickups/pick_point.gd" id="3_0boxb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fwtl3"]
 size = Vector3(0.21875, 0.15429688, 0.16601563)
@@ -27,6 +27,7 @@ shape = SubResource("BoxShape3D_fwtl3")
 
 [node name="PickupPrompt" type="Sprite3D" parent="."]
 unique_name_in_owner = true
+visible = false
 billboard = 1
 texture = SubResource("ViewportTexture_fwtl3")
 
