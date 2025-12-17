@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://bt7vg8hwiacn4"]
+[gd_scene load_steps=54 format=3 uid="uid://bt7vg8hwiacn4"]
 
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="1_hkor5"]
 [ext_resource type="Material" uid="uid://hg5ppfcn0qd7" path="res://Levels/Gyms/Floor/floor1_v2.tres" id="2_kukai"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://j1b5yvs8pnux" path="res://Objects/Architypes/Furniture/table_round1.tscn" id="10_jwxo7"]
 [ext_resource type="Script" uid="uid://42mf003bq52u" path="res://Gameplay/level_teleporter.gd" id="11_s386q"]
 [ext_resource type="PackedScene" uid="uid://byi1vrdra1og3" path="res://Objects/Architypes/Props/radio.tscn" id="18_dn5sy"]
+[ext_resource type="PackedScene" uid="uid://if8jggvkxrky" path="res://Objects/Architypes/Hurtiture/test_cactus.tscn" id="19_x0rn4"]
 
 [sub_resource type="Environment" id="Environment_vu8ij"]
 background_mode = 1
@@ -983,3 +984,42 @@ transform = Transform3D(0.9177269, 0, -0.39721197, 0, 1, 0, 0.39721197, 0, 0.917
 [node name="TeenStanding" parent="." instance=ExtResource("3_7j6gg")]
 transform = Transform3D(0.21526378, 0, 0.976556, 0, 1, 0, -0.976556, 0, 0.21526378, -30.037304, 0, 2.3590927)
 animation = "Wall"
+
+[node name="TestCactus" parent="." instance=ExtResource("19_x0rn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.267986, 0.0054519475, 0.7638066)
+
+[node name="TestCactus2" parent="." instance=ExtResource("19_x0rn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.133268, 0.0054524243, 3.6218743)
+
+[node name="TestCactus4" parent="." instance=ExtResource("19_x0rn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.693985, 0.0054524243, 10.047129)
+
+[node name="TestCactus5" parent="." instance=ExtResource("19_x0rn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.505695, 0.0054524243, 10.113308)
+
+[node name="TestCactus3" parent="." instance=ExtResource("19_x0rn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.256645, 0.0054524243, 3.8449557)
+
+[node name="TestCactus6" parent="." instance=ExtResource("19_x0rn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.860468, 0.7975519, 14.308114)
+
+[node name="TestCactus7" parent="." instance=ExtResource("19_x0rn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.358377, 0.7975519, 14.308114)
+
+[node name="TestCactus8" parent="." instance=ExtResource("19_x0rn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.206724, -0.01401636, 14.39179)
+
+[node name="TestCactus9" parent="." instance=ExtResource("19_x0rn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.172146, 0.0036895573, 18.930573)
+
+[node name="TestCactus10" parent="." instance=ExtResource("19_x0rn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.941147, 0.0036895573, 18.930573)
+
+[node name="TestCactus11" parent="." instance=ExtResource("19_x0rn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.914268, 0.0036895573, 13.846205)
+
+[node name="TestCactus12" parent="." instance=ExtResource("19_x0rn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.928047, -0.023386687, 27.505917)
+
+[node name="TestCactus13" parent="." instance=ExtResource("19_x0rn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.556957, 0.005452901, 4.481415)

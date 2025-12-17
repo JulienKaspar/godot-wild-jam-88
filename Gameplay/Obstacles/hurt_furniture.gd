@@ -1,4 +1,4 @@
-extends Area3D
+extends Node3D
 class_name HurtFurniture
 
 @export var force_multiplier: float = 50
