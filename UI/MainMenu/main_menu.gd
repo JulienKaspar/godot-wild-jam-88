@@ -11,9 +11,11 @@ func _ready() -> void:
 	settings_button.pressed.connect(handle_settings_menu_button_pressed)
 	start_button.pressed.connect(handle_start_button_pressed)
 	exit_button.pressed.connect(handle_exit_button_pressed)
+	enter_menu_ambience()
 
 func handle_start_button_pressed() -> void:
 	start_button_pressed.emit()
+	exit_menu_ambience()
 	AudioManager.ui_sounds.play_sound(AudioManager.ui_sounds.start_game)
 	GameStateManager.start_game()
 	
@@ -27,5 +29,15 @@ func handle_exit_button_pressed() -> void:
 @onready var title_screen_ambience : AudioStreamPlayer = %TitleScreenAmbience
 
 func enter_menu_ambience():
-	AudioManager.fade_audio_in(title_screen_ambience, 0.0, 2.5)
+	## NOTE: WHY DOES THIS LINE NOT WORK??
+	#AudioManager.fade_audio_in(title_screen_ambience, 0.0, 1.5)
+	
+	## BUT THIS DOES?
+	title_screen_ambience.volume_db = AudioManager._VOLUME_DB_OFF
+	var tween : Tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(title_screen_ambience, "volume_db", 0.0, 3.5)
 	title_screen_ambience.play()
+
+func exit_menu_ambience():
+	AudioManager.fade_audio_out(title_screen_ambience, 2.5)
+	

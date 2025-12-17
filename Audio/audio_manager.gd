@@ -27,7 +27,7 @@ var player_sounds : PlayerSounds
 
 const _VOLUME_DB_OFF := -60.0
 
-func fade_audio_in(node: Node, _target_volume_db : float, _fade_speed : float = 1.5) -> void:
+func fade_audio_in(node: Node, _target_volume_db : float = 0.0, _fade_speed : float = 1.5) -> void:
 	node.set("volume_db", _VOLUME_DB_OFF)
 	tween_volume_db(node, _target_volume_db, _fade_speed)
 	
