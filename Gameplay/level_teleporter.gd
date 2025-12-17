@@ -1,12 +1,39 @@
+@tool
 extends Area3D
 class_name LevelTeleporter
 
-@export var collision_shape: Shape3D
+var player_detector: CollisionShape3D
+const max_parent_check_depth: int = 3
+
+func _get_configuration_warnings():
+	for child in get_children():
+		if child is CollisionShape3D:
+			return []	
+			
+	if player_detector == null:
+		return ["Add an CollisionShape3D that checks where the Player is!"]
+	
+	if get_collision_mask_value(2) == false:
+		return ["CollisionShape3D collision mask needs to be set to 2 to detect the player!"]
 
 
 func _ready() -> void:
-	area_entered.connect(teleport)
-	
-func teleport(area: Area3D) -> void:
-	if area is PlayerDetector:
-		print("DETECTED")
+	body_entered.connect(handle_collision)
+
+func handle_collision(body: RigidBody3D) -> void:
+	if has_player_as_parent(body):
+		GameStateManager.next_level()
+
+func has_player_as_parent(body: RigidBody3D) -> bool:
+	var current_node_checked: Node
+	for i in max_parent_check_depth:
+		@warning_ignore("unassigned_variable")
+		if current_node_checked == null:
+			current_node_checked = body
+		
+		if current_node_checked is Player:
+			return true
+		
+		current_node_checked = current_node_checked.get_parent()
+	return false
+		
