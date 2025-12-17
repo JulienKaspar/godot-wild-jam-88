@@ -31,3 +31,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5635145, 0)
 shape = SubResource("CylinderShape3D_4r6fo")
 
 [node name="lamp_standing1" parent="PropCollider" instance=ExtResource("1_3hufe")]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="PropCollider"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.9610455, 0)
+light_color = Color(1, 0.83533335, 0.24000001, 1)
+light_energy = 8.364
+spot_range = 2.850317
+spot_angle = 26.62264
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="PropCollider"]
+transform = Transform3D(-1, -3.821371e-15, 8.742278e-08, -8.742278e-08, 4.371139e-08, -1, 0, -1, -4.371139e-08, 0, 1.5905759, 0)
+light_color = Color(1, 0.88949996, 0.49, 1)
+light_energy = 8.364
+spot_range = 1.9513863
+spot_angle = 48.92756

@@ -1,6 +1,7 @@
 extends StaticBody3D
 class_name FurniturePlayerCollider
 
+@export var wobblable := true
 @export_range(0.0, 45.0) var wobble_angle := 15.0
 @export var wobble_time := 1.0
 
@@ -17,6 +18,8 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	
+	if not wobblable:
+		return
 	if not ramming_tween:
 		return
 	elif not ramming_tween.is_running():
