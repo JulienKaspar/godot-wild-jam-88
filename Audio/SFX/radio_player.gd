@@ -7,13 +7,14 @@ var body_target : Node3D
 var voice_active : bool = false
 
 func _ready():
-
 	var _stream : AudioStreamInteractive = self.stream as AudioStreamInteractive
 	loop_clip = _stream.get_clip_stream(1) # song loop
 		
 func get_player_distance() -> float:
 	var player_pos = GameStateManager.current_player.player_global_pos
-	var distance = get_parent_node_3d().get_parent_node_3d().position.distance_to(player_pos)
+	var radio = get_parent_node_3d()
+	var distance = radio.global_position.distance_to(player_pos)
+	
 	return distance
 
 func _process(_delta):
