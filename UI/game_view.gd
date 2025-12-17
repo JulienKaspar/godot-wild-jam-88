@@ -8,7 +8,7 @@ func _ready() -> void:
 	main_menu.start_button_pressed.connect(handle_game_started)
 	settings_menu.main_menu_button_pressed.connect(handle_main_menu_opened)
 	GameStateManager.on_paused.connect(show_settings_menu)
-	GameStateManager.on_unpaused.connect(hide_all_menus)
+	GameStateManager.on_unpaused.connect(show_game_ui)
 	
 func handle_setting_menu_opened() -> void:
 	main_menu.hide()
@@ -35,6 +35,7 @@ func show_settings_menu() -> void:
 	settings_menu.show()
 	hud.hide()
 	
-func hide_all_menus() -> void:
+func show_game_ui() -> void:
 	main_menu.hide()
 	settings_menu.hide()
+	hud.show()
