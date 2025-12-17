@@ -42,6 +42,8 @@ func display_player_info() -> void:
 	
 		var player = GameStateManager.current_player
 		ImGui.Text("Player Stats")
+		if ImGui.Button("Add Drunkness"):
+			GameStateManager.player_drunkness.current_drunkness += 4
 		ImGui.Text("Drunkness: " + str(player_drunkness.current_drunkness))
 		ImGui.Text("Player State" + str(player.inMoveState))
 		ImGui.Text("Player L Hand state " + str(player.HandLState))

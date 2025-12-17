@@ -66,6 +66,9 @@ func _ready() -> void:
 	$PlayerBody.upper_body = $PlayerController/UpperBody
 	$PlayerBody.body_attach_point = $PlayerController/UpperBody/BodyAttachPoint
 
+func get_ball() -> RigidBody3D:
+	return $PlayerController/RigidBally3D
+
 func goRoll() -> void:
 	$PlayerController.executeRoll()
 	setMoveState(MoveStates.ROLLING)
