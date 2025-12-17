@@ -21,7 +21,7 @@ var current_level_index: int
 
 func _ready() -> void:
 	get_tree().paused = true
-	
+	player_drunkness.on_sobriety.connect(handle_sobriety.call_deferred)
 	
 func _process(delta: float) -> void:
 	player_drunkness.current_drunkness -= player_drunkness.drunkness_decay_per_second * delta
@@ -87,3 +87,8 @@ func unpause_game() -> void:
 		get_tree().paused = false
 		current_state = GameState.Game
 		on_unpaused.emit()
+		
+func handle_sobriety() -> void:
+	load_level_by_index(current_level_index)
+	dialogue_system.display_dialogue("We got a little too sober, lets try again")
+	player_drunkness.reset_drunkness()

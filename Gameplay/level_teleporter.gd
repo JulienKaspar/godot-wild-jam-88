@@ -20,11 +20,11 @@ func _get_configuration_warnings():
 func _ready() -> void:
 	body_entered.connect(handle_collision)
 
-func handle_collision(body: RigidBody3D) -> void:
+func handle_collision(body: Node3D) -> void:
 	if has_player_as_parent(body):
 		GameStateManager.next_level()
 
-func has_player_as_parent(body: RigidBody3D) -> bool:
+func has_player_as_parent(body: Node3D) -> bool:
 	var current_node_checked: Node
 	for i in max_parent_check_depth:
 		@warning_ignore("unassigned_variable")

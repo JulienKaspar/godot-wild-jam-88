@@ -29,5 +29,7 @@ func set_drunkness(_new_value: float) -> void:
 		return
 	
 func _init() -> void:
+	reset_drunkness()
+
+func reset_drunkness() -> void:
 	current_drunkness = starting_drunkness
-	
