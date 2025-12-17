@@ -1,7 +1,8 @@
 extends Area3D
 class_name LevelTeleporter
 
-@export var teleport_position: Node3D
+@export var collision_shape: Shape3D
+
 
 func _ready() -> void:
 	area_entered.connect(teleport)

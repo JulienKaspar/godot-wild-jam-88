@@ -1,16 +1,32 @@
+@tool
 extends Area3D
 class_name HurtFurniture
-@onready var collision_shape_3d: CollisionShape3D = %CollisionShape3D
-@export var collision_shape: Shape3D
+
 @export var force_multiplier: float = 50
 @export var drunkness_pentalty: float = 1
 const max_parent_check_depth: int = 3
 const cooldown: float = 1
 var time_since_last_triggered: float = 0
+var player_detector : CollisionShape3D
+
+
+func _get_configuration_warnings():
+	for child in get_children():
+		if child is CollisionShape3D:
+			player_detector = child
+	
+	if player_detector == null:
+		return ["Add an CollisionShape3D that checks where the Player is!"]
+	
+	if get_collision_mask_value(2) == false:
+		return ["CollisionShape3D collision mask needs to be set to 2 to detect the player!"]
+
 
 func _ready() -> void:
+	for child in get_children():
+		if child is Area3D:
+			player_detector = child
 	body_entered.connect(handle_collision)
-	collision_shape_3d.shape = collision_shape
 	
 func _process(delta: float) -> void:
 	time_since_last_triggered += delta
