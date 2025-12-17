@@ -1,10 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://cqjqmhnbk3ssj"]
+[gd_scene load_steps=9 format=3 uid="uid://cqjqmhnbk3ssj"]
 
 [ext_resource type="PackedScene" uid="uid://cx2qst5txs1af" path="res://Characters/Player/player_controller.tscn" id="1_j341n"]
 [ext_resource type="PackedScene" uid="uid://b86lbtpyigxs5" path="res://Characters/Player/player_body.tscn" id="2_cue0d"]
 [ext_resource type="Script" uid="uid://cw4emr5i7rkes" path="res://Characters/Player/logic/player.gd" id="3_cue0d"]
-[ext_resource type="PackedScene" uid="uid://cofqoseqs4itl" path="res://Audio/SFX/Player/player_sounds.tscn" id="4_xf5fp"]
+[ext_resource type="AudioStream" uid="uid://de6p6f5p7uphw" path="res://Assets/Audio/SFX/Player/footsteps_soft_01.ogg" id="5_7vev3"]
 [ext_resource type="Script" uid="uid://c04lkn4hohoj4" path="res://Characters/Player/pickup_radius.gd" id="5_xf5fp"]
+[ext_resource type="AudioStream" uid="uid://cibdjrhydf3dx" path="res://Assets/Audio/SFX/Player/footsteps_soft_02.ogg" id="6_klx3t"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xf5fp"]
+random_pitch = 1.05
+streams_count = 2
+stream_0/stream = ExtResource("5_7vev3")
+stream_1/stream = ExtResource("6_klx3t")
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_klx3t"]
 height = 3.0
@@ -15,9 +22,14 @@ script = ExtResource("3_cue0d")
 
 [node name="PlayerController" parent="." instance=ExtResource("1_j341n")]
 
-[node name="PlayerBody" parent="." instance=ExtResource("2_cue0d")]
+[node name="PlayerBody" parent="." node_paths=PackedStringArray("footstep_audio_player") instance=ExtResource("2_cue0d")]
+footstep_audio_player = NodePath("FootstepAudioPlayer")
 
-[node name="PlayerSounds" parent="PlayerBody" instance=ExtResource("4_xf5fp")]
+[node name="FootstepAudioPlayer" type="AudioStreamPlayer3D" parent="PlayerBody"]
+stream = SubResource("AudioStreamRandomizer_xf5fp")
+max_polyphony = 2
+panning_strength = 1.5
+bus = &"SFX"
 
 [node name="PickupTracker" type="Node3D" parent="."]
 unique_name_in_owner = true

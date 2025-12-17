@@ -67,9 +67,6 @@ func _ready() -> void:
 	$PlayerBody.upper_body = $PlayerController/UpperBody
 	$PlayerBody.body_attach_point = $PlayerController/UpperBody/BodyAttachPoint
 
-func get_ball() -> RigidBody3D:
-	return $PlayerController/RigidBally3D
-
 func goRoll() -> void:
 	$PlayerController.executeRoll()
 	setMoveState(MoveStates.ROLLING)
@@ -150,18 +147,18 @@ func _process(_delta: float) -> void:
 
 
 func _on_player_body_reached_target_left(item) -> void:
-	if item.get_script().get_global_name() == "DrunknessPickup":
+	if item is DrunknessPickup:
 		setHandLState(HandStates.HOLD, item)
 		holdingLeft = item
 	else:
-		setHandLState(HandStates.FIXED)
+		setHandLState(HandStates.DANGLY)
 
 func _on_player_body_reached_target_right(item) -> void:
-	if item.get_script().get_global_name() == "DrunknessPickup":
+	if item is DrunknessPickup:
 		setHandRState(HandStates.HOLD, item)
 		holdingRight = item
 	else:
-		setHandRState(HandStates.FIXED)
+		setHandRState(HandStates.DANGLY)
 
 func _on_change_movement(state: Player.MoveStates) -> void:
 	# stateTransitions

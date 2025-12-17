@@ -1,15 +1,46 @@
-[gd_scene load_steps=7 format=3 uid="uid://byi1vrdra1og3"]
+[gd_scene load_steps=13 format=3 uid="uid://byi1vrdra1og3"]
 
 [ext_resource type="PackedScene" uid="uid://142xvokhmr2g" path="res://Objects/PropCollider.tscn" id="1_sfv7d"]
 [ext_resource type="PackedScene" uid="uid://btdb58ye5uhj8" path="res://Assets/Furniture/radio.gltf" id="2_sfv7d"]
-[ext_resource type="AudioStream" uid="uid://bp04oaiwaa867" path="res://Audio/SFX/Props/radio_theme.tres" id="3_dxyp4"]
-[ext_resource type="Script" uid="uid://bohxn3qbwpg6h" path="res://Audio/SFX/Props/radio_player.gd" id="6_h3dv2"]
+[ext_resource type="AudioStream" uid="uid://bwy1p0earrpv" path="res://Assets/Audio/Music/RadioTheme/radio_theme_intro.ogg" id="3_2xg82"]
+[ext_resource type="AudioStream" uid="uid://cqrbopo6uykp0" path="res://Assets/Audio/Music/RadioTheme/radio_theme_loop.ogg" id="4_h3dv2"]
+[ext_resource type="AudioStream" uid="uid://cc527hb2u82l7" path="res://Assets/Audio/Music/RadioTheme/radio_theme_voice.ogg" id="5_mnuml"]
+[ext_resource type="Script" uid="uid://bohxn3qbwpg6h" path="res://Audio/SFX/radio_player.gd" id="6_h3dv2"]
+[ext_resource type="Script" uid="uid://dov4lhtuyrycf" path="res://Gameplay/Pickups/pick_point.gd" id="7_mnuml"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sssrd"]
 size = Vector3(0.76782227, 0.6689453, 0.35058594)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_h3dv2"]
 radius = 5.0
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_g1kff"]
+stream_count = 2
+stream_0/stream = ExtResource("4_h3dv2")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("5_mnuml")
+stream_1/volume = -60.0
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_iqfpj"]
+clip_count = 2
+clip_0/name = &"Radio Theme Intro"
+clip_0/stream = ExtResource("3_2xg82")
+clip_0/auto_advance = 1
+clip_0/next_clip = 1
+clip_1/name = &"Radio Theme Loop"
+clip_1/stream = SubResource("AudioStreamSynchronized_g1kff")
+clip_1/auto_advance = 0
+_transitions = {
+Vector2i(1, 0): {
+"fade_beats": 0.0,
+"fade_mode": 0,
+"from_time": 0,
+"to_time": 0
+}
+}
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g1kff"]
+radius = 0.1
 
 [node name="Radio" type="Node3D"]
 
@@ -30,9 +61,18 @@ collision_mask = 2
 shape = SubResource("SphereShape3D_h3dv2")
 
 [node name="ThemePlayer" type="AudioStreamPlayer3D" parent="PropCollider"]
-stream = ExtResource("3_dxyp4")
+stream = SubResource("AudioStreamInteractive_iqfpj")
 unit_size = 5.0
+autoplay = true
 max_distance = 10.0
 panning_strength = 0.5
 bus = &"SFX"
 script = ExtResource("6_h3dv2")
+
+[node name="PickPoint" type="Area3D" parent="PropCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014503453, 0.66503507, 0)
+monitoring = false
+script = ExtResource("7_mnuml")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PropCollider/PickPoint"]
+shape = SubResource("SphereShape3D_g1kff")

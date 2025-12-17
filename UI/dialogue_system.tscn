@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://dro6nrxfyhgmf" path="res://UI/dialogue_system.gd" id="2_kcolf"]
 [ext_resource type="Texture2D" uid="uid://dv8s4yu1h6fcn" path="res://Assets/2D_Assets/Dialogue_Art/pupil_left.png" id="3_fkwb6"]
 [ext_resource type="Texture2D" uid="uid://cg0nw86fh8ief" path="res://Assets/2D_Assets/Dialogue_Art/pupil_right.png" id="4_kcolf"]
-[ext_resource type="AudioStream" uid="uid://d2f0my2oc0fyi" path="res://Audio/SFX/Flasky/babble_sounds.tres" id="6_eaacc"]
+[ext_resource type="AudioStream" uid="uid://d2f0my2oc0fyi" path="res://Audio/SFX/babble_sounds.tres" id="6_eaacc"]
 [ext_resource type="Texture2D" uid="uid://c4nasmu81tv3g" path="res://Assets/2D_Assets/Dialogue_Art/flasky_glossy_eye_layer.png" id="6_v3t8y"]
 
 [sub_resource type="Theme" id="Theme_fkwb6"]

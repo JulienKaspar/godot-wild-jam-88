@@ -15,7 +15,7 @@ var ARM_LENGTH = 0.666
 @onready var right_hand_target: Marker3D = $RightHandTarget
 
 @export var animation_player: AnimationPlayer
-@onready var sound_effects : PlayerSounds = AudioManager.player_sounds
+@export var footstep_audio_player : AudioStreamPlayer3D
 
 @onready var player_armature: Node3D = $PlayerArmature
 
@@ -75,9 +75,8 @@ func _ready() -> void:
 	
 	left_foot_ik_target.has_started_stepping.connect(on_has_start_stepping)
 	right_foot_ik_target.has_started_stepping.connect(on_has_start_stepping)
-	# sounds
-	left_foot_ik_target.has_finished_stepping.connect(AudioManager.player_sounds.footstep_player.play)
-	right_foot_ik_target.has_finished_stepping.connect(AudioManager.player_sounds.footstep_player.play)
+	left_foot_ik_target.has_finished_stepping.connect(footstep_audio_player.play)
+	right_foot_ik_target.has_finished_stepping.connect(footstep_audio_player.play)
 	
 	left_shoulder_ray.target_position = RAYDIR
 	right_shoulder_ray.target_position = RAYDIR

@@ -17,7 +17,6 @@ var dialogue_system: DialogueSystem
 var game_camera: GameCamera
 var player_spawner: PlayerSpawner
 var current_player: Player
-var current_level_index: int
 
 func _ready() -> void:
 	get_tree().paused = true
@@ -57,14 +56,6 @@ func load_level_by_index(index: int) -> void:
 		current_player.queue_free()
 	current_player = player
 	call_deferred(set_follow_camera.get_method(),player)
-	current_level_index = index
-
-func next_level() -> void:
-	if current_level_index == levels.size() - 1:
-		print("you finished the game!")
-		return
-	
-	load_level_by_index(current_level_index + 1)
 
 func show_dialogue(text: String) -> void:
 	dialogue_system.display_dialogue(text)

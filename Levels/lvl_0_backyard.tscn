@@ -1,14 +1,12 @@
-[gd_scene load_steps=27 format=3 uid="uid://b6vbg26wkrdh3"]
+[gd_scene load_steps=23 format=3 uid="uid://b6vbg26wkrdh3"]
 
-[ext_resource type="Material" path="res://Levels/Gyms/Floor/floor1_v2.tres" id="1_mr8n6"]
+[ext_resource type="Material" uid="uid://hg5ppfcn0qd7" path="res://Levels/Gyms/Floor/floor1_v2.tres" id="1_mr8n6"]
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="2_xweag"]
-[ext_resource type="Script" uid="uid://42mf003bq52u" path="res://Gameplay/level_teleporter.gd" id="3_5g7ny"]
 [ext_resource type="PackedScene" uid="uid://cyrgcx64104qc" path="res://Objects/Architypes/Props/garden_chair.tscn" id="3_8wfei"]
 [ext_resource type="PackedScene" uid="uid://cnaagrenu83ty" path="res://Objects/Architypes/Props/garden_table.tscn" id="4_d4xos"]
 [ext_resource type="PackedScene" uid="uid://brhckpuqlnhm6" path="res://Objects/Architypes/Props/bbq.tscn" id="5_xweag"]
 [ext_resource type="PackedScene" uid="uid://byi1vrdra1og3" path="res://Objects/Architypes/Props/radio.tscn" id="6_8wfei"]
 [ext_resource type="PackedScene" uid="uid://j1b5yvs8pnux" path="res://Objects/Architypes/Furniture/table_round1.tscn" id="6_d4xos"]
-[ext_resource type="Script" uid="uid://67ac8n4ituj5" path="res://hurt_furniture.gd" id="8_fnac6"]
 [ext_resource type="PackedScene" uid="uid://d3unw205fanv5" path="res://Objects/Loot/pickup_beer.tscn" id="9_22u0x"]
 
 [sub_resource type="Environment" id="Environment_vu8ij"]
@@ -55,12 +53,6 @@ diffuse_mode = 3
 albedo_color = Color(0.5, 0, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_v87f2"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_cw6dl"]
-size = Vector3(1, 1, 13.610046)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_fnac6"]
-size = Vector3(1, 2.316162, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8wfei"]
 diffuse_mode = 3
@@ -170,15 +162,6 @@ transform = Transform3D(1.4107562, 0, -8.881784e-16, 0, 3.8994184, 0, -7.1054274
 material_override = SubResource("StandardMaterial3D_d6w3h")
 mesh = SubResource("BoxMesh_v87f2")
 
-[node name="LevelTeleporter" type="Area3D" parent="Layout/Door"]
-collision_mask = 3
-script = ExtResource("3_5g7ny")
-metadata/_custom_type_script = "uid://42mf003bq52u"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Door/LevelTeleporter"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 1.6940659e-19, 0, 1, 0, 0, 6.305023)
-shape = SubResource("BoxShape3D_cw6dl")
-
 [node name="Furniture" type="Node3D" parent="."]
 
 [node name="Radio" parent="Furniture" instance=ExtResource("3_8wfei")]
@@ -192,15 +175,6 @@ transform = Transform3D(0.9035224, 0, -0.42854095, 0, 1, 0, 0.42854095, 0, 0.903
 
 [node name="Radio6" parent="Furniture" instance=ExtResource("4_d4xos")]
 transform = Transform3D(0.37263146, 0, 0.92797947, 0, 1, 0, -0.92797947, 0, 0.37263146, -0.1323244, -7.1525574e-07, -3.5895896)
-
-[node name="HurtFurniture" type="Area3D" parent="Furniture/Radio6"]
-collision_mask = 3
-script = ExtResource("8_fnac6")
-metadata/_custom_type_script = "uid://67ac8n4ituj5"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Furniture/Radio6/HurtFurniture"]
-transform = Transform3D(1, 0, 2.0861626e-07, 0, 1, 0, -2.0861626e-07, 0, 1, 0, 0.46740723, 0)
-shape = SubResource("BoxShape3D_fnac6")
 
 [node name="Radio4" parent="Furniture" instance=ExtResource("5_xweag")]
 transform = Transform3D(0.41689956, 0, -0.90895253, 0, 1, 0, 0.90895253, 0, 0.41689956, 3.7540212, 0.02212277, -7.066873)
