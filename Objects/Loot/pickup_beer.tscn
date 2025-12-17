@@ -28,6 +28,7 @@ height = 0.3
 collision_layer = 32
 collision_mask = 55
 script = ExtResource("1_ecdgq")
+drunkness_increase = 1.8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0007324219, 0.15249817, 0)
