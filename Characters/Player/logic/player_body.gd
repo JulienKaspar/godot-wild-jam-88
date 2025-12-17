@@ -3,7 +3,7 @@ extends Node3D
 @warning_ignore_start('unused_variable')
 @warning_ignore_start('unused_parameter')
 
-enum Hands {LEFT, RIGHT}
+
 var UP = Vector3(0,1,0)
 var RAYDIR = Vector3(0,0,-4)
 var ARM_LENGTH = 0.666
@@ -125,15 +125,12 @@ func moveHand(ray: Object, hand: Object, target: Object, doRaycast: bool = false
 func updateClosestPos() -> void:
 	pass
 
-func checkDistance(bone: Object, target: Object, hand: Hands) -> void:
+func checkDistance(bone: Object, target: Object, hand: Player.Hands) -> bool:
 	var d = (bone.global_position - target.global_position).length() - ARM_LENGTH
 	if d < PlayerRoot.PickupThreshold:
-		pass
-		#print("----- PICKUP -----")
+		return true
 	else:
-		pass
-		#print(str(local_bone_transform) + " - " + str(global_bone_pos))
-		#print(d)
+		return false
 
 func _process(delta: float) -> void:
 	# Make the armature follow the physics bodies
@@ -144,7 +141,8 @@ func _process(delta: float) -> void:
 		Player.HandStates.REACHING: 
 			if PlayerRoot.closestLeft:
 				moveHand(left_shoulder_ray, left_hand_target, PlayerRoot.closestLeft, true)
-				checkDistance(left_shoulder_ray, PlayerRoot.closestLeft, Hands.LEFT)
+				if checkDistance(left_shoulder_ray, PlayerRoot.closestLeft, Player.Hands.LEFT):
+					ReachedTargetLeft.emit(PlayerRoot.closestLeft)
 			else: moveHand(left_shoulder_ray, left_hand_target, rb_arm_l)
 		_: moveHand(left_shoulder_ray, left_hand_target, rb_arm_l)
 			
@@ -152,7 +150,8 @@ func _process(delta: float) -> void:
 		Player.HandStates.REACHING: 
 			if PlayerRoot.closestRight: 
 				moveHand(right_shoulder_ray, right_hand_target, PlayerRoot.closestRight, true)
-				checkDistance(left_shoulder_ray, PlayerRoot.closestRight, Hands.RIGHT)
+				if checkDistance(left_shoulder_ray, PlayerRoot.closestRight, Player.Hands.RIGHT):
+					ReachedTargetRight.emit(PlayerRoot.closestRight, )
 			else: moveHand(right_shoulder_ray, right_hand_target, rb_arm_r)
 		_: moveHand(right_shoulder_ray, right_hand_target, rb_arm_r)
 
@@ -163,12 +162,12 @@ func _process(delta: float) -> void:
 func Reset() -> void:
 	pass
 
-func _on_player_change_hand_left(state: Player.HandStates) -> void:
+func _on_player_change_hand_left(state: Player.HandStates, item: Object) -> void:
 	match state:
 		Player.HandStates.REACHING: pass
 		Player.HandStates.DANGLY: pass
 		
-func _on_player_change_hand_right(state: Player.HandStates) -> void:
+func _on_player_change_hand_right(state: Player.HandStates, item: Object) -> void:
 	pass
 
 func _on_player_change_feet(state: Player.FeetStates) -> void:

@@ -46,8 +46,9 @@ text = "Press Space to pickup
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="PickPoint" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.017198872, 0.058005735, 0)
 monitoring = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PickPoint"]
 shape = SubResource("SphereShape3D_gbqmf")

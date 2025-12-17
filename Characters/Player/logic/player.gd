@@ -5,8 +5,8 @@ class_name Player
 @warning_ignore_start('unused_variable')
 @warning_ignore_start('unused_parameter')
 
-signal ChangeHandLeft(state: HandStates)
-signal ChangeHandRight(state: HandStates)
+signal ChangeHandLeft(state: HandStates, item: Object)
+signal ChangeHandRight(state: HandStates, item: Object)
 signal ChangeFeet(state: FeetStates)
 signal ChangeHandTargetL(trgt_left: Object, isValid: bool) # set isValid=false if theres none
 signal ChangeHandTargetR(trgt_right: Object, isValid: bool) # set isValid=false if theres none
@@ -38,6 +38,7 @@ var holdingRight: Object
 enum MoveStates {STANDUP, MOVING, FALLING, ROLLING, FLASKY, FELL}
 enum HandStates {DANGLY, REACHING, HOLD, DRINKING, ROLLING, FIXED}
 enum FeetStates {STEPPING, HOLD, ROLLING, FIXED}
+enum Hands {LEFT, RIGHT}
 
 # input states
 var grabbingL = false
@@ -74,13 +75,13 @@ func riseAndShine() -> void:
 	$PlayerController.standUp()
 	setMoveState(MoveStates.STANDUP)
 	
-func setHandLState(state: HandStates):
+func setHandLState(state: HandStates, item: Object = null):
 	HandLState = state
-	self.ChangeHandLeft.emit(state)
+	self.ChangeHandLeft.emit(state, item)
 
-func setHandRState(state: HandStates):
+func setHandRState(state: HandStates, item: Object = null):
 	HandRState = state
-	self.ChangeHandRight.emit(state)
+	self.ChangeHandRight.emit(state, item)
 
 func setMoveState(state: MoveStates):
 	inMoveState = state
@@ -98,6 +99,16 @@ func checkFalling() -> void:
 			setMoveState(MoveStates.FALLING)
 	elif inMoveState != MoveStates.MOVING:
 		setMoveState(MoveStates.MOVING)
+
+func AttachItem(item: Object, hand) -> void:
+	print(item)
+	if item.drunkness_increase:
+		GameStateManager.player_drunkness.current_drunkness += item.drunkness_increase
+		item.queue_free()
+	match hand:
+		Hands.LEFT: setHandLState(HandStates.DANGLY)
+		Hands.RIGHT: setHandRState(HandStates.DANGLY)
+	
 
 func _process(_delta: float) -> void:
 	# state machine
@@ -133,19 +144,18 @@ func _process(_delta: float) -> void:
 		match inMoveState:
 			MoveStates.FALLING: goRoll()
 			MoveStates.FELL: riseAndShine()
-			
-	
+
 
 func _on_player_body_reached_target_left(item) -> void:
 	if item.get_script().get_global_name() == "DrunknessPickup":
-		setHandLState(HandStates.HOLD)
+		setHandLState(HandStates.HOLD, item)
 		holdingLeft = item
 	else:
 		setHandLState(HandStates.FIXED)
 
 func _on_player_body_reached_target_right(item) -> void:
 	if item.get_script().get_global_name() == "DrunknessPickup":
-		setHandRState(HandStates.HOLD)
+		setHandRState(HandStates.HOLD, item)
 		holdingRight = item
 	else:
 		setHandRState(HandStates.FIXED)
@@ -165,14 +175,20 @@ func _on_change_movement(state: Player.MoveStates) -> void:
 
 	match state:
 		MoveStates.FELL: pfx_bodyfall.set_emitting(true)
-		_: pfx_bodyfall.set_emitting(false)	
+		_: pfx_bodyfall.set_emitting(false)
 
 
-func _on_change_hand_left(state: Player.HandStates) -> void:
-	pass # Replace with function body.
+func _on_change_hand_left(state: Player.HandStates, item: Object) -> void:
+	match state:
+		HandStates.HOLD: 
+			AttachItem(item, Hands.LEFT)
+		_: pass
 
-func _on_change_hand_right(state: Player.HandStates) -> void:
-	pass # Replace with function body.
+func _on_change_hand_right(state: Player.HandStates, item: Object) -> void:
+	match state:
+		HandStates.HOLD:
+			AttachItem(item, Hands.RIGHT)
+		_: pass
 
 func _on_change_feet(state: Player.FeetStates) -> void:
 	pass # Replace with function body.
