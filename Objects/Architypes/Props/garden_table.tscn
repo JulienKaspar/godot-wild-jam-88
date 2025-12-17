@@ -7,7 +7,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_sssrd"]
 size = Vector3(0.96972656, 0.9746094, 0.8408203)
 
-[node name="Radio" type="StaticBody3D"]
+[node name="GardenTable" type="StaticBody3D"]
 script = ExtResource("1_nme41")
 metadata/_custom_type_script = "uid://d1ns4f8nsxmyd"
 

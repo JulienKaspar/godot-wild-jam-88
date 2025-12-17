@@ -13,7 +13,7 @@ size = Vector3(1.9248047, 0.2503662, 1.0986328)
 [sub_resource type="BoxShape3D" id="BoxShape3D_juq0p"]
 size = Vector3(1.0686035, 0.7899399, 0.8154297)
 
-[node name="Radio" type="StaticBody3D"]
+[node name="BBQ" type="StaticBody3D"]
 script = ExtResource("1_vco27")
 metadata/_custom_type_script = "uid://d1ns4f8nsxmyd"
 

@@ -16,7 +16,7 @@ size = Vector3(1.0412598, 0.9844971, 0.068359375)
 [sub_resource type="BoxShape3D" id="BoxShape3D_sssrd"]
 size = Vector3(0.23266602, 0.14941406, 0.63964844)
 
-[node name="Radio" type="StaticBody3D"]
+[node name="GardenChair" type="StaticBody3D"]
 script = ExtResource("1_422ut")
 metadata/_custom_type_script = "uid://d1ns4f8nsxmyd"
 
