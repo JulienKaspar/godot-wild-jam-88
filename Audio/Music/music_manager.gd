@@ -192,4 +192,11 @@ func _get_current_theme_stream() -> AudioStreamSynchronized:
 	var _interactive_stream : AudioStreamInteractive = music_player.stream
 	
 	return _interactive_stream.get_clip_stream(_clip_index) as AudioStreamSynchronized
+
+#func _update_drunkness_streams(_target_volume_db) -> void:
+	#var _interactive_stream : AudioStreamInteractive = music_player.stream
+	#for i in range(0, _interactive_stream.clip_count - 1):
+		#var _clip = _interactive_stream.get_clip_stream(i) as AudioStreamSynchronized
+		#for j in range(0, _clip.stream_count - 1):
+			#_clip.set_sync_stream_volume(j, _target_volume_db)
 #endregion

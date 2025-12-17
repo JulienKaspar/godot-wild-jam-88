@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://d01verpwnpp0o"]
+[gd_scene load_steps=6 format=3 uid="uid://d01verpwnpp0o"]
 
 [ext_resource type="Script" uid="uid://b4ypm2nwmnp2u" path="res://Audio/UI/ui_sounds.gd" id="1_0bhj7"]
 [ext_resource type="AudioStream" uid="uid://bjrgsd4nxbrv0" path="res://Assets/Audio/UI/start_game.ogg" id="2_qx8p4"]
 [ext_resource type="AudioStream" uid="uid://dhkvmk7eqta25" path="res://Audio/UI/ui_pops.tres" id="3_dlnjr"]
+[ext_resource type="AudioStream" uid="uid://chug1vk6s4ox7" path="res://Assets/Audio/SFX/Player/drunkness_up.ogg" id="4_fceo1"]
+[ext_resource type="AudioStream" uid="uid://f22updhqbnul" path="res://Assets/Audio/SFX/Player/drunkness_down.ogg" id="5_wm4qx"]
 
 [node name="UI_Sounds" type="AudioStreamPlayer"]
 max_polyphony = 8
@@ -10,3 +12,5 @@ bus = &"UI"
 script = ExtResource("1_0bhj7")
 start_game = ExtResource("2_qx8p4")
 hover = ExtResource("3_dlnjr")
+drunkness_up = ExtResource("4_fceo1")
+drunkness_down = ExtResource("5_wm4qx")

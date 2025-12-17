@@ -22,7 +22,7 @@ enum FX {
 }
 
 var music_manager : MusicManager
-var ui_sounds : UI_Sounds = UI_Sounds.new()
+var ui_sounds : UI_Sounds
 
 const _VOLUME_DB_OFF := -60.0
 
