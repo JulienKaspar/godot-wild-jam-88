@@ -47,8 +47,8 @@ func _ready():
 	_connect_signals()
 	_check_debug()
 	AudioManager.fade_audio_in(music_player, _DEFAULT_VOLUME_DB, 3.5)
-	start_music()
-	_setup_random_chord_changes()
+	#start_music()
+	#_setup_random_chord_changes()
 	
 func _setup_random_chord_changes():
 	var chord_change_timer : Timer = Timer.new()
@@ -138,7 +138,8 @@ const DRUNKNESS_HIGH : float = 0.75
 var drunkness_intensity: float:
 	set(value):
 		drunkness_intensity = value
-		update_drunkness_effect()
+		if music_player.playing:
+			update_drunkness_effect()
 
 # Func for debug slider call
 func _set_drunkness(value : float):

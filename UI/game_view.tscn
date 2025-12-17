@@ -72,6 +72,10 @@ fov = 55.0
 script = ExtResource("8_gjcnd")
 follow_distance = 4.0
 
+[node name="AudioListener3D" type="AudioListener3D" parent="GameCamera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+current = true
+
 [node name="PlayerSpawner" parent="." instance=ExtResource("11_qrf3k")]
 
 [node name="UI_Sounds" parent="." instance=ExtResource("12_k7f6d")]
