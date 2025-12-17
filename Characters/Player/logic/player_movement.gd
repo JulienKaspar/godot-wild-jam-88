@@ -30,7 +30,7 @@ static var refUpVector = Vector3(0,1,0)
 static var move_force_multiplier = 100.0 # phys impulse scale
 static var upper_body_stiffness = 1.5 # scales impulse to bring body back to target
 static var body_leaning_force = 0.1 # how much move direction is added to pose correction
-static var stair_up_impulse = 350 # how much force should be added to go up stairs
+static var stair_up_impulse = 300 # how much force should be added to go up stairs
  
 
 #---------------- State -----------------------------------
@@ -228,12 +228,14 @@ func _on_player_change_movement(state: Player.MoveStates) -> void:
 		Player.MoveStates.FALLING: 
 			$TimerFalling.start()
 			keepUpright = true
+			AudioManager.player_sounds.play_voice(AudioManager.player_sounds.falling_sounds)
 		Player.MoveStates.FELL: 
 			keepUpright = false
 			PlayerBallCollider.angular_damp = 5
 			PlayerBallCollider.linear_damp = 5
 		Player.MoveStates.STANDUP: 
 			$TimerStandUp.start()
+			AudioManager.player_sounds.play_voice(AudioManager.player_sounds.getting_up_sounds)
 		_: 
 			keepUpright = true
 			$TimerFalling.stop()
