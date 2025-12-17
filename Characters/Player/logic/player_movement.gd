@@ -228,12 +228,14 @@ func _on_player_change_movement(state: Player.MoveStates) -> void:
 		Player.MoveStates.FALLING: 
 			$TimerFalling.start()
 			keepUpright = true
+			AudioManager.player_sounds.play_voice(AudioManager.player_sounds.falling_sounds)
 		Player.MoveStates.FELL: 
 			keepUpright = false
 			PlayerBallCollider.angular_damp = 5
 			PlayerBallCollider.linear_damp = 5
 		Player.MoveStates.STANDUP: 
 			$TimerStandUp.start()
+			AudioManager.player_sounds.play_voice(AudioManager.player_sounds.getting_up_sounds)
 		_: 
 			keepUpright = true
 			$TimerFalling.stop()
