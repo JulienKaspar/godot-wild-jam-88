@@ -1,8 +1,8 @@
 # game_state_manager (autoload)
 extends Node
 
-@export var levels: Array[PackedScene]
 @export var starting_level_index: int = 0
+@export var levels: Array[PackedScene]
 var post_processing: ColorRect
 var player_drunkness: PlayerDrunkness = PlayerDrunkness.new()
 var level_loader: LevelLoader
