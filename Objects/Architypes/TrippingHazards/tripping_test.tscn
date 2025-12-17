@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://daqdt75cvmkiy"]
+
+[ext_resource type="Script" uid="uid://04nw6yd3gy23" path="res://Gameplay/Obstacles/slip_obstacle.gd" id="1_xyjv1"]
+[ext_resource type="PackedScene" uid="uid://bfvmktf6bn5sj" path="res://Assets/Furniture/lamp_standing1.gltf" id="2_xyjv1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e2oio"]
+size = Vector3(0.111328125, 0.5541992, 1.8164063)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xyjv1"]
+size = Vector3(0.28027344, 0.52783203, 0.27734375)
+
+[node name="SlipperyTest" type="Node3D"]
+script = ExtResource("1_xyjv1")
+force_multiplier = -25.0
+metadata/_custom_type_script = "uid://04nw6yd3gy23"
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1652832, 0.0357666)
+shape = SubResource("BoxShape3D_e2oio")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.028808594, 0.727417)
+shape = SubResource("BoxShape3D_xyjv1")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1784668, -0.7491468)
+shape = SubResource("BoxShape3D_xyjv1")
+
+[node name="lamp_standing1" parent="." instance=ExtResource("2_xyjv1")]
+transform = Transform3D(1, 0, 0, 0, 0.011658479, -0.99993205, 0, 0.99993205, 0.011658479, 0, 0.15583134, -0.8306076)

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cold18jtw7ak0"]
+
+[ext_resource type="Script" uid="uid://04nw6yd3gy23" path="res://Gameplay/Obstacles/slip_obstacle.gd" id="1_6orly"]
+[ext_resource type="PackedScene" uid="uid://dah5q3vw2jba7" path="res://Assets/Furniture/banana1.gltf" id="2_uq2oy"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6orly"]
+height = 0.79003906
+radius = 0.18017578
+
+[node name="SlipperyTest" type="Node3D"]
+script = ExtResource("1_6orly")
+metadata/_custom_type_script = "uid://04nw6yd3gy23"
+
+[node name="banana" parent="." instance=ExtResource("2_uq2oy")]
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CylinderShape3D_6orly")
