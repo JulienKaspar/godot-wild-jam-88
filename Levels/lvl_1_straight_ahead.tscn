@@ -1,16 +1,17 @@
-[gd_scene load_steps=24 format=3 uid="uid://7hstokhqtk0i"]
+[gd_scene load_steps=26 format=3 uid="uid://7hstokhqtk0i"]
 
 [ext_resource type="PackedScene" uid="uid://d24k31i312cc1" path="res://Objects/Architypes/Props/lamp_standing1.tscn" id="1_buw6o"]
 [ext_resource type="Material" uid="uid://hg5ppfcn0qd7" path="res://Levels/Gyms/Floor/floor1_v2.tres" id="1_y345g"]
 [ext_resource type="Material" uid="uid://dxyb0pq2y84ds" path="res://Levels/Gyms/Wall/reddish_floral_wall_v2.tres" id="2_1arg0"]
 [ext_resource type="Shader" uid="uid://rcua0j7iin3o" path="res://Shaders/floral_wall.gdshader" id="3_lj75c"]
 [ext_resource type="Material" uid="uid://rfvsy8jw033o" path="res://Levels/Gyms/Wall/yellow_floral_wall_v2.tres" id="4_1unsx"]
-[ext_resource type="Material" uid="uid://dmxe2qlk68jn" path="res://Assets/Materials/wall_atlas.tres" id="4_5d0l3"]
+[ext_resource type="Material" uid="uid://dmxe2qlk68jn" path="res://Assets/Materials/reddish_floral_wall.tres" id="4_5d0l3"]
 [ext_resource type="Texture2D" uid="uid://dpa3wpntxnjto" path="res://Assets/Maps/Walls/wood_paneling/atlas.PNG" id="4_82upk"]
 [ext_resource type="PackedScene" uid="uid://fhev4d48q1qy" path="res://Objects/Architypes/LivingRoom/stairs_wide.tscn" id="5_5d0l3"]
 [ext_resource type="PackedScene" uid="uid://cs4digbuoekpl" path="res://Objects/Architypes/Furniture/shelf2.tscn" id="5_crrcm"]
 [ext_resource type="Texture2D" uid="uid://djpkkont0tpva" path="res://Assets/Maps/Walls/yellow_floral_wallpaper/atlas.png" id="6_5d0l3"]
 [ext_resource type="PackedScene" uid="uid://j1b5yvs8pnux" path="res://Objects/Architypes/Furniture/table_round1.tscn" id="9_82upk"]
+[ext_resource type="Script" uid="uid://42mf003bq52u" path="res://Gameplay/level_teleporter.gd" id="10_xxf8q"]
 [ext_resource type="PackedScene" uid="uid://d3unw205fanv5" path="res://Objects/Loot/pickup_beer.tscn" id="11_2icu1"]
 [ext_resource type="PackedScene" uid="uid://d2fq258dik5oo" path="res://Objects/Architypes/Furniture/table1.tscn" id="12_gh4oo"]
 
@@ -79,7 +80,10 @@ albedo_color = Color(0.5, 0, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_v87f2"]
 
-[node name="Node3D2" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_rqsde"]
+size = Vector3(1, 1, 6.797699)
+
+[node name="Node3D3" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_gh4oo")
@@ -176,6 +180,15 @@ wall_material = SubResource("StandardMaterial3D_lj75c")
 transform = Transform3D(1.4107562, 0, -8.881784e-16, 0, 3.8994184, 0, -7.1054274e-15, 0, 0.18460768, 10.659145, 1.544724, -12.479102)
 material_override = SubResource("StandardMaterial3D_d6w3h")
 mesh = SubResource("BoxMesh_v87f2")
+
+[node name="LevelTeleporter" type="Area3D" parent="Layout/Door"]
+collision_mask = 3
+script = ExtResource("10_xxf8q")
+metadata/_custom_type_script = "uid://42mf003bq52u"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Door/LevelTeleporter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 1.2705494e-18, 0, 1, 0, 0, 2.8988495)
+shape = SubResource("BoxShape3D_rqsde")
 
 [node name="Furniture" type="Node3D" parent="."]
 

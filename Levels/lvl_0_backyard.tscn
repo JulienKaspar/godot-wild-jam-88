@@ -1,6 +1,6 @@
 [gd_scene load_steps=27 format=3 uid="uid://b6vbg26wkrdh3"]
 
-[ext_resource type="Material" path="res://Levels/Gyms/Floor/floor1_v2.tres" id="1_mr8n6"]
+[ext_resource type="Material" uid="uid://hg5ppfcn0qd7" path="res://Levels/Gyms/Floor/floor1_v2.tres" id="1_mr8n6"]
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="2_xweag"]
 [ext_resource type="Script" uid="uid://42mf003bq52u" path="res://Gameplay/level_teleporter.gd" id="3_5g7ny"]
 [ext_resource type="PackedScene" uid="uid://cyrgcx64104qc" path="res://Objects/Architypes/Props/garden_chair.tscn" id="3_8wfei"]
@@ -57,7 +57,7 @@ albedo_color = Color(0.5, 0, 0, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_v87f2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cw6dl"]
-size = Vector3(1, 1, 13.610046)
+size = Vector3(1.717041, 1, 4.4075623)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fnac6"]
 size = Vector3(1, 2.316162, 1)
@@ -176,7 +176,7 @@ script = ExtResource("3_5g7ny")
 metadata/_custom_type_script = "uid://42mf003bq52u"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Door/LevelTeleporter"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 1.6940659e-19, 0, 1, 0, 0, 6.305023)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 8.23316e-19, 0, 1, 0, 0, 1.7037964)
 shape = SubResource("BoxShape3D_cw6dl")
 
 [node name="Furniture" type="Node3D" parent="."]

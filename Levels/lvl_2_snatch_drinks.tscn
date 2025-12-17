@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bn4n02t1b2gf3"]
+[gd_scene load_steps=40 format=3 uid="uid://bn4n02t1b2gf3"]
 
 [ext_resource type="Material" uid="uid://hg5ppfcn0qd7" path="res://Levels/Gyms/Floor/floor1_v2.tres" id="1_kknvj"]
 [ext_resource type="PackedScene" uid="uid://d0bpm6wis2oi4" path="res://Assets/Furniture/shelf2.gltf" id="2_hhiwo"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://d62n5s8htyn7" path="res://Characters/Teens/logic/TeenStanding.tscn" id="5_k6s6e"]
 [ext_resource type="PackedScene" uid="uid://c0d87wbdbi2al" path="res://Objects/Architypes/Furniture/couch1.tscn" id="6_17q8k"]
 [ext_resource type="PackedScene" uid="uid://c3nkcb3esyxsx" path="res://Objects/Architypes/Furniture/couch2.tscn" id="7_pt1mt"]
+[ext_resource type="Script" uid="uid://42mf003bq52u" path="res://Gameplay/level_teleporter.gd" id="8_gg35l"]
 [ext_resource type="PackedScene" uid="uid://d24k31i312cc1" path="res://Objects/Architypes/Props/lamp_standing1.tscn" id="8_hhiwo"]
 [ext_resource type="PackedScene" uid="uid://d3unw205fanv5" path="res://Objects/Loot/pickup_beer.tscn" id="9_thjmm"]
 [ext_resource type="PackedScene" uid="uid://du6ahheqsmli" path="res://Assets/Furniture/plant_palm1.gltf" id="10_gg35l"]
@@ -100,6 +101,9 @@ diffuse_mode = 3
 albedo_color = Color(0.5, 0, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_v87f2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ao1e1"]
+size = Vector3(1.717041, 1, 4.4075623)
 
 [node name="Node3D" type="Node3D"]
 
@@ -310,6 +314,15 @@ wall_material = SubResource("StandardMaterial3D_17q8k")
 transform = Transform3D(-6.16661e-08, 0, -0.18460768, 0, 3.8994184, 0, 1.4107561, 0, -8.069459e-09, 10.58354, 1.2988088, -12.881527)
 material_override = SubResource("StandardMaterial3D_d6w3h")
 mesh = SubResource("BoxMesh_v87f2")
+
+[node name="LevelTeleporter" type="Area3D" parent="Layout/Door"]
+collision_mask = 3
+script = ExtResource("8_gg35l")
+metadata/_custom_type_script = "uid://42mf003bq52u"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Door/LevelTeleporter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0, 0, -1.5945129)
+shape = SubResource("BoxShape3D_ao1e1")
 
 [node name="Teens" type="Node3D" parent="."]
 
