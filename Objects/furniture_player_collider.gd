@@ -60,7 +60,7 @@ func on_player_collision(collision_velocity : Vector3) -> void:
 			return
 	
 	# NOTE: This doesn't take the direction into account where the character is moving towards.
-	if collision_velocity.length() < 0.7:
+	if collision_velocity.length() < 1.0:
 		return
 	
 	wobble_strength = 1.0
