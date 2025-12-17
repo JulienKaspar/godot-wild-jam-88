@@ -1,9 +1,8 @@
 [gd_scene load_steps=13 format=3 uid="uid://oklexjbph231"]
 
 [ext_resource type="Script" uid="uid://dpfibn6rvgqgy" path="res://UI/hud.gd" id="1_ne75i"]
-[ext_resource type="Texture2D" uid="uid://bxwq8k3qy44bt" path="res://UI/Drunkmeter/drunkness_frame.png" id="2_phrgc"]
+[ext_resource type="Texture2D" uid="uid://bxwq8k3qy44bt" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_frame.png" id="2_phrgc"]
 [ext_resource type="Texture2D" uid="uid://b2viu5axws648" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_liquid.png" id="3_2o5uh"]
-[ext_resource type="Texture2D" uid="uid://cdx6ybpshgxao" path="res://UI/Drunkmeter/current_drunkness_marker.png" id="4_b1lf8"]
 [ext_resource type="Script" uid="uid://bwlkqvsm2d4vs" path="res://UI/drunkness_meter.gd" id="4_rnl6m"]
 [ext_resource type="Texture2D" uid="uid://7rmgr237ysdp" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_liquid_1.png" id="5_23s3h"]
 [ext_resource type="Texture2D" uid="uid://clgu6ny11phb" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_liquid_2.png" id="6_phrgc"]
@@ -11,7 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://i8bp6aqg2mfp" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_liquid_4.png" id="8_sab3h"]
 [ext_resource type="Texture2D" uid="uid://8sedvt3xf75w" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_liquid_5.png" id="9_vdnig"]
 [ext_resource type="Texture2D" uid="uid://7buwjgvvg6m5" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_liquid_6.png" id="10_pueji"]
-[ext_resource type="Texture2D" uid="uid://ctg2i3nlj3kjo" path="res://UI/Drunkmeter/drunkness_frame_blink.png" id="11_8nmcf"]
+[ext_resource type="Texture2D" uid="uid://ctg2i3nlj3kjo" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_frame_blink.png" id="11_8nmcf"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_23s3h"]
+load_path = "res://.godot/imported/current_drunkness_marker.png-729feb2f0d6745c2116929468b4271f6.s3tc.ctex"
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -51,6 +53,6 @@ offset_right = 86.0
 offset_bottom = 79.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = ExtResource("4_b1lf8")
+texture = SubResource("CompressedTexture2D_23s3h")
 expand_mode = 1
 stretch_mode = 3
