@@ -284,7 +284,7 @@ size = Vector3(1.8554688, 1, 1.8423309)
 [node name="Node3D" type="Node3D"]
 
 [node name="PlayerSpawnPoint" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.059166, -2.861023e-06, 0.35871363)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11299324, -1.9073486e-06, -0.4726634)
 script = ExtResource("1_hkor5")
 metadata/_custom_type_script = "uid://cm1uqdo37kpmi"
 
@@ -935,6 +935,12 @@ wobblable = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.024959, 0, -5.449602)
 wobblable = false
 
+[node name="TableRound2" parent="Furniture" instance=ExtResource("10_jwxo7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.88779, 0, 2.0776675)
+
+[node name="Radio" parent="Furniture" instance=ExtResource("18_dn5sy")]
+transform = Transform3D(0.9177269, 0, -0.39721197, 0, 1, 0, 0.39721197, 0, 0.9177269, -28.77512, 1.0005153, 2.1089647)
+
 [node name="Drinks" type="Node3D" parent="."]
 
 [node name="DrunknessPickup" parent="Drinks" instance=ExtResource("8_1ir70")]
@@ -975,51 +981,53 @@ transform = Transform3D(0.63271886, 0.74911314, 0.1962048, 2.105082e-08, 0.25336
 
 [node name="Hurtiture" type="Node3D" parent="."]
 
-[node name="TableRound1" parent="." instance=ExtResource("10_jwxo7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.88779, 0, 2.0776675)
+[node name="TestCactus" parent="Hurtiture" instance=ExtResource("19_x0rn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.267986, 0.0054519475, 0.7638066)
 
-[node name="Radio" parent="." instance=ExtResource("18_dn5sy")]
-transform = Transform3D(0.9177269, 0, -0.39721197, 0, 1, 0, 0.39721197, 0, 0.9177269, -28.77512, 1.0005153, 2.1089647)
+[node name="TestCactus2" parent="Hurtiture" instance=ExtResource("19_x0rn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.133268, 0.0054524243, 3.6218743)
+
+[node name="TestCactus4" parent="Hurtiture" instance=ExtResource("19_x0rn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.693985, 0.0054524243, 10.047129)
+
+[node name="TestCactus5" parent="Hurtiture" instance=ExtResource("19_x0rn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.505695, 0.0054524243, 10.113308)
+
+[node name="TestCactus3" parent="Hurtiture" instance=ExtResource("19_x0rn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.256645, 0.0054524243, 3.8449557)
+
+[node name="TestCactus6" parent="Hurtiture" instance=ExtResource("19_x0rn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.860468, 0.7975519, 14.308114)
+
+[node name="TestCactus7" parent="Hurtiture" instance=ExtResource("19_x0rn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.358377, 0.7975519, 14.308114)
+
+[node name="TestCactus8" parent="Hurtiture" instance=ExtResource("19_x0rn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.206724, -0.01401636, 14.39179)
+
+[node name="TestCactus9" parent="Hurtiture" instance=ExtResource("19_x0rn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.172146, 0.0036895573, 18.930573)
+
+[node name="TestCactus10" parent="Hurtiture" instance=ExtResource("19_x0rn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.941147, 0.0036895573, 18.930573)
+
+[node name="TestCactus11" parent="Hurtiture" instance=ExtResource("19_x0rn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.914268, 0.0036895573, 13.846205)
+
+[node name="TestCactus12" parent="Hurtiture" instance=ExtResource("19_x0rn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.928047, -0.023386687, 27.505917)
+
+[node name="TestCactus13" parent="Hurtiture" instance=ExtResource("19_x0rn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.556957, 0.005452901, 4.481415)
 
 [node name="TeenStanding" parent="." instance=ExtResource("3_7j6gg")]
 transform = Transform3D(0.21526378, 0, 0.976556, 0, 1, 0, -0.976556, 0, 0.21526378, -30.037304, 0, 2.3590927)
 animation = "Wall"
 
-[node name="TestCactus" parent="." instance=ExtResource("19_x0rn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.267986, 0.0054519475, 0.7638066)
+[node name="TeenStanding2" parent="." instance=ExtResource("3_7j6gg")]
+transform = Transform3D(-0.99764746, 0, -0.06855506, 0, 1, 0, 0.06855506, 0, -0.99764746, -11.808791, 0, -1.4215264)
+animation = "HeavyHead"
 
-[node name="TestCactus2" parent="." instance=ExtResource("19_x0rn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.133268, 0.0054524243, 3.6218743)
-
-[node name="TestCactus4" parent="." instance=ExtResource("19_x0rn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.693985, 0.0054524243, 10.047129)
-
-[node name="TestCactus5" parent="." instance=ExtResource("19_x0rn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.505695, 0.0054524243, 10.113308)
-
-[node name="TestCactus3" parent="." instance=ExtResource("19_x0rn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.256645, 0.0054524243, 3.8449557)
-
-[node name="TestCactus6" parent="." instance=ExtResource("19_x0rn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.860468, 0.7975519, 14.308114)
-
-[node name="TestCactus7" parent="." instance=ExtResource("19_x0rn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.358377, 0.7975519, 14.308114)
-
-[node name="TestCactus8" parent="." instance=ExtResource("19_x0rn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.206724, -0.01401636, 14.39179)
-
-[node name="TestCactus9" parent="." instance=ExtResource("19_x0rn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.172146, 0.0036895573, 18.930573)
-
-[node name="TestCactus10" parent="." instance=ExtResource("19_x0rn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.941147, 0.0036895573, 18.930573)
-
-[node name="TestCactus11" parent="." instance=ExtResource("19_x0rn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.914268, 0.0036895573, 13.846205)
-
-[node name="TestCactus12" parent="." instance=ExtResource("19_x0rn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.928047, -0.023386687, 27.505917)
-
-[node name="TestCactus13" parent="." instance=ExtResource("19_x0rn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.556957, 0.005452901, 4.481415)
+[node name="TeenStanding3" parent="." instance=ExtResource("3_7j6gg")]
+transform = Transform3D(0.61733794, 0, -0.78669816, 0, 1, 0, 0.78669816, 0, 0.61733794, -7.484948, 7.1525574e-07, -5.05356)
+animation = "SuprizedConfused"
