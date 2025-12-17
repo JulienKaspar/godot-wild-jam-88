@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b86lbtpyigxs5"]
+[gd_scene load_steps=11 format=3 uid="uid://b86lbtpyigxs5"]
 
 [ext_resource type="Script" uid="uid://din06hqtbjn7p" path="res://Characters/Player/logic/player_body.gd" id="1_codw7"]
 [ext_resource type="PackedScene" uid="uid://wfy3mktwjjp1" path="res://Assets/Characters/Drunk/drunk.gltf" id="1_wnhn1"]
@@ -23,20 +23,6 @@ height = 0.1
 [sub_resource type="SphereMesh" id="SphereMesh_0q1wx"]
 radius = 0.05
 height = 0.1
-
-[sub_resource type="SphereMesh" id="SphereMesh_otub7"]
-radius = 0.2
-height = 0.4
-radial_segments = 6
-rings = 4
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xlsp8"]
-transparency = 1
-albedo_color = Color(1, 0, 1, 0.59607846)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o7dc4"]
-transparency = 1
-albedo_color = Color(7.315874e-06, 0.9325708, 0.93544704, 0.59607846)
 
 [node name="PlayerBody" type="Node3D" node_paths=PackedStringArray("animation_player")]
 script = ExtResource("1_codw7")
@@ -73,7 +59,7 @@ mesh = SubResource("SphereMesh_wsmry")
 [node name="LeftRayCast" type="RayCast3D" parent="StepTarget" node_paths=PackedStringArray("step_target")]
 transform = Transform3D(0.99968547, -0.025077749, 0, 0.025077749, 0.99968547, 0, 0, 0, 1, 0.08403608, 1.3198864, 0)
 target_position = Vector3(0, -4, 0)
-collision_mask = 68
+collision_mask = 64
 script = ExtResource("4_3aftw")
 step_target = NodePath("LeftFootStepTarget")
 
@@ -87,7 +73,7 @@ mesh = SubResource("SphereMesh_wsmry")
 [node name="RightRayCast" type="RayCast3D" parent="StepTarget" node_paths=PackedStringArray("step_target")]
 transform = Transform3D(0.9995044, 0.031480536, 0, -0.031480536, 0.9995044, 0, 0, 0, 1, -0.095353216, 1.3198864, 0)
 target_position = Vector3(0, -4, 0)
-collision_mask = 68
+collision_mask = 64
 script = ExtResource("4_3aftw")
 step_target = NodePath("RightFootStepTarget")
 
@@ -112,28 +98,10 @@ top_level = true
 [node name="MeshInstance3D" type="MeshInstance3D" parent="LeftHandTarget"]
 mesh = SubResource("SphereMesh_0q1wx")
 
-[node name="SpringArmL" type="SpringArm3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14503075, 1.3575686, 0)
+[node name="RayCastShouldderL" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12601905, 1.3595054, 0)
 collision_mask = 61
 
-[node name="SpringHandL" type="Marker3D" parent="SpringArmL"]
-
-[node name="debug_hand" type="MeshInstance3D" parent="SpringArmL"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2904968, -0.92855227, 0)
-visible = false
-mesh = SubResource("SphereMesh_otub7")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_xlsp8")
-
-[node name="SpringArmR" type="SpringArm3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.145, 1.358, 0)
+[node name="RayCastShouldderR" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.126, 1.36, 0)
 collision_mask = 61
-
-[node name="SpringHandR" type="Marker3D" parent="SpringArmR"]
-
-[node name="debug_target" type="MeshInstance3D" parent="SpringArmR"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4211309, -0.9289837, 0)
-visible = false
-mesh = SubResource("SphereMesh_otub7")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_o7dc4")

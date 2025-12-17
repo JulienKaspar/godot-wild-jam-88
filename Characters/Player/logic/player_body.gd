@@ -4,6 +4,9 @@ extends Node3D
 @warning_ignore_start('unused_parameter')
 
 enum Hands {LEFT, RIGHT}
+var UP = Vector3(0,1,0)
+var RAYDIR = Vector3(0,0,-4)
+var ARM_LENGTH = 0.666
 
 @onready var PlayerRoot = $"../"
 @onready var skeleton: Skeleton3D = $PlayerArmature/Armature/Skeleton3D
@@ -26,8 +29,8 @@ enum Hands {LEFT, RIGHT}
 @onready var Hand_L_idx: int = skeleton.find_bone("Hand_L")
 @onready var Hand_R_idx: int = skeleton.find_bone("Hand_R")
 
-@onready var left_shoulder_ray: RayCast3D = $ShoulderLRayCast
-@onready var right_shoulder_ray: RayCast3D = $ShoulderRRayCast
+@onready var left_shoulder_ray: RayCast3D = $RayCastShouldderL
+@onready var right_shoulder_ray: RayCast3D = $RayCastShouldderR
 
 # ---------------------- External Targets --------------------------------------
 @onready var player_rb: RigidBody3D
@@ -43,6 +46,12 @@ signal ReachedTargetRight(item: Object)
 
 var stepping := false
 
+# ---------------------- Dynamics ----------------------------------------------
+
+var HandL_wobble = Vector3(0,0,0)
+var HandR_wobble = Vector3(0,0,0)
+var Head_wobble = Vector3(0,0,0)
+
 # ----------------- debug 
 var debugDraw = true
 @onready var debugHelpers = [$RightFootIKTarget/debug_right_foot, $LeftFootIKTarget/debug_left_foot,
@@ -50,11 +59,11 @@ $StepTarget/LeftRayCast/LeftFootStepTarget/debug_fs_L, $StepTarget/RightRayCast/
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("debug_DrawIK"):
-		if debugDraw: 
+		if debugDraw:
 			for helper in debugHelpers:
 				helper.show()
 			debugDraw = false
-		else: 
+		else:
 			for helper in debugHelpers:
 				helper.show()
 			debugDraw = true
@@ -68,6 +77,10 @@ func _ready() -> void:
 	right_foot_ik_target.has_started_stepping.connect(on_has_start_stepping)
 	left_foot_ik_target.has_finished_stepping.connect(footstep_audio_player.play)
 	right_foot_ik_target.has_finished_stepping.connect(footstep_audio_player.play)
+	
+	left_shoulder_ray.target_position = RAYDIR
+	right_shoulder_ray.target_position = RAYDIR
+
 
 	
 func on_has_start_stepping():
@@ -101,19 +114,26 @@ func update_step_targets():
 	right_step_target.target_position.x = local_balance_vec.x * speed
 	right_step_target.target_position.z = local_balance_vec.z * speed
 
-func moveHand(hand: Object, target: Object) -> void:
-	hand.global_transform = lerp(hand.global_transform, target.global_transform, 0.5)
-
-func checkDistance(bone_idx, target: Object, hand: Hands) -> void:
-	var d = ($PlayerArmature.hand_attach_l.global_position - target.global_position).length()
-	$debug_hand.global_position = $PlayerArmature.hand_attach_l.global_position
-	$debug_target.global_position = target.global_position
-	if d < PlayerRoot.PickupThreshold:
-		print("----- PICKUP -----")
-		
+func moveHand(ray: Object, hand: Object, target: Object, doRaycast: bool = false) -> void:
+	if doRaycast:
+		ray.look_at(target.global_position)
+		var rayHit = ray.get_collision_point()
+		hand.global_position = lerp(hand.global_position, rayHit, 0.5)
 	else:
+		hand.global_position = lerp(hand.global_position, target.global_position, 0.5)
+
+func updateClosestPos() -> void:
+	pass
+
+func checkDistance(bone: Object, target: Object, hand: Hands) -> void:
+	var d = (bone.global_position - target.global_position).length() - ARM_LENGTH
+	if d < PlayerRoot.PickupThreshold:
+		pass
+		#print("----- PICKUP -----")
+	else:
+		pass
 		#print(str(local_bone_transform) + " - " + str(global_bone_pos))
-		print(d)
+		#print(d)
 
 func _process(delta: float) -> void:
 	# Make the armature follow the physics bodies
@@ -122,19 +142,19 @@ func _process(delta: float) -> void:
 	#move hand targets
 	match PlayerRoot.HandLState:
 		Player.HandStates.REACHING: 
-			if PlayerRoot.closestLeft: 
-				moveHand(left_hand_target, PlayerRoot.closestLeft)
-				#checkDistance(Hand_L_idx, PlayerRoot.closestLeft, Hands.LEFT)
-			else: moveHand(left_hand_target, rb_arm_l)
-		_: moveHand(left_hand_target, rb_arm_l)
+			if PlayerRoot.closestLeft:
+				moveHand(left_shoulder_ray, left_hand_target, PlayerRoot.closestLeft, true)
+				checkDistance(left_shoulder_ray, PlayerRoot.closestLeft, Hands.LEFT)
+			else: moveHand(left_shoulder_ray, left_hand_target, rb_arm_l)
+		_: moveHand(left_shoulder_ray, left_hand_target, rb_arm_l)
 			
 	match PlayerRoot.HandRState:
 		Player.HandStates.REACHING: 
 			if PlayerRoot.closestRight: 
-				moveHand(right_hand_target, PlayerRoot.closestRight)
-				#checkDistance(Hand_R_idx, PlayerRoot.closestRight, Hands.RIGHT)
-			else: moveHand(right_hand_target, rb_arm_r)
-		_: moveHand(right_hand_target, rb_arm_r)
+				moveHand(right_shoulder_ray, right_hand_target, PlayerRoot.closestRight, true)
+				checkDistance(left_shoulder_ray, PlayerRoot.closestRight, Hands.RIGHT)
+			else: moveHand(right_shoulder_ray, right_hand_target, rb_arm_r)
+		_: moveHand(right_shoulder_ray, right_hand_target, rb_arm_r)
 
 	
 	#move feet targets
