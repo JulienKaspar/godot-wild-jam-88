@@ -30,8 +30,11 @@ var displayed_time: float = 0
 
 func _ready() -> void:
 	GameStateManager.dialogue_system = self
+	gradient.self_modulate = gradient_start_transparency
+
 
 func display_dialogue(text: String) -> void:
+	gradient.show()
 	dialogue_prompt.show()
 	dialogue_prompt.position = dialogue_starting_position
 	dialogue_text.text = text
