@@ -1,15 +1,17 @@
-[gd_scene load_steps=18 format=3 uid="uid://csh7g60ebb2xa"]
+[gd_scene load_steps=17 format=3 uid="uid://csh7g60ebb2xa"]
 
 [ext_resource type="PackedScene" uid="uid://c8m223mcy8u2o" path="res://Objects/Props/prop_box.tscn" id="2_g5tv7"]
 [ext_resource type="PackedScene" uid="uid://b32xnjnsc6xts" path="res://Levels/Gyms/Wall/wooden_wall.tscn" id="2_g78i3"]
 [ext_resource type="PackedScene" uid="uid://vyau441cbd2o" path="res://Levels/Gyms/Wall/yellow_floral_wall.tscn" id="3_jvag8"]
+[ext_resource type="PackedScene" uid="uid://fhev4d48q1qy" path="res://Objects/Architypes/LivingRoom/stairs_wide.tscn" id="4_2ryr4"]
 [ext_resource type="PackedScene" uid="uid://b7ee7to73wtp6" path="res://Levels/Gyms/Floor/floor1.tscn" id="4_g78i3"]
-[ext_resource type="PackedScene" path="res://Characters/Teens/logic/TeenStanding.tscn" id="6_cqxer"]
+[ext_resource type="Texture2D" uid="uid://djpkkont0tpva" path="res://Assets/Maps/Walls/yellow_floral_wallpaper/atlas.png" id="5_onn2k"]
+[ext_resource type="PackedScene" uid="uid://d62n5s8htyn7" path="res://Characters/Teens/logic/TeenStanding.tscn" id="6_cqxer"]
 [ext_resource type="PackedScene" uid="uid://d3unw205fanv5" path="res://Objects/Loot/pickup_beer.tscn" id="7_advv7"]
 [ext_resource type="PackedScene" uid="uid://3kn1j5376oof" path="res://Objects/Architypes/Furniture/table2.tscn" id="7_ioif7"]
 [ext_resource type="PackedScene" uid="uid://bo1p1dvgr50f4" path="res://Objects/Loot/pickup_banana.tscn" id="8_advv7"]
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="9_b8gvx"]
-[ext_resource type="PackedScene" uid="uid://kjsxiqub7l7a" path="res://Gameplay/level_teleporter.tscn" id="10_8y3n1"]
+[ext_resource type="PackedScene" path="res://Gameplay/level_teleporter.tscn" id="10_8y3n1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g5tv7"]
 size = Vector3(1, 4.13562, 10.459595)
@@ -17,17 +19,19 @@ size = Vector3(1, 4.13562, 10.459595)
 [sub_resource type="BoxMesh" id="BoxMesh_g5tv7"]
 size = Vector3(1, 4.13562, 10.459595)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_1tl4p"]
-size = Vector3(1.5734787, 1, 4.6469727)
-
-[sub_resource type="BoxMesh" id="BoxMesh_1tl4p"]
-size = Vector3(1.5734787, 1, 4.6469727)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g78i3"]
-albedo_color = Color(0.6901961, 0.28235295, 0.2509804, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_jvag8"]
-size = Vector3(0.268, 1, 4.647)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oj10p"]
+resource_local_to_scene = true
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0.49747366, 0.49747366, 0.49747366, 0)
+albedo_texture = ExtResource("5_onn2k")
+rim = 0.47
+subsurf_scatter_strength = 1.0
+subsurf_scatter_skin_mode = true
+uv1_scale = Vector3(0.45, 0.298, 0.45)
+uv1_offset = Vector3(0.02, 0, 0)
+uv1_triplanar = true
+uv1_world_triplanar = true
 
 [sub_resource type="Environment" id="Environment_f1dn2"]
 ambient_light_source = 2
@@ -90,30 +94,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.05, 1.89, 0)
 
 [node name="Stairs" type="Node3D" parent="Obsticles"]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Obsticles/Stairs"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Obsticles/Stairs/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0862923, 0, -2.480957)
-shape = SubResource("BoxShape3D_1tl4p")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Obsticles/Stairs/StaticBody3D"]
-transform = Transform3D(0.86224854, -0.50648534, 0, 0.50648534, 0.86224854, 0, 0, 0, 1, 2.8722286, -0.33572853, -2.480957)
-shape = SubResource("BoxShape3D_1tl4p")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Obsticles/Stairs/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0862923, 0, -2.480957)
-mesh = SubResource("BoxMesh_1tl4p")
-surface_material_override/0 = SubResource("StandardMaterial3D_g78i3")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Obsticles/Stairs/StaticBody3D"]
-transform = Transform3D(0.99976546, 0.021657843, 0, -0.021657843, 0.99976546, 0, 0, 0, 1, 3.162317, -0.1785666, -2.480957)
-mesh = SubResource("BoxMesh_jvag8")
-surface_material_override/0 = SubResource("StandardMaterial3D_g78i3")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Obsticles/Stairs/StaticBody3D"]
-transform = Transform3D(0.99976546, 0.021657843, 0, -0.021657843, 0.99976546, 0, 0, 0, 1, 2.8891256, -0.3008023, -2.480957)
-mesh = SubResource("BoxMesh_jvag8")
-surface_material_override/0 = SubResource("StandardMaterial3D_g78i3")
+[node name="Stairs_wide" parent="Obsticles/Stairs" instance=ExtResource("4_2ryr4")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.6070466, -0.9197339, -3.5459878)
+wall_material = SubResource("StandardMaterial3D_oj10p")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_f1dn2")
@@ -158,21 +141,21 @@ wobble = true
 has_loot = true
 
 [node name="Table2" parent="." instance=ExtResource("7_ioif7")]
-transform = Transform3D(0.9954512, 0, 0.09527243, 0, 1, 0, -0.09527243, 0, 0.9954512, -0.39679515, -4.7683716e-07, -3.0328772)
+transform = Transform3D(0.9954512, 0, 0.09527243, 0, 1, 0, -0.09527243, 0, 0.9954512, -2.1079354, -4.7683716e-07, -3.0147626)
 
 [node name="Loot" type="Node3D" parent="."]
 
 [node name="DrunknessPickup" parent="Loot" instance=ExtResource("7_advv7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4190791, 0.8443067, -2.699389)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1241617, 0.8443067, -2.8443813)
 
 [node name="DrunknessPickup2" parent="Loot" instance=ExtResource("7_advv7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2162056, 0.8443067, -3.1547353)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4888772, 0.8443067, -3.2997277)
 
 [node name="DrunknessPickup3" parent="Loot" instance=ExtResource("7_advv7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5500355, 0.9314556, -0.5635946)
 
 [node name="DrunknessPickup" parent="." instance=ExtResource("8_advv7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9179133, 0.8382794, -2.5721056)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.622996, 0.8382794, -2.717098)
 
 [node name="DrunknessPickup2" parent="." instance=ExtResource("8_advv7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7835407, 0.502098, 1.7201093)
@@ -181,7 +164,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7835407, 0.502098, 1.720109
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3724215, 0.10012102, 0.0153950155)
 
 [node name="PlayerSpawnPoint" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.9960875, -0.08837276, 0, 0.08837276, 0.9960875, 4.051409, 2.3841858e-07, 1.8273134)
+transform = Transform3D(1, 0, 0, 0, 0.9960875, -0.08837276, 0, 0.08837276, 0.9960875, 1.360878, 0.30051255, -1.5598862)
 script = ExtResource("9_b8gvx")
 metadata/_custom_type_script = "uid://cm1uqdo37kpmi"
 

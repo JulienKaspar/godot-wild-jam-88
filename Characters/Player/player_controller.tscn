@@ -259,6 +259,10 @@ pixel_size = 0.004
 text = "JA"
 outline_size = 50
 
+[node name="StairsRay" type="RayCast3D" parent="NoRotateBall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+collision_mask = 128
+
 [node name="UpperBody" type="RigidBody3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.164401, 0)
