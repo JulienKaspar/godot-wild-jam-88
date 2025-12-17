@@ -20,18 +20,15 @@ func _process(_delta):
 	if get_player_distance() < music_trigger_radius and !music_on:
 		voice_clip = AudioManager.player_sounds.singing_player.stream.get_clip_stream(1) # song loop
 		AudioManager.player_sounds.singing_player.play()
-		print(voice_clip.get_sync_stream(1))
 		self.play()
 		music_on = true
 	
 	if get_player_distance() < voice_trigger_radius and !voice_active:
 		voice_active = true
 	
-	if music_on:
-		intro_done = _check_intro_done()
-	
-	if music_on and intro_done:
+	if music_on and _check_intro_done() and !intro_done:
 		AudioManager.player_sounds.singing_player.volume_db = 0.0
+		intro_done = true
 	
 	if voice_active:
 		var distance_squared : float = get_player_distance() * get_player_distance()
