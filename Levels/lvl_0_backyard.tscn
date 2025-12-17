@@ -1,25 +1,43 @@
-[gd_scene load_steps=17 format=3 uid="uid://b6vbg26wkrdh3"]
+[gd_scene load_steps=23 format=3 uid="uid://b6vbg26wkrdh3"]
 
 [ext_resource type="Material" uid="uid://hg5ppfcn0qd7" path="res://Levels/Gyms/Floor/floor1_v2.tres" id="1_mr8n6"]
+[ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="2_xweag"]
 [ext_resource type="PackedScene" uid="uid://cyrgcx64104qc" path="res://Objects/Architypes/Props/garden_chair.tscn" id="3_8wfei"]
 [ext_resource type="PackedScene" uid="uid://cnaagrenu83ty" path="res://Objects/Architypes/Props/garden_table.tscn" id="4_d4xos"]
 [ext_resource type="PackedScene" uid="uid://brhckpuqlnhm6" path="res://Objects/Architypes/Props/bbq.tscn" id="5_xweag"]
 [ext_resource type="PackedScene" uid="uid://byi1vrdra1og3" path="res://Objects/Architypes/Props/radio.tscn" id="6_8wfei"]
+[ext_resource type="PackedScene" uid="uid://j1b5yvs8pnux" path="res://Objects/Architypes/Furniture/table_round1.tscn" id="6_d4xos"]
 [ext_resource type="PackedScene" uid="uid://d3unw205fanv5" path="res://Objects/Loot/pickup_beer.tscn" id="9_22u0x"]
 
 [sub_resource type="Environment" id="Environment_vu8ij"]
+background_mode = 1
 ambient_light_source = 2
-ambient_light_color = Color(0.4074739, 0.20157146, 1, 1)
-ambient_light_energy = 1.82
+ambient_light_color = Color(0, 0, 0.96, 1)
+ambient_light_energy = 3.08
 tonemap_mode = 4
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d4xos"]
+shading_mode = 0
+diffuse_mode = 3
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xweag"]
+
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_wj60t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xweag"]
+diffuse_mode = 3
+albedo_color = Color(0.4, 0.21760002, 0.09600001, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fnac6"]
+diffuse_mode = 3
+albedo_color = Color(0.54, 0.29700002, 0.135, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ccu56"]
 albedo_color = Color(0.23558336, 0.18260866, 0.12206388, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d6w3h"]
-size = Vector3(1.5734787, 1, 3.0681152)
+size = Vector3(1.5734787, 1, 5.1210938)
 
 [sub_resource type="BoxMesh" id="BoxMesh_3nw73"]
 size = Vector3(1.5734787, 1, 4.6469727)
@@ -46,13 +64,33 @@ albedo_color = Color(0.0087385075, 0.16680992, 0.09753626, 1)
 environment = SubResource("Environment_vu8ij")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
-transform = Transform3D(0.9598751, 0.27247727, 0.06630254, -0.11193706, 0.15550461, 0.9814726, 0.25711858, -0.94951284, 0.1797653, 3.2260087, 0.9052739, -3.7791426)
-light_color = Color(1.893075, 1.723376, 0.6203327, 1)
-light_energy = 1.405
+transform = Transform3D(0.46398437, 0.8010071, 0.37829363, -0.6937099, 0.06297875, 0.71749586, 0.5508948, -0.59533286, 0.5848877, 3.2260087, 0.9052739, -3.7791426)
+light_color = Color(0.6190691, 1.7871475, 1.8933368, 1)
+light_energy = 0.261
 light_indirect_energy = 1.804
 shadow_enabled = true
+shadow_opacity = 0.31
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WorldEnvironment"]
+transform = Transform3D(40.108185, 0, 0, 0, 1, 0, 0, 0, 27.660757, -0.00051403046, -0.6513219, -0.0024392605)
+material_override = SubResource("StandardMaterial3D_d4xos")
+mesh = SubResource("PlaneMesh_xweag")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -4.495553, 6.900309, 0.75812423)
+light_color = Color(0.75, 0.75, 0.26250002, 1)
+light_energy = 4.747
+light_specular = 8.149
+shadow_enabled = true
+spot_range = 19.027098
+spot_angle = 46.630405
 
 [node name="Layout" type="Node3D" parent="."]
+
+[node name="PlayerSpawnPoint" type="Node3D" parent="Layout"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1839051, 4.7683716e-07, -0.8379657)
+script = ExtResource("2_xweag")
+metadata/_custom_type_script = "uid://cm1uqdo37kpmi"
 
 [node name="GroundPlane" type="StaticBody3D" parent="Layout"]
 
@@ -62,98 +100,128 @@ shape = SubResource("WorldBoundaryShape3D_wj60t")
 [node name="Floor" type="Node3D" parent="Layout"]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Layout/Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4958344, -0.49497938, -7.075862)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38554382, -0.49497938, -11.289182)
 material_override = ExtResource("1_mr8n6")
 use_collision = true
 collision_layer = 65
-size = Vector3(10.051025, 1, 18.999664)
+size = Vector3(12.271606, 1, 23.989948)
 
 [node name="Walls" type="Node3D" parent="Layout"]
 
 [node name="CSG_WoodenlWall" type="CSGBox3D" parent="Layout/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5571268, 1.2740086, -7.920224)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.669921, 1.2740086, -11.250526)
+material_override = SubResource("StandardMaterial3D_xweag")
 use_collision = true
-size = Vector3(0.2, 2.5527656, 17.039143)
+size = Vector3(0.2, 2.5527656, 23.699747)
 
 [node name="CSG_WoodenlWall4" type="CSGBox3D" parent="Layout/Walls"]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.3397593, 1.7257221, -16.609856)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.40713024, 2.2969766, -23.03894)
+material_override = SubResource("StandardMaterial3D_fnac6")
 use_collision = true
-size = Vector3(0.2, 3.4561925, 9.933201)
+size = Vector3(0.2, 4.5987015, 12.271508)
 
 [node name="CSG_WoodenlWall3" type="CSGBox3D" parent="Layout/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.546694, 1.2740086, -7.9014254)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.546694, 1.2740086, -11.297768)
+material_override = SubResource("StandardMaterial3D_xweag")
 use_collision = true
-size = Vector3(0.2, 2.5527656, 17.001545)
+size = Vector3(0.2, 2.5527656, 23.79423)
 
 [node name="CSG_WoodenlWall2" type="CSGBox3D" parent="Layout/Walls"]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.2176542, 0.919624, 0.6946564)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.1141386, 0.919624, 0.69465643)
 use_collision = true
-size = Vector3(0.05, 1.843595, 9.81543)
+size = Vector3(0.05, 1.843595, 12.022461)
 material = SubResource("StandardMaterial3D_ccu56")
 
 [node name="Stairs" type="Node3D" parent="Layout"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Layout/Stairs"]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.17344713, -0.12750489, -15.596816)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.17344713, -0.22552714, -22.025902)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Stairs/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19699478, 0, -0.19127655)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19699478, 0, -0.68751764)
 shape = SubResource("BoxShape3D_d6w3h")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Layout/Stairs/StaticBody3D"]
-transform = Transform3D(0.86224854, -0.50648534, 0, 0.50648534, 0.86224854, 0, 0, 0, 1, -1.0170689, -0.33572853, -0.19127655)
+transform = Transform3D(0.86224854, -0.50648534, 0, 0.50648534, 0.86224854, 0, 0, 0, 1, -1.0170689, -0.33572856, -0.68751764)
 shape = SubResource("BoxShape3D_d6w3h")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Layout/Stairs/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.6476377, 0.19095421, 0, -0.19127655)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0821897, 0.19095421, 0, -0.67623264)
 layers = 65
 mesh = SubResource("BoxMesh_3nw73")
 surface_material_override/0 = SubResource("StandardMaterial3D_v87f2")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Layout/Stairs/StaticBody3D"]
-transform = Transform3D(0.99976546, 0.021657843, 0, -0.021657843, 0.99976546, 0, 3.5527137e-15, 0, 0.64763767, -0.73302174, -0.1785666, -0.19127655)
+transform = Transform3D(0.99976546, 0.021657843, 0, -0.021657843, 0.99976546, 0, 3.5527137e-15, 0, 1.0821896, -0.7330208, -0.1785666, -0.6762326)
 layers = 65
 mesh = SubResource("BoxMesh_05dd3")
 surface_material_override/0 = SubResource("StandardMaterial3D_v87f2")
 
 [node name="Door" type="MeshInstance3D" parent="Layout"]
-transform = Transform3D(1.4107562, 0, -8.881784e-16, 0, 3.8994184, 0, -7.1054274e-15, 0, 0.18460768, 0.02307272, 0.96255445, -16.497814)
+transform = Transform3D(1.4107562, 0, -8.881784e-16, 0, 3.8994184, 0, -7.1054274e-15, 0, 0.18460768, -0.78555393, 0.96255445, -22.926899)
 material_override = SubResource("StandardMaterial3D_d6w3h")
 mesh = SubResource("BoxMesh_v87f2")
 
 [node name="Furniture" type="Node3D" parent="."]
 
 [node name="Radio" parent="Furniture" instance=ExtResource("3_8wfei")]
-transform = Transform3D(0.33413595, 0, 0.94252485, 0, 1, 0, -0.94252485, 0, 0.33413595, -1.5441778, 0.01039809, -8.598176)
+transform = Transform3D(0.33413595, 0, 0.94252485, 0, 1, 0, -0.94252485, 0, 0.33413595, -3.2558692, 0.01039809, -11.340143)
 
 [node name="Radio2" parent="Furniture" instance=ExtResource("3_8wfei")]
-transform = Transform3D(0.98393184, 0, -0.17854466, 0, 1, 0, 0.17854466, 0, 0.98393184, 0.4449616, 0.010397613, -10.1683035)
+transform = Transform3D(0.98393184, 0, -0.17854466, 0, 1, 0, 0.17854466, 0, 0.98393184, -1.2667298, 0.010397613, -12.910271)
 
 [node name="Radio3" parent="Furniture" instance=ExtResource("4_d4xos")]
-transform = Transform3D(0.9035224, 0, -0.42854095, 0, 1, 0, 0.42854095, 0, 0.9035224, 0.011085391, 0, -8.43546)
+transform = Transform3D(0.9035224, 0, -0.42854095, 0, 1, 0, 0.42854095, 0, 0.9035224, -1.7006061, 0, -11.177427)
 
 [node name="Radio6" parent="Furniture" instance=ExtResource("4_d4xos")]
-transform = Transform3D(0.052911077, 0, 0.99859923, 0, 1, 0, -0.99859923, 0, 0.052911077, -0.6537113, -4.7683716e-07, -2.8075314)
+transform = Transform3D(0.37263146, 0, 0.92797947, 0, 1, 0, -0.92797947, 0, 0.37263146, -0.1323244, -7.1525574e-07, -3.5895896)
 
 [node name="Radio4" parent="Furniture" instance=ExtResource("5_xweag")]
-transform = Transform3D(0.41689956, 0, -0.90895253, 0, 1, 0, 0.90895253, 0, 0.41689956, 4.0868535, 0.02212277, -12.2385645)
+transform = Transform3D(0.41689956, 0, -0.90895253, 0, 1, 0, 0.90895253, 0, 0.41689956, 3.7540212, 0.02212277, -7.066873)
 
 [node name="Radio5" parent="Furniture" instance=ExtResource("6_8wfei")]
-transform = Transform3D(0.94451976, 0, 0.32845455, 0, 1, 0, -0.32845455, 0, 0.94451976, 0.023542345, 0.98733175, -8.456306)
+transform = Transform3D(0.94451976, 0, 0.32845455, 0, 1, 0, -0.32845455, 0, 0.94451976, -1.865329, 0.98733175, -11.276128)
+
+[node name="TableRound1" parent="Furniture" instance=ExtResource("6_d4xos")]
+transform = Transform3D(0.8187414, 0, 0.5741625, 0, 1, 0, -0.5741625, 0, 0.8187414, 2.5339246, 0.005020261, -19.403908)
+
+[node name="DrunknessPickup" parent="Furniture" instance=ExtResource("9_22u0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3944544, 0.98681664, -10.914966)
+
+[node name="DrunknessPickup2" parent="Furniture" instance=ExtResource("9_22u0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4912472, 1.0309347, -19.725174)
+
+[node name="DrunknessPickup3" parent="Furniture" instance=ExtResource("9_22u0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.884732, 1.0309347, -19.292076)
+
+[node name="DrunknessPickup4" parent="Furniture" instance=ExtResource("9_22u0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2515786, 1.0309347, -19.223284)
 
 [node name="drinks" type="Node3D" parent="."]
 
 [node name="DrunknessPickup" parent="drinks" instance=ExtResource("9_22u0x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.312186, 1.0392127, -11.455763)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9793534, 1.0392127, -6.2840714)
 
 [node name="DrunknessPickup2" parent="drinks" instance=ExtResource("9_22u0x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6389827, 0.9868159, -2.519519)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28173506, 0.9868157, -3.3702765)
+
+[node name="DrunknessPickup3" parent="drinks" instance=ExtResource("9_22u0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.192409, 1.0392132, -7.6419926)
 
 [node name="greyboxing" type="Node3D" parent="."]
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="greyboxing"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8616023, -0.02331543, -0.95585847)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8370943, -0.023314953, -0.840639)
 material_override = SubResource("StandardMaterial3D_8wfei")
+use_collision = true
+radius = 2.0620117
+height = 0.4753418
+sides = 16
+
+[node name="CSGCylinder3D7" type="CSGCylinder3D" parent="greyboxing"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.016179, -0.023314953, -13.061267)
+material_override = SubResource("StandardMaterial3D_8wfei")
+use_collision = true
 radius = 2.0620117
 height = 0.4753418
 sides = 16
@@ -161,26 +229,53 @@ sides = 16
 [node name="CSGCylinder3D2" type="CSGCylinder3D" parent="greyboxing"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0053287, -0.02331543, -3.4720564)
 material_override = SubResource("StandardMaterial3D_8wfei")
+use_collision = true
 radius = 1.5175781
 height = 0.4753418
 sides = 16
 
 [node name="CSGCylinder3D3" type="CSGCylinder3D" parent="greyboxing"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1590047, -0.02331543, -5.502858)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.2805386, -5.1441765, -0.02331543, -5.502858)
 material_override = SubResource("StandardMaterial3D_8wfei")
-radius = 1.5175781
+use_collision = true
+radius = 1.0996094
+height = 0.4753418
+sides = 16
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="greyboxing"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.2805386, 5.452979, -0.023314953, -16.446608)
+material_override = SubResource("StandardMaterial3D_8wfei")
+use_collision = true
+radius = 1.5649414
+height = 0.4753418
+sides = 16
+
+[node name="CSGCylinder3D8" type="CSGCylinder3D" parent="greyboxing"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.2805386, -5.759197, -0.023314953, -15.13629)
+material_override = SubResource("StandardMaterial3D_8wfei")
+use_collision = true
+radius = 1.5649414
+height = 0.4753418
+sides = 16
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="greyboxing"]
+transform = Transform3D(1.355376, 0, 0, 0, 1, 0, 0, 0, 2.2805386, -5.0828037, -0.02331543, -0.9476118)
+material_override = SubResource("StandardMaterial3D_8wfei")
+use_collision = true
+radius = 1.1362305
 height = 0.4753418
 sides = 16
 
 [node name="CSGCylinder3D4" type="CSGCylinder3D" parent="greyboxing"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7443552, -0.02331543, -15.611394)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4546785, -0.02331543, -22.040478)
 material_override = SubResource("StandardMaterial3D_8wfei")
+use_collision = true
 radius = 1.5175781
 height = 0.4753418
 sides = 16
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="greyboxing"]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5.718193, 0.21808779, -10.7675)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5.718193, 0.21808779, -17.196585)
 material_override = SubResource("StandardMaterial3D_8wfei")
 use_collision = true
 polygon = PackedVector2Array(-4.285189, 5.2038784, -2.9629889, 5.2206154, -1.7161036, 4.8356705, -0.93784666, 4.1996756, -0.50269175, 3.2707882, 0.15840769, 1.8230629, 0.049619198, -0.18534279, 0.35924864, -1.6079636, 1.0956635, -1.4071226, 1.0287166, 6.0992928, -4.3437676, 6.065819)
