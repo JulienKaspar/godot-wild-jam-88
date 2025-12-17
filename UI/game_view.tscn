@@ -22,6 +22,7 @@ shader_parameter/distortion_samples = 8
 shader_parameter/drunkness = 0.150000007125
 
 [node name="GameView" type="Node"]
+process_mode = 3
 script = ExtResource("1_lqkpn")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -34,9 +35,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("3_dgskv")
 
 [node name="MenuDisplayer" type="MarginContainer" parent="CanvasLayer"]
+process_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -44,26 +47,37 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 
 [node name="SettingsMenu" parent="CanvasLayer/MenuDisplayer" instance=ExtResource("2_lqkpn")]
 unique_name_in_owner = true
+process_mode = 3
 visible = false
 layout_mode = 2
+mouse_filter = 2
 
 [node name="MainMenu" parent="CanvasLayer/MenuDisplayer" instance=ExtResource("3_e62du")]
 unique_name_in_owner = true
-visible = false
+process_mode = 3
 layout_mode = 2
+mouse_filter = 2
 
 [node name="HUD" parent="CanvasLayer/MenuDisplayer" instance=ExtResource("5_qrf3k")]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
 layout_mode = 2
+mouse_filter = 2
 
 [node name="DialogueSystem" parent="CanvasLayer" instance=ExtResource("5_4fmj7")]
+process_mode = 3
+mouse_filter = 2
 
 [node name="LoadedLevel" type="Node" parent="."]
 script = ExtResource("5_4eh1a")
 
 [node name="Debug" type="Node" parent="."]
+process_mode = 3
 
 [node name="DebugMasterMenu" parent="Debug" instance=ExtResource("6_ri6ga")]
 
@@ -73,13 +87,16 @@ script = ExtResource("8_gjcnd")
 follow_distance = 4.0
 
 [node name="AudioListener3D" type="AudioListener3D" parent="GameCamera"]
+process_mode = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
 current = true
 
 [node name="PlayerSpawner" parent="." instance=ExtResource("11_qrf3k")]
 
 [node name="UI_Sounds" parent="." instance=ExtResource("12_k7f6d")]
+process_mode = 3
 drunkness_up = null
 drunkness_down = null
 
 [node name="MusicManager" parent="." instance=ExtResource("9_4eh1a")]
+process_mode = 3

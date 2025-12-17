@@ -40,6 +40,7 @@ offset_left = 17.0
 offset_top = 422.0
 offset_right = 1297.0
 offset_bottom = 1142.0
+mouse_filter = 2
 
 [node name="Gradient" type="TextureRect" parent="Control2"]
 unique_name_in_owner = true
@@ -50,6 +51,7 @@ offset_right = -12.0000305
 offset_bottom = 3667.0
 rotation = -1.5707964
 scale = Vector2(2.8482533, 0.7897397)
+mouse_filter = 2
 texture = SubResource("GradientTexture1D_fxece")
 
 [node name="DialoguePrompt" type="Control" parent="Control2"]

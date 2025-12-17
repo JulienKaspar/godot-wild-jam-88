@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://4pyna2f4x4mw" path="res://Assets/2D_Assets/Menu_Art/sky_0.png" id="2_iyy2y"]
 [ext_resource type="Texture2D" uid="uid://b8rxa7p6j26ld" path="res://Assets/2D_Assets/Menu_Art/fence_3.png" id="2_t17p2"]
 [ext_resource type="Texture2D" uid="uid://c1tqhcgn5b56s" path="res://Assets/2D_Assets/Menu_Art/table_2.png" id="3_iyy2y"]
-[ext_resource type="Script" path="res://UI/MainMenu/main_menu_camera.gd" id="6_trkrl"]
+[ext_resource type="Script" uid="uid://jjhbwpi77cq1" path="res://UI/MainMenu/main_menu_camera.gd" id="6_trkrl"]
 [ext_resource type="AudioStream" uid="uid://bwkhlcxqvfarj" path="res://Audio/Ambience/title_screen_ambience.tres" id="7_bddxb"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kf43y"]
@@ -22,7 +22,7 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_kf43y")
 script = ExtResource("1_jld46")
 
 [node name="ParallaxBackground" type="Node2D" parent="."]
-position = Vector2(750, 423)
+position = Vector2(719, 424)
 scale = Vector2(0.5, 0.5)
 
 [node name="SkyLayer" type="Parallax2D" parent="ParallaxBackground"]
@@ -54,14 +54,17 @@ script = ExtResource("6_trkrl")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 25
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 alignment = 1
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
@@ -71,14 +74,17 @@ text = "Party Foul"
 horizontal_alignment = 1
 
 [node name="StartButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Start"
 
-[node name="Button2" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="SettingsButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Settings"
 
-[node name="Button3" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="ExitButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Exit"
 
