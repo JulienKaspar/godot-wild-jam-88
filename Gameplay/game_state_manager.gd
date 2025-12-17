@@ -21,7 +21,6 @@ var current_level_index: int
 
 func _ready() -> void:
 	get_tree().paused = true
-	start_game()
 		
 func _process(delta: float) -> void:
 	player_drunkness.current_drunkness -= player_drunkness.drunkness_decay_per_second * delta
