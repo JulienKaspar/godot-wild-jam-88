@@ -1,7 +1,6 @@
 [gd_scene load_steps=40 format=3 uid="uid://bn4n02t1b2gf3"]
 
 [ext_resource type="Material" uid="uid://hg5ppfcn0qd7" path="res://Levels/Gyms/Floor/floor1_v2.tres" id="1_kknvj"]
-[ext_resource type="PackedScene" uid="uid://d0bpm6wis2oi4" path="res://Assets/Furniture/shelf2.gltf" id="2_hhiwo"]
 [ext_resource type="Material" uid="uid://dxyb0pq2y84ds" path="res://Levels/Gyms/Wall/reddish_floral_wall_v2.tres" id="2_k8d6m"]
 [ext_resource type="Material" uid="uid://bdchormsmw1jv" path="res://Levels/Gyms/Wall/wooden_wall_v2.tres" id="3_iy3ty"]
 [ext_resource type="Script" uid="uid://dogbj3gtx3mxu" path="res://Objects/hideable_wall.gd" id="3_kknvj"]
@@ -25,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://cugf77dasisxg" path="res://Objects/Architypes/Furniture/couch3.tscn" id="21_17q8k"]
 [ext_resource type="PackedScene" uid="uid://0citmm75hpfv" path="res://Objects/Architypes/Furniture/couch4.tscn" id="25_ao1e1"]
 [ext_resource type="PackedScene" uid="uid://dh3i5uan6dujl" path="res://Objects/Architypes/Props/plant_palm1.tscn" id="25_gg35l"]
+[ext_resource type="PackedScene" uid="uid://cs4digbuoekpl" path="res://Objects/Architypes/Furniture/shelf2.tscn" id="25_ojjv1"]
 
 [sub_resource type="Environment" id="Environment_vu8ij"]
 background_mode = 1
@@ -471,14 +471,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.82406, 0.011892319, -2.622
 [node name="Couch4" parent="Furniture" instance=ExtResource("6_17q8k")]
 transform = Transform3D(0.7895234, 0, 0.6137204, 0, 1, 0, -0.6137204, 0, 0.7895234, 16.262007, 0.005937904, -9.815095)
 
-[node name="shelf2" parent="Furniture" instance=ExtResource("2_hhiwo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.842878, -4.7683716e-07, -13.920034)
-
 [node name="LampStanding7" parent="Furniture" instance=ExtResource("8_hhiwo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.456228, 0.036960363, -13.582699)
 
 [node name="LampStanding8" parent="Furniture" instance=ExtResource("8_hhiwo")]
 transform = Transform3D(0.11047989, -0.60714835, 0.7868704, 0.98384446, 0.17902549, 0, -0.14086986, 0.7741581, 0.61711824, 18.861526, 0.036960363, -8.928489)
+
+[node name="Shelf2" parent="Furniture" instance=ExtResource("25_ojjv1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.838352, 0, -13.897468)
 
 [node name="Drinks" type="Node3D" parent="."]
 
