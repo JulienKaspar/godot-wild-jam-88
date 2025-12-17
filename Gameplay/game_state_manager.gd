@@ -2,6 +2,7 @@
 extends Node
 
 @export var levels: Array[PackedScene]
+@export var starting_level_index: int = 0
 var post_processing: ColorRect
 var player_drunkness: PlayerDrunkness = PlayerDrunkness.new()
 var level_loader: LevelLoader
@@ -38,7 +39,7 @@ func register_level_loader(loader: LevelLoader) -> void:
 
 func initialize_game() -> void:
 	Engine.time_scale = 1
-	load_level_by_index(0)
+	load_level_by_index(starting_level_index)
 
 func find_spawn_point_in_level(level: Node3D) -> Vector3:
 	for child in level.get_children():
