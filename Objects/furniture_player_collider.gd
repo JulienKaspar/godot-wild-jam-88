@@ -1,6 +1,8 @@
 extends StaticBody3D
 class_name FurniturePlayerCollider
 
+signal on_collided_with()
+
 @export var wobblable := true
 @export_range(0.0, 45.0) var wobble_angle := 15.0
 @export var wobble_time := 1.0
@@ -50,6 +52,8 @@ func _process(_delta: float) -> void:
 
 
 func on_player_collision(collision_velocity : Vector3) -> void:
+	
+	on_collided_with.emit()
 	
 	if ramming_tween:
 		if ramming_tween.is_running():
