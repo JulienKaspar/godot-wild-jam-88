@@ -1,0 +1,18 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=7 format=3 uid="uid://q32rd2oxe5gl"]
+
+[ext_resource type="AudioStream" uid="uid://bm655ewakdpwu" path="res://Assets/Audio/SFX/Player/player_voice_getting_up_01.ogg" id="1_hcl11"]
+[ext_resource type="AudioStream" uid="uid://c5s8racd5m5xf" path="res://Assets/Audio/SFX/Player/player_voice_getting_up_02.ogg" id="2_figjt"]
+[ext_resource type="AudioStream" uid="uid://by43fuhi3ajgg" path="res://Assets/Audio/SFX/Player/player_voice_getting_up_03.ogg" id="3_r2m0u"]
+[ext_resource type="AudioStream" uid="uid://4bk5ufs6xqxd" path="res://Assets/Audio/SFX/Player/player_voice_getting_up_04.ogg" id="4_u55q6"]
+[ext_resource type="AudioStream" uid="uid://ctg1box1oq6vl" path="res://Assets/Audio/SFX/Player/player_voice_getting_up_05.ogg" id="5_khh4p"]
+[ext_resource type="AudioStream" uid="uid://cyayvrychkuhc" path="res://Assets/Audio/SFX/Player/player_voice_getting_up_06.ogg" id="6_bqeop"]
+
+[resource]
+random_pitch = 1.1
+streams_count = 6
+stream_0/stream = ExtResource("1_hcl11")
+stream_1/stream = ExtResource("2_figjt")
+stream_2/stream = ExtResource("3_r2m0u")
+stream_3/stream = ExtResource("4_u55q6")
+stream_4/stream = ExtResource("5_khh4p")
+stream_5/stream = ExtResource("6_bqeop")
