@@ -18,11 +18,12 @@ func handle_collision() -> void:
 		var vector_normalized: Vector3 = vector_to_player.normalized()
 		GameStateManager.current_player.get_ball().linear_velocity = Vector3(0,0,0)
 		GameStateManager.current_player.get_ball().apply_impulse(Vector3(
-			vector_normalized.x * force_multiplier,
+			vector_normalized.x * force_multiplier,	
 			0,
 			vector_normalized.z * force_multiplier))
 		
 		
 		GameStateManager.player_drunkness.current_drunkness -= drunkness_pentalty
+		AudioManager.player_sounds.play_voice(AudioManager.player_sounds.hurt_sounds)
 		
 		time_since_last_triggered = 0

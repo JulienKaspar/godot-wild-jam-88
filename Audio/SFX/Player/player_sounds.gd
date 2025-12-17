@@ -8,7 +8,7 @@ class_name PlayerSounds
 
 @export var falling_sounds : AudioStream
 @export var getting_up_sounds : AudioStream
-@export var ouch_grunt_sounds : AudioStream
+@export var hurt_sounds : AudioStream
 
 func _ready():
 	# setup singleton
