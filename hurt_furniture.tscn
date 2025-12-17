@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://67ac8n4ituj5" path="res://hurt_furniture.gd" id="1_ywhjv"]
 
 [node name="HurtFurniture" type="Area3D"]
+collision_mask = 3
 script = ExtResource("1_ywhjv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

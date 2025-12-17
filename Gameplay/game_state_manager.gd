@@ -30,15 +30,6 @@ func update_drunk_visual_effect() -> void:
 	var drunk_effect_intensity = player_drunkness.current_drunkness * effect_intensity * UserSettings.drunk_visual_effect_intensity
 	post_processing.material.set('shader_parameter/drunkness', drunk_effect_intensity)
 
-func _unhandled_input(event: InputEvent) -> void:
-	var drunkness_per_drink: float = 2
-	if event.is_action_pressed("grab_left"):
-		player_drunkness.current_drunkness += drunkness_per_drink
-		AudioManager.ui_sounds.play_sound(AudioManager.ui_sounds.drunkness_up)
-	if event.is_action_pressed("grab_right"):
-		player_drunkness.current_drunkness += drunkness_per_drink
-		AudioManager.ui_sounds.play_sound(AudioManager.ui_sounds.drunkness_up)
-
 func register_level_loader(loader: LevelLoader) -> void:
 	level_loader = loader
 
