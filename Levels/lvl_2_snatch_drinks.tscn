@@ -123,6 +123,14 @@ transform = Transform3D(40.108185, 0, 0, 0, 1, 0, 0, 0, 27.660757, -0.02516079, 
 material_override = SubResource("StandardMaterial3D_iy3ty")
 mesh = SubResource("PlaneMesh_xyml4")
 
+[node name="EditorLight" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(0.9598751, 0.27247727, 0.06630254, -0.11193706, 0.15550461, 0.9814726, 0.25711858, -0.94951284, 0.1797653, 3.2260087, 0.9052739, -3.7791426)
+light_color = Color(1.8933368, 1.1924895, 0.6190691, 1)
+light_energy = 0.46
+light_indirect_energy = 1.804
+shadow_opacity = 0.5
+editor_only = true
+
 [node name="Layout" type="Node3D" parent="."]
 
 [node name="GroundPlane" type="StaticBody3D" parent="Layout"]
