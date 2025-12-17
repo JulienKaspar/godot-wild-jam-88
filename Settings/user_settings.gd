@@ -8,3 +8,4 @@ var ui_volume: float = 1
 var music_volume: float = 1
 var sfx_volume: float = 1
 var disorienting_sounds_enabled: bool = true
+var strobe_lights: bool = true
