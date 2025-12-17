@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://d3unw205fanv5"]
+[gd_scene load_steps=8 format=3 uid="uid://d3unw205fanv5"]
 
 [ext_resource type="Script" uid="uid://b3w4gu3se7vnv" path="res://Gameplay/Pickups/drunkness_pickup.gd" id="1_ecdgq"]
+[ext_resource type="Script" uid="uid://dov4lhtuyrycf" path="res://Gameplay/Pickups/pick_point.gd" id="2_ecdgq"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_px5wb"]
 height = 0.30083007
@@ -55,10 +56,12 @@ text = "Press Space to pickup
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="PickPoint" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15536867, 0)
 monitoring = false
+script = ExtResource("2_ecdgq")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PickPoint"]
 shape = SubResource("SphereShape3D_fwtl3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
