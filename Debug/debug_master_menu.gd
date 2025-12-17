@@ -11,10 +11,15 @@ var selected_level_index: int
 var selected_level_name: String = "None Selected"
 var dialogue_menu_open: bool = false
 var dialogue_text: Array[String] = ["Howdy partner lets get wasted"]
+var fail_state: Array[bool]
+
 
 func _process(_delta: float) -> void:
 	if displayed:
 		ImGui.Begin("Debug Menu")
+		if ImGui.Button("Toggle Fail State"):
+			UserSettings.fail_state = !UserSettings.fail_state
+		
 		if ImGui.Button("Player Menu"):
 			player_info_open = !player_info_open
 		if player_info_open:
