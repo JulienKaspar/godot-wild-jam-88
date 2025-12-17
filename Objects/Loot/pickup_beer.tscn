@@ -25,7 +25,7 @@ height = 0.3
 
 [node name="DrunknessPickup" type="RigidBody3D"]
 collision_layer = 32
-collision_mask = 63
+collision_mask = 55
 script = ExtResource("1_ecdgq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

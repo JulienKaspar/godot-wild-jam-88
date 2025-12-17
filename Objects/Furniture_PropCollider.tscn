@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bcsr7n75rjc4x"]
 
 [node name="Furniture_PropCollider" type="RigidBody3D"]
-collision_layer = 8
+collision_layer = 4
 collision_mask = 44
 freeze = true
 freeze_mode = 1

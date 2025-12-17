@@ -4,29 +4,29 @@
 [ext_resource type="PackedScene" uid="uid://d0bpm6wis2oi4" path="res://Assets/Furniture/shelf2.gltf" id="2_hgmj5"]
 [ext_resource type="PackedScene" uid="uid://bcsr7n75rjc4x" path="res://Objects/Furniture_PropCollider.tscn" id="3_nln22"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_hgmj5"]
-size = Vector3(1.975, 0.8869629, 0.41033936)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_c46ya"]
 size = Vector3(1.975, 2.9770508, 0.6563721)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hgmj5"]
+size = Vector3(1.975, 0.8772583, 0.41033936)
 
 [node name="Shelf2" type="StaticBody3D"]
 script = ExtResource("1_hgmj5")
 wobble_angle = 8.0
 metadata/_custom_type_script = "uid://d1ns4f8nsxmyd"
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4885254, 0.30230713)
+shape = SubResource("BoxShape3D_c46ya")
+
 [node name="shelf2" parent="." instance=ExtResource("2_hgmj5")]
 
 [node name="Furniture_PropCollider" parent="." instance=ExtResource("3_nln22")]
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Furniture_PropCollider"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.522583, 0.30230713)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5435791, 0.30230713)
 shape = SubResource("BoxShape3D_hgmj5")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Furniture_PropCollider"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9893332, 0.17929077)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9806967, 0.17929077)
 shape = SubResource("BoxShape3D_hgmj5")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4885254, 0.30230713)
-shape = SubResource("BoxShape3D_c46ya")
