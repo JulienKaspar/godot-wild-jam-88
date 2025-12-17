@@ -24,7 +24,8 @@ func _process(_delta):
 		self.play()
 		music_on = true
 	
-	voice_active = get_player_distance() < voice_trigger_radius
+	if get_player_distance() < voice_trigger_radius and !voice_active:
+		voice_active = true
 	
 	if music_on:
 		intro_done = _check_intro_done()
@@ -34,7 +35,7 @@ func _process(_delta):
 	
 	if voice_active:
 		var distance_squared : float = get_player_distance() * get_player_distance()
-		var attenuation_volume : float = clampf(remap(distance_squared, 50.0, 5.0, -60, -3.0), -60, -3.0)
+		var attenuation_volume : float = clampf(remap(distance_squared, 100.0, 5.0, -9.0, 0.0), -9.0, 0.0)
 		voice_clip.set_sync_stream_volume(1, attenuation_volume)
 	elif music_on:
 		voice_clip.set_sync_stream_volume(1, AudioManager._VOLUME_DB_OFF)
