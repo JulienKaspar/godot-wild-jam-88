@@ -7,14 +7,14 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_uixye"]
 size = Vector3(1.7751465, 1, 2.9658203)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_4shsl"]
+size = Vector3(1.7751465, 1, 1.8283691)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_e1ufy"]
 size = Vector3(1.9423828, 5.0369873, 1.8283691)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3cf7q"]
 size = Vector3(1.9423828, 4.1903687, 1.8283691)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_4shsl"]
-size = Vector3(1.7751465, 1, 1.8283691)
 
 [node name="Stairs_thin" type="StaticBody3D" node_paths=PackedStringArray("stair_asset")]
 collision_layer = 129
@@ -28,16 +28,6 @@ metadata/_custom_type_script = "uid://b6j4xt2oyttve"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.90348506, -0.4286199, 0, 0.4286199, 0.90348506, 0, 0.705218, 0.78774136)
 shape = SubResource("BoxShape3D_uixye")
-debug_color = Color(0, 0.5950001, 0.7, 1)
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, -0.71129555, -1.2742009)
-shape = SubResource("BoxShape3D_e1ufy")
-debug_color = Color(0, 0.5950001, 0.7, 1)
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, -1.1104143, 0.36095893)
-shape = SubResource("BoxShape3D_3cf7q")
 debug_color = Color(0, 0.5950001, 0.7, 1)
 
 [node name="IKCollider" type="StaticBody3D" parent="."]
@@ -61,4 +51,16 @@ debug_color = Color(0, 0.5950001, 0.7, 1)
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="IKCollider"]
 transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0.4990958, 0.39518)
 shape = SubResource("BoxShape3D_4shsl")
+debug_color = Color(0, 0.5950001, 0.7, 1)
+
+[node name="regular_floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="regular_floor"]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, -0.71129555, -1.2742009)
+shape = SubResource("BoxShape3D_e1ufy")
+debug_color = Color(0, 0.5950001, 0.7, 1)
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="regular_floor"]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, -1.1104143, 0.36095893)
+shape = SubResource("BoxShape3D_3cf7q")
 debug_color = Color(0, 0.5950001, 0.7, 1)
