@@ -50,7 +50,7 @@ func _physics_process(delta: float) -> void:
 			ItemsinReachRight = true
 
 func _on_grab_area_left_area_entered(area: Area3D) -> void:
-	if area.get_parent().get_script().get_global_name() == "DrunknessPickup":
+	if area is PickPoint:
 		if not area.get_parent() in inRangeLeft:
 			inRangeLeft.append(area.get_parent())
 
@@ -58,7 +58,7 @@ func _on_grab_area_left_area_exited(area: Area3D) -> void:
 	inRangeLeft.erase(area.get_parent())
 
 func _on_grab_area_right_area_entered(area: Area3D) -> void:
-	if area.get_parent().get_script().get_global_name() == "DrunknessPickup":
+	if area is PickPoint:
 		if not area.get_parent() in inRangeRight:
 			inRangeRight.append(area.get_parent())
 			

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bo1p1dvgr50f4"]
+[gd_scene load_steps=7 format=3 uid="uid://bo1p1dvgr50f4"]
 
 [ext_resource type="Script" uid="uid://b3w4gu3se7vnv" path="res://Gameplay/Pickups/drunkness_pickup.gd" id="1_4iwu5"]
 [ext_resource type="PackedScene" uid="uid://dah5q3vw2jba7" path="res://Assets/Furniture/banana1.gltf" id="2_0boxb"]
+[ext_resource type="Script" uid="uid://dov4lhtuyrycf" path="res://Gameplay/Pickups/pick_point.gd" id="3_0boxb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fwtl3"]
 size = Vector3(0.21875, 0.15429688, 0.16601563)
@@ -49,6 +50,7 @@ vertical_alignment = 1
 [node name="PickPoint" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.017198872, 0.058005735, 0)
 monitoring = false
+script = ExtResource("3_0boxb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PickPoint"]
 shape = SubResource("SphereShape3D_gbqmf")
