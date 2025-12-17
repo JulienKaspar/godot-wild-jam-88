@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dmxe2qlk68jn"]
+
+[ext_resource type="Shader" uid="uid://rcua0j7iin3o" path="res://Shaders/floral_wall.gdshader" id="1_f8q65"]
+[ext_resource type="Texture2D" uid="uid://c0468bs5t4mxm" path="res://Assets/Maps/Walls/reddish_floral_wallpaper/atlas.png" id="2_545pc"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_f8q65")
+shader_parameter/albedo = Color(0.49803922, 0.49803922, 0.49803922, 0)
+shader_parameter/texture_albedo = ExtResource("2_545pc")
+shader_parameter/wall_height = 3.5
+shader_parameter/roughness = 0.0
+shader_parameter/uv_offset = Vector2(0, 0.5)
+shader_parameter/repeat = Vector2i(3, 1)
+shader_parameter/random_seed = 100
+shader_parameter/hue_shift = 0.0
