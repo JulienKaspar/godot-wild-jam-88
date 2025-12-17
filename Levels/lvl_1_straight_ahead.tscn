@@ -1,5 +1,6 @@
-[gd_scene load_steps=23 format=3 uid="uid://7hstokhqtk0i"]
+[gd_scene load_steps=24 format=3 uid="uid://7hstokhqtk0i"]
 
+[ext_resource type="PackedScene" uid="uid://d24k31i312cc1" path="res://Objects/Architypes/Props/lamp_standing1.tscn" id="1_buw6o"]
 [ext_resource type="Material" uid="uid://hg5ppfcn0qd7" path="res://Levels/Gyms/Floor/floor1_v2.tres" id="1_y345g"]
 [ext_resource type="Material" uid="uid://dxyb0pq2y84ds" path="res://Levels/Gyms/Wall/reddish_floral_wall_v2.tres" id="2_1arg0"]
 [ext_resource type="Shader" uid="uid://rcua0j7iin3o" path="res://Shaders/floral_wall.gdshader" id="3_lj75c"]
@@ -13,19 +14,19 @@
 [ext_resource type="PackedScene" uid="uid://d3unw205fanv5" path="res://Objects/Loot/pickup_beer.tscn" id="11_2icu1"]
 [ext_resource type="PackedScene" uid="uid://d2fq258dik5oo" path="res://Objects/Architypes/Furniture/table1.tscn" id="12_gh4oo"]
 
-[sub_resource type="Environment" id="Environment_vu8ij"]
+[sub_resource type="Environment" id="Environment_gh4oo"]
 background_mode = 1
 ambient_light_source = 2
 ambient_light_color = Color(0.4074739, 0.20157146, 1, 1)
-ambient_light_energy = 1.82
+ambient_light_energy = 2.45
 tonemap_mode = 4
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gh4oo"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_buw6o"]
 shading_mode = 0
 diffuse_mode = 3
 albedo_color = Color(0, 0, 0, 1)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_buw6o"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_xxf8q"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_wj60t"]
 
@@ -78,22 +79,29 @@ albedo_color = Color(0.5, 0, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_v87f2"]
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D2" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_vu8ij")
+environment = SubResource("Environment_gh4oo")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(0.9598751, 0.27247727, 0.06630254, -0.11193706, 0.15550461, 0.9814726, 0.25711858, -0.94951284, 0.1797653, 3.2260087, 0.9052739, -3.7791426)
-light_color = Color(1.893075, 1.723376, 0.6203327, 1)
-light_energy = 1.405
+light_color = Color(1.8933368, 1.1924895, 0.6190691, 1)
+light_energy = 0.46
 light_indirect_energy = 1.804
 shadow_enabled = true
+shadow_opacity = 0.5
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WorldEnvironment"]
 transform = Transform3D(40.108185, 0, 0, 0, 1, 0, 0, 0, 27.660757, -0.00051403046, -0.6513219, -0.0024392605)
-material_override = SubResource("StandardMaterial3D_gh4oo")
-mesh = SubResource("PlaneMesh_buw6o")
+material_override = SubResource("StandardMaterial3D_buw6o")
+mesh = SubResource("PlaneMesh_xxf8q")
+
+[node name="LampStanding1" parent="WorldEnvironment" instance=ExtResource("1_buw6o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.767177, 0.053318262, -2.4268599)
+
+[node name="LampStanding2" parent="WorldEnvironment" instance=ExtResource("1_buw6o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6811495, 0.053318262, -1.5026798)
 
 [node name="Layout" type="Node3D" parent="."]
 
