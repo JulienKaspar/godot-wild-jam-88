@@ -6,6 +6,7 @@ var max_drunkness: float = 10
 var starting_drunkness: float = 5
 var drunkness_decay_per_second: float = 0.1
 var threshold: float = 0.1
+var is_resetting: bool = false
 
 signal on_drunkness_changed(new_value: float)
 
@@ -15,8 +16,8 @@ signal on_too_drunk()
 
 var current_drunkness: float: 
 	set(value):
-		var drunkness_delta = current_drunkness - value
-		if drunkness_delta >= threshold:
+		var drunkness_delta = abs(current_drunkness - value)
+		if drunkness_delta >= threshold and !is_resetting:
 			@warning_ignore("standalone_ternary")
 			drunkness_increased() if current_drunkness < value else drunkness_decreased()
 		
@@ -35,13 +36,15 @@ func set_drunkness(_new_value: float) -> void:
 		return
 	
 func drunkness_increased() -> void:
-	pass
+	AudioManager.ui_sounds.play_sound(AudioManager.ui_sounds.drunkness_up)
 	
 func drunkness_decreased() -> void:
-	pass
+	AudioManager.ui_sounds.play_sound(AudioManager.ui_sounds.drunkness_down)
 	
 func _init() -> void:
 	reset_drunkness()
 
 func reset_drunkness() -> void:
+	is_resetting = true
 	current_drunkness = starting_drunkness
+	is_resetting = false
