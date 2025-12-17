@@ -10,3 +10,4 @@ var sfx_volume: float = 1
 var disorienting_sounds_enabled: bool = true
 var strobe_lights: bool = true
 var fail_state: bool = false
+var burp_nastiness: float = 1
