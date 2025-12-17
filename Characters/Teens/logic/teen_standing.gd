@@ -25,6 +25,7 @@ enum TeenVariation {Type1, Type2, Type3}
 
 # References
 @export var animation_player : AnimationPlayer
+@export var player_detector : PushyTeen
 
 var previous_animation := "None"
 @export_enum(
@@ -50,6 +51,10 @@ var previous_animation := "None"
 @export var wobble: bool
 @export var has_loot: bool
 @export var loot_type: LootTypes
+@export var pushy : bool = true
+
+var currently_angry := false
+var angry_time := 0.0
 
 func updateWobble(_delta) -> void:
 	pass
@@ -59,6 +64,9 @@ func updateWobble(_delta) -> void:
 func _ready() -> void:
 	$StaticBody3D/TeenBodyCollider.freeze = !wobble
 	#$"CH-teen1/AnimationPlayer".current_animation(CharacterAnims.keys()[animation])
+	
+	player_detector.space_was_invaded.connect(on_pushed)
+	
 	pass # Replace with function body.
 
 
@@ -72,4 +80,14 @@ func _process(delta: float) -> void:
 	if wobble:
 		updateWobble(delta)
 	
+	if currently_angry:
+		angry_time -= delta
+		if angry_time <= 0.0:
+			animation_player.play(animation)
+
+
+func on_pushed() -> void:
 	
+	animation_player.play("SuprizedMad")
+	currently_angry = true
+	angry_time = 3.0
