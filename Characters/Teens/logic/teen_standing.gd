@@ -88,6 +88,9 @@ func _process(delta: float) -> void:
 
 func on_pushed() -> void:
 	
+	if not pushy:
+		return
+	
 	animation_player.play("SuprizedMad")
 	currently_angry = true
 	angry_time = 3.0
