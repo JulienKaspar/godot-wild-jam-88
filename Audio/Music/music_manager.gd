@@ -16,8 +16,14 @@ func _ready():
 		AudioManager.music_manager = self
 		
 	_connect_signals()
+	_setup_random_chord_changes()
 
-	#_setup_random_chord_changes()
+func _connect_signals():
+	switch_music.connect(switch_music_to_theme)
+	GameStateManager.on_paused.connect(_set_filter.bind(true))
+	GameStateManager.on_unpaused.connect(_set_filter.bind(false))
+	GameStateManager.player_drunkness.on_drunkness_changed.connect(_update_drunk_streams)
+	GameStateManager.on_level_loaded.connect(_on_level_change)
 	
 func _setup_random_chord_changes():
 	var chord_change_timer : Timer = Timer.new()
@@ -33,14 +39,6 @@ func _change_theme_randomly() -> void:
 	while(_target_theme == current_theme): # skip if same
 		_target_theme = randi_range(0, MUSIC_THEMES.size() - 1)
 	switch_music_to_theme(_target_theme)
-	
-
-func _connect_signals():
-	switch_music.connect(switch_music_to_theme)
-	GameStateManager.on_paused.connect(_set_filter.bind(true))
-	GameStateManager.on_unpaused.connect(_set_filter.bind(false))
-	GameStateManager.player_drunkness.on_drunkness_changed.connect(_update_drunk_streams)
-	GameStateManager.on_level_loaded.connect(_on_level_change)
 
 
 const _LEVEL_VOLUME_OFFSET_DB : float = -15.0
