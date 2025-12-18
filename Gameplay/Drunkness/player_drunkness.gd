@@ -18,8 +18,10 @@ var current_drunkness: float:
 	set(value):
 		var drunkness_delta = abs(current_drunkness - value)
 		if drunkness_delta >= threshold and !is_resetting:
-			@warning_ignore("standalone_ternary")
-			drunkness_increased() if current_drunkness < value else drunkness_decreased()
+			# skip drunkness reset when out of bounds
+			if current_drunkness > min_drunkness and current_drunkness < max_drunkness:
+				@warning_ignore("standalone_ternary")
+				drunkness_increased() if current_drunkness < value else drunkness_decreased()
 		
 		current_drunkness = value
 		set_drunkness(value)
