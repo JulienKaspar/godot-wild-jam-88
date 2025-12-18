@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=6 format=3 uid="uid://11esbsnl8qm1"]
+[gd_resource type="AudioBusLayout" load_steps=7 format=3 uid="uid://11esbsnl8qm1"]
 
 [sub_resource type="AudioEffectStereoEnhance" id="AudioEffectStereoEnhance_j3pel"]
 resource_name = "StereoEnhance"
@@ -38,6 +38,12 @@ feedback_active = true
 feedback_delay_ms = 300.0
 feedback_level_db = -60.0
 
+[sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_j3pel"]
+resource_name = "LowPassFilter"
+cutoff_hz = 200.0
+resonance = 0.3
+db = 1
+
 [sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_j3pel"]
 resource_name = "Limiter"
 soft_clip_db = 0.0
@@ -57,8 +63,10 @@ bus/1/effect/2/effect = SubResource("AudioEffectPhaser_j3pel")
 bus/1/effect/2/enabled = true
 bus/1/effect/3/effect = SubResource("AudioEffectDelay_j3pel")
 bus/1/effect/3/enabled = true
-bus/1/effect/4/effect = SubResource("AudioEffectLimiter_j3pel")
+bus/1/effect/4/effect = SubResource("AudioEffectLowPassFilter_j3pel")
 bus/1/effect/4/enabled = true
+bus/1/effect/5/effect = SubResource("AudioEffectLimiter_j3pel")
+bus/1/effect/5/enabled = true
 bus/2/name = &"SFX"
 bus/2/solo = false
 bus/2/mute = false
