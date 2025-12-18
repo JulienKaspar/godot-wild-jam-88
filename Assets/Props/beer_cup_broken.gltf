@@ -6,7 +6,7 @@
 	"scene":0,
 	"scenes":[
 		{
-			"name":"cup",
+			"name":"cup_broken",
 			"nodes":[
 				0
 			]
@@ -15,7 +15,12 @@
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"Cup"
+			"name":"Cup.001",
+			"scale":[
+				1.235623836517334,
+				1,
+				1
+			]
 		}
 	],
 	"materials":[
@@ -30,7 +35,7 @@
 	],
 	"meshes":[
 		{
-			"name":"Cylinder.019",
+			"name":"Cylinder.003",
 			"primitives":[
 				{
 					"attributes":{
@@ -49,80 +54,80 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":48,
+			"count":71,
 			"max":[
-				0.09746520966291428,
-				0.30114296078681946,
-				0.11254313588142395
+				0.12900438904762268,
+				0.18238095939159393,
+				0.13887925446033478
 			],
 			"min":[
-				-0.09746520966291428,
-				0.0026120974216610193,
-				-0.11254313588142395
+				-0.17777563631534576,
+				-0.002255562227219343,
+				-0.12989822030067444
 			],
 			"type":"VEC3"
 		},
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":48,
+			"count":71,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":48,
+			"count":71,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":3,
 			"componentType":5126,
-			"count":48,
+			"count":71,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":4,
 			"componentType":5123,
-			"count":132,
+			"count":204,
 			"type":"SCALAR"
 		}
 	],
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":576,
+			"byteLength":852,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":576,
-			"byteOffset":576,
+			"byteLength":852,
+			"byteOffset":852,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":384,
-			"byteOffset":1152,
+			"byteLength":568,
+			"byteOffset":1704,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":576,
-			"byteOffset":1536,
+			"byteLength":852,
+			"byteOffset":2272,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":264,
-			"byteOffset":2112,
+			"byteLength":408,
+			"byteOffset":3124,
 			"target":34963
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":2376,
-			"uri":"beer_cup.bin"
+			"byteLength":3532,
+			"uri":"beer_cup_broken.bin"
 		}
 	]
 }

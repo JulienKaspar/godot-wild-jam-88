@@ -6,7 +6,7 @@
 	"scene":0,
 	"scenes":[
 		{
-			"name":"cup",
+			"name":"can_broken",
 			"nodes":[
 				0
 			]
@@ -15,7 +15,7 @@
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"Cup"
+			"name":"Can.001"
 		}
 	],
 	"materials":[
@@ -30,7 +30,7 @@
 	],
 	"meshes":[
 		{
-			"name":"Cylinder.019",
+			"name":"Cylinder.004",
 			"primitives":[
 				{
 					"attributes":{
@@ -49,80 +49,80 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":48,
+			"count":114,
 			"max":[
-				0.09746520966291428,
-				0.30114296078681946,
-				0.11254313588142395
+				0.11811965703964233,
+				0.16701199114322662,
+				0.11317789554595947
 			],
 			"min":[
-				-0.09746520966291428,
-				0.0026120974216610193,
-				-0.11254313588142395
+				-0.10322871804237366,
+				0.0007899671909399331,
+				-0.11855335533618927
 			],
 			"type":"VEC3"
 		},
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":48,
+			"count":114,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":48,
+			"count":114,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":3,
 			"componentType":5126,
-			"count":48,
+			"count":114,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":4,
 			"componentType":5123,
-			"count":132,
+			"count":282,
 			"type":"SCALAR"
 		}
 	],
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":576,
+			"byteLength":1368,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":576,
-			"byteOffset":576,
+			"byteLength":1368,
+			"byteOffset":1368,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":384,
-			"byteOffset":1152,
+			"byteLength":912,
+			"byteOffset":2736,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":576,
-			"byteOffset":1536,
+			"byteLength":1368,
+			"byteOffset":3648,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":264,
-			"byteOffset":2112,
+			"byteLength":564,
+			"byteOffset":5016,
 			"target":34963
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":2376,
-			"uri":"beer_cup.bin"
+			"byteLength":5580,
+			"uri":"beer_can_broken.bin"
 		}
 	]
 }

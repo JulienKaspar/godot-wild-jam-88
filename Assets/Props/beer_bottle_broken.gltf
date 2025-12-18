@@ -6,7 +6,7 @@
 	"scene":0,
 	"scenes":[
 		{
-			"name":"cup",
+			"name":"bottle_broken",
 			"nodes":[
 				0
 			]
@@ -15,7 +15,7 @@
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"Cup"
+			"name":"Beer.001"
 		}
 	],
 	"materials":[
@@ -30,7 +30,7 @@
 	],
 	"meshes":[
 		{
-			"name":"Cylinder.019",
+			"name":"Cylinder.005",
 			"primitives":[
 				{
 					"attributes":{
@@ -49,80 +49,80 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":48,
+			"count":81,
 			"max":[
-				0.09746520966291428,
-				0.30114296078681946,
-				0.11254313588142395
+				0.16075965762138367,
+				0.16547341644763947,
+				0.09114477783441544
 			],
 			"min":[
-				-0.09746520966291428,
-				0.0026120974216610193,
-				-0.11254313588142395
+				-0.16281534731388092,
+				-0.002497543580830097,
+				-0.09114482253789902
 			],
 			"type":"VEC3"
 		},
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":48,
+			"count":81,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":48,
+			"count":81,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":3,
 			"componentType":5126,
-			"count":48,
+			"count":81,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":4,
 			"componentType":5123,
-			"count":132,
+			"count":318,
 			"type":"SCALAR"
 		}
 	],
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":576,
+			"byteLength":972,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":576,
-			"byteOffset":576,
+			"byteLength":972,
+			"byteOffset":972,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":384,
-			"byteOffset":1152,
+			"byteLength":648,
+			"byteOffset":1944,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":576,
-			"byteOffset":1536,
+			"byteLength":972,
+			"byteOffset":2592,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":264,
-			"byteOffset":2112,
+			"byteLength":636,
+			"byteOffset":3564,
 			"target":34963
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":2376,
-			"uri":"beer_cup.bin"
+			"byteLength":4200,
+			"uri":"beer_bottle_broken.bin"
 		}
 	]
 }
