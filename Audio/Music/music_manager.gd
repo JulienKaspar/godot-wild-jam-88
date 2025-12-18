@@ -94,7 +94,6 @@ const MUSIC_BANK : Dictionary[MUSIC_THEMES, String] = {
 func start_music():
 	music_player.play()
 	AudioManager.fade_audio_in(music_player)
-	_update_drunk_streams()
 
 func stop_music():
 	music_player.stop()
@@ -109,7 +108,6 @@ func switch_music_to_theme(theme : MUSIC_THEMES):
 	var _playback : AudioStreamPlaybackInteractive = music_player.get_stream_playback()
 	_playback.switch_to_clip_by_name(MUSIC_BANK[theme])
 	current_theme = theme
-	_update_drunk_streams()
 #endregion
 
 
@@ -123,38 +121,33 @@ enum DRUNKNESS_STREAMS {
 }
 # Drunkness cutoff value for music effect triggers
 const DRUNK_THRESHOLD_LOW : float = 0.1
-const DRUNK_THRESHOLD_MED : float = 0.35
-const DRUNK_THRESHOLD_HIGH : float = 0.75
-
-## TODO: replace class var with global drunkness value or signal
-# Intensity value used for drunkness effect calculations
-var drunkness_intensity: float:
-	set(value):
-		drunkness_intensity = value
-		if music_player.playing:
-			_update_drunk_streams()
-
-# Func for debug slider call
-func _set_drunkness(value : float):
-	drunkness_intensity = value
+const DRUNK_THRESHOLD_MED : float = 0.3
+const DRUNK_THRESHOLD_HIGH : float = 0.7
 
 # All drunkness audio processing
-func _update_drunk_streams():
+func _update_drunk_streams(drunk_value):
+	if !music_player.playing: return
+	
+	drunk_value = AudioManager._remap_drunk_value(drunk_value)
+	
 	## TODO: CLAMP ALL REMAPS!
-	if drunkness_intensity >= DRUNK_THRESHOLD_LOW:
-		_get_current_theme_stream().set_sync_stream_volume(
-			DRUNKNESS_STREAMS.LOW, 
-			linear_to_db(remap(drunkness_intensity, DRUNK_THRESHOLD_LOW, 1.0, 0.0, 1.0)))
+	if drunk_value >= DRUNK_THRESHOLD_LOW:
+		var _volume : float = remap(drunk_value, DRUNK_THRESHOLD_LOW, 1.0, 0.0, 1.0)
+		_volume = clampf(_volume, 0.0, 1.0)
+		_volume = linear_to_db(_volume)
+		_get_current_theme_stream().set_sync_stream_volume(DRUNKNESS_STREAMS.LOW, _volume)
 		
-	if drunkness_intensity >= DRUNK_THRESHOLD_MED:
-		_get_current_theme_stream().set_sync_stream_volume(
-			DRUNKNESS_STREAMS.MED, 
-			linear_to_db(remap(drunkness_intensity, DRUNK_THRESHOLD_MED, 1.0, 0.0, 1.0)))
+	if drunk_value >= DRUNK_THRESHOLD_MED:
+		var _volume : float = remap(drunk_value, DRUNK_THRESHOLD_MED, 1.0, 0.0, 1.0)
+		_volume = clampf(_volume, 0.0, 1.0)
+		_volume = linear_to_db(_volume)
+		_get_current_theme_stream().set_sync_stream_volume(DRUNKNESS_STREAMS.MED, _volume)
 			
-	if drunkness_intensity >= DRUNK_THRESHOLD_HIGH:
-		_get_current_theme_stream().set_sync_stream_volume(
-			DRUNKNESS_STREAMS.HIGH, 
-			linear_to_db(remap(drunkness_intensity, DRUNK_THRESHOLD_HIGH, 1.0, 0.0, 1.0)))
+	if drunk_value >= DRUNK_THRESHOLD_HIGH:
+		var _volume : float = remap(drunk_value, DRUNK_THRESHOLD_HIGH, 1.0, 0.0, 1.0)
+		_volume = clampf(_volume, 0.0, 1.0)
+		_volume = linear_to_db(_volume)
+		_get_current_theme_stream().set_sync_stream_volume(DRUNKNESS_STREAMS.HIGH, _volume)
 
 func _get_current_theme_stream() -> AudioStreamSynchronized:
 	var _music_playback : AudioStreamPlaybackInteractive = music_player.get_stream_playback()
