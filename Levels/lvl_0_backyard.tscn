@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=3 uid="uid://b6vbg26wkrdh3"]
 
-[ext_resource type="Material" path="res://Levels/Gyms/Floor/floor1_v2.tres" id="1_mr8n6"]
+[ext_resource type="Material" uid="uid://hg5ppfcn0qd7" path="res://Levels/Gyms/Floor/floor1_v2.tres" id="1_mr8n6"]
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="2_xweag"]
 [ext_resource type="Script" uid="uid://42mf003bq52u" path="res://Gameplay/level_teleporter.gd" id="3_5g7ny"]
 [ext_resource type="PackedScene" uid="uid://cyrgcx64104qc" path="res://Objects/Architypes/Props/garden_chair.tscn" id="3_8wfei"]
@@ -202,10 +202,10 @@ transform = Transform3D(0.8187414, 0, 0.5741625, 0, 1, 0, -0.5741625, 0, 0.81874
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3944544, 0.98681664, -10.914966)
 
 [node name="DrunknessPickup2" parent="Furniture" instance=ExtResource("9_22u0x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4912472, 1.0309347, -19.725174)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2171152, 1.0309347, -19.511196)
 
 [node name="DrunknessPickup3" parent="Furniture" instance=ExtResource("9_22u0x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.884732, 1.0309347, -19.292076)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5786028, 1.0309346, -19.010496)
 
 [node name="DrunknessPickup4" parent="Furniture" instance=ExtResource("9_22u0x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2515786, 1.0309347, -19.223284)
@@ -213,13 +213,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2515786, 1.0309347, -19.223
 [node name="drinks" type="Node3D" parent="."]
 
 [node name="DrunknessPickup" parent="drinks" instance=ExtResource("9_22u0x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9793534, 1.0392127, -6.2840714)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7756276, 1.0392127, -6.199351)
 
 [node name="DrunknessPickup2" parent="drinks" instance=ExtResource("9_22u0x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28173506, 0.9868157, -3.3702765)
 
 [node name="DrunknessPickup3" parent="drinks" instance=ExtResource("9_22u0x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.192409, 1.0392132, -7.6419926)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1176803, 1.0392132, -7.515481)
 
 [node name="greyboxing" type="Node3D" parent="."]
 
