@@ -53,6 +53,9 @@ var previous_animation := "None"
 @export var loot_type: LootTypes
 @export var pushy : bool = true
 
+@onready var speech_bubble_animation: SpeechBubbleAnimation = %SpeechBubbleAnimation
+
+
 var currently_angry := false
 var angry_time := 0.0
 
@@ -84,13 +87,15 @@ func _process(delta: float) -> void:
 		angry_time -= delta
 		if angry_time <= 0.0:
 			animation_player.play(animation)
+			speech_bubble_animation.hide()
 
 
 func on_pushed() -> void:
 	
 	if not pushy:
 		return
-	
+	speech_bubble_animation.show()
+	speech_bubble_animation.wobble_speech()
 	animation_player.play("SuprizedMad")
 	currently_angry = true
 	angry_time = 3.0
