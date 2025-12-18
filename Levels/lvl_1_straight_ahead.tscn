@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dpy3h6kf53s5j"]
+[gd_scene load_steps=34 format=3 uid="uid://dpy3h6kf53s5j"]
 
 [ext_resource type="PackedScene" uid="uid://d24k31i312cc1" path="res://Objects/Architypes/Props/lamp_standing1.tscn" id="1_buw6o"]
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="1_rqsde"]
@@ -15,12 +15,13 @@
 [ext_resource type="PackedScene" uid="uid://c5gvg6210vgku" path="res://Objects/Architypes/LivingRoom/door.tscn" id="10_va1hs"]
 [ext_resource type="PackedScene" uid="uid://d3unw205fanv5" path="res://Objects/Loot/pickup_beer.tscn" id="11_2icu1"]
 [ext_resource type="PackedScene" uid="uid://d2fq258dik5oo" path="res://Objects/Architypes/Furniture/table1.tscn" id="12_gh4oo"]
-[ext_resource type="PackedScene" uid="uid://cold18jtw7ak0" path="res://Objects/Architypes/TrippingHazards/slippery_test.tscn" id="16_y345g"]
-[ext_resource type="PackedScene" uid="uid://daqdt75cvmkiy" path="res://Objects/Architypes/TrippingHazards/tripping_test.tscn" id="17_1arg0"]
+[ext_resource type="PackedScene" uid="uid://cold18jtw7ak0" path="res://Objects/Architypes/TrippingHazards/slippery_banana_peel.tscn" id="16_y345g"]
+[ext_resource type="PackedScene" uid="uid://daqdt75cvmkiy" path="res://Objects/Architypes/TrippingHazards/tripping_lamp.tscn" id="17_1arg0"]
 [ext_resource type="PackedScene" uid="uid://d62n5s8htyn7" path="res://Characters/Teens/logic/TeenStanding.tscn" id="18_mdsrj"]
 [ext_resource type="PackedScene" uid="uid://c0d87wbdbi2al" path="res://Objects/Architypes/Furniture/couch1.tscn" id="20_fs7fc"]
 [ext_resource type="PackedScene" uid="uid://3kn1j5376oof" path="res://Objects/Architypes/Furniture/table2.tscn" id="22_ahqed"]
 [ext_resource type="PackedScene" uid="uid://dci81bvxxl4nx" path="res://Objects/Architypes/LivingRoom/stairs_thin.tscn" id="22_ijmkr"]
+[ext_resource type="PackedScene" uid="uid://d3padysgagsbx" path="res://Objects/Architypes/TrippingHazards/tripping_rug.tscn" id="22_ra8ms"]
 
 [sub_resource type="Environment" id="Environment_gh4oo"]
 background_mode = 1
@@ -409,7 +410,7 @@ transform = Transform3D(0.3179005, 0, -0.9481242, 0, 1, 0, 0.9481242, 0, 0.31790
 transform = Transform3D(-0.7125284, 0, 0.7016434, 0, 1, 0, -0.7016434, 0, -0.7125284, 19.310953, 0.97987604, -11.545573)
 
 [node name="TeenStanding" parent="Teens" instance=ExtResource("18_mdsrj")]
-transform = Transform3D(-0.4535238, 0, 0.8912442, 0, 1, 0, -0.8912442, 0, -0.4535238, 9.935258, 0, -2.0644069)
+transform = Transform3D(-0.2718099, 0, 0.962351, 0, 1, 0, -0.962351, 0, -0.2718099, 8.99274, -4.7683716e-07, -0.9728707)
 animation = "Worm"
 pushy = false
 
@@ -491,20 +492,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.173461, 0, -7.9423103)
 [node name="SlipperyTest6" parent="Hazards" instance=ExtResource("16_y345g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.665897, -4.7683716e-07, -8.917148)
 
-[node name="SlipperyTest7" parent="Hazards" instance=ExtResource("17_1arg0")]
-transform = Transform3D(0.7549385, 0, -0.6557956, 0, 1, 0, 0.6557956, 0, 0.7549385, 4.3391356, 0.0039168554, -0.9598954)
-
-[node name="SlipperyTest16" parent="Hazards" instance=ExtResource("17_1arg0")]
-transform = Transform3D(0.77914107, 0, 0.6268487, 0, 1, 0, -0.6268487, 0, 0.77914107, 10.120149, 0.0039168554, -1.6472398)
-
-[node name="SlipperyTest17" parent="Hazards" instance=ExtResource("17_1arg0")]
-transform = Transform3D(-0.8110739, 0, -0.5849436, 0, 1, 0, 0.5849436, 0, -0.8110739, 11.980602, 1.0690602, -12.329615)
-
-[node name="SlipperyTest18" parent="Hazards" instance=ExtResource("17_1arg0")]
-transform = Transform3D(0.9965437, 0, 0.083069235, 0, 1, 0, -0.083069235, 0, 0.9965437, 13.265414, 1.0690602, -14.637437)
-
 [node name="SlipperyTest19" parent="Hazards" instance=ExtResource("17_1arg0")]
-transform = Transform3D(0.30271915, 0, 0.9530798, 0, 1, 0, -0.9530798, 0, 0.30271915, 15.910494, 1.0690607, -16.082165)
+transform = Transform3D(0.65349984, 0, 0.7569267, 0, 1, 0, -0.7569267, 0, 0.65349984, 13.47092, 1.0690607, -15.209763)
 
 [node name="SlipperyTest20" parent="Hazards" instance=ExtResource("17_1arg0")]
 transform = Transform3D(-0.74622, 0, -0.6656995, 0, 1, 0, 0.6656995, 0, -0.74622, 16.7577, 1.0690612, -16.899485)
@@ -541,3 +530,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.438581, 0.9819747, -16.952
 
 [node name="SlipperyTest22" parent="Hazards" instance=ExtResource("16_y345g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.152607, 0.9819747, -16.568226)
+
+[node name="RugHazard" parent="." instance=ExtResource("22_ra8ms")]
+transform = Transform3D(0.3188601, 0, -0.9478019, 0, 1, 0, 0.9478019, 0, 0.3188601, 7.855561, -4.7683716e-07, -0.4707632)
+
+[node name="RugHazard2" parent="." instance=ExtResource("22_ra8ms")]
+transform = Transform3D(0.22415173, 0, 0.97455436, 0, 1, 0, -0.97455436, 0, 0.22415173, 2.7229588, -4.7683716e-07, -0.4377315)
+
+[node name="RugHazard3" parent="." instance=ExtResource("22_ra8ms")]
+transform = Transform3D(-0.08668633, 0, 0.9962357, 0, 1, 0, -0.9962357, 0, -0.08668633, 12.773187, 0.97987604, -11.763644)
+
+[node name="RugHazard5" parent="." instance=ExtResource("22_ra8ms")]
+transform = Transform3D(0.58023393, 0, -0.81444985, 0, 1, 0, 0.81444985, 0, 0.58023393, 16.454391, 0.97987604, -16.447937)

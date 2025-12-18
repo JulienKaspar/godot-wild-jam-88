@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://d24k31i312cc1" path="res://Objects/Architypes/Props/lamp_standing1.tscn" id="12_ayeew"]
 [ext_resource type="PackedScene" uid="uid://d62n5s8htyn7" path="res://Characters/Teens/logic/TeenStanding.tscn" id="12_nk7wp"]
 [ext_resource type="PackedScene" uid="uid://d2fq258dik5oo" path="res://Objects/Architypes/Furniture/table1.tscn" id="13_lkepb"]
-[ext_resource type="PackedScene" uid="uid://daqdt75cvmkiy" path="res://Objects/Architypes/TrippingHazards/tripping_test.tscn" id="13_ltcua"]
+[ext_resource type="PackedScene" uid="uid://daqdt75cvmkiy" path="res://Objects/Architypes/TrippingHazards/tripping_lamp.tscn" id="13_ltcua"]
 [ext_resource type="PackedScene" uid="uid://dyikas4t0pffl" path="res://Assets/Furniture/couch1.gltf" id="17_puju2"]
 [ext_resource type="PackedScene" uid="uid://c0d87wbdbi2al" path="res://Objects/Architypes/Furniture/couch1.tscn" id="18_r1olg"]
 [ext_resource type="PackedScene" uid="uid://bkm1uu37o63vq" path="res://Objects/Architypes/Furniture/shelf1.tscn" id="19_u88v8"]

@@ -24,9 +24,9 @@
 [ext_resource type="Texture2D" uid="uid://djpkkont0tpva" path="res://Assets/Maps/Walls/yellow_floral_wallpaper/atlas.png" id="18_xyml4"]
 [ext_resource type="PackedScene" uid="uid://cugf77dasisxg" path="res://Objects/Architypes/Furniture/couch3.tscn" id="21_17q8k"]
 [ext_resource type="PackedScene" uid="uid://0citmm75hpfv" path="res://Objects/Architypes/Furniture/couch4.tscn" id="25_ao1e1"]
-[ext_resource type="PackedScene" uid="uid://daqdt75cvmkiy" path="res://Objects/Architypes/TrippingHazards/tripping_test.tscn" id="25_gg35l"]
+[ext_resource type="PackedScene" uid="uid://daqdt75cvmkiy" path="res://Objects/Architypes/TrippingHazards/tripping_lamp.tscn" id="25_gg35l"]
 [ext_resource type="PackedScene" uid="uid://cs4digbuoekpl" path="res://Objects/Architypes/Furniture/shelf2.tscn" id="25_ojjv1"]
-[ext_resource type="PackedScene" uid="uid://cold18jtw7ak0" path="res://Objects/Architypes/TrippingHazards/slippery_test.tscn" id="26_ao1e1"]
+[ext_resource type="PackedScene" uid="uid://cold18jtw7ak0" path="res://Objects/Architypes/TrippingHazards/slippery_banana_peel.tscn" id="26_ao1e1"]
 [ext_resource type="PackedScene" uid="uid://bl2s2scly01yo" path="res://Objects/Architypes/Props/full_pizza.tscn" id="26_ojjv1"]
 
 [sub_resource type="Environment" id="Environment_vu8ij"]
