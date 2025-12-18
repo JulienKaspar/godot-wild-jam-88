@@ -6,6 +6,7 @@ class_name DialogueTriggerArea
 @export var angry_eyebrows: bool = false
 @export var display_multiple_times: bool = false
 const max_parent_check_depth: int = 3
+var displayed_already: bool = false
 
 func _get_configuration_warnings():
 	if get_collision_mask_value(2) == false:
@@ -16,6 +17,7 @@ func _ready() -> void:
 	
 func handle_body_entered(body: Node3D) -> void:
 	if !has_player_as_parent(body): return
+	if displayed_already && !display_multiple_times: return
 	if GameStateManager.current_state == GameStateManager.GameState.Paused:
 		await GameStateManager.on_unpaused
 		
