@@ -24,6 +24,7 @@ var DrunkCost_Roll = -0.6
 var DrunkCost_HitFurniture = -0.1
 var DrunkCost_StandUp = -2.0
 var PickupThreshold = 0.2
+var DrinkTime = 1.5
 
 #---------------- IK ----------------------------------------------------------
 
@@ -106,15 +107,13 @@ func checkFalling() -> void:
 	elif inMoveState != MoveStates.MOVING:
 		setMoveState(MoveStates.MOVING)
 
-func AttachItem(item: Object, hand) -> void:
+func AttachItem(item: Object, attachTo: Object, hand: Hands) -> void:
 	print(item)
-	if item.drunkness_increase:
-		GameStateManager.player_drunkness.current_drunkness += item.drunkness_increase
-		item.queue_free()
-	match hand:
-		Hands.LEFT: setHandLState(HandStates.DANGLY)
-		Hands.RIGHT: setHandRState(HandStates.DANGLY)
-	
+	if item is DrunknessPickup:
+		item.pickup(attachTo)
+		#GameStateManager.player_drunkness.current_drunkness += item.drunkness_increase
+		#item.queue_free()
+
 
 func _process(_delta: float) -> void:
 	# state machine
@@ -153,15 +152,15 @@ func _process(_delta: float) -> void:
 
 
 func _on_player_body_reached_target_left(item) -> void:
-	if item.get_script().get_global_name() == "DrunknessPickup":
-		setHandLState(HandStates.HOLD, item)
+	if item is DrunknessPickup:
+		setHandLState(HandStates.DRINKING, item)
 		holdingLeft = item
 	else:
 		setHandLState(HandStates.FIXED)
 
 func _on_player_body_reached_target_right(item) -> void:
-	if item.get_script().get_global_name() == "DrunknessPickup":
-		setHandRState(HandStates.HOLD, item)
+	if item is DrunknessPickup:
+		setHandRState(HandStates.DRINKING, item)
 		holdingRight = item
 	else:
 		setHandRState(HandStates.FIXED)
@@ -186,15 +185,23 @@ func _on_change_movement(state: Player.MoveStates) -> void:
 
 func _on_change_hand_left(state: Player.HandStates, item: Object) -> void:
 	match state:
-		HandStates.HOLD: 
-			AttachItem(item, Hands.LEFT)
+		HandStates.DRINKING: 
+			AttachItem(item, $PlayerBody.left_hand_target ,Hands.LEFT)
 		_: pass
 
 func _on_change_hand_right(state: Player.HandStates, item: Object) -> void:
 	match state:
-		HandStates.HOLD:
-			AttachItem(item, Hands.RIGHT)
+		HandStates.DRINKING:
+			AttachItem(item, $PlayerBody.right_hand_target, Hands.RIGHT)
 		_: pass
 
 func _on_change_feet(state: Player.FeetStates) -> void:
 	pass # Replace with function body.
+
+func _on_player_body_consumed_left(item: Object) -> void:
+	GameStateManager.player_drunkness.current_drunkness += item.consumed()
+	setHandLState(HandStates.DANGLY)
+
+func _on_player_body_consumed_right(item: Object) -> void:
+	GameStateManager.player_drunkness.current_drunkness += item.consumed()
+	setHandRState(HandStates.DANGLY)

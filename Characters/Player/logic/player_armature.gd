@@ -51,6 +51,8 @@ func _ready() -> void:
 	right_leg_ik.start()
 	skeleton_3d.add_child(right_leg_ik)
 	
+	var head_wobble = SpringBoneSimulator3D.new()
+	
 	hand_attach_l = BoneAttachment3D.new()
 	hand_attach_r = BoneAttachment3D.new()
 	hand_attach_l.bone_name = "Hand_L"

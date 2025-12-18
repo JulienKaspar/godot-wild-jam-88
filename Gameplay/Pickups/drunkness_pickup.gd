@@ -12,24 +12,33 @@ class_name DrunknessPickup
 @export var break_pfx: GPUParticles3D ## play this pfx when breaking
 @export var broken_mesh: Node3D ## what mesh to show after break
 
+var attachedTo: Object
+
 enum PickupStates {ALIVE, BROKEN, IN_USE, USED}
 var inState = PickupStates.ALIVE
 
 func _ready() -> void:
 	if broken_mesh: broken_mesh.hide()
 	if pristine_mesh: pristine_mesh.show()
+	hide_prompt()
 	checkIfAlive(true)
 
 func _process(delta: float) -> void:
 	if can_break:
 		match inState:
 			PickupStates.ALIVE: checkIfAlive()
+	match inState:
+			PickupStates.IN_USE: 
+				self.global_transform = attachedTo.global_transform
 
-func pickup() -> void:
+func pickup(fromObject: Object) -> void:
 	inState = PickupStates.IN_USE
 	pick_point.monitorable = false
 	self.freeze = true
+	attachedTo = fromObject
 
+func consume() -> void:
+	consume_pfx.emitting = true
 	
 func display_prompt() -> void: 
 	pickup_prompt.show()
@@ -38,11 +47,12 @@ func hide_prompt() -> void:
 	pickup_prompt.hide()
 
 func consumed() -> float:
+	consume_pfx.emitting = false
 	inState = PickupStates.USED
 	pick_point.monitorable = false
 	self.freeze = false
 	var throwVec = self.global_position - GameStateManager.current_player.player_global_pos
-	throwVec.y = throwVec.y * 0.2
+	throwVec.y = throwVec.y * randf_range(0, 0.2)
 	self.apply_impulse(throwVec)
 	if broken_mesh: 
 		broken_mesh.show()
