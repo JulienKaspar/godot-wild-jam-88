@@ -1,8 +1,7 @@
-[gd_scene load_steps=29 format=3 uid="uid://b6vbg26wkrdh3"]
+[gd_scene load_steps=24 format=3 uid="uid://b6vbg26wkrdh3"]
 
-[ext_resource type="Material" path="res://Levels/Gyms/Floor/floor1_v2.tres" id="1_mr8n6"]
+[ext_resource type="Material" uid="uid://hg5ppfcn0qd7" path="res://Levels/Gyms/Floor/floor1_v2.tres" id="1_mr8n6"]
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="2_xweag"]
-[ext_resource type="Script" uid="uid://42mf003bq52u" path="res://Gameplay/level_teleporter.gd" id="3_5g7ny"]
 [ext_resource type="PackedScene" uid="uid://cyrgcx64104qc" path="res://Objects/Architypes/Props/garden_chair.tscn" id="3_8wfei"]
 [ext_resource type="PackedScene" uid="uid://cnaagrenu83ty" path="res://Objects/Architypes/Props/garden_table.tscn" id="4_d4xos"]
 [ext_resource type="PackedScene" uid="uid://brhckpuqlnhm6" path="res://Objects/Architypes/Props/bbq.tscn" id="5_xweag"]
@@ -10,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://j1b5yvs8pnux" path="res://Objects/Architypes/Furniture/table_round1.tscn" id="6_d4xos"]
 [ext_resource type="PackedScene" uid="uid://d3unw205fanv5" path="res://Objects/Loot/pickup_beer.tscn" id="9_22u0x"]
 [ext_resource type="AudioStream" uid="uid://b0agua7xlrot5" path="res://Assets/Audio/Ambience/ambience_wind.ogg" id="10_5g7ny"]
-[ext_resource type="Script" uid="uid://c786nbmcn6vxf" path="res://dialogue_trigger_area.gd" id="10_srcn4"]
 [ext_resource type="AudioStream" uid="uid://fq0vj2ffsvip" path="res://Assets/Audio/Music/PartyTheme/Theme_A.ogg" id="11_cw6dl"]
+[ext_resource type="PackedScene" uid="uid://c5gvg6210vgku" path="res://Objects/Architypes/LivingRoom/door.tscn" id="11_srcn4"]
 
 [sub_resource type="Environment" id="Environment_vu8ij"]
 background_mode = 1
@@ -51,18 +50,6 @@ albedo_color = Color(0.6901961, 0.28235295, 0.2509804, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_05dd3"]
 size = Vector3(0.268, 1, 4.647)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d6w3h"]
-diffuse_mode = 3
-albedo_color = Color(0.5, 0, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_v87f2"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_cw6dl"]
-size = Vector3(1.8554688, 1, 1.8423309)
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_jtswe"]
-radius = 10.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8wfei"]
 diffuse_mode = 3
@@ -125,10 +112,22 @@ use_collision = true
 size = Vector3(0.2, 2.5527656, 23.699747)
 
 [node name="CSG_WoodenlWall4" type="CSGBox3D" parent="Layout/Walls"]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.40713024, 2.2969766, -23.03894)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.652934, 2.2969766, -23.03894)
 material_override = SubResource("StandardMaterial3D_fnac6")
 use_collision = true
-size = Vector3(0.2, 4.5987015, 12.271508)
+size = Vector3(0.2, 4.5987015, 4.151379)
+
+[node name="CSG_WoodenlWall5" type="CSGBox3D" parent="Layout/Walls"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.3715553, 2.2969766, -23.03894)
+material_override = SubResource("StandardMaterial3D_fnac6")
+use_collision = true
+size = Vector3(0.2, 4.5987015, 6.2319393)
+
+[node name="CSG_WoodenlWall6" type="CSGBox3D" parent="Layout/Walls"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.58092046, 4.012509, -23.03894)
+material_override = SubResource("StandardMaterial3D_fnac6")
+use_collision = true
+size = Vector3(0.2, 1.1676369, 2.5753188)
 
 [node name="CSG_WoodenlWall3" type="CSGBox3D" parent="Layout/Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.546694, 1.2740086, -11.297768)
@@ -162,25 +161,17 @@ layers = 65
 mesh = SubResource("BoxMesh_3nw73")
 surface_material_override/0 = SubResource("StandardMaterial3D_v87f2")
 
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Layout/Stairs/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0821897, 1.5829067, 0, -0.6762326)
+layers = 65
+mesh = SubResource("BoxMesh_3nw73")
+surface_material_override/0 = SubResource("StandardMaterial3D_v87f2")
+
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Layout/Stairs/StaticBody3D"]
 transform = Transform3D(0.99976546, 0.021657843, 0, -0.021657843, 0.99976546, 0, 3.5527137e-15, 0, 1.0821896, -0.7330208, -0.1785666, -0.6762326)
 layers = 65
 mesh = SubResource("BoxMesh_05dd3")
 surface_material_override/0 = SubResource("StandardMaterial3D_v87f2")
-
-[node name="Door" type="MeshInstance3D" parent="Layout"]
-transform = Transform3D(1.4107562, 0, -8.881784e-16, 0, 3.8994184, 0, -7.1054274e-15, 0, 0.18460768, -0.78555393, 0.96255445, -22.926899)
-material_override = SubResource("StandardMaterial3D_d6w3h")
-mesh = SubResource("BoxMesh_v87f2")
-
-[node name="LevelTeleporter" type="Area3D" parent="Layout/Door"]
-collision_mask = 3
-script = ExtResource("3_5g7ny")
-metadata/_custom_type_script = "uid://42mf003bq52u"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Door/LevelTeleporter"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 1.0706496e-18, 0, 1, 0, 0, 0.4211731)
-shape = SubResource("BoxShape3D_cw6dl")
 
 [node name="Furniture" type="Node3D" parent="."]
 
@@ -227,15 +218,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5786028, 1.0309346, -19.010
 
 [node name="DrunknessPickup7" parent="Drinks" instance=ExtResource("9_22u0x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2515786, 1.0309347, -19.223284)
-
-[node name="DialogueTriggerArea" type="Area3D" parent="Drinks"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6827674, 0, -4.5066104)
-collision_mask = 3
-script = ExtResource("10_srcn4")
-metadata/_custom_type_script = "uid://c786nbmcn6vxf"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Drinks/DialogueTriggerArea"]
-shape = SubResource("SphereShape3D_jtswe")
 
 [node name="Greyboxing" type="Node3D" parent="."]
 
@@ -326,3 +308,6 @@ max_db = 0.0
 autoplay = true
 max_distance = 15.0
 bus = &"Music"
+
+[node name="Door" parent="." instance=ExtResource("11_srcn4")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.61308324, 0.26634717, -22.543335)
