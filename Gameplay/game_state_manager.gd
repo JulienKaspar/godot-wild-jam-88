@@ -39,6 +39,10 @@ func start_game() -> void:
 	get_tree().paused = false
 	load_level_by_index(starting_level_index)
 	current_state = GameState.Game
+	PlayerMovementUtils.knock_player_down.call_deferred()
+
+	
+
 
 func find_spawn_point_in_level(level: Node3D) -> Vector3:
 	for child in level.get_children():

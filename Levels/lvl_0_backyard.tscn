@@ -134,6 +134,7 @@ size = Vector3(0.2, 2.5527656, 23.79423)
 
 [node name="CSG_WoodenlWall2" type="CSGBox3D" parent="Layout/Walls"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.1141386, 0.919624, 0.69465643)
+visible = false
 use_collision = true
 size = Vector3(0.05, 1.843595, 12.022461)
 material = SubResource("StandardMaterial3D_ccu56")
