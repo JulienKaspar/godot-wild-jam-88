@@ -48,8 +48,8 @@ func _ready():
 	_connect_signals()
 	_check_debug()
 	AudioManager.fade_audio_in(music_player, _DEFAULT_VOLUME_DB, 3.5)
-	_set_filter(true)
-	start_music()
+	#_set_filter(true)
+	#start_music()
 	
 	## TODO: reintroduce chord changes once in house
 	## TODO: disable filter
@@ -108,6 +108,7 @@ const MUSIC_BANK : Dictionary[MUSIC_THEMES, String] = {
 
 func start_music():
 	music_player.play()
+	AudioManager.fade_audio_in(music_player)
 	update_drunkness_effect()
 
 func stop_music():
@@ -209,7 +210,7 @@ func _get_current_theme_stream() -> AudioStreamSynchronized:
 			#_clip.set_sync_stream_volume(j, _target_volume_db)
 #endregion
 
-const _FILTER_CUTOFF_HZ_ON = 250
+const _FILTER_CUTOFF_HZ_ON = 200
 const _FILTER_CUTOFF_HZ_OFF = 10000
 
 func _set_filter(_enabled : bool, _target_hz : float = -1.0):

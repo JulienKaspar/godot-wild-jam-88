@@ -41,7 +41,7 @@ func duck_singing_volume():
 		voice_player.finished.connect(restore_singing_volume)
 
 func restore_singing_volume():
-	await get_tree().create_timer(randf_range(1.0, 2.5)).timeout
+	await get_tree().create_timer(randf_range(0.5, 1.5)).timeout
 	if !voice_player.playing:
 		AudioManager.fade_audio_in(singing_player, 0.0, 0.5)
 	else:

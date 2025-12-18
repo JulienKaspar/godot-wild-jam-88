@@ -32,7 +32,8 @@ max_polyphony = 2
 bus = &"SFX"
 
 [node name="VoiceAudioPlayer" type="AudioStreamPlayer3D" parent="."]
-max_db = 0.0
+unit_size = 6.0
+max_db = -3.0
 max_distance = 10.0
 bus = &"SFX"
 attenuation_filter_cutoff_hz = 8000.0
@@ -40,6 +41,8 @@ attenuation_filter_cutoff_hz = 8000.0
 [node name="SingingAudioPlayer" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("8_wdt07")
 volume_db = -80.0
+unit_size = 8.0
+max_db = 0.0
 max_distance = 12.0
 bus = &"SFX"
 attenuation_filter_cutoff_hz = 8000.0

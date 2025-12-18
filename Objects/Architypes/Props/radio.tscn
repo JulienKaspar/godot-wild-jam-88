@@ -31,9 +31,9 @@ shape = SubResource("SphereShape3D_h3dv2")
 
 [node name="ThemePlayer" type="AudioStreamPlayer3D" parent="PropCollider"]
 stream = ExtResource("3_dxyp4")
-unit_size = 4.0
+unit_size = 3.0
 max_db = 0.0
-max_distance = 20.0
+max_distance = 18.0
 panning_strength = 1.5
 bus = &"SFX"
 script = ExtResource("6_h3dv2")

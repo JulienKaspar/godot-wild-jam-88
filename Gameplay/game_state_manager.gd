@@ -63,6 +63,8 @@ func next_level() -> void:
 	if current_level_index == levels.size() - 1:
 		print("you finished the game!")
 		return
+	elif current_level_index == 1:
+		AudioManager.music_manager.start_music()
 	
 	load_level_by_index(current_level_index + 1)
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b6vbg26wkrdh3"]
+[gd_scene load_steps=27 format=3 uid="uid://b6vbg26wkrdh3"]
 
 [ext_resource type="Material" path="res://Levels/Gyms/Floor/floor1_v2.tres" id="1_mr8n6"]
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="2_xweag"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://j1b5yvs8pnux" path="res://Objects/Architypes/Furniture/table_round1.tscn" id="6_d4xos"]
 [ext_resource type="PackedScene" uid="uid://d3unw205fanv5" path="res://Objects/Loot/pickup_beer.tscn" id="9_22u0x"]
 [ext_resource type="AudioStream" uid="uid://b0agua7xlrot5" path="res://Assets/Audio/Ambience/ambience_wind.ogg" id="10_5g7ny"]
+[ext_resource type="AudioStream" uid="uid://fq0vj2ffsvip" path="res://Assets/Audio/Music/PartyTheme/Theme_A.ogg" id="11_cw6dl"]
 
 [sub_resource type="Environment" id="Environment_vu8ij"]
 background_mode = 1
@@ -303,3 +304,11 @@ max_db = -3.0
 autoplay = true
 max_distance = 20.0
 bus = &"Ambience"
+
+[node name="HousePartyMusic" type="AudioStreamPlayer3D" parent="AmbienceSounds"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.7430115, -24.021633)
+stream = ExtResource("11_cw6dl")
+max_db = 0.0
+autoplay = true
+max_distance = 15.0
+bus = &"Music"
