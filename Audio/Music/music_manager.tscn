@@ -44,12 +44,3 @@ popup/item_2/text = "Theme C"
 popup/item_2/id = 2
 popup/item_3/text = "Theme D"
 popup/item_3/id = 3
-
-[node name="DrunknessLabel" type="Label" parent="DebugLayer/Control/VBoxContainer"]
-layout_mode = 2
-text = "Drunkness: 0.0"
-
-[node name="DrunknessSlider" type="HSlider" parent="DebugLayer/Control/VBoxContainer"]
-layout_mode = 2
-max_value = 1.0
-step = 0.01
