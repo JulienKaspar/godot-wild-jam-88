@@ -11,6 +11,8 @@ func _ready() -> void:
 	settings_button.pressed.connect(handle_settings_menu_button_pressed)
 	start_button.pressed.connect(handle_start_button_pressed)
 	exit_button.pressed.connect(handle_exit_button_pressed)
+	
+	start_button.grab_focus.call_deferred()
 	enter_menu_sounds()
 
 func handle_start_button_pressed() -> void:

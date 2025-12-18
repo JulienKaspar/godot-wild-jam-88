@@ -5,6 +5,9 @@ extends Button
 func _ready() -> void:
 	mouse_entered.connect(make_big)
 	mouse_exited.connect(make_small)
+	
+	focus_entered.connect(make_big)
+	focus_exited.connect(make_small)
 
 func make_big() -> void:
 	var size_tween: Tween = create_tween()
