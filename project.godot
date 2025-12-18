@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="PartyFoul"
+config/name="Dillard the Drunk and Flasky the Flask find a Fridge"
 run/main_scene="uid://7v5jiybjrlkl"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 run/max_fps=60
