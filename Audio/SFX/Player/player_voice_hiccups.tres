@@ -1,0 +1,24 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=10 format=3 uid="uid://dtxwpdwowusj1"]
+
+[ext_resource type="AudioStream" uid="uid://mlxhe7drfs21" path="res://Assets/Audio/SFX/Player/player_voice_hiccups_01.ogg" id="1_eght8"]
+[ext_resource type="AudioStream" uid="uid://ru8css36qdx8" path="res://Assets/Audio/SFX/Player/player_voice_hiccups_02.ogg" id="2_7x8si"]
+[ext_resource type="AudioStream" uid="uid://cky8x0wixxr25" path="res://Assets/Audio/SFX/Player/player_voice_hiccups_03.ogg" id="3_qkk0b"]
+[ext_resource type="AudioStream" uid="uid://djqkspsr5g5kq" path="res://Assets/Audio/SFX/Player/player_voice_hiccups_04.ogg" id="4_e2j7k"]
+[ext_resource type="AudioStream" uid="uid://bpbpnug5hiadc" path="res://Assets/Audio/SFX/Player/player_voice_hiccups_05.ogg" id="5_24fe2"]
+[ext_resource type="AudioStream" uid="uid://bji5sf2rmo6lh" path="res://Assets/Audio/SFX/Player/player_voice_hiccups_06.ogg" id="6_j4ldd"]
+[ext_resource type="AudioStream" uid="uid://svkkxpkl800c" path="res://Assets/Audio/SFX/Player/player_voice_hiccups_07.ogg" id="7_rdwa0"]
+[ext_resource type="AudioStream" uid="uid://dpq7ppa3fth3q" path="res://Assets/Audio/SFX/Player/player_voice_hiccups_08.ogg" id="8_3l1qy"]
+[ext_resource type="AudioStream" uid="uid://clt34esv71rah" path="res://Assets/Audio/SFX/Player/player_voice_hiccups_09.ogg" id="9_fx7ql"]
+
+[resource]
+random_pitch = 1.1
+streams_count = 9
+stream_0/stream = ExtResource("1_eght8")
+stream_1/stream = ExtResource("2_7x8si")
+stream_2/stream = ExtResource("3_qkk0b")
+stream_3/stream = ExtResource("4_e2j7k")
+stream_4/stream = ExtResource("5_24fe2")
+stream_5/stream = ExtResource("6_j4ldd")
+stream_6/stream = ExtResource("7_rdwa0")
+stream_7/stream = ExtResource("8_3l1qy")
+stream_8/stream = ExtResource("9_fx7ql")

@@ -6,11 +6,13 @@ class_name PlayerSounds
 @export var voice_player : AudioStreamPlayer3D
 @export var singing_player : AudioStreamPlayer3D
 
-
 @export var falling_sounds : AudioStreamRandomizer
 @export var getting_up_sounds : AudioStreamRandomizer
 @export var hurt_sounds : AudioStreamRandomizer
 @export var burp_sounds : AudioStreamRandomizer
+@export var hiccup_sounds : AudioStreamRandomizer
+
+var hiccup_timer : Timer
 
 @export_range(0.0, 1.0) var burp_nastiness : float = 0.5:  # range (0.0, 1.0)
 	set(value):
@@ -24,6 +26,9 @@ func _ready():
 		AudioManager.player_sounds = self
 	
 	select_burps(burp_nastiness)
+	setup_hiccups()
+	GameStateManager.player_drunkness.on_too_drunk.connect(hiccup_timer.start)
+	
 
 func play_voice(voice_stream : AudioStream):
 	if voice_player.playing: 
@@ -47,6 +52,17 @@ func restore_singing_volume():
 	else:
 		restore_singing_volume() # recursion yay!
 
+func setup_hiccups():
+	hiccup_timer = Timer.new()
+	hiccup_timer.one_shot = false
+	hiccup_timer.timeout.connect(
+		func(): 
+			hiccup_timer.wait_time = randf_range(1.5, 2.5) # randomize hiccup timing
+			play_voice(hiccup_sounds) # play random hiccup sound
+			# stop after some time
+			get_tree().create_timer(randf_range(6.0, 8.0)).timeout.connect(hiccup_timer.stop) 
+	)
+	add_child(hiccup_timer)
 
 func select_burps(intensity : float):
 	var sum : float = burp_sounds.streams_count
