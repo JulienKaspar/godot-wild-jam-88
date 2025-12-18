@@ -29,7 +29,8 @@ func play_voice(voice_stream : AudioStream):
 
 func duck_singing_volume():
 	AudioManager.fade_audio_out(singing_player, 0.15)
-	voice_player.finished.connect(restore_singing_volume)
+	if !voice_player.finished.has_connections():
+		voice_player.finished.connect(restore_singing_volume)
 
 func restore_singing_volume():
 	await get_tree().create_timer(randf_range(1.0, 2.5)).timeout
