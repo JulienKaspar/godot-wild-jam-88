@@ -9,7 +9,7 @@ size = Vector3(0.111328125, 0.5541992, 1.8164063)
 [sub_resource type="BoxShape3D" id="BoxShape3D_xyjv1"]
 size = Vector3(0.28027344, 0.52783203, 0.27734375)
 
-[node name="SlipperyTest" type="Node3D"]
+[node name="TriperyTest" type="Node3D"]
 script = ExtResource("1_xyjv1")
 force_multiplier = -25.0
 metadata/_custom_type_script = "uid://04nw6yd3gy23"
