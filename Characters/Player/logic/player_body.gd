@@ -71,8 +71,8 @@ var triggeredConsumableR = false
 var HandL_wobble = Vector3(0,0,0)
 var HandR_wobble = Vector3(0,0,0)
 var Head_wobble = Vector3(0,0,0)
-var HandL_pick_location = Vector3(0,0,0)
-var HandR_pick_location = Vector3(0,0,0)
+var HandL_pick_location: Transform3D
+var HandR_pick_location: Transform3D
 var Leg_seperaion = 0.2
 var StepHighPoint = Vector3(0, 0.3, 0)
 var StepMaxAhead = 0.5
@@ -158,14 +158,14 @@ func update_step_targets():
 	left_foot_goto.global_position = LeftFootGotoPos
 	right_foot_goto.global_position = RightFootGotoPos
 	
-func drinkHandInterpolation(origin: Vector3, hand: Object, target: Object, item: Object, time: float, check: bool) -> void:
+func drinkHandInterpolation(origin: Transform3D, hand: Object, target: Object, item: Object, time: float, check: bool) -> void:
 	var blendTime = min(1.0, time * 4.0)
 	if blendTime == 1.0:
 		if not check:
 			item.consume()
 			if !AudioManager.player_sounds.voice_player.playing:
 				AudioManager.player_sounds.play_voice(AudioManager.player_sounds.chug_sounds)
-	hand.global_position = lerp(origin, target.global_position, blendTime)
+	hand.global_transform = lerp(origin, target.global_transform, blendTime)
 
 func moveHand(ray: Object, hand: Object, target: Object, doRaycast: bool = false) -> void:
 
@@ -233,7 +233,7 @@ func _process(delta: float) -> void:
 			if PlayerRoot.closestLeft:	
 				moveHand(left_shoulder_ray, left_hand_target, PlayerRoot.closestLeft, true)
 				if checkDistance(left_shoulder_ray, PlayerRoot.closestLeft):
-					HandL_pick_location = PlayerRoot.closestLeft.global_position
+					HandL_pick_location = PlayerRoot.closestLeft.global_transform
 					ReachedTargetLeft.emit(PlayerRoot.closestLeft)
 			else: moveHand(left_shoulder_ray, left_hand_target, rb_arm_l)
 		Player.HandStates.DRINKING:
@@ -246,7 +246,7 @@ func _process(delta: float) -> void:
 			if PlayerRoot.closestRight: 
 				moveHand(right_shoulder_ray, right_hand_target, PlayerRoot.closestRight, true)
 				if checkDistance(left_shoulder_ray, PlayerRoot.closestRight):
-					HandR_pick_location = PlayerRoot.closestRight.global_position
+					HandR_pick_location = PlayerRoot.closestRight.global_transform
 					ReachedTargetRight.emit(PlayerRoot.closestRight, )
 			else: moveHand(right_shoulder_ray, right_hand_target, rb_arm_r)
 		Player.HandStates.DRINKING:
