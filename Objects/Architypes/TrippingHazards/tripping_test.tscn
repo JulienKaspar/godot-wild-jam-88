@@ -11,7 +11,7 @@ size = Vector3(0.28027344, 0.52783203, 0.27734375)
 
 [node name="TriperyTest" type="Node3D"]
 script = ExtResource("1_xyjv1")
-force_multiplier = -25.0
+force_multiplier = -30.0
 metadata/_custom_type_script = "uid://04nw6yd3gy23"
 
 [node name="Area3D" type="Area3D" parent="."]

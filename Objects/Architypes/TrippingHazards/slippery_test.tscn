@@ -9,6 +9,7 @@ radius = 0.18017578
 
 [node name="SlipperyTest" type="Node3D"]
 script = ExtResource("1_6orly")
+force_multiplier = 75.0
 metadata/_custom_type_script = "uid://04nw6yd3gy23"
 
 [node name="banana" parent="." instance=ExtResource("2_uq2oy")]
