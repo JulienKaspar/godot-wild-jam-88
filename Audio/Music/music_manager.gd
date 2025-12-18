@@ -14,8 +14,6 @@ signal switch_music(theme : MUSIC_THEMES)
 @export var _debug : bool = false
 @onready var debug_layer = $DebugLayer
 @onready var theme_options = $DebugLayer/Control/VBoxContainer/ThemeOptionButton
-@onready var drunkness_slider = $DebugLayer/Control/VBoxContainer/DrunknessSlider
-@onready var drunkness_label = $DebugLayer/Control/VBoxContainer/DrunknessLabel
 
 func _check_debug():
 	if _debug:
@@ -27,7 +25,6 @@ func _check_debug():
 
 func _connect_debug_ui():
 	theme_options.item_selected.connect(switch_music_to_theme)
-	drunkness_slider.value_changed.connect(_set_drunkness)
 #endregion
 
 
@@ -35,12 +32,7 @@ func _connect_debug_ui():
 @onready var music_player : AudioStreamPlayer = %MusicPlayer
 const _DEFAULT_VOLUME_DB : float = -6.0
 
-## TODO: save bus layout structure to ensure consistent effect indexing
-var stereo_enhancer_effect : AudioEffectStereoEnhance = AudioServer.get_bus_effect(AudioManager.BUS.MUSIC, AudioManager.FX.STEREO_ENHANCE)
-var chorus_effect : AudioEffectChorus = AudioServer.get_bus_effect(AudioManager.BUS.MUSIC, AudioManager.FX.CHORUS)
-var phaser_effect : AudioEffectPhaser = AudioServer.get_bus_effect(AudioManager.BUS.MUSIC, AudioManager.FX.PHASER)
-var delay_effect : AudioEffectDelay = AudioServer.get_bus_effect(AudioManager.BUS.MUSIC, AudioManager.FX.DELAY)
-var filter_effect : AudioEffectLowPassFilter = AudioServer.get_bus_effect(AudioManager.BUS.MUSIC, AudioManager.FX.FILTER)
+var filter_effect : AudioEffectLowPassFilter = AudioServer.get_bus_effect(AudioManager.BUS.MUSIC, 0)
 
 func _ready():
 	if !AudioManager.music_manager:
@@ -73,16 +65,9 @@ func _change_theme_randomly() -> void:
 
 func _connect_signals():
 	switch_music.connect(switch_music_to_theme)
-	GameStateManager.player_drunkness.on_drunkness_changed.connect(
-		# TODO: keep updated with PlayerDrunkness values
-		func(drunk_value): drunkness_intensity = remap(
-			drunk_value, 
-			GameStateManager.player_drunkness.min_drunkness, # input range
-			GameStateManager.player_drunkness.max_drunkness, # input range
-			0.0, 1.0) # output range
-	)
 	GameStateManager.on_paused.connect(_set_filter.bind(true))
 	GameStateManager.on_unpaused.connect(_set_filter.bind(false))
+	GameStateManager.player_drunkness.on_drunkness_changed.connect(_update_drunk_streams)
 
 
 
@@ -109,7 +94,6 @@ const MUSIC_BANK : Dictionary[MUSIC_THEMES, String] = {
 func start_music():
 	music_player.play()
 	AudioManager.fade_audio_in(music_player)
-	update_drunkness_effect()
 
 func stop_music():
 	music_player.stop()
@@ -124,7 +108,6 @@ func switch_music_to_theme(theme : MUSIC_THEMES):
 	var _playback : AudioStreamPlaybackInteractive = music_player.get_stream_playback()
 	_playback.switch_to_clip_by_name(MUSIC_BANK[theme])
 	current_theme = theme
-	update_drunkness_effect()
 #endregion
 
 
@@ -137,63 +120,34 @@ enum DRUNKNESS_STREAMS {
 	HIGH = 3,
 }
 # Drunkness cutoff value for music effect triggers
-const DRUNKNESS_LOW : float = 0.1
-const DRUNKNESS_MED : float = 0.35
-const DRUNKNESS_HIGH : float = 0.75
-
-## TODO: replace class var with global drunkness value or signal
-# Intensity value used for drunkness effect calculations
-var drunkness_intensity: float:
-	set(value):
-		drunkness_intensity = value
-		if music_player.playing:
-			update_drunkness_effect()
-
-# Func for debug slider call
-func _set_drunkness(value : float):
-	drunkness_intensity = value
+const DRUNK_THRESHOLD_LOW : float = 0.1
+const DRUNK_THRESHOLD_MED : float = 0.3
+const DRUNK_THRESHOLD_HIGH : float = 0.7
 
 # All drunkness audio processing
-func update_drunkness_effect():
-	if drunkness_intensity < 0.0 or drunkness_intensity > 1.0:
-		push_warning("music_manager.gd: update_drunk_music(drunkness_intensity) - drunkness_intensity parameter must be between 0.0 and 1.0")
-		return
+func _update_drunk_streams(drunk_value):
+	if !music_player.playing: return
 	
-	if drunkness_intensity >= DRUNKNESS_LOW:
-		_get_current_theme_stream().set_sync_stream_volume(
-			DRUNKNESS_STREAMS.LOW, 
-			linear_to_db(remap(drunkness_intensity, DRUNKNESS_LOW, 1.0, 0.0, 1.0)))
+	drunk_value = AudioManager._remap_drunk_value(drunk_value)
+	
+	## TODO: CLAMP ALL REMAPS!
+	if drunk_value >= DRUNK_THRESHOLD_LOW:
+		var _volume : float = remap(drunk_value, DRUNK_THRESHOLD_LOW, 1.0, 0.0, 1.0)
+		_volume = clampf(_volume, 0.0, 1.0)
+		_volume = linear_to_db(_volume)
+		_get_current_theme_stream().set_sync_stream_volume(DRUNKNESS_STREAMS.LOW, _volume)
 		
-	if drunkness_intensity >= DRUNKNESS_MED:
-		_get_current_theme_stream().set_sync_stream_volume(
-			DRUNKNESS_STREAMS.MED, 
-			linear_to_db(remap(drunkness_intensity, DRUNKNESS_MED, 1.0, 0.0, 1.0)))
+	if drunk_value >= DRUNK_THRESHOLD_MED:
+		var _volume : float = remap(drunk_value, DRUNK_THRESHOLD_MED, 1.0, 0.0, 1.0)
+		_volume = clampf(_volume, 0.0, 1.0)
+		_volume = linear_to_db(_volume)
+		_get_current_theme_stream().set_sync_stream_volume(DRUNKNESS_STREAMS.MED, _volume)
 			
-	if drunkness_intensity >= DRUNKNESS_HIGH:
-		_get_current_theme_stream().set_sync_stream_volume(
-			DRUNKNESS_STREAMS.HIGH, 
-			linear_to_db(remap(drunkness_intensity, DRUNKNESS_HIGH, 1.0, 0.0, 1.0)))
-		
-		# Delay effect
-		delay_effect.dry = 1.0 - drunkness_intensity * 0.25
-		delay_effect.tap1_level_db = linear_to_db(remap(drunkness_intensity, DRUNKNESS_HIGH, 1.0, 0.0, 0.25))
-		delay_effect.tap2_level_db = linear_to_db(remap(drunkness_intensity, DRUNKNESS_HIGH, 1.0, 0.0, 0.25))
-		delay_effect.feedback_level_db = linear_to_db(remap(drunkness_intensity, DRUNKNESS_HIGH, 1.0, 0.0, 0.25))
-		
-		# Phaser effect
-		phaser_effect.feedback = remap(drunkness_intensity, DRUNKNESS_HIGH, 1.0, 0.1, 0.4)
-		phaser_effect.rate_hz = remap(drunkness_intensity, DRUNKNESS_HIGH, 1.0, 0.01, 5.0)
-		phaser_effect.depth = remap(drunkness_intensity, DRUNKNESS_HIGH, 1.0, 0.1, 0.3)
-	
-	# Stereo enhance
-	stereo_enhancer_effect.pan_pullout = remap(drunkness_intensity, DRUNKNESS_LOW, 1.0, 1.0, 4.0)
-	
-	# Chorus
-	chorus_effect.dry = 1.0 - drunkness_intensity * 0.5
-	chorus_effect.wet = remap(drunkness_intensity, DRUNKNESS_MED, 1.0, 0.0, 0.7)
-	
-	# Debug
-	drunkness_label.text = str("Drunkness: ", drunkness_intensity)
+	if drunk_value >= DRUNK_THRESHOLD_HIGH:
+		var _volume : float = remap(drunk_value, DRUNK_THRESHOLD_HIGH, 1.0, 0.0, 1.0)
+		_volume = clampf(_volume, 0.0, 1.0)
+		_volume = linear_to_db(_volume)
+		_get_current_theme_stream().set_sync_stream_volume(DRUNKNESS_STREAMS.HIGH, _volume)
 
 func _get_current_theme_stream() -> AudioStreamSynchronized:
 	var _music_playback : AudioStreamPlaybackInteractive = music_player.get_stream_playback()
@@ -202,16 +156,19 @@ func _get_current_theme_stream() -> AudioStreamSynchronized:
 	
 	return _interactive_stream.get_clip_stream(_clip_index) as AudioStreamSynchronized
 
-#func _update_drunkness_streams(_target_volume_db) -> void:
-	#var _interactive_stream : AudioStreamInteractive = music_player.stream
-	#for i in range(0, _interactive_stream.clip_count - 1):
-		#var _clip = _interactive_stream.get_clip_stream(i) as AudioStreamSynchronized
-		#for j in range(0, _clip.stream_count - 1):
-			#_clip.set_sync_stream_volume(j, _target_volume_db)
+func _update_drunkness_streams(_target_volume_db) -> void:
+	var _interactive_stream : AudioStreamInteractive = music_player.stream
+	# iterate clips
+	for i in range(0, _interactive_stream.clip_count - 1):
+		var _clip = _interactive_stream.get_clip_stream(i) as AudioStreamSynchronized
+		# iterate sync streams
+		for j in range(0, _clip.stream_count - 1):
+			_clip.set_sync_stream_volume(j, _target_volume_db)
 #endregion
 
 const _FILTER_CUTOFF_HZ_ON = 200
 const _FILTER_CUTOFF_HZ_OFF = 10000
+const _FILTER_FX = 0
 
 func _set_filter(_enabled : bool, _target_hz : float = -1.0):
 	# target value
@@ -223,7 +180,7 @@ func _set_filter(_enabled : bool, _target_hz : float = -1.0):
 	filter_effect.cutoff_hz = _FILTER_CUTOFF_HZ_OFF if _enabled else _FILTER_CUTOFF_HZ_ON
 	
 	# enable if setting on
-	if _enabled: AudioServer.set_bus_effect_enabled(AudioManager.BUS.MUSIC, AudioManager.FX.FILTER, _enabled) # enable effect
+	if _enabled: AudioServer.set_bus_effect_enabled(AudioManager.BUS.MUSIC, _FILTER_FX, _enabled) # enable effect
 	
 	# tween
 	var t : Tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
@@ -233,4 +190,4 @@ func _set_filter(_enabled : bool, _target_hz : float = -1.0):
 	if !_enabled:
 		# wait for tween to finish
 		await t.finished
-		AudioServer.set_bus_effect_enabled(AudioManager.BUS.MUSIC, AudioManager.FX.FILTER, _enabled)
+		AudioServer.set_bus_effect_enabled(AudioManager.BUS.MUSIC, _FILTER_FX, _enabled)
