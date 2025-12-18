@@ -7,7 +7,7 @@ class_name DialogueTriggerArea
 @export var display_multiple_times: bool = false
 const max_parent_check_depth: int = 3
 var displayed_already: bool = false
-
+	
 func _get_configuration_warnings():
 	if get_collision_mask_value(2) == false:
 		return ["Area3D collision mask needs to be set to 2 to detect the player!"]
