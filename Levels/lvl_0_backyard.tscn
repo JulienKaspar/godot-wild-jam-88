@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://b6vbg26wkrdh3"]
+[gd_scene load_steps=29 format=3 uid="uid://b6vbg26wkrdh3"]
 
 [ext_resource type="Material" path="res://Levels/Gyms/Floor/floor1_v2.tres" id="1_mr8n6"]
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="2_xweag"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://j1b5yvs8pnux" path="res://Objects/Architypes/Furniture/table_round1.tscn" id="6_d4xos"]
 [ext_resource type="PackedScene" uid="uid://d3unw205fanv5" path="res://Objects/Loot/pickup_beer.tscn" id="9_22u0x"]
 [ext_resource type="AudioStream" uid="uid://b0agua7xlrot5" path="res://Assets/Audio/Ambience/ambience_wind.ogg" id="10_5g7ny"]
+[ext_resource type="Script" uid="uid://c786nbmcn6vxf" path="res://dialogue_trigger_area.gd" id="10_srcn4"]
 [ext_resource type="AudioStream" uid="uid://fq0vj2ffsvip" path="res://Assets/Audio/Music/PartyTheme/Theme_A.ogg" id="11_cw6dl"]
 
 [sub_resource type="Environment" id="Environment_vu8ij"]
@@ -59,6 +60,9 @@ albedo_color = Color(0.5, 0, 0, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cw6dl"]
 size = Vector3(1.8554688, 1, 1.8423309)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_jtswe"]
+radius = 10.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8wfei"]
 diffuse_mode = 3
@@ -223,6 +227,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5786028, 1.0309346, -19.010
 
 [node name="DrunknessPickup7" parent="Drinks" instance=ExtResource("9_22u0x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2515786, 1.0309347, -19.223284)
+
+[node name="DialogueTriggerArea" type="Area3D" parent="Drinks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6827674, 0, -4.5066104)
+collision_mask = 3
+script = ExtResource("10_srcn4")
+metadata/_custom_type_script = "uid://c786nbmcn6vxf"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Drinks/DialogueTriggerArea"]
+shape = SubResource("SphereShape3D_jtswe")
 
 [node name="Greyboxing" type="Node3D" parent="."]
 
