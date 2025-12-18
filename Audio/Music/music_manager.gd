@@ -3,48 +3,20 @@
 # start_music()
 # stop_music()
 # switch_music(theme : MusicManager.MUSIC_THEMES) - check enum for possible themes
-# drunkness_intensity : float - range 0.0 to 1.0
-# _update_drunkness_effect() - called when "drunkness_intensity" is updated
+
 extends Node
 class_name MusicManager
 
 signal switch_music(theme : MUSIC_THEMES)
 
-#region DEBUG
-@export var _debug : bool = false
-@onready var debug_layer = $DebugLayer
-@onready var theme_options = $DebugLayer/Control/VBoxContainer/ThemeOptionButton
-
-func _check_debug():
-	if _debug:
-		_connect_debug_ui()
-		debug_layer.show()
-	else:
-		debug_layer.hide()
-		debug_layer.process_mode = Node.PROCESS_MODE_DISABLED
-
-func _connect_debug_ui():
-	theme_options.item_selected.connect(switch_music_to_theme)
-#endregion
-
-
-
 @onready var music_player : AudioStreamPlayer = %MusicPlayer
-const _DEFAULT_VOLUME_DB : float = -6.0
-
-var filter_effect : AudioEffectLowPassFilter = AudioServer.get_bus_effect(AudioManager.BUS.MUSIC, 0)
 
 func _ready():
 	if !AudioManager.music_manager:
 		AudioManager.music_manager = self
+		
 	_connect_signals()
-	_check_debug()
-	AudioManager.fade_audio_in(music_player, _DEFAULT_VOLUME_DB, 3.5)
-	#_set_filter(true)
-	#start_music()
-	
-	## TODO: reintroduce chord changes once in house
-	## TODO: disable filter
+
 	#_setup_random_chord_changes()
 	
 func _setup_random_chord_changes():
@@ -68,6 +40,24 @@ func _connect_signals():
 	GameStateManager.on_paused.connect(_set_filter.bind(true))
 	GameStateManager.on_unpaused.connect(_set_filter.bind(false))
 	GameStateManager.player_drunkness.on_drunkness_changed.connect(_update_drunk_streams)
+	GameStateManager.on_level_loaded.connect(_on_level_change)
+
+
+const _LEVEL_VOLUME_OFFSET_DB : float = -15.0
+const _LEVEL_VOLUME_FACTOR : float = 1.5
+
+func _on_level_change(level_index : int):
+	if level_index > 0:
+		AudioManager.fade_audio_in(music_player)
+		
+		var _volume_db = _LEVEL_VOLUME_OFFSET_DB - (level_index * _LEVEL_VOLUME_FACTOR)
+		_volume_db = clampf(_volume_db, -60.0, _DEFAULT_VOLUME_DB)
+		
+		if !music_player.playing:
+			music_player.play()
+			AudioManager.fade_audio_in(music_player, _volume_db)
+		else:
+			AudioManager.tween_volume_db(music_player, _volume_db)
 
 
 
@@ -91,12 +81,12 @@ const MUSIC_BANK : Dictionary[MUSIC_THEMES, String] = {
 	MUSIC_THEMES.THEME_D : "theme_d",
 }
 
-func start_music():
-	music_player.play()
-	AudioManager.fade_audio_in(music_player)
-
 func stop_music():
+	AudioManager.fade_audio_out(music_player)
 	music_player.stop()
+
+
+const _DEFAULT_VOLUME_DB : float = -6.0
 
 func duck_volume():
 	AudioManager.tween_volume_db(music_player, (_DEFAULT_VOLUME_DB - 4.5), 1.5)
@@ -166,6 +156,8 @@ func _update_drunkness_streams(_target_volume_db) -> void:
 			_clip.set_sync_stream_volume(j, _target_volume_db)
 #endregion
 
+#region MUSIC_FX
+var filter_effect : AudioEffectLowPassFilter = AudioServer.get_bus_effect(AudioManager.BUS.MUSIC, 0)
 const _FILTER_CUTOFF_HZ_ON = 200
 const _FILTER_CUTOFF_HZ_OFF = 10000
 const _FILTER_FX = 0
@@ -191,3 +183,4 @@ func _set_filter(_enabled : bool, _target_hz : float = -1.0):
 		# wait for tween to finish
 		await t.finished
 		AudioServer.set_bus_effect_enabled(AudioManager.BUS.MUSIC, _FILTER_FX, _enabled)
+#endregion MUSIC_FX

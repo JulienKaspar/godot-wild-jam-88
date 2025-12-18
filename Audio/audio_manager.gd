@@ -11,17 +11,16 @@ var player_sounds : PlayerSounds
 # TODO: Ensure this is consistent with audio_bus_layout
 # NOTE: Dynamically load / replace with audio bus layout resource?
 enum BUS {
-	MASTER = 0,
-	MUSIC = 1,
-	SFX = 2,
-	AMBIENCE = 3,
-	UI = 4,
+	MASTER,
+	DRUNK_FX,
+	MUSIC,
+	SFX,
+	AMBIENCE,
+	UI,
 }
 
 func _ready():
 	GameStateManager.player_drunkness.on_drunkness_changed.connect(_update_drunk_effects)
-
-
 
 
 #region VOLUME_CONTROL
@@ -68,10 +67,10 @@ const DRUNK_FX_LOW : float = 0.1
 const DRUNK_FX_MED : float = 0.35
 const DRUNK_FX_HIGH : float = 0.75
 
-var stereo_enhancer_effect : AudioEffectStereoEnhance = AudioServer.get_bus_effect(BUS.MASTER, FX.STEREO_ENHANCE)
-var chorus_effect : AudioEffectChorus = AudioServer.get_bus_effect(BUS.MASTER, FX.CHORUS)
-var phaser_effect : AudioEffectPhaser = AudioServer.get_bus_effect(BUS.MASTER, FX.PHASER)
-var delay_effect : AudioEffectDelay = AudioServer.get_bus_effect(BUS.MASTER, FX.DELAY)
+var stereo_enhancer_effect : AudioEffectStereoEnhance = AudioServer.get_bus_effect(BUS.DRUNK_FX, FX.STEREO_ENHANCE)
+var chorus_effect : AudioEffectChorus = AudioServer.get_bus_effect(BUS.DRUNK_FX, FX.CHORUS)
+var phaser_effect : AudioEffectPhaser = AudioServer.get_bus_effect(BUS.DRUNK_FX, FX.PHASER)
+var delay_effect : AudioEffectDelay = AudioServer.get_bus_effect(BUS.DRUNK_FX, FX.DELAY)
 
 func _update_drunk_effects(drunk_value) -> void:
 	drunk_value = _remap_drunk_value(drunk_value)

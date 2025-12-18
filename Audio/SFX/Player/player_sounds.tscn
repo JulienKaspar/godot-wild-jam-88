@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://q32rd2oxe5gl" path="res://Audio/SFX/Player/player_voice_getting_up.tres" id="4_c5yvn"]
 [ext_resource type="AudioStream" uid="uid://om8mhc6jo5u0" path="res://Audio/SFX/Player/player_voice_burps.tres" id="7_a8uc4"]
 [ext_resource type="AudioStream" uid="uid://dtxwpdwowusj1" path="res://Audio/SFX/Player/player_voice_hiccups.tres" id="8_w2ggi"]
-[ext_resource type="AudioStream" uid="uid://qbr1otxq1685" path="res://Audio/SFX/Player/radio_theme_voice.tres" id="8_wdt07"]
+[ext_resource type="AudioStream" uid="uid://cwsqstsgatx0q" path="res://Audio/SFX/Player/radio_theme_voice.tres" id="8_wdt07"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xf5fp"]
 random_pitch = 1.05
