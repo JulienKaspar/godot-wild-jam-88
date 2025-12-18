@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3padysgagsbx"]
+
+[ext_resource type="Script" uid="uid://04nw6yd3gy23" path="res://Gameplay/Obstacles/slip_obstacle.gd" id="1_qjyfi"]
+[ext_resource type="PackedScene" uid="uid://cbvs0j36cba72" path="res://Assets/Furniture/rug_orange_geometrical.gltf" id="2_v676u"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pq50p"]
+size = Vector3(0.7231295, 0.111572266, 0.12207031)
+
+[node name="RugHazard" type="Node3D"]
+script = ExtResource("1_qjyfi")
+force_multiplier = -30.0
+metadata/_custom_type_script = "uid://04nw6yd3gy23"
+
+[node name="rug_orange_geometrical" parent="." instance=ExtResource("2_v676u")]
+transform = Transform3D(1.5555947, 0, 0, 0, 1.5555947, 0, 0, 0, 1.5555947, 0, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1.39497, 0, 0.68644065, 0, 1.5547161, 0, -0.68644065, 0, 1.39497, -0.0027785134, 0.0826416, 0.3432402)
+shape = SubResource("BoxShape3D_pq50p")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1.5893303, 0, -0.03795414, 0, 1.5897834, 0, 0.03795414, 0, 1.5893303, 0.03797384, 0.0826416, -1.0847292)
+shape = SubResource("BoxShape3D_pq50p")

@@ -16,11 +16,6 @@
 		{
 			"mesh":0,
 			"name":"small_orange_geometrical_pattern_rug",
-			"scale":[
-				2.2466323375701904,
-				2.2466323375701904,
-				2.2466323375701904
-			],
 			"translation":[
 				0,
 				0.02094329707324505,
@@ -37,8 +32,7 @@
 				"baseColorTexture":{
 					"index":0
 				},
-				"metallicFactor":0,
-				"roughnessFactor":0.5
+				"metallicFactor":0
 			}
 		}
 	],
@@ -50,9 +44,10 @@
 					"attributes":{
 						"POSITION":0,
 						"NORMAL":1,
-						"TEXCOORD_0":2
+						"TEXCOORD_0":2,
+						"COLOR_0":3
 					},
-					"indices":3,
+					"indices":4,
 					"material":0
 				}
 			]
@@ -75,61 +70,73 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":4,
+			"count":79,
 			"max":[
-				0.17920540273189545,
-				0,
-				0.5
+				0.5516954660415649,
+				0.134940505027771,
+				1.073547124862671
 			],
 			"min":[
-				-0.17920540273189545,
-				0,
-				-0.5
+				-0.4243575930595398,
+				-0.0003363586438354105,
+				-1.11964750289917
 			],
 			"type":"VEC3"
 		},
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":4,
+			"count":79,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":4,
+			"count":79,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":3,
+			"componentType":5126,
+			"count":79,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":4,
 			"componentType":5123,
-			"count":6,
+			"count":312,
 			"type":"SCALAR"
 		}
 	],
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":48,
+			"byteLength":948,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":48,
-			"byteOffset":48,
+			"byteLength":948,
+			"byteOffset":948,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":32,
-			"byteOffset":96,
+			"byteLength":632,
+			"byteOffset":1896,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":12,
-			"byteOffset":128,
+			"byteLength":948,
+			"byteOffset":2528,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":624,
+			"byteOffset":3476,
 			"target":34963
 		}
 	],
@@ -143,7 +150,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":140,
+			"byteLength":4100,
 			"uri":"rug_orange_geometrical.bin"
 		}
 	]
