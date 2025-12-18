@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b3w4gu3se7vnv" path="res://Gameplay/Pickups/drunkness_pickup.gd" id="1_4iwu5"]
 [ext_resource type="PackedScene" uid="uid://dah5q3vw2jba7" path="res://Assets/Furniture/banana1.gltf" id="2_0boxb"]
-[ext_resource type="Script" path="res://Gameplay/Pickups/pick_point.gd" id="3_0boxb"]
+[ext_resource type="Script" uid="uid://dov4lhtuyrycf" path="res://Gameplay/Pickups/pick_point.gd" id="3_0boxb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fwtl3"]
 size = Vector3(0.21875, 0.15429688, 0.16601563)
@@ -13,11 +13,14 @@ viewport_path = NodePath("PickupPrompt/SubViewport")
 [sub_resource type="SphereShape3D" id="SphereShape3D_gbqmf"]
 radius = 0.1
 
-[node name="DrunknessPickup" type="RigidBody3D"]
+[node name="DrunknessPickup" type="RigidBody3D" node_paths=PackedStringArray("pick_point", "pristine_mesh", "broken_mesh")]
 collision_layer = 32
 collision_mask = 63
 script = ExtResource("1_4iwu5")
+pick_point = NodePath("PickPoint")
 drunkness_increase = -0.5
+pristine_mesh = NodePath("banana")
+broken_mesh = NodePath("banana")
 
 [node name="banana" parent="." instance=ExtResource("2_0boxb")]
 
