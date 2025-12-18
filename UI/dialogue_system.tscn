@@ -146,4 +146,4 @@ unique_name_in_owner = true
 stream = ExtResource("6_eaacc")
 volume_db = -3.0
 max_polyphony = 8
-bus = &"SFX"
+bus = &"UI"
