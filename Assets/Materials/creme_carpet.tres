@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://c20xc8e5t6yna"]
+
+[ext_resource type="Shader" uid="uid://bg4owxt8roht6" path="res://Shaders/tileable_floor.gdshader" id="1_famt2"]
+[ext_resource type="Texture2D" uid="uid://qgchunjyyhgo" path="res://Assets/Maps/Carpet_tiles/creme_carpet/atlas.png" id="2_m18m2"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_famt2")
+shader_parameter/albedo = Vector4(0.5, 0.5, 0.5, 0)
+shader_parameter/texture_albedo = ExtResource("2_m18m2")
+shader_parameter/scale = 2.0
+shader_parameter/roughness = 0.0
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/tile = 5
+shader_parameter/random_seed = 410
+shader_parameter/flip_x = false
+shader_parameter/flip_y = false
+shader_parameter/hue_shift = 0.0

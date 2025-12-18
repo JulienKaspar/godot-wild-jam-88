@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qgchunjyyhgo"
-path.s3tc="res://.godot/imported/atlas.png-55d979cbc7104abacc9fe6ab680cce30.s3tc.ctex"
+uid="uid://d1hcyosr1acxy"
+path.s3tc="res://.godot/imported/atlas.PNG-4762800864aa52f2ed2dcc284f9fd232.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Maps/Carpet_tiles/creme_carpet/atlas.png"
-dest_files=["res://.godot/imported/atlas.png-55d979cbc7104abacc9fe6ab680cce30.s3tc.ctex"]
+source_file="res://Assets/Maps/Carpet_tiles/purple_carpet/atlas.PNG"
+dest_files=["res://.godot/imported/atlas.PNG-4762800864aa52f2ed2dcc284f9fd232.s3tc.ctex"]
 
 [params]
 
