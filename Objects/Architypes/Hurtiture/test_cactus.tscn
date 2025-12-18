@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://if8jggvkxrky"]
 
 [ext_resource type="Script" uid="uid://d1ns4f8nsxmyd" path="res://Objects/furniture_player_collider.gd" id="1_838oo"]
-[ext_resource type="PackedScene" uid="uid://t6novjc1bl2i" path="res://Assets/Furniture/plant_algae1.gltf" id="2_jhivp"]
+[ext_resource type="PackedScene" uid="uid://wjyfhps2jw7i" path="res://Assets/Furniture/plant_cactus1.gltf" id="2_tunyq"]
 [ext_resource type="Script" uid="uid://67ac8n4ituj5" path="res://Gameplay/Obstacles/hurt_furniture.gd" id="3_tunyq"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_tunyq"]
@@ -14,7 +14,7 @@ wobble_angle = 30.0
 wobble_time = 1.5
 metadata/_custom_type_script = "uid://d1ns4f8nsxmyd"
 
-[node name="plant_algae" parent="." instance=ExtResource("2_jhivp")]
+[node name="plant_cactus1" parent="." instance=ExtResource("2_tunyq")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7947998, 0)
