@@ -53,13 +53,13 @@ mouse_filter = 2
 [node name="SettingsMenu" parent="CanvasLayer/MenuDisplayer" instance=ExtResource("2_lqkpn")]
 unique_name_in_owner = true
 process_mode = 3
+visible = false
 layout_mode = 2
 mouse_filter = 2
 
 [node name="MainMenu" parent="CanvasLayer/MenuDisplayer" instance=ExtResource("3_e62du")]
 unique_name_in_owner = true
 process_mode = 3
-visible = false
 layout_mode = 2
 mouse_filter = 2
 
