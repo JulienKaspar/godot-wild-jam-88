@@ -3,34 +3,38 @@ extends Node3D
 @warning_ignore_start('unused_variable')
 @warning_ignore_start('unused_parameter')
 
+signal ReachedTargetLeft(item: Object)
+signal ReachedTargetRight(item: Object)
+signal FeetStateChanged(state: FeetStates, foot: Player.Hands)
+
+enum FeetStates {FIXED, ACTIVE, MOVING_LEFT, MOVING_RIGHT, PLANTED_LEFT, PLANTED_RIGHT}
 
 var UP = Vector3(0,1,0)
 var RAYDIR = Vector3(0,0,-4)
+var RAYDIR_LEG = Vector3(0,0,-2)
 var ARM_LENGTH = 0.666
+var FOOT_CORRECTION = Vector3(0,0.1,0)
+var StepTriggerDistance = 0.37
 
 @onready var PlayerRoot = $"../"
+@onready var player_armature: Node3D = $PlayerArmature
 @onready var skeleton: Skeleton3D = $PlayerArmature/Armature/Skeleton3D
-
-@onready var left_hand_target: Marker3D = $LeftHandTarget
-@onready var right_hand_target: Marker3D = $RightHandTarget
-
 @export var animation_player: AnimationPlayer
 @onready var sound_effects : PlayerSounds = AudioManager.player_sounds
 
-@onready var player_armature: Node3D = $PlayerArmature
-
-@onready var left_foot_ik_target: Marker3D = $LeftFootIKTarget
-@onready var right_foot_ik_target: Marker3D = $RightFootIKTarget
-
-@onready var step_target: Node3D = $StepTarget
-@onready var left_step_target: RayCast3D = $StepTarget/LeftRayCast
-@onready var right_step_target: RayCast3D = $StepTarget/RightRayCast
-
-@onready var Hand_L_idx: int = skeleton.find_bone("Hand_L")
-@onready var Hand_R_idx: int = skeleton.find_bone("Hand_R")
-
+# hands
 @onready var left_shoulder_ray: RayCast3D = $RayCastShouldderL
 @onready var right_shoulder_ray: RayCast3D = $RayCastShouldderR
+@onready var left_hand_target: Marker3D = $LeftHandTarget
+@onready var right_hand_target: Marker3D = $RightHandTarget
+
+#feet
+@onready var left_foot_ray: RayCast3D = $LeftRayCast
+@onready var right_foot_ray: RayCast3D = $RightRayCast
+@export var left_foot_ik_target: Marker3D
+@export var right_foot_ik_target: Marker3D
+@export var left_foot_goto: Marker3D
+@export var right_foot_goto: Marker3D
 
 # ---------------------- External Targets --------------------------------------
 @onready var player_rb: RigidBody3D
@@ -41,27 +45,40 @@ var ARM_LENGTH = 0.666
 @onready var body_attach_point: Node3D
 @onready var pickup_radius: ShapeCast3D
 
-signal ReachedTargetLeft(item: Object)
-signal ReachedTargetRight(item: Object)
-
 var stepping := false
 
 # ---------------------- Dynamics ----------------------------------------------
+var inFeetState = FeetStates.ACTIVE
+var lastStepWas = Player.Hands.LEFT
+var LeftFootGotoPos = Vector3(0,0,0)
+var RightFootGotoPos = Vector3(0,0,0)
+var LeftFootWasPos = Vector3(0,0,0)
+var RightFootWasPos = Vector3(0,0,0)
 
 var HandL_wobble = Vector3(0,0,0)
 var HandR_wobble = Vector3(0,0,0)
 var Head_wobble = Vector3(0,0,0)
+var Leg_seperaion = 0.2
+var StepHighPoint = Vector3(0, 0.3, 0)
+var StepMaxAhead = 0.5
+var stepLerp = 0.0
 
 # ----------------- debug 
-var debugDraw = true
-@onready var debugHelpers = [$RightFootIKTarget/debug_right_foot, $LeftFootIKTarget/debug_left_foot,
-$StepTarget/LeftRayCast/LeftFootStepTarget/debug_fs_L, $StepTarget/RightRayCast/RightFootStepTarget/debug_fs_R]
+var debugDraw = false
+@onready var debugHelpers = [$Label3D, $LeftFootIKTarget, $RightFootIKTarget, $LeftFootStepTarget,
+$RightFootStepTarget, $LeftHandTarget, $RightHandTarget]
+
+func updateDebugHelpers():
+	$Label3D.look_at(GameStateManager.game_camera.global_position, UP, true)
+	$Label3D.text = FeetStates.keys()[inFeetState] +  " - LastStep: "
+	$Label3D.text += str(Player.Hands.keys()[lastStepWas])
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("debug_DrawIK"):
 		if debugDraw:
 			for helper in debugHelpers:
-				helper.show()
+				helper.hide()
 			debugDraw = false
 		else:
 			for helper in debugHelpers:
@@ -72,48 +89,59 @@ func _unhandled_input(event: InputEvent) -> void:
 func _ready() -> void:
 	# Temp! Used to at least have a rest pose on the character while testing IK chains
 	animation_player.current_animation = "REST"
-	
-	left_foot_ik_target.has_started_stepping.connect(on_has_start_stepping)
-	right_foot_ik_target.has_started_stepping.connect(on_has_start_stepping)
+
+	for helper in debugHelpers:
+		helper.hide()
+	debugDraw = false
+	#left_foot_ik_target.has_started_stepping.connect(on_has_start_stepping)
+	#right_foot_ik_target.has_started_stepping.connect(on_has_start_stepping)
 	# sounds
-	left_foot_ik_target.has_finished_stepping.connect(AudioManager.player_sounds.footstep_player.play)
-	right_foot_ik_target.has_finished_stepping.connect(AudioManager.player_sounds.footstep_player.play)
+	#left_foot_ik_target.has_finished_stepping.connect(AudioManager.player_sounds.footstep_player.play)
+	#right_foot_ik_target.has_finished_stepping.connect(AudioManager.player_sounds.footstep_player.play)
 	
 	left_shoulder_ray.target_position = RAYDIR
 	right_shoulder_ray.target_position = RAYDIR
-
+	left_foot_ray.target_position = RAYDIR_LEG
+	right_foot_ray.target_position = RAYDIR_LEG
 
 	
 func on_has_start_stepping():
 	if stepping:
 		return
 	stepping = true
-	hip_step()
 	
-func hip_step():
+	
+func hip_step_uptade(time):
 	var starting = player_armature.position
 	var target1 = starting + Vector3(0, -0.03, 0)
 	var target2 = starting + Vector3(0, 0.04, 0)
 	# Animate acring step
-	var t = get_tree().create_tween()
-	t.tween_property(player_armature, "position", target1, 0.2).set_ease(Tween.EASE_OUT)
-	t.tween_property(player_armature, "position", target2, 0.15)
-	t.tween_property(player_armature, "position", starting, 0.2).set_ease(Tween.EASE_OUT)
-	t.tween_callback(func(): stepping = false)
+	#var t = get_tree().create_tween()
+	#t.tween_property(player_armature, "position", target1, 0.2).set_ease(Tween.EASE_OUT)
+	#t.tween_property(player_armature, "position", target2, 0.15)
+	#t.tween_property(player_armature, "position", starting, 0.2).set_ease(Tween.EASE_OUT)
+	#t.tween_callback(func(): stepping = false)
 
 func update_step_targets():
-	var root_pos = player_rb.global_position + Vector3(0, -0.25, 0)
+	# prediction vectors
+	var SideVector: Vector3
+	SideVector.z = -PlayerRoot.player_facing_dir.x * Leg_seperaion
+	SideVector.x = PlayerRoot.player_facing_dir.y * Leg_seperaion
+	SideVector.y = 0.0
+	
+	var FwdVector: Vector3
+	FwdVector.x = PlayerRoot.player_move_dir.x * 0.1
+	FwdVector.z = PlayerRoot.player_move_dir.y * 0.1
+	
+	var left_lookat_pos = PlayerRoot.player_global_mass_pos + SideVector + FwdVector
+	var right_lookat_pos = PlayerRoot.player_global_mass_pos - SideVector + FwdVector
 
-	var balance_vec = $"../".player_global_mass_pos - root_pos
-	var speed = upper_body.linear_velocity.length()
-	var left_inv_transform = self.global_transform.inverse().basis
-	var local_balance_vec = left_inv_transform * balance_vec
 	
-	left_step_target.target_position.x = local_balance_vec.x * speed
-	left_step_target.target_position.z = local_balance_vec.z * speed
+	left_foot_ray.look_at(left_lookat_pos)
+	right_foot_ray.look_at(right_lookat_pos)
 	
-	right_step_target.target_position.x = local_balance_vec.x * speed
-	right_step_target.target_position.z = local_balance_vec.z * speed
+	left_foot_goto.global_position = LeftFootGotoPos
+	right_foot_goto.global_position = RightFootGotoPos
 
 func moveHand(ray: Object, hand: Object, target: Object, doRaycast: bool = false) -> void:
 	if doRaycast:
@@ -126,9 +154,32 @@ func moveHand(ray: Object, hand: Object, target: Object, doRaycast: bool = false
 func updateClosestPos() -> void:
 	pass
 
-func checkDistance(bone: Object, target: Object, hand: Player.Hands) -> bool:
+func moveFeet(activFoot: Player.Hands) -> void:
+	match activFoot:
+		Player.Hands.LEFT:
+			var mov = lerp(LeftFootWasPos, LeftFootGotoPos, stepLerp)
+			mov += StepHighPoint * sin(3.14 * stepLerp)
+			left_foot_ik_target.global_position = mov
+			right_foot_ik_target.global_position = RightFootWasPos
+		Player.Hands.RIGHT:
+			var mov =  lerp(RightFootWasPos, RightFootGotoPos, stepLerp)
+			mov += StepHighPoint * sin(3.14 * stepLerp)
+			right_foot_ik_target.global_position = mov
+			left_foot_ik_target.global_position = LeftFootWasPos	
+
+func updateStepLerp() -> void:
+	stepLerp = ($StepInProgress.wait_time - $StepInProgress.time_left) / $StepInProgress.wait_time 
+
+func checkDistance(bone: Object, target: Object) -> bool:
 	var d = (bone.global_position - target.global_position).length() - ARM_LENGTH
 	if d < PlayerRoot.PickupThreshold:
+		return true
+	else:
+		return false
+
+func checkStepStart(was: Vector3, isCurrent: Vector3) -> bool:
+	var d = (was - isCurrent).length()
+	if d > StepTriggerDistance:
 		return true
 	else:
 		return false
@@ -136,13 +187,13 @@ func checkDistance(bone: Object, target: Object, hand: Player.Hands) -> bool:
 func _process(delta: float) -> void:
 	# Make the armature follow the physics bodies
 	self.global_transform = lerp(self.global_transform, body_attach_point.global_transform, .5)
-	
-	#move hand targets
+
+	# ---------------- HAND UPDATE ----------------
 	match PlayerRoot.HandLState:
 		Player.HandStates.REACHING: 
 			if PlayerRoot.closestLeft:
 				moveHand(left_shoulder_ray, left_hand_target, PlayerRoot.closestLeft, true)
-				if checkDistance(left_shoulder_ray, PlayerRoot.closestLeft, Player.Hands.LEFT):
+				if checkDistance(left_shoulder_ray, PlayerRoot.closestLeft):
 					ReachedTargetLeft.emit(PlayerRoot.closestLeft)
 			else: moveHand(left_shoulder_ray, left_hand_target, rb_arm_l)
 		_: moveHand(left_shoulder_ray, left_hand_target, rb_arm_l)
@@ -151,28 +202,74 @@ func _process(delta: float) -> void:
 		Player.HandStates.REACHING: 
 			if PlayerRoot.closestRight: 
 				moveHand(right_shoulder_ray, right_hand_target, PlayerRoot.closestRight, true)
-				if checkDistance(left_shoulder_ray, PlayerRoot.closestRight, Player.Hands.RIGHT):
+				if checkDistance(left_shoulder_ray, PlayerRoot.closestRight):
 					ReachedTargetRight.emit(PlayerRoot.closestRight, )
 			else: moveHand(right_shoulder_ray, right_hand_target, rb_arm_r)
 		_: moveHand(right_shoulder_ray, right_hand_target, rb_arm_r)
-
 	
+	# ---------------- FEET UPDATE ----------------
+	
+	match inFeetState:
+		FeetStates.FIXED: pass
+		FeetStates.ACTIVE: 
+			update_step_targets()
+			match lastStepWas:
+				Player.Hands.LEFT: 
+					if checkStepStart(RightFootWasPos, RightFootGotoPos):
+						setFeetState(FeetStates.MOVING_RIGHT, Player.Hands.RIGHT)
+					elif checkStepStart(LeftFootWasPos, LeftFootGotoPos):
+						setFeetState(FeetStates.MOVING_LEFT, Player.Hands.LEFT)
+				Player.Hands.RIGHT: 
+					if checkStepStart(LeftFootWasPos, LeftFootGotoPos):
+						setFeetState(FeetStates.MOVING_LEFT, Player.Hands.LEFT)
+					elif checkStepStart(RightFootWasPos, RightFootGotoPos):
+						setFeetState(FeetStates.MOVING_RIGHT, Player.Hands.RIGHT)
+		FeetStates.MOVING_LEFT:
+			updateStepLerp()
+			hip_step_uptade(stepLerp)
+			moveFeet(Player.Hands.LEFT)
+		FeetStates.MOVING_RIGHT: 
+			updateStepLerp()
+			hip_step_uptade(stepLerp)
+			moveFeet(Player.Hands.RIGHT)
+		FeetStates.PLANTED_LEFT: pass
+		FeetStates.PLANTED_RIGHT: pass
 	#move feet targets
-	update_step_targets()
+	if debugDraw: updateDebugHelpers()
 	
-func Reset() -> void:
-	pass
-
-func _on_player_change_hand_left(state: Player.HandStates, item: Object) -> void:
-	match state:
-		Player.HandStates.REACHING: pass
-		Player.HandStates.DANGLY: pass
-		
-func _on_player_change_hand_right(state: Player.HandStates, item: Object) -> void:
-	pass
+func _physics_process(delta: float) -> void:
+	LeftFootGotoPos = left_foot_ray.get_collision_point() + FOOT_CORRECTION
+	RightFootGotoPos = right_foot_ray.get_collision_point() + FOOT_CORRECTION
 
 func _on_player_change_feet(state: Player.FeetStates) -> void:
 	match state:
 		Player.FeetStates.STEPPING: pass
 		Player.FeetStates.ROLLING: pass
-		
+
+func setFeetState(state: FeetStates, foot: Player.Hands):
+	inFeetState = state
+	self.FeetStateChanged.emit(state, foot)
+
+func _on_step_in_progress_timeout() -> void:
+	match inFeetState:
+		FeetStates.MOVING_LEFT: 
+			LeftFootWasPos = LeftFootGotoPos
+			setFeetState(FeetStates.PLANTED_LEFT, Player.Hands.LEFT)
+		FeetStates.MOVING_RIGHT: 
+			RightFootWasPos = RightFootGotoPos
+			setFeetState(FeetStates.PLANTED_RIGHT, Player.Hands.RIGHT)
+
+func _on_feet_state_changed(state: int, foot: Player.Hands) -> void:
+	match state:
+		FeetStates.FIXED: $StepInProgress.stop()
+		FeetStates.ACTIVE: pass
+		FeetStates.MOVING_LEFT: $StepInProgress.start()
+		FeetStates.MOVING_RIGHT: $StepInProgress.start()
+		FeetStates.PLANTED_LEFT:
+			$StepInProgress.wait_time = randf_range(0.15, 0.2)
+			setFeetState(FeetStates.ACTIVE, foot)
+			lastStepWas = foot
+		FeetStates.PLANTED_RIGHT:
+			$StepInProgress.wait_time = randf_range(0.15, 0.2)
+			setFeetState(FeetStates.ACTIVE, foot)
+			lastStepWas = foot

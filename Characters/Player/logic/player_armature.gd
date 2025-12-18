@@ -3,10 +3,10 @@ extends Node3D
 @onready var player_body: Node3D = $".."
 @onready var skeleton_3d: Skeleton3D = $Armature/Skeleton3D
 
-@onready var left_foot_target: Marker3D = $"../LeftFootIKTarget"
-@onready var right_foot_target: Marker3D = $"../RightFootIKTarget"
-@onready var left_hand_target: Marker3D = $"../LeftHandTarget"
-@onready var right_hand_target: Marker3D = $"../RightHandTarget"
+@export var left_foot_target: Marker3D
+@export var right_foot_target: Marker3D
+@export var left_hand_target: Marker3D
+@export var right_hand_target: Marker3D
 
 var hand_attach_l: BoneAttachment3D
 var hand_attach_r: BoneAttachment3D
@@ -38,7 +38,7 @@ func _ready() -> void:
 	left_leg_ik.tip_bone = "Leg_IK_target-L"
 	left_leg_ik.target_node = left_foot_target.get_path()
 	left_leg_ik.use_magnet = true
-	left_leg_ik.magnet = Vector3(1, 0, 1)
+	left_leg_ik.magnet = Vector3(2, 0, 5)
 	left_leg_ik.start()
 	skeleton_3d.add_child(left_leg_ik)
 	
@@ -47,7 +47,7 @@ func _ready() -> void:
 	right_leg_ik.tip_bone = "Leg_IK_target-R"
 	right_leg_ik.target_node = right_foot_target.get_path()
 	right_leg_ik.use_magnet = true
-	right_leg_ik.magnet = Vector3(-1, 0, 1)
+	right_leg_ik.magnet = Vector3(-2, 0, 5)
 	right_leg_ik.start()
 	skeleton_3d.add_child(right_leg_ik)
 	

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cdppyptuftkiw" path="res://Characters/Player/logic/player_movement.gd" id="1_jkj6u"]
 [ext_resource type="PackedScene" uid="uid://cyksrihj0achx" path="res://Particles/Player/pfx_falling_indicator.tscn" id="2_6yvek"]
-[ext_resource type="Script" path="res://Characters/Player/logic/rigid_bally.gd" id="2_fy1gk"]
+[ext_resource type="Script" uid="uid://b5ewjdm5d53je" path="res://Characters/Player/logic/rigid_bally.gd" id="2_fy1gk"]
 [ext_resource type="PackedScene" uid="uid://bhvwgh4ef0sj6" path="res://Particles/Player/pfx_bodyfall.tscn" id="3_on8bp"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_on8bp"]

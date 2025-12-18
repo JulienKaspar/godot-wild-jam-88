@@ -1,20 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://b86lbtpyigxs5"]
+[gd_scene load_steps=10 format=3 uid="uid://b86lbtpyigxs5"]
 
 [ext_resource type="Script" uid="uid://din06hqtbjn7p" path="res://Characters/Player/logic/player_body.gd" id="1_codw7"]
 [ext_resource type="PackedScene" uid="uid://wfy3mktwjjp1" path="res://Assets/Characters/Drunk/drunk.gltf" id="1_wnhn1"]
 [ext_resource type="Script" uid="uid://26b81t0og4ju" path="res://Characters/Player/logic/player_armature.gd" id="2_codw7"]
-[ext_resource type="Script" uid="uid://cnh1i21mdu6qb" path="res://Characters/Player/logic/foot_step_target.gd" id="4_3aftw"]
 [ext_resource type="Script" uid="uid://bofc06yletic2" path="res://Characters/Player/logic/foot_ik_target.gd" id="4_wsmry"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hu15c"]
-albedo_color = Color(0.25567532, 0.15522826, 1, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_wsmry"]
-radius = 0.05
-height = 0.1
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wsmry"]
-albedo_color = Color(0.7828577, 0.24109468, 0, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_hu15c"]
 radius = 0.05
@@ -24,65 +13,33 @@ height = 0.1
 radius = 0.05
 height = 0.1
 
-[node name="PlayerBody" type="Node3D" node_paths=PackedStringArray("animation_player")]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3aftw"]
+albedo_color = Color(0.25567532, 0.15522826, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_wsmry"]
+radius = 0.18
+height = 0.1
+radial_segments = 5
+rings = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hu15c"]
+albedo_color = Color(0.7828577, 0.24109468, 0, 1)
+
+[node name="PlayerBody" type="Node3D" node_paths=PackedStringArray("animation_player", "left_foot_ik_target", "right_foot_ik_target", "left_foot_goto", "right_foot_goto")]
 script = ExtResource("1_codw7")
 animation_player = NodePath("PlayerArmature/AnimationPlayer")
+left_foot_ik_target = NodePath("LeftFootIKTarget")
+right_foot_ik_target = NodePath("RightFootIKTarget")
+left_foot_goto = NodePath("LeftFootStepTarget")
+right_foot_goto = NodePath("RightFootStepTarget")
 
-[node name="PlayerArmature" parent="." instance=ExtResource("1_wnhn1")]
+[node name="PlayerArmature" parent="." node_paths=PackedStringArray("left_foot_target", "right_foot_target", "left_hand_target", "right_hand_target") instance=ExtResource("1_wnhn1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.09194231, 0)
 script = ExtResource("2_codw7")
-
-[node name="LeftFootIKTarget" type="Marker3D" parent="." node_paths=PackedStringArray("step_target", "other_foot")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24782154, 0, 0)
-top_level = true
-script = ExtResource("4_wsmry")
-step_target = NodePath("../StepTarget/LeftRayCast/LeftFootStepTarget")
-other_foot = NodePath("../RightFootIKTarget")
-
-[node name="debug_left_foot" type="MeshInstance3D" parent="LeftFootIKTarget"]
-material_override = SubResource("StandardMaterial3D_hu15c")
-mesh = SubResource("SphereMesh_wsmry")
-
-[node name="RightFootIKTarget" type="Marker3D" parent="." node_paths=PackedStringArray("step_target", "other_foot")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27868828, 0, 0)
-top_level = true
-script = ExtResource("4_wsmry")
-step_target = NodePath("../StepTarget/RightRayCast/RightFootStepTarget")
-other_foot = NodePath("../LeftFootIKTarget")
-
-[node name="debug_right_foot" type="MeshInstance3D" parent="RightFootIKTarget"]
-material_override = SubResource("StandardMaterial3D_hu15c")
-mesh = SubResource("SphereMesh_wsmry")
-
-[node name="StepTarget" type="Node3D" parent="."]
-
-[node name="LeftRayCast" type="RayCast3D" parent="StepTarget" node_paths=PackedStringArray("step_target")]
-transform = Transform3D(0.99968547, -0.025077749, 0, 0.025077749, 0.99968547, 0, 0, 0, 1, 0.08403608, 1.3198864, 0)
-target_position = Vector3(0, -4, 0)
-collision_mask = 64
-script = ExtResource("4_3aftw")
-step_target = NodePath("LeftFootStepTarget")
-
-[node name="LeftFootStepTarget" type="Marker3D" parent="StepTarget/LeftRayCast"]
-transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 0.04615736, -1.1600089, 0)
-
-[node name="debug_fs_L" type="MeshInstance3D" parent="StepTarget/LeftRayCast/LeftFootStepTarget"]
-material_override = SubResource("StandardMaterial3D_wsmry")
-mesh = SubResource("SphereMesh_wsmry")
-
-[node name="RightRayCast" type="RayCast3D" parent="StepTarget" node_paths=PackedStringArray("step_target")]
-transform = Transform3D(0.9995044, 0.031480536, 0, -0.031480536, 0.9995044, 0, 0, 0, 1, -0.095353216, 1.3198864, 0)
-target_position = Vector3(0, -4, 0)
-collision_mask = 64
-script = ExtResource("4_3aftw")
-step_target = NodePath("RightFootStepTarget")
-
-[node name="RightFootStepTarget" type="Marker3D" parent="StepTarget/RightRayCast"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.057942122, -1.1603425, 0)
-
-[node name="debug_fs_R" type="MeshInstance3D" parent="StepTarget/RightRayCast/RightFootStepTarget"]
-material_override = SubResource("StandardMaterial3D_wsmry")
-mesh = SubResource("SphereMesh_wsmry")
+left_foot_target = NodePath("../LeftFootIKTarget")
+right_foot_target = NodePath("../RightFootIKTarget")
+left_hand_target = NodePath("../LeftHandTarget")
+right_hand_target = NodePath("../RightHandTarget")
 
 [node name="RightHandTarget" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.33, 1.3, 0)
@@ -105,3 +62,60 @@ collision_mask = 61
 [node name="RayCastShouldderR" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.126, 1.36, 0)
 collision_mask = 61
+
+[node name="LeftRayCast" type="RayCast3D" parent="."]
+transform = Transform3D(0.99968547, -0.025077749, 0, 0.025077749, 0.99968547, 0, 0, 0, 1, 0.112, 1.115, 0.026)
+target_position = Vector3(0, -4, 0)
+collision_mask = 64
+
+[node name="RightRayCast" type="RayCast3D" parent="."]
+transform = Transform3D(0.9995044, 0.031480536, 0, -0.031480536, 0.9995044, 0, 0, 0, 1, -0.112326205, 1.1150669, 0)
+target_position = Vector3(0, -4, 0)
+collision_mask = 64
+
+[node name="StepInProgress" type="Timer" parent="."]
+wait_time = 0.17
+one_shot = true
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0574298, 0)
+visible = false
+pixel_size = 0.004
+text = "JA"
+outline_size = 50
+
+[node name="LeftFootIKTarget" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49884745, 0.21737695, 0)
+top_level = true
+script = ExtResource("4_wsmry")
+
+[node name="debug_left_foot" type="MeshInstance3D" parent="LeftFootIKTarget"]
+material_override = SubResource("StandardMaterial3D_3aftw")
+mesh = SubResource("SphereMesh_wsmry")
+
+[node name="RightFootIKTarget" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4941189, 0.228172, 0)
+top_level = true
+script = ExtResource("4_wsmry")
+isSide = 1
+
+[node name="debug_right_foot" type="MeshInstance3D" parent="RightFootIKTarget"]
+material_override = SubResource("StandardMaterial3D_3aftw")
+mesh = SubResource("SphereMesh_wsmry")
+
+[node name="LeftFootStepTarget" type="Marker3D" parent="."]
+transform = Transform3D(0.9996856, -0.025077753, 0, 0.025077753, 0.9996856, 0, 0, 0, 1, 0.5381553, -0.03468337, 0.026)
+
+[node name="debug_fs_L" type="MeshInstance3D" parent="LeftFootStepTarget"]
+material_override = SubResource("StandardMaterial3D_hu15c")
+mesh = SubResource("SphereMesh_wsmry")
+
+[node name="RightFootStepTarget" type="Marker3D" parent="."]
+transform = Transform3D(0.9995044, 0.031480536, 0, -0.031480536, 0.9995044, 0, 0, 0, 1, -0.5100664, -0.033323746, 0)
+
+[node name="debug_fs_R" type="MeshInstance3D" parent="RightFootStepTarget"]
+material_override = SubResource("StandardMaterial3D_hu15c")
+mesh = SubResource("SphereMesh_wsmry")
+
+[connection signal="FeetStateChanged" from="." to="." method="_on_feet_state_changed"]
+[connection signal="timeout" from="StepInProgress" to="." method="_on_step_in_progress_timeout"]

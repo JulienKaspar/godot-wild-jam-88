@@ -15,7 +15,6 @@ class_name PlayerController
 @onready var debugHelpers = [%RigidBally3D,	$UpperBody/helper_body_col,	%ArmL,	
 				%ArmR,	$LegL,	$LegR]
 	
-
 #---------------- Movement Settings -----------------------
 static var player_input_strength = 1.0 # how much player has control
 static var player_turn_speed = 2.0 # how fast character should turn
