@@ -16,7 +16,6 @@ func _ready():
 		AudioManager.music_manager = self
 		
 	_connect_signals()
-	_setup_random_chord_changes()
 
 func _connect_signals():
 	switch_music.connect(switch_music_to_theme)
@@ -56,6 +55,7 @@ func _on_level_change(level_index : int):
 			AudioManager.fade_audio_in(music_player, _volume_db)
 		else:
 			AudioManager.tween_volume_db(music_player, _volume_db)
+			_setup_random_chord_changes()
 
 
 
