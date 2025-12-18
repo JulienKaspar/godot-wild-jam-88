@@ -18,6 +18,7 @@ var game_camera: GameCamera
 var player_spawner: PlayerSpawner
 var current_player: Player
 var current_level_index: int
+var loading_screen: LoadingScreen
 
 func _ready() -> void:
 	get_tree().paused = true
@@ -37,10 +38,10 @@ func register_level_loader(loader: LevelLoader) -> void:
 
 func start_game() -> void:
 	get_tree().paused = false
-	load_level_by_index(starting_level_index)
+	load_level_by_index(starting_level_index,false)
 	current_state = GameState.Game
 	PlayerMovementUtils.knock_player_down.call_deferred()
-
+	loading_screen.display(4)
 	
 
 
@@ -53,7 +54,10 @@ func find_spawn_point_in_level(level: Node3D) -> Vector3:
 func set_follow_camera(player: Player) -> void:
 	game_camera.follow_target = player.get_node("PlayerController/RigidBally3D")
 
-func load_level_by_index(index: int) -> void:
+func load_level_by_index(index: int, show_loading_screen: bool) -> void:
+	if show_loading_screen:
+		loading_screen.display(3)
+		pause_game()
 	var loaded_level = level_loader.load_level(levels[index])
 	var spawn_point = find_spawn_point_in_level(loaded_level)
 	var player = player_spawner.respawn(spawn_point)
@@ -62,6 +66,10 @@ func load_level_by_index(index: int) -> void:
 	current_player = player
 	call_deferred(set_follow_camera.get_method(),player)
 	current_level_index = index
+	
+	if show_loading_screen:
+		await loading_screen.on_completed
+		unpause_game()
 
 func next_level() -> void:
 	if current_level_index == levels.size() - 1:
@@ -70,7 +78,7 @@ func next_level() -> void:
 	elif current_level_index == 1:
 		AudioManager.music_manager.start_music()
 	
-	load_level_by_index(current_level_index + 1)
+	load_level_by_index(current_level_index + 1, true)
 
 func show_dialogue(text: String) -> void:
 	dialogue_system.display_dialogue(text)
@@ -96,6 +104,6 @@ func unpause_game() -> void:
 		
 func handle_sobriety() -> void:
 	if UserSettings.fail_state:
-		load_level_by_index(current_level_index)
+		load_level_by_index(current_level_index, false)
 		dialogue_system.display_dialogue("We got a little too sober, lets try again")
 		player_drunkness.reset_drunkness()

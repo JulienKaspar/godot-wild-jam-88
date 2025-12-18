@@ -71,7 +71,7 @@ func display_level_selector() -> void:
 		ImGui.EndCombo()
 	if selected_level_index != null:
 		if ImGui.Button("Load Selected Level"):
-			GameStateManager.load_level_by_index(selected_level_index)
+			GameStateManager.load_level_by_index(selected_level_index, false)
 
 func display_dialogue_debug() -> void:
 	ImGui.InputText("Dialogue Text", dialogue_text, 100)
