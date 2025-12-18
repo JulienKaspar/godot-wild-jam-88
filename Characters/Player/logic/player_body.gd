@@ -160,6 +160,8 @@ func drinkHandInterpolation(origin: Vector3, hand: Object, target: Object, item:
 	var blendTime = min(1.0, time * 4.0)
 	if blendTime == 1.0:
 		item.consume()
+		if !AudioManager.player_sounds.voice_player.playing:
+			AudioManager.player_sounds.play_voice(AudioManager.player_sounds.chug_sounds)
 	hand.global_position = lerp(origin, target.global_position, blendTime)
 
 func moveHand(ray: Object, hand: Object, target: Object, doRaycast: bool = false) -> void:

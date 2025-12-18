@@ -108,6 +108,7 @@ func switch_music_to_theme(theme : MUSIC_THEMES):
 	var _playback : AudioStreamPlaybackInteractive = music_player.get_stream_playback()
 	_playback.switch_to_clip_by_name(MUSIC_BANK[theme])
 	current_theme = theme
+	AudioManager.update_drunk_effects()
 #endregion
 
 

@@ -1,0 +1,16 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=6 format=3 uid="uid://jq4vgeeay6ny"]
+
+[ext_resource type="AudioStream" uid="uid://cksmnc7ajbhai" path="res://Assets/Audio/SFX/Player/player_voice_chugging_01.ogg" id="1_u2mh4"]
+[ext_resource type="AudioStream" uid="uid://d2o81sg2cwg14" path="res://Assets/Audio/SFX/Player/player_voice_chugging_02.ogg" id="2_56dlm"]
+[ext_resource type="AudioStream" uid="uid://c5ia7thnxyglj" path="res://Assets/Audio/SFX/Player/player_voice_chugging_03.ogg" id="3_4coh6"]
+[ext_resource type="AudioStream" uid="uid://r3ooq1voyoly" path="res://Assets/Audio/SFX/Player/player_voice_chugging_04.ogg" id="4_q3rdv"]
+[ext_resource type="AudioStream" uid="uid://cjevdq5dehr52" path="res://Assets/Audio/SFX/Player/player_voice_chugging_05.ogg" id="5_5b40t"]
+
+[resource]
+random_pitch = 1.1
+streams_count = 5
+stream_0/stream = ExtResource("1_u2mh4")
+stream_1/stream = ExtResource("2_56dlm")
+stream_2/stream = ExtResource("3_4coh6")
+stream_3/stream = ExtResource("4_q3rdv")
+stream_4/stream = ExtResource("5_5b40t")
