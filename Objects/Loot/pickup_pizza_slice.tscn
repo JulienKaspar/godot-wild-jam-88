@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://jl2jkh4vmktn"]
+
+[ext_resource type="Script" uid="uid://b3w4gu3se7vnv" path="res://Gameplay/Pickups/drunkness_pickup.gd" id="1_oecnb"]
+[ext_resource type="Script" path="res://Gameplay/Pickups/pick_point.gd" id="2_jprtf"]
+[ext_resource type="PackedScene" uid="uid://d0sfog08mwxuw" path="res://Particles/DrunknessPickups/pfx_pizza_consuming.tscn" id="3_f3k6e"]
+[ext_resource type="PackedScene" uid="uid://b68w14ql4fcn8" path="res://Assets/Furniture/pizza_slice.gltf" id="6_cryrt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f3k6e"]
+size = Vector3(0.23242188, 0.032958984, 0.37109375)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_fwtl3"]
+viewport_path = NodePath("PickupPrompt/SubViewport")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fwtl3"]
+radius = 0.1
+
+[node name="DrunknessPickup" type="RigidBody3D"]
+collision_layer = 32
+collision_mask = 55
+script = ExtResource("1_oecnb")
+drunkness_increase = -0.5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0007324219, 0.025243878, 0.15459663)
+shape = SubResource("BoxShape3D_f3k6e")
+
+[node name="PickupPrompt" type="Sprite3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0013433695, 0.34856614, 0.000672698)
+billboard = 1
+texture = SubResource("ViewportTexture_fwtl3")
+
+[node name="SubViewport" type="SubViewport" parent="PickupPrompt"]
+transparent_bg = true
+size = Vector2i(200, 50)
+
+[node name="Label" type="Label" parent="PickupPrompt/SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+text = "*
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PickPoint" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15536867, 0)
+monitoring = false
+script = ExtResource("2_jprtf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PickPoint"]
+shape = SubResource("SphereShape3D_fwtl3")
+
+[node name="PfxBeerConsuming" parent="." instance=ExtResource("3_f3k6e")]
+emitting = false
+
+[node name="pizza_slice" parent="." instance=ExtResource("6_cryrt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.019324124, 0)

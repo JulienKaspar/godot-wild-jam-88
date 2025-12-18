@@ -1,12 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://d3unw205fanv5"]
+[gd_scene load_steps=11 format=3 uid="uid://c50jjcmdyr7vp"]
 
-[ext_resource type="Script" uid="uid://b3w4gu3se7vnv" path="res://Gameplay/Pickups/drunkness_pickup.gd" id="1_ecdgq"]
-[ext_resource type="Script" path="res://Gameplay/Pickups/pick_point.gd" id="2_ecdgq"]
-[ext_resource type="PackedScene" uid="uid://digw728iiuyg2" path="res://Particles/DrunknessPickups/pfx_beer_consuming.tscn" id="3_mrtou"]
-[ext_resource type="PackedScene" uid="uid://cpegwj8uc0kq5" path="res://Particles/DrunknessPickups/pfx_beer_break.tscn" id="4_4p7tg"]
-[ext_resource type="PackedScene" uid="uid://bw1ewj0l1c71n" path="res://Particles/DrunknessPickups/pfx_beer_dispose.tscn" id="5_7fyj8"]
-[ext_resource type="PackedScene" uid="uid://dlcyjsr63f0oh" path="res://Assets/Props/beer_can.gltf" id="6_7fyj8"]
-[ext_resource type="PackedScene" uid="uid://b2rny3w0qdj7n" path="res://Assets/Props/beer_can_broken.gltf" id="7_dirpb"]
+[ext_resource type="Script" uid="uid://b3w4gu3se7vnv" path="res://Gameplay/Pickups/drunkness_pickup.gd" id="1_1ac8f"]
+[ext_resource type="Script" uid="uid://dov4lhtuyrycf" path="res://Gameplay/Pickups/pick_point.gd" id="2_t35mh"]
+[ext_resource type="PackedScene" uid="uid://digw728iiuyg2" path="res://Particles/DrunknessPickups/pfx_beer_consuming.tscn" id="3_jbig5"]
+[ext_resource type="PackedScene" uid="uid://cpegwj8uc0kq5" path="res://Particles/DrunknessPickups/pfx_beer_break.tscn" id="4_rbkuy"]
+[ext_resource type="PackedScene" uid="uid://bw1ewj0l1c71n" path="res://Particles/DrunknessPickups/pfx_beer_dispose.tscn" id="5_u18ou"]
+[ext_resource type="PackedScene" uid="uid://do1w53g6gv4v7" path="res://Assets/Props/beer_cup.gltf" id="6_t35mh"]
+[ext_resource type="PackedScene" uid="uid://dsxj8qcelbum7" path="res://Assets/Props/beer_cup_broken.gltf" id="7_jbig5"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_px5wb"]
 height = 0.30083007
@@ -21,13 +21,14 @@ radius = 0.1
 [node name="DrunknessPickup" type="RigidBody3D" node_paths=PackedStringArray("pristine_mesh", "consume_pfx", "dispose_pfx", "break_pfx", "broken_mesh")]
 collision_layer = 32
 collision_mask = 55
-script = ExtResource("1_ecdgq")
+script = ExtResource("1_1ac8f")
 drunkness_increase = 1.8
-pristine_mesh = NodePath("can")
+pristine_mesh = NodePath("cup")
 consume_pfx = NodePath("PfxBeerConsuming")
 dispose_pfx = NodePath("PfxBeerDispose")
+can_break = true
 break_pfx = NodePath("PfxBeerBreak")
-broken_mesh = NodePath("can_broken")
+broken_mesh = NodePath("cup_broken")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0007324219, 0.15249817, 0)
@@ -59,20 +60,22 @@ vertical_alignment = 1
 [node name="PickPoint" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15536867, 0)
 monitoring = false
-script = ExtResource("2_ecdgq")
+script = ExtResource("2_t35mh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PickPoint"]
 shape = SubResource("SphereShape3D_fwtl3")
 
-[node name="PfxBeerConsuming" parent="." instance=ExtResource("3_mrtou")]
+[node name="PfxBeerConsuming" parent="." instance=ExtResource("3_jbig5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29612786, 0)
 emitting = false
 
-[node name="PfxBeerBreak" parent="." instance=ExtResource("4_4p7tg")]
+[node name="PfxBeerBreak" parent="." instance=ExtResource("4_rbkuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2697593, 0)
 
-[node name="PfxBeerDispose" parent="." instance=ExtResource("5_7fyj8")]
+[node name="PfxBeerDispose" parent="." instance=ExtResource("5_u18ou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.264432, 0)
 
-[node name="can" parent="." instance=ExtResource("6_7fyj8")]
+[node name="cup" parent="." instance=ExtResource("6_t35mh")]
 
-[node name="can_broken" parent="." instance=ExtResource("7_dirpb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09519374, 0)
+[node name="cup_broken" parent="." instance=ExtResource("7_jbig5")]
+transform = Transform3D(0.07426519, 0.9972385, 0, -0.9972385, 0.07426519, 0, 0, 0, 1, -0.05959561, 0.11651543, 0)

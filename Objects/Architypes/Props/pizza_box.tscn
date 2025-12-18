@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://xu48fxr0n02f"]
+
+[ext_resource type="PackedScene" uid="uid://142xvokhmr2g" path="res://Objects/PropCollider.tscn" id="1_1idxj"]
+[ext_resource type="PackedScene" uid="uid://conm1t2n8p6hr" path="res://Assets/Furniture/pizza_box.gltf" id="2_s2rin"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1idxj"]
+size = Vector3(1.0112305, 0.0652771, 1.0898438)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ue74w"]
+size = Vector3(1.0112305, 0.0652771, 1.0898438)
+
+[node name="PizzaBox" type="Node3D"]
+
+[node name="PropCollider" parent="." instance=ExtResource("1_1idxj")]
+freeze = true
+freeze_mode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PropCollider"]
+transform = Transform3D(0.99158555, -0.12945327, 0, 0.12945327, 0.99158555, 0, 0, 0, 1, -0.9886362, 0.06864993, 0)
+shape = SubResource("BoxShape3D_1idxj")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="PropCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010451555, 0.033737183, 0)
+shape = SubResource("BoxShape3D_ue74w")
+
+[node name="pizza_box" parent="PropCollider" instance=ExtResource("2_s2rin")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.021264821, 0)

@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://bl2s2scly01yo"]
+
+[ext_resource type="PackedScene" uid="uid://jl2jkh4vmktn" path="res://Objects/Loot/pickup_pizza_slice.tscn" id="2_yk2ue"]
+
+[node name="FullPizza" type="Node3D"]
+
+[node name="DrunknessPickup" parent="." instance=ExtResource("2_yk2ue")]
+transform = Transform3D(0.90473783, 0, -0.4259688, 0, 1, 0, 0.4259688, 0, 0.90473783, 0.17363523, 0.033996478, -0.36932924)
+
+[node name="DrunknessPickup2" parent="." instance=ExtResource("2_yk2ue")]
+transform = Transform3D(0.2873772, 0, -0.95781755, 0, 1, 0, 0.95781755, 0, 0.2873772, 0.39187488, 0.032677665, -0.15133917)
+
+[node name="DrunknessPickup3" parent="." instance=ExtResource("2_yk2ue")]
+transform = Transform3D(-0.5126275, 0, -0.8586112, 0, 1, 0, 0.8586112, 0, -0.5126275, 0.35046098, 0.032677665, 0.18687344)
+
+[node name="DrunknessPickup4" parent="." instance=ExtResource("2_yk2ue")]
+transform = Transform3D(-0.9853574, 0, -0.1705018, 0, 1, 0, 0.1705018, 0, -0.9853574, 0.082651794, 0.032677665, 0.39394242)
+
+[node name="DrunknessPickup5" parent="." instance=ExtResource("2_yk2ue")]
+transform = Transform3D(-0.19560367, 0, 0.98068297, 0, 1, 0, -0.98068297, 0, -0.19560367, -0.35495383, 0.032677665, 0.04882735)
+
+[node name="DrunknessPickup6" parent="." instance=ExtResource("2_yk2ue")]
+transform = Transform3D(0.4882254, 0, 0.87271756, 0, 1, 0, -0.87271756, 0, 0.4882254, -0.3314861, 0.032677665, -0.28662434)

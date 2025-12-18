@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://bw1ewj0l1c71n"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nhfdb"]
+lifetime_randomness = 0.5
+angle_min = -179.99998
+angle_max = 180.00002
+inherit_velocity_ratio = 1.0
+spread = 180.0
+initial_velocity_min = 1.0
+initial_velocity_max = 3.0
+scale_min = 0.19999999
+scale_max = 0.29999998
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s5x81"]
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_kt71i"]
+material = SubResource("StandardMaterial3D_s5x81")
+
+[node name="PfxBeerDispose" type="GPUParticles3D"]
+emitting = false
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_nhfdb")
+draw_pass_1 = SubResource("QuadMesh_kt71i")
