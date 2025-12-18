@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://bt7vg8hwiacn4"]
+[gd_scene load_steps=58 format=3 uid="uid://bt7vg8hwiacn4"]
 
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="1_hkor5"]
 [ext_resource type="Material" uid="uid://hg5ppfcn0qd7" path="res://Levels/Gyms/Floor/floor1_v2.tres" id="2_kukai"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://daqdt75cvmkiy" path="res://Objects/Architypes/TrippingHazards/tripping_test.tscn" id="22_8emx1"]
 [ext_resource type="PackedScene" uid="uid://d2fq258dik5oo" path="res://Objects/Architypes/Furniture/table1.tscn" id="23_us21n"]
 [ext_resource type="PackedScene" uid="uid://bo1p1dvgr50f4" path="res://Objects/Loot/pickup_banana.tscn" id="24_1m06e"]
+[ext_resource type="PackedScene" uid="uid://c0gyul67lvgh6" path="res://Assets/Furniture/rug_rose_gold.gltf" id="25_1m06e"]
 
 [sub_resource type="Environment" id="Environment_vu8ij"]
 background_mode = 1
@@ -246,6 +247,20 @@ uv1_offset = Vector3(0.02, 0, 0)
 uv1_triplanar = true
 uv1_world_triplanar = true
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kukai"]
+resource_local_to_scene = true
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0.49747366, 0.49747366, 0.49747366, 0)
+albedo_texture = ExtResource("8_hmbrj")
+rim = 0.47
+subsurf_scatter_strength = 1.0
+subsurf_scatter_skin_mode = true
+uv1_scale = Vector3(0.45, 0.298, 0.45)
+uv1_offset = Vector3(0.02, 0, 0)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
 [node name="Node3D" type="Node3D"]
 
 [node name="PlayerSpawnPoint" type="Node3D" parent="."]
@@ -426,11 +441,11 @@ collision_layer = 65
 size = Vector3(12.553375, 1, 5.7252903)
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="Layout/Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.238049, -0.10760546, 12.209172)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.238049, -0.10760546, 12.263618)
 material_override = ExtResource("2_kukai")
 use_collision = true
 collision_layer = 65
-size = Vector3(3.2572174, 1.78479, 8.854502)
+size = Vector3(3.2572174, 1.78479, 8.74561)
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="Layout/Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.138752, -0.912385, 24.837584)
@@ -1136,7 +1151,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.928047, -0.023386687, 27.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.556957, 0.005452901, 4.481415)
 
 [node name="Table2" parent="Hurtiture" instance=ExtResource("20_vgews")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.444689, -1.9073486e-06, 4.7486215)
+transform = Transform3D(-1, 0, -8.940697e-08, 0, 1, 0, 8.940697e-08, 0, -1, -23.444689, -1.9073486e-06, 4.7486215)
 
 [node name="DrunknessPickup" parent="Hurtiture" instance=ExtResource("8_1ir70")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.388386, 0.86620903, 5.0386066)
@@ -1304,9 +1319,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.869492, 1.029325, -1.1133
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.63688, 1.029325, -1.1133184)
 
 [node name="Stairs_thin" parent="." instance=ExtResource("5_dn5sy")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -25.69671, -1.0086918, 8.660178)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -25.404943, -1.0086918, 8.660178)
 wall_material = SubResource("StandardMaterial3D_3olhf")
 
 [node name="Stairs_thin2" parent="." instance=ExtResource("5_dn5sy")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -20.780352, -1.0086918, 8.660178)
-wall_material = SubResource("StandardMaterial3D_3olhf")
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -21.023193, -1.0086918, 8.660178)
+wall_material = SubResource("StandardMaterial3D_kukai")
+
+[node name="rug_rose_gold" parent="." instance=ExtResource("25_1m06e")]
+transform = Transform3D(0.82590467, 0, -0.14108546, 0, 0.8378685, 0, 0.14108546, 0, 0.82590467, -23.350224, -1.9073486e-06, 6.732854)
