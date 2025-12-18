@@ -65,7 +65,8 @@ var leftDrinkLerp = 0
 var rightDrinkLerp = 0
 var HoldingItemL: Object
 var HoldingItemR: Object
-
+var triggeredConsumableL = false
+var triggeredConsumableR = false
 
 var HandL_wobble = Vector3(0,0,0)
 var HandR_wobble = Vector3(0,0,0)
@@ -157,12 +158,13 @@ func update_step_targets():
 	left_foot_goto.global_position = LeftFootGotoPos
 	right_foot_goto.global_position = RightFootGotoPos
 	
-func drinkHandInterpolation(origin: Vector3, hand: Object, target: Object, item: Object, time: float) -> void:
+func drinkHandInterpolation(origin: Vector3, hand: Object, target: Object, item: Object, time: float, check: bool) -> void:
 	var blendTime = min(1.0, time * 4.0)
 	if blendTime == 1.0:
-		item.consume()
-		if !AudioManager.player_sounds.voice_player.playing:
-			AudioManager.player_sounds.play_voice(AudioManager.player_sounds.chug_sounds)
+		if not check:
+			item.consume()
+			if !AudioManager.player_sounds.voice_player.playing:
+				AudioManager.player_sounds.play_voice(AudioManager.player_sounds.chug_sounds)
 	hand.global_position = lerp(origin, target.global_position, blendTime)
 
 func moveHand(ray: Object, hand: Object, target: Object, doRaycast: bool = false) -> void:
@@ -236,7 +238,7 @@ func _process(delta: float) -> void:
 			else: moveHand(left_shoulder_ray, left_hand_target, rb_arm_l)
 		Player.HandStates.DRINKING:
 			drinkTimingUpdate(Player.Hands.LEFT)
-			drinkHandInterpolation(HandL_pick_location, left_hand_target, drink_hole_left, PlayerRoot.holdingLeft, leftDrinkLerp)
+			drinkHandInterpolation(HandL_pick_location, left_hand_target, drink_hole_left, PlayerRoot.holdingLeft, leftDrinkLerp, triggeredConsumableL)
 		_: moveHand(left_shoulder_ray, left_hand_target, rb_arm_l)
 			
 	match PlayerRoot.HandRState:
@@ -249,7 +251,7 @@ func _process(delta: float) -> void:
 			else: moveHand(right_shoulder_ray, right_hand_target, rb_arm_r)
 		Player.HandStates.DRINKING:
 			drinkTimingUpdate(Player.Hands.RIGHT)
-			drinkHandInterpolation(HandR_pick_location, right_hand_target, drink_hole_right, PlayerRoot.holdingRight, rightDrinkLerp)
+			drinkHandInterpolation(HandR_pick_location, right_hand_target, drink_hole_right, PlayerRoot.holdingRight, rightDrinkLerp, triggeredConsumableR)
 		_: moveHand(right_shoulder_ray, right_hand_target, rb_arm_r)
 	
 	# ---------------- FEET UPDATE ----------------
@@ -330,10 +332,12 @@ func _on_right_drink_timeout() -> void:
 
 func _on_player_change_hand_right(state: Player.HandStates, item: Object) -> void:
 	match state:
-		Player.HandStates.DRINKING: 
+		Player.HandStates.DRINKING:
+			triggeredConsumableR = false 
 			%RightDrink.start()
 
 func _on_player_change_hand_left(state: Player.HandStates, item: Object) -> void:
 	match state:
-		Player.HandStates.DRINKING: 
+		Player.HandStates.DRINKING:
+			triggeredConsumableL = false
 			%LeftDrink.start()
