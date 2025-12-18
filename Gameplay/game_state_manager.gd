@@ -3,6 +3,7 @@ extends Node
 
 signal on_paused()
 signal on_unpaused()
+signal on_level_loaded(level_index : int)
 
 @export var starting_level_index: int = 0
 @export var levels: Array[PackedScene]
@@ -70,13 +71,13 @@ func load_level_by_index(index: int, show_loading_screen: bool) -> void:
 	if show_loading_screen:
 		await loading_screen.on_completed
 		unpause_game()
+		
+	on_level_loaded.emit(index)
 
 func next_level() -> void:
 	if current_level_index == levels.size() - 1:
 		print("you finished the game!")
 		return
-	elif current_level_index == 1:
-		AudioManager.music_manager.start_music()
 	
 	load_level_by_index(current_level_index + 1, true)
 
