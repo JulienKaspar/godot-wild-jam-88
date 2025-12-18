@@ -7,6 +7,7 @@ class_name DrunknessPickup
 @export var drunkness_increase: float = 1
 @export var pristine_mesh: Node3D ## if item should break when tipped over
 @export var consume_pfx: GPUParticles3D ##plays while drinking
+@export var fully_consumable: bool ## if true, free item without effects on consumed
 @export var dispose_pfx: GPUParticles3D ##plays on finish drinking
 @export var can_break: bool ## if item should break when tipped over
 @export var break_pfx: GPUParticles3D ## play this pfx when breaking
@@ -47,18 +48,20 @@ func hide_prompt() -> void:
 	pickup_prompt.hide()
 
 func consumed() -> float:
-	consume_pfx.emitting = false
-	inState = PickupStates.USED
-	pick_point.monitorable = false
-	self.freeze = false
-	var throwVec = self.global_position - GameStateManager.current_player.player_global_pos
-	throwVec.y = throwVec.y * randf_range(0, 0.2)
-	self.apply_impulse(throwVec)
-	if broken_mesh: 
-		broken_mesh.show()
-		if pristine_mesh: pristine_mesh.hide()
-	
-	dispose_pfx.emitting = true
+	if fully_consumable:
+		self.queue_free()
+	else:
+		consume_pfx.emitting = false
+		inState = PickupStates.USED
+		pick_point.monitorable = false
+		self.freeze = false
+		var throwVec = self.global_position - GameStateManager.current_player.player_global_pos
+		throwVec.y = throwVec.y * randf_range(0, 0.2)
+		self.apply_impulse(throwVec)
+		if broken_mesh: 
+			broken_mesh.show()
+			if pristine_mesh: pristine_mesh.hide()
+		dispose_pfx.emitting = true
 	return drunkness_increase
 
 func doBreak(silentSwitch: bool = false) -> void:
