@@ -52,15 +52,21 @@ func _physics_process(delta: float) -> void:
 func _on_grab_area_left_area_entered(area: Area3D) -> void:
 	if area is PickPoint:
 		if not area.get_parent() in inRangeLeft:
+			area.get_parent().display_prompt()
 			inRangeLeft.append(area.get_parent())
 
 func _on_grab_area_left_area_exited(area: Area3D) -> void:
 	inRangeLeft.erase(area.get_parent())
+	if area.get_parent() is DrunknessPickup:
+		area.get_parent().hide_prompt()
 
 func _on_grab_area_right_area_entered(area: Area3D) -> void:
 	if area is PickPoint:
 		if not area.get_parent() in inRangeRight:
+			area.get_parent().display_prompt()
 			inRangeRight.append(area.get_parent())
 			
 func _on_grab_area_right_area_exited(area: Area3D) -> void:
 	inRangeRight.erase(area.get_parent())
+	if area.get_parent() is DrunknessPickup:
+		area.get_parent().hide_prompt()

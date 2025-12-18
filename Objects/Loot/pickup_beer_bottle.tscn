@@ -18,10 +18,11 @@ viewport_path = NodePath("PickupPrompt/SubViewport")
 [sub_resource type="SphereShape3D" id="SphereShape3D_fwtl3"]
 radius = 0.1
 
-[node name="DrunknessPickup" type="RigidBody3D" node_paths=PackedStringArray("pristine_mesh", "consume_pfx", "dispose_pfx", "break_pfx", "broken_mesh")]
+[node name="DrunknessPickup" type="RigidBody3D" node_paths=PackedStringArray("pick_point", "pristine_mesh", "consume_pfx", "dispose_pfx", "break_pfx", "broken_mesh")]
 collision_layer = 32
 collision_mask = 55
 script = ExtResource("1_snpw7")
+pick_point = NodePath("PickPoint")
 drunkness_increase = 1.8
 pristine_mesh = NodePath("bottle")
 consume_pfx = NodePath("PfxBeerConsuming")
