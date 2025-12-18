@@ -1,0 +1,122 @@
+[gd_scene load_steps=12 format=3 uid="uid://et2abtkee7pw"]
+
+[ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="1_4dvnr"]
+[ext_resource type="PackedScene" uid="uid://bc0xkeoq4b45n" path="res://Assets/Kitchen/kitchen_level.gltf" id="1_v85wt"]
+
+[sub_resource type="Environment" id="Environment_v85wt"]
+background_mode = 1
+ambient_light_source = 2
+ambient_light_color = Color(0.4074739, 0.20157146, 1, 1)
+ambient_light_energy = 1.14
+tonemap_mode = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4dvnr"]
+shading_mode = 0
+diffuse_mode = 3
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_x65wo"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_v85wt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v85wt"]
+size = Vector3(1, 1, 7.9292145)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4dvnr"]
+size = Vector3(1, 1, 8.008438)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x65wo"]
+size = Vector3(0.94873047, 1, 3.1231842)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kqsjv"]
+size = Vector3(0.94873047, 1, 2.153267)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f37uh"]
+size = Vector3(6.2858887, 1, 1)
+
+[node name="LvlEndKitchen" type="Node3D"]
+
+[node name="PlayerSpawnPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15957808, 0, 4.4459443)
+script = ExtResource("1_4dvnr")
+metadata/_custom_type_script = "uid://cm1uqdo37kpmi"
+
+[node name="kitchen modeling" parent="." instance=ExtResource("1_v85wt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20018315, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_v85wt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WorldEnvironment"]
+transform = Transform3D(40.108185, 0, 0, 0, 1, 0, 0, 0, 27.660757, -0.02516079, -0.6513219, -0.00065255165)
+material_override = SubResource("StandardMaterial3D_4dvnr")
+mesh = SubResource("PlaneMesh_x65wo")
+
+[node name="EditorLight" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(0.9598751, 0.27247727, 0.06630254, -0.11193706, 0.15550461, 0.9814726, 0.25711858, -0.94951284, 0.1797653, 3.2260087, 0.9052739, -3.7791426)
+visible = false
+light_color = Color(1.8933368, 1.1924895, 0.6190691, 1)
+light_energy = 0.46
+light_indirect_energy = 1.804
+shadow_opacity = 0.5
+editor_only = true
+
+[node name="SpotLight3D" type="SpotLight3D" parent="WorldEnvironment"]
+transform = Transform3D(-0.6732578, 0.51186925, -0.53358585, 3.0899854e-09, 0.7216394, 0.69226915, 0.7394079, 0.4660756, -0.48584935, -4.533313, 1.9510137, -0.92921424)
+light_color = Color(0.5565561, 0.9325064, 0.7943615, 1)
+light_energy = 2.844
+shadow_enabled = true
+spot_range = 10.287
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="WorldEnvironment"]
+transform = Transform3D(-0.7318892, -0.47172856, 0.49174225, 7.081753e-08, 0.72163945, 0.69226915, -0.6814237, 0.50666434, -0.52816004, 3.5343628, 1.9510137, -0.9598553)
+light_color = Color(0.5565561, 0.9325064, 0.7943615, 1)
+light_energy = 2.844
+shadow_enabled = true
+spot_range = 10.287
+
+[node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20018315, 0, 0)
+collision_layer = 65
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("WorldBoundaryShape3D_v85wt")
+
+[node name="KitchenCollisions" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20018315, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KitchenCollisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1031523, 0, 2.979103)
+shape = SubResource("BoxShape3D_v85wt")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="KitchenCollisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4772453, 0, 3.018715)
+shape = SubResource("BoxShape3D_4dvnr")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="KitchenCollisions"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.0537546, 0, -0.8313519)
+shape = SubResource("BoxShape3D_x65wo")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="KitchenCollisions"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.957166, 0, -0.8313519)
+shape = SubResource("BoxShape3D_kqsjv")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="KitchenCollisions"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.174927, 0, -1.7801738)
+shape = SubResource("BoxShape3D_kqsjv")
+
+[node name="InvisibleBoundary" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20018315, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InvisibleBoundary"]
+transform = Transform3D(0.68936676, 0, -0.7244125, 0, 1, 0, 0.7244125, 0, 0.68936676, -2.2935936, 0, 4.1017547)
+shape = SubResource("BoxShape3D_f37uh")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="InvisibleBoundary"]
+transform = Transform3D(0.69735277, 0, 0.71672815, 0, 1, 0, -0.71672815, 0, 0.69735277, 1.9710019, 0, 4.5485783)
+shape = SubResource("BoxShape3D_f37uh")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.9992007, -0.03997483, 0, 0.03997483, 0.9992007, -0.12682247, 0.64946103, 5.389311)
+current = true
+fov = 45.0
