@@ -7,7 +7,7 @@ class_name Player
 
 signal ChangeHandLeft(state: HandStates, item: Object)
 signal ChangeHandRight(state: HandStates, item: Object)
-signal ChangeFeet(state: FeetStates)
+signal ChangeFeet(state: FeetIKTargeting)
 signal ChangeHandTargetL(trgt_left: Object, isValid: bool) # set isValid=false if theres none
 signal ChangeHandTargetR(trgt_right: Object, isValid: bool) # set isValid=false if theres none
 signal ChangeMovement(state: MoveStates)
@@ -38,7 +38,7 @@ var holdingRight: Object
 ### statess 
 enum MoveStates {STANDUP, MOVING, FALLING, ROLLING, FLASKY, FELL}
 enum HandStates {DANGLY, REACHING, HOLD, DRINKING, ROLLING, FIXED}
-enum FeetStates {STEPPING, HOLD, ROLLING, FIXED}
+enum FeetIKTargeting {STEPPING, RIGIDBODY}
 enum Hands {LEFT, RIGHT}
 
 # input states
@@ -47,7 +47,7 @@ var grabbingR = false
 
 # move state
 var inMoveState = MoveStates.MOVING
-var inFeetState = FeetStates.STEPPING
+var inFeetState = FeetIKTargeting.STEPPING
 var HandLState = HandStates.DANGLY
 var HandRState = HandStates.DANGLY
 var canRoll = true
@@ -65,6 +65,8 @@ func _ready() -> void:
 	$PlayerBody.player_rb = $PlayerController/RigidBally3D
 	$PlayerBody.rb_arm_l = $PlayerController/ArmL
 	$PlayerBody.rb_arm_r = $PlayerController/ArmR
+	$PlayerBody.rb_leg_l = $PlayerController/LegL
+	$PlayerBody.rb_leg_r = $PlayerController/LegR
 	$PlayerBody.upper_body = $PlayerController/UpperBody
 	$PlayerBody.body_attach_point = $PlayerController/UpperBody/BodyAttachPoint
 
@@ -94,7 +96,7 @@ func setMoveState(state: MoveStates):
 	inMoveState = state
 	self.ChangeMovement.emit(state)
 
-func setFeetState(state: FeetStates):
+func setFeetState(state: FeetIKTargeting):
 	inFeetState = state
 	self.ChangeFeet.emit(state)
 
@@ -169,10 +171,15 @@ func _on_change_movement(state: Player.MoveStates) -> void:
 	# stateTransitions
 	# --- Particles
 	match state:
-		MoveStates.ROLLING:	
+		MoveStates.ROLLING:
+			inFeetState = FeetIKTargeting.RIGIDBODY
 			GameStateManager.player_drunkness.current_drunkness += DrunkCost_Roll
-		MoveStates.STANDUP:	
+		MoveStates.STANDUP:
+			inFeetState = FeetIKTargeting.STEPPING
 			GameStateManager.player_drunkness.current_drunkness += DrunkCost_StandUp
+		MoveStates.FELL:
+			inFeetState = FeetIKTargeting.RIGIDBODY
+		_: inFeetState = FeetIKTargeting.STEPPING
 		
 	match state:
 		MoveStates.FALLING: pfx_falling.set_emitting(true)
@@ -195,7 +202,7 @@ func _on_change_hand_right(state: Player.HandStates, item: Object) -> void:
 			AttachItem(item, $PlayerBody.right_hand_target, Hands.RIGHT)
 		_: pass
 
-func _on_change_feet(state: Player.FeetStates) -> void:
+func _on_change_feet(state: FeetIKTargeting) -> void:
 	pass # Replace with function body.
 
 func _on_player_body_consumed_left(item: Object) -> void:

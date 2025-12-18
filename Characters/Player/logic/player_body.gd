@@ -43,6 +43,8 @@ var StepTriggerDistance = 0.37
 @onready var player_rb: RigidBody3D
 @onready var rb_arm_l: Node3D
 @onready var rb_arm_r: Node3D
+@onready var rb_leg_l: Node3D
+@onready var rb_leg_r: Node3D
 
 @onready var upper_body: RigidBody3D
 @onready var body_attach_point: Node3D
@@ -52,6 +54,7 @@ var stepping := false
 
 # ---------------------- Dynamics ----------------------------------------------
 var inFeetState = FeetStates.ACTIVE
+var inFeetTargeting = Player.FeetIKTargeting.STEPPING
 var lastStepWas = Player.Hands.LEFT
 var LeftFootGotoPos = Vector3(0,0,0)
 var RightFootGotoPos = Vector3(0,0,0)
@@ -185,6 +188,10 @@ func moveFeet(activFoot: Player.Hands) -> void:
 			right_foot_ik_target.global_position = mov
 			left_foot_ik_target.global_position = LeftFootWasPos	
 
+func moveFeetToRigidBody() -> void:
+	right_foot_ik_target.global_position = lerp(right_foot_ik_target.global_position, rb_leg_r.global_position, 0.25)
+	left_foot_ik_target.global_position = lerp(left_foot_ik_target.global_position, rb_leg_l.global_position, 0.25)
+
 func updateStepLerp() -> void:
 	stepLerp = ($StepInProgress.wait_time - $StepInProgress.time_left) / $StepInProgress.wait_time 
 
@@ -243,32 +250,35 @@ func _process(delta: float) -> void:
 		_: moveHand(right_shoulder_ray, right_hand_target, rb_arm_r)
 	
 	# ---------------- FEET UPDATE ----------------
-	
-	match inFeetState:
-		FeetStates.FIXED: pass
-		FeetStates.ACTIVE: 
-			update_step_targets()
-			match lastStepWas:
-				Player.Hands.LEFT: 
-					if checkStepStart(RightFootWasPos, RightFootGotoPos):
-						setFeetState(FeetStates.MOVING_RIGHT, Player.Hands.RIGHT)
-					elif checkStepStart(LeftFootWasPos, LeftFootGotoPos):
-						setFeetState(FeetStates.MOVING_LEFT, Player.Hands.LEFT)
-				Player.Hands.RIGHT: 
-					if checkStepStart(LeftFootWasPos, LeftFootGotoPos):
-						setFeetState(FeetStates.MOVING_LEFT, Player.Hands.LEFT)
-					elif checkStepStart(RightFootWasPos, RightFootGotoPos):
-						setFeetState(FeetStates.MOVING_RIGHT, Player.Hands.RIGHT)
-		FeetStates.MOVING_LEFT:
-			updateStepLerp()
-			hip_step_uptade(stepLerp)
-			moveFeet(Player.Hands.LEFT)
-		FeetStates.MOVING_RIGHT: 
-			updateStepLerp()
-			hip_step_uptade(stepLerp)
-			moveFeet(Player.Hands.RIGHT)
-		FeetStates.PLANTED_LEFT: pass
-		FeetStates.PLANTED_RIGHT: pass
+	match PlayerRoot.inFeetState:
+		Player.FeetIKTargeting.RIGIDBODY:
+			moveFeetToRigidBody()
+		Player.FeetIKTargeting.STEPPING:
+			match inFeetState:
+				FeetStates.FIXED: pass
+				FeetStates.ACTIVE: 
+					update_step_targets()
+					match lastStepWas:
+						Player.Hands.LEFT: 
+							if checkStepStart(RightFootWasPos, RightFootGotoPos):
+								setFeetState(FeetStates.MOVING_RIGHT, Player.Hands.RIGHT)
+							elif checkStepStart(LeftFootWasPos, LeftFootGotoPos):
+								setFeetState(FeetStates.MOVING_LEFT, Player.Hands.LEFT)
+						Player.Hands.RIGHT: 
+							if checkStepStart(LeftFootWasPos, LeftFootGotoPos):
+								setFeetState(FeetStates.MOVING_LEFT, Player.Hands.LEFT)
+							elif checkStepStart(RightFootWasPos, RightFootGotoPos):
+								setFeetState(FeetStates.MOVING_RIGHT, Player.Hands.RIGHT)
+				FeetStates.MOVING_LEFT:
+					updateStepLerp()
+					hip_step_uptade(stepLerp)
+					moveFeet(Player.Hands.LEFT)
+				FeetStates.MOVING_RIGHT: 
+					updateStepLerp()
+					hip_step_uptade(stepLerp)
+					moveFeet(Player.Hands.RIGHT)
+				FeetStates.PLANTED_LEFT: pass
+				FeetStates.PLANTED_RIGHT: pass
 	#move feet targets
 	if debugDraw: updateDebugHelpers()
 	
@@ -276,10 +286,10 @@ func _physics_process(delta: float) -> void:
 	LeftFootGotoPos = left_foot_ray.get_collision_point() + FOOT_CORRECTION
 	RightFootGotoPos = right_foot_ray.get_collision_point() + FOOT_CORRECTION
 
-func _on_player_change_feet(state: Player.FeetStates) -> void:
+func _on_player_change_feet(state: Player.FeetIKTargeting) -> void:
 	match state:
-		Player.FeetStates.STEPPING: pass
-		Player.FeetStates.ROLLING: pass
+		Player.FeetIKTargeting.STEPPING: pass
+		Player.FeetIKTargeting.RIGIDBODY: pass
 
 func setFeetState(state: FeetStates, foot: Player.Hands):
 	inFeetState = state
