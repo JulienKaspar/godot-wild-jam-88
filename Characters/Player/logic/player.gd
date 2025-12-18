@@ -20,7 +20,7 @@ signal ChangeMovement(state: MoveStates)
 #--------------- Settings -----------------------------------------------------
 var fallStartPoint = 0.2
 var fallNoRecoverPoint = 0.6
-var DrunkCost_Roll = -1.0
+var DrunkCost_Roll = -0.6
 var DrunkCost_HitFurniture = -0.1
 var DrunkCost_StandUp = -2.0
 var PickupThreshold = 0.2
