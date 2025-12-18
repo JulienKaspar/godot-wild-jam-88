@@ -40,6 +40,7 @@ var stereo_enhancer_effect : AudioEffectStereoEnhance = AudioServer.get_bus_effe
 var chorus_effect : AudioEffectChorus = AudioServer.get_bus_effect(AudioManager.BUS.MUSIC, AudioManager.FX.CHORUS)
 var phaser_effect : AudioEffectPhaser = AudioServer.get_bus_effect(AudioManager.BUS.MUSIC, AudioManager.FX.PHASER)
 var delay_effect : AudioEffectDelay = AudioServer.get_bus_effect(AudioManager.BUS.MUSIC, AudioManager.FX.DELAY)
+var filter_effect : AudioEffectLowPassFilter = AudioServer.get_bus_effect(AudioManager.BUS.MUSIC, AudioManager.FX.FILTER)
 
 func _ready():
 	if !AudioManager.music_manager:
@@ -47,7 +48,11 @@ func _ready():
 	_connect_signals()
 	_check_debug()
 	AudioManager.fade_audio_in(music_player, _DEFAULT_VOLUME_DB, 3.5)
-	#start_music()
+	_set_filter(true)
+	start_music()
+	
+	## TODO: reintroduce chord changes once in house
+	## TODO: disable filter
 	#_setup_random_chord_changes()
 	
 func _setup_random_chord_changes():
@@ -76,6 +81,8 @@ func _connect_signals():
 			GameStateManager.player_drunkness.max_drunkness, # input range
 			0.0, 1.0) # output range
 	)
+	GameStateManager.on_paused.connect(_set_filter.bind(true))
+	GameStateManager.on_unpaused.connect(_set_filter.bind(false))
 
 
 
@@ -201,3 +208,28 @@ func _get_current_theme_stream() -> AudioStreamSynchronized:
 		#for j in range(0, _clip.stream_count - 1):
 			#_clip.set_sync_stream_volume(j, _target_volume_db)
 #endregion
+
+const _FILTER_CUTOFF_HZ_ON = 250
+const _FILTER_CUTOFF_HZ_OFF = 10000
+
+func _set_filter(_enabled : bool, _target_hz : float = -1.0):
+	# target value
+	var target_hz : float = _target_hz
+	if _target_hz < 0:
+		target_hz = _FILTER_CUTOFF_HZ_ON if _enabled else _FILTER_CUTOFF_HZ_OFF
+	
+	# start value
+	filter_effect.cutoff_hz = _FILTER_CUTOFF_HZ_OFF if _enabled else _FILTER_CUTOFF_HZ_ON
+	
+	# enable if setting on
+	if _enabled: AudioServer.set_bus_effect_enabled(AudioManager.BUS.MUSIC, AudioManager.FX.FILTER, _enabled) # enable effect
+	
+	# tween
+	var t : Tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	t.tween_property(filter_effect, "cutoff_hz", target_hz, 0.25)
+	
+	# disable if setting off
+	if !_enabled:
+		# wait for tween to finish
+		await t.finished
+		AudioServer.set_bus_effect_enabled(AudioManager.BUS.MUSIC, AudioManager.FX.FILTER, _enabled)

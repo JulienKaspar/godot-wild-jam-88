@@ -19,6 +19,7 @@ enum FX {
 	CHORUS = 1,
 	PHASER = 2,
 	DELAY = 3,
+	FILTER = 4,
 }
 
 var music_manager : MusicManager
