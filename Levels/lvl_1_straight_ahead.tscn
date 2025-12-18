@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://7hstokhqtk0i"]
+[gd_scene load_steps=30 format=3 uid="uid://7hstokhqtk0i"]
 
 [ext_resource type="PackedScene" uid="uid://d24k31i312cc1" path="res://Objects/Architypes/Props/lamp_standing1.tscn" id="1_buw6o"]
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="1_rqsde"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://d2fq258dik5oo" path="res://Objects/Architypes/Furniture/table1.tscn" id="12_gh4oo"]
 [ext_resource type="PackedScene" uid="uid://cold18jtw7ak0" path="res://Objects/Architypes/TrippingHazards/slippery_test.tscn" id="16_y345g"]
 [ext_resource type="PackedScene" uid="uid://daqdt75cvmkiy" path="res://Objects/Architypes/TrippingHazards/tripping_test.tscn" id="17_1arg0"]
+[ext_resource type="PackedScene" uid="uid://d62n5s8htyn7" path="res://Characters/Teens/logic/TeenStanding.tscn" id="18_mdsrj"]
 
 [sub_resource type="Environment" id="Environment_gh4oo"]
 background_mode = 1
@@ -362,3 +363,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.796324, 0.85557574, -4.8337
 
 [node name="SlipperyTest12" parent="." instance=ExtResource("16_y345g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.048124, 0.85557574, -5.095744)
+
+[node name="TeenStanding" parent="." instance=ExtResource("18_mdsrj")]
+transform = Transform3D(-0.4535238, 0, 0.8912442, 0, 1, 0, -0.8912442, 0, -0.4535238, 9.935258, 0, -2.0644069)
+animation = "Worm"
+
+[node name="TeenStanding2" parent="." instance=ExtResource("18_mdsrj")]
+transform = Transform3D(-0.8658159, 0, 0.5003628, 0, 1, 0, -0.5003628, 0, -0.8658159, 9.554861, -4.7683716e-07, -7.5662813)
+animation = "Pls"
