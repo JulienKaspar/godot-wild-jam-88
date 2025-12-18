@@ -6,10 +6,10 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_m7bmx")
-shader_parameter/albedo = Vector4(0.8, 0.8, 0.8, 0)
+shader_parameter/albedo = Vector4(0.8, 0.8, 0.4, 0)
 shader_parameter/texture_albedo = ExtResource("2_4n0s6")
 shader_parameter/scale = 2.0
-shader_parameter/roughness = 0.0
+shader_parameter/roughness = 1.0
 shader_parameter/uv_offset = Vector2(0, 0)
 shader_parameter/tile = 5
 shader_parameter/random_seed = 233

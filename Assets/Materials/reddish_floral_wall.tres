@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dmxe2qlk68jn"]
 
-[ext_resource type="Shader" uid="uid://bfg8h8d77mbao" path="res://Shaders/tileable_wall.gdshader" id="1_f8q65"]
+[ext_resource type="Shader" path="res://Shaders/tileable_wall.gdshader" id="1_f8q65"]
 [ext_resource type="Texture2D" uid="uid://c0468bs5t4mxm" path="res://Assets/Maps/Walls/reddish_floral_wallpaper/atlas.png" id="2_545pc"]
 
 [resource]
@@ -8,9 +8,9 @@ render_priority = 0
 shader = ExtResource("1_f8q65")
 shader_parameter/albedo = Vector4(0.5, 0.5, 0.5, 0)
 shader_parameter/texture_albedo = ExtResource("2_545pc")
-shader_parameter/wall_height = 3.5
+shader_parameter/wall_height = 4.26
 shader_parameter/stretch = 1.0
-shader_parameter/roughness = 0.0
+shader_parameter/roughness = 1.0
 shader_parameter/uv_offset = Vector2(0, 0)
 shader_parameter/tile = 3
 shader_parameter/random_seed = 100
