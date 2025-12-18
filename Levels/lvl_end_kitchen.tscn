@@ -36,8 +36,13 @@ size = Vector3(6.2858887, 1, 1)
 
 [node name="LvlEndKitchen" type="Node3D"]
 
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.98431283, -0.17643195, 0, 0.17643195, 0.98431283, -0.12682247, 0.31621504, 6.329383)
+current = true
+fov = 45.0
+
 [node name="PlayerSpawnPoint" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15957808, 0, 4.4459443)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.15957808, 0.042422235, 6.0841403)
 script = ExtResource("1_4dvnr")
 metadata/_custom_type_script = "uid://cm1uqdo37kpmi"
 
@@ -109,14 +114,9 @@ shape = SubResource("BoxShape3D_kqsjv")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20018315, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InvisibleBoundary"]
-transform = Transform3D(0.68936676, 0, -0.7244125, 0, 1, 0, 0.7244125, 0, 0.68936676, -2.2935936, 0, 4.1017547)
+transform = Transform3D(0.6289541, 0, -0.77744234, 0, 1, 0, 0.77744234, 0, 0.6289541, -2.0529373, 0, 4.3102775)
 shape = SubResource("BoxShape3D_f37uh")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="InvisibleBoundary"]
-transform = Transform3D(0.69735277, 0, 0.71672815, 0, 1, 0, -0.71672815, 0, 0.69735277, 1.9710019, 0, 4.5485783)
+transform = Transform3D(0.68898726, 0, 0.72477347, 0, 1, 0, -0.72477347, 0, 0.68898726, 2.0137455, 0, 4.814205)
 shape = SubResource("BoxShape3D_f37uh")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.9992007, -0.03997483, 0, 0.03997483, 0.9992007, -0.12682247, 0.64946103, 5.389311)
-current = true
-fov = 45.0
