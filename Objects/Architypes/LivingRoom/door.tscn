@@ -1,0 +1,138 @@
+[gd_scene load_steps=9 format=3 uid="uid://c5gvg6210vgku"]
+
+[ext_resource type="PackedScene" uid="uid://rsfb87oov1yd" path="res://Assets/LivingRoom/door_frame.gltf" id="1_be475"]
+[ext_resource type="Script" uid="uid://d18ctfvwniq4s" path="res://Objects/Architypes/LivingRoom/door.gd" id="1_kw20h"]
+[ext_resource type="Material" uid="uid://rfvsy8jw033o" path="res://Levels/Gyms/Wall/yellow_floral_wall_v2.tres" id="2_0qntm"]
+[ext_resource type="Script" uid="uid://42mf003bq52u" path="res://Gameplay/level_teleporter.gd" id="2_3tb1t"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kw20h"]
+size = Vector3(0.31262207, 2.5540771, 1.6123962)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0qntm"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_be475"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kw20h"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="Door" type="Node3D"]
+script = ExtResource("1_kw20h")
+
+[node name="LevelTeleporter" type="Area3D" parent="."]
+collision_mask = 3
+script = ExtResource("2_3tb1t")
+metadata/_custom_type_script = "uid://42mf003bq52u"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelTeleporter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7012826, 1.2667847, -0.08482361)
+shape = SubResource("BoxShape3D_kw20h")
+
+[node name="door" parent="." instance=ExtResource("1_be475")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(-3.4325872e-08, 0.619135, -0.7852845, 2.7063251e-08, 0.7852845, 0.619135, 1, -3.5527137e-15, -4.371138e-08, -3.1964781, 3.0496736, 0)
+light_color = Color(1, 0.98333335, 0.9, 1)
+light_energy = 8.743
+light_specular = 10.49
+light_cull_mask = 1
+shadow_enabled = true
+shadow_caster_mask = 1
+spot_range = 8.063515
+spot_angle = 23.708008
+
+[node name="CSG_YellowlWall4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.43558323, 1.6835005, 1.1072935)
+material_override = ExtResource("2_0qntm")
+use_collision = true
+size = Vector3(0.09499512, 3.3664265, 0.78357816)
+
+[node name="CSG_YellowlWall7" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4318541, 1.6847069, -1.0384641)
+material_override = ExtResource("2_0qntm")
+use_collision = true
+size = Vector3(0.08753662, 3.3585854, 0.89578724)
+
+[node name="CSG_YellowlWall8" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.43112162, 2.8466303, -0.009144762)
+material_override = ExtResource("2_0qntm")
+use_collision = true
+size = Vector3(0.086071774, 1.0395474, 1.488543)
+
+[node name="CSG_YellowlWall9" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.7964033, 0.60476595, 0, -0.60476595, 0.7964033, -0.43334937, 2.1844134, 0.6443152)
+material_override = ExtResource("2_0qntm")
+use_collision = true
+size = Vector3(0.09052734, 0.7841797, 0.4074707)
+
+[node name="CSG_YellowlWall10" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.7450687, -0.6669878, 0, 0.6669878, 0.7450687, -0.43802473, 2.1801817, -0.66845554)
+material_override = ExtResource("2_0qntm")
+use_collision = true
+size = Vector3(0.09987793, 0.7841797, 0.4173584)
+
+[node name="white box" type="Node3D" parent="."]
+
+[node name="CSG_YellowlWall5" type="CSGBox3D" parent="white box"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8316652, 1.2762201, -0.08932006)
+layers = 2
+material_override = SubResource("StandardMaterial3D_0qntm")
+use_collision = true
+size = Vector3(0.03930664, 2.5518656, 1.5842285)
+
+[node name="CSG_YellowlWall12" type="CSGBox3D" parent="white box"]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -1.2061098, 2.540475, -0.08932006)
+layers = 2
+material_override = SubResource("StandardMaterial3D_0qntm")
+use_collision = true
+size = Vector3(0.03930664, 1.2507764, 1.5842285)
+
+[node name="CSG_YellowlWall6" type="CSGBox3D" parent="white box"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.2201872, 1.2701166, -0.8876372)
+layers = 2
+material_override = SubResource("StandardMaterial3D_0qntm")
+use_collision = true
+size = Vector3(0.03930664, 2.5396585, 1.2542572)
+
+[node name="CSG_YellowlWall11" type="CSGBox3D" parent="white box"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.2062368, 1.2744501, 0.6850955)
+layers = 2
+material_override = SubResource("StandardMaterial3D_0qntm")
+use_collision = true
+size = Vector3(0.03930664, 2.5483255, 1.2391891)
+
+[node name="black_box" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09854269, 0, 0)
+
+[node name="CSG_YellowlWall7" type="CSGBox3D" parent="black_box"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0076752, 1.6121306, -0.044215083)
+layers = 2
+material_override = SubResource("StandardMaterial3D_be475")
+use_collision = true
+size = Vector3(0.03930664, 3.2236867, 2.643921)
+
+[node name="CSG_YellowlWall13" type="CSGBox3D" parent="black_box"]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -1.2957594, 3.2113132, -0.051539302)
+layers = 2
+material_override = SubResource("StandardMaterial3D_kw20h")
+use_collision = true
+size = Vector3(0.03930664, 1.4300756, 2.6136475)
+
+[node name="CSG_YellowlWall8" type="CSGBox3D" parent="black_box"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.3245916, 1.6002764, -1.3472064)
+layers = 2
+material_override = SubResource("StandardMaterial3D_be475")
+use_collision = true
+size = Vector3(0.03930664, 3.199978, 1.4630661)
+
+[node name="CSG_YellowlWall14" type="CSGBox3D" parent="black_box"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.3066349, 1.6089873, 1.2691486)
+layers = 2
+material_override = SubResource("StandardMaterial3D_be475")
+use_collision = true
+size = Vector3(0.03930664, 3.2174, 1.4399853)
