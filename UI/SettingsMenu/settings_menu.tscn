@@ -1,13 +1,33 @@
-[gd_scene load_steps=8 format=3 uid="uid://betq65km7cbe3"]
+[gd_scene load_steps=20 format=3 uid="uid://betq65km7cbe3"]
 
 [ext_resource type="Script" uid="uid://bxy3bjgv1mn50" path="res://UI/SettingsMenu/settings_menu.gd" id="1_ufg0w"]
-[ext_resource type="PackedScene" uid="uid://v6l022lo4u2v" path="res://UI/SettingsMenu/sensitivity_slider.tscn" id="2_hd0pj"]
-[ext_resource type="PackedScene" uid="uid://nerct6yqf84t" path="res://UI/SettingsMenu/Components/Volume/master_volume_slider.tscn" id="3_tky1e"]
-[ext_resource type="PackedScene" uid="uid://ditqbsx3v25tf" path="res://UI/SettingsMenu/Components/Volume/ui_volume_slider.tscn" id="4_6ycxt"]
-[ext_resource type="PackedScene" uid="uid://c4hn3h71mjsn5" path="res://UI/SettingsMenu/Components/Volume/sfx_volume_slider.tscn" id="5_ojh45"]
-[ext_resource type="PackedScene" uid="uid://bnvlotxrinw1h" path="res://UI/SettingsMenu/Components/Volume/music_volume_slider.tscn" id="6_6ycxt"]
+[ext_resource type="Texture2D" uid="uid://c5kempoojy45t" path="res://UI/SettingsMenu/controls_tab.png" id="2_6ycxt"]
+[ext_resource type="Texture2D" uid="uid://cj5wx7x6gvc3a" path="res://UI/SettingsMenu/controls_tab_selected.png" id="3_ojh45"]
+[ext_resource type="Texture2D" uid="uid://cp515qhvxeli7" path="res://UI/SettingsMenu/audio_tab.png" id="4_b25i1"]
+[ext_resource type="Script" uid="uid://dghqqude80uid" path="res://UI/SettingsMenu/settings_tab_button.gd" id="4_qvif0"]
+[ext_resource type="Texture2D" uid="uid://d3nqe7yttua63" path="res://UI/SettingsMenu/visuals_tab.png" id="4_w4v0o"]
+[ext_resource type="Texture2D" uid="uid://chagm2nuj3vym" path="res://UI/SettingsMenu/visuals_tab_selected.png" id="5_qvif0"]
+[ext_resource type="Texture2D" uid="uid://bm6p6rg4re13u" path="res://UI/SettingsMenu/audio_tab_selected.png" id="5_w4v0o"]
+[ext_resource type="Texture2D" uid="uid://b7780ynsj1mum" path="res://UI/SettingsMenu/accessibility_tab.png" id="6_ojh45"]
+[ext_resource type="Texture2D" uid="uid://blpgvpje26nr4" path="res://UI/SettingsMenu/accessibility_tab_selected.png" id="7_b25i1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oerog"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aw4dm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hd0pj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lutwn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a0nqm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tky1e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6ycxt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ojh45"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b25i1"]
 
 [node name="SettingsMenu" type="PanelContainer"]
 anchors_preset = 15
@@ -25,58 +45,104 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="TabContainer" type="TabContainer" parent="MarginContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
 layout_mode = 2
-current_tab = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_aw4dm")
 
-[node name="Controls" type="MarginContainer" parent="MarginContainer/TabContainer"]
-visible = false
-layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-metadata/_tab_index = 0
-
-[node name="Controls" type="VBoxContainer" parent="MarginContainer/TabContainer/Controls"]
-layout_mode = 2
-alignment = 1
-
-[node name="Sensitivity" parent="MarginContainer/TabContainer/Controls/Controls" instance=ExtResource("2_hd0pj")]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer"]
 layout_mode = 2
 
-[node name="Control" type="Control" parent="MarginContainer/TabContainer/Controls/Controls"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_horizontal = 0
+size_flags_vertical = 2
+theme_override_constants/separation = -70
 
-[node name="MainMenuButton" type="Button" parent="MarginContainer/TabContainer/Controls/Controls"]
+[node name="ControlTabButton" type="TextureButton" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("2_6ycxt")
+texture_focused = ExtResource("3_ojh45")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("4_qvif0")
+
+[node name="VisualTabButton" type="TextureButton" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("4_w4v0o")
+texture_focused = ExtResource("5_qvif0")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("4_qvif0")
+
+[node name="AudioTabButton" type="TextureButton" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("4_b25i1")
+texture_focused = ExtResource("5_w4v0o")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("4_qvif0")
+
+[node name="AccesibilityTabButton" type="TextureButton" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("6_ojh45")
+texture_focused = ExtResource("7_b25i1")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("4_qvif0")
+
+[node name="TabContainer" type="TabContainer" parent="MarginContainer/PanelContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Main Menu"
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_hd0pj")
+theme_override_styles/tab_unselected = SubResource("StyleBoxEmpty_lutwn")
+theme_override_styles/tab_hovered = SubResource("StyleBoxEmpty_a0nqm")
+theme_override_styles/tab_selected = SubResource("StyleBoxEmpty_tky1e")
+theme_override_styles/tab_disabled = SubResource("StyleBoxEmpty_6ycxt")
+theme_override_styles/tab_focus = SubResource("StyleBoxEmpty_ojh45")
+current_tab = 0
+tabs_visible = false
 
-[node name="Audio" type="MarginContainer" parent="MarginContainer/TabContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
+theme_override_styles/panel = SubResource("StyleBoxEmpty_b25i1")
+metadata/_tab_index = 0
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer/PanelContainer"]
+layout_mode = 2
+text = "Controls"
+
+[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_b25i1")
 metadata/_tab_index = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/TabContainer/Audio"]
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer/PanelContainer2"]
 layout_mode = 2
-theme_override_constants/margin_right = 700
+text = "Audio
+"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/TabContainer/Audio/MarginContainer"]
+[node name="PanelContainer3" type="PanelContainer" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer"]
+visible = false
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_b25i1")
+metadata/_tab_index = 2
 
-[node name="MasterVolumeSlider" parent="MarginContainer/TabContainer/Audio/MarginContainer/VBoxContainer" instance=ExtResource("3_tky1e")]
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer/PanelContainer3"]
 layout_mode = 2
-
-[node name="UIVolumeSlider" parent="MarginContainer/TabContainer/Audio/MarginContainer/VBoxContainer" instance=ExtResource("4_6ycxt")]
-layout_mode = 2
-
-[node name="SFXVolumeSlider2" parent="MarginContainer/TabContainer/Audio/MarginContainer/VBoxContainer" instance=ExtResource("5_ojh45")]
-layout_mode = 2
-
-[node name="MusicVolumeSlider" parent="MarginContainer/TabContainer/Audio/MarginContainer/VBoxContainer" instance=ExtResource("6_6ycxt")]
-layout_mode = 2
+text = "Accesibility
+"
