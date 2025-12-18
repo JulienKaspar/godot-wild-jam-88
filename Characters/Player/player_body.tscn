@@ -120,10 +120,17 @@ transform = Transform3D(0.9995044, 0.031480536, 0, -0.031480536, 0.9995044, 0, 0
 material_override = SubResource("StandardMaterial3D_hu15c")
 mesh = SubResource("SphereMesh_wsmry")
 
-[node name="DrinkHole" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.31112427, 0.95036924, 0, -0.95036924, -0.31112427, 1.1920929e-07, 1.5619794, 0.29331946)
+[node name="DrinkHoleR" type="Marker3D" parent="."]
+transform = Transform3D(0.89503556, 0.42385972, 0.13875979, 0, -0.31112427, 0.95036924, 0.44599476, -0.85061425, -0.27846727, -0.12888776, 1.5619794, 0.29331946)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="DrinkHole"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="DrinkHoleR"]
+visible = false
+mesh = SubResource("BoxMesh_3aftw")
+
+[node name="DrinkHoleL" type="Marker3D" parent="."]
+transform = Transform3D(0.9057317, -0.40281564, -0.13187057, 1.329168e-08, -0.31112432, 0.95036936, -0.42385173, -0.8607795, -0.2817951, 0.114841804, 1.5619794, 0.29331946)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="DrinkHoleL"]
 visible = false
 mesh = SubResource("BoxMesh_3aftw")
 

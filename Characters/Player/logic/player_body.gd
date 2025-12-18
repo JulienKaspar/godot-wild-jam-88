@@ -29,7 +29,8 @@ var StepTriggerDistance = 0.37
 @onready var right_shoulder_ray: RayCast3D = $RayCastShouldderR
 @onready var left_hand_target: Marker3D = $LeftHandTarget
 @onready var right_hand_target: Marker3D = $RightHandTarget
-@onready var drink_hole: Marker3D = $DrinkHole
+@onready var drink_hole_left: Marker3D = $DrinkHoleL
+@onready var drink_hole_right: Marker3D = $DrinkHoleR
 
 #feet
 @onready var left_foot_ray: RayCast3D = $LeftRayCast
@@ -235,7 +236,7 @@ func _process(delta: float) -> void:
 			else: moveHand(left_shoulder_ray, left_hand_target, rb_arm_l)
 		Player.HandStates.DRINKING:
 			drinkTimingUpdate(Player.Hands.LEFT)
-			drinkHandInterpolation(HandL_pick_location, left_hand_target, drink_hole, PlayerRoot.holdingLeft, leftDrinkLerp)
+			drinkHandInterpolation(HandL_pick_location, left_hand_target, drink_hole_left, PlayerRoot.holdingLeft, leftDrinkLerp)
 		_: moveHand(left_shoulder_ray, left_hand_target, rb_arm_l)
 			
 	match PlayerRoot.HandRState:
@@ -248,7 +249,7 @@ func _process(delta: float) -> void:
 			else: moveHand(right_shoulder_ray, right_hand_target, rb_arm_r)
 		Player.HandStates.DRINKING:
 			drinkTimingUpdate(Player.Hands.RIGHT)
-			drinkHandInterpolation(HandR_pick_location, right_hand_target, drink_hole, PlayerRoot.holdingRight, rightDrinkLerp)
+			drinkHandInterpolation(HandR_pick_location, right_hand_target, drink_hole_right, PlayerRoot.holdingRight, rightDrinkLerp)
 		_: moveHand(right_shoulder_ray, right_hand_target, rb_arm_r)
 	
 	# ---------------- FEET UPDATE ----------------
