@@ -22,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://cold18jtw7ak0" path="res://Objects/Architypes/TrippingHazards/slippery_banana_peel.tscn" id="21_k4dpe"]
 [ext_resource type="PackedScene" uid="uid://daqdt75cvmkiy" path="res://Objects/Architypes/TrippingHazards/tripping_lamp.tscn" id="22_8emx1"]
 [ext_resource type="PackedScene" uid="uid://d2fq258dik5oo" path="res://Objects/Architypes/Furniture/table1.tscn" id="23_us21n"]
-[ext_resource type="PackedScene" uid="uid://bo1p1dvgr50f4" path="res://Objects/Loot/pickup_banana.tscn" id="24_1m06e"]
+[ext_resource type="PackedScene" uid="uid://b68w14ql4fcn8" path="res://Assets/Furniture/pizza_slice.gltf" id="24_1m06e"]
 [ext_resource type="PackedScene" uid="uid://c0gyul67lvgh6" path="res://Assets/Furniture/rug_rose_gold.gltf" id="25_1m06e"]
 [ext_resource type="PackedScene" uid="uid://c5gvg6210vgku" path="res://Objects/Architypes/LivingRoom/door.tscn" id="26_kukai"]
 
@@ -305,10 +305,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.82927, 0.9715891, 25.57976
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.53069, 1.7776232, 27.024275)
 
 [node name="DrunknessPickup5" parent="WorldEnvironment" instance=ExtResource("24_1m06e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.359562, 1.7797214, 25.733858)
+transform = Transform3D(0.38971877, 0, -0.9209339, 0, 1, 0, 0.9209339, 0, 0.38971877, -17.218143, 1.7797214, 25.61083)
 
 [node name="DrunknessPickup6" parent="WorldEnvironment" instance=ExtResource("24_1m06e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.942404, 1.7797214, 25.850657)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.873438, 1.7797214, 25.727575)
 
 [node name="SlipperyTest" parent="WorldEnvironment" instance=ExtResource("21_k4dpe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.768183, 0.07580887, 27.403305)
@@ -406,6 +406,13 @@ material_override = ExtResource("8_1m06e")
 use_collision = true
 collision_layer = 65
 size = Vector3(10.376471, 1.6992188, 2.8933012)
+
+[node name="CSGBox3D22" type="CSGBox3D" parent="Layout/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.26152, 1.4913735, 22.357634)
+material_override = ExtResource("8_1m06e")
+use_collision = true
+collision_layer = 65
+size = Vector3(1.5714267, 1.6992188, 1.8180835)
 
 [node name="CSGBox3D14" type="CSGBox3D" parent="Layout/Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.847149, -1.8375787, 18.17351)
@@ -777,13 +784,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7696533, 0, -2.5664065)
 shape = SubResource("BoxShape3D_kukai")
 
 [node name="CSG_YellowlWall25" type="CSGBox3D" parent="Layout/Walls"]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -8.781323, 2.1326036, 21.534384)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -8.865697, 2.1326036, 21.534384)
 material_override = ExtResource("5_ue8nc")
 use_collision = true
-size = Vector3(0.2, 5.655167, 9.442047)
+size = Vector3(0.2, 5.655167, 9.610794)
 
 [node name="CSG_YellowlWall35" type="CSGBox3D" parent="Layout/Walls"]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12.906312, 1.9145687, 23.377861)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -14.249454, 1.9145687, 23.377861)
 material_override = ExtResource("5_ue8nc")
 use_collision = true
 size = Vector3(0.2, 7.2624855, 1.4938736)
@@ -1255,7 +1262,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.799994, 0.99823713, 19.06
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.70395, 0.99823713, 18.61847)
 
 [node name="TableRound3" parent="." instance=ExtResource("10_jwxo7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.593886, 2.3461027, 22.519772)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.466439, 2.3461027, 22.519772)
 
 [node name="TeenStanding" parent="." instance=ExtResource("3_7j6gg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.470684, 0.7776222, 25.548399)
@@ -1339,4 +1346,4 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -29.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.683647, -0.027526379, 17.762186)
 
 [node name="Door6" parent="." instance=ExtResource("26_kukai")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7407255, 2.2607872, 22.4581)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.083867, 2.2607872, 22.4581)
