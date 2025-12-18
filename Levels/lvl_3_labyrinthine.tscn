@@ -203,8 +203,8 @@ size = Vector3(6.1242676, 3.8589478, 9.8983)
 [sub_resource type="BoxShape3D" id="BoxShape3D_kukai"]
 size = Vector3(5.7526855, 5.5927734, 7.578125)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_k8d6m"]
-size = Vector3(16.833046, 2.3450186, 0.2)
+[sub_resource type="BoxShape3D" id="BoxShape3D_mifdu"]
+size = Vector3(19.956553, 2.6290522, 0.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1m06e"]
 size = Vector3(17.997202, 2.837109, 0.2)
@@ -221,7 +221,7 @@ size = Vector3(4.0201464, 2.3450186, 0.2)
 [sub_resource type="BoxShape3D" id="BoxShape3D_jwxo7"]
 size = Vector3(3.1813965, 4.8134766, 2.932328)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mifdu"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n1uxk"]
 resource_local_to_scene = true
 diffuse_mode = 3
 specular_mode = 2
@@ -235,7 +235,7 @@ uv1_offset = Vector3(0.02, 0, 0)
 uv1_triplanar = true
 uv1_world_triplanar = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n1uxk"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2olsr"]
 resource_local_to_scene = true
 diffuse_mode = 3
 specular_mode = 2
@@ -937,8 +937,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9992075, 1.6871653, 0.4979
 collision_mask = 39
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Walls/InvisibleWall"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.569168, -0.7571016, 0)
-shape = SubResource("BoxShape3D_k8d6m")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6392317, -0.6150849, 0)
+shape = SubResource("BoxShape3D_mifdu")
 
 [node name="InvisibleWall3" type="StaticBody3D" parent="Layout/Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.034986, 1.6871662, 28.840961)
@@ -1311,11 +1311,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.63688, 1.029325, -1.11331
 
 [node name="Stairs_thin" parent="." instance=ExtResource("5_dn5sy")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -25.404943, -1.0086918, 8.660178)
-wall_material = SubResource("StandardMaterial3D_mifdu")
+wall_material = SubResource("StandardMaterial3D_n1uxk")
 
 [node name="Stairs_thin2" parent="." instance=ExtResource("5_dn5sy")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -21.023193, -1.0086918, 8.660178)
-wall_material = SubResource("StandardMaterial3D_n1uxk")
+wall_material = SubResource("StandardMaterial3D_2olsr")
 
 [node name="rug_rose_gold" parent="." instance=ExtResource("25_1m06e")]
 transform = Transform3D(0.82590467, 0, -0.14108546, 0, 0.8378685, 0, 0.14108546, 0, 0.82590467, -23.350224, -1.9073486e-06, 6.732854)
