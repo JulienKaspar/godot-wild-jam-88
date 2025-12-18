@@ -22,8 +22,7 @@ func play_sound(_stream : AudioStream):
 	
 	match _stream:
 		drunkness_up:
-			print("DRUNK UP !")
 			await get_tree().create_timer(1).timeout
 			AudioManager.player_sounds.play_voice(AudioManager.player_sounds.burp_sounds)
 		drunkness_down:
-			print("DRUNK DOWN :(")
+			pass

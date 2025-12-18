@@ -1,7 +1,7 @@
 extends AudioStreamPlayer3D
 
-@export var voice_trigger_radius: float = 5.0
-@export var music_trigger_radius: float = 7.5
+@export var voice_trigger_radius: float = 10.0
+@export var music_trigger_radius: float = 15.0
 
 var music_on : bool = false
 var intro_done : bool = false
@@ -32,10 +32,10 @@ func _process(_delta):
 	
 	if voice_active:
 		var distance_squared : float = get_player_distance() * get_player_distance()
-		var attenuation_volume : float = clampf(remap(distance_squared, 100.0, 5.0, -9.0, 0.0), -9.0, 0.0)
-		voice_clip.set_sync_stream_volume(1, attenuation_volume)
+		var attenuation_volume : float = clampf(remap(distance_squared, voice_trigger_radius * voice_trigger_radius, 5.0, -9.0, 0.0), -9.0, 0.0)
+		voice_clip.set_sync_stream_volume(0, attenuation_volume)
 	elif music_on:
-		voice_clip.set_sync_stream_volume(1, AudioManager._VOLUME_DB_OFF)
+		voice_clip.set_sync_stream_volume(0, AudioManager._VOLUME_DB_OFF)
 
 func _check_intro_done() -> bool:
 	var playback : AudioStreamPlaybackInteractive = get_stream_playback()
