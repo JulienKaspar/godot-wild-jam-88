@@ -57,6 +57,7 @@ var player_global_pos = Vector3(0,0,0) # owned by player_controller
 var player_global_mass_pos = Vector3(0,0,0) # owned by player_controller
 var player_facing_dir = Vector2(0,1.0) # owned by player_controller
 var leaning = 0.0 # owned by player_controller
+var doPunishFall = true
 
 #----------------------------------------
 
@@ -176,9 +177,11 @@ func _on_change_movement(state: Player.MoveStates) -> void:
 			GameStateManager.player_drunkness.current_drunkness += DrunkCost_Roll
 		MoveStates.STANDUP:
 			inFeetState = FeetIKTargeting.STEPPING
+			$FallPunishReset.start()
+			doPunishFall = false
 		MoveStates.FELL:
 			inFeetState = FeetIKTargeting.RIGIDBODY
-			GameStateManager.player_drunkness.current_drunkness += DrunkCost_StandUp
+			if doPunishFall: GameStateManager.player_drunkness.current_drunkness += DrunkCost_StandUp
 		_: inFeetState = FeetIKTargeting.STEPPING
 		
 	match state:
@@ -212,3 +215,6 @@ func _on_player_body_consumed_left(item: Object) -> void:
 func _on_player_body_consumed_right(item: Object) -> void:
 	GameStateManager.player_drunkness.current_drunkness += item.consumed()
 	setHandRState(HandStates.DANGLY)
+
+func _on_fall_punish_reset_timeout() -> void:
+	doPunishFall = true

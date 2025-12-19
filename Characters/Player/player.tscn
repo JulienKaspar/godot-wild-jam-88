@@ -37,6 +37,10 @@ transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -1.2
 shape = SubResource("CylinderShape3D_klx3t")
 debug_color = Color(0.8627451, 0, 0.45882353, 0.8784314)
 
+[node name="FallPunishReset" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="ChangeFeet" from="." to="." method="_on_change_feet"]
 [connection signal="ChangeFeet" from="." to="PlayerBody" method="_on_player_change_feet"]
 [connection signal="ChangeHandLeft" from="." to="." method="_on_change_hand_left"]
@@ -53,3 +57,4 @@ debug_color = Color(0.8627451, 0, 0.45882353, 0.8784314)
 [connection signal="area_exited" from="PickupTracker/grab_area_left" to="PickupTracker" method="_on_grab_area_left_area_exited"]
 [connection signal="area_entered" from="PickupTracker/grab_area_right" to="PickupTracker" method="_on_grab_area_right_area_entered"]
 [connection signal="area_exited" from="PickupTracker/grab_area_right" to="PickupTracker" method="_on_grab_area_right_area_exited"]
+[connection signal="timeout" from="FallPunishReset" to="." method="_on_fall_punish_reset_timeout"]
