@@ -142,7 +142,8 @@ framerate = 1.3
 [node name="TeenVoicePlayer" type="AudioStreamPlayer3D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("7_3ww2l")
-unit_size = 6.0
+unit_size = 5.0
+max_db = 0.0
 max_distance = 10.0
 bus = &"SFX"
 
