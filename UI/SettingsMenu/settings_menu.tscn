@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://betq65km7cbe3"]
+[gd_scene load_steps=22 format=3 uid="uid://betq65km7cbe3"]
 
 [ext_resource type="Script" uid="uid://bxy3bjgv1mn50" path="res://UI/SettingsMenu/settings_menu.gd" id="1_ufg0w"]
 [ext_resource type="Texture2D" uid="uid://c5kempoojy45t" path="res://UI/SettingsMenu/controls_tab.png" id="2_6ycxt"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bm6p6rg4re13u" path="res://UI/SettingsMenu/audio_tab_selected.png" id="5_w4v0o"]
 [ext_resource type="Texture2D" uid="uid://b7780ynsj1mum" path="res://UI/SettingsMenu/accessibility_tab.png" id="6_ojh45"]
 [ext_resource type="Texture2D" uid="uid://blpgvpje26nr4" path="res://UI/SettingsMenu/accessibility_tab_selected.png" id="7_b25i1"]
+[ext_resource type="PackedScene" uid="uid://cfx3wet0ps45t" path="res://UI/SettingsMenu/check_box_setting.tscn" id="11_3iwun"]
 [ext_resource type="PackedScene" uid="uid://cl2i7omutjdby" path="res://UI/SettingsMenu/Components/New/slider_setting.tscn" id="11_dxnqk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oerog"]
@@ -126,18 +127,23 @@ theme_override_styles/tab_hovered = SubResource("StyleBoxEmpty_a0nqm")
 theme_override_styles/tab_selected = SubResource("StyleBoxEmpty_tky1e")
 theme_override_styles/tab_disabled = SubResource("StyleBoxEmpty_6ycxt")
 theme_override_styles/tab_focus = SubResource("StyleBoxEmpty_ojh45")
-current_tab = 2
+current_tab = 0
 tabs_visible = false
 tab_focus_mode = 0
 
 [node name="Controls" type="PanelContainer" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer"]
-visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_b25i1")
 metadata/_tab_index = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer/Controls"]
 layout_mode = 2
+
+[node name="ControllerRumble" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer/Controls/VBoxContainer" node_paths=PackedStringArray("top_focus") instance=ExtResource("11_3iwun")]
+layout_mode = 2
+top_focus = NodePath("../../../../HBoxContainer/MarginContainer/ControlTabButton")
+setting_name = "Controller Rumble"
+property_name = &"controller_rumble"
 
 [node name="Visual" type="PanelContainer" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer"]
 visible = false
@@ -154,7 +160,18 @@ setting_name = "Visual Effect Intensity"
 property_name = &"drunk_visual_effect_intensity"
 top_focus_target = NodePath("../../../../HBoxContainer/MarginContainer2/VisualTabButton")
 
+[node name="StrobeLightCheckbox" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer/Visual/VBoxContainer2" instance=ExtResource("11_3iwun")]
+layout_mode = 2
+setting_name = "Strobing Lights"
+property_name = &"strobe_lights"
+
+[node name="WindowedModeCheckbox" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer/Visual/VBoxContainer2" instance=ExtResource("11_3iwun")]
+layout_mode = 2
+setting_name = "Windowed Mode"
+property_name = &"windowed_mode"
+
 [node name="Audio" type="PanelContainer" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer"]
+visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_b25i1")
 metadata/_tab_index = 2
@@ -203,3 +220,8 @@ layout_mode = 2
 setting_name = "Text Sliding Speed"
 property_name = &"text_scrolling_speed"
 top_focus_target = NodePath("../../../../HBoxContainer/MarginContainer4/AccesibilityTabButton")
+
+[node name="SliderSetting2" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer/Accesibility/VBoxContainer" instance=ExtResource("11_dxnqk")]
+layout_mode = 2
+setting_name = "Loading Speed"
+property_name = &"loading_speed"
