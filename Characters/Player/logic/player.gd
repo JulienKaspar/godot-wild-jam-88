@@ -23,8 +23,8 @@ var fallNoRecoverPoint = 0.6
 var DrunkCost_Roll = -0.6
 var DrunkCost_HitFurniture = -0.1
 var DrunkCost_StandUp = -2.0
-var PickupThreshold = 0.2
-var DrinkTime = 1.5
+var PickupThreshold = 0.25
+var DrinkTime = 1.5 
 var canRoll = false
 
 #---------------- IK ----------------------------------------------------------
