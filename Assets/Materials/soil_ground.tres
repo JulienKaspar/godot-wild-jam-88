@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://emu50xlsdc3q"]
+
+[ext_resource type="Shader" uid="uid://bg4owxt8roht6" path="res://Shaders/tileable_floor.gdshader" id="1_24kih"]
+[ext_resource type="Texture2D" uid="uid://dox1u5jid0mfr" path="res://Assets/Backyard/garden_earth.png" id="2_24kih"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_24kih")
+shader_parameter/albedo = Vector4(0.8, 0.8, 0.4, 0)
+shader_parameter/texture_albedo = ExtResource("2_24kih")
+shader_parameter/scale = 1.117
+shader_parameter/roughness = 1.0
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/tile = 1
+shader_parameter/random_seed = 50
+shader_parameter/flip_x = false
+shader_parameter/flip_y = false
+shader_parameter/hue_shift = 0.0
