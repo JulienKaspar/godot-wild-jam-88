@@ -11,36 +11,3 @@ unique_name_in_owner = true
 stream = ExtResource("2_lsojf")
 volume_db = -6.0
 bus = &"Music"
-
-[node name="DebugLayer" type="CanvasLayer" parent="."]
-
-[node name="Control" type="Control" parent="DebugLayer"]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="DebugLayer/Control"]
-layout_mode = 0
-offset_right = 113.0
-offset_bottom = 51.0
-
-[node name="ThemeOptionLabel" type="Label" parent="DebugLayer/Control/VBoxContainer"]
-layout_mode = 2
-text = "Music Theme Selected:"
-
-[node name="ThemeOptionButton" type="OptionButton" parent="DebugLayer/Control/VBoxContainer"]
-layout_mode = 2
-selected = 0
-item_count = 4
-popup/item_0/text = "Theme A"
-popup/item_0/id = 0
-popup/item_1/text = "Theme B"
-popup/item_1/id = 1
-popup/item_2/text = "Theme C"
-popup/item_2/id = 2
-popup/item_3/text = "Theme D"
-popup/item_3/id = 3

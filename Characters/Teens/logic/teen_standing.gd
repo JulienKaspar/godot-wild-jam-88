@@ -90,6 +90,8 @@ func _process(delta: float) -> void:
 			speech_bubble_animation.hide()
 
 
+@onready var teen_voice_player: AudioStreamPlayer3D = %TeenVoicePlayer
+
 func on_pushed() -> void:
 	
 	if not pushy:
@@ -99,3 +101,4 @@ func on_pushed() -> void:
 	animation_player.play("SuprizedMad")
 	currently_angry = true
 	angry_time = 3.0
+	if !teen_voice_player.playing: teen_voice_player.play()

@@ -1,0 +1,20 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=8 format=3 uid="uid://8t4w60ovuely"]
+
+[ext_resource type="AudioStream" uid="uid://b3k6wbp1n6ws" path="res://Assets/Audio/SFX/NPCs/npc_voice_alt_01.ogg" id="1_10nxk"]
+[ext_resource type="AudioStream" uid="uid://cdtm46aufj4mf" path="res://Assets/Audio/SFX/NPCs/npc_voice_alt_02.ogg" id="2_0qcbr"]
+[ext_resource type="AudioStream" uid="uid://djuxoi75f7igx" path="res://Assets/Audio/SFX/NPCs/npc_voice_alt_03.ogg" id="3_1nuw1"]
+[ext_resource type="AudioStream" uid="uid://bv2i8b3ftn6x" path="res://Assets/Audio/SFX/NPCs/npc_voice_alt_04.ogg" id="4_jplj0"]
+[ext_resource type="AudioStream" uid="uid://dt7j58xhopiyp" path="res://Assets/Audio/SFX/NPCs/npc_voice_alt_05.ogg" id="5_5nedj"]
+[ext_resource type="AudioStream" uid="uid://uun3x2fkhtps" path="res://Assets/Audio/SFX/NPCs/npc_voice_alt_06.ogg" id="6_ubrjv"]
+[ext_resource type="AudioStream" uid="uid://f1v6fdnd8f5l" path="res://Assets/Audio/SFX/NPCs/npc_voice_alt_07.ogg" id="7_eith1"]
+
+[resource]
+random_pitch = 1.2
+streams_count = 7
+stream_0/stream = ExtResource("1_10nxk")
+stream_1/stream = ExtResource("2_0qcbr")
+stream_2/stream = ExtResource("3_1nuw1")
+stream_3/stream = ExtResource("4_jplj0")
+stream_4/stream = ExtResource("5_5nedj")
+stream_5/stream = ExtResource("6_ubrjv")
+stream_6/stream = ExtResource("7_eith1")

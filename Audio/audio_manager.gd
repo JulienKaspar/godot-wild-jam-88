@@ -8,19 +8,30 @@ var music_manager : MusicManager
 var ui_sounds : UI_Sounds
 var player_sounds : PlayerSounds
 
+const DRUNK_AUDIO_BUS_LAYOUT : AudioBusLayout = preload("uid://c6p02v462orsm")
+
 # TODO: Ensure this is consistent with audio_bus_layout
 # NOTE: Dynamically load / replace with audio bus layout resource?
 enum BUS {
-	MASTER = 0,
-	MUSIC = 1,
-	SFX = 2,
-	AMBIENCE = 3,
-	UI = 4,
+	MASTER,
+	DRUNK_FX,
+	MUSIC,
+	SFX,
+	AMBIENCE,
+	UI,
+	PLAYER
 }
 
-func _ready():
-	GameStateManager.player_drunkness.on_drunkness_changed.connect(_update_drunk_effects)
 
+func _init():
+	AudioServer.set_bus_layout(DRUNK_AUDIO_BUS_LAYOUT)
+
+func _ready():
+	GameStateManager.player_drunkness.on_drunkness_changed.connect(update_drunk_effects)
+	stereo_enhancer_effect = AudioServer.get_bus_effect(BUS.DRUNK_FX, FX.STEREO_ENHANCE)
+	chorus_effect = AudioServer.get_bus_effect(BUS.DRUNK_FX, FX.CHORUS)
+	phaser_effect = AudioServer.get_bus_effect(BUS.DRUNK_FX, FX.PHASER)
+	delay_effect = AudioServer.get_bus_effect(BUS.DRUNK_FX, FX.DELAY)
 
 
 
@@ -68,17 +79,19 @@ const DRUNK_FX_LOW : float = 0.1
 const DRUNK_FX_MED : float = 0.35
 const DRUNK_FX_HIGH : float = 0.75
 
-var stereo_enhancer_effect : AudioEffectStereoEnhance = AudioServer.get_bus_effect(BUS.MASTER, FX.STEREO_ENHANCE)
-var chorus_effect : AudioEffectChorus = AudioServer.get_bus_effect(BUS.MASTER, FX.CHORUS)
-var phaser_effect : AudioEffectPhaser = AudioServer.get_bus_effect(BUS.MASTER, FX.PHASER)
-var delay_effect : AudioEffectDelay = AudioServer.get_bus_effect(BUS.MASTER, FX.DELAY)
+var stereo_enhancer_effect : AudioEffectStereoEnhance
+var chorus_effect : AudioEffectChorus
+var phaser_effect : AudioEffectPhaser
+var delay_effect : AudioEffectDelay
 
-func _update_drunk_effects(drunk_value) -> void:
-	drunk_value = _remap_drunk_value(drunk_value)
+var drunk_effect_intensity : float
+
+func update_drunk_effects(drunk_value : float = -1.0) -> void:
+	drunk_effect_intensity = _remap_drunk_value(drunk_value) if drunk_value > 0.0 else drunk_effect_intensity
 	
-	_update_stereo_enhance_fx(drunk_value)
-	_update_phaser_fx(drunk_value)
-	_update_chorus_fx(drunk_value)
+	_update_stereo_enhance_fx(drunk_effect_intensity)
+	_update_phaser_fx(drunk_effect_intensity)
+	_update_chorus_fx(drunk_effect_intensity)
 	
 func _update_stereo_enhance_fx(value) -> void:
 	var pan_value : float = remap(value, DRUNK_FX_LOW, 1.0, 1.0, 4.0)

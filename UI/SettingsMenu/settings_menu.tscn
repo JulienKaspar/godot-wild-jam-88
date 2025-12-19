@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c5kempoojy45t" path="res://UI/SettingsMenu/controls_tab.png" id="2_6ycxt"]
 [ext_resource type="Texture2D" uid="uid://cj5wx7x6gvc3a" path="res://UI/SettingsMenu/controls_tab_selected.png" id="3_ojh45"]
 [ext_resource type="Texture2D" uid="uid://cp515qhvxeli7" path="res://UI/SettingsMenu/audio_tab.png" id="4_b25i1"]
-[ext_resource type="Script" uid="uid://dghqqude80uid" path="res://UI/SettingsMenu/settings_tab_button.gd" id="4_qvif0"]
+[ext_resource type="Script" path="res://UI/SettingsMenu/settings_tab_button.gd" id="4_qvif0"]
 [ext_resource type="Texture2D" uid="uid://d3nqe7yttua63" path="res://UI/SettingsMenu/visuals_tab.png" id="4_w4v0o"]
 [ext_resource type="Texture2D" uid="uid://chagm2nuj3vym" path="res://UI/SettingsMenu/visuals_tab_selected.png" id="5_qvif0"]
 [ext_resource type="Texture2D" uid="uid://bm6p6rg4re13u" path="res://UI/SettingsMenu/audio_tab_selected.png" id="5_w4v0o"]

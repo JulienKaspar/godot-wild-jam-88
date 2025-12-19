@@ -29,7 +29,8 @@ var StepTriggerDistance = 0.37
 @onready var right_shoulder_ray: RayCast3D = $RayCastShouldderR
 @onready var left_hand_target: Marker3D = $LeftHandTarget
 @onready var right_hand_target: Marker3D = $RightHandTarget
-@onready var drink_hole: Marker3D = $DrinkHole
+@onready var drink_hole_left: Marker3D = $DrinkHoleL
+@onready var drink_hole_right: Marker3D = $DrinkHoleR
 
 #feet
 @onready var left_foot_ray: RayCast3D = $LeftRayCast
@@ -43,6 +44,8 @@ var StepTriggerDistance = 0.37
 @onready var player_rb: RigidBody3D
 @onready var rb_arm_l: Node3D
 @onready var rb_arm_r: Node3D
+@onready var rb_leg_l: Node3D
+@onready var rb_leg_r: Node3D
 
 @onready var upper_body: RigidBody3D
 @onready var body_attach_point: Node3D
@@ -52,6 +55,7 @@ var stepping := false
 
 # ---------------------- Dynamics ----------------------------------------------
 var inFeetState = FeetStates.ACTIVE
+var inFeetTargeting = Player.FeetIKTargeting.STEPPING
 var lastStepWas = Player.Hands.LEFT
 var LeftFootGotoPos = Vector3(0,0,0)
 var RightFootGotoPos = Vector3(0,0,0)
@@ -61,13 +65,14 @@ var leftDrinkLerp = 0
 var rightDrinkLerp = 0
 var HoldingItemL: Object
 var HoldingItemR: Object
-
+var triggeredConsumableL = false
+var triggeredConsumableR = false
 
 var HandL_wobble = Vector3(0,0,0)
 var HandR_wobble = Vector3(0,0,0)
 var Head_wobble = Vector3(0,0,0)
-var HandL_pick_location = Vector3(0,0,0)
-var HandR_pick_location = Vector3(0,0,0)
+var HandL_pick_location: Transform3D
+var HandR_pick_location: Transform3D
 var Leg_seperaion = 0.2
 var StepHighPoint = Vector3(0, 0.3, 0)
 var StepMaxAhead = 0.5
@@ -153,16 +158,19 @@ func update_step_targets():
 	left_foot_goto.global_position = LeftFootGotoPos
 	right_foot_goto.global_position = RightFootGotoPos
 	
-func drinkHandInterpolation(origin: Vector3, hand: Object, target: Object, item: Object, time: float) -> void:
+func drinkHandInterpolation(origin: Transform3D, hand: Object, target: Object, item: Object, time: float, check: bool) -> void:
 	var blendTime = min(1.0, time * 4.0)
 	if blendTime == 1.0:
-		item.consume()
-	hand.global_position = lerp(origin, target.global_position, blendTime)
+		if not check:
+			item.consume()
+			if !AudioManager.player_sounds.voice_player.playing:
+				AudioManager.player_sounds.play_voice(AudioManager.player_sounds.chug_sounds)
+	hand.global_transform = lerp(origin, target.global_transform, blendTime)
 
 func moveHand(ray: Object, hand: Object, target: Object, doRaycast: bool = false) -> void:
 
 	if doRaycast:
-		ray.look_at(target.global_position)
+		ray.look_at(target.pick_point.global_position)
 		var rayHit = ray.get_collision_point()
 		hand.global_position = lerp(hand.global_position, rayHit, 0.5)
 	else:
@@ -185,6 +193,10 @@ func moveFeet(activFoot: Player.Hands) -> void:
 			right_foot_ik_target.global_position = mov
 			left_foot_ik_target.global_position = LeftFootWasPos	
 
+func moveFeetToRigidBody() -> void:
+	right_foot_ik_target.global_position = lerp(right_foot_ik_target.global_position, rb_leg_r.global_position, 0.25)
+	left_foot_ik_target.global_position = lerp(left_foot_ik_target.global_position, rb_leg_l.global_position, 0.25)
+
 func updateStepLerp() -> void:
 	stepLerp = ($StepInProgress.wait_time - $StepInProgress.time_left) / $StepInProgress.wait_time 
 
@@ -197,7 +209,7 @@ func drinkTimingUpdate(hand: Player.Hands) -> void:
 	 
 
 func checkDistance(bone: Object, target: Object) -> bool:
-	var d = (bone.global_position - target.global_position).length() - ARM_LENGTH
+	var d = (bone.global_position - target.pick_point.global_position).length() - ARM_LENGTH
 	if d < PlayerRoot.PickupThreshold:
 		return true
 	else:
@@ -221,12 +233,12 @@ func _process(delta: float) -> void:
 			if PlayerRoot.closestLeft:	
 				moveHand(left_shoulder_ray, left_hand_target, PlayerRoot.closestLeft, true)
 				if checkDistance(left_shoulder_ray, PlayerRoot.closestLeft):
-					HandL_pick_location = PlayerRoot.closestLeft.global_position
+					HandL_pick_location = PlayerRoot.closestLeft.global_transform
 					ReachedTargetLeft.emit(PlayerRoot.closestLeft)
 			else: moveHand(left_shoulder_ray, left_hand_target, rb_arm_l)
 		Player.HandStates.DRINKING:
 			drinkTimingUpdate(Player.Hands.LEFT)
-			drinkHandInterpolation(HandL_pick_location, left_hand_target, drink_hole, PlayerRoot.holdingLeft, leftDrinkLerp)
+			drinkHandInterpolation(HandL_pick_location, left_hand_target, drink_hole_left, PlayerRoot.holdingLeft, leftDrinkLerp, triggeredConsumableL)
 		_: moveHand(left_shoulder_ray, left_hand_target, rb_arm_l)
 			
 	match PlayerRoot.HandRState:
@@ -234,41 +246,44 @@ func _process(delta: float) -> void:
 			if PlayerRoot.closestRight: 
 				moveHand(right_shoulder_ray, right_hand_target, PlayerRoot.closestRight, true)
 				if checkDistance(left_shoulder_ray, PlayerRoot.closestRight):
-					HandR_pick_location = PlayerRoot.closestRight.global_position
+					HandR_pick_location = PlayerRoot.closestRight.global_transform
 					ReachedTargetRight.emit(PlayerRoot.closestRight, )
 			else: moveHand(right_shoulder_ray, right_hand_target, rb_arm_r)
 		Player.HandStates.DRINKING:
 			drinkTimingUpdate(Player.Hands.RIGHT)
-			drinkHandInterpolation(HandR_pick_location, right_hand_target, drink_hole, PlayerRoot.holdingRight, rightDrinkLerp)
+			drinkHandInterpolation(HandR_pick_location, right_hand_target, drink_hole_right, PlayerRoot.holdingRight, rightDrinkLerp, triggeredConsumableR)
 		_: moveHand(right_shoulder_ray, right_hand_target, rb_arm_r)
 	
 	# ---------------- FEET UPDATE ----------------
-	
-	match inFeetState:
-		FeetStates.FIXED: pass
-		FeetStates.ACTIVE: 
-			update_step_targets()
-			match lastStepWas:
-				Player.Hands.LEFT: 
-					if checkStepStart(RightFootWasPos, RightFootGotoPos):
-						setFeetState(FeetStates.MOVING_RIGHT, Player.Hands.RIGHT)
-					elif checkStepStart(LeftFootWasPos, LeftFootGotoPos):
-						setFeetState(FeetStates.MOVING_LEFT, Player.Hands.LEFT)
-				Player.Hands.RIGHT: 
-					if checkStepStart(LeftFootWasPos, LeftFootGotoPos):
-						setFeetState(FeetStates.MOVING_LEFT, Player.Hands.LEFT)
-					elif checkStepStart(RightFootWasPos, RightFootGotoPos):
-						setFeetState(FeetStates.MOVING_RIGHT, Player.Hands.RIGHT)
-		FeetStates.MOVING_LEFT:
-			updateStepLerp()
-			hip_step_uptade(stepLerp)
-			moveFeet(Player.Hands.LEFT)
-		FeetStates.MOVING_RIGHT: 
-			updateStepLerp()
-			hip_step_uptade(stepLerp)
-			moveFeet(Player.Hands.RIGHT)
-		FeetStates.PLANTED_LEFT: pass
-		FeetStates.PLANTED_RIGHT: pass
+	match PlayerRoot.inFeetState:
+		Player.FeetIKTargeting.RIGIDBODY:
+			moveFeetToRigidBody()
+		Player.FeetIKTargeting.STEPPING:
+			match inFeetState:
+				FeetStates.FIXED: pass
+				FeetStates.ACTIVE: 
+					update_step_targets()
+					match lastStepWas:
+						Player.Hands.LEFT: 
+							if checkStepStart(RightFootWasPos, RightFootGotoPos):
+								setFeetState(FeetStates.MOVING_RIGHT, Player.Hands.RIGHT)
+							elif checkStepStart(LeftFootWasPos, LeftFootGotoPos):
+								setFeetState(FeetStates.MOVING_LEFT, Player.Hands.LEFT)
+						Player.Hands.RIGHT: 
+							if checkStepStart(LeftFootWasPos, LeftFootGotoPos):
+								setFeetState(FeetStates.MOVING_LEFT, Player.Hands.LEFT)
+							elif checkStepStart(RightFootWasPos, RightFootGotoPos):
+								setFeetState(FeetStates.MOVING_RIGHT, Player.Hands.RIGHT)
+				FeetStates.MOVING_LEFT:
+					updateStepLerp()
+					hip_step_uptade(stepLerp)
+					moveFeet(Player.Hands.LEFT)
+				FeetStates.MOVING_RIGHT: 
+					updateStepLerp()
+					hip_step_uptade(stepLerp)
+					moveFeet(Player.Hands.RIGHT)
+				FeetStates.PLANTED_LEFT: pass
+				FeetStates.PLANTED_RIGHT: pass
 	#move feet targets
 	if debugDraw: updateDebugHelpers()
 	
@@ -276,10 +291,10 @@ func _physics_process(delta: float) -> void:
 	LeftFootGotoPos = left_foot_ray.get_collision_point() + FOOT_CORRECTION
 	RightFootGotoPos = right_foot_ray.get_collision_point() + FOOT_CORRECTION
 
-func _on_player_change_feet(state: Player.FeetStates) -> void:
+func _on_player_change_feet(state: Player.FeetIKTargeting) -> void:
 	match state:
-		Player.FeetStates.STEPPING: pass
-		Player.FeetStates.ROLLING: pass
+		Player.FeetIKTargeting.STEPPING: pass
+		Player.FeetIKTargeting.RIGIDBODY: pass
 
 func setFeetState(state: FeetStates, foot: Player.Hands):
 	inFeetState = state
@@ -317,10 +332,12 @@ func _on_right_drink_timeout() -> void:
 
 func _on_player_change_hand_right(state: Player.HandStates, item: Object) -> void:
 	match state:
-		Player.HandStates.DRINKING: 
+		Player.HandStates.DRINKING:
+			triggeredConsumableR = false 
 			%RightDrink.start()
 
 func _on_player_change_hand_left(state: Player.HandStates, item: Object) -> void:
 	match state:
-		Player.HandStates.DRINKING: 
+		Player.HandStates.DRINKING:
+			triggeredConsumableL = false
 			%LeftDrink.start()

@@ -62,7 +62,7 @@ stream_3/stream = ExtResource("16_ugegy")
 stream_3/volume = -60.0
 
 [resource]
-clip_count = 5
+clip_count = 4
 clip_0/name = &"theme_a"
 clip_0/stream = SubResource("AudioStreamSynchronized_oubgs")
 clip_0/auto_advance = 0
@@ -75,8 +75,6 @@ clip_2/auto_advance = 0
 clip_3/name = &"theme_d"
 clip_3/stream = SubResource("AudioStreamSynchronized_gm6kx")
 clip_3/auto_advance = 0
-clip_4/name = &""
-clip_4/auto_advance = 0
 _transitions = {
 Vector2i(-1, -1): {
 "fade_beats": 0.0,

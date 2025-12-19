@@ -13,6 +13,8 @@ class_name DrunknessPickup
 @export var break_pfx: GPUParticles3D ## play this pfx when breaking
 @export var broken_mesh: Node3D ## what mesh to show after break
 
+@onready var pickOffset = $PickPoint.position
+
 var attachedTo: Object
 
 enum PickupStates {ALIVE, BROKEN, IN_USE, USED}
@@ -34,8 +36,10 @@ func _process(delta: float) -> void:
 
 func pickup(fromObject: Object) -> void:
 	inState = PickupStates.IN_USE
+	pristine_mesh.position -= pickOffset
 	pick_point.monitorable = false
 	self.freeze = true
+	$CollisionShape3D.disabled = true #workaround for collision still active
 	attachedTo = fromObject
 
 func consume() -> void:
@@ -55,9 +59,11 @@ func consumed() -> float:
 		inState = PickupStates.USED
 		pick_point.monitorable = false
 		self.freeze = false
+		$CollisionShape3D.disabled = false #workaround for collision still active
 		var throwVec = self.global_position - GameStateManager.current_player.player_global_pos
 		throwVec.y = throwVec.y * randf_range(0, 0.2)
-		self.apply_impulse(throwVec)
+		self.apply_impulse(throwVec * 5.0)
+
 		if broken_mesh: 
 			broken_mesh.show()
 			if pristine_mesh: pristine_mesh.hide()
