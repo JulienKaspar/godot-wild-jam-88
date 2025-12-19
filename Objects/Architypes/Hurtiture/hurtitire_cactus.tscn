@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://if8jggvkxrky"]
+[gd_scene load_steps=5 format=3 uid="uid://tca4a42pryu5"]
 
 [ext_resource type="Script" uid="uid://d1ns4f8nsxmyd" path="res://Objects/furniture_player_collider.gd" id="1_838oo"]
 [ext_resource type="PackedScene" uid="uid://wjyfhps2jw7i" path="res://Assets/Furniture/plant_cactus1.gltf" id="2_tunyq"]
