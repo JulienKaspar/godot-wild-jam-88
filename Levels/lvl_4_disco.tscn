@@ -59,7 +59,7 @@ metadata/_custom_type_script = "uid://cm1uqdo37kpmi"
 environment = SubResource("Environment_vu8ij")
 
 [node name="Disco_spinner" type="Node3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0621214, 3.6303673, 2.9323716)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.180691, 3.6303673, 2.7763538)
 
 [node name="DiscoSpotlight" type="SpotLight3D" parent="WorldEnvironment/Disco_spinner"]
 transform = Transform3D(1, 0, 0, 0, 0.7724344, 0.6350946, 0, -0.6350946, 0.7724344, 0.1808176, -0.78835106, 3.8376193)
@@ -408,7 +408,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.81698227, 0.037964582, -0.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.088754, 0.037964582, 4.8192835)
 
 [node name="LampStanding7" parent="Teens" instance=ExtResource("12_ayeew")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.210009, 0.037964582, -3.7633684)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.511858, 0.037964582, -4.130056)
 
 [node name="TriperyTest" parent="Teens" instance=ExtResource("13_ltcua")]
 transform = Transform3D(0.8705275, 0, 0.49211973, 0, 1, 0, -0.49211973, 0, 0.8705275, -4.122117, 0.081304476, 3.317603)
@@ -431,8 +431,8 @@ transform = Transform3D(0.89799684, 0, -0.44000185, 0, 1, 0, 0.44000185, 0, 0.89
 [node name="rug_rose_gold" parent="Teens" instance=ExtResource("20_n8q5n")]
 transform = Transform3D(-0.6831081, 0, 0.7303173, 0, 1, 0, -0.7303173, 0, -0.6831081, -8.738264, 0.014164925, 3.930543)
 
-[node name="Couch1" parent="Teens" instance=ExtResource("18_r1olg")]
-transform = Transform3D(0.56541336, 0, 0.82480764, 0, 1, 0, -0.82480764, 0, 0.56541336, -7.945339, 0.85966, 0.50255585)
+[node name="rug_rose_gold2" parent="Teens" instance=ExtResource("20_n8q5n")]
+transform = Transform3D(0.34075695, 0, 0.94015145, 0, 1, 0, -0.94015145, 0, 0.34075695, -9.460621, 0.014164925, -1.5316763)
 
 [node name="Furniture" type="Node3D" parent="."]
 
@@ -443,6 +443,9 @@ transform = Transform3D(-0.70391554, 0, -0.7102837, 0, 1, 0, 0.7102837, 0, -0.70
 
 [node name="Couch5" parent="." instance=ExtResource("11_w3xq8")]
 transform = Transform3D(-0.49910796, 0, 0.86653984, 0, 1, 0, -0.86653984, 0, -0.49910796, -9.351077, 0.00052046776, 6.2353806)
+
+[node name="Couch6" parent="." instance=ExtResource("11_w3xq8")]
+transform = Transform3D(-0.49910796, 0, 0.86653984, 0, 1, 0, -0.86653984, 0, -0.49910796, -11.37445, 0.00052046776, 4.182933)
 
 [node name="Table1" parent="." instance=ExtResource("13_lkepb")]
 transform = Transform3D(0.39751622, 0, 0.91759515, 0, 1, 0, -0.91759515, 0, 0.39751622, -7.938068, 0.007042344, 0.7172197)
@@ -455,11 +458,9 @@ transform = Transform3D(0.08336473, 0, -0.9965191, 0, 1, 0, 0.9965191, 0, 0.0833
 
 [node name="Shelf1" parent="." instance=ExtResource("19_u88v8")]
 transform = Transform3D(-4.0907594e-08, 0.35238072, -0.9358568, 1.540305e-08, 0.9358568, 0.35238072, 1, 0, -4.371139e-08, 0.06637061, 0.056058407, -2.4498463)
-wobblable = false
 
 [node name="Shelf2" parent="." instance=ExtResource("19_u88v8")]
 transform = Transform3D(-4.6515183e-08, -0.35238072, 0.9358568, 1.540305e-08, 0.9358568, 0.35238072, -1, 3.0806103e-08, -3.8103813e-08, -11.42397, 0.05605936, -1.4887154)
-wobblable = false
 
 [node name="rug_rose_gold" parent="." instance=ExtResource("20_n8q5n")]
 transform = Transform3D(0.9459609, 0, 0.32428062, 0, 1, 0, -0.32428062, 0, 0.9459609, -4.723604, 0.014164925, -1.0183759)
