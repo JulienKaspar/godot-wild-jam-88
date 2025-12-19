@@ -8,7 +8,7 @@
 [sub_resource type="Environment" id="Environment_v85wt"]
 background_mode = 1
 ambient_light_source = 2
-ambient_light_color = Color(0.4333334, 0, 1, 1)
+ambient_light_color = Color(0.7703333, 0.47000003, 1, 1)
 ambient_light_energy = 0.93
 tonemap_mode = 4
 
@@ -39,7 +39,7 @@ size = Vector3(8.106323, 1, 1)
 [node name="LvlEndKitchen" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.98431283, -0.17643195, 0, 0.17643195, 0.98431283, -0.15615678, 0.19056559, 8.816728)
+transform = Transform3D(1, 0, 0, 0, 0.997236, -0.074299954, 0, 0.074299954, 0.997236, -0.15615678, 0.4230498, 8.816728)
 current = true
 fov = 28.4
 
@@ -69,19 +69,27 @@ shadow_opacity = 0.5
 editor_only = true
 
 [node name="GeneralLight" type="DirectionalLight3D" parent="WorldEnvironment"]
-transform = Transform3D(-0.41631424, 0.7877376, -0.45403957, -0.74537766, -0.009725872, 0.6665715, 0.5206675, 0.61593413, 0.591211, 0.41635966, 0.9052739, 1.7490399)
-light_color = Color(9.381768e-07, 1.1498882, 1.0895348, 1)
+transform = Transform3D(-0.62729037, 0.34868732, -0.69636476, -0.74537766, -0.009725938, 0.6665715, 0.22565217, 0.9371886, 0.26600462, 0.41635966, 0.9052739, 1.7490399)
+light_color = Color(0.3104728, 0.54386336, 1.15, 1)
 light_energy = 0.248
 light_indirect_energy = 1.804
 shadow_opacity = 0.5
 
 [node name="SpotLight3D" type="SpotLight3D" parent="WorldEnvironment"]
-transform = Transform3D(-0.7414023, 0.4645549, -0.48426402, -1.6974662e-08, 0.72163945, 0.6922692, 0.67106104, 0.51325, -0.5350251, -4.533313, 1.9510137, -0.92921424)
-light_color = Color(0.5565561, 0.9325064, 0.7943615, 1)
+transform = Transform3D(-0.74140227, 0.46455485, -0.48426402, -1.697466e-08, 0.7216394, 0.69226927, 0.671061, 0.51324993, -0.53502506, -4.909251, 1.9510137, -1.697223)
+light_color = Color(0.54389507, 0.93, 0.43710002, 1)
 light_energy = 2.844
 shadow_enabled = true
 spot_range = 10.287
-spot_angle = 39.68
+spot_angle = 59.96
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="WorldEnvironment"]
+transform = Transform3D(-0.7699234, -0.4417621, 0.4605044, 8.567555e-08, 0.72163945, 0.69226915, -0.63813645, 0.5329942, -0.55560696, 3.7761185, 1.9510137, -1.5762522)
+light_color = Color(0.54509807, 0.92941177, 0.43529412, 1)
+light_energy = 2.844
+shadow_enabled = true
+spot_range = 10.287
+spot_angle = 59.85
 
 [node name="Fridge Light" type="SpotLight3D" parent="WorldEnvironment"]
 transform = Transform3D(-0.9957713, 0.0635964, -0.06629457, 0.02799921, 0.8974041, 0.44032046, 0.08749582, 0.4366023, -0.8953898, -0.19579935, 2.295163, -1.2519939)
@@ -98,13 +106,6 @@ light_energy = 2.518
 shadow_enabled = true
 spot_range = 10.287
 spot_angle = 55.25
-
-[node name="SpotLight3D2" type="SpotLight3D" parent="WorldEnvironment"]
-transform = Transform3D(-0.9306477, -0.2533126, 0.26405978, 8.271297e-08, 0.7216394, 0.6922692, -0.36591643, 0.6442586, -0.671592, 3.5343628, 1.9510137, -0.9598553)
-light_color = Color(0.5565561, 0.9325064, 0.7943615, 1)
-light_energy = 2.844
-shadow_enabled = true
-spot_range = 10.287
 
 [node name="fridge_door_left" parent="WorldEnvironment" instance=ExtResource("3_kqsjv")]
 transform = Transform3D(0.7888911, 0, -0.61453307, 0, 1, 0, 0.61453307, 0, 0.7888911, -0.6300201, 1.1838306, -0.08066243)

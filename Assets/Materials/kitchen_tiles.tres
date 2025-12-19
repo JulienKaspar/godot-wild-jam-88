@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://yaagdy5rwoee"]
+
+[ext_resource type="Shader" uid="uid://bg4owxt8roht6" path="res://Shaders/tileable_floor.gdshader" id="1_gmk3v"]
+[ext_resource type="Texture2D" uid="uid://86kyjqqpq57d" path="res://Assets/Kitchen/kitchen_tiles.png" id="2_gmk3v"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_gmk3v")
+shader_parameter/albedo = Vector4(0.8, 0.8, 0.8, 0)
+shader_parameter/texture_albedo = ExtResource("2_gmk3v")
+shader_parameter/scale = 1.05
+shader_parameter/roughness = 1.0
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/tile = 1
+shader_parameter/random_seed = 130
+shader_parameter/flip_x = false
+shader_parameter/flip_y = false
+shader_parameter/hue_shift = 0.0

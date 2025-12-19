@@ -39,6 +39,30 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "materials": {
+"@MATERIAL:6": {
+"use_external/enabled": true,
+"use_external/path": "uid://bkpy44rodafk4"
+},
+"Material.001": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/Materials/generic_soft.tres",
+"use_external/path": "uid://bkpy44rodafk4"
+},
+"Material.002": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/Materials/generic_soft.tres",
+"use_external/path": "uid://bkpy44rodafk4"
+},
+"floor bg": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/Materials/kitchen_tiles.tres",
+"use_external/path": "uid://yaagdy5rwoee"
+},
+"floor fg": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/Materials/kitchen_tiles_fg.tres",
+"use_external/path": "uid://dma21o2hw2ihv"
+},
 "vertex colors": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://Assets/Materials/generic_soft.tres",
