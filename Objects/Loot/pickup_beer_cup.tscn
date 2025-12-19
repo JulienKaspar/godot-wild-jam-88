@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://c50jjcmdyr7vp"]
 
 [ext_resource type="Script" uid="uid://b3w4gu3se7vnv" path="res://Gameplay/Pickups/drunkness_pickup.gd" id="1_1ac8f"]
-[ext_resource type="Script" uid="uid://dov4lhtuyrycf" path="res://Gameplay/Pickups/pick_point.gd" id="2_t35mh"]
+[ext_resource type="Script" path="res://Gameplay/Pickups/pick_point.gd" id="2_t35mh"]
 [ext_resource type="PackedScene" uid="uid://digw728iiuyg2" path="res://Particles/DrunknessPickups/pfx_beer_consuming.tscn" id="3_jbig5"]
 [ext_resource type="PackedScene" uid="uid://cpegwj8uc0kq5" path="res://Particles/DrunknessPickups/pfx_beer_break.tscn" id="4_rbkuy"]
 [ext_resource type="PackedScene" uid="uid://bw1ewj0l1c71n" path="res://Particles/DrunknessPickups/pfx_beer_dispose.tscn" id="5_u18ou"]
@@ -23,7 +23,7 @@ collision_layer = 32
 collision_mask = 55
 script = ExtResource("1_1ac8f")
 pick_point = NodePath("PickPoint")
-drunkness_increase = 1.8
+drunkness_increase = 2.5
 pristine_mesh = NodePath("cup")
 consume_pfx = NodePath("PfxBeerConsuming")
 dispose_pfx = NodePath("PfxBeerDispose")
