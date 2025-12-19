@@ -7,6 +7,7 @@ extends Node3D
 @export var right_foot_target: Marker3D
 @export var left_hand_target: Marker3D
 @export var right_hand_target: Marker3D
+@export var lookat_target: Marker3D
 
 var hand_attach_l: BoneAttachment3D
 var hand_attach_r: BoneAttachment3D
@@ -51,7 +52,27 @@ func _ready() -> void:
 	right_leg_ik.start()
 	skeleton_3d.add_child(right_leg_ik)
 	
-	var head_wobble = SpringBoneSimulator3D.new()
+	var hair_wobble = SpringBoneSimulator3D.new()
+	hair_wobble.set_end_bone_name(1, "Hair")
+	hair_wobble.set_root_bone_name(0, "Head")
+	skeleton_3d.add_child(hair_wobble)
+	
+	var head_lookat = LookAtModifier3D.new()
+	head_lookat.bone_name = "Head"
+	head_lookat.forward_axis = SkeletonModifier3D.BONE_AXIS_PLUS_Z
+	head_lookat.target_node = lookat_target.get_path()
+	head_lookat.primary_limit_angle = 3
+	head_lookat.primary_damp_threshold = 0.0
+	head_lookat.ease_type = Tween.EASE_IN_OUT
+	head_lookat.secondary_limit_angle = 3
+	head_lookat.duration = 0.5
+	head_lookat.use_angle_limitation = true
+	head_lookat.use_secondary_rotation = true
+	head_lookat.symmetry_limitation = true
+	#head_lookat.use_secondary_rotation = true 
+
+	head_lookat.active = true
+	skeleton_3d.add_child(head_lookat)
 	
 	hand_attach_l = BoneAttachment3D.new()
 	hand_attach_r = BoneAttachment3D.new()
