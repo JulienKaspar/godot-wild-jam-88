@@ -44,10 +44,11 @@ func start_game() -> void:
 	load_level_by_index(starting_level_index,false)
 	current_state = GameState.Game
 	PlayerMovementUtils.knock_player_down.call_deferred()
-	loading_screen.display(0.5)
+	loading_screen.display(3 * UserSettings.loading_speed)
 	
 func cache_shaders() -> void:
 	loading_screen.display_indefinite()
+	loading_screen.label.text = "Caching Shaders..."
 	var instance: ShaderCashing = level_loader.load_level(shader_cashing_level)
 	await instance.completed
 	loading_screen.close()
@@ -63,7 +64,7 @@ func set_follow_camera(player: Player) -> void:
 
 func load_level_by_index(index: int, show_loading_screen: bool) -> void:
 	if show_loading_screen:
-		loading_screen.display(0.3)
+		loading_screen.display(2 * UserSettings.loading_speed)
 		pause_game()
 	var loaded_level = level_loader.load_level(levels[index])
 	var spawn_point = find_spawn_point_in_level(loaded_level)

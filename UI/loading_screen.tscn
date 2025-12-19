@@ -47,6 +47,7 @@ layout_mode = 2
 theme_override_constants/margin_bottom = 40
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_x74xp")
 theme_override_font_sizes/font_size = 100

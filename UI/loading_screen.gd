@@ -3,6 +3,8 @@ class_name LoadingScreen
 
 signal on_completed()
 
+@onready var label: Label = %Label
+
 var time_elapsed: float
 var duration: float
 var open: bool
@@ -10,11 +12,12 @@ var open: bool
 func _ready() -> void:
 	GameStateManager.loading_screen = self
 
-func display(_duration: float) -> void:
+func display(_duration: float, text: String = "Loading...") -> void:
 	show()
 	time_elapsed = 0
 	self.duration = _duration
 	open = true
+	label.text = text
 	
 func display_indefinite() -> void:
 	show()
