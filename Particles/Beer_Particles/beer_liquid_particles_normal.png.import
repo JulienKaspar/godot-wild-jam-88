@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cx4rr25oy0c0y"
-path.s3tc="res://.godot/imported/beer_liquid_particles_atlas.png-1f622cd443c4a425e61cac77d409215c.s3tc.ctex"
+uid="uid://bnmrwtcjcg2ak"
+path.s3tc="res://.godot/imported/beer_liquid_particles_normal.png-e344ac7ec5fd6889bde7bc96a749fe4b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Particles/Beer_Particles/beer_liquid_particles_atlas.png"
-dest_files=["res://.godot/imported/beer_liquid_particles_atlas.png-1f622cd443c4a425e61cac77d409215c.s3tc.ctex"]
+source_file="res://Particles/Beer_Particles/beer_liquid_particles_normal.png"
+dest_files=["res://.godot/imported/beer_liquid_particles_normal.png-e344ac7ec5fd6889bde7bc96a749fe4b.s3tc.ctex"]
 
 [params]
 
@@ -22,7 +22,7 @@ compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
