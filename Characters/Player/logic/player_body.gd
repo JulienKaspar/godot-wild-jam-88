@@ -170,7 +170,7 @@ func drinkHandInterpolation(origin: Transform3D, hand: Object, target: Object, i
 func moveHand(ray: Object, hand: Object, target: Object, doRaycast: bool = false) -> void:
 
 	if doRaycast:
-		ray.look_at(target.global_position)
+		ray.look_at(target.pick_point.global_position)
 		var rayHit = ray.get_collision_point()
 		hand.global_position = lerp(hand.global_position, rayHit, 0.5)
 	else:
@@ -209,7 +209,7 @@ func drinkTimingUpdate(hand: Player.Hands) -> void:
 	 
 
 func checkDistance(bone: Object, target: Object) -> bool:
-	var d = (bone.global_position - target.global_position).length() - ARM_LENGTH
+	var d = (bone.global_position - target.pick_point.global_position).length() - ARM_LENGTH
 	if d < PlayerRoot.PickupThreshold:
 		return true
 	else:
