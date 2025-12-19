@@ -81,10 +81,9 @@ uv1_scale = Vector3(0.149, 0.149, 0.656)
 uv1_triplanar = true
 uv1_world_triplanar = true
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D2" type="Node3D"]
 
 [node name="PlayerSpawnPoint" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.346152, 0, 11.464113)
 script = ExtResource("1_2o66m")
 metadata/_custom_type_script = "uid://cm1uqdo37kpmi"
 
