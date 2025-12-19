@@ -1,6 +1,6 @@
 extends RigidBody3D
 class_name DrunknessPickup
-
+signal PickedUp()
 
 @onready var pickup_prompt: Sprite3D = %PickupPrompt
 @export var pick_point: Area3D
@@ -41,6 +41,7 @@ func pickup(fromObject: Object) -> void:
 	self.freeze = true
 	$CollisionShape3D.disabled = true #workaround for collision still active
 	attachedTo = fromObject
+	PickedUp.emit()
 
 func consume() -> void:
 	consume_pfx.emitting = true
