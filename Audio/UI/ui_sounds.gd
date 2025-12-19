@@ -5,6 +5,7 @@ class_name UI_Sounds
 @export var hover : AudioStream
 @export var select : AudioStream
 @export var cancel : AudioStream
+
 @export var drunkness_up : AudioStream
 @export var drunkness_down : AudioStream
 
@@ -22,7 +23,8 @@ func play_sound(_stream : AudioStream):
 	
 	match _stream:
 		drunkness_up:
-			await get_tree().create_timer(1).timeout
-			AudioManager.player_sounds.play_voice(AudioManager.player_sounds.burp_sounds)
+			get_tree().create_timer(randf_range(1.2, 1.6)).timeout.connect(
+				AudioManager.player_sounds.play_voice.bind(AudioManager.player_sounds.burp_sounds)
+			)
 		drunkness_down:
 			pass

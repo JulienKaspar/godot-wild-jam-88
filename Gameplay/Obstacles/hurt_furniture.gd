@@ -14,7 +14,8 @@ func _process(delta: float) -> void:
 
 func handle_collision() -> void:
 	if time_since_last_triggered > cooldown:
-		PlayerMovementUtils.force_ball_away(global_position, force_multiplier)	
+		PlayerMovementUtils.force_ball_away(global_position, force_multiplier)
 		GameStateManager.player_drunkness.current_drunkness -= drunkness_pentalty
+		AudioManager.player_sounds.play_voice(AudioManager.player_sounds.hurt_sounds)
 		
 		time_since_last_triggered = 0

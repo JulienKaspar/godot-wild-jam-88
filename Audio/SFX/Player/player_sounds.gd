@@ -87,7 +87,7 @@ func select_burps(intensity : float) -> void:
 	var center : int = round(mean)
 	var max_dist : int = 5
 	for i in range(sum - 1):
-		var diff = abs(i - center)
+		var diff : int = abs(i - center)
 		var prob : float = remap(diff, 0, max_dist, 1.0, 0.5) if (diff <= max_dist) else 0.0
 		burp_sounds.set_stream_probability_weight(i, prob)
 	
