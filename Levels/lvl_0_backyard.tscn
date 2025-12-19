@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b6vbg26wkrdh3"]
+[gd_scene load_steps=27 format=3 uid="uid://b6vbg26wkrdh3"]
 
 [ext_resource type="Script" path="res://Levels/Util/lvl_0_backyard_mission_flow.gd" id="1_jtswe"]
 [ext_resource type="Script" uid="uid://42mf003bq52u" path="res://Gameplay/level_teleporter.gd" id="2_jtswe"]
@@ -49,6 +49,13 @@ radius = 1.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jaoye"]
 size = Vector3(20, 5, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cya5t"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 2.7
+
+[sub_resource type="BoxMesh" id="BoxMesh_tao4m"]
 
 [node name="LevelBackyard" type="Node3D" node_paths=PackedStringArray("startCam", "firstDrink", "StartBlockers", "StartTable")]
 script = ExtResource("1_jtswe")
@@ -262,3 +269,8 @@ metadata/_custom_type_script = "uid://c786nbmcn6vxf"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DialogueTriggers/FridgeDialogue"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.37203264, 9.536743e-07, -6.5758615)
 shape = SubResource("BoxShape3D_jaoye")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(6.732938, 0, 0, 0, 5.85737, 0, 0, 0, 1, 0, 0.27074838, -24.696083)
+material_override = SubResource("StandardMaterial3D_cya5t")
+mesh = SubResource("BoxMesh_tao4m")
