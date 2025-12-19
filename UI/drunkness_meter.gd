@@ -7,8 +7,8 @@ class_name DrunknessMeter
 @export var flashing_frame_sprite: Texture2D
 
 var flash_time_elapsed: float = 0
-var flash_time: float = 0.15
-var flash_scale: float = 1.06
+var flash_time: float = 0.2
+var flash_scale: float = 1.2
 var flash_scale_duration: float = 0.07
 var flashing: bool
 
@@ -38,4 +38,4 @@ func flash() -> void:
 	texture_over = flashing_frame_sprite
 	var flash_tween: Tween = create_tween()
 	flash_tween.tween_property(self, 'scale', Vector2(flash_scale, flash_scale), flash_scale_duration)
-	flash_tween.tween_property(self, 'scale', Vector2(1,1), flash_scale_duration / 2)
+	flash_tween.tween_property(self, 'scale', Vector2(1,1), flash_scale_duration)
