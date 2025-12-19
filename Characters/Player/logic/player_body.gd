@@ -245,7 +245,7 @@ func _process(delta: float) -> void:
 		Player.HandStates.REACHING: 
 			if PlayerRoot.closestRight: 
 				moveHand(right_shoulder_ray, right_hand_target, PlayerRoot.closestRight, true)
-				if checkDistance(left_shoulder_ray, PlayerRoot.closestRight):
+				if checkDistance(right_shoulder_ray, PlayerRoot.closestRight):
 					HandR_pick_location = PlayerRoot.closestRight.global_transform
 					ReachedTargetRight.emit(PlayerRoot.closestRight, )
 			else: moveHand(right_shoulder_ray, right_hand_target, rb_arm_r)

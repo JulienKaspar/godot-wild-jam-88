@@ -1,19 +1,20 @@
-[gd_scene load_steps=13 format=3 uid="uid://ddjihknalfmo6"]
+[gd_scene load_steps=14 format=3 uid="uid://ddjihknalfmo6"]
 
 [ext_resource type="Script" uid="uid://nq3n22eyxno3" path="res://Gameplay/game_state_manager.gd" id="1_fnjh8"]
 [ext_resource type="PackedScene" uid="uid://dm386yfmjf84v" path="res://Levels/Gyms/lvl_furnished.tscn" id="2_54mul"]
+[ext_resource type="PackedScene" uid="uid://cfeukfanfm516" path="res://Levels/lvl_3_v2_tight_corridor.tscn" id="2_528ii"]
 [ext_resource type="PackedScene" uid="uid://dbtkwlffndd80" path="res://Levels/Gyms/lvl_big_parkour.tscn" id="2_fhx3m"]
 [ext_resource type="PackedScene" uid="uid://b6vbg26wkrdh3" path="res://Levels/lvl_0_backyard.tscn" id="2_ww4k4"]
 [ext_resource type="PackedScene" uid="uid://csh7g60ebb2xa" path="res://Levels/Gyms/lvl_player_parkour.tscn" id="3_84fyh"]
 [ext_resource type="PackedScene" uid="uid://dpy3h6kf53s5j" path="res://Levels/lvl_1_straight_ahead.tscn" id="3_w34dl"]
 [ext_resource type="PackedScene" uid="uid://e3iygjxhg00v" path="res://Levels/lvl_corridor.tscn" id="4_84fyh"]
 [ext_resource type="PackedScene" uid="uid://bn4n02t1b2gf3" path="res://Levels/lvl_2_snatch_drinks.tscn" id="4_avf66"]
-[ext_resource type="PackedScene" uid="uid://bt7vg8hwiacn4" path="res://Levels/lvl_3_labyrinthine.tscn" id="5_6btmv"]
+[ext_resource type="PackedScene" uid="uid://dhfyssjtwfl14" path="res://Levels/lvl_3.5_verticality.tscn" id="6_528ii"]
 [ext_resource type="PackedScene" uid="uid://d2a7apkvocsew" path="res://Levels/lvl_4_disco.tscn" id="6_ygpte"]
 [ext_resource type="PackedScene" uid="uid://et2abtkee7pw" path="res://Levels/lvl_end_kitchen.tscn" id="7_dfbfs"]
 [ext_resource type="PackedScene" uid="uid://b20exoh7acsdf" path="res://Levels/Util/lvl_shader_caching.tscn" id="12_2ik6d"]
 
 [node name="GameStateManager" type="Node"]
 script = ExtResource("1_fnjh8")
-levels = Array[PackedScene]([ExtResource("2_ww4k4"), ExtResource("3_w34dl"), ExtResource("4_avf66"), ExtResource("5_6btmv"), ExtResource("6_ygpte"), ExtResource("7_dfbfs"), ExtResource("2_fhx3m"), ExtResource("2_54mul"), ExtResource("3_84fyh"), ExtResource("4_84fyh"), ExtResource("12_2ik6d")])
+levels = Array[PackedScene]([ExtResource("2_ww4k4"), ExtResource("3_w34dl"), ExtResource("4_avf66"), ExtResource("2_528ii"), ExtResource("6_528ii"), ExtResource("6_ygpte"), ExtResource("7_dfbfs"), ExtResource("2_fhx3m"), ExtResource("2_54mul"), ExtResource("3_84fyh"), ExtResource("4_84fyh"), ExtResource("12_2ik6d")])
 shader_cashing_level = ExtResource("12_2ik6d")

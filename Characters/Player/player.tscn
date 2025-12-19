@@ -7,8 +7,8 @@
 [ext_resource type="Script" uid="uid://c04lkn4hohoj4" path="res://Characters/Player/pickup_radius.gd" id="5_xf5fp"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_klx3t"]
-height = 3.0
-radius = 3.0
+height = 5.0
+radius = 4.0
 
 [node name="Player" type="Node3D"]
 script = ExtResource("3_cue0d")
@@ -24,16 +24,18 @@ unique_name_in_owner = true
 script = ExtResource("5_xf5fp")
 
 [node name="grab_area_left" type="Area3D" parent="PickupTracker"]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 1.222, 1.313, 0)
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 1.8, 1.313, 0.606)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PickupTracker/grab_area_left"]
+transform = Transform3D(1, 0, 0, 0, 0.81915206, 0.57357645, 0, -0.57357645, 0.81915206, 0, 0, 0)
 shape = SubResource("CylinderShape3D_klx3t")
 debug_color = Color(0.8627451, 0, 0.45882353, 0.8784314)
 
 [node name="grab_area_right" type="Area3D" parent="PickupTracker"]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -1.222, 1.313, 0)
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -1.8, 1.313, 0.606)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PickupTracker/grab_area_right"]
+transform = Transform3D(1, 0, 0, 0, 0.819152, -0.5735764, 0, 0.5735764, 0.819152, 0, 0, 0)
 shape = SubResource("CylinderShape3D_klx3t")
 debug_color = Color(0.8627451, 0, 0.45882353, 0.8784314)
 
