@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bc0xkeoq4b45n"
-path="res://.godot/imported/kitchen_level.gltf-a840fc98c1a167ba69e10bba3337c7fe.scn"
+uid="uid://c66e4is6lm7ba"
+path="res://.godot/imported/fridge_door_left.gltf-b94ab32701ed4ee0992ae39bbacdd3ed.scn"
 
 [deps]
 
-source_file="res://Assets/Kitchen/kitchen_level.gltf"
-dest_files=["res://.godot/imported/kitchen_level.gltf-a840fc98c1a167ba69e10bba3337c7fe.scn"]
+source_file="res://Assets/Kitchen/fridge_door_left.gltf"
+dest_files=["res://.godot/imported/fridge_door_left.gltf-b94ab32701ed4ee0992ae39bbacdd3ed.scn"]
 
 [params]
 
@@ -37,19 +37,6 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={
-"materials": {
-"vertex colors": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://Assets/Materials/generic_soft.tres",
-"use_external/path": "uid://bkpy44rodafk4"
-},
-"window": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://Assets/Materials/generic_soft.tres",
-"use_external/path": "uid://bkpy44rodafk4"
-}
-}
-}
+_subresources={}
 gltf/naming_version=2
 gltf/embedded_image_handling=1
