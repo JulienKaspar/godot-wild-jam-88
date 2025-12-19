@@ -3,9 +3,22 @@
 shader_type spatial;
 render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_toon, specular_disabled;
 
-uniform vec4 albedo = vec4(0.5, 0.5, 0.5, 0.0);
+/**
+ * Multiplier on top of the albedo texture
+ */
+uniform vec4 albedo : source_color = vec4(0.5, 0.5, 0.5, 1.0);
 uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
+/**
+ * Color of the wall at the top
+ */
+uniform vec4 top_color : source_color = vec4(0.5059, 0.451, 0.2588, 1.0);
+/**
+ * Height of the wall
+ */
 uniform float wall_height = 3.5;
+/**
+ * Stretch in horizontal direction
+ */
 uniform float stretch = 1.0;
 
 uniform float roughness : hint_range(0.0, 1.0);
@@ -55,7 +68,7 @@ void vertex() {
 vec4 triplanar_texture(sampler2D p_sampler, vec3 p_weights, vec3 p_triplanar_pos, vec3 uv) {
     vec4 samp = vec4(0.0);
     samp += textureGrad(p_sampler, p_triplanar_pos.xy, dFdx(uv.xy), dFdy(uv.xy)) * p_weights.z;
-    samp += textureGrad(p_sampler, p_triplanar_pos.xz, dFdx(uv.xz), dFdy(uv.xz)) * p_weights.y;
+    samp += top_color * p_weights.y;
     samp += textureGrad(p_sampler, p_triplanar_pos.zy * vec2(-1.0, 1.0), dFdx(uv.zy), dFdy(uv.zy)) * p_weights.x;
     return samp;
 }
