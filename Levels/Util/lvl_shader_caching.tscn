@@ -1,0 +1,54 @@
+[gd_scene load_steps=10 format=3 uid="uid://b20exoh7acsdf"]
+
+[ext_resource type="Script" uid="uid://t7errwn3tg1x" path="res://Shaders/shader_caching.gd" id="1_2k25d"]
+[ext_resource type="PackedScene" uid="uid://bhvwgh4ef0sj6" path="res://Particles/Player/pfx_bodyfall.tscn" id="2_5wqvq"]
+[ext_resource type="PackedScene" uid="uid://cyksrihj0achx" path="res://Particles/Player/pfx_falling_indicator.tscn" id="3_1oix3"]
+[ext_resource type="PackedScene" uid="uid://cpegwj8uc0kq5" path="res://Particles/DrunknessPickups/pfx_beer_break.tscn" id="4_obf1n"]
+[ext_resource type="PackedScene" uid="uid://digw728iiuyg2" path="res://Particles/DrunknessPickups/pfx_beer_consuming.tscn" id="5_vfn7d"]
+[ext_resource type="PackedScene" uid="uid://bw1ewj0l1c71n" path="res://Particles/DrunknessPickups/pfx_beer_dispose.tscn" id="6_liucq"]
+[ext_resource type="PackedScene" path="res://Particles/DrunknessPickups/pfx_pizza_consuming.tscn" id="7_4eyx1"]
+
+[sub_resource type="Environment" id="Environment_5wqvq"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_2k25d"]
+
+[node name="LvlShaderCaching" type="Node3D"]
+script = ExtResource("1_2k25d")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5wqvq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.208864, 0.7697673, -1.2332596)
+light_color = Color(1, 0, 1, 1)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(0.5828055, 0.017697318, -0.812419, 0.26930407, 0.93905824, 0.21364677, 0.7666897, -0.34330222, 0.5425223, 0, 0, 0)
+light_color = Color(0, 1, 1, 1)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.470098)
+current = true
+
+[node name="PFX_TO_CACHE" type="Node3D" parent="."]
+top_level = true
+
+[node name="PfxBeerBreak" parent="PFX_TO_CACHE" instance=ExtResource("4_obf1n")]
+
+[node name="PfxBeerConsuming" parent="PFX_TO_CACHE" instance=ExtResource("5_vfn7d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0428033, 0)
+emitting = false
+
+[node name="PfxBeerDispose" parent="PFX_TO_CACHE" instance=ExtResource("6_liucq")]
+
+[node name="PfxBeerConsuming2" parent="PFX_TO_CACHE" instance=ExtResource("7_4eyx1")]
+emitting = false
+
+[node name="PfxBodyfall" parent="PFX_TO_CACHE" instance=ExtResource("2_5wqvq")]
+
+[node name="PfxFallingIndicator" parent="PFX_TO_CACHE" instance=ExtResource("3_1oix3")]
+emitting = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011152983, 0, -1.1240628)
+mesh = SubResource("SphereMesh_2k25d")
