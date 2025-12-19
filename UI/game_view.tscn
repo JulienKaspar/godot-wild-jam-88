@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bexi8qx87vns3" path="res://UI/game_view.gd" id="1_lqkpn"]
 [ext_resource type="PackedScene" uid="uid://betq65km7cbe3" path="res://UI/SettingsMenu/settings_menu.tscn" id="2_lqkpn"]
+[ext_resource type="Theme" uid="uid://co1s85nypo7on" path="res://UI/default_font_theme.tres" id="2_ri753"]
+[ext_resource type="Theme" uid="uid://csdr5ul5lmxw0" path="res://UI/readability_font_theme.tres" id="3_27j1k"]
 [ext_resource type="Script" uid="uid://dvx2g3kq3biae" path="res://UI/post_processing.gd" id="3_dgskv"]
 [ext_resource type="PackedScene" uid="uid://bcredxkb7jfdu" path="res://UI/MainMenu/main_menu.tscn" id="3_e62du"]
-[ext_resource type="FontFile" uid="uid://bo4ccwxk8mrea" path="res://Assets/Fonts/SquaredHand.otf" id="4_77qhn"]
 [ext_resource type="Shader" uid="uid://c7jc6g65ws5pi" path="res://Shaders/post_process.gdshader" id="4_u3b6e"]
 [ext_resource type="Script" uid="uid://lhxpah8mvpgj" path="res://UI/level_loader.gd" id="5_4eh1a"]
 [ext_resource type="PackedScene" uid="uid://drwswyc7ed01p" path="res://UI/dialogue_system.tscn" id="5_4fmj7"]
@@ -23,12 +24,11 @@ shader_parameter/noise_scale = 3.0000001425
 shader_parameter/distortion_samples = 8
 shader_parameter/drunkness = 0.150000007125
 
-[sub_resource type="Theme" id="Theme_ri753"]
-default_font = ExtResource("4_77qhn")
-
 [node name="GameView" type="Node"]
 process_mode = 3
 script = ExtResource("1_lqkpn")
+default_font_theme = ExtResource("2_ri753")
+readability_font_theme = ExtResource("3_27j1k")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -44,6 +44,7 @@ mouse_filter = 2
 script = ExtResource("3_dgskv")
 
 [node name="MenuDisplayer" type="MarginContainer" parent="CanvasLayer"]
+unique_name_in_owner = true
 process_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -53,7 +54,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
-theme = SubResource("Theme_ri753")
+theme = ExtResource("2_ri753")
 
 [node name="SettingsMenu" parent="CanvasLayer/MenuDisplayer" instance=ExtResource("2_lqkpn")]
 unique_name_in_owner = true
@@ -80,8 +81,10 @@ visible = false
 layout_mode = 2
 
 [node name="DialogueSystem" parent="CanvasLayer" instance=ExtResource("5_4fmj7")]
+unique_name_in_owner = true
 process_mode = 3
 mouse_filter = 2
+theme = ExtResource("2_ri753")
 
 [node name="LoadedLevel" type="Node" parent="."]
 script = ExtResource("5_4eh1a")
@@ -92,6 +95,7 @@ process_mode = 3
 [node name="DebugMasterMenu" parent="Debug" instance=ExtResource("6_ri6ga")]
 
 [node name="GameCamera" type="Camera3D" parent="."]
+current = true
 fov = 55.0
 script = ExtResource("8_gjcnd")
 follow_distance = 4.0
@@ -99,12 +103,12 @@ follow_distance = 4.0
 [node name="AudioListener3D" type="AudioListener3D" parent="GameCamera"]
 process_mode = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -2)
-current = true
 
 [node name="PlayerSpawner" parent="." instance=ExtResource("11_qrf3k")]
 
 [node name="UI_Sounds" parent="." instance=ExtResource("12_k7f6d")]
 process_mode = 3
+bus = &"Master"
 
 [node name="MusicManager" parent="." instance=ExtResource("9_4eh1a")]
 process_mode = 3

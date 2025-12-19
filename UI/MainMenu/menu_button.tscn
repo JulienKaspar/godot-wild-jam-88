@@ -1,6 +1,5 @@
-[gd_scene load_steps=8 format=3 uid="uid://copb1h0542sta"]
+[gd_scene load_steps=7 format=3 uid="uid://copb1h0542sta"]
 
-[ext_resource type="FontFile" uid="uid://bo4ccwxk8mrea" path="res://Assets/Fonts/SquaredHand.otf" id="1_p6o4q"]
 [ext_resource type="Script" uid="uid://dfl5jvh8t87pc" path="res://UI/MainMenu/menu_button.gd" id="2_i0kiv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ejg71"]
@@ -18,7 +17,6 @@ pivot_offset = Vector2(122, 35)
 theme_override_colors/font_focus_color = Color(0.43137255, 0.03137255, 0.7411765, 1)
 theme_override_colors/font_hover_color = Color(0.43137255, 0.03137255, 0.7411765, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("1_p6o4q")
 theme_override_font_sizes/font_size = 70
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ejg71")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_lnp6m")

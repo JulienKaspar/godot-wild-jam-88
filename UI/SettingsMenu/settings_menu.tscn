@@ -127,11 +127,12 @@ theme_override_styles/tab_hovered = SubResource("StyleBoxEmpty_a0nqm")
 theme_override_styles/tab_selected = SubResource("StyleBoxEmpty_tky1e")
 theme_override_styles/tab_disabled = SubResource("StyleBoxEmpty_6ycxt")
 theme_override_styles/tab_focus = SubResource("StyleBoxEmpty_ojh45")
-current_tab = 0
+current_tab = 1
 tabs_visible = false
 tab_focus_mode = 0
 
 [node name="Controls" type="PanelContainer" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer"]
+visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_b25i1")
 metadata/_tab_index = 0
@@ -146,7 +147,6 @@ setting_name = "Controller Rumble"
 property_name = &"controller_rumble"
 
 [node name="Visual" type="PanelContainer" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer"]
-visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_b25i1")
 metadata/_tab_index = 1
@@ -170,6 +170,11 @@ layout_mode = 2
 setting_name = "Windowed Mode"
 property_name = &"windowed_mode"
 
+[node name="LoadingSpeedSlider" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer/Visual/VBoxContainer2" instance=ExtResource("11_dxnqk")]
+layout_mode = 2
+setting_name = "Loading Speed"
+property_name = &"loading_speed"
+
 [node name="Audio" type="PanelContainer" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer"]
 visible = false
 layout_mode = 2
@@ -185,6 +190,9 @@ layout_mode = 2
 setting_name = "Master Volume"
 property_name = &"master_volume"
 top_focus_target = NodePath("../../../../HBoxContainer/MarginContainer3/AudioTabButton")
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer/Audio/VBoxContainer"]
+layout_mode = 2
 
 [node name="MusicVolume" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer/Audio/VBoxContainer" instance=ExtResource("11_dxnqk")]
 layout_mode = 2
@@ -206,6 +214,11 @@ layout_mode = 2
 setting_name = "Burp Nastiness"
 property_name = &"burp_nastiness"
 
+[node name="CheckBoxSetting" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer/Audio/VBoxContainer" instance=ExtResource("11_3iwun")]
+layout_mode = 2
+setting_name = "Disorienting Sounds"
+property_name = &"disorienting_sounds_enabled"
+
 [node name="Accesibility" type="PanelContainer" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer"]
 visible = false
 layout_mode = 2
@@ -221,7 +234,17 @@ setting_name = "Text Sliding Speed"
 property_name = &"text_scrolling_speed"
 top_focus_target = NodePath("../../../../HBoxContainer/MarginContainer4/AccesibilityTabButton")
 
-[node name="SliderSetting2" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer/Accesibility/VBoxContainer" instance=ExtResource("11_dxnqk")]
+[node name="FailStateSetting" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer/Accesibility/VBoxContainer" instance=ExtResource("11_3iwun")]
 layout_mode = 2
-setting_name = "Loading Speed"
-property_name = &"loading_speed"
+setting_name = "Fail States"
+property_name = &"fail_state"
+
+[node name="EasyModeSetting" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer/Accesibility/VBoxContainer" instance=ExtResource("11_3iwun")]
+layout_mode = 2
+setting_name = "Easy Mode"
+property_name = &"easy_mode"
+
+[node name="CheckBoxSetting" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer/Accesibility/VBoxContainer" instance=ExtResource("11_3iwun")]
+layout_mode = 2
+setting_name = "High readability font"
+property_name = &"readability_font"

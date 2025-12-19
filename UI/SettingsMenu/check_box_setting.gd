@@ -13,8 +13,8 @@ class_name CheckboxSetting
 @export var label: SettingsLabel
 @export var checkbox: CheckBox
 var checkbox_on: bool
-@export var focused_size_mod: float = 1.1
-@export var selected_size_mod: float = 1.2
+@export var focused_size_mod: float = 1.2
+@export var selected_size_mod: float = 1.4
 @export var transition_duration: float = 0.2
 
 func _ready() -> void:

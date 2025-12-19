@@ -1,10 +1,13 @@
 #user_settings.gd (autoload)
 extends Node
 
+
+
 var sensitivity: float = 1
 
 @warning_ignore("unused_signal")
 signal on_settings_updated()
+signal on_font_toggled(readability_font: bool)
 
 #volume
 var master_volume: float = 1
@@ -12,7 +15,6 @@ var music_volume: float = 1
 var sfx_volume: float = 1
 var ambience_volume : float = 1
 var ui_volume: float = 1
-
 var disorienting_sounds_enabled: bool = true
 var burp_nastiness: float = 0.5
 
@@ -20,7 +22,12 @@ var burp_nastiness: float = 0.5
 var fail_state: bool = false
 var loading_speed: float = 1
 var text_scrolling_speed:float = 1
-
+var easy_mode: bool = false
+var readability_font: bool = false: 
+	set(value):
+		on_font_toggled.emit(value)
+		readability_font = value
+	
 #visual
 var drunk_visual_effect_intensity: float = 1
 var strobe_lights: bool = true
@@ -30,3 +37,9 @@ var windowed_mode: bool = false
 var controller_rumble: bool = true
 
 #audio
+#Controls: 
+#pic of controller
+#pic of keyboard
+
+#Visual: 
+#resolution arrow thing

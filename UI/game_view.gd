@@ -2,12 +2,25 @@ extends Node
 @onready var main_menu: MainMenu = %MainMenu
 @onready var settings_menu: SettingsMenu = %SettingsMenu
 @onready var hud: HUD = %HUD
+@onready var menu_displayer: Control = %MenuDisplayer
+@onready var dialogue_system: Control = %DialogueSystem
+@export var default_font_theme: Theme
+@export var readability_font_theme: Theme
 
 func _ready() -> void:
 	main_menu.settings_menu_button_pressed.connect(handle_setting_menu_opened)
 	main_menu.start_button_pressed.connect(handle_game_started)
 	GameStateManager.on_paused.connect(show_settings_menu)
 	GameStateManager.on_unpaused.connect(show_game_ui)
+	UserSettings.on_font_toggled.connect(switch_font)
+	
+func switch_font(readability_font: bool) -> void:
+	menu_displayer.theme = readability_font_theme if readability_font else default_font_theme
+	menu_displayer.queue_redraw()
+	
+	dialogue_system.theme = readability_font_theme if readability_font else default_font_theme
+	dialogue_system.queue_redraw()
+	
 	
 func handle_setting_menu_opened() -> void:
 	main_menu.hide()
