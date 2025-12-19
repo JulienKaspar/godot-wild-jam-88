@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fwx81mkobx8o"
-path.s3tc="res://.godot/imported/checkbox_empty_selected.png-7b888f189228a3df7577e2f0ff2af41d.s3tc.ctex"
+uid="uid://dgf86tqwetnlk"
+path.s3tc="res://.godot/imported/box_checked_unfocused.png-17308cbfd6bb5576414f7a2b2468c499.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://UI/SettingsMenu/checkbox_empty_selected.png"
-dest_files=["res://.godot/imported/checkbox_empty_selected.png-7b888f189228a3df7577e2f0ff2af41d.s3tc.ctex"]
+source_file="res://UI/SettingsMenu/box_checked_unfocused.png"
+dest_files=["res://.godot/imported/box_checked_unfocused.png-17308cbfd6bb5576414f7a2b2468c499.s3tc.ctex"]
 
 [params]
 
