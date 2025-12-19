@@ -1,18 +1,19 @@
-[gd_scene load_steps=34 format=3 uid="uid://dpy3h6kf53s5j"]
+[gd_scene load_steps=38 format=3 uid="uid://dpy3h6kf53s5j"]
 
 [ext_resource type="PackedScene" uid="uid://d24k31i312cc1" path="res://Objects/Architypes/Props/lamp_standing1.tscn" id="1_buw6o"]
+[ext_resource type="Script" uid="uid://8px1bb7haxfx" path="res://Levels/Util/lvl_1_straight_ahead_mission_flow.gd" id="1_ra8ms"]
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="1_rqsde"]
-[ext_resource type="Material" uid="uid://dxyb0pq2y84ds" path="res://Levels/Gyms/Wall/reddish_floral_wall_v2.tres" id="2_1arg0"]
+[ext_resource type="Material" path="res://Levels/Gyms/Wall/reddish_floral_wall_v2.tres" id="2_1arg0"]
 [ext_resource type="PackedScene" uid="uid://dh3i5uan6dujl" path="res://Objects/Architypes/Props/plant_palm1.tscn" id="3_ahqed"]
 [ext_resource type="Material" uid="uid://dmxe2qlk68jn" path="res://Assets/Materials/reddish_floral_wall.tres" id="4_5d0l3"]
 [ext_resource type="PackedScene" uid="uid://fhev4d48q1qy" path="res://Objects/Architypes/LivingRoom/stairs_wide.tscn" id="5_5d0l3"]
 [ext_resource type="PackedScene" uid="uid://cs4digbuoekpl" path="res://Objects/Architypes/Furniture/shelf2.tscn" id="5_crrcm"]
 [ext_resource type="Material" uid="uid://c40katw3nlw77" path="res://Assets/Materials/green_carpet.tres" id="5_va1hs"]
 [ext_resource type="Texture2D" uid="uid://djpkkont0tpva" path="res://Assets/Maps/Walls/yellow_floral_wallpaper/atlas.png" id="6_5d0l3"]
-[ext_resource type="Material" uid="uid://bdchormsmw1jv" path="res://Levels/Gyms/Wall/wooden_wall_v2.tres" id="6_rqsde"]
-[ext_resource type="Script" uid="uid://dogbj3gtx3mxu" path="res://Objects/hideable_wall.gd" id="6_xxf8q"]
+[ext_resource type="Material" path="res://Levels/Gyms/Wall/wooden_wall_v2.tres" id="6_rqsde"]
+[ext_resource type="Script" path="res://Objects/hideable_wall.gd" id="6_xxf8q"]
 [ext_resource type="PackedScene" uid="uid://j1b5yvs8pnux" path="res://Objects/Architypes/Furniture/table_round1.tscn" id="9_82upk"]
-[ext_resource type="PackedScene" uid="uid://c5gvg6210vgku" path="res://Objects/Architypes/LivingRoom/door.tscn" id="10_va1hs"]
+[ext_resource type="PackedScene" path="res://Objects/Architypes/LivingRoom/door.tscn" id="10_va1hs"]
 [ext_resource type="PackedScene" uid="uid://d3unw205fanv5" path="res://Objects/Loot/pickup_beer.tscn" id="11_2icu1"]
 [ext_resource type="PackedScene" uid="uid://d2fq258dik5oo" path="res://Objects/Architypes/Furniture/table1.tscn" id="12_gh4oo"]
 [ext_resource type="PackedScene" uid="uid://cold18jtw7ak0" path="res://Objects/Architypes/TrippingHazards/slippery_banana_peel.tscn" id="16_y345g"]
@@ -22,6 +23,8 @@
 [ext_resource type="PackedScene" uid="uid://3kn1j5376oof" path="res://Objects/Architypes/Furniture/table2.tscn" id="22_ahqed"]
 [ext_resource type="PackedScene" uid="uid://dci81bvxxl4nx" path="res://Objects/Architypes/LivingRoom/stairs_thin.tscn" id="22_ijmkr"]
 [ext_resource type="PackedScene" uid="uid://d3padysgagsbx" path="res://Objects/Architypes/TrippingHazards/tripping_rug.tscn" id="22_ra8ms"]
+[ext_resource type="Script" uid="uid://ddci75ik2j7ul" path="res://UI/camera_of_interest.gd" id="24_okfwc"]
+[ext_resource type="Script" uid="uid://dbaf2uf6cx0uy" path="res://UI/camera_area_trigger.gd" id="25_okfwc"]
 
 [sub_resource type="Environment" id="Environment_gh4oo"]
 background_mode = 1
@@ -51,34 +54,6 @@ size = Vector3(10.856716, 3.45717, 0.2)
 [sub_resource type="BoxShape3D" id="BoxShape3D_va1hs"]
 size = Vector3(4.145643, 3.45717, 0.2)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ahqed"]
-resource_local_to_scene = true
-diffuse_mode = 3
-specular_mode = 2
-albedo_color = Color(0.49747366, 0.49747366, 0.49747366, 0)
-albedo_texture = ExtResource("6_5d0l3")
-rim = 0.47
-subsurf_scatter_strength = 1.0
-subsurf_scatter_skin_mode = true
-uv1_scale = Vector3(0.45, 0.298, 0.45)
-uv1_offset = Vector3(0.02, 0, 0)
-uv1_triplanar = true
-uv1_world_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ijmkr"]
-resource_local_to_scene = true
-diffuse_mode = 3
-specular_mode = 2
-albedo_color = Color(0.49747366, 0.49747366, 0.49747366, 0)
-albedo_texture = ExtResource("6_5d0l3")
-rim = 0.47
-subsurf_scatter_strength = 1.0
-subsurf_scatter_skin_mode = true
-uv1_scale = Vector3(0.45, 0.298, 0.45)
-uv1_offset = Vector3(0.02, 0, 0)
-uv1_triplanar = true
-uv1_world_triplanar = true
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ra8ms"]
 resource_local_to_scene = true
 diffuse_mode = 3
@@ -93,7 +68,39 @@ uv1_offset = Vector3(0.02, 0, 0)
 uv1_triplanar = true
 uv1_world_triplanar = true
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_okfwc"]
+resource_local_to_scene = true
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0.49747366, 0.49747366, 0.49747366, 0)
+albedo_texture = ExtResource("6_5d0l3")
+rim = 0.47
+subsurf_scatter_strength = 1.0
+subsurf_scatter_skin_mode = true
+uv1_scale = Vector3(0.45, 0.298, 0.45)
+uv1_offset = Vector3(0.02, 0, 0)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y6gv2"]
+resource_local_to_scene = true
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0.49747366, 0.49747366, 0.49747366, 0)
+albedo_texture = ExtResource("6_5d0l3")
+rim = 0.47
+subsurf_scatter_strength = 1.0
+subsurf_scatter_skin_mode = true
+uv1_scale = Vector3(0.45, 0.298, 0.45)
+uv1_offset = Vector3(0.02, 0, 0)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_736oy"]
+size = Vector3(6.11322, 5.400879, 2.0011597)
+
 [node name="lvl_1_straight_ahead" type="Node3D"]
+script = ExtResource("1_ra8ms")
 
 [node name="PlayerSpawnPoint" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19977641, 1.9073486e-06, -0.2091887)
@@ -283,7 +290,6 @@ material_override = ExtResource("4_5d0l3")
 use_collision = true
 size = Vector3(4.6861877, 3.9618232, 0.15405273)
 script = ExtResource("6_xxf8q")
-metadata/_custom_type_script = "uid://dogbj3gtx3mxu"
 
 [node name="Area3D" type="Area3D" parent="Layout/Walls/CSG_YellowlWall4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.7375326)
@@ -311,7 +317,6 @@ material_override = ExtResource("4_5d0l3")
 use_collision = true
 size = Vector3(4.671669, 3.9618232, 0.15405273)
 script = ExtResource("6_xxf8q")
-metadata/_custom_type_script = "uid://dogbj3gtx3mxu"
 
 [node name="Area3D" type="Area3D" parent="Layout/Walls/CSG_YellowlWall5"]
 collision_mask = 3
@@ -344,15 +349,15 @@ wall_material = ExtResource("4_5d0l3")
 
 [node name="Stairs_wide" parent="Layout/Stairs" instance=ExtResource("5_5d0l3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.594019, -0.8262651, -10.667325)
-wall_material = SubResource("StandardMaterial3D_ahqed")
+wall_material = SubResource("StandardMaterial3D_ra8ms")
 
 [node name="Stairs_thin" parent="Layout/Stairs" instance=ExtResource("22_ijmkr")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 19.168037, 0.5055921, -20.00424)
-wall_material = SubResource("StandardMaterial3D_ijmkr")
+wall_material = SubResource("StandardMaterial3D_okfwc")
 
 [node name="Stairs_thin2" parent="Layout/Stairs" instance=ExtResource("22_ijmkr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.717543, -0.05887842, -18.715504)
-wall_material = SubResource("StandardMaterial3D_ra8ms")
+wall_material = SubResource("StandardMaterial3D_y6gv2")
 
 [node name="Furniture" type="Node3D" parent="."]
 
@@ -496,7 +501,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.665897, -4.7683716e-07, -8.
 transform = Transform3D(0.65349984, 0, 0.7569267, 0, 1, 0, -0.7569267, 0, 0.65349984, 13.47092, 1.0690607, -15.209763)
 
 [node name="SlipperyTest20" parent="Hazards" instance=ExtResource("17_1arg0")]
-transform = Transform3D(-0.74622, 0, -0.6656995, 0, 1, 0, 0.6656995, 0, -0.74622, 16.7577, 1.0690612, -16.899485)
+transform = Transform3D(-0.74622, 0, -0.6656995, 0, 1, 0, 0.6656995, 0, -0.74622, 16.477097, 1.0690607, -16.526064)
 
 [node name="SlipperyTest21" parent="Hazards" instance=ExtResource("17_1arg0")]
 transform = Transform3D(-0.8374231, 0, -0.5465553, 0, 1, 0, 0.5465553, 0, -0.8374231, 19.942244, 1.0690612, -11.913436)
@@ -523,13 +528,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.941305, 0.9819747, -13.044
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.942846, 0.9819757, -13.913119)
 
 [node name="SlipperyTest14" parent="Hazards" instance=ExtResource("16_y345g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.882458, 0.9819747, -15.262846)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.601854, 0.98197424, -14.889425)
 
 [node name="SlipperyTest15" parent="Hazards" instance=ExtResource("16_y345g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.438581, 0.9819747, -16.95264)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.157978, 0.98197424, -16.57922)
 
 [node name="SlipperyTest22" parent="Hazards" instance=ExtResource("16_y345g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.152607, 0.9819747, -16.568226)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.855219, 0.9819747, -16.510225)
 
 [node name="RugHazard" parent="." instance=ExtResource("22_ra8ms")]
 transform = Transform3D(0.3188601, 0, -0.9478019, 0, 1, 0, 0.9478019, 0, 0.3188601, 7.855561, -4.7683716e-07, -0.4707632)
@@ -541,4 +546,22 @@ transform = Transform3D(0.22415173, 0, 0.97455436, 0, 1, 0, -0.97455436, 0, 0.22
 transform = Transform3D(-0.08668633, 0, 0.9962357, 0, 1, 0, -0.9962357, 0, -0.08668633, 12.773187, 0.97987604, -11.763644)
 
 [node name="RugHazard5" parent="." instance=ExtResource("22_ra8ms")]
-transform = Transform3D(0.58023393, 0, -0.81444985, 0, 1, 0, 0.81444985, 0, 0.58023393, 16.454391, 0.97987604, -16.447937)
+transform = Transform3D(0.58023393, 0, -0.81444985, 0, 1, 0, 0.81444985, 0, 0.58023393, 16.173788, 0.97987556, -16.074516)
+
+[node name="CameraExit" type="Camera3D" parent="."]
+transform = Transform3D(0.7253744, 0.27448076, -0.6312625, 0, 0.9170601, 0.39874908, 0.68835455, -0.2892424, 0.6652119, 15.651, 4.615, -15.719)
+fov = 55.0
+script = ExtResource("24_okfwc")
+blendInTime = 3.0
+blendOutTime = 1.5
+
+[node name="ExitCameraTrigger" type="Area3D" parent="." node_paths=PackedStringArray("ExitCam")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.375095, 0, -19.321867)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("25_okfwc")
+ExitCam = NodePath("../CameraExit")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ExitCameraTrigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6687317, 2.2004395, -0.8832092)
+shape = SubResource("BoxShape3D_736oy")

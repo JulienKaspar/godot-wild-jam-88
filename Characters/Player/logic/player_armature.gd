@@ -52,10 +52,10 @@ func _ready() -> void:
 	right_leg_ik.start()
 	skeleton_3d.add_child(right_leg_ik)
 	
-	var hair_wobble = SpringBoneSimulator3D.new()
-	hair_wobble.set_end_bone_name(1, "Hair")
-	hair_wobble.set_root_bone_name(0, "Head")
-	skeleton_3d.add_child(hair_wobble)
+	#var hair_wobble = SpringBoneSimulator3D.new()
+	#hair_wobble.set_end_bone_name(1, "Hair")
+	#hair_wobble.set_root_bone_name(0, "Head")
+	#skeleton_3d.add_child(hair_wobble)
 	
 	var head_lookat = LookAtModifier3D.new()
 	head_lookat.bone_name = "Head"
