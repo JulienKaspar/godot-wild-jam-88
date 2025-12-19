@@ -63,20 +63,14 @@ offset_right = 1903.0
 offset_bottom = 1010.0
 size_flags_vertical = 3
 
-[node name="Spacer" type="Control" parent="Control2/DialoguePrompt"]
-anchors_preset = 0
-offset_right = 348.0
-offset_bottom = 356.0
-size_flags_horizontal = 3
-
 [node name="DialogueText" type="Label" parent="Control2/DialoguePrompt"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(600, 0)
 layout_mode = 0
-offset_left = 324.0
-offset_top = 59.0
-offset_right = 924.0
-offset_bottom = 268.0
+offset_left = -2.0
+offset_top = -63.0
+offset_right = 947.0
+offset_bottom = 267.56833
 theme_override_font_sizes/font_size = 50
 text = "That kid had it coming! And some other stuff to make thins longer too!"
 horizontal_alignment = 1
@@ -146,4 +140,3 @@ unique_name_in_owner = true
 stream = ExtResource("6_eaacc")
 volume_db = -3.0
 max_polyphony = 8
-bus = &"UI"

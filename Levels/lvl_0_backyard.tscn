@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b6vbg26wkrdh3"]
+[gd_scene load_steps=25 format=3 uid="uid://b6vbg26wkrdh3"]
 
 [ext_resource type="Script" path="res://Levels/Util/lvl_0_backyard_mission_flow.gd" id="1_jtswe"]
 [ext_resource type="Script" uid="uid://42mf003bq52u" path="res://Gameplay/level_teleporter.gd" id="2_jtswe"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://d3unw205fanv5" path="res://Objects/Loot/pickup_beer.tscn" id="9_22u0x"]
 [ext_resource type="AudioStream" uid="uid://b0agua7xlrot5" path="res://Assets/Audio/Ambience/ambience_wind.ogg" id="10_5g7ny"]
 [ext_resource type="AudioStream" uid="uid://fq0vj2ffsvip" path="res://Assets/Audio/Music/PartyTheme/Theme_A.ogg" id="11_cw6dl"]
+[ext_resource type="Script" uid="uid://c786nbmcn6vxf" path="res://dialogue_trigger_area.gd" id="14_cya5t"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mr8n6"]
 size = Vector3(4.9821777, 3.3790894, 0.18530273)
@@ -41,6 +42,13 @@ size = Vector3(5.201294, 5.9207764, 0.52124023)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tao4m"]
 size = Vector3(6.743408, 4.0372314, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tao4m"]
+resource_local_to_scene = true
+radius = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jaoye"]
+size = Vector3(20, 5, 1)
 
 [node name="LevelBackyard" type="Node3D" node_paths=PackedStringArray("startCam", "firstDrink", "StartBlockers", "StartTable")]
 script = ExtResource("1_jtswe")
@@ -210,3 +218,47 @@ shape = SubResource("BoxShape3D_tao4m")
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="StartBlokker"]
 transform = Transform3D(-0.008674204, 0, -0.99996245, 0, 1, 0, 0.99996245, 0, -0.008674204, 2.5185573, 1.5186162, -0.7465974)
 shape = SubResource("BoxShape3D_tao4m")
+
+[node name="DialogueTriggers" type="Node3D" parent="."]
+
+[node name="GetUpDialogue" type="Area3D" parent="DialogueTriggers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14501238, 0, -0.42900372)
+collision_mask = 3
+script = ExtResource("14_cya5t")
+dialogue_text = " Nice job on that fence buddy! Now Spacebar or X to get back on your feet."
+metadata/_custom_type_script = "uid://c786nbmcn6vxf"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DialogueTriggers/GetUpDialogue"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30377746, 0, 0.31805095)
+shape = SubResource("SphereShape3D_tao4m")
+
+[node name="PickupDialogue" type="Area3D" parent="DialogueTriggers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5379003, -2.3841858e-07, -3.1920846)
+collision_mask = 3
+script = ExtResource("14_cya5t")
+dialogue_text = "In case it slipped your mind, buddy, holding/R2/L2 will hold those grabbers out towards that beer for us."
+metadata/_custom_type_script = "uid://c786nbmcn6vxf"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DialogueTriggers/PickupDialogue"]
+shape = SubResource("SphereShape3D_tao4m")
+
+[node name="StayDrunkDialogue" type="Area3D" parent="DialogueTriggers"]
+collision_mask = 3
+script = ExtResource("14_cya5t")
+dialogue_text = "Im gonna need you to keep those coming buddy"
+metadata/_custom_type_script = "uid://c786nbmcn6vxf"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DialogueTriggers/StayDrunkDialogue"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.37203264, 9.536743e-07, -6.5758615)
+shape = SubResource("BoxShape3D_jaoye")
+
+[node name="FridgeDialogue" type="Area3D" parent="DialogueTriggers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1282852, 2.3416119, -10.692936)
+collision_mask = 3
+script = ExtResource("14_cya5t")
+dialogue_text = "You know where all that beer comes from? The fridge, buddy. Gotta make it to the fridge..."
+metadata/_custom_type_script = "uid://c786nbmcn6vxf"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DialogueTriggers/FridgeDialogue"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.37203264, 9.536743e-07, -6.5758615)
+shape = SubResource("BoxShape3D_jaoye")

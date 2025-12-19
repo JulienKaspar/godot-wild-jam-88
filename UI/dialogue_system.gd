@@ -86,10 +86,11 @@ func fade_out_flasky() -> void:
 
 func start_showing_text() -> void:
 	var visible_ratio_tween: Tween = create_tween()
-	visible_ratio_tween.tween_property(dialogue_text, "visible_ratio", 0.25, text_bubble_up_time_seconds_initial * 1 - UserSettings.text_scrolling_speed ).set_ease(Tween.EASE_IN_OUT)
-	visible_ratio_tween.tween_property(dialogue_text, "visible_ratio", 0.5, text_bubble_up_time_seconds_middle *  1 - UserSettings.text_scrolling_speed).set_ease(Tween.EASE_IN_OUT)
-	visible_ratio_tween.tween_property(dialogue_text, "visible_ratio", 0.75, text_bubble_up_time_seconds_late * 1 - UserSettings.text_scrolling_speed).set_ease(Tween.EASE_IN_OUT)
-	visible_ratio_tween.tween_property(dialogue_text, "visible_ratio", 1, text_bubble_up_time_seconds_final * 1 - UserSettings.text_scrolling_speed).set_ease(Tween.EASE_IN_OUT)
+	var speed_modifier: float = 1 - clampf(UserSettings.text_scrolling_speed, 0.2, 1) 
+	visible_ratio_tween.tween_property(dialogue_text, "visible_ratio", 0.25, text_bubble_up_time_seconds_initial *  speed_modifier).set_ease(Tween.EASE_IN_OUT)
+	visible_ratio_tween.tween_property(dialogue_text, "visible_ratio", 0.5, text_bubble_up_time_seconds_middle * speed_modifier).set_ease(Tween.EASE_IN_OUT)
+	visible_ratio_tween.tween_property(dialogue_text, "visible_ratio", 0.75, text_bubble_up_time_seconds_late * speed_modifier).set_ease(Tween.EASE_IN_OUT)
+	visible_ratio_tween.tween_property(dialogue_text, "visible_ratio", 1, text_bubble_up_time_seconds_final * speed_modifier).set_ease(Tween.EASE_IN_OUT)
 
 	# Duck music
 	AudioManager.music_manager.duck_volume()
