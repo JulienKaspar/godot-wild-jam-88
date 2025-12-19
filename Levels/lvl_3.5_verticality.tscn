@@ -1,0 +1,532 @@
+[gd_scene load_steps=40 format=3 uid="uid://dhfyssjtwfl14"]
+
+[ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="1_2nj4m"]
+[ext_resource type="PackedScene" uid="uid://j1b5yvs8pnux" path="res://Objects/Architypes/Furniture/table_round1.tscn" id="2_hhcad"]
+[ext_resource type="PackedScene" uid="uid://d3unw205fanv5" path="res://Objects/Loot/pickup_beer.tscn" id="3_b2cwn"]
+[ext_resource type="PackedScene" uid="uid://cold18jtw7ak0" path="res://Objects/Architypes/TrippingHazards/slippery_banana_peel.tscn" id="4_d65th"]
+[ext_resource type="PackedScene" uid="uid://3kn1j5376oof" path="res://Objects/Architypes/Furniture/table2.tscn" id="5_22idr"]
+[ext_resource type="PackedScene" uid="uid://c1pmr6dan0331" path="res://Assets/Furniture/couch3.gltf" id="6_xo35p"]
+[ext_resource type="Material" uid="uid://c40katw3nlw77" path="res://Assets/Materials/green_carpet.tres" id="7_knihp"]
+[ext_resource type="PackedScene" uid="uid://fhev4d48q1qy" path="res://Objects/Architypes/LivingRoom/stairs_wide.tscn" id="8_wnth3"]
+[ext_resource type="Texture2D" uid="uid://cdu2wjhgj7mo2" path="res://Assets/Maps/Carpet_tiles/green_carpet/atlas.PNG" id="9_ak8o4"]
+[ext_resource type="PackedScene" uid="uid://dci81bvxxl4nx" path="res://Objects/Architypes/LivingRoom/stairs_thin.tscn" id="10_x788y"]
+[ext_resource type="Texture2D" uid="uid://djpkkont0tpva" path="res://Assets/Maps/Walls/yellow_floral_wallpaper/atlas.png" id="11_f3lfr"]
+[ext_resource type="PackedScene" uid="uid://d62n5s8htyn7" path="res://Characters/Teens/logic/TeenStanding.tscn" id="12_44cqs"]
+[ext_resource type="Material" uid="uid://rfvsy8jw033o" path="res://Levels/Gyms/Wall/yellow_floral_wall_v2.tres" id="13_3g13s"]
+[ext_resource type="Script" uid="uid://dogbj3gtx3mxu" path="res://Objects/hideable_wall.gd" id="14_ewrqe"]
+[ext_resource type="PackedScene" uid="uid://cs4digbuoekpl" path="res://Objects/Architypes/Furniture/shelf2.tscn" id="18_p2eq5"]
+[ext_resource type="PackedScene" uid="uid://if8jggvkxrky" path="res://Objects/Architypes/Hurtiture/hurtitire_cactus.tscn" id="20_qbw1f"]
+[ext_resource type="PackedScene" uid="uid://daqdt75cvmkiy" path="res://Objects/Architypes/TrippingHazards/tripping_lamp.tscn" id="21_qsurh"]
+[ext_resource type="PackedScene" uid="uid://d2fq258dik5oo" path="res://Objects/Architypes/Furniture/table1.tscn" id="22_ssr0p"]
+[ext_resource type="PackedScene" uid="uid://c5gvg6210vgku" path="res://Objects/Architypes/LivingRoom/door.tscn" id="25_elkg8"]
+[ext_resource type="PackedScene" uid="uid://bl2s2scly01yo" path="res://Objects/Architypes/Props/full_pizza.tscn" id="26_bw3jk"]
+
+[sub_resource type="Environment" id="Environment_vu8ij"]
+background_mode = 1
+ambient_light_source = 2
+ambient_light_color = Color(0.4074739, 0.20157146, 1, 1)
+ambient_light_energy = 2.45
+tonemap_mode = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8emx1"]
+shading_mode = 0
+diffuse_mode = 3
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3olhf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d7yk7"]
+resource_local_to_scene = true
+albedo_color = Color(0.35906908, 0.35906908, 0.35906908, 1)
+albedo_texture = ExtResource("9_ak8o4")
+uv1_scale = Vector3(0.149, 0.149, 0.656)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4tm1v"]
+resource_local_to_scene = true
+albedo_color = Color(0.35906908, 0.35906908, 0.35906908, 1)
+albedo_texture = ExtResource("9_ak8o4")
+uv1_scale = Vector3(0.149, 0.149, 0.656)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l5t6x"]
+resource_local_to_scene = true
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0.49747366, 0.49747366, 0.49747366, 0)
+albedo_texture = ExtResource("11_f3lfr")
+rim = 0.47
+subsurf_scatter_strength = 1.0
+subsurf_scatter_skin_mode = true
+uv1_scale = Vector3(0.45, 0.298, 0.45)
+uv1_offset = Vector3(0.02, 0, 0)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_62sv4"]
+resource_local_to_scene = true
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0.49747366, 0.49747366, 0.49747366, 0)
+albedo_texture = ExtResource("11_f3lfr")
+rim = 0.47
+subsurf_scatter_strength = 1.0
+subsurf_scatter_skin_mode = true
+uv1_scale = Vector3(0.45, 0.298, 0.45)
+uv1_offset = Vector3(0.02, 0, 0)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a5w72"]
+resource_local_to_scene = true
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0.49747366, 0.49747366, 0.49747366, 0)
+albedo_texture = ExtResource("11_f3lfr")
+rim = 0.47
+subsurf_scatter_strength = 1.0
+subsurf_scatter_skin_mode = true
+uv1_scale = Vector3(0.45, 0.298, 0.45)
+uv1_offset = Vector3(0.02, 0, 0)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gq2bh"]
+resource_local_to_scene = true
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0.49747366, 0.49747366, 0.49747366, 0)
+albedo_texture = ExtResource("11_f3lfr")
+rim = 0.47
+subsurf_scatter_strength = 1.0
+subsurf_scatter_skin_mode = true
+uv1_scale = Vector3(0.45, 0.298, 0.45)
+uv1_offset = Vector3(0.02, 0, 0)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2nj4m"]
+resource_local_to_scene = true
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0.49747366, 0.49747366, 0.49747366, 0)
+albedo_texture = ExtResource("11_f3lfr")
+rim = 0.47
+subsurf_scatter_strength = 1.0
+subsurf_scatter_skin_mode = true
+uv1_scale = Vector3(0.45, 0.298, 0.45)
+uv1_offset = Vector3(0.02, 0, 0)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hhcad"]
+resource_local_to_scene = true
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0.49747366, 0.49747366, 0.49747366, 0)
+albedo_texture = ExtResource("11_f3lfr")
+rim = 0.47
+subsurf_scatter_strength = 1.0
+subsurf_scatter_skin_mode = true
+uv1_scale = Vector3(0.45, 0.298, 0.45)
+uv1_offset = Vector3(0.02, 0, 0)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b2cwn"]
+resource_local_to_scene = true
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0.49747366, 0.49747366, 0.49747366, 0)
+albedo_texture = ExtResource("11_f3lfr")
+rim = 0.47
+subsurf_scatter_strength = 1.0
+subsurf_scatter_skin_mode = true
+uv1_scale = Vector3(0.45, 0.298, 0.45)
+uv1_offset = Vector3(0.02, 0, 0)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d65th"]
+resource_local_to_scene = true
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0.49747366, 0.49747366, 0.49747366, 0)
+albedo_texture = ExtResource("11_f3lfr")
+rim = 0.47
+subsurf_scatter_strength = 1.0
+subsurf_scatter_skin_mode = true
+uv1_scale = Vector3(0.45, 0.298, 0.45)
+uv1_offset = Vector3(0.02, 0, 0)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_22idr"]
+resource_local_to_scene = true
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0.49747366, 0.49747366, 0.49747366, 0)
+albedo_texture = ExtResource("11_f3lfr")
+rim = 0.47
+subsurf_scatter_strength = 1.0
+subsurf_scatter_skin_mode = true
+uv1_scale = Vector3(0.45, 0.298, 0.45)
+uv1_offset = Vector3(0.02, 0, 0)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kukai"]
+size = Vector3(5.7526855, 5.5927734, 7.578125)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1m06e"]
+size = Vector3(17.997202, 3.7764647, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4tm1v"]
+size = Vector3(4.5788198, 3.7764647, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k4dpe"]
+size = Vector3(4.957185, 3.9253168, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d7yk7"]
+size = Vector3(21.64235, 5.476385, 0.2)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="PlayerSpawnPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.066175, -7.1525574e-07, 21.859234)
+script = ExtResource("1_2nj4m")
+metadata/_custom_type_script = "uid://cm1uqdo37kpmi"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_vu8ij")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(0.9598751, 0.27247727, 0.066302545, -0.11193706, 0.15550461, 0.9814726, 0.25711858, -0.94951284, 0.1797653, 8.835064, 0.9052739, -3.7791426)
+light_color = Color(1.8933368, 1.1924895, 0.6190691, 1)
+light_energy = 0.46
+light_indirect_energy = 1.804
+shadow_enabled = true
+shadow_opacity = 0.5
+
+[node name="EditorLight" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(0.9598751, 0.27247727, 0.066302545, -0.11193706, 0.15550461, 0.9814726, 0.25711858, -0.94951284, 0.1797653, 8.835064, 0.9052739, -3.7791426)
+light_color = Color(1.8933368, 1.1924895, 0.6190691, 1)
+light_energy = 0.46
+light_indirect_energy = 1.804
+shadow_opacity = 0.5
+editor_only = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WorldEnvironment"]
+transform = Transform3D(40.108185, 0, 0, 0, 1, 0, 0, 0, 30.56875, -0.02516079, -1.2115064, -0.00065255165)
+material_override = SubResource("StandardMaterial3D_8emx1")
+mesh = SubResource("PlaneMesh_3olhf")
+
+[node name="TableRound1" parent="WorldEnvironment" instance=ExtResource("2_hhcad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.190683, -0.028410912, 25.587074)
+
+[node name="TableRound2" parent="WorldEnvironment" instance=ExtResource("2_hhcad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.342, 0.7776232, 27.207703)
+
+[node name="TableRound3" parent="WorldEnvironment" instance=ExtResource("2_hhcad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.057766, 0.7776232, 25.533794)
+
+[node name="DrunknessPickup" parent="WorldEnvironment" instance=ExtResource("3_b2cwn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.427753, 1.7776232, 26.762537)
+
+[node name="DrunknessPickup2" parent="WorldEnvironment" instance=ExtResource("3_b2cwn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.49647, 0.9715891, 25.748709)
+
+[node name="DrunknessPickup3" parent="WorldEnvironment" instance=ExtResource("3_b2cwn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.124914, 0.9715891, 25.859035)
+
+[node name="DrunknessPickup7" parent="WorldEnvironment" instance=ExtResource("3_b2cwn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.82927, 0.9715891, 25.579765)
+
+[node name="DrunknessPickup4" parent="WorldEnvironment" instance=ExtResource("3_b2cwn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.53069, 1.7776232, 27.024275)
+
+[node name="SlipperyTest" parent="WorldEnvironment" instance=ExtResource("4_d65th")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.768183, 0.07580887, 27.403305)
+
+[node name="Table2" parent="WorldEnvironment" instance=ExtResource("5_22idr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 11.195853, 0.23222637, 21.773949)
+
+[node name="DrunknessPickup8" parent="WorldEnvironment" instance=ExtResource("3_b2cwn")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 11.386695, 1.0984373, 20.71073)
+
+[node name="DrunknessPickup14" parent="WorldEnvironment" instance=ExtResource("3_b2cwn")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.6359215, 1.2709719, 18.473356)
+
+[node name="DrunknessPickup15" parent="WorldEnvironment" instance=ExtResource("3_b2cwn")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.358031, 1.2709719, 18.473356)
+
+[node name="DrunknessPickup16" parent="WorldEnvironment" instance=ExtResource("3_b2cwn")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9.451296, 1.2709719, 18.43032)
+
+[node name="DrunknessPickup9" parent="WorldEnvironment" instance=ExtResource("3_b2cwn")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 11.136121, 1.0684075, 21.938274)
+
+[node name="DrunknessPickup10" parent="WorldEnvironment" instance=ExtResource("3_b2cwn")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 11.456004, 1.0684075, 22.770172)
+
+[node name="DrunknessPickup11" parent="WorldEnvironment" instance=ExtResource("3_b2cwn")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 11.154704, 1.0984373, 23.123356)
+
+[node name="DrunknessPickup12" parent="WorldEnvironment" instance=ExtResource("3_b2cwn")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 11.569581, 1.0684075, 22.23481)
+
+[node name="DrunknessPickup13" parent="WorldEnvironment" instance=ExtResource("3_b2cwn")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 11.539313, 1.0684075, 21.416084)
+
+[node name="couch3" parent="WorldEnvironment" instance=ExtResource("6_xo35p")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 14.05212, 0.23250175, 20.083483)
+
+[node name="Layout" type="Node3D" parent="."]
+
+[node name="Floor" type="Node3D" parent="Layout"]
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="Layout/Floor"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 12.53336, -0.61738384, 20.641508)
+material_override = ExtResource("7_knihp")
+use_collision = true
+collision_layer = 65
+size = Vector3(5.750412, 1.6992188, 7.391945)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="Layout/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.003317, -0.8884572, 26.383404)
+material_override = ExtResource("7_knihp")
+use_collision = true
+collision_layer = 65
+size = Vector3(10.376471, 1.6992188, 2.8933012)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="Layout/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.138752, -0.912385, 24.264744)
+material_override = ExtResource("7_knihp")
+use_collision = true
+collision_layer = 65
+size = Vector3(3.0586243, 1.7670898, 7.280217)
+
+[node name="Stairs_wide8" parent="Layout/Floor" instance=ExtResource("8_wnth3")]
+transform = Transform3D(-4.371138e-08, 0, 1, 0, 1, 0, -1, 0, -4.371138e-08, -16.02241, -1.0295755, 26.39482)
+wall_material = SubResource("StandardMaterial3D_d7yk7")
+
+[node name="Stairs_wide14" parent="Layout/Floor" instance=ExtResource("8_wnth3")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -20.344416, -1.0295755, 26.39482)
+wall_material = SubResource("StandardMaterial3D_4tm1v")
+
+[node name="Stairs_thin" parent="Layout/Floor" instance=ExtResource("10_x788y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6800528, -1.0485462, 23.818115)
+wall_material = SubResource("StandardMaterial3D_l5t6x")
+
+[node name="Stairs_thin2" parent="Layout/Floor" instance=ExtResource("10_x788y")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.131689, -0.26772943, 22.481377)
+wall_material = SubResource("StandardMaterial3D_62sv4")
+
+[node name="Stairs_thin5" parent="Layout/Floor" instance=ExtResource("10_x788y")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.43439, 0.52910554, 22.48548)
+wall_material = SubResource("StandardMaterial3D_a5w72")
+
+[node name="Stairs_thin8" parent="Layout/Floor" instance=ExtResource("10_x788y")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.0402315, 1.5948535, 22.48548)
+wall_material = SubResource("StandardMaterial3D_gq2bh")
+
+[node name="Stairs_thin6" parent="Layout/Floor" instance=ExtResource("10_x788y")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.417213, 0.5364026, 22.494997)
+wall_material = SubResource("StandardMaterial3D_2nj4m")
+
+[node name="Stairs_thin9" parent="Layout/Floor" instance=ExtResource("10_x788y")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.050282, 1.6008579, 22.505762)
+wall_material = SubResource("StandardMaterial3D_hhcad")
+
+[node name="Stairs_thin7" parent="Layout/Floor" instance=ExtResource("10_x788y")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7.616037, -0.52049124, 22.494997)
+wall_material = SubResource("StandardMaterial3D_b2cwn")
+
+[node name="Stairs_thin3" parent="Layout/Floor" instance=ExtResource("10_x788y")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.645171, -0.24372116, 22.481377)
+wall_material = SubResource("StandardMaterial3D_d65th")
+
+[node name="Stairs_thin4" parent="Layout/Floor" instance=ExtResource("10_x788y")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11.325277, 0.53890383, 22.496687)
+wall_material = SubResource("StandardMaterial3D_22idr")
+
+[node name="Shelf2" parent="Layout/Floor" instance=ExtResource("18_p2eq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.965446, 0.2322259, 17.97257)
+
+[node name="Walls" type="Node3D" parent="Layout"]
+
+[node name="CSG_YellowlWall18" type="CSGBox3D" parent="Layout/Walls"]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 14.812002, 2.135094, 19.650097)
+material_override = ExtResource("13_3g13s")
+use_collision = true
+size = Vector3(0.2, 5.655167, 3.6271973)
+
+[node name="CSG_YellowlWall19" type="CSGBox3D" parent="Layout/Walls"]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 14.812002, 2.135094, 23.490131)
+material_override = ExtResource("13_3g13s")
+use_collision = true
+size = Vector3(0.2, 5.655167, 0.19525146)
+
+[node name="CSG_YellowlWall37" type="CSGBox3D" parent="Layout/Walls"]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 14.812002, 4.2229576, 22.434729)
+material_override = ExtResource("13_3g13s")
+use_collision = true
+size = Vector3(0.2, 1.479439, 2.3044434)
+
+[node name="CSG_YellowlWall24" type="CSGBox3D" parent="Layout/Walls"]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 8.742159, 2.459034, 19.736002)
+material_override = ExtResource("13_3g13s")
+use_collision = true
+size = Vector3(0.2, 6.303047, 3.8795166)
+script = ExtResource("14_ewrqe")
+metadata/_custom_type_script = "uid://dogbj3gtx3mxu"
+
+[node name="Area3D" type="Area3D" parent="Layout/Walls/CSG_YellowlWall24"]
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Walls/CSG_YellowlWall24/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7696533, 0, -2.5664065)
+shape = SubResource("BoxShape3D_kukai")
+
+[node name="CSG_YellowlWall25" type="CSGBox3D" parent="Layout/Walls"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.3367186, 2.4767294, 21.534384)
+material_override = ExtResource("13_3g13s")
+use_collision = true
+size = Vector3(0.2, 6.343418, 22.331257)
+
+[node name="CSG_YellowlWall35" type="CSGBox3D" parent="Layout/Walls"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12.906312, 1.9145687, 23.377861)
+material_override = ExtResource("13_3g13s")
+use_collision = true
+size = Vector3(0.2, 7.2624855, 1.4938736)
+
+[node name="CSG_YellowlWall26" type="CSGBox3D" parent="Layout/Walls"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -15.064361, 1.1846371, 24.816093)
+material_override = ExtResource("13_3g13s")
+use_collision = true
+size = Vector3(0.2, 3.7592335, 13.080177)
+
+[node name="CSG_YellowlWall21" type="CSGBox3D" parent="Layout/Walls"]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 11.783131, 2.135094, 17.823248)
+material_override = ExtResource("13_3g13s")
+use_collision = true
+size = Vector3(0.2, 5.655167, 6.2419434)
+
+[node name="CSG_WoodenlWall19" type="CSGBox3D" parent="Layout/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.600676, 1.0084267, 24.24527)
+material_override = ExtResource("13_3g13s")
+use_collision = true
+size = Vector3(0.2, 4.1826487, 7.327654)
+
+[node name="CSG_WoodenlWall20" type="CSGBox3D" parent="Layout/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.555252, 1.0084267, 22.744282)
+material_override = ExtResource("13_3g13s")
+use_collision = true
+size = Vector3(0.2, 4.1826487, 4.3706098)
+
+[node name="CSG_WoodenlWall21" type="CSGBox3D" parent="Layout/Walls"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -23.075485, 1.0084267, 20.641775)
+material_override = ExtResource("13_3g13s")
+use_collision = true
+size = Vector3(0.2, 4.1826487, 3.216919)
+
+[node name="CSG_WoodenlWall22" type="CSGBox3D" parent="Layout/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.604541, 1.5125896, 24.147652)
+material_override = ExtResource("13_3g13s")
+use_collision = true
+size = Vector3(0.2, 3.1174395, 1.5263083)
+
+[node name="InvisibleWall3" type="StaticBody3D" parent="Layout/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.034986, 1.6871662, 28.840961)
+collision_mask = 39
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Walls/InvisibleWall3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.438157, -0.07236278, -0.94548607)
+shape = SubResource("BoxShape3D_1m06e")
+
+[node name="InvisibleWall4" type="StaticBody3D" parent="Layout/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9028034, 1.6871662, 26.374407)
+collision_mask = 39
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Walls/InvisibleWall4"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.056643486, -0.07236278, -0.7492218)
+shape = SubResource("BoxShape3D_4tm1v")
+
+[node name="InvisibleWall5" type="StaticBody3D" parent="Layout/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.106709, 1.6871662, 24.353754)
+collision_mask = 39
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Walls/InvisibleWall5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.043021202, 0.99117494, -0.94548607)
+shape = SubResource("BoxShape3D_k4dpe")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Layout/Walls/InvisibleWall5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.198967, 1.0794854, -0.94548607)
+shape = SubResource("BoxShape3D_d7yk7")
+
+[node name="Stairs" type="Node3D" parent="Layout"]
+
+[node name="Teens" type="Node3D" parent="."]
+
+[node name="Furniture" type="Node3D" parent="."]
+
+[node name="Drinks" type="Node3D" parent="."]
+
+[node name="Hurtiture" type="Node3D" parent="."]
+
+[node name="TestCactus12" parent="Hurtiture" instance=ExtResource("20_qbw1f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.928047, -0.023386687, 27.505917)
+
+[node name="TableRound3" parent="." instance=ExtResource("2_hhcad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.593886, 2.3461027, 22.519772)
+
+[node name="TeenStanding" parent="." instance=ExtResource("12_44cqs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.470684, 0.7776222, 25.548399)
+
+[node name="TeenStanding2" parent="." instance=ExtResource("12_44cqs")]
+transform = Transform3D(-0.7834332, 0, -0.62147605, 0, 1, 0, 0.62147605, 0, -0.7834332, -14.7130995, 0.13038552, 26.024055)
+
+[node name="TeenStanding3" parent="." instance=ExtResource("12_44cqs")]
+transform = Transform3D(-0.35675433, 0, 0.93419826, 0, 1, 0, -0.93419826, 0, -0.35675433, -12.258026, 0.13038552, 27.321594)
+animation = "Worm"
+
+[node name="TriperyTest" parent="." instance=ExtResource("21_qsurh")]
+transform = Transform3D(0.21282586, 0, -0.9770902, 0, 1, 0, 0.9770902, 0, 0.21282586, -10.863453, 0.05289358, 27.321653)
+
+[node name="TriperyTest3" parent="." instance=ExtResource("21_qsurh")]
+transform = Transform3D(0.5979048, 0, 0.8015671, 0, 1, 0, -0.8015671, 0, 0.5979048, -13.6207075, 0.05289358, 25.765968)
+
+[node name="TriperyTest2" parent="." instance=ExtResource("21_qsurh")]
+transform = Transform3D(0.8932302, 0, -0.44959962, 0, 1, 0, 0.44959962, 0, 0.8932302, -22.30747, 0.05246395, 25.522833)
+
+[node name="TestCactus" parent="." instance=ExtResource("20_qbw1f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.161606, -0.02338764, 23.987127)
+
+[node name="TestCactus2" parent="." instance=ExtResource("20_qbw1f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.517155, 0.783077, 25.366524)
+
+[node name="TestCactus3" parent="." instance=ExtResource("20_qbw1f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.823281, 0.18473658, 25.350615)
+
+[node name="TestCactus4" parent="." instance=ExtResource("20_qbw1f")]
+transform = Transform3D(0.2585494, 0.96444744, 0.054714642, -3.189503e-09, 0.05664052, -0.9983946, -0.9659983, 0.25813437, 0.014644369, -11.955991, 0.33250907, 25.322878)
+
+[node name="Table1" parent="." instance=ExtResource("22_ssr0p")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -23.923113, -0.022041861, 24.212553)
+
+[node name="DrunknessPickup9" parent="." instance=ExtResource("3_b2cwn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.64891, 0.8246374, 23.363302)
+
+[node name="DrunknessPickup10" parent="." instance=ExtResource("3_b2cwn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.608736, 0.8081083, 23.992622)
+
+[node name="Door7" parent="." instance=ExtResource("25_elkg8")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 14.3192215, 0.19532156, 22.378813)
+
+[node name="Door6" parent="." instance=ExtResource("25_elkg8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7407255, 2.2607872, 22.4581)
+
+[node name="FullPizza2" parent="." instance=ExtResource("26_bw3jk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.051458, 1.8035375, 25.695156)
