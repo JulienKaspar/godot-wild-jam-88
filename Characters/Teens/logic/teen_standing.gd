@@ -21,17 +21,11 @@ class_name Teen
 	#Worm
 	#}
 enum LootTypes {Beer, Pizza }
-enum TeenVariation {Type1, Type2, Type3}
 
 # References
 var animation_player : AnimationPlayer
 @export var player_detector : PushyTeen
-@export var models: Array[PackedScene] = []
-@export var model_slot: Node3D
-@export var model_index: int = 0: 
-	set(value):
-		change_model(value)
-		model_index = value
+
 		
 var previous_animation := "None"
 @export_enum(
@@ -53,11 +47,18 @@ var previous_animation := "None"
 	"Worm"
 	) var animation := "Idle"
 
-@export var variation: TeenVariation
 @export var wobble: bool
 @export var has_loot: bool
 @export var loot_type: LootTypes
 @export var pushy : bool = true
+
+@export_category("Swappable Models")
+@export var models: Array[PackedScene] = []
+@export var model_index: int = 0: 
+	set(value):
+		change_model(value)
+		model_index = value
+@export var model_slot: Node3D
 
 @onready var speech_bubble_animation: SpeechBubbleAnimation = %SpeechBubbleAnimation
 
@@ -74,7 +75,7 @@ func _ready() -> void:
 	#$"CH-teen1/AnimationPlayer".current_animation(CharacterAnims.keys()[animation])
 	
 	player_detector.space_was_invaded.connect(on_pushed)
-	
+
 	pass # Replace with function body.
 
 
