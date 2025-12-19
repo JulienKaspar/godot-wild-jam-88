@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://c5gvg6210vgku"]
+[gd_scene load_steps=9 format=3 uid="uid://c5gvg6210vgku"]
 
 [ext_resource type="PackedScene" uid="uid://rsfb87oov1yd" path="res://Assets/LivingRoom/door_frame.gltf" id="1_be475"]
 [ext_resource type="Script" uid="uid://d18ctfvwniq4s" path="res://Objects/Architypes/LivingRoom/door.gd" id="1_kw20h"]
 [ext_resource type="Script" uid="uid://42mf003bq52u" path="res://Gameplay/level_teleporter.gd" id="2_3tb1t"]
 [ext_resource type="Material" uid="uid://l1sgod1lv1b6" path="res://Assets/Materials/yellow_floral_wall.tres" id="2_rhni8"]
-[ext_resource type="Material" uid="uid://b23iqfg3em6ty" path="res://Assets/Materials/wooden_wall.tres" id="5_3tb1t"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kw20h"]
 size = Vector3(0.31262207, 2.5540771, 1.6123962)
@@ -40,7 +39,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(-3.4325872e-08, 0.619135, -0.7852845, 2.7063251e-08, 0.7852845, 0.619135, 1, -3.5527137e-15, -4.371138e-08, -3.1964781, 3.0496736, 0)
 light_color = Color(1, 0.98333335, 0.9, 1)
-light_energy = 3.8023548
+light_energy = 1.5684445
 light_specular = 10.49
 light_cull_mask = 1
 shadow_enabled = true
@@ -53,35 +52,35 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.43558323, 1.6835005, 0.868
 material_override = ExtResource("2_rhni8")
 use_collision = true
 size = Vector3(0.09499512, 3.3664265, 0.3061687)
-material = ExtResource("5_3tb1t")
+material = ExtResource("2_rhni8")
 
 [node name="CSG_YellowlWall7" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4318541, 1.6847069, -0.83551335)
 material_override = ExtResource("2_rhni8")
 use_collision = true
 size = Vector3(0.08753662, 3.3585854, 0.4898858)
-material = ExtResource("5_3tb1t")
+material = ExtResource("2_rhni8")
 
 [node name="CSG_YellowlWall8" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.43112162, 2.8466303, -0.009144762)
 material_override = ExtResource("2_rhni8")
 use_collision = true
 size = Vector3(0.086071774, 1.0395474, 1.488543)
-material = ExtResource("5_3tb1t")
+material = ExtResource("2_rhni8")
 
 [node name="CSG_YellowlWall9" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.7964033, 0.60476595, 0, -0.60476595, 0.7964033, -0.43334937, 2.1844134, 0.6443152)
 material_override = ExtResource("2_rhni8")
 use_collision = true
 size = Vector3(0.09052734, 0.7841797, 0.4074707)
-material = ExtResource("5_3tb1t")
+material = ExtResource("2_rhni8")
 
 [node name="CSG_YellowlWall10" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.7450687, -0.6669878, 0, 0.6669878, 0.7450687, -0.43802473, 2.1801817, -0.66845554)
 material_override = ExtResource("2_rhni8")
 use_collision = true
 size = Vector3(0.09987793, 0.7841797, 0.4173584)
-material = ExtResource("5_3tb1t")
+material = ExtResource("2_rhni8")
 
 [node name="white box" type="Node3D" parent="."]
 
