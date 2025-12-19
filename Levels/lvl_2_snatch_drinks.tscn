@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bn4n02t1b2gf3"]
+[gd_scene load_steps=41 format=3 uid="uid://bn4n02t1b2gf3"]
 
 [ext_resource type="Material" uid="uid://c40katw3nlw77" path="res://Assets/Materials/green_carpet.tres" id="1_g3cye"]
 [ext_resource type="Material" uid="uid://hg5ppfcn0qd7" path="res://Levels/Gyms/Floor/floor1_v2.tres" id="1_kknvj"]
@@ -53,6 +53,9 @@ size = Vector3(9.170685, 3.3730469, 4.5352783)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k8d6m"]
 size = Vector3(15.053577, 3.45717, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jwfug"]
+size = Vector3(1.8151245, 3.45717, 0.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_17q8k"]
 size = Vector3(2.5838013, 3.45717, 1.8452759)
@@ -303,6 +306,14 @@ collision_mask = 39
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.498255, 1.6382172, 0)
 shape = SubResource("BoxShape3D_k8d6m")
 
+[node name="InvisibleWall3" type="StaticBody3D" parent="Layout/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.145324, 4.7683716e-07, -1.9731867)
+collision_mask = 39
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Walls/InvisibleWall3"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.032172203, 1.6382172, 0.09446013)
+shape = SubResource("BoxShape3D_jwfug")
+
 [node name="InvisibleWall2" type="StaticBody3D" parent="Layout/Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7000082, 4.7683716e-07, -7.460247)
 collision_mask = 39
@@ -416,7 +427,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4133353, -2.3841858e-07, -4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.84711623, 0.005452901, -10.591237)
 
 [node name="Shelf1" parent="Furniture" instance=ExtResource("12_ojjv1")]
-transform = Transform3D(0.12857054, 0.30335587, -0.94416356, 1.3371082e-08, 0.95206535, 0.3058947, 0.99170035, -0.039329063, 0.122407556, 9.113882, 0.005311489, -1.5802535)
+transform = Transform3D(0.12857054, 0.30335587, -0.94416356, 1.3371082e-08, 0.95206535, 0.3058947, 0.99170035, -0.039329063, 0.122407556, 9.199605, 0.005311489, -1.6739092)
 
 [node name="Shelf4" parent="Furniture" instance=ExtResource("12_ojjv1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7215201, 0.005311966, -11.080685)
