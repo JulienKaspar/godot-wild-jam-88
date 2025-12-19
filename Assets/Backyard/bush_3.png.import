@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://boydy153a6gym"
-path.s3tc="res://.godot/imported/grass_1.png-4a4ae2a527cdb5e3119b2e30a445fbc8.s3tc.ctex"
+uid="uid://dbsywn8ritubp"
+path.s3tc="res://.godot/imported/bush_3.png-71686bff30e4809310b914b9042c9a86.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Maps/Exterior/grass_1.png"
-dest_files=["res://.godot/imported/grass_1.png-4a4ae2a527cdb5e3119b2e30a445fbc8.s3tc.ctex"]
+source_file="res://Assets/Backyard/bush_3.png"
+dest_files=["res://.godot/imported/bush_3.png-71686bff30e4809310b914b9042c9a86.s3tc.ctex"]
 
 [params]
 

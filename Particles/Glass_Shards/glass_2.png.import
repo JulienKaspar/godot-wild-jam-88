@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://boydy153a6gym"
-path.s3tc="res://.godot/imported/grass_1.png-4a4ae2a527cdb5e3119b2e30a445fbc8.s3tc.ctex"
+uid="uid://dgew1jtaxwtwb"
+path.s3tc="res://.godot/imported/glass_2.png-1662fb06142ae1f7e44f145ced96da34.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Maps/Exterior/grass_1.png"
-dest_files=["res://.godot/imported/grass_1.png-4a4ae2a527cdb5e3119b2e30a445fbc8.s3tc.ctex"]
+source_file="res://Particles/Glass_Shards/glass_2.png"
+dest_files=["res://.godot/imported/glass_2.png-1662fb06142ae1f7e44f145ced96da34.s3tc.ctex"]
 
 [params]
 
@@ -38,4 +38,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
