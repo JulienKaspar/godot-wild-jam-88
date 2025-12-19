@@ -12,7 +12,6 @@ func _ready() -> void:
 	start_button.pressed.connect(handle_start_button_pressed)
 	exit_button.pressed.connect(handle_exit_button_pressed)
 	
-	start_button.grab_focus.call_deferred()
 	enter_menu_sounds()
 
 func handle_start_button_pressed() -> void:
@@ -44,4 +43,8 @@ func enter_menu_sounds():
 func exit_menu_sounds():
 	AudioManager.fade_audio_out(title_screen_ambience, 2.5)
 	AudioManager.fade_audio_out(theme_music_muted, 2.5)
+	
+func _unhandled_key_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_down") || event.is_action_pressed("ui_up") || event.is_action_pressed("ui_left") || event.is_action_pressed("ui_right") || event.is_action_pressed("ui_select"):
+		start_button.grab_focus()
 	

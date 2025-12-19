@@ -25,7 +25,7 @@ func _ready() -> void:
 	checkbox.focus_entered.connect(focus)
 	checkbox.focus_exited.connect(unfocus)
 	checkbox.toggled.connect(handle_pressed)
-	
+	mouse_entered.connect(checkbox.grab_focus)
 	label.text = setting_name
 	
 func handle_pressed(toggled_on: bool) -> void:

@@ -10,7 +10,8 @@ func _ready() -> void:
 	slider.label.text = setting_name
 	slider.value = UserSettings.get(property_name)
 	slider.value_changed.connect(set_user_setting_value)
-	
+	mouse_entered.connect(slider.grab_focus)
+
 
 func set_top_target(control: Control) -> void:
 	if top_focus_target != null:

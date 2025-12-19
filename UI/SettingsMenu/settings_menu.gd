@@ -6,14 +6,16 @@ class_name SettingsMenu
 @onready var accesibility_tab_button: TextureButton = %AccesibilityTabButton
 @onready var visual_tab_button: TextureButton = %VisualTabButton
 @onready var tab_container: TabContainer = %TabContainer
+@onready var back_button: Button = %BackButton
 
+signal on_back()
 
 var tab_buttons: Array[TextureButton]
 var focus_left_buttons: bool = false
 
 func _ready() -> void:
 	tab_buttons = [control_tab_button,visual_tab_button ,audio_tab_button, accesibility_tab_button]
-	
+	back_button.pressed.connect(func(): on_back.emit())
 	for tab_button in tab_buttons:
 		var index = tab_buttons.find(tab_button)
 		tab_button.focus_entered.connect(show_tab.bind(index))

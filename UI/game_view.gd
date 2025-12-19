@@ -13,6 +13,8 @@ func _ready() -> void:
 	GameStateManager.on_paused.connect(show_settings_menu)
 	GameStateManager.on_unpaused.connect(show_game_ui)
 	UserSettings.on_font_toggled.connect(switch_font)
+	settings_menu.on_back.connect(handle_main_menu_opened)
+	main_menu.start_button.grab_focus.call_deferred()
 	
 func switch_font(readability_font: bool) -> void:
 	menu_displayer.theme = readability_font_theme if readability_font else default_font_theme
@@ -27,11 +29,14 @@ func handle_setting_menu_opened() -> void:
 	settings_menu.show()
 	hud.hide()
 	settings_menu.open()
+
 	
 func handle_main_menu_opened() -> void:
 	main_menu.show()
 	settings_menu.hide()
 	hud.hide()
+	main_menu.start_button.grab_focus.call_deferred()
+
 	# handle hiding game here potentially
 #
 func handle_game_started() -> void:
@@ -52,3 +57,4 @@ func show_game_ui() -> void:
 	main_menu.hide()
 	settings_menu.hide()
 	hud.show() 	
+	

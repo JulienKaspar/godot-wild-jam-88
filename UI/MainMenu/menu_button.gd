@@ -1,5 +1,4 @@
 extends Button
-
 @export var scale_factor: float = 1.2
 
 func _ready() -> void:
@@ -8,6 +7,9 @@ func _ready() -> void:
 	
 	focus_entered.connect(make_big)
 	focus_exited.connect(make_small)
+	
+	mouse_entered.connect(grab_focus)
+	
 
 func make_big() -> void:
 	var size_tween: Tween = create_tween()
