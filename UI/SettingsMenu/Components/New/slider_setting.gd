@@ -8,7 +8,9 @@ class_name SliderSetting
 func _ready() -> void:
 	set_top_target.call_deferred(top_focus_target)
 	slider.label.text = setting_name
+	slider.value = UserSettings.get(property_name)
 	slider.value_changed.connect(set_user_setting_value)
+	
 
 func set_top_target(control: Control) -> void:
 	if top_focus_target != null:

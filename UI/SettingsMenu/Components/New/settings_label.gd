@@ -2,8 +2,8 @@ extends Label
 class_name SettingsLabel
 
 @export var focus_color: Color
-@export var focus_scale: float = 1.1
-@export var focus_scale_speed: float = 0.2
+@export var focus_scale: float = 1.2
+@export var focus_scale_speed: float = 0.15
 const regular_color: Color = Color.WHITE
 
 func focus() -> void:

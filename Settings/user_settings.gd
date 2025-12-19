@@ -13,11 +13,12 @@ var ambience_volume : float = 1
 var ui_volume: float = 1
 
 var disorienting_sounds_enabled: bool = true
-var burp_nastiness: float = 1
+var burp_nastiness: float = 0.5
 
 #accesibility / general
 var fail_state: bool = false
 var loading_speed: float = 1
+var text_scrolling_speed:float = 1
 
 #visual
 var drunk_visual_effect_intensity: float = 1
