@@ -1,0 +1,19 @@
+extends Label
+class_name SettingsLabel
+
+@export var focus_color: Color
+@export var focus_scale: float = 1.1
+@export var focus_scale_speed: float = 0.2
+const regular_color: Color = Color.WHITE
+
+func focus() -> void:
+	self_modulate = focus_color
+	
+	var size_tween: Tween = create_tween()
+	size_tween.tween_property(self, "scale", Vector2(focus_scale, focus_scale), focus_scale_speed)
+	
+func unfocus() -> void:
+	self_modulate = regular_color
+	scale = Vector2(1,1)
+	var size_tween: Tween = create_tween()
+	size_tween.tween_property(self, "scale", Vector2(1,1), focus_scale_speed)

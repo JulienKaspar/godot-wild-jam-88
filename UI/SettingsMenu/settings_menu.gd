@@ -7,13 +7,12 @@ class_name SettingsMenu
 @onready var visual_tab_button: TextureButton = %VisualTabButton
 @onready var tab_container: TabContainer = %TabContainer
 
-var tab_buttons: Array[TextureButton]
 
-signal main_menu_button_pressed()
+var tab_buttons: Array[TextureButton]
+var focus_left_buttons: bool = false
 
 func _ready() -> void:
 	tab_buttons = [control_tab_button,visual_tab_button ,audio_tab_button, accesibility_tab_button]
-	tab_buttons[0].grab_focus.call_deferred()
 	
 	for tab_button in tab_buttons:
 		var index = tab_buttons.find(tab_button)
@@ -22,3 +21,6 @@ func _ready() -> void:
 	
 func show_tab(index:int ) -> void:
 	tab_container.current_tab = index
+
+func open() -> void:
+	tab_buttons[0].grab_focus()

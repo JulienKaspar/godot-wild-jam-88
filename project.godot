@@ -18,10 +18,10 @@ config/icon="uid://cmu1lptxybtls"
 
 [autoload]
 
-ImGuiRoot="*res://addons/imgui-godot/data/ImGuiRoot.tscn"
 UserSettings="*res://Settings/user_settings.gd"
 GameStateManager="*res://Gameplay/game_state_manager.tscn"
 AudioManager="*res://Audio/audio_manager.tscn"
+ImGuiRoot="*res://addons/imgui-godot/data/ImGuiRoot.tscn"
 
 [display]
 

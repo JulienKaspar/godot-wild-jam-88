@@ -3,6 +3,8 @@ extends Node
 
 var sensitivity: float = 1
 
+signal on_settings_updated()
+
 #volume
 var master_volume: float = 1
 var music_volume: float = 1

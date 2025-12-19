@@ -5,6 +5,8 @@ class_name SettingsTabButton
 @export var focus_speed: float = 0.2
 @export var focused_margin_value: int = 35
 
+
+
 func _ready() -> void:
 	focus_entered.connect(select)
 	focus_exited.connect(deselect)

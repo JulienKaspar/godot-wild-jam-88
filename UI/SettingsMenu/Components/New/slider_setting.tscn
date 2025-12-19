@@ -1,8 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://cl2i7omutjdby"]
+[gd_scene load_steps=15 format=3 uid="uid://cl2i7omutjdby"]
 
+[ext_resource type="Script" uid="uid://13iqlecj5v0m" path="res://UI/SettingsMenu/Components/New/settings_label.gd" id="1_4wath"]
+[ext_resource type="Script" uid="uid://cjydg77pybxxi" path="res://UI/SettingsMenu/Components/New/slider_setting.gd" id="1_arimu"]
+[ext_resource type="Script" uid="uid://5twifvorlljt" path="res://UI/SettingsMenu/Components/New/texture_slider.gd" id="1_cjbty"]
+[ext_resource type="Texture2D" uid="uid://bb1byxxwt8hry" path="res://UI/SettingsMenu/settings_slider.png" id="1_gabah"]
 [ext_resource type="Texture2D" uid="uid://bk1t3pbv2ldcv" path="res://UI/SettingsMenu/settings_slider_frame.png" id="2_cjbty"]
+[ext_resource type="Texture2D" uid="uid://ssbef6aqp0j3" path="res://UI/SettingsMenu/settings_slider_selected.png" id="2_cl5xb"]
 [ext_resource type="Texture2D" uid="uid://368o4sqfxfqp" path="res://UI/SettingsMenu/settings_slider_fill_bg.png" id="3_cl5xb"]
-[ext_resource type="Script" uid="uid://1angg1mv5imx" path="res://UI/SettingsMenu/Components/New/texture_progress_bar.gd" id="5_cl5xb"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_gabah"]
 
@@ -16,20 +20,28 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gabah"]
 
+[sub_resource type="GDScript" id="GDScript_v861l"]
+script/source = "extends TextureProgressBar
+"
+
 [node name="SliderSetting" type="HBoxContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_arimu")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 60
 text = "Setting name"
+script = ExtResource("1_4wath")
+focus_color = Color(0.43137255, 0.03137255, 0.7411765, 1)
 
-[node name="HSlider" type="HSlider" parent="."]
+[node name="HSlider" type="HSlider" parent="." node_paths=PackedStringArray("playhead", "texture_bar", "label")]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -41,16 +53,30 @@ theme_override_styles/slider = SubResource("StyleBoxEmpty_v861l")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_4wath")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_gabah")
 max_value = 1.0
-step = 0.001
+step = 0.02
+script = ExtResource("1_cjbty")
+playhead = NodePath("Playhead")
+texture_bar = NodePath("TextureProgressBar")
+focus_playhead = ExtResource("2_cl5xb")
+unfocused_playhead = ExtResource("1_gabah")
+label = NodePath("../Label")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="HSlider"]
 layout_mode = 0
-offset_left = -2.0
+offset_left = -37.0
 offset_top = -31.0
-offset_right = 961.0
-offset_bottom = 58.0
+offset_right = 877.0
+offset_bottom = 97.0
+mouse_filter = 2
 max_value = 1.0
-step = 0.001
+step = 0.02
 texture_over = ExtResource("2_cjbty")
 texture_progress = ExtResource("3_cl5xb")
-script = ExtResource("5_cl5xb")
+script = SubResource("GDScript_v861l")
+
+[node name="Playhead" type="TextureRect" parent="HSlider"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = -53.0
+offset_right = 98.0
+offset_bottom = 116.0
