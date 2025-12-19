@@ -40,7 +40,6 @@ script = ExtResource("1_048jv")
 player_detector = NodePath("StaticBody3D/PlayerDetector")
 models = Array[PackedScene]([ExtResource("2_6mc1t"), ExtResource("3_tr3k2"), ExtResource("4_1xrl0")])
 model_slot = NodePath("Model")
-animation = "DiscoJump"
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 collision_layer = 32768

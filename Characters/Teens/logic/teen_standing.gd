@@ -81,7 +81,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	
+	if animation_player == null:
+		change_model(0)
 	if animation != previous_animation:
 		animation_player.play(animation)
 		previous_animation = animation
