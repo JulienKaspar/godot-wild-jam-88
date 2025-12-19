@@ -15,8 +15,8 @@
 [sub_resource type="Environment" id="Environment_vu8ij"]
 background_mode = 1
 ambient_light_source = 2
-ambient_light_color = Color(0, 0, 0.96, 1)
-ambient_light_energy = 3.08
+ambient_light_color = Color(0.22080001, 0.22080001, 0.96, 1)
+ambient_light_energy = 8.33
 tonemap_mode = 4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d4xos"]
@@ -57,6 +57,18 @@ albedo_color = Color(0.0087385075, 0.16680992, 0.09753626, 1)
 
 [node name="LevelBackyard" type="Node3D"]
 
+[node name="Door" parent="." instance=ExtResource("11_srcn4")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.61308324, 0.26634717, -22.543335)
+
+[node name="PlayerSpawnPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2686832, 0, 0.018321991)
+script = ExtResource("2_xweag")
+metadata/_custom_type_script = "uid://cm1uqdo37kpmi"
+
+[node name="CameraBeginning" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5285569, 0.8488979, 0, -0.8488979, 0.5285569, -3.1732478, 6, 2.627448)
+fov = 55.0
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_vu8ij")
 
@@ -74,13 +86,15 @@ material_override = SubResource("StandardMaterial3D_d4xos")
 mesh = SubResource("PlaneMesh_xweag")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -4.495553, 6.900309, 0.75812423)
-light_color = Color(0.75, 0.75, 0.26250002, 1)
-light_energy = 4.747
+transform = Transform3D(0.6608127, -0.697928, -0.27608544, 0.28049028, -0.11155199, 0.95335275, -0.69616944, -0.70742685, 0.12204705, -4.8490195, 5.2072196, 1.7862365)
+light_color = Color(0.8, 0.72, 0, 1)
+light_energy = 0.459
 light_specular = 8.149
 shadow_enabled = true
+shadow_bias = 0.102
 spot_range = 19.027098
-spot_angle = 46.630405
+spot_attenuation = -1.02
+spot_angle = 42.6
 
 [node name="Layout" type="Node3D" parent="."]
 
@@ -97,19 +111,19 @@ shape = SubResource("WorldBoundaryShape3D_wj60t")
 [node name="Floor" type="Node3D" parent="Layout"]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Layout/Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38554382, -0.49497938, -11.289182)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38554382, -0.49497938, -10.912516)
 material_override = ExtResource("1_mr8n6")
 use_collision = true
 collision_layer = 65
-size = Vector3(12.271606, 1, 23.989948)
+size = Vector3(12.271606, 1, 24.74328)
 
 [node name="Walls" type="Node3D" parent="Layout"]
 
 [node name="CSG_WoodenlWall" type="CSGBox3D" parent="Layout/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.669921, 1.2740086, -11.250526)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.669921, 1.2740086, -10.818565)
 material_override = SubResource("StandardMaterial3D_xweag")
 use_collision = true
-size = Vector3(0.2, 2.5527656, 23.699747)
+size = Vector3(0.2, 2.5527656, 24.56367)
 
 [node name="CSG_WoodenlWall4" type="CSGBox3D" parent="Layout/Walls"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.652934, 2.2969766, -23.03894)
@@ -130,16 +144,15 @@ use_collision = true
 size = Vector3(0.2, 1.1676369, 2.5753188)
 
 [node name="CSG_WoodenlWall3" type="CSGBox3D" parent="Layout/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.546694, 1.2740086, -11.297768)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.546694, 1.2740086, -10.842372)
 material_override = SubResource("StandardMaterial3D_xweag")
 use_collision = true
-size = Vector3(0.2, 2.5527656, 23.79423)
+size = Vector3(0.2, 2.5527656, 24.70502)
 
 [node name="CSG_WoodenlWall2" type="CSGBox3D" parent="Layout/Walls"]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.1141386, 0.919624, 0.69465643)
-visible = false
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.4051237, 0.919624, 1.435302)
 use_collision = true
-size = Vector3(0.05, 1.843595, 12.022461)
+size = Vector3(0.05, 1.843595, 12.26593)
 material = SubResource("StandardMaterial3D_ccu56")
 
 [node name="Stairs" type="Node3D" parent="Layout"]
@@ -291,6 +304,11 @@ material_override = SubResource("StandardMaterial3D_8wfei")
 use_collision = true
 polygon = PackedVector2Array(-4.285189, 5.2038784, -2.9629889, 5.2206154, -1.7161036, 4.8356705, -0.93784666, 4.1996756, -0.50269175, 3.2707882, 0.15840769, 1.8230629, 0.049619198, -0.18534279, 0.35924864, -1.6079636, 1.0956635, -1.4071226, 1.0287166, 6.0992928, -4.3437676, 6.065819)
 
+[node name="CSGCylinder3D9" type="CSGCylinder3D" parent="Greyboxing"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.847422, 2.4633937, 1.9164534)
+radius = 0.09375
+height = 4.908478
+
 [node name="AmbienceSounds" type="Node3D" parent="."]
 
 [node name="CricketsAmbience" type="AudioStreamPlayer3D" parent="AmbienceSounds"]
@@ -299,7 +317,6 @@ stream = ExtResource("10_5g7ny")
 max_db = -3.0
 autoplay = true
 max_distance = 20.0
-bus = &"Ambience"
 
 [node name="HousePartyMusic" type="AudioStreamPlayer3D" parent="AmbienceSounds"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.7430115, -24.021633)
@@ -307,7 +324,3 @@ stream = ExtResource("11_cw6dl")
 max_db = 0.0
 autoplay = true
 max_distance = 15.0
-bus = &"Music"
-
-[node name="Door" parent="." instance=ExtResource("11_srcn4")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.61308324, 0.26634717, -22.543335)
