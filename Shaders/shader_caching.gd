@@ -1,8 +1,9 @@
 extends Node3D
-
+class_name ShaderCashing
 @onready var particlesToPrecache = $PFX_TO_CACHE.get_children()
 var currentIdx = 0
 var isDone = false
+signal completed()
 
 
 # Called when the node enters the scene tree for the first time.
@@ -26,4 +27,5 @@ func _process(delta: float) -> void:
 			currentIdx += 1
 		
 func triggerFinish():
+	completed.emit()
 	print("Shader Cache Complete")

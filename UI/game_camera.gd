@@ -35,3 +35,6 @@ func followPlayer(blendtime: float):
 	tween.set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(self, "blendingLerp", 0.0, blendtime)
 	tween.tween_property(self, "isInterested", false, blendtime)
+	
+func hardFollowPlayer() -> void:
+	isInterested = false

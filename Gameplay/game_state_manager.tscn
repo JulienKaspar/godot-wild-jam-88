@@ -16,3 +16,4 @@
 [node name="GameStateManager" type="Node"]
 script = ExtResource("1_fnjh8")
 levels = Array[PackedScene]([ExtResource("2_ww4k4"), ExtResource("3_w34dl"), ExtResource("4_avf66"), ExtResource("5_6btmv"), ExtResource("6_ygpte"), ExtResource("7_dfbfs"), ExtResource("2_fhx3m"), ExtResource("2_54mul"), ExtResource("3_84fyh"), ExtResource("4_84fyh"), ExtResource("12_2ik6d")])
+shader_cashing_level = ExtResource("12_2ik6d")

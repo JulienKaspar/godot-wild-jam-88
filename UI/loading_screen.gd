@@ -16,6 +16,12 @@ func display(_duration: float) -> void:
 	self.duration = _duration
 	open = true
 	
+func display_indefinite() -> void:
+	show()
+	
+func close() -> void:
+	hide()
+	
 func _process(delta: float) -> void:
 	if open:
 		time_elapsed += delta

@@ -7,6 +7,7 @@ signal on_level_loaded(level_index : int)
 
 @export var starting_level_index: int = 0
 @export var levels: Array[PackedScene]
+@export var shader_cashing_level: PackedScene
 
 enum GameState {Main_Menu, Paused, Game, Transition}
 var current_state: GameState = GameState.Main_Menu
@@ -39,12 +40,17 @@ func register_level_loader(loader: LevelLoader) -> void:
 
 func start_game() -> void:
 	get_tree().paused = false
+	await cache_shaders()
 	load_level_by_index(starting_level_index,false)
 	current_state = GameState.Game
 	PlayerMovementUtils.knock_player_down.call_deferred()
 	loading_screen.display(0.5)
 	
-
+func cache_shaders() -> void:
+	loading_screen.display_indefinite()
+	var instance: ShaderCashing = level_loader.load_level(shader_cashing_level)
+	await instance.completed
+	loading_screen.close()
 
 func find_spawn_point_in_level(level: Node3D) -> Vector3:
 	for child in level.get_children():
