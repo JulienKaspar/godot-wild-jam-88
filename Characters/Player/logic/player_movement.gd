@@ -29,7 +29,7 @@ static var refUpVector = Vector3(0,1,0)
 static var move_force_multiplier = 100.0 # phys impulse scale
 static var upper_body_stiffness = 1.5 # scales impulse to bring body back to target
 static var body_leaning_force = 0.1 # how much move direction is added to pose correction
-static var stair_up_impulse = 300 # how much force should be added to go up stairs
+static var stair_up_impulse = 350 # how much force should be added to go up stairs
  
 
 #---------------- State -----------------------------------
@@ -138,7 +138,7 @@ func standUp() -> void:
 #----------------Process--------------------------------------------------------
 #-------------------------------------------------------------------------------
 func _ready() -> void:
-	StairsRay.target_position.y = -0.5
+	StairsRay.target_position.y = -0.6
 	if DebugDraw:
 		showHelpers()
 	else:
@@ -192,8 +192,8 @@ func _physics_process(delta: float) -> void:
 
 	# stairs check
 	var normalInput = playerInputDir.normalized()
-	StairsRay.target_position.x = normalInput.x * 0.5
-	StairsRay.target_position.z = normalInput.y * 0.5
+	StairsRay.target_position.x = normalInput.x * 0.2
+	StairsRay.target_position.z = normalInput.y * 0.2
 	isOnStairs = StairsRay.is_colliding()
 	
 	# -------- update targets ----------

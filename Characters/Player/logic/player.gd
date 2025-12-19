@@ -25,6 +25,7 @@ var DrunkCost_HitFurniture = -0.1
 var DrunkCost_StandUp = -2.0
 var PickupThreshold = 0.2
 var DrinkTime = 1.5
+var canRoll = false
 
 #---------------- IK ----------------------------------------------------------
 
@@ -50,7 +51,6 @@ var inMoveState = MoveStates.MOVING
 var inFeetState = FeetIKTargeting.STEPPING
 var HandLState = HandStates.DANGLY
 var HandRState = HandStates.DANGLY
-var canRoll = true
 var player_speed = 0.0 # owned by player_controller
 var player_move_dir = Vector2(0,0) # owned by player_controller
 var player_global_pos = Vector3(0,0,0) # owned by player_controller
@@ -149,7 +149,7 @@ func _process(_delta: float) -> void:
 		
 	if Input.is_action_just_pressed("roll"):
 		match inMoveState:
-			MoveStates.FALLING: goRoll()
+			MoveStates.FALLING: if canRoll: goRoll()
 			MoveStates.FELL: riseAndShine()
 
 
@@ -176,9 +176,9 @@ func _on_change_movement(state: Player.MoveStates) -> void:
 			GameStateManager.player_drunkness.current_drunkness += DrunkCost_Roll
 		MoveStates.STANDUP:
 			inFeetState = FeetIKTargeting.STEPPING
-			GameStateManager.player_drunkness.current_drunkness += DrunkCost_StandUp
 		MoveStates.FELL:
 			inFeetState = FeetIKTargeting.RIGIDBODY
+			GameStateManager.player_drunkness.current_drunkness += DrunkCost_StandUp
 		_: inFeetState = FeetIKTargeting.STEPPING
 		
 	match state:
