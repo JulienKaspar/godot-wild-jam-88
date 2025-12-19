@@ -1,8 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://d62n5s8htyn7"]
+[gd_scene load_steps=16 format=3 uid="uid://d62n5s8htyn7"]
 
 [ext_resource type="Script" uid="uid://b20xy0qkushk8" path="res://Characters/Teens/logic/teen_standing.gd" id="1_048jv"]
 [ext_resource type="PackedScene" uid="uid://cilspwuvfwfqf" path="res://Assets/Characters/Teens/teen1.gltf" id="2_6mc1t"]
-[ext_resource type="Script" path="res://Gameplay/Obstacles/pushy_teen.gd" id="3_6mc1t"]
+[ext_resource type="Script" uid="uid://dyormnd77qjqj" path="res://Gameplay/Obstacles/pushy_teen.gd" id="3_6mc1t"]
+[ext_resource type="PackedScene" uid="uid://csh5kgfnsuy4w" path="res://Assets/Characters/Teens/teen2.gltf" id="3_tr3k2"]
+[ext_resource type="PackedScene" uid="uid://bh3nxhhyrdo07" path="res://Assets/Characters/Teens/teen3.gltf" id="4_1xrl0"]
 [ext_resource type="Texture2D" uid="uid://dl8fbqc3s0yse" path="res://Assets/2D_Assets/Emotes/kid_bubbles_1_1.png" id="4_6mc1t"]
 [ext_resource type="Script" uid="uid://bcjcsa8nw5iec" path="res://Characters/Teens/logic/speech_bubble_animation.gd" id="5_ijlkk"]
 [ext_resource type="Texture2D" uid="uid://cey5i71wmjmur" path="res://Assets/2D_Assets/Emotes/kid_bubbles_1_2.png" id="6_ksggn"]
@@ -33,45 +35,12 @@ height = 1.55
 [sub_resource type="ViewportTexture" id="ViewportTexture_048jv"]
 viewport_path = NodePath("SpeechBubbleSprite3D/SpeechBubbleViewPort")
 
-[node name="TeenStanding" type="Node3D" node_paths=PackedStringArray("animation_player", "player_detector")]
+[node name="TeenStanding" type="Node3D" node_paths=PackedStringArray("player_detector", "model_slot")]
 script = ExtResource("1_048jv")
-animation_player = NodePath("CH-teen1/AnimationPlayer")
 player_detector = NodePath("StaticBody3D/PlayerDetector")
-
-[node name="CH-teen1" parent="." instance=ExtResource("2_6mc1t")]
-
-[node name="Skeleton3D" parent="CH-teen1/Armature" index="0"]
-bones/0/position = Vector3(0, -0.00077196956, 0)
-bones/0/scale = Vector3(1, 1.0304416, 1)
-bones/1/position = Vector3(0.003954318, 0.64390945, 0.04781538)
-bones/1/rotation = Quaternion(-0.058662124, -0.013628745, 0.023045804, 0.99791884)
-bones/1/scale = Vector3(0.99999994, 0.99479514, 1)
-bones/2/position = Vector3(0.06324628, 0.016161844, -0.011108116)
-bones/2/rotation = Quaternion(0.0084176585, -0.0666277, 0.997072, 0.03657108)
-bones/3/rotation = Quaternion(-0.03236967, 0.0031401317, 0.015806537, 0.999346)
-bones/4/rotation = Quaternion(0.4890484, -0.4499778, 0.28286642, 0.69162)
-bones/5/rotation = Quaternion(0.048386574, 0.0014739186, -0.050498426, 0.99755025)
-bones/5/scale = Vector3(0.9999999, 0.99999976, 0.9999999)
-bones/6/position = Vector3(0.121791475, 0.18391906, 0.0027887505)
-bones/6/rotation = Quaternion(0.46530527, -0.35179958, -0.7470341, 0.31885442)
-bones/7/rotation = Quaternion(0.8213577, 0.05052748, -0.29922363, 0.48299453)
-bones/8/rotation = Quaternion(-0.21459527, -0.6433933, -0.47986794, 0.5565255)
-bones/9/rotation = Quaternion(0.028035605, -1.1954036e-07, 2.2833553e-09, 0.99960697)
-bones/10/position = Vector3(5.122274e-09, 0.09252816, 0.003716124)
-bones/10/rotation = Quaternion(-0.015457506, 0.0024001044, -0.002298698, 0.99987507)
-bones/11/position = Vector3(-0.12179146, 0.18391901, 0.0027886871)
-bones/11/rotation = Quaternion(0.46967682, 0.30039254, 0.8113657, 0.17565227)
-bones/11/scale = Vector3(0.99999994, 0.9999999, 0.99999994)
-bones/12/rotation = Quaternion(0.8054673, -0.19552311, 0.20301403, 0.52132374)
-bones/13/rotation = Quaternion(-0.11486033, 0.6201463, 0.49884316, 0.5944588)
-bones/14/rotation = Quaternion(0.6912197, 0.19324161, -0.17908643, 0.67290497)
-bones/15/position = Vector3(-0.06324627, 0.01616195, -0.011108134)
-bones/15/rotation = Quaternion(-0.008969923, 0.14111403, 0.9899392, -0.005177404)
-bones/16/rotation = Quaternion(-0.4012343, -7.204363e-05, -0.02527115, 0.9156269)
-bones/17/rotation = Quaternion(0.5895783, 0.34097636, -0.09958406, 0.72540724)
-bones/18/position = Vector3(1.9208528e-09, 0.27280784, 1.4901161e-08)
-bones/18/rotation = Quaternion(0.048386578, 0.0014739182, -0.050498437, 0.9975503)
-bones/18/scale = Vector3(0.9999999, 0.9999998, 0.9999999)
+models = Array[PackedScene]([ExtResource("2_6mc1t"), ExtResource("3_tr3k2"), ExtResource("4_1xrl0")])
+model_slot = NodePath("Model")
+animation = "DiscoJump"
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 collision_layer = 32768
@@ -145,6 +114,6 @@ stream = ExtResource("7_3ww2l")
 unit_size = 5.0
 max_db = 0.0
 max_distance = 10.0
-bus = &"SFX"
 
-[editable path="CH-teen1"]
+[node name="Model" type="Node3D" parent="."]
+unique_name_in_owner = true

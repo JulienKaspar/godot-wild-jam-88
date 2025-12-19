@@ -24,9 +24,15 @@ enum LootTypes {Beer, Pizza }
 enum TeenVariation {Type1, Type2, Type3}
 
 # References
-@export var animation_player : AnimationPlayer
+var animation_player : AnimationPlayer
 @export var player_detector : PushyTeen
-
+@export var models: Array[PackedScene] = []
+@export var model_slot: Node3D
+@export var model_index: int = 0: 
+	set(value):
+		change_model(value)
+		model_index = value
+		
 var previous_animation := "None"
 @export_enum(
 	"Chatting",
@@ -54,7 +60,6 @@ var previous_animation := "None"
 @export var pushy : bool = true
 
 @onready var speech_bubble_animation: SpeechBubbleAnimation = %SpeechBubbleAnimation
-
 
 var currently_angry := false
 var angry_time := 0.0
@@ -88,7 +93,7 @@ func _process(delta: float) -> void:
 		if angry_time <= 0.0:
 			animation_player.play(animation)
 			speech_bubble_animation.hide()
-
+	
 
 @onready var teen_voice_player: AudioStreamPlayer3D = %TeenVoicePlayer
 
@@ -102,3 +107,11 @@ func on_pushed() -> void:
 	currently_angry = true
 	angry_time = 3.0
 	if !teen_voice_player.playing: teen_voice_player.play()
+
+func change_model(index: int) -> void:
+	for child in model_slot.get_children():
+		child.queue_free()
+	
+	var instance = models[index % models.size()].instantiate()
+	model_slot.add_child(instance)
+	animation_player = instance.get_node("AnimationPlayer")
