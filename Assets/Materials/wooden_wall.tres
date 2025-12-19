@@ -8,11 +8,7 @@ render_priority = 0
 shader = ExtResource("1_gxwrj")
 shader_parameter/albedo = Color(0.5, 0.5, 0.5, 1)
 shader_parameter/texture_albedo = ExtResource("2_7a2y2")
-<<<<<<< Updated upstream
 shader_parameter/top_color = Color(0.2784, 0.2196, 0.1569, 1)
-=======
-shader_parameter/top_color = Color(0.5059, 0.451, 0.2588, 1)
->>>>>>> Stashed changes
 shader_parameter/wall_height = 6.0
 shader_parameter/stretch = 1.0
 shader_parameter/roughness = 1.0
