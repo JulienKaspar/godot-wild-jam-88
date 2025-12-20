@@ -15,8 +15,8 @@ signal ChangeMovement(state: MoveStates)
 #---------------- PFX ---------------------------------------------------------
 
 @onready var pfx_falling = $PlayerController/NoRotateBall/PfxFallingIndicator
-@onready var pfx_bodyfall = $PlayerController/UpperBody/PfxBodyfall
-
+@onready var pfx_bodyfall = $PlayerController/NoRotateBall/PfxBodyfall
+ 
 #--------------- Settings -----------------------------------------------------
 var fallStartPoint = 0.2
 var fallNoRecoverPoint = 0.6

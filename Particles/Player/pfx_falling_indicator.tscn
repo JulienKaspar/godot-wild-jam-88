@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cyksrihj0achx"]
+[gd_scene load_steps=3 format=3 uid="uid://cyksrihj0achx"]
 
-[ext_resource type="Texture2D" uid="uid://d5qg7xmujqnt" path="res://Particles/Dust_Poof_Falling/Dust_Poof_Falling_1.png" id="1_bllyg"]
+[ext_resource type="QuadMesh" uid="uid://jxvi58utf2ih" path="res://Particles/Dust_Poof_Falling/draw_sprite_dust_1_a.tres" id="1_bllyg"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mv2ra"]
 lifetime_randomness = 0.2
@@ -38,32 +38,8 @@ turbulence_influence_max = 0.052
 turbulence_initial_displacement_min = 1.490116e-06
 turbulence_initial_displacement_max = 1.490116e-06
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bllyg"]
-load_path = "res://.godot/imported/Dust_Poof_Falling_1_normal_v3.png-a9a31cc28f40991b87c72aa00b48c6bb.s3tc.ctex"
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bllyg"]
-transparency = 1
-diffuse_mode = 3
-specular_mode = 2
-albedo_color = Color(0.6378432, 0.6378432, 0.63784313, 1)
-albedo_texture = ExtResource("1_bllyg")
-normal_enabled = true
-normal_scale = 0.89
-normal_texture = SubResource("CompressedTexture2D_bllyg")
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 3
-particles_anim_v_frames = 3
-particles_anim_loop = false
-grow = true
-grow_amount = 0.312
-stencil_flags = 2
-
-[sub_resource type="QuadMesh" id="QuadMesh_tsxdo"]
-material = SubResource("StandardMaterial3D_bllyg")
-
 [node name="PfxFallingIndicator" type="GPUParticles3D"]
 amount = 10
 lifetime = 0.8
 process_material = SubResource("ParticleProcessMaterial_mv2ra")
-draw_pass_1 = SubResource("QuadMesh_tsxdo")
+draw_pass_1 = ExtResource("1_bllyg")

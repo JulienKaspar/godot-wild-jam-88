@@ -263,6 +263,9 @@ outline_size = 50
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 collision_mask = 128
 
+[node name="PfxBodyfall" parent="NoRotateBall" instance=ExtResource("3_on8bp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.91440105, 0)
+
 [node name="UpperBody" type="RigidBody3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.164401, 0)
@@ -320,8 +323,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.16933973, 0.42215487, 0.00
 [node name="AttachPointFootL" type="Marker3D" parent="UpperBody/BodyAttachPoint"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.169, 0.422, 0.002)
-
-[node name="PfxBodyfall" parent="UpperBody" instance=ExtResource("3_on8bp")]
 
 [node name="ArmL" type="RigidBody3D" parent="."]
 unique_name_in_owner = true
