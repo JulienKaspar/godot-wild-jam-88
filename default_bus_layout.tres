@@ -44,13 +44,14 @@ feedback_level_db = -60.0
 
 [sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_j3pel"]
 resource_name = "LowPassFilter"
-cutoff_hz = 200.0
-resonance = 0.3
+cutoff_hz = 800.0
+resonance = 0.1
 db = 1
 
 [sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_fsxhn"]
 resource_name = "LowPassFilter"
-resonance = 0.8
+cutoff_hz = 400.0
+resonance = 0.9
 
 [resource]
 bus/0/effect/0/effect = SubResource("AudioEffectLimiter_j3pel")

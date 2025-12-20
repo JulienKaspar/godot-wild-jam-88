@@ -9,7 +9,6 @@ var ui_sounds : UI_Sounds
 var player_sounds : PlayerSounds
 var sfx_pool : SoundEffectsPool
 
-const DRUNK_AUDIO_BUS_LAYOUT : AudioBusLayout = preload("uid://c6p02v462orsm")
 
 # TODO: Ensure this is consistent with audio_bus_layout
 # NOTE: Dynamically load / replace with audio bus layout resource?
@@ -22,10 +21,6 @@ enum BUS {
 	UI,
 	PLAYER
 }
-
-
-func _init():
-	AudioServer.set_bus_layout(DRUNK_AUDIO_BUS_LAYOUT)
 
 func _ready():
 	GameStateManager.player_drunkness.on_drunkness_changed.connect(update_drunk_effects)

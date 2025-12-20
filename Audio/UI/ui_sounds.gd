@@ -11,6 +11,7 @@ class_name UI_Sounds
 
 @export var drunkness_up : AudioStream
 @export var drunkness_down : AudioStream
+@export var shake_impact : AudioStream
 
 var game_started : bool = false
 
@@ -23,8 +24,10 @@ func play_sound(_stream : AudioStream):
 		push_warning(str("UI_Sounds: cannot play sound: ", _stream, " is no valid AudioStream resource"))
 		return
 	
-	if !game_started and _stream == drunkness_down:
-		return
+	if !game_started:
+		match _stream:
+			drunkness_down, drunkness_up, shake_impact:
+				return
 	
 	self.stream = _stream
 	self.play()
