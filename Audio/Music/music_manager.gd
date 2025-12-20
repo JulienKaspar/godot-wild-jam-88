@@ -11,7 +11,7 @@ class_name MusicManager
 signal switch_music(theme : MUSIC_THEMES)
 
 @onready var music_player : AudioStreamPlayer = %MusicPlayer
-const _DEFAULT_VOLUME_DB : float = -6.0
+const _DEFAULT_VOLUME_DB : float = -1.5
 
 var filter_effect : AudioEffectLowPassFilter = AudioServer.get_bus_effect(AudioManager.BUS.MUSIC, 0)
 
@@ -45,7 +45,7 @@ func _connect_signals():
 	GameStateManager.on_level_loaded.connect(_on_level_change)
 
 
-const _LEVEL_VOLUME_OFFSET_DB : float = -15.0
+const _LEVEL_VOLUME_OFFSET_DB : float = -9.0
 const _LEVEL_VOLUME_FACTOR : float = 1.5
 
 func _on_level_change(level_index : int):

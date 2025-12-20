@@ -17,7 +17,7 @@ var hiccup_timer : Timer
 var drinking_timer : Timer
 var is_drinking : bool = false
 
-@export_range(0.0, 1.0) var burp_nastiness : float = 0.5:  # range (0.0, 1.0)
+@export_range(0.0, 1.0) var burp_nastiness : float = UserSettings.burp_nastiness:  # range (0.0, 1.0)
 	set(value):
 		select_burps(value)
 

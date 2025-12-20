@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bwm23c42sbbui"]
 
 [ext_resource type="PackedScene" uid="uid://ci7fwckf813io" path="res://Assets/Furniture/lamp_table1.gltf" id="1_711gm"]
-[ext_resource type="PackedScene" path="res://Objects/PropCollider.tscn" id="2_syqg0"]
+[ext_resource type="PackedScene" uid="uid://142xvokhmr2g" path="res://Objects/PropCollider.tscn" id="2_syqg0"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_20fxu"]
 height = 0.40234375
@@ -16,3 +16,9 @@ radius = 0.22460938
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PropCollider"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.20117188, 0)
 shape = SubResource("CylinderShape3D_20fxu")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44384336, 0)
+light_color = Color(1, 0.9866667, 0.19999999, 1)
+light_energy = 2.095
+omni_range = 1.886
