@@ -36,7 +36,7 @@ func _ready():
 
 func play_voice(voice_stream : AudioStream) -> void:
 	if voice_player.playing and voice_stream != falling_sounds: # falling always sound
-		print("PlayerSounds: voice_player is already playing a sound")
+		print("PlayerSounds: attempt to play stream: ", voice_stream.resource_name, "voice_player is already playing a sound: ", voice_player.stream.resource_name)
 		return
 	
 	if singing_player.playing:

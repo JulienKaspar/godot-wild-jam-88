@@ -1,21 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://c46y87jtli80e"]
+[gd_scene load_steps=6 format=3 uid="uid://c46y87jtli80e"]
 
 [ext_resource type="Script" uid="uid://c7hneeofvntpl" path="res://Audio/SFX/sound_effects_pool.gd" id="1_5noex"]
 [ext_resource type="PackedScene" uid="uid://c582dhy7jbej6" path="res://Audio/SFX/sfx_player.tscn" id="2_kecfh"]
-[ext_resource type="AudioStream" uid="uid://cw7t0677oa7cn" path="res://Assets/Audio/SFX/Props/prop_wobble_01.ogg" id="3_7d5my"]
-[ext_resource type="AudioStream" uid="uid://dnk3peqdobuvm" path="res://Assets/Audio/SFX/Props/prop_wobble_02.ogg" id="4_ljvjk"]
-[ext_resource type="AudioStream" uid="uid://cvdlvbu011nho" path="res://Assets/Audio/SFX/Props/prop_wobble_03.ogg" id="5_yckv0"]
-[ext_resource type="AudioStream" uid="uid://djeix04yoq00o" path="res://Assets/Audio/SFX/Props/prop_wobble_04.ogg" id="6_h08pl"]
+[ext_resource type="AudioStream" uid="uid://c26db5wy5c718" path="res://Audio/SFX/Props/wobble_sounds.tres" id="3_rk4f4"]
+[ext_resource type="AudioStream" uid="uid://bk41hfuvlnxoe" path="res://Assets/Audio/SFX/Props/banana_slip_01.ogg" id="4_lrawr"]
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xcims"]
-streams_count = 4
-stream_0/stream = ExtResource("3_7d5my")
-stream_1/stream = ExtResource("4_ljvjk")
-stream_2/stream = ExtResource("5_yckv0")
-stream_3/stream = ExtResource("6_h08pl")
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_mxvxv"]
+random_pitch = 1.3
+streams_count = 1
+stream_0/stream = ExtResource("4_lrawr")
 
 [node name="SoundEffectsPool" type="Node"]
 script = ExtResource("1_5noex")
 max_num_items = 8
 item_scene = ExtResource("2_kecfh")
-wobble_sounds = SubResource("AudioStreamRandomizer_xcims")
+wobble_sounds = ExtResource("3_rk4f4")
+banana_slip_sounds = SubResource("AudioStreamRandomizer_mxvxv")

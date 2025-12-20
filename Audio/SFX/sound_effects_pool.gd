@@ -13,6 +13,7 @@ var shrink_timer : Timer
 
 @export_category("Sounds")
 @export var wobble_sounds : AudioStreamRandomizer
+@export var banana_slip_sounds : AudioStreamRandomizer
 
 
 func _ready():
@@ -48,7 +49,7 @@ func get_item() -> Variant:
 	if shrink_timer:
 		reset_shrink_timer()
 	
-	var item : Variant
+	var item : AudioStreamPlayer3D
 	
 	if pool_items.is_empty():
 		item = item_scene.instantiate()
@@ -60,6 +61,8 @@ func get_item() -> Variant:
 	item.set_process(true)
 	item.set_physics_process(true)
 	item.show()
+	
+	item.finished.connect(return_item)
 	
 	return item
 

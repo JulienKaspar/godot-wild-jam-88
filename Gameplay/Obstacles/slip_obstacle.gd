@@ -46,6 +46,8 @@ func handle_player_collision(body: Node3D) -> void:
 			#player_detector.process_mode = Node.PROCESS_MODE_DISABLED
 			player_detector.queue_free() # non of the above doe sactually stop the area to trigger, always give up
 			PlayerMovementUtils.slip_player(GameStateManager.current_player.player_global_pos, force_multiplier)
+			play_slip_sound()
+			
 			var player_facing_dir = GameStateManager.current_player.player_move_dir.normalized()
 			var angle = atan2(player_facing_dir.x, player_facing_dir.y)
 			disable_pfx.global_rotation = Vector3(0,angle,0)
@@ -56,7 +58,7 @@ func handle_player_collision(body: Node3D) -> void:
 		elif time_elapsed_since_activation > cooldown:
 			time_elapsed_since_activation = 0
 			PlayerMovementUtils.slip_player(GameStateManager.current_player.player_global_pos, force_multiplier)
-	
+			play_slip_sound()
 	
 func has_player_as_parent(body: Node3D) -> bool:
 	var current_node_checked: Node
@@ -71,3 +73,9 @@ func has_player_as_parent(body: Node3D) -> bool:
 		current_node_checked = current_node_checked.get_parent()
 	return false
 		
+
+func play_slip_sound() -> void:
+	var slip_player : AudioStreamPlayer3D = AudioManager.sfx_pool.get_item()
+	slip_player.stream = AudioManager.sfx_pool.banana_slip_sounds
+	slip_player.position = self.global_position
+	slip_player.play()
