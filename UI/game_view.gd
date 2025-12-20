@@ -56,6 +56,7 @@ func handle_game_started() -> void:
 	main_menu.hide()
 	settings_menu.hide()
 	hud.show()
+	pause_menu.hide()
 	game_started = true
 	
 func _unhandled_input(event: InputEvent) -> void:
@@ -71,6 +72,7 @@ func show_game_ui() -> void:
 	main_menu.hide()
 	settings_menu.hide()
 	hud.show() 	
+	pause_menu.hide()
 	
 func show_paused_menu() -> void:
 	pause_menu.open()
