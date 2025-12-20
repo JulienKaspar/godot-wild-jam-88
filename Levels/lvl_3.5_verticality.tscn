@@ -269,7 +269,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0037841797, 0.71295166, -0.
 shape = SubResource("BoxShape3D_a5w72")
 
 [node name="PlayerSpawnPoint" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.206181, 3.4340777, 22.379839)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.075546, 0, 22.050137)
 script = ExtResource("1_2nj4m")
 metadata/_custom_type_script = "uid://cm1uqdo37kpmi"
 
