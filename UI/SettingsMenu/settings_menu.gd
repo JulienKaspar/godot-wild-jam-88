@@ -25,6 +25,7 @@ func show_tab(index:int ) -> void:
 	tab_container.current_tab = index
 
 func open() -> void:
+	#AudioManager.ui_sounds.play_sound(AudioManager.ui_sounds.focus_element)
 	tab_buttons[0].grab_focus()
 
 func _unhandled_key_input(event: InputEvent) -> void:
