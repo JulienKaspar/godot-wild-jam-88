@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dox1u5jid0mfr"
 path.s3tc="res://.godot/imported/garden_earth.png-ff9f9ae50ab8c67c18743dd6db324bca.s3tc.ctex"
+path.etc2="res://.godot/imported/garden_earth.png-ff9f9ae50ab8c67c18743dd6db324bca.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Backyard/garden_earth.png"
-dest_files=["res://.godot/imported/garden_earth.png-ff9f9ae50ab8c67c18743dd6db324bca.s3tc.ctex"]
+dest_files=["res://.godot/imported/garden_earth.png-ff9f9ae50ab8c67c18743dd6db324bca.s3tc.ctex", "res://.godot/imported/garden_earth.png-ff9f9ae50ab8c67c18743dd6db324bca.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c5kempoojy45t"
 path.s3tc="res://.godot/imported/controls_tab.png-1c4f25d2b9a4d68a2a80c7b0fcd88539.s3tc.ctex"
+path.etc2="res://.godot/imported/controls_tab.png-1c4f25d2b9a4d68a2a80c7b0fcd88539.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://UI/SettingsMenu/controls_tab.png"
-dest_files=["res://.godot/imported/controls_tab.png-1c4f25d2b9a4d68a2a80c7b0fcd88539.s3tc.ctex"]
+dest_files=["res://.godot/imported/controls_tab.png-1c4f25d2b9a4d68a2a80c7b0fcd88539.s3tc.ctex", "res://.godot/imported/controls_tab.png-1c4f25d2b9a4d68a2a80c7b0fcd88539.etc2.ctex"]
 
 [params]
 

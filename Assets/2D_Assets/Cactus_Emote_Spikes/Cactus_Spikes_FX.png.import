@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b2tux7tu8xmdw"
 path.s3tc="res://.godot/imported/Cactus_Spikes_FX.png-259f1e34c33ba902732ef84c61709088.s3tc.ctex"
+path.etc2="res://.godot/imported/Cactus_Spikes_FX.png-259f1e34c33ba902732ef84c61709088.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/2D_Assets/Cactus_Emote_Spikes/Cactus_Spikes_FX.png"
-dest_files=["res://.godot/imported/Cactus_Spikes_FX.png-259f1e34c33ba902732ef84c61709088.s3tc.ctex"]
+dest_files=["res://.godot/imported/Cactus_Spikes_FX.png-259f1e34c33ba902732ef84c61709088.s3tc.ctex", "res://.godot/imported/Cactus_Spikes_FX.png-259f1e34c33ba902732ef84c61709088.etc2.ctex"]
 
 [params]
 

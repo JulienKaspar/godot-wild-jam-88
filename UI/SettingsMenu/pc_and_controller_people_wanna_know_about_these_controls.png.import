@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://udhsg3224yrc"
 path.s3tc="res://.godot/imported/pc_and_controller_people_wanna_know_about_these_controls.png-7ad804a67d0ae0461a72eec4fc85c33a.s3tc.ctex"
+path.etc2="res://.godot/imported/pc_and_controller_people_wanna_know_about_these_controls.png-7ad804a67d0ae0461a72eec4fc85c33a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://UI/SettingsMenu/pc_and_controller_people_wanna_know_about_these_controls.png"
-dest_files=["res://.godot/imported/pc_and_controller_people_wanna_know_about_these_controls.png-7ad804a67d0ae0461a72eec4fc85c33a.s3tc.ctex"]
+dest_files=["res://.godot/imported/pc_and_controller_people_wanna_know_about_these_controls.png-7ad804a67d0ae0461a72eec4fc85c33a.s3tc.ctex", "res://.godot/imported/pc_and_controller_people_wanna_know_about_these_controls.png-7ad804a67d0ae0461a72eec4fc85c33a.etc2.ctex"]
 
 [params]
 

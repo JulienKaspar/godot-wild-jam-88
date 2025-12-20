@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://tcifeeybbp0d"
 path.s3tc="res://.godot/imported/foam_3.png-62202c2512bf84f08dcf59cd3874691f.s3tc.ctex"
+path.etc2="res://.godot/imported/foam_3.png-62202c2512bf84f08dcf59cd3874691f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Particles/Drunkmeter_Foam/foam_3.png"
-dest_files=["res://.godot/imported/foam_3.png-62202c2512bf84f08dcf59cd3874691f.s3tc.ctex"]
+dest_files=["res://.godot/imported/foam_3.png-62202c2512bf84f08dcf59cd3874691f.s3tc.ctex", "res://.godot/imported/foam_3.png-62202c2512bf84f08dcf59cd3874691f.etc2.ctex"]
 
 [params]
 

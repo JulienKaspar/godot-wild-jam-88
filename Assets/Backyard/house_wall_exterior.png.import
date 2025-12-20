@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://f6e6lh1quy3x"
 path.s3tc="res://.godot/imported/house_wall_exterior.png-0d7dd5e7e86bff79dadfba7d4a9261e3.s3tc.ctex"
+path.etc2="res://.godot/imported/house_wall_exterior.png-0d7dd5e7e86bff79dadfba7d4a9261e3.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Backyard/house_wall_exterior.png"
-dest_files=["res://.godot/imported/house_wall_exterior.png-0d7dd5e7e86bff79dadfba7d4a9261e3.s3tc.ctex"]
+dest_files=["res://.godot/imported/house_wall_exterior.png-0d7dd5e7e86bff79dadfba7d4a9261e3.s3tc.ctex", "res://.godot/imported/house_wall_exterior.png-0d7dd5e7e86bff79dadfba7d4a9261e3.etc2.ctex"]
 
 [params]
 

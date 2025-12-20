@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://pnhpuux0j6bh"
 path.s3tc="res://.godot/imported/bush_1.png-85991a5b912beb992f61a2d82d73ca0a.s3tc.ctex"
+path.etc2="res://.godot/imported/bush_1.png-85991a5b912beb992f61a2d82d73ca0a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Backyard/bush_1.png"
-dest_files=["res://.godot/imported/bush_1.png-85991a5b912beb992f61a2d82d73ca0a.s3tc.ctex"]
+dest_files=["res://.godot/imported/bush_1.png-85991a5b912beb992f61a2d82d73ca0a.s3tc.ctex", "res://.godot/imported/bush_1.png-85991a5b912beb992f61a2d82d73ca0a.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dw6rpcrvgmspl"
 path.s3tc="res://.godot/imported/schweini_on_canwasdalos.png-e0f99206e3e5a76a5f841324416d372a.s3tc.ctex"
+path.etc2="res://.godot/imported/schweini_on_canwasdalos.png-e0f99206e3e5a76a5f841324416d372a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/2D_Assets/Wall_Paintings/schweini_on_canwasdalos.png"
-dest_files=["res://.godot/imported/schweini_on_canwasdalos.png-e0f99206e3e5a76a5f841324416d372a.s3tc.ctex"]
+dest_files=["res://.godot/imported/schweini_on_canwasdalos.png-e0f99206e3e5a76a5f841324416d372a.s3tc.ctex", "res://.godot/imported/schweini_on_canwasdalos.png-e0f99206e3e5a76a5f841324416d372a.etc2.ctex"]
 
 [params]
 

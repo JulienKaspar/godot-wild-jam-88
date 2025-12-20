@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dpeu7tw25bbev"
 path.s3tc="res://.godot/imported/glass_3.png-5276c2021bc9b7437d366e2dab32157d.s3tc.ctex"
+path.etc2="res://.godot/imported/glass_3.png-5276c2021bc9b7437d366e2dab32157d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Particles/Glass_Shards/glass_3.png"
-dest_files=["res://.godot/imported/glass_3.png-5276c2021bc9b7437d366e2dab32157d.s3tc.ctex"]
+dest_files=["res://.godot/imported/glass_3.png-5276c2021bc9b7437d366e2dab32157d.s3tc.ctex", "res://.godot/imported/glass_3.png-5276c2021bc9b7437d366e2dab32157d.etc2.ctex"]
 
 [params]
 

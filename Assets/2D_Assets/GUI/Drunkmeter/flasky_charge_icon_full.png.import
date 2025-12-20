@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://kq5yckstj021"
 path.s3tc="res://.godot/imported/flasky_charge_icon_full.png-5538f52c6505e221ccb9c97a22a95885.s3tc.ctex"
+path.etc2="res://.godot/imported/flasky_charge_icon_full.png-5538f52c6505e221ccb9c97a22a95885.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/2D_Assets/GUI/Drunkmeter/flasky_charge_icon_full.png"
-dest_files=["res://.godot/imported/flasky_charge_icon_full.png-5538f52c6505e221ccb9c97a22a95885.s3tc.ctex"]
+dest_files=["res://.godot/imported/flasky_charge_icon_full.png-5538f52c6505e221ccb9c97a22a95885.s3tc.ctex", "res://.godot/imported/flasky_charge_icon_full.png-5538f52c6505e221ccb9c97a22a95885.etc2.ctex"]
 
 [params]
 

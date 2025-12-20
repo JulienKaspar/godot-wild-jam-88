@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cwbfh2o0ajxif"
 path.s3tc="res://.godot/imported/grass_tile_atlas.png-1bc138af1d7eb2ed6235f1630da68860.s3tc.ctex"
+path.etc2="res://.godot/imported/grass_tile_atlas.png-1bc138af1d7eb2ed6235f1630da68860.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Maps/Exterior/grass_tile_atlas.png"
-dest_files=["res://.godot/imported/grass_tile_atlas.png-1bc138af1d7eb2ed6235f1630da68860.s3tc.ctex"]
+dest_files=["res://.godot/imported/grass_tile_atlas.png-1bc138af1d7eb2ed6235f1630da68860.s3tc.ctex", "res://.godot/imported/grass_tile_atlas.png-1bc138af1d7eb2ed6235f1630da68860.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bk1t3pbv2ldcv"
 path.s3tc="res://.godot/imported/settings_slider_frame.png-dcbf62c253593b33286ccab3519406cd.s3tc.ctex"
+path.etc2="res://.godot/imported/settings_slider_frame.png-dcbf62c253593b33286ccab3519406cd.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://UI/SettingsMenu/settings_slider_frame.png"
-dest_files=["res://.godot/imported/settings_slider_frame.png-dcbf62c253593b33286ccab3519406cd.s3tc.ctex"]
+dest_files=["res://.godot/imported/settings_slider_frame.png-dcbf62c253593b33286ccab3519406cd.s3tc.ctex", "res://.godot/imported/settings_slider_frame.png-dcbf62c253593b33286ccab3519406cd.etc2.ctex"]
 
 [params]
 

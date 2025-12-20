@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b7tbj7wldexb4"
 path.s3tc="res://.godot/imported/arrow_selector_left_pressed.png-9a76bb50293db72b207cbaed9304e54e.s3tc.ctex"
+path.etc2="res://.godot/imported/arrow_selector_left_pressed.png-9a76bb50293db72b207cbaed9304e54e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://UI/SettingsMenu/arrow_selector_left_pressed.png"
-dest_files=["res://.godot/imported/arrow_selector_left_pressed.png-9a76bb50293db72b207cbaed9304e54e.s3tc.ctex"]
+dest_files=["res://.godot/imported/arrow_selector_left_pressed.png-9a76bb50293db72b207cbaed9304e54e.s3tc.ctex", "res://.godot/imported/arrow_selector_left_pressed.png-9a76bb50293db72b207cbaed9304e54e.etc2.ctex"]
 
 [params]
 

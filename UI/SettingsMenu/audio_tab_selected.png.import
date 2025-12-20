@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bm6p6rg4re13u"
 path.s3tc="res://.godot/imported/audio_tab_selected.png-a8b2a0f87be87e3433dd0b20d01d008f.s3tc.ctex"
+path.etc2="res://.godot/imported/audio_tab_selected.png-a8b2a0f87be87e3433dd0b20d01d008f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://UI/SettingsMenu/audio_tab_selected.png"
-dest_files=["res://.godot/imported/audio_tab_selected.png-a8b2a0f87be87e3433dd0b20d01d008f.s3tc.ctex"]
+dest_files=["res://.godot/imported/audio_tab_selected.png-a8b2a0f87be87e3433dd0b20d01d008f.s3tc.ctex", "res://.godot/imported/audio_tab_selected.png-a8b2a0f87be87e3433dd0b20d01d008f.etc2.ctex"]
 
 [params]
 

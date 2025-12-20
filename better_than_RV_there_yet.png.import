@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c40kn0pvycf2w"
 path.s3tc="res://.godot/imported/better_than_RV_there_yet.png-5bfc4f6551bcf91074c68f30cd071a77.s3tc.ctex"
+path.etc2="res://.godot/imported/better_than_RV_there_yet.png-5bfc4f6551bcf91074c68f30cd071a77.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://better_than_RV_there_yet.png"
-dest_files=["res://.godot/imported/better_than_RV_there_yet.png-5bfc4f6551bcf91074c68f30cd071a77.s3tc.ctex"]
+dest_files=["res://.godot/imported/better_than_RV_there_yet.png-5bfc4f6551bcf91074c68f30cd071a77.s3tc.ctex", "res://.godot/imported/better_than_RV_there_yet.png-5bfc4f6551bcf91074c68f30cd071a77.etc2.ctex"]
 
 [params]
 

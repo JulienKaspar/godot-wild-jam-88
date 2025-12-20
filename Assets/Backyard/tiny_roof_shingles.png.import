@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c6srndjvda7tf"
 path.s3tc="res://.godot/imported/tiny_roof_shingles.png-2308821e9bd15924dd305be03a729629.s3tc.ctex"
+path.etc2="res://.godot/imported/tiny_roof_shingles.png-2308821e9bd15924dd305be03a729629.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Backyard/tiny_roof_shingles.png"
-dest_files=["res://.godot/imported/tiny_roof_shingles.png-2308821e9bd15924dd305be03a729629.s3tc.ctex"]
+dest_files=["res://.godot/imported/tiny_roof_shingles.png-2308821e9bd15924dd305be03a729629.s3tc.ctex", "res://.godot/imported/tiny_roof_shingles.png-2308821e9bd15924dd305be03a729629.etc2.ctex"]
 
 [params]
 

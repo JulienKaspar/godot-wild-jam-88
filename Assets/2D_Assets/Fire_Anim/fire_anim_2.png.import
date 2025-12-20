@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://1u7yhr8j6koo"
 path.s3tc="res://.godot/imported/fire_anim_2.png-8385811051feaa9a9d7598891d25e95b.s3tc.ctex"
+path.etc2="res://.godot/imported/fire_anim_2.png-8385811051feaa9a9d7598891d25e95b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/2D_Assets/Fire_Anim/fire_anim_2.png"
-dest_files=["res://.godot/imported/fire_anim_2.png-8385811051feaa9a9d7598891d25e95b.s3tc.ctex"]
+dest_files=["res://.godot/imported/fire_anim_2.png-8385811051feaa9a9d7598891d25e95b.s3tc.ctex", "res://.godot/imported/fire_anim_2.png-8385811051feaa9a9d7598891d25e95b.etc2.ctex"]
 
 [params]
 

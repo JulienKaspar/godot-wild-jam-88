@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dyk7f7batn65t"
 path.s3tc="res://.godot/imported/fake_outdoors_for_windows.png-fa39b6e8a0e07932d8cce0b954324534.s3tc.ctex"
+path.etc2="res://.godot/imported/fake_outdoors_for_windows.png-fa39b6e8a0e07932d8cce0b954324534.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Furniture/fake_outdoors_for_windows.png"
-dest_files=["res://.godot/imported/fake_outdoors_for_windows.png-fa39b6e8a0e07932d8cce0b954324534.s3tc.ctex"]
+dest_files=["res://.godot/imported/fake_outdoors_for_windows.png-fa39b6e8a0e07932d8cce0b954324534.s3tc.ctex", "res://.godot/imported/fake_outdoors_for_windows.png-fa39b6e8a0e07932d8cce0b954324534.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://der26hksvgrjr"
 path.s3tc="res://.godot/imported/pause_menu_backdrop.png-0d7d78dd64f930e4835dd6d29dee9b24.s3tc.ctex"
+path.etc2="res://.godot/imported/pause_menu_backdrop.png-0d7d78dd64f930e4835dd6d29dee9b24.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://UI/SettingsMenu/pause_menu_backdrop.png"
-dest_files=["res://.godot/imported/pause_menu_backdrop.png-0d7d78dd64f930e4835dd6d29dee9b24.s3tc.ctex"]
+dest_files=["res://.godot/imported/pause_menu_backdrop.png-0d7d78dd64f930e4835dd6d29dee9b24.s3tc.ctex", "res://.godot/imported/pause_menu_backdrop.png-0d7d78dd64f930e4835dd6d29dee9b24.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b7780ynsj1mum"
 path.s3tc="res://.godot/imported/accessibility_tab.png-a2b19c76084b006ab9897c79d2b10a41.s3tc.ctex"
+path.etc2="res://.godot/imported/accessibility_tab.png-a2b19c76084b006ab9897c79d2b10a41.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://UI/SettingsMenu/accessibility_tab.png"
-dest_files=["res://.godot/imported/accessibility_tab.png-a2b19c76084b006ab9897c79d2b10a41.s3tc.ctex"]
+dest_files=["res://.godot/imported/accessibility_tab.png-a2b19c76084b006ab9897c79d2b10a41.s3tc.ctex", "res://.godot/imported/accessibility_tab.png-a2b19c76084b006ab9897c79d2b10a41.etc2.ctex"]
 
 [params]
 

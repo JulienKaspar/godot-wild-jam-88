@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://daemrasngkipf"
 path.s3tc="res://.godot/imported/drunk_diffuse.png-864b686eef4a00107776662052ae46be.s3tc.ctex"
+path.etc2="res://.godot/imported/drunk_diffuse.png-864b686eef4a00107776662052ae46be.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Characters/Drunk/drunk_diffuse.png"
-dest_files=["res://.godot/imported/drunk_diffuse.png-864b686eef4a00107776662052ae46be.s3tc.ctex"]
+dest_files=["res://.godot/imported/drunk_diffuse.png-864b686eef4a00107776662052ae46be.s3tc.ctex", "res://.godot/imported/drunk_diffuse.png-864b686eef4a00107776662052ae46be.etc2.ctex"]
 
 [params]
 

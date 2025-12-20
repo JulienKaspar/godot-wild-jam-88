@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d0y21i35gd2rk"
 path.s3tc="res://.godot/imported/settings_fence.png-de918b8ff7f7b37a9ce1e61a072905ec.s3tc.ctex"
+path.etc2="res://.godot/imported/settings_fence.png-de918b8ff7f7b37a9ce1e61a072905ec.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/2D_Assets/Menu_Art/settings_fence.png"
-dest_files=["res://.godot/imported/settings_fence.png-de918b8ff7f7b37a9ce1e61a072905ec.s3tc.ctex"]
+dest_files=["res://.godot/imported/settings_fence.png-de918b8ff7f7b37a9ce1e61a072905ec.s3tc.ctex", "res://.godot/imported/settings_fence.png-de918b8ff7f7b37a9ce1e61a072905ec.etc2.ctex"]
 
 [params]
 

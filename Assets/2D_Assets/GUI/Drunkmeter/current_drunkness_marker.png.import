@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cdx6ybpshgxao"
 path.s3tc="res://.godot/imported/current_drunkness_marker.png-789b533e753684b5a10561a8504e01fb.s3tc.ctex"
+path.etc2="res://.godot/imported/current_drunkness_marker.png-789b533e753684b5a10561a8504e01fb.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/2D_Assets/GUI/Drunkmeter/current_drunkness_marker.png"
-dest_files=["res://.godot/imported/current_drunkness_marker.png-789b533e753684b5a10561a8504e01fb.s3tc.ctex"]
+dest_files=["res://.godot/imported/current_drunkness_marker.png-789b533e753684b5a10561a8504e01fb.s3tc.ctex", "res://.godot/imported/current_drunkness_marker.png-789b533e753684b5a10561a8504e01fb.etc2.ctex"]
 
 [params]
 

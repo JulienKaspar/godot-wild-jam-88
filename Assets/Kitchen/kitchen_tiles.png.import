@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dic4pevkohwu4"
 path.s3tc="res://.godot/imported/kitchen_tiles.png-f8a066c7ba33544cf2e94dd03f1b6dc7.s3tc.ctex"
+path.etc2="res://.godot/imported/kitchen_tiles.png-f8a066c7ba33544cf2e94dd03f1b6dc7.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Kitchen/kitchen_tiles.png"
-dest_files=["res://.godot/imported/kitchen_tiles.png-f8a066c7ba33544cf2e94dd03f1b6dc7.s3tc.ctex"]
+dest_files=["res://.godot/imported/kitchen_tiles.png-f8a066c7ba33544cf2e94dd03f1b6dc7.s3tc.ctex", "res://.godot/imported/kitchen_tiles.png-f8a066c7ba33544cf2e94dd03f1b6dc7.etc2.ctex"]
 
 [params]
 

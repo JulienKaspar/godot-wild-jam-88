@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bcis6a7png63n"
 path.s3tc="res://.godot/imported/Dust_Poof_Falling_1_normal.png-e32e151edf4d12586f5e9d55e171caa4.s3tc.ctex"
+path.etc2="res://.godot/imported/Dust_Poof_Falling_1_normal.png-e32e151edf4d12586f5e9d55e171caa4.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Particles/Dust_Poof_Falling/Dust_Poof_Falling_1_normal.png"
-dest_files=["res://.godot/imported/Dust_Poof_Falling_1_normal.png-e32e151edf4d12586f5e9d55e171caa4.s3tc.ctex"]
+dest_files=["res://.godot/imported/Dust_Poof_Falling_1_normal.png-e32e151edf4d12586f5e9d55e171caa4.s3tc.ctex", "res://.godot/imported/Dust_Poof_Falling_1_normal.png-e32e151edf4d12586f5e9d55e171caa4.etc2.ctex"]
 
 [params]
 

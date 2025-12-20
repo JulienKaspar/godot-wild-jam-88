@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dgf86tqwetnlk"
 path.s3tc="res://.godot/imported/box_checked_unfocused.png-17308cbfd6bb5576414f7a2b2468c499.s3tc.ctex"
+path.etc2="res://.godot/imported/box_checked_unfocused.png-17308cbfd6bb5576414f7a2b2468c499.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://UI/SettingsMenu/box_checked_unfocused.png"
-dest_files=["res://.godot/imported/box_checked_unfocused.png-17308cbfd6bb5576414f7a2b2468c499.s3tc.ctex"]
+dest_files=["res://.godot/imported/box_checked_unfocused.png-17308cbfd6bb5576414f7a2b2468c499.s3tc.ctex", "res://.godot/imported/box_checked_unfocused.png-17308cbfd6bb5576414f7a2b2468c499.etc2.ctex"]
 
 [params]
 

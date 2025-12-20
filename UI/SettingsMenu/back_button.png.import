@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://t8gfw8xq7ncf"
 path.s3tc="res://.godot/imported/back_button.png-2a786464b8fc71a3eec2cdb1248b587e.s3tc.ctex"
+path.etc2="res://.godot/imported/back_button.png-2a786464b8fc71a3eec2cdb1248b587e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://UI/SettingsMenu/back_button.png"
-dest_files=["res://.godot/imported/back_button.png-2a786464b8fc71a3eec2cdb1248b587e.s3tc.ctex"]
+dest_files=["res://.godot/imported/back_button.png-2a786464b8fc71a3eec2cdb1248b587e.s3tc.ctex", "res://.godot/imported/back_button.png-2a786464b8fc71a3eec2cdb1248b587e.etc2.ctex"]
 
 [params]
 

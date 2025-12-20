@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://crwpiwcg75ia0"
 path.s3tc="res://.godot/imported/climbing_roses_1.png-702bfa910a876b1dfaefd4bc6ceec0ee.s3tc.ctex"
+path.etc2="res://.godot/imported/climbing_roses_1.png-702bfa910a876b1dfaefd4bc6ceec0ee.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Backyard/climbing_roses_1.png"
-dest_files=["res://.godot/imported/climbing_roses_1.png-702bfa910a876b1dfaefd4bc6ceec0ee.s3tc.ctex"]
+dest_files=["res://.godot/imported/climbing_roses_1.png-702bfa910a876b1dfaefd4bc6ceec0ee.s3tc.ctex", "res://.godot/imported/climbing_roses_1.png-702bfa910a876b1dfaefd4bc6ceec0ee.etc2.ctex"]
 
 [params]
 

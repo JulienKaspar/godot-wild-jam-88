@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d0w2ft0m7ecpb"
 path.s3tc="res://.godot/imported/atlas_flipped.PNG-e67ac776c2bf56eac20104eb15ef555f.s3tc.ctex"
+path.etc2="res://.godot/imported/atlas_flipped.PNG-e67ac776c2bf56eac20104eb15ef555f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Maps/Walls/wood_paneling/atlas_flipped.PNG"
-dest_files=["res://.godot/imported/atlas_flipped.PNG-e67ac776c2bf56eac20104eb15ef555f.s3tc.ctex"]
+dest_files=["res://.godot/imported/atlas_flipped.PNG-e67ac776c2bf56eac20104eb15ef555f.s3tc.ctex", "res://.godot/imported/atlas_flipped.PNG-e67ac776c2bf56eac20104eb15ef555f.etc2.ctex"]
 
 [params]
 

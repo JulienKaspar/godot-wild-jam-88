@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b6x2rvyujy2v2"
 path.s3tc="res://.godot/imported/big_beige_rose_roman_rug.png-71156e6f3dc7bf048f79513d68c8a98b.s3tc.ctex"
+path.etc2="res://.godot/imported/big_beige_rose_roman_rug.png-71156e6f3dc7bf048f79513d68c8a98b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Maps/Rugs/big_beige_rose_roman_rug.png"
-dest_files=["res://.godot/imported/big_beige_rose_roman_rug.png-71156e6f3dc7bf048f79513d68c8a98b.s3tc.ctex"]
+dest_files=["res://.godot/imported/big_beige_rose_roman_rug.png-71156e6f3dc7bf048f79513d68c8a98b.s3tc.ctex", "res://.godot/imported/big_beige_rose_roman_rug.png-71156e6f3dc7bf048f79513d68c8a98b.etc2.ctex"]
 
 [params]
 
