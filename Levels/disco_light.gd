@@ -5,7 +5,9 @@ extends SpotLight3D
 var disco_interval := 0.6
 
 func _process(delta: float) -> void:
-	
+	if UserSettings.strobe_lights == false:  
+		light_energy = starting_strength
+		return
 	var time_passed := Time.get_ticks_msec() * 0.001
 	var disco_modulo := fmod(time_passed, disco_interval)
 	

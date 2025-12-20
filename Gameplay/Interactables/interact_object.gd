@@ -10,8 +10,10 @@ signal Switched(newState: bool)
 @export var offAngle = 20.0 ##  rotation angle on X axis
 @export var cooldownTime = 1.0 ## time between interactions
 @export var OnOff = true
-
+@export var function : SwitchFunction
 @onready var pickOffset = $PickPoint.position
+
+enum SwitchFunction {Toggle_Strobe_Lights, Fridge}
 
 func setSwitch() -> void:
 	var tween = get_tree().create_tween()
@@ -34,6 +36,10 @@ func switch() -> void:
 	setSwitch()
 	Switched.emit(OnOff)
 	$CooldownTimer.start()
+	
+	match function:
+		SwitchFunction.Toggle_Strobe_Lights:
+			UserSettings.strobe_lights = !UserSettings.strobe_lights
 
 func display_prompt() -> void: 
 	pickup_prompt.show()
