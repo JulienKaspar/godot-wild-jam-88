@@ -6,9 +6,9 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_swcyk")
-shader_parameter/albedo = Vector4(0.8, 0.8, 0.8, 0)
+shader_parameter/albedo = Vector4(0.82, 0.845, 0.895, 0)
 shader_parameter/texture_albedo = ExtResource("2_swcyk")
-shader_parameter/scale = 0.97
+shader_parameter/scale = 1.71
 shader_parameter/roughness = 1.0
 shader_parameter/uv_offset = Vector2(0, 0)
 shader_parameter/tile = 3
