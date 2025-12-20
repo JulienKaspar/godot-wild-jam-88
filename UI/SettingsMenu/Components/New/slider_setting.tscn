@@ -32,16 +32,32 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_arimu")
 
-[node name="Label" type="Label" parent="."]
+[node name="Control" type="Control" parent="."]
 layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = -5.0
+offset_right = 956.0
+offset_bottom = 78.0
+pivot_offset = Vector2(956, 41.5)
 size_flags_horizontal = 3
 theme_override_colors/font_outline_color = Color(0.9955804, 0.99558026, 0.99558026, 1)
 theme_override_font_sizes/font_size = 60
 text = "Setting name"
+horizontal_alignment = 2
 script = ExtResource("1_4wath")
 focus_color = Color(0.43137255, 0.03137255, 0.7411765, 1)
 
-[node name="HSlider" type="HSlider" parent="." node_paths=PackedStringArray("playhead", "texture_bar", "label")]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 70
+
+[node name="HSlider" type="HSlider" parent="MarginContainer" node_paths=PackedStringArray("playhead", "texture_bar", "label")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
@@ -60,9 +76,9 @@ playhead = NodePath("Playhead")
 texture_bar = NodePath("TextureProgressBar")
 focus_playhead = ExtResource("2_cl5xb")
 unfocused_playhead = ExtResource("1_gabah")
-label = NodePath("../Label")
+label = NodePath("../../Control/Label")
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="HSlider"]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/HSlider"]
 layout_mode = 0
 offset_left = -37.0
 offset_top = -31.0
@@ -75,7 +91,7 @@ texture_over = ExtResource("2_cjbty")
 texture_progress = ExtResource("3_cl5xb")
 script = SubResource("GDScript_v861l")
 
-[node name="Playhead" type="TextureRect" parent="HSlider"]
+[node name="Playhead" type="TextureRect" parent="MarginContainer/HSlider"]
 layout_mode = 0
 offset_left = 21.0
 offset_top = -53.0

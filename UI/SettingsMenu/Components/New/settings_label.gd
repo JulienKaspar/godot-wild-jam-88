@@ -4,8 +4,12 @@ class_name SettingsLabel
 @export var focus_color: Color
 @export var focus_scale: float = 1.2
 @export var focus_scale_speed: float = 0.15
+@export var pivot_from_right: bool = false
 const regular_color: Color = Color.WHITE
 
+func _ready() -> void:
+	if pivot_from_right:
+		pivot_offset = Vector2(size.x, size.y / 2)
 
 func focus() -> void:
 	add_theme_color_override("font_color", focus_color)
@@ -13,6 +17,7 @@ func focus() -> void:
 	var size_tween: Tween = create_tween()
 	size_tween.tween_property(self, "scale", Vector2(focus_scale, focus_scale), focus_scale_speed)
 	add_theme_constant_override("outline_size", 30) 
+
 
 	
 func unfocus() -> void:

@@ -20,17 +20,29 @@ unfocused_unchecked_sprite = ExtResource("4_frhxi")
 focused_unchecked_sprite = ExtResource("3_ser22")
 unfocused_checked_sprite = ExtResource("3_u8hap")
 focused_checked_sprite = ExtResource("5_3bv7n")
-label = NodePath("Label")
+label = NodePath("Control/Label")
 checkbox = NodePath("MarginContainer/CheckBox")
 
-[node name="Label" type="Label" parent="."]
+[node name="Control" type="Control" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 309.0
+offset_top = 22.0
+offset_right = 946.0
+offset_bottom = 105.0
+pivot_offset = Vector2(637, 0)
+size_flags_horizontal = 3
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.77254903)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 60
 text = "Setting Name"
+horizontal_alignment = 2
 script = ExtResource("2_u8hap")
 focus_color = Color(0.43137255, 0.03137255, 0.7411765, 1)
+pivot_from_right = true
 metadata/_custom_type_script = "uid://13iqlecj5v0m"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://betq65km7cbe3"]
+[gd_scene load_steps=27 format=3 uid="uid://betq65km7cbe3"]
 
 [ext_resource type="Texture2D" uid="uid://der26hksvgrjr" path="res://UI/SettingsMenu/pause_menu_backdrop.png" id="1_43lif"]
 [ext_resource type="Script" uid="uid://bxy3bjgv1mn50" path="res://UI/SettingsMenu/settings_menu.gd" id="1_ufg0w"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cfx3wet0ps45t" path="res://UI/SettingsMenu/check_box_setting.tscn" id="11_3iwun"]
 [ext_resource type="PackedScene" uid="uid://cl2i7omutjdby" path="res://UI/SettingsMenu/Components/New/slider_setting.tscn" id="11_dxnqk"]
 [ext_resource type="PackedScene" uid="uid://copb1h0542sta" path="res://UI/MainMenu/menu_button.tscn" id="13_cao7s"]
+[ext_resource type="Texture2D" uid="uid://udhsg3224yrc" path="res://UI/SettingsMenu/pc_and_controller_people_wanna_know_about_these_controls.png" id="14_ojxai"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aw4dm"]
 
@@ -75,9 +76,9 @@ layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
 size_flags_vertical = 2
 theme_override_constants/separation = -70
+alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -157,12 +158,11 @@ theme_override_styles/tab_hovered = SubResource("StyleBoxEmpty_a0nqm")
 theme_override_styles/tab_selected = SubResource("StyleBoxEmpty_tky1e")
 theme_override_styles/tab_disabled = SubResource("StyleBoxEmpty_6ycxt")
 theme_override_styles/tab_focus = SubResource("StyleBoxEmpty_ojh45")
-current_tab = 1
+current_tab = 0
 tabs_visible = false
 tab_focus_mode = 0
 
 [node name="Controls" type="PanelContainer" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer"]
-visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_b25i1")
 metadata/_tab_index = 0
@@ -176,7 +176,15 @@ top_focus = NodePath("../../../../HBoxContainer/MarginContainer/ControlTabButton
 setting_name = "Controller Rumble"
 property_name = &"controller_rumble"
 
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer/Controls/VBoxContainer"]
+custom_minimum_size = Vector2(500, 600)
+layout_mode = 2
+texture = ExtResource("14_ojxai")
+expand_mode = 1
+stretch_mode = 5
+
 [node name="Visual" type="PanelContainer" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer"]
+visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_b25i1")
 metadata/_tab_index = 1
