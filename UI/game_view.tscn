@@ -67,7 +67,6 @@ mouse_filter = 2
 [node name="MainMenu" parent="CanvasLayer/MenuDisplayer" instance=ExtResource("3_e62du")]
 unique_name_in_owner = true
 process_mode = 3
-visible = false
 layout_mode = 2
 mouse_filter = 2
 
@@ -83,6 +82,8 @@ visible = false
 layout_mode = 2
 
 [node name="PauseMenu" parent="CanvasLayer/MenuDisplayer" instance=ExtResource("10_27j1k")]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
 [node name="DialogueSystem" parent="CanvasLayer" instance=ExtResource("5_4fmj7")]

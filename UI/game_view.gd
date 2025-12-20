@@ -1,6 +1,7 @@
 extends Node
 @onready var main_menu: MainMenu = %MainMenu
 @onready var settings_menu: SettingsMenu = %SettingsMenu
+@onready var pause_menu: PauseMenu = %PauseMenu
 @onready var hud: HUD = %HUD
 @onready var menu_displayer: Control = %MenuDisplayer
 @onready var dialogue_system: Control = %DialogueSystem
@@ -12,11 +13,15 @@ var game_started: bool = false
 func _ready() -> void:
 	main_menu.settings_menu_button_pressed.connect(handle_setting_menu_opened)
 	main_menu.start_button_pressed.connect(handle_game_started)
-	GameStateManager.on_paused.connect(show_settings_menu)
+	GameStateManager.on_paused.connect(show_paused_menu)
 	GameStateManager.on_unpaused.connect(show_game_ui)
 	UserSettings.on_font_toggled.connect(switch_font)
 	settings_menu.on_back.connect(handle_back_button_pressed)
 	main_menu.start_button.grab_focus.call_deferred()
+	
+	pause_menu.on_main_menu_opened.connect(handle_main_menu_opened)
+	pause_menu.on_restarted.connect(GameStateManager.reset_level)
+	pause_menu.on_settings_opened.connect(handle_setting_menu_opened)
 	
 func switch_font(readability_font: bool) -> void:
 	menu_displayer.theme = readability_font_theme if readability_font else default_font_theme
@@ -42,6 +47,7 @@ func handle_main_menu_opened() -> void:
 	main_menu.show()
 	settings_menu.hide()
 	hud.hide()
+	pause_menu.hide()
 	main_menu.start_button.grab_focus.call_deferred()
 
 	# handle hiding game here potentially
@@ -65,4 +71,9 @@ func show_game_ui() -> void:
 	main_menu.hide()
 	settings_menu.hide()
 	hud.show() 	
+	
+func show_paused_menu() -> void:
+	pause_menu.open()
+	settings_menu.hide()
+	hud.hide()
 	

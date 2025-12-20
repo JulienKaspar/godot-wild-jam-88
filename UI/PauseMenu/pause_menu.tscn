@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cm4oxjb4ek3al"]
+[gd_scene load_steps=5 format=3 uid="uid://cm4oxjb4ek3al"]
 
+[ext_resource type="Script" uid="uid://dvlk3j2w3x6gg" path="res://UI/PauseMenu/pause_menu.gd" id="1_jesmc"]
 [ext_resource type="PackedScene" uid="uid://copb1h0542sta" path="res://UI/MainMenu/menu_button.tscn" id="1_t3iro"]
 [ext_resource type="Texture2D" uid="uid://der26hksvgrjr" path="res://UI/SettingsMenu/pause_menu_backdrop.png" id="1_w5vkt"]
 
@@ -12,6 +13,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_l24xb")
+script = ExtResource("1_jesmc")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
@@ -28,18 +30,42 @@ theme_override_font_sizes/font_size = 140
 text = "PAUSED"
 horizontal_alignment = 1
 
-[node name="StartButton" parent="VBoxContainer" instance=ExtResource("1_t3iro")]
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ResumeButton" parent="VBoxContainer/CenterContainer" instance=ExtResource("1_t3iro")]
+unique_name_in_owner = true
 layout_mode = 2
 text = "RESUME"
 
-[node name="StartButton2" parent="VBoxContainer" instance=ExtResource("1_t3iro")]
+[node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="SettingsButton" parent="VBoxContainer/CenterContainer2" instance=ExtResource("1_t3iro")]
+unique_name_in_owner = true
 layout_mode = 2
 text = "SETTINGS"
 
-[node name="StartButton4" parent="VBoxContainer" instance=ExtResource("1_t3iro")]
+[node name="CenterContainer3" type="CenterContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="MainMenuButton" parent="VBoxContainer/CenterContainer3" instance=ExtResource("1_t3iro")]
+unique_name_in_owner = true
 layout_mode = 2
 text = "MAIN MENU"
 
-[node name="StartButton3" parent="VBoxContainer" instance=ExtResource("1_t3iro")]
+[node name="CenterContainer5" type="CenterContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="RestartLevelButton" parent="VBoxContainer/CenterContainer5" instance=ExtResource("1_t3iro")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "RESTART LEVEL"
+
+[node name="CenterContainer4" type="CenterContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ExitButton" parent="VBoxContainer/CenterContainer4" instance=ExtResource("1_t3iro")]
+unique_name_in_owner = true
 layout_mode = 2
 text = "EXIT"

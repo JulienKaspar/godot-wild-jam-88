@@ -112,6 +112,9 @@ func unpause_game() -> void:
 		
 func handle_sobriety() -> void:
 	if UserSettings.fail_state:
-		load_level_by_index(current_level_index, false)
 		dialogue_system.display_dialogue("We got a little too sober, lets try again")
-		player_drunkness.reset_drunkness()
+		reset_level()
+
+func reset_level() -> void:
+	load_level_by_index(current_level_index, false)
+	player_drunkness.reset_drunkness()
