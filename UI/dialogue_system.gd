@@ -10,10 +10,10 @@ class_name DialogueSystem
 
 @export var display_time_seconds: float = 13
 @export var text_bubble_up_delay: float = 1.5
-@export var text_bubble_up_time_seconds_initial: float = 1
-@export var text_bubble_up_time_seconds_middle: float = 2
-@export var text_bubble_up_time_seconds_late: float = 0.5
-@export var text_bubble_up_time_seconds_final: float = 1.5
+@export var text_bubble_up_time_seconds_initial: float = 2
+@export var text_bubble_up_time_seconds_middle: float = 4
+@export var text_bubble_up_time_seconds_late: float = 1
+@export var text_bubble_up_time_seconds_final: float = 3
 @export var dialogue_ending_position: Vector2
 @export var dialogue_float_up_duration: float = 1.5
 @export var flasky_wobble_duration: float = 0.5
@@ -86,7 +86,7 @@ func fade_out_flasky() -> void:
 
 func start_showing_text() -> void:
 	var visible_ratio_tween: Tween = create_tween()
-	var speed_modifier: float = 1 - clampf(UserSettings.text_scrolling_speed, 0.2, 1) 
+	var speed_modifier: float = 1 - clampf(UserSettings.text_scrolling_speed, 0, 0.7)
 	visible_ratio_tween.tween_property(dialogue_text, "visible_ratio", 0.25, text_bubble_up_time_seconds_initial *  speed_modifier).set_ease(Tween.EASE_IN_OUT)
 	visible_ratio_tween.tween_property(dialogue_text, "visible_ratio", 0.5, text_bubble_up_time_seconds_middle * speed_modifier).set_ease(Tween.EASE_IN_OUT)
 	visible_ratio_tween.tween_property(dialogue_text, "visible_ratio", 0.75, text_bubble_up_time_seconds_late * speed_modifier).set_ease(Tween.EASE_IN_OUT)
