@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://dpy3h6kf53s5j"]
+[gd_scene load_steps=45 format=3 uid="uid://dpy3h6kf53s5j"]
 
 [ext_resource type="PackedScene" uid="uid://d24k31i312cc1" path="res://Objects/Architypes/Props/lamp_standing1.tscn" id="1_buw6o"]
 [ext_resource type="Script" path="res://Levels/Util/lvl_1_straight_ahead_mission_flow.gd" id="1_ra8ms"]
@@ -69,6 +69,9 @@ size = Vector3(12.664198, 3.45717, 0.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y6gv2"]
 size = Vector3(8.730536, 3.45717, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y23y6"]
+size = Vector3(2.1617432, 4.0363245, 0.2)
 
 [node name="lvl_1_straight_ahead" type="Node3D"]
 script = ExtResource("1_ra8ms")
@@ -315,7 +318,6 @@ use_collision = true
 size = Vector3(7.267726, 4.5536656, 0.15405273)
 
 [node name="InvisibleWalls" type="Node3D" parent="Layout"]
-visible = false
 
 [node name="InvisibleWall" type="StaticBody3D" parent="Layout/InvisibleWalls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6976855, 4.7683716e-07, 0.4891171)
@@ -332,6 +334,14 @@ collision_mask = 39
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/InvisibleWalls/InvisibleWall2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.569063, 1.6382172, 0)
 shape = SubResource("BoxShape3D_y6gv2")
+
+[node name="InvisibleWall3" type="StaticBody3D" parent="Layout/InvisibleWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.13904, 4.7683716e-07, -10.119654)
+collision_mask = 39
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/InvisibleWalls/InvisibleWall3"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.06327438, 1.9277945, 0.10858154)
+shape = SubResource("BoxShape3D_y23y6")
 
 [node name="Stairs" type="Node3D" parent="Layout"]
 
