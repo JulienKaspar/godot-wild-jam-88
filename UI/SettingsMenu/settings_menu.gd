@@ -26,3 +26,7 @@ func show_tab(index:int ) -> void:
 
 func open() -> void:
 	tab_buttons[0].grab_focus()
+
+func _unhandled_key_input(event: InputEvent) -> void:
+	if event.is_action_pressed("open_debug_menu"):
+		print(get_viewport().gui_get_focus_owner())

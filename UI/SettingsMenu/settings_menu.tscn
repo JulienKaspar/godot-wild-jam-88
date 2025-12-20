@@ -1,5 +1,6 @@
-[gd_scene load_steps=23 format=3 uid="uid://betq65km7cbe3"]
+[gd_scene load_steps=24 format=3 uid="uid://betq65km7cbe3"]
 
+[ext_resource type="Texture2D" uid="uid://der26hksvgrjr" path="res://UI/SettingsMenu/pause_menu_backdrop.png" id="1_43lif"]
 [ext_resource type="Script" uid="uid://bxy3bjgv1mn50" path="res://UI/SettingsMenu/settings_menu.gd" id="1_ufg0w"]
 [ext_resource type="Texture2D" uid="uid://c5kempoojy45t" path="res://UI/SettingsMenu/controls_tab.png" id="2_6ycxt"]
 [ext_resource type="Texture2D" uid="uid://cj5wx7x6gvc3a" path="res://UI/SettingsMenu/controls_tab_selected.png" id="3_ojh45"]
@@ -14,7 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://cl2i7omutjdby" path="res://UI/SettingsMenu/Components/New/slider_setting.tscn" id="11_dxnqk"]
 [ext_resource type="PackedScene" uid="uid://copb1h0542sta" path="res://UI/MainMenu/menu_button.tscn" id="13_cao7s"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oerog"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sf6ii"]
+texture = ExtResource("1_43lif")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aw4dm"]
 
@@ -38,7 +40,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_oerog")
+theme_override_styles/panel = SubResource("StyleBoxTexture_sf6ii")
 script = ExtResource("1_ufg0w")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -128,7 +130,7 @@ theme_override_styles/tab_hovered = SubResource("StyleBoxEmpty_a0nqm")
 theme_override_styles/tab_selected = SubResource("StyleBoxEmpty_tky1e")
 theme_override_styles/tab_disabled = SubResource("StyleBoxEmpty_6ycxt")
 theme_override_styles/tab_focus = SubResource("StyleBoxEmpty_ojh45")
-current_tab = 1
+current_tab = 2
 tabs_visible = false
 tab_focus_mode = 0
 
@@ -148,6 +150,7 @@ setting_name = "Controller Rumble"
 property_name = &"controller_rumble"
 
 [node name="Visual" type="PanelContainer" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer"]
+visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_b25i1")
 metadata/_tab_index = 1
@@ -177,7 +180,6 @@ setting_name = "Loading Speed"
 property_name = &"loading_speed"
 
 [node name="Audio" type="PanelContainer" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer"]
-visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_b25i1")
 metadata/_tab_index = 2
@@ -191,9 +193,6 @@ layout_mode = 2
 setting_name = "Master Volume"
 property_name = &"master_volume"
 top_focus_target = NodePath("../../../../HBoxContainer/MarginContainer3/AudioTabButton")
-
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer/Audio/VBoxContainer"]
-layout_mode = 2
 
 [node name="MusicVolume" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer/Audio/VBoxContainer" instance=ExtResource("11_dxnqk")]
 layout_mode = 2

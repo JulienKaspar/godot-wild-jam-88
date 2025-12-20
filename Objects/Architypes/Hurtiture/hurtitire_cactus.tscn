@@ -1,12 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://tca4a42pryu5"]
+[gd_scene load_steps=11 format=3 uid="uid://tca4a42pryu5"]
 
 [ext_resource type="Script" uid="uid://d1ns4f8nsxmyd" path="res://Objects/furniture_player_collider.gd" id="1_838oo"]
 [ext_resource type="PackedScene" uid="uid://wjyfhps2jw7i" path="res://Assets/Furniture/plant_cactus1.gltf" id="2_tunyq"]
 [ext_resource type="Script" uid="uid://67ac8n4ituj5" path="res://Gameplay/Obstacles/hurt_furniture.gd" id="3_tunyq"]
+[ext_resource type="Script" uid="uid://ba7ivu8jcrsue" path="res://UI/texture_rect_animation.gd" id="4_f8uo2"]
+[ext_resource type="Texture2D" uid="uid://yk5qec41jpgo" path="res://Assets/2D_Assets/Cactus_Emote_Spikes/cactus_spikes_1.png" id="5_qlxq3"]
+[ext_resource type="Texture2D" uid="uid://ca4lshhanphyc" path="res://Assets/2D_Assets/Cactus_Emote_Spikes/cactus_spikes_2.png" id="6_x8uy1"]
+[ext_resource type="Texture2D" uid="uid://e40exx13eucx" path="res://Assets/2D_Assets/Cactus_Emote_Spikes/cactus_spikes_3.png" id="7_iceuh"]
+[ext_resource type="Texture2D" uid="uid://dgvrov8gwgiww" path="res://Assets/2D_Assets/Cactus_Emote_Spikes/cactus_spikes_4.png" id="8_28kyx"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_tunyq"]
 height = 1.576416
 radius = 0.29541016
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_qlxq3"]
+viewport_path = NodePath("HurtFurniture/Sprite3D/SubViewport")
 
 [node name="TestCactus" type="StaticBody3D"]
 script = ExtResource("1_838oo")
@@ -21,5 +29,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7947998, 0)
 shape = SubResource("CylinderShape3D_tunyq")
 
 [node name="HurtFurniture" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008545339, 0.9895041, 0)
 script = ExtResource("3_tunyq")
+visual_effect = true
 metadata/_custom_type_script = "uid://67ac8n4ituj5"
+
+[node name="Sprite3D" type="Sprite3D" parent="HurtFurniture"]
+billboard = 1
+no_depth_test = true
+render_priority = 5
+texture = SubResource("ViewportTexture_qlxq3")
+
+[node name="SubViewport" type="SubViewport" parent="HurtFurniture/Sprite3D"]
+transparent_bg = true
+size = Vector2i(262, 297)
+
+[node name="TextureRectAnimaton" type="TextureRect" parent="HurtFurniture/Sprite3D/SubViewport"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(262, 297)
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch_mode = 5
+script = ExtResource("4_f8uo2")
+framerate = 12
+frames = Array[Texture2D]([ExtResource("5_qlxq3"), ExtResource("6_x8uy1"), ExtResource("7_iceuh"), ExtResource("8_28kyx")])
+metadata/_custom_type_script = "uid://ba7ivu8jcrsue"
