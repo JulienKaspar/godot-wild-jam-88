@@ -149,13 +149,23 @@ material_override = SubResource("StandardMaterial3D_d4xos")
 mesh = SubResource("PlaneMesh_xweag")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="WorldEnvironment"]
-transform = Transform3D(0.6608127, -0.697928, -0.27608544, 0.28049028, -0.11155199, 0.95335275, -0.69616944, -0.70742685, 0.12204705, -4.763609, 4.912287, 1.7484797)
+transform = Transform3D(0.6608127, -0.697928, -0.27608544, 0.28049028, -0.111552015, 0.95335275, -0.69616944, -0.70742685, 0.12204703, -4.3374014, 4.912287, 1.4905382)
 light_color = Color(0.99, 0.8085, 0, 1)
 light_energy = 0.338
 light_specular = 8.149
 shadow_enabled = true
 shadow_bias = 0.102
 spot_range = 15.215
+spot_attenuation = -1.02
+spot_angle = 44.81
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="WorldEnvironment"]
+transform = Transform3D(0.4849392, -0.6108649, -0.625842, 0.6978887, -0.16096963, 0.6978827, -0.52705353, -0.77519864, 0.34825522, -4.9364376, 5.931129, 2.122757)
+light_color = Color(0, 0.75900024, 0.99, 1)
+light_energy = 0.188
+light_specular = 8.149
+shadow_bias = 0.102
+spot_range = 2.605
 spot_attenuation = -1.02
 spot_angle = 44.81
 
