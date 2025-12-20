@@ -20,9 +20,12 @@ func _ready() -> void:
 	firstDrink.connect("PickedUp", _on_drank_first)
 	StartTable.wobblable = false
 	lay_grass()
+	GameStateManager.player_drunkness.paused = true
+
 
 func _on_drank_first() -> void:
 	startCam.stopView()
 	StartTable.wobblable = true
 	for collider in StartBlockers:
 		collider.disabled = true
+	GameStateManager.player_drunkness.paused = false

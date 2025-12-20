@@ -7,6 +7,7 @@ var starting_drunkness: float = 9
 var drunkness_decay_per_second: float = 0.15
 var threshold: float = 0.1
 var is_resetting: bool = false
+var paused: bool = false
 
 signal on_drunkness_changed(new_value: float)
 
