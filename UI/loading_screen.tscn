@@ -1,16 +1,22 @@
-[gd_scene load_steps=10 format=3 uid="uid://dyovlc3mxuhxr"]
+[gd_scene load_steps=13 format=3 uid="uid://dyovlc3mxuhxr"]
 
 [ext_resource type="Texture2D" uid="uid://g0olx5n00r1d" path="res://Assets/2D_Assets/Twerking_Art/twerk_silhouette_4.png" id="1_1j043"]
 [ext_resource type="Script" uid="uid://bgidq7t8ub8ha" path="res://UI/loading_screen.gd" id="1_v4uo1"]
 [ext_resource type="FontFile" uid="uid://bo4ccwxk8mrea" path="res://Assets/Fonts/SquaredHand.otf" id="1_x74xp"]
+[ext_resource type="Texture2D" uid="uid://udhsg3224yrc" path="res://UI/SettingsMenu/pc_and_controller_people_wanna_know_about_these_controls.png" id="2_35kds"]
 [ext_resource type="Script" uid="uid://ba7ivu8jcrsue" path="res://UI/texture_rect_animation.gd" id="2_pnnle"]
 [ext_resource type="Texture2D" uid="uid://dd3jb16wvoype" path="res://Assets/2D_Assets/Twerking_Art/twerk_1.png" id="3_p1mo3"]
 [ext_resource type="Texture2D" uid="uid://dlm8hym8ragu" path="res://Assets/2D_Assets/Twerking_Art/twerk_2.png" id="4_x74xp"]
 [ext_resource type="Texture2D" uid="uid://cmu1lptxybtls" path="res://Assets/2D_Assets/Twerking_Art/twerk_3.png" id="5_v4uo1"]
 [ext_resource type="Texture2D" uid="uid://dcx4ujk24j4m1" path="res://Assets/2D_Assets/Twerking_Art/twerk_4.png" id="6_35kds"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k7f6d"]
-bg_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v4uo1"]
+
+[sub_resource type="Gradient" id="Gradient_35kds"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_dhma0"]
+gradient = SubResource("Gradient_35kds")
 
 [node name="LoadingScreen" type="PanelContainer"]
 anchors_preset = 15
@@ -18,8 +24,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_k7f6d")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_v4uo1")
 script = ExtResource("1_v4uo1")
+
+[node name="BlackBG" type="TextureRect" parent="."]
+layout_mode = 2
+texture = SubResource("GradientTexture1D_dhma0")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -36,11 +46,12 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 8.0
 
-[node name="Control" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="ControlsBG" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 8.0
+texture = ExtResource("2_35kds")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
