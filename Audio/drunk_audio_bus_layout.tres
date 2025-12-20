@@ -50,6 +50,7 @@ db = 1
 
 [sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_fsxhn"]
 resource_name = "LowPassFilter"
+resonance = 0.8
 
 [resource]
 bus/0/effect/0/effect = SubResource("AudioEffectLimiter_j3pel")

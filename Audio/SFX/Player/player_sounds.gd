@@ -35,7 +35,7 @@ func _ready():
 	setup_drinking()
 
 func play_voice(voice_stream : AudioStream) -> void:
-	if voice_player.playing: 
+	if voice_player.playing and voice_stream != falling_sounds: # falling always sound
 		print("PlayerSounds: voice_player is already playing a sound")
 		return
 	
@@ -118,7 +118,7 @@ func setup_hiccups() -> void:
 	add_child(hiccup_timer)
 	
 
-const _FILTER_CUTOFF_HZ_ON = 200
+const _FILTER_CUTOFF_HZ_ON = 300
 const _FILTER_CUTOFF_HZ_OFF = 10000
 const _FILTER_FX = 0
 
