@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://b6vbg26wkrdh3"]
+[gd_scene load_steps=62 format=3 uid="uid://b6vbg26wkrdh3"]
 
 [ext_resource type="Script" uid="uid://blqvicje3efcj" path="res://Levels/Util/lvl_0_backyard_mission_flow.gd" id="1_jtswe"]
 [ext_resource type="Script" uid="uid://42mf003bq52u" path="res://Gameplay/level_teleporter.gd" id="2_jtswe"]
@@ -168,6 +168,12 @@ radius = 0.6855469
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_22u0x"]
 size = Vector3(5.0132446, 0.2, 0.64819336)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k3ksw"]
+size = Vector3(0.805, 0.2, 0.196)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_go0n3"]
+size = Vector3(0.833, 0.2, 0.216)
 
 [node name="LevelBackyard" type="Node3D" node_paths=PackedStringArray("startCam", "firstDrink", "StartBlockers", "StartTable")]
 script = ExtResource("1_jtswe")
@@ -585,3 +591,14 @@ shape = SubResource("CylinderShape3D_enq1m")
 [node name="CollisionShape3D19" type="CollisionShape3D" parent="HelperCollisionShapes/Stone"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5470567, 0, -21.401508)
 shape = SubResource("BoxShape3D_22u0x")
+
+[node name="Fence" type="StaticBody3D" parent="HelperCollisionShapes" groups=["HelperShape"]]
+collision_layer = 257
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HelperCollisionShapes/Fence"]
+transform = Transform3D(0.8657634, 0, 0.50045335, 0, 1, 0, -0.50045335, 0, 0.8657634, -0.5433439, 0, 0.4737805)
+shape = SubResource("BoxShape3D_k3ksw")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="HelperCollisionShapes/Fence"]
+transform = Transform3D(-0.37784082, 0, -0.9258706, 0, 1, 0, 0.9258706, 0, -0.37784082, -1.3086305, 0, 0.26743323)
+shape = SubResource("BoxShape3D_go0n3")
