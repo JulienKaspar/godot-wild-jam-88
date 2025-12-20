@@ -276,10 +276,13 @@
 		{
 			"doubleSided":true,
 			"emissiveFactor":[
-				0.0007343535544350743,
-				0.0007343535544350743,
-				0.0007343535544350743
+				1,
+				1,
+				1
 			],
+			"emissiveTexture":{
+				"index":0
+			},
 			"name":"black",
 			"pbrMetallicRoughness":{
 				"baseColorFactor":[
@@ -530,6 +533,19 @@
 					"material":1
 				}
 			]
+		}
+	],
+	"textures":[
+		{
+			"sampler":0,
+			"source":0
+		}
+	],
+	"images":[
+		{
+			"mimeType":"image/png",
+			"name":"fake_outdoors_for_windows",
+			"uri":"fake_outdoors_for_windows.png"
 		}
 	],
 	"accessors":[
@@ -1546,6 +1562,12 @@
 			"byteLength":12,
 			"byteOffset":71720,
 			"target":34963
+		}
+	],
+	"samplers":[
+		{
+			"magFilter":9729,
+			"minFilter":9987
 		}
 	],
 	"buffers":[
