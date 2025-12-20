@@ -100,6 +100,75 @@ emission_energy_multiplier = 2.03
 
 [sub_resource type="BoxMesh" id="BoxMesh_tao4m"]
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_c33jy"]
+height = 0.2
+radius = 0.78808594
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_tup4f"]
+height = 0.2
+radius = 0.81640625
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fkcxp"]
+height = 0.2
+radius = 0.40429688
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dgmkc"]
+height = 0.2
+radius = 0.2626953
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_avm5o"]
+height = 0.2
+radius = 0.71972656
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_22u0x"]
+height = 0.2
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_k3ksw"]
+height = 0.2
+radius = 0.4555664
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_go0n3"]
+height = 0.2
+radius = 0.77246094
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_23oor"]
+height = 0.2
+radius = 0.36328125
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3unou"]
+height = 0.2
+radius = 0.35253906
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3gana"]
+height = 0.2
+radius = 0.67285156
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_15v2t"]
+height = 0.2
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_sb218"]
+height = 0.2
+radius = 0.6274414
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_s1bjy"]
+height = 0.2
+radius = 0.37890625
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_uxir3"]
+height = 0.2
+radius = 0.63427734
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_vn2lc"]
+height = 0.2
+radius = 1.1655273
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_enq1m"]
+height = 0.2
+radius = 0.6855469
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_22u0x"]
+size = Vector3(5.0132446, 0.2, 0.64819336)
+
 [node name="LevelBackyard" type="Node3D" node_paths=PackedStringArray("startCam", "firstDrink", "StartBlockers", "StartTable")]
 script = ExtResource("1_jtswe")
 startCam = NodePath("CameraBeginning")
@@ -362,7 +431,6 @@ unit_size = 5.0
 max_db = 0.0
 autoplay = true
 max_distance = 15.0
-bus = &"Music"
 
 [node name="StartBlokker" type="StaticBody3D" parent="."]
 
