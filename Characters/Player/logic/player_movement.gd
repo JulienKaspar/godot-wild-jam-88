@@ -189,6 +189,8 @@ func pushBally(delta: float, playerInputDir) -> void:
 func _physics_process(delta: float) -> void:
 	# -------- player input ------------
 	var playerInputDir = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
+	var cameraYRotation = GameStateManager.game_camera.global_rotation_degrees.y
+	playerInputDir = playerInputDir.rotated(deg_to_rad(-cameraYRotation))
 
 	# stairs check
 	var normalInput = playerInputDir.normalized()
