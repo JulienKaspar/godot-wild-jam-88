@@ -73,7 +73,7 @@ size = Vector3(2.8951664, 3.6125727, 0.2)
 script = ExtResource("1_n28pq")
 
 [node name="PlayerSpawnPoint" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.195387, 0, -1.8170362)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42863736, 0, 23.282732)
 script = ExtResource("1_u88v8")
 metadata/_custom_type_script = "uid://cm1uqdo37kpmi"
 
