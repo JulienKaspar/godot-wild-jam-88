@@ -663,13 +663,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.876976, 0.8246374, 23.280
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.631884, 0.79485273, 23.871918)
 
 [node name="DrunknessPickup10" parent="Consumable" instance=ExtResource("25_gq2bh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.302984, 1.0984373, 20.76746)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.253164, 1.0984373, 20.956272)
 
 [node name="DrunknessPickup11" parent="Consumable" instance=ExtResource("25_gq2bh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.490904, 1.068408, 20.476515)
 
-[node name="DrunknessPickup12" parent="Consumable" instance=ExtResource("25_x788y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.136316, 1.1410499, 19.286263)
+[node name="DrunknessPickup13" parent="Consumable" instance=ExtResource("25_gq2bh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.010351, 0.8868656, 18.815453)
 
 [node name="Hazards" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.15581, 0, -21.550133)
@@ -715,7 +715,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9427147, 1.7875037, 21.0927
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.488218, 0.23822421, 20.239107)
 
 [node name="Plant1" parent="Hazards" instance=ExtResource("23_b2cwn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.244279, -0.038847446, 27.069393)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2302446, -0.038847446, 27.27944)
+
+[node name="DrunknessPickup" parent="Hazards" instance=ExtResource("25_gq2bh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.514585, 0.7801229, 17.150553)
+
+[node name="DrunknessPickup2" parent="Hazards" instance=ExtResource("25_x788y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.201029, 0.92947865, 16.832855)
 
 [node name="Decor" type="Node3D" parent="."]
 
