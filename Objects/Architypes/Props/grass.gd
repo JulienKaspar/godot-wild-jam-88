@@ -11,7 +11,15 @@ func _process(delta: float) -> void:
 	pass
 	
 func set_variation(tile):
-	$Area3D/Sprite3D.region_rect = Rect2(1.5 + 17.5 * tile, 0, 16.5, 37.0)
+	match tile:
+		0:
+			$Area3D/Sprite3D.region_rect = Rect2(4.7, 0, 16, 38.0)
+		1:
+			$Area3D/Sprite3D.region_rect = Rect2(22, 0, 16, 38.0)
+		2:
+			$Area3D/Sprite3D.region_rect = Rect2(38.17, 0, 16, 38.0)
+		3:
+			$Area3D/Sprite3D.region_rect = Rect2(52.46, 0, 16, 38.0)
 
 
 func _on_area_3d_body_shape_entered(body_rid: RID, body: Node3D, body_shape_index: int, local_shape_index: int) -> void:
