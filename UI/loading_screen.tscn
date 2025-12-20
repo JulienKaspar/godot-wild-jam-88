@@ -70,5 +70,6 @@ texture = ExtResource("1_1j043")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("2_pnnle")
+always_play = true
 framerate = 9
 frames = Array[Texture2D]([ExtResource("3_p1mo3"), ExtResource("4_x74xp"), ExtResource("5_v4uo1"), ExtResource("6_35kds")])
