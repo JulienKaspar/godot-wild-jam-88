@@ -13,7 +13,6 @@ signal switch_music(theme : MUSIC_THEMES)
 @onready var music_player : AudioStreamPlayer = %MusicPlayer
 const _DEFAULT_VOLUME_DB : float = -1.5
 
-var filter_effect : AudioEffectLowPassFilter = AudioServer.get_bus_effect(AudioManager.BUS.MUSIC, 0)
 
 func _ready():
 	if !AudioManager.music_manager:
@@ -161,6 +160,8 @@ func _update_drunkness_streams(_target_volume_db) -> void:
 const _FILTER_CUTOFF_HZ_ON = 200
 const _FILTER_CUTOFF_HZ_OFF = 10000
 const _FILTER_FX = 0
+
+var filter_effect : AudioEffectLowPassFilter = AudioServer.get_bus_effect(AudioManager.BUS.MUSIC, 0)
 
 func _set_filter(_enabled : bool, _target_hz : float = -1.0):
 	# target value

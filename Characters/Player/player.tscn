@@ -20,6 +20,12 @@ script = ExtResource("3_cue0d")
 
 [node name="PlayerSounds" parent="PlayerBody" instance=ExtResource("4_xf5fp")]
 
+[node name="VoiceAudioPlayer" parent="PlayerBody/PlayerSounds" index="1"]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 1.5, 0)
+
+[node name="SingingAudioPlayer" parent="PlayerBody/PlayerSounds" index="2"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1.5, 0)
+
 [node name="PickupTracker" type="Node3D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("5_xf5fp")
@@ -61,3 +67,5 @@ one_shot = true
 [connection signal="area_entered" from="PickupTracker/grab_area_right" to="PickupTracker" method="_on_grab_area_right_area_entered"]
 [connection signal="area_exited" from="PickupTracker/grab_area_right" to="PickupTracker" method="_on_grab_area_right_area_exited"]
 [connection signal="timeout" from="FallPunishReset" to="." method="_on_fall_punish_reset_timeout"]
+
+[editable path="PlayerBody/PlayerSounds"]

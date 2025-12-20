@@ -69,3 +69,12 @@ func on_player_collision(collision_velocity : Vector3) -> void:
 	#ramming_tween.set_trans(Tween.TRANS_QUART)
 	ramming_tween.set_ease(Tween.EASE_OUT)
 	ramming_tween.tween_property(self, "wobble_strength", 0.0, wobble_time)
+	
+	play_wobble_sound()
+	
+	
+func play_wobble_sound() -> void:
+	var sound_player : AudioStreamPlayer3D = AudioManager.sfx_pool.get_item()
+	sound_player.stream = AudioManager.sfx_pool.wobble_sounds
+	sound_player.position = self.global_position
+	sound_player.play()

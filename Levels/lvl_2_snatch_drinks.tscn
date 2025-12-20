@@ -537,6 +537,9 @@ transform = Transform3D(0.9980866, 0, 0.061832454, 0, 1, 0, -0.061832454, 0, 0.9
 [node name="Shelf6" parent="Furniture" instance=ExtResource("12_ojjv1")]
 transform = Transform3D(0.02652585, 0, 0.99964815, 0, 1, 0, -0.99964815, 0, 0.02652585, -1.1564531, 0.005311966, -7.121743)
 
+[node name="Shelf7" parent="Furniture" instance=ExtResource("12_ojjv1")]
+transform = Transform3D(-0.026525762, 0, -0.99964815, 0, 1, 0, 0.99964815, 0, -0.026525762, 6.0310326, 0.005311966, -5.8856688)
+
 [node name="Table2" parent="Furniture" instance=ExtResource("13_jwfug")]
 transform = Transform3D(0.9956062, 0, -0.09363915, 0, 1, 0, 0.09363915, 0, 0.9956062, 7.0692115, 4.7683716e-07, -2.9602754)
 

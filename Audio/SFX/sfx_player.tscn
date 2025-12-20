@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c582dhy7jbej6"]
+
+[node name="SfxPlayer" type="AudioStreamPlayer3D"]
+unit_size = 8.0
+max_distance = 10.0
+panning_strength = 1.2
+bus = &"SFX"

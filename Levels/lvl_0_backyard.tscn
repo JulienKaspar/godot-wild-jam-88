@@ -357,9 +357,12 @@ max_distance = 12.0
 [node name="HousePartyMusic" type="AudioStreamPlayer3D" parent="AmbienceSounds"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.7430115, -24.021633)
 stream = ExtResource("11_cw6dl")
+volume_db = -3.0
+unit_size = 5.0
 max_db = 0.0
 autoplay = true
 max_distance = 15.0
+bus = &"Music"
 
 [node name="StartBlokker" type="StaticBody3D" parent="."]
 

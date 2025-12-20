@@ -211,11 +211,18 @@ func _physics_process(delta: float) -> void:
 			if keepUpright:pushBally(delta, playerInputDir)
 			if keepUpright:pushBody(delta)
 	
-	$NoRotateBall/PfxFallingIndicator.global_position = player_global_mass_pos
+	particlePlacement()
 	sendStatsToPlayer()
 	check_furniture_contact()
 
 #------------------ Signals Receivers ------------------------------------------
+
+func particlePlacement() -> void:
+	$NoRotateBall/PfxFallingIndicator.global_position = player_global_mass_pos
+
+	$NoRotateBall/PfxBodyfall.global_position = player_global_pos
+	#$NoRotateBall/PfxBodyfall.global_rotation.y = atan2(player_facing_dir.x, player_facing_dir.y)
+	$NoRotateBall/PfxBodyfall.look_at(player_global_mass_pos)
 
 func stateTransitionTo(_targetState: Player.MoveStates):
 	pass

@@ -23,11 +23,3 @@ func play_sound(_stream : AudioStream):
 	
 	self.stream = _stream
 	self.play()
-	
-	match _stream:
-		drunkness_up:
-			get_tree().create_timer(randf_range(1.2, 1.6)).timeout.connect(
-				AudioManager.player_sounds.play_voice.bind(AudioManager.player_sounds.burp_sounds)
-			)
-		drunkness_down:
-			pass
