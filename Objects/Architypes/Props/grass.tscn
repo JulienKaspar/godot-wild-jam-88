@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://boel7ylijdqup"]
+
+[ext_resource type="Texture2D" uid="uid://clwpn23u0efjo" path="res://Assets/Maps/Exterior/grass_atlas.png" id="1_555he"]
+[ext_resource type="Script" uid="uid://b3qliwncfowt" path="res://Objects/Architypes/Props/grass.gd" id="1_y374p"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_555he"]
+radius = 0.048339844
+height = 0.41554976
+
+[node name="Grass" type="Node3D"]
+script = ExtResource("1_y374p")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 258
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.042392015, 0.2094788, 0)
+shape = SubResource("CapsuleShape3D_555he")
+
+[node name="Sprite3D" type="Sprite3D" parent="Area3D"]
+transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+centered = false
+shaded = true
+alpha_cut = 2
+texture = ExtResource("1_555he")
+region_enabled = true
+region_rect = Rect2(55.06, 0, 17.5, 38)
+
+[node name="Timer" type="Timer" parent="Area3D"]
+one_shot = true
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]
+[connection signal="area_shape_entered" from="Area3D" to="." method="_on_area_3d_area_shape_entered"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="body_shape_entered" from="Area3D" to="." method="_on_area_3d_body_shape_entered"]
+[connection signal="body_shape_exited" from="Area3D" to="." method="_on_area_3d_body_shape_exited"]
+[connection signal="timeout" from="Area3D/Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,35 @@
+extends Node3D
+
+var original_position;
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	original_position = $Area3D/Sprite3D.get_position()
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+	
+func set_variation(tile):
+	$Area3D/Sprite3D.region_rect = Rect2(1.5 + 17.5 * tile, 0, 16.5, 37.0)
+
+
+func _on_area_3d_body_shape_entered(body_rid: RID, body: Node3D, body_shape_index: int, local_shape_index: int) -> void:
+	# Push the grass down on the ground
+	$Area3D/Timer.stop()
+	$Area3D/Sprite3D.axis = 1
+	$Area3D/Sprite3D.billboard = 0
+	$Area3D/Sprite3D.set_position(original_position + Vector3(0.0, 0.01, 0))
+	# Push the grass along the direction of the colliding body
+	if body.get("linear_velocity"):
+		$Area3D/Sprite3D.set_rotation(Vector3(0, atan2(-body.linear_velocity.x, -body.linear_velocity.z), 0))
+
+func _on_area_3d_body_shape_exited(body_rid: RID, body: Node3D, body_shape_index: int, local_shape_index: int) -> void:
+	$Area3D/Timer.start()
+
+func _on_timer_timeout() -> void:
+	# Reset to original position
+	$Area3D/Sprite3D.axis = 2
+	$Area3D/Sprite3D.billboard = 2
+	$Area3D/Sprite3D.set_position(original_position)
+	$Area3D/Sprite3D.set_rotation(Vector3(0, 0, 0))

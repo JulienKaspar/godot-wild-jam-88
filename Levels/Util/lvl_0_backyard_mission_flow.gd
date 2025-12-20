@@ -4,11 +4,22 @@ extends Node3D
 @export var firstDrink: DrunknessPickup
 @export var StartBlockers:Array[CollisionShape3D]
 @export var StartTable: StaticBody3D
+@export var grass_scene: PackedScene
+
+func lay_grass():
+	for i in range(30):
+		for j in range(30):
+			var pos = Vector3(randf_range(-4.935, 6.485), 0.0, randf_range(-21.6, 1.4))
+			var grass = grass_scene.instantiate()
+			grass.set_position(pos)
+			grass.set_variation(randi_range(0, 3))
+			add_child(grass)
 
 func _ready() -> void:
 	startCam.viewThis()
 	firstDrink.connect("PickedUp", _on_drank_first)
 	StartTable.wobblable = false
+	lay_grass()
 
 func _on_drank_first() -> void:
 	startCam.stopView()

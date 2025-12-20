@@ -1,11 +1,12 @@
-[gd_scene load_steps=27 format=3 uid="uid://b6vbg26wkrdh3"]
+[gd_scene load_steps=29 format=3 uid="uid://b6vbg26wkrdh3"]
 
-[ext_resource type="Script" path="res://Levels/Util/lvl_0_backyard_mission_flow.gd" id="1_jtswe"]
+[ext_resource type="Script" uid="uid://blqvicje3efcj" path="res://Levels/Util/lvl_0_backyard_mission_flow.gd" id="1_jtswe"]
 [ext_resource type="Script" uid="uid://42mf003bq52u" path="res://Gameplay/level_teleporter.gd" id="2_jtswe"]
+[ext_resource type="PackedScene" uid="uid://boel7ylijdqup" path="res://Objects/Architypes/Props/grass.tscn" id="2_tao4m"]
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="2_xweag"]
 [ext_resource type="PackedScene" uid="uid://cyrgcx64104qc" path="res://Objects/Architypes/Props/garden_chair.tscn" id="3_8wfei"]
 [ext_resource type="PackedScene" uid="uid://b2suve3503bvm" path="res://Assets/Backyard/backyard_level.gltf" id="3_cya5t"]
-[ext_resource type="Script" path="res://UI/camera_of_interest.gd" id="4_cya5t"]
+[ext_resource type="Script" uid="uid://ddci75ik2j7ul" path="res://UI/camera_of_interest.gd" id="4_cya5t"]
 [ext_resource type="PackedScene" uid="uid://cnaagrenu83ty" path="res://Objects/Architypes/Props/garden_table.tscn" id="4_d4xos"]
 [ext_resource type="PackedScene" uid="uid://brhckpuqlnhm6" path="res://Objects/Architypes/Props/bbq.tscn" id="5_xweag"]
 [ext_resource type="PackedScene" uid="uid://byi1vrdra1og3" path="res://Objects/Architypes/Props/radio.tscn" id="6_8wfei"]
@@ -57,12 +58,17 @@ emission_energy_multiplier = 2.7
 
 [sub_resource type="BoxMesh" id="BoxMesh_tao4m"]
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_tao4m"]
+height = 0.1
+radius = 2.51
+
 [node name="LevelBackyard" type="Node3D" node_paths=PackedStringArray("startCam", "firstDrink", "StartBlockers", "StartTable")]
 script = ExtResource("1_jtswe")
 startCam = NodePath("CameraBeginning")
 firstDrink = NodePath("Drinks/FirstDrinkOfTheDay")
 StartBlockers = [NodePath("StartBlokker/CollisionShape3D"), NodePath("StartBlokker/CollisionShape3D2"), NodePath("StartBlokker/CollisionShape3D3")]
 StartTable = NodePath("Furniture/TableSquareStart")
+grass_scene = ExtResource("2_tao4m")
 
 [node name="LevelTeleporter" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.61884594, 0, -23.708132)
@@ -274,3 +280,13 @@ shape = SubResource("BoxShape3D_jaoye")
 transform = Transform3D(6.732938, 0, 0, 0, 5.85737, 0, 0, 0, 1, 0, 0.27074838, -24.696083)
 material_override = SubResource("StandardMaterial3D_cya5t")
 mesh = SubResource("BoxMesh_tao4m")
+
+[node name="HelperCollisionShapes" type="Node3D" parent="."]
+
+[node name="Stone1" type="StaticBody3D" parent="HelperCollisionShapes"]
+collision_layer = 256
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HelperCollisionShapes/Stone1"]
+transform = Transform3D(0.5962206, 0, 0.71510434, 0, 1, 0, -0.51828665, 0, 0.8226335, 3.61, 0.08, -7.195)
+shape = SubResource("CylinderShape3D_tao4m")

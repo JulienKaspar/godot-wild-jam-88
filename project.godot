@@ -145,6 +145,7 @@ pause={
 3d_physics/layer_6="Bottles"
 3d_physics/layer_7="IK Raycast"
 3d_physics/layer_8="Stairs"
+3d_physics/layer_9="HelperShape"
 
 [physics]
 
