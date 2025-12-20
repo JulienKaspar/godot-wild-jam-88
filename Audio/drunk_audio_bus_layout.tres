@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=7 format=3 uid="uid://c6p02v462orsm"]
+[gd_resource type="AudioBusLayout" load_steps=8 format=3 uid="uid://c6p02v462orsm"]
 
 [sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_j3pel"]
 resource_name = "Limiter"
@@ -47,6 +47,9 @@ resource_name = "LowPassFilter"
 cutoff_hz = 200.0
 resonance = 0.3
 db = 1
+
+[sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_fsxhn"]
+resource_name = "LowPassFilter"
 
 [resource]
 bus/0/effect/0/effect = SubResource("AudioEffectLimiter_j3pel")
@@ -97,3 +100,5 @@ bus/6/mute = false
 bus/6/bypass_fx = false
 bus/6/volume_db = 0.0
 bus/6/send = &"Master"
+bus/6/effect/0/effect = SubResource("AudioEffectLowPassFilter_fsxhn")
+bus/6/effect/0/enabled = false

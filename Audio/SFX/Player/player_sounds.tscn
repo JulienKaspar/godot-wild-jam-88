@@ -33,18 +33,29 @@ hiccup_sounds = ExtResource("8_w2ggi")
 stream = SubResource("AudioStreamRandomizer_xf5fp")
 max_distance = 7.5
 max_polyphony = 2
+bus = &"SFX"
 
 [node name="VoiceAudioPlayer" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("8_w2ggi")
-unit_size = 6.0
+unit_size = 8.0
 max_db = -3.0
 max_distance = 10.0
-attenuation_filter_cutoff_hz = 8000.0
+panning_strength = 2.0
+bus = &"Player"
+emission_angle_enabled = true
+emission_angle_degrees = 50.0
+emission_angle_filter_attenuation_db = -6.0
+attenuation_filter_cutoff_hz = 10000.0
+attenuation_filter_db = -12.0
 
 [node name="SingingAudioPlayer" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("8_wdt07")
 volume_db = -80.0
 unit_size = 8.0
-max_db = 0.0
-max_distance = 12.0
-attenuation_filter_cutoff_hz = 8000.0
+max_distance = 10.0
+panning_strength = 2.0
+bus = &"Player"
+emission_angle_enabled = true
+emission_angle_filter_attenuation_db = -9.0
+attenuation_filter_cutoff_hz = 9000.0
+attenuation_filter_db = -16.0
