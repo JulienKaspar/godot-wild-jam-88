@@ -45,6 +45,10 @@ func start_game() -> void:
 	current_state = GameState.Game
 	PlayerMovementUtils.knock_player_down.call_deferred()
 	loading_screen.display(3 * UserSettings.loading_speed)
+	AudioManager.ui_sounds.volume_db = AudioManager._VOLUME_DB_OFF
+	await loading_screen.on_completed
+	AudioManager.ui_sounds.volume_db = 0.0
+	
 	
 func cache_shaders() -> void:
 	loading_screen.display_indefinite()
