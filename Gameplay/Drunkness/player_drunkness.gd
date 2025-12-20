@@ -3,8 +3,8 @@ class_name PlayerDrunkness
 
 var min_drunkness: float = 0
 var max_drunkness: float = 10
-var starting_drunkness: float = 5
-var drunkness_decay_per_second: float = 0.1
+var starting_drunkness: float = 9
+var drunkness_decay_per_second: float = 0.15
 var threshold: float = 0.1
 var is_resetting: bool = false
 
