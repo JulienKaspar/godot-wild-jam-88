@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="2_xweag"]
 [ext_resource type="PackedScene" uid="uid://cyrgcx64104qc" path="res://Objects/Architypes/Props/garden_chair.tscn" id="3_8wfei"]
 [ext_resource type="PackedScene" uid="uid://b2suve3503bvm" path="res://Assets/Backyard/backyard_level.gltf" id="3_cya5t"]
-[ext_resource type="Script" uid="uid://ddci75ik2j7ul" path="res://UI/camera_of_interest.gd" id="4_cya5t"]
+[ext_resource type="Script" path="res://UI/camera_of_interest.gd" id="4_cya5t"]
 [ext_resource type="PackedScene" uid="uid://cnaagrenu83ty" path="res://Objects/Architypes/Props/garden_table.tscn" id="4_d4xos"]
 [ext_resource type="PackedScene" uid="uid://brhckpuqlnhm6" path="res://Objects/Architypes/Props/bbq.tscn" id="5_xweag"]
 [ext_resource type="PackedScene" uid="uid://byi1vrdra1og3" path="res://Objects/Architypes/Props/radio.tscn" id="6_8wfei"]
@@ -150,8 +150,8 @@ mesh = SubResource("PlaneMesh_xweag")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="WorldEnvironment"]
 transform = Transform3D(0.6608127, -0.697928, -0.27608544, 0.28049028, -0.11155199, 0.95335275, -0.69616944, -0.70742685, 0.12204705, -4.763609, 4.912287, 1.7484797)
-light_color = Color(0.8, 0.72, 0, 1)
-light_energy = 0.179
+light_color = Color(0.99, 0.8085, 0, 1)
+light_energy = 0.338
 light_specular = 8.149
 shadow_enabled = true
 shadow_bias = 0.102
@@ -343,7 +343,6 @@ max_db = -6.0
 pitch_scale = 0.5
 autoplay = true
 max_distance = 12.0
-bus = &"Ambience"
 
 [node name="HousePartyMusic" type="AudioStreamPlayer3D" parent="AmbienceSounds"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.7430115, -24.021633)
