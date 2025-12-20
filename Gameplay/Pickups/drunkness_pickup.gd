@@ -35,6 +35,7 @@ func _process(delta: float) -> void:
 				self.global_transform = attachedTo.global_transform
 
 func pickup(fromObject: Object) -> void:
+	print("picked up beer")
 	inState = PickupStates.IN_USE
 	pristine_mesh.position -= pickOffset
 	pick_point.monitorable = false

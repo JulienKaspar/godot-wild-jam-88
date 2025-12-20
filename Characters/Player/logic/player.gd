@@ -38,7 +38,7 @@ var holdingRight: Object
 #------------------------------------------------------------------------------
 ### statess 
 enum MoveStates {STANDUP, MOVING, FALLING, ROLLING, FLASKY, FELL}
-enum HandStates {DANGLY, REACHING, HOLD, DRINKING, ROLLING, FIXED}
+enum HandStates {DANGLY, REACHING, HOLD, DRINKING, ROLLING, FIXED, USED}
 enum FeetIKTargeting {STEPPING, RIGIDBODY}
 enum Hands {LEFT, RIGHT}
 
@@ -130,12 +130,13 @@ func _process(_delta: float) -> void:
 	# ------- Input Handling ------
 	if Input.is_action_pressed("grab_left"):
 		grabbingL = true
-		if HandLState == HandStates.DANGLY: 
-			setHandLState(HandStates.REACHING)
+		match HandLState:
+			HandStates.DANGLY: setHandLState(HandStates.REACHING)
 	else:
 		grabbingL = false
-		if HandLState == HandStates.REACHING: 
-			setHandLState(HandStates.DANGLY)
+		match HandLState: 
+			HandStates.REACHING: setHandLState(HandStates.DANGLY)
+			HandStates.USED: setHandLState(HandStates.DANGLY)
 			
 	if Input.is_action_pressed("grab_right"):
 		grabbingR = true
@@ -145,8 +146,7 @@ func _process(_delta: float) -> void:
 		grabbingR = false
 		match HandRState:
 			HandStates.REACHING: setHandRState(HandStates.DANGLY)
-			HandStates.ROLLING: setHandRState(HandStates.DANGLY)
-			HandStates.FIXED: setHandRState(HandStates.DANGLY)
+			HandStates.USED: setHandRState(HandStates.DANGLY)
 		
 	if Input.is_action_just_pressed("roll"):
 		match inMoveState:
@@ -158,6 +158,10 @@ func _on_player_body_reached_target_left(item) -> void:
 	if item is DrunknessPickup:
 		setHandLState(HandStates.DRINKING, item)
 		holdingLeft = item
+	elif item is Switch:
+		print("reached_left")
+		item.switch()
+		setHandLState(HandStates.USED)
 	else:
 		setHandLState(HandStates.FIXED)
 
@@ -165,6 +169,10 @@ func _on_player_body_reached_target_right(item) -> void:
 	if item is DrunknessPickup:
 		setHandRState(HandStates.DRINKING, item)
 		holdingRight = item
+	elif item is Switch:
+		print("reached_right")
+		item.switch()
+		setHandRState(HandStates.USED)
 	else:
 		setHandRState(HandStates.FIXED)
 
@@ -210,11 +218,11 @@ func _on_change_feet(state: FeetIKTargeting) -> void:
 
 func _on_player_body_consumed_left(item: Object) -> void:
 	GameStateManager.player_drunkness.current_drunkness += item.consumed()
-	setHandLState(HandStates.DANGLY)
+	setHandLState(HandStates.USED)
 
 func _on_player_body_consumed_right(item: Object) -> void:
 	GameStateManager.player_drunkness.current_drunkness += item.consumed()
-	setHandRState(HandStates.DANGLY)
+	setHandRState(HandStates.USED)
 
 func _on_fall_punish_reset_timeout() -> void:
 	doPunishFall = true
