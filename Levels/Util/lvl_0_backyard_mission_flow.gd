@@ -7,8 +7,8 @@ extends Node3D
 @export var grass_scene: PackedScene
 
 func lay_grass():
-	for i in range(30):
-		for j in range(30):
+	for i in range(40):
+		for j in range(40):
 			var pos = Vector3(randf_range(-4.935, 6.485), 0.0, randf_range(-21.6, 1.4))
 			var grass = grass_scene.instantiate()
 			grass.set_position(pos)
