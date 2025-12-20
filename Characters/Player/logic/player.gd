@@ -197,7 +197,9 @@ func _on_change_movement(state: Player.MoveStates) -> void:
 		_: pfx_falling.amount_ratio = 0.0
 #
 	match state:
-		MoveStates.FELL: pfx_bodyfall.set_emitting(true)
+		MoveStates.FELL: 
+			pfx_bodyfall.set_emitting(true)
+			GameStateManager.game_camera.shake(5.0)
 		#_: pfx_bodyfall.set_emitting(false)
 
 
