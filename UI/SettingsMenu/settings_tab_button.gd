@@ -1,15 +1,28 @@
 extends TextureButton
 class_name SettingsTabButton
 
-@export var focus_scale: float = 1.1
+@export var focus_scale: float = 1.15
 @export var focus_speed: float = 0.2
 @export var focused_margin_value: int = 35
-
+@export var hovered_scale: float = 1.06
 
 
 func _ready() -> void:
 	focus_entered.connect(select)
 	focus_exited.connect(deselect)
+	
+	mouse_entered.connect(hover)
+	mouse_exited.connect(unhover)
+	
+func hover() -> void:
+	var size_tween: Tween = create_tween()
+	size_tween.tween_property(self, 'scale', Vector2(hovered_scale, hovered_scale), focus_speed)
+	z_index = 10
+
+func unhover() -> void:
+	var size_tween: Tween = create_tween()
+	size_tween.tween_property(self, 'scale', Vector2(1,1), focus_speed)
+	z_index = 0
 
 func select() -> void:
 	var size_tween: Tween = create_tween()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://betq65km7cbe3"]
+[gd_scene load_steps=26 format=3 uid="uid://betq65km7cbe3"]
 
 [ext_resource type="Texture2D" uid="uid://der26hksvgrjr" path="res://UI/SettingsMenu/pause_menu_backdrop.png" id="1_43lif"]
 [ext_resource type="Script" uid="uid://bxy3bjgv1mn50" path="res://UI/SettingsMenu/settings_menu.gd" id="1_ufg0w"]
@@ -19,6 +19,11 @@
 texture = ExtResource("1_43lif")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aw4dm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_43lif"]
+
+[sub_resource type="Theme" id="Theme_sf6ii"]
+TextureButton/styles/drop_shadow = SubResource("StyleBoxFlat_43lif")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hd0pj"]
 
@@ -65,6 +70,7 @@ theme_override_constants/separation = -70
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="ControlTabButton" type="TextureButton" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/MarginContainer"]
 unique_name_in_owner = true
@@ -73,6 +79,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 focus_neighbor_left = NodePath("../../MarginContainer4/AccesibilityTabButton")
 focus_neighbor_top = NodePath(".")
+theme = SubResource("Theme_sf6ii")
 texture_normal = ExtResource("2_6ycxt")
 texture_focused = ExtResource("3_ojh45")
 ignore_texture_size = true
@@ -81,6 +88,7 @@ script = ExtResource("4_qvif0")
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="VisualTabButton" type="TextureButton" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/MarginContainer2"]
 unique_name_in_owner = true
@@ -96,6 +104,7 @@ script = ExtResource("4_qvif0")
 
 [node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="AudioTabButton" type="TextureButton" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/MarginContainer3"]
 unique_name_in_owner = true
@@ -111,6 +120,7 @@ script = ExtResource("4_qvif0")
 
 [node name="MarginContainer4" type="MarginContainer" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="AccesibilityTabButton" type="TextureButton" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/MarginContainer4"]
 unique_name_in_owner = true
