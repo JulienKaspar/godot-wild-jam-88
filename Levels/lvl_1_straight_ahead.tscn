@@ -602,13 +602,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.73749, 1.8887007, -13.0657
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.035692, 1.8586717, -14.238194)
 
 [node name="DrunknessPickup5" parent="Drinks" instance=ExtResource("36_xhek1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.046995, 1.8887007, -15.543024)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.046995, 1.8887007, -15.54963)
 
 [node name="DrunknessPickup7" parent="Drinks" instance=ExtResource("28_2h7dj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.473598, 0.99999976, -6.5542397)
 
 [node name="DrunknessPickup8" parent="Drinks" instance=ExtResource("28_2h7dj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.720036, 0.99999976, -6.910654)
+
+[node name="DrunknessPickup9" parent="Drinks" instance=ExtResource("36_xhek1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.928411, 1.7200726, -19.32768)
 
 [node name="Hazards" type="Node3D" parent="."]
 
