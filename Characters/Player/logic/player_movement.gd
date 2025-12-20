@@ -211,6 +211,7 @@ func _physics_process(delta: float) -> void:
 			if keepUpright:pushBally(delta, playerInputDir)
 			if keepUpright:pushBody(delta)
 	
+	$NoRotateBall/PfxFallingIndicator.global_position = player_global_mass_pos
 	sendStatsToPlayer()
 	check_furniture_contact()
 

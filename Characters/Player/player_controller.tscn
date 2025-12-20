@@ -250,7 +250,6 @@ lock_rotation = true
 shape = SubResource("SphereShape3D_jkj6u")
 
 [node name="PfxFallingIndicator" parent="NoRotateBall" instance=ExtResource("2_6yvek")]
-emitting = false
 
 [node name="Label3D" type="Label3D" parent="NoRotateBall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8597615, 0)
