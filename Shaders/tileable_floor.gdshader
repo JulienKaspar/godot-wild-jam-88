@@ -60,11 +60,7 @@ void vertex() {
 }
 
 vec4 triplanar_texture(sampler2D p_sampler, vec3 p_weights, vec3 p_triplanar_pos, vec3 uv) {
-    vec4 samp = vec4(0.0);
-    samp += textureGrad(p_sampler, p_triplanar_pos.xy, dFdx(uv.xy), dFdy(uv.xy)) * p_weights.z;
-    samp += textureGrad(p_sampler, p_triplanar_pos.xz, dFdx(uv.xz), dFdy(uv.xz)) * p_weights.y;
-    samp += textureGrad(p_sampler, p_triplanar_pos.zy * vec2(-1.0, 1.0), dFdx(uv.zy), dFdy(uv.zy)) * p_weights.x;
-    return samp;
+    return textureGrad(p_sampler, p_triplanar_pos.xz, dFdx(uv.xz), dFdy(uv.xz)) * p_weights.y;
 }
 
 vec2 random_repeat_tile(vec2 pos, float num_tile) {
