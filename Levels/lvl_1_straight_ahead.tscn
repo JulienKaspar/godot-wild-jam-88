@@ -51,22 +51,8 @@ size = Vector3(4.6604004, 3.7718506, 5.118103)
 [sub_resource type="BoxShape3D" id="BoxShape3D_okfwc"]
 size = Vector3(12.664198, 3.45717, 0.2)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_va1hs"]
-size = Vector3(4.145643, 3.45717, 0.2)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y6gv2"]
-resource_local_to_scene = true
-diffuse_mode = 3
-specular_mode = 2
-albedo_color = Color(0.49747366, 0.49747366, 0.49747366, 0)
-albedo_texture = ExtResource("6_5d0l3")
-rim = 0.47
-subsurf_scatter_strength = 1.0
-subsurf_scatter_skin_mode = true
-uv1_scale = Vector3(0.45, 0.298, 0.45)
-uv1_offset = Vector3(0.02, 0, 0)
-uv1_triplanar = true
-uv1_world_triplanar = true
+[sub_resource type="BoxShape3D" id="BoxShape3D_y6gv2"]
+size = Vector3(8.730536, 3.45717, 0.2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_846tk"]
 resource_local_to_scene = true
@@ -83,6 +69,20 @@ uv1_triplanar = true
 uv1_world_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_41px5"]
+resource_local_to_scene = true
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0.49747366, 0.49747366, 0.49747366, 0)
+albedo_texture = ExtResource("6_5d0l3")
+rim = 0.47
+subsurf_scatter_strength = 1.0
+subsurf_scatter_skin_mode = true
+uv1_scale = Vector3(0.45, 0.298, 0.45)
+uv1_offset = Vector3(0.02, 0, 0)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_736oy"]
 resource_local_to_scene = true
 diffuse_mode = 3
 specular_mode = 2
@@ -338,8 +338,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.99507, 4.7683716e-07, -11.
 collision_mask = 39
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Walls/InvisibleWall2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.276617, 1.6382172, 0)
-shape = SubResource("BoxShape3D_va1hs")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.569063, 1.6382172, 0)
+shape = SubResource("BoxShape3D_y6gv2")
 
 [node name="Door" parent="Layout/Walls" instance=ExtResource("10_va1hs")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 20.37812, 2.256463, -19.91583)
@@ -349,15 +349,15 @@ wall_material = ExtResource("4_5d0l3")
 
 [node name="Stairs_wide" parent="Layout/Stairs" instance=ExtResource("5_5d0l3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.594019, -0.8262651, -10.667325)
-wall_material = SubResource("StandardMaterial3D_y6gv2")
+wall_material = SubResource("StandardMaterial3D_846tk")
 
 [node name="Stairs_thin" parent="Layout/Stairs" instance=ExtResource("22_ijmkr")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 19.168037, 0.5055921, -20.00424)
-wall_material = SubResource("StandardMaterial3D_846tk")
+wall_material = SubResource("StandardMaterial3D_41px5")
 
 [node name="Stairs_thin2" parent="Layout/Stairs" instance=ExtResource("22_ijmkr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.717543, -0.05887842, -18.715504)
-wall_material = SubResource("StandardMaterial3D_41px5")
+wall_material = SubResource("StandardMaterial3D_736oy")
 
 [node name="Furniture" type="Node3D" parent="."]
 
