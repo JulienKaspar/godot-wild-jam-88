@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=3 uid="uid://crkjmth4q1t3o"]
+
+[ext_resource type="QuadMesh" uid="uid://d3kn1qm3shxtu" path="res://Particles/BBQ_and_Fire_Sparks/sparks_sprites_a.tres" id="1_h1jns"]
+
+[sub_resource type="Curve" id="Curve_h1jns"]
+_data = [Vector2(0, 0.06741583), 0.0, 0.0, 0, 0, Vector2(0.101604275, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.1011236, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_wsdw4"]
+curve = SubResource("Curve_h1jns")
+
+[sub_resource type="Gradient" id="Gradient_n8l0s"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.5882353, 0.3647059, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wphp5"]
+gradient = SubResource("Gradient_n8l0s")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nhfdb"]
+lifetime_randomness = 0.5
+emission_shape = 3
+emission_box_extents = Vector3(0.4, 0, 0.4)
+angle_min = -179.99998
+angle_max = 180.00002
+inherit_velocity_ratio = 1.0
+direction = Vector3(0, 1, 0)
+spread = 5.0
+initial_velocity_min = 0.099999994
+initial_velocity_max = 1.0
+angular_velocity_min = -50.000015
+angular_velocity_max = 49.99998
+gravity = Vector3(0, 2, 0)
+linear_accel_min = -2.2351742e-06
+linear_accel_max = -2.2351742e-06
+radial_accel_min = -2.2351742e-06
+radial_accel_max = -2.2351742e-06
+tangential_accel_min = -1.0000023
+tangential_accel_max = 0.99999774
+damping_min = 0.2
+damping_max = 0.3
+scale_min = 0.08
+scale_max = 0.17
+color_ramp = SubResource("GradientTexture1D_wphp5")
+alpha_curve = SubResource("CurveTexture_wsdw4")
+anim_speed_min = 0.7
+anim_speed_max = 1.0
+anim_offset_max = 0.5
+turbulence_enabled = true
+turbulence_noise_strength = 0.05
+turbulence_noise_scale = 2.5
+turbulence_noise_speed = Vector3(0, 1, 2)
+turbulence_noise_speed_random = 0.0
+turbulence_influence_min = 0.087000005
+turbulence_influence_max = 0.087000005
+
+[node name="PfxBananaSlip" type="GPUParticles3D"]
+amount = 50
+lifetime = 5.0
+explosiveness = 0.08
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_nhfdb")
+draw_pass_1 = ExtResource("1_h1jns")

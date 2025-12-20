@@ -1,0 +1,22 @@
+[gd_resource type="QuadMesh" load_steps=3 format=3 uid="uid://d3kn1qm3shxtu"]
+
+[ext_resource type="Texture2D" uid="uid://cjw4tsuo4fi52" path="res://Particles/BBQ_and_Fire_Sparks/BBQ_and_Fire_Sparks_1.png" id="1_dpmrc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s5x81"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("1_dpmrc")
+disable_receive_shadows = true
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 3
+particles_anim_loop = false
+grow_amount = -16.0
+proximity_fade_distance = 0.01
+stencil_flags = 2
+
+[resource]
+material = SubResource("StandardMaterial3D_s5x81")

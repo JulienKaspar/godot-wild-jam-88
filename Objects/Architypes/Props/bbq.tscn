@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://brhckpuqlnhm6"]
+[gd_scene load_steps=8 format=3 uid="uid://brhckpuqlnhm6"]
 
 [ext_resource type="Script" uid="uid://d1ns4f8nsxmyd" path="res://Objects/furniture_player_collider.gd" id="1_vco27"]
 [ext_resource type="PackedScene" uid="uid://d2eq7vvvrjy06" path="res://Assets/Furniture/bbq.gltf" id="2_3f086"]
 [ext_resource type="PackedScene" uid="uid://bcsr7n75rjc4x" path="res://Objects/Furniture_PropCollider.tscn" id="3_vco27"]
+[ext_resource type="PackedScene" uid="uid://crkjmth4q1t3o" path="res://Particles/BBQ_and_Fire_Sparks/pfx_bbq_idle.tscn" id="4_mk5px"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sssrd"]
 size = Vector3(1.9248047, 1.0048828, 1.0986328)
@@ -32,3 +33,6 @@ shape = SubResource("BoxShape3D_mk5px")
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Furniture_PropCollider"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3741722, 0)
 shape = SubResource("BoxShape3D_juq0p")
+
+[node name="PfxBananaSlip" parent="." instance=ExtResource("4_mk5px")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.90056324, 0.006709054)
