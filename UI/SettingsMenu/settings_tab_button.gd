@@ -16,6 +16,7 @@ func select() -> void:
 	size_tween.tween_property(self, 'scale', Vector2(focus_scale, focus_scale), focus_speed)
 	z_index = 10
 	enable_side_margin()
+	AudioManager.ui_sounds.play_sound(AudioManager.ui_sounds.tab_change)
 	
 func deselect() -> void:
 	var size_tween: Tween = create_tween()

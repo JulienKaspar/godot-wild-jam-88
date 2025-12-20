@@ -7,10 +7,15 @@
 [ext_resource type="AudioStream" uid="uid://f22updhqbnul" path="res://Assets/Audio/SFX/Player/drunkness_down.ogg" id="5_wm4qx"]
 
 [node name="UI_Sounds" type="AudioStreamPlayer"]
+stream = ExtResource("3_dlnjr")
 max_polyphony = 8
 bus = &"UI"
 script = ExtResource("1_0bhj7")
 start_game = ExtResource("2_qx8p4")
-hover = ExtResource("3_dlnjr")
+focus_element = ExtResource("3_dlnjr")
+tab_change = ExtResource("3_dlnjr")
+update_slider = ExtResource("3_dlnjr")
+check_box = ExtResource("3_dlnjr")
+uncheck_box = ExtResource("3_dlnjr")
 drunkness_up = ExtResource("4_fceo1")
 drunkness_down = ExtResource("5_wm4qx")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://b6vbg26wkrdh3"]
+[gd_scene load_steps=42 format=3 uid="uid://b6vbg26wkrdh3"]
 
 [ext_resource type="Script" uid="uid://blqvicje3efcj" path="res://Levels/Util/lvl_0_backyard_mission_flow.gd" id="1_jtswe"]
 [ext_resource type="Script" uid="uid://42mf003bq52u" path="res://Gameplay/level_teleporter.gd" id="2_jtswe"]
@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="2_xweag"]
 [ext_resource type="PackedScene" uid="uid://cyrgcx64104qc" path="res://Objects/Architypes/Props/garden_chair.tscn" id="3_8wfei"]
 [ext_resource type="PackedScene" uid="uid://b2suve3503bvm" path="res://Assets/Backyard/backyard_level.gltf" id="3_cya5t"]
-[ext_resource type="Script" path="res://UI/camera_of_interest.gd" id="4_cya5t"]
+[ext_resource type="Script" uid="uid://ddci75ik2j7ul" path="res://UI/camera_of_interest.gd" id="4_cya5t"]
 [ext_resource type="PackedScene" uid="uid://cnaagrenu83ty" path="res://Objects/Architypes/Props/garden_table.tscn" id="4_d4xos"]
 [ext_resource type="PackedScene" uid="uid://brhckpuqlnhm6" path="res://Objects/Architypes/Props/bbq.tscn" id="5_xweag"]
 [ext_resource type="PackedScene" uid="uid://byi1vrdra1og3" path="res://Objects/Architypes/Props/radio.tscn" id="6_8wfei"]
@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://b0agua7xlrot5" path="res://Assets/Audio/Ambience/ambience_wind.ogg" id="10_5g7ny"]
 [ext_resource type="AudioStream" uid="uid://fq0vj2ffsvip" path="res://Assets/Audio/Music/PartyTheme/Theme_A.ogg" id="11_cw6dl"]
 [ext_resource type="Script" uid="uid://c786nbmcn6vxf" path="res://dialogue_trigger_area.gd" id="14_cya5t"]
+[ext_resource type="AudioStream" uid="uid://brc0gdp873p3j" path="res://Assets/Audio/Ambience/ambience_crickets1.ogg" id="15_kfoxe"]
 [ext_resource type="PackedScene" uid="uid://di5fte2dqxs0c" path="res://Assets/Furniture/window1.gltf" id="15_tao4m"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mr8n6"]
@@ -73,6 +74,13 @@ size = Vector3(1.118042, 2.7145996, 2.6523438)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fkcxp"]
 size = Vector3(1.2667236, 2.7145996, 4.441162)
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_c33jy"]
+stream_count = 2
+stream_0/stream = ExtResource("10_5g7ny")
+stream_0/volume = 6.0
+stream_1/stream = ExtResource("15_kfoxe")
+stream_1/volume = -15.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tao4m"]
 size = Vector3(6.743408, 4.0372314, 1)
@@ -329,11 +337,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2515786, 1.0309347, -19.223
 [node name="AmbienceSounds" type="Node3D" parent="."]
 
 [node name="CricketsAmbience" type="AudioStreamPlayer3D" parent="AmbienceSounds"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.1717882)
-stream = ExtResource("10_5g7ny")
-max_db = -3.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9136918, 2.5187275, 3.7431679)
+stream = SubResource("AudioStreamSynchronized_c33jy")
+max_db = -6.0
+pitch_scale = 0.5
 autoplay = true
-max_distance = 20.0
+max_distance = 12.0
+bus = &"Ambience"
 
 [node name="HousePartyMusic" type="AudioStreamPlayer3D" parent="AmbienceSounds"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.7430115, -24.021633)

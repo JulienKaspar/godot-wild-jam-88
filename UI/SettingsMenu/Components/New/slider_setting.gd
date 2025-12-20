@@ -18,5 +18,6 @@ func set_top_target(control: Control) -> void:
 		slider.focus_neighbor_top = control.get_path()
 
 func set_user_setting_value(new_value) -> void:
+	AudioManager.ui_sounds.play_sound(AudioManager.ui_sounds.update_slider)
 	UserSettings.set(property_name, new_value)
 	UserSettings.on_settings_updated.emit()

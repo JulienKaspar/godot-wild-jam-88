@@ -12,6 +12,7 @@ func _ready() -> void:
 	
 
 func make_big() -> void:
+	AudioManager.ui_sounds.play_sound(AudioManager.ui_sounds.focus_element)
 	var size_tween: Tween = create_tween()
 	size_tween.tween_property(self, "scale", Vector2(scale_factor, scale_factor), 0.2)
 

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://betq65km7cbe3" path="res://UI/SettingsMenu/settings_menu.tscn" id="2_lqkpn"]
 [ext_resource type="Theme" uid="uid://co1s85nypo7on" path="res://UI/default_font_theme.tres" id="2_ri753"]
 [ext_resource type="Theme" uid="uid://csdr5ul5lmxw0" path="res://UI/readability_font_theme.tres" id="3_27j1k"]
-[ext_resource type="Script" uid="uid://dvx2g3kq3biae" path="res://UI/post_processing.gd" id="3_dgskv"]
+[ext_resource type="Script" path="res://UI/post_processing.gd" id="3_dgskv"]
 [ext_resource type="PackedScene" uid="uid://bcredxkb7jfdu" path="res://UI/MainMenu/main_menu.tscn" id="3_e62du"]
 [ext_resource type="Shader" uid="uid://c7jc6g65ws5pi" path="res://Shaders/post_process.gdshader" id="4_u3b6e"]
 [ext_resource type="Script" uid="uid://lhxpah8mvpgj" path="res://UI/level_loader.gd" id="5_4eh1a"]
@@ -108,7 +108,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -2)
 
 [node name="UI_Sounds" parent="." instance=ExtResource("12_k7f6d")]
 process_mode = 3
-bus = &"Master"
 
 [node name="MusicManager" parent="." instance=ExtResource("9_4eh1a")]
 process_mode = 3

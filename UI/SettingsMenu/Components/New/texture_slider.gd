@@ -20,6 +20,7 @@ func focus() -> void:
 	playhead.texture = focus_playhead
 	label.focus()
 	slider_selected.emit()
+	AudioManager.ui_sounds.play_sound(AudioManager.ui_sounds.focus_element)
 
 func unfocus() -> void:
 	playhead.texture = unfocused_playhead

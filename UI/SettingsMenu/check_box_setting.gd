@@ -31,12 +31,14 @@ func _ready() -> void:
 func handle_pressed(toggled_on: bool) -> void:
 	UserSettings.set(property_name, toggled_on)
 	UserSettings.on_settings_updated.emit()
+	AudioManager.ui_sounds.play_sound(AudioManager.ui_sounds.focus_element)
 
 func focus() -> void:
 	label.focus()
 	var checkbox_size_tween: Tween = create_tween()
 	checkbox_size_tween.tween_property(checkbox, "scale", Vector2(focused_size_mod, focused_size_mod), transition_duration)
 	checkbox.disabled = false
+	AudioManager.ui_sounds.play_sound(AudioManager.ui_sounds.focus_element)
 
 
 func unfocus() -> void:
