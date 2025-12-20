@@ -1,9 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://et2abtkee7pw"]
+[gd_scene load_steps=20 format=3 uid="uid://et2abtkee7pw"]
 
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="1_4dvnr"]
 [ext_resource type="PackedScene" uid="uid://bc0xkeoq4b45n" path="res://Assets/Kitchen/kitchen_level.gltf" id="1_v85wt"]
 [ext_resource type="PackedScene" uid="uid://c66e4is6lm7ba" path="res://Assets/Kitchen/fridge_door_left.gltf" id="3_kqsjv"]
 [ext_resource type="PackedScene" uid="uid://bobex0wkhxsmn" path="res://Assets/Kitchen/fridge_door_right.gltf" id="4_f37uh"]
+[ext_resource type="AudioStream" uid="uid://chm21oaoy0bxx" path="res://Assets/Audio/Music/FinalFridgeTheme/FinalFridgeIntro.ogg" id="5_2kg0s"]
+[ext_resource type="AudioStream" uid="uid://pdtxdl84vfyb" path="res://Assets/Audio/Music/FinalFridgeTheme/FinalFridgeIntroChoir.ogg" id="6_fwmbu"]
+[ext_resource type="AudioStream" uid="uid://dwpymy84i3toc" path="res://Assets/Audio/Music/FinalFridgeTheme/FinalFridgeLoop.ogg" id="7_fwmbu"]
+[ext_resource type="Script" uid="uid://dxfu8cxtr72lt" path="res://Levels/final_fridge_theme.gd" id="8_y8nvo"]
 
 [sub_resource type="Environment" id="Environment_v85wt"]
 background_mode = 1
@@ -35,6 +39,30 @@ size = Vector3(0.94873047, 1, 2.153267)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f37uh"]
 size = Vector3(8.106323, 1, 1)
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_y8nvo"]
+stream_count = 2
+stream_0/stream = ExtResource("5_2kg0s")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("6_fwmbu")
+stream_1/volume = -60.0
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_kqsjv"]
+clip_count = 2
+clip_0/name = &"start"
+clip_0/stream = SubResource("AudioStreamSynchronized_y8nvo")
+clip_0/auto_advance = 0
+clip_1/name = &"finish"
+clip_1/stream = ExtResource("7_fwmbu")
+clip_1/auto_advance = 0
+_transitions = {
+Vector2i(0, 1): {
+"fade_beats": 1.0,
+"fade_mode": 4,
+"from_time": 3,
+"to_time": 1
+}
+}
 
 [node name="LvlEndKitchen" type="Node3D"]
 
@@ -153,3 +181,9 @@ shape = SubResource("BoxShape3D_f37uh")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="InvisibleBoundary"]
 transform = Transform3D(0.4738115, 0, 0.8806263, 0, 1, 0, -0.8806263, 0, 0.4738115, 2.0476964, 0, 6.092998)
 shape = SubResource("BoxShape3D_f37uh")
+
+[node name="FinalFridgeTheme" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamInteractive_kqsjv")
+volume_db = -60.0
+bus = &"Music"
+script = ExtResource("8_y8nvo")

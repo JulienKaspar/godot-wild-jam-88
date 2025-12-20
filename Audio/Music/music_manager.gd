@@ -49,6 +49,10 @@ const _LEVEL_VOLUME_FACTOR : float = 1.5
 
 func _on_level_change(level_index : int):
 	if level_index > 0:
+		if level_index == 6:
+			AudioManager.fade_audio_out(music_player)
+			return
+		
 		AudioManager.fade_audio_in(music_player)
 		
 		var _volume_db = _LEVEL_VOLUME_OFFSET_DB - (level_index * _LEVEL_VOLUME_FACTOR)
@@ -60,6 +64,8 @@ func _on_level_change(level_index : int):
 		else:
 			AudioManager.tween_volume_db(music_player, _volume_db)
 			trigger_random_chord_changes()
+			
+		
 
 #region MUSIC
 # Music themes - enum makes it easily callable from other scripts
