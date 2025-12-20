@@ -39,6 +39,16 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "materials": {
+"ceiling": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/Backyard/outer_roof_tiling.tres",
+"use_external/path": "uid://c56rn06k0qjyq"
+},
+"fence_entrance": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/Backyard/fence.tres",
+"use_external/path": "uid://dqbkb6iuswcpo"
+},
 "grass": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://Assets/Materials/lawn_grass.tres",
@@ -48,6 +58,11 @@ _subresources={
 "use_external/enabled": true,
 "use_external/fallback_path": "res://Assets/Materials/generic_soft.tres",
 "use_external/path": "uid://bkpy44rodafk4"
+},
+"outer_wall": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/Materials/outer_wall.tres",
+"use_external/path": "uid://bbr27jlagb1vw"
 },
 "soil": {
 "use_external/enabled": true,

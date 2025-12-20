@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bbr27jlagb1vw"]
+
+[ext_resource type="Shader" uid="uid://bfg8h8d77mbao" path="res://Shaders/tileable_wall.gdshader" id="1_sdd66"]
+[ext_resource type="Texture2D" uid="uid://f6e6lh1quy3x" path="res://Assets/Backyard/house_wall_exterior.png" id="2_sdd66"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_sdd66")
+shader_parameter/albedo = Color(0.5693474, 0.515321, 0.32463124, 1)
+shader_parameter/texture_albedo = ExtResource("2_sdd66")
+shader_parameter/top_color = Color(0.2784, 0.2196, 0.1569, 1)
+shader_parameter/wall_height = 1.565
+shader_parameter/stretch = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/uv_offset = Vector2(0, 0.22)
+shader_parameter/tile = 0
+shader_parameter/random_seed = 100
+shader_parameter/flip_x = false
+shader_parameter/hue_shift = 0.0

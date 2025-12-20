@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dqbkb6iuswcpo"]
+
+[ext_resource type="Texture2D" uid="uid://cgqxqhxjl7j8e" path="res://Assets/Maps/Exterior/fence.png" id="1_iwv6t"]
+
+[resource]
+diffuse_mode = 3
+albedo_color = Color(0.8027699, 0.55970246, 0.5375562, 1)
+albedo_texture = ExtResource("1_iwv6t")

@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c56rn06k0qjyq"]
+
+[ext_resource type="Texture2D" uid="uid://c6srndjvda7tf" path="res://Assets/Backyard/tiny_roof_shingles.png" id="1_okdcm"]
+
+[resource]
+diffuse_mode = 3
+albedo_color = Color(0.7976585, 0.79765844, 0.7976585, 1)
+albedo_texture = ExtResource("1_okdcm")

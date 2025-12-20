@@ -6,7 +6,7 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_24kih")
-shader_parameter/albedo = Vector4(0.8, 0.8, 0.4, 0)
+shader_parameter/albedo = Vector4(0.925, 0.8, 0.8, 0)
 shader_parameter/texture_albedo = ExtResource("2_24kih")
 shader_parameter/scale = 1.117
 shader_parameter/roughness = 1.0
