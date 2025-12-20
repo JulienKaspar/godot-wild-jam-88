@@ -24,8 +24,14 @@ func set_variation(tile):
 
 
 func _on_area_3d_body_shape_entered(body_rid: RID, body: Node3D, body_shape_index: int, local_shape_index: int) -> void:
+	# Remove grass that collides with the helper shape
+	if body.is_in_group("HelperShape"):
+		queue_free()
+		return
+
 	if is_bent:
 		return
+
 	# Push the grass down on the ground
 	$Area3D/Timer.stop()
 	$Area3D/Sprite3D.axis = 1

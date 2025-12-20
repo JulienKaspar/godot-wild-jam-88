@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pcw8nxh3iltg"
-path.s3tc="res://.godot/imported/beer_foam_particles_atlas.png-131fadba29d25ae59039d0fae2185d22.s3tc.ctex"
+uid="uid://dw6rpcrvgmspl"
+path.s3tc="res://.godot/imported/schweini_on_canwasdalos.png-e0f99206e3e5a76a5f841324416d372a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Particles/Beer_Particles/beer_foam_particles_atlas.png"
-dest_files=["res://.godot/imported/beer_foam_particles_atlas.png-131fadba29d25ae59039d0fae2185d22.s3tc.ctex"]
+source_file="res://Assets/2D_Assets/Wall_Paintings/schweini_on_canwasdalos.png"
+dest_files=["res://.godot/imported/schweini_on_canwasdalos.png-e0f99206e3e5a76a5f841324416d372a.s3tc.ctex"]
 
 [params]
 
@@ -38,4 +38,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

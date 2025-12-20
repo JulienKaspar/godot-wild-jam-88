@@ -23,6 +23,8 @@ var inState = PickupStates.ALIVE
 func _ready() -> void:
 	if broken_mesh: broken_mesh.hide()
 	if pristine_mesh: pristine_mesh.show()
+	if consume_pfx: consume_pfx.emit_none()
+	if dispose_pfx: dispose_pfx.stop_emit()
 	hide_prompt()
 	checkIfAlive(true)
 
@@ -45,7 +47,7 @@ func pickup(fromObject: Object) -> void:
 	PickedUp.emit()
 
 func consume() -> void:
-	consume_pfx.emitting = true
+	if consume_pfx: consume_pfx.emit_all()
 	
 func display_prompt() -> void: 
 	pickup_prompt.show()
@@ -57,19 +59,20 @@ func consumed() -> float:
 	if fully_consumable:
 		self.queue_free()
 	else:
-		consume_pfx.emitting = false
+		consume_pfx.emit_none()
 		inState = PickupStates.USED
 		pick_point.monitorable = false
 		self.freeze = false
 		$CollisionShape3D.disabled = false #workaround for collision still active
 		var throwVec = self.global_position - GameStateManager.current_player.player_global_pos
 		throwVec.y = throwVec.y * randf_range(0, 0.2)
-		self.apply_impulse(throwVec * 5.0)
+		self.call_deferred("apply_impulse", throwVec * 10.0)
+		#self.()
 
 		if broken_mesh: 
 			broken_mesh.show()
 			if pristine_mesh: pristine_mesh.hide()
-		dispose_pfx.emitting = true
+		dispose_pfx.do_emit()
 	return drunkness_increase
 
 func doBreak(silentSwitch: bool = false) -> void:

@@ -1,0 +1,22 @@
+[gd_resource type="QuadMesh" load_steps=4 format=3 uid="uid://dcxmkpxryfbc0"]
+
+[ext_resource type="Texture2D" uid="uid://pcw8nxh3iltg" path="res://Particles/Beer_Particles/beer_foam_particles_atlas.png" id="1_ng4m4"]
+[ext_resource type="Texture2D" uid="uid://dspag4mdr2vrc" path="res://Particles/Beer_Particles/beer_foam_particles_normal.png" id="2_ng4m4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4p5jg"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_ng4m4")
+albedo_texture_force_srgb = true
+roughness = 0.7
+normal_enabled = true
+normal_texture = ExtResource("2_ng4m4")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 3
+particles_anim_loop = false
+
+[resource]
+material = SubResource("StandardMaterial3D_4p5jg")
+size = Vector2(0.3, 0.3)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://d0sfog08mwxuw"]
+[gd_scene load_steps=10 format=3 uid="uid://cup17xrrbj5on"]
 
 [ext_resource type="Texture2D" uid="uid://dj7qr1suvy7ha" path="res://Assets/Maps/Sprites/smoke_a_diff.png" id="1_ib1rw"]
+[ext_resource type="Script" uid="uid://bcct1aqhnv1r" path="res://Gameplay/Pickups/pfx_trigger_childs.gd" id="2_gavaf"]
 
 [sub_resource type="Curve" id="Curve_fl26i"]
 _data = [Vector2(0, 1), 0.0, -2.854663, 0, 0, Vector2(1, 0), -2.7703905, 0.0, 0, 0]
@@ -51,3 +52,4 @@ size = Vector2(0.3, 0.3)
 amount = 20
 process_material = SubResource("ParticleProcessMaterial_uit5j")
 draw_pass_1 = SubResource("QuadMesh_fl26i")
+script = ExtResource("2_gavaf")
