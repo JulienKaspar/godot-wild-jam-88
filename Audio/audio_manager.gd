@@ -7,6 +7,7 @@ extends Node
 var music_manager : MusicManager
 var ui_sounds : UI_Sounds
 var player_sounds : PlayerSounds
+var sfx_pool : SoundEffectsPool
 
 const DRUNK_AUDIO_BUS_LAYOUT : AudioBusLayout = preload("uid://c6p02v462orsm")
 

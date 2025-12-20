@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cm4oxjb4ek3al" path="res://UI/PauseMenu/pause_menu.tscn" id="10_27j1k"]
 [ext_resource type="PackedScene" path="res://Characters/Player/player_spawner.tscn" id="11_qrf3k"]
 [ext_resource type="PackedScene" uid="uid://d01verpwnpp0o" path="res://Audio/UI/ui_sounds.tscn" id="12_k7f6d"]
+[ext_resource type="PackedScene" uid="uid://c46y87jtli80e" path="res://Audio/SFX/sound_effects_pool.tscn" id="17_27j1k"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gjcnd"]
 shader = ExtResource("4_u3b6e")
@@ -108,7 +109,7 @@ follow_distance = 4.0
 
 [node name="AudioListener3D" type="AudioListener3D" parent="GameCamera"]
 process_mode = 3
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -1.5)
 
 [node name="PlayerSpawner" parent="." instance=ExtResource("11_qrf3k")]
 
@@ -118,3 +119,5 @@ bus = &"Master"
 
 [node name="MusicManager" parent="." instance=ExtResource("9_4eh1a")]
 process_mode = 3
+
+[node name="SoundEffectsPool" parent="." instance=ExtResource("17_27j1k")]
