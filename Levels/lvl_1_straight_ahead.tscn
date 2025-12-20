@@ -33,7 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://cbj1xsvngkbla" path="res://Assets/LivingRoom/door_closed.gltf" id="29_erk6i"]
 [ext_resource type="PackedScene" uid="uid://cri5otcpu2ukq" path="res://Assets/Furniture/frame1.gltf" id="29_jtuo3"]
 [ext_resource type="PackedScene" uid="uid://dq8pax2pwl72a" path="res://Objects/Architypes/Props/plant_algae1.tscn" id="30_cla2b"]
-[ext_resource type="PackedScene" path="res://Assets/Furniture/door_sides.gltf" id="30_fprnk"]
+[ext_resource type="PackedScene" uid="uid://k0584mty7u68" path="res://Assets/LivingRoom/door_sides.gltf" id="30_fprnk"]
 [ext_resource type="PackedScene" uid="uid://c3exm36djed3o" path="res://Assets/Furniture/window_1_curtain.gltf" id="30_xhek1"]
 [ext_resource type="PackedScene" uid="uid://bwm23c42sbbui" path="res://Objects/Architypes/Props/lamp_table1.tscn" id="31_dhb1n"]
 [ext_resource type="PackedScene" uid="uid://c1pmr6dan0331" path="res://Assets/Furniture/couch3.gltf" id="32_2mquc"]
