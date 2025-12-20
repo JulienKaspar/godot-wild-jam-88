@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="2_xweag"]
 [ext_resource type="PackedScene" uid="uid://cyrgcx64104qc" path="res://Objects/Architypes/Props/garden_chair.tscn" id="3_8wfei"]
 [ext_resource type="PackedScene" uid="uid://b2suve3503bvm" path="res://Assets/Backyard/backyard_level.gltf" id="3_cya5t"]
-[ext_resource type="Script" uid="uid://ddci75ik2j7ul" path="res://UI/camera_of_interest.gd" id="4_cya5t"]
+[ext_resource type="Script" path="res://UI/camera_of_interest.gd" id="4_cya5t"]
 [ext_resource type="PackedScene" uid="uid://cnaagrenu83ty" path="res://Objects/Architypes/Props/garden_table.tscn" id="4_d4xos"]
 [ext_resource type="PackedScene" uid="uid://brhckpuqlnhm6" path="res://Objects/Architypes/Props/bbq.tscn" id="5_xweag"]
 [ext_resource type="PackedScene" uid="uid://byi1vrdra1og3" path="res://Objects/Architypes/Props/radio.tscn" id="6_8wfei"]
@@ -497,12 +497,12 @@ material_override = SubResource("StandardMaterial3D_cya5t")
 mesh = SubResource("BoxMesh_tao4m")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.9456263, 0, 0, 0, 3.352208, 0, 0, 0, 1, 4.175971, 2.108094, -23.526175)
+transform = Transform3D(2.145667, 0, 0, 0, 2.7978642, 0, 0, 0, 1, 3.9226174, 2.108094, -23.444145)
 material_override = SubResource("StandardMaterial3D_cya5t")
 mesh = SubResource("BoxMesh_tao4m")
 
 [node name="window1" parent="." instance=ExtResource("15_tao4m")]
-transform = Transform3D(1.4443672, 0, 0, 0, 1.2389587, 0, 0, 0, 1.4443672, 3.9466667, 2.5330787, -22.913568)
+transform = Transform3D(1.4443672, 0, 0, 0, 1.2389587, 0, 0, 0, 1.4443672, 3.918563, 2.5330787, -22.913568)
 
 [node name="HelperCollisionShapes" type="Node3D" parent="."]
 
