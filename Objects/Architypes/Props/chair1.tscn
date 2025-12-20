@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://duj1jw0lqr015"]
+
+[ext_resource type="PackedScene" uid="uid://142xvokhmr2g" path="res://Objects/PropCollider.tscn" id="1_x0xy4"]
+[ext_resource type="PackedScene" uid="uid://c7wjbfh7jn1l4" path="res://Assets/Furniture/chair1.gltf" id="2_x0xy4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x0xy4"]
+size = Vector3(0.60546875, 0.65148926, 0.63687134)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_42ryc"]
+size = Vector3(0.5671692, 0.8570404, 0.10839844)
+
+[node name="LampStanding1" type="Node3D"]
+
+[node name="PropCollider" parent="." instance=ExtResource("1_x0xy4")]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="PropCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.32687378, -0.0013275146)
+shape = SubResource("BoxShape3D_x0xy4")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="PropCollider"]
+transform = Transform3D(1, -3.7230508e-09, -1.5883964e-10, 3.72305e-09, 0.99636614, 0.08517347, -1.5883958e-10, -0.08517347, 0.99636614, -0.0076446533, 0.9535847, -0.28766465)
+shape = SubResource("BoxShape3D_42ryc")
+
+[node name="chair1" parent="PropCollider" instance=ExtResource("2_x0xy4")]
