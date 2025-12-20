@@ -7,7 +7,8 @@ class_name SettingsMenu
 @onready var visual_tab_button: TextureButton = %VisualTabButton
 @onready var tab_container: TabContainer = %TabContainer
 @onready var back_button: Button = %BackButton
-
+@onready var fence_background: TextureRect = %FenceBackground
+@onready var game_background: TextureRect = %GameBackground
 signal on_back()
 
 var tab_buttons: Array[TextureButton]
@@ -24,10 +25,16 @@ func _ready() -> void:
 func show_tab(index:int ) -> void:
 	tab_container.current_tab = index
 
-func open() -> void:
+func open(open_fence_background: bool) -> void:
 	#AudioManager.ui_sounds.play_sound(AudioManager.ui_sounds.focus_element)
 	tab_buttons[0].grab_focus()
-
+	
+	if open_fence_background:
+		fence_background.show()
+		game_background.hide()
+	else:
+		fence_background.hide()
+		game_background.show()
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action_pressed("open_debug_menu"):
 		print(get_viewport().gui_get_focus_owner())

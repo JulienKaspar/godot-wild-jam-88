@@ -5,6 +5,7 @@ extends Node
 @onready var hud: HUD = %HUD
 @onready var menu_displayer: Control = %MenuDisplayer
 @onready var dialogue_system: Control = %DialogueSystem
+@onready var schmear_frame: TextureRect = %SchmearFrame
 @export var default_font_theme: Theme
 @export var readability_font_theme: Theme
 
@@ -31,11 +32,15 @@ func switch_font(readability_font: bool) -> void:
 	
 	
 func handle_setting_menu_opened() -> void:
-	main_menu.hide()
 	settings_menu.show()
 	hud.hide()
-	settings_menu.open()
+	settings_menu.open(!game_started)
 	pause_menu.hide()
+	
+	if !game_started:
+		handle_main_menu_to_settings_transition()
+	else:
+		main_menu.hide()
 
 func handle_back_button_pressed() -> void:
 	if !game_started:
@@ -45,13 +50,16 @@ func handle_back_button_pressed() -> void:
 	
 func handle_main_menu_opened() -> void:
 	main_menu.show()
-	settings_menu.hide()
 	hud.hide()
 	pause_menu.hide()
 	main_menu.start_button.grab_focus.call_deferred()
+	
+	if !game_started:
+		handle_settings_to_main_menu_transition()
+	else:
+		settings_menu.hide()
+	game_started = false
 
-	# handle hiding game here potentially
-#
 func handle_game_started() -> void:
 	main_menu.hide()
 	settings_menu.hide()
@@ -85,4 +93,31 @@ func show_paused_menu() -> void:
 	pause_menu.open()
 	settings_menu.hide()
 	hud.hide()
+	
+func handle_main_menu_to_settings_transition() -> void:
+	main_menu.show()
+	schmear_frame.show()
+	
+	var main_menu_exit_tween: Tween = create_tween()
+	main_menu_exit_tween.tween_property(main_menu, 'position', Vector2(main_menu.position.x + 1920 , main_menu.position.y), 0.3)
+	main_menu_exit_tween.finished.connect(func(): 
+		main_menu.hide()
+		schmear_frame.hide())
+
+	var settings_enter_tween: Tween = create_tween()
+	settings_enter_tween.tween_property(settings_menu, 'position', Vector2(settings_menu.position.x - 1920, settings_menu.position.y),0)
+	settings_enter_tween.tween_property(settings_menu, 'position', Vector2(0, settings_menu.position.y),0.3)
+	
+func handle_settings_to_main_menu_transition() -> void:
+	schmear_frame.show()
+	var settings_menu_exit_tween: Tween = create_tween()
+	settings_menu_exit_tween.tween_property(settings_menu, 'position', Vector2(settings_menu.position.x - 1920 , settings_menu.position.y), 0.3).set_ease(Tween.EASE_IN_OUT)
+	settings_menu_exit_tween.finished.connect(func(): 
+		settings_menu.hide()
+		schmear_frame.show()
+		)
+			
+	var main_menu_enter_tween: Tween = create_tween()
+	main_menu_enter_tween.tween_property(main_menu, 'position', Vector2(main_menu.position.x + 1920, main_menu.position.y),0)
+	main_menu_enter_tween.tween_property(main_menu, 'position', Vector2(main_menu.position.x - 1920, main_menu.position.y),0.3).set_ease(Tween.EASE_IN_OUT)
 	
