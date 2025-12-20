@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://4pyna2f4x4mw" path="res://Assets/2D_Assets/Menu_Art/sky_0.png" id="2_iyy2y"]
 [ext_resource type="Texture2D" uid="uid://b8rxa7p6j26ld" path="res://Assets/2D_Assets/Menu_Art/fence_3.png" id="2_t17p2"]
 [ext_resource type="Texture2D" uid="uid://c1tqhcgn5b56s" path="res://Assets/2D_Assets/Menu_Art/table_2.png" id="3_iyy2y"]
-[ext_resource type="Script" uid="uid://jjhbwpi77cq1" path="res://UI/MainMenu/main_menu_camera.gd" id="6_trkrl"]
+[ext_resource type="Script" path="res://UI/MainMenu/main_menu_camera.gd" id="6_trkrl"]
 [ext_resource type="AudioStream" uid="uid://bwkhlcxqvfarj" path="res://Audio/Ambience/title_screen_ambience.tres" id="7_bddxb"]
 [ext_resource type="Texture2D" uid="uid://bd1ff5rsfvtm4" path="res://UI/MainMenu/title.png" id="7_pbebc"]
 [ext_resource type="PackedScene" uid="uid://copb1h0542sta" path="res://UI/MainMenu/menu_button.tscn" id="8_ejg71"]
@@ -125,10 +125,10 @@ size_flags_stretch_ratio = 1.5
 [node name="TitleScreenAmbience" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("7_bddxb")
+bus = &"Ambience"
 
 [node name="ThemeMusicMuted" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("8_iau2q")
-volume_db = -6.0
 autoplay = true
 bus = &"Music"

@@ -1,4 +1,4 @@
-# audio_manager.gd
+# audio_manager.gd (autoload)
 # ================
 # stores global audio information
 # handles audio settings
@@ -28,11 +28,30 @@ func _init():
 
 func _ready():
 	GameStateManager.player_drunkness.on_drunkness_changed.connect(update_drunk_effects)
+	UserSettings.on_settings_updated.connect(update_audio_settings)
+	
 	stereo_enhancer_effect = AudioServer.get_bus_effect(BUS.DRUNK_FX, FX.STEREO_ENHANCE)
 	chorus_effect = AudioServer.get_bus_effect(BUS.DRUNK_FX, FX.CHORUS)
 	phaser_effect = AudioServer.get_bus_effect(BUS.DRUNK_FX, FX.PHASER)
 	delay_effect = AudioServer.get_bus_effect(BUS.DRUNK_FX, FX.DELAY)
 
+#region SETTINGS
+func update_audio_settings() -> void:
+	# Volumes
+	AudioServer.set_bus_volume_linear(BUS.MASTER, UserSettings.master_volume)
+	AudioServer.set_bus_volume_linear(BUS.MUSIC, UserSettings.music_volume)
+	AudioServer.set_bus_volume_linear(BUS.SFX, UserSettings.sfx_volume)
+	AudioServer.set_bus_volume_linear(BUS.AMBIENCE, UserSettings.ambience_volume)
+	AudioServer.set_bus_volume_linear(BUS.UI, UserSettings.ui_volume)
+	# Drunk effects
+	AudioServer.set_bus_effect_enabled(BUS.DRUNK_FX, FX.STEREO_ENHANCE, UserSettings.disorienting_sounds_enabled)
+	AudioServer.set_bus_effect_enabled(BUS.DRUNK_FX, FX.CHORUS, UserSettings.disorienting_sounds_enabled)
+	AudioServer.set_bus_effect_enabled(BUS.DRUNK_FX, FX.PHASER, UserSettings.disorienting_sounds_enabled)
+	AudioServer.set_bus_effect_enabled(BUS.DRUNK_FX, FX.DELAY, UserSettings.disorienting_sounds_enabled)
+	# Burp nastiness
+	#player_sounds.burp_nastiness = UserSettings.burp_nastiness
+
+#endregion
 
 
 #region VOLUME_CONTROL

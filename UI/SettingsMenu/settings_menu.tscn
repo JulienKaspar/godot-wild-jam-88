@@ -210,6 +210,11 @@ layout_mode = 2
 setting_name = "UI Volume"
 property_name = &"ui_volume"
 
+[node name="AmbienceVolume" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer/Audio/VBoxContainer" instance=ExtResource("11_dxnqk")]
+layout_mode = 2
+setting_name = "Ambience Volume"
+property_name = &"ambience_volume"
+
 [node name="BurpNastiness" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer/Audio/VBoxContainer" instance=ExtResource("11_dxnqk")]
 layout_mode = 2
 setting_name = "Burp Nastiness"
