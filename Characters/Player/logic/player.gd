@@ -200,6 +200,7 @@ func _on_change_movement(state: Player.MoveStates) -> void:
 		MoveStates.FELL: 
 			pfx_bodyfall.set_emitting(true)
 			GameStateManager.game_camera.shake(5.0)
+			AudioManager.ui_sounds.play_sound(AudioManager.ui_sounds.shake_impact)
 		#_: pfx_bodyfall.set_emitting(false)
 
 

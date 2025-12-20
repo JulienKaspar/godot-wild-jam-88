@@ -163,7 +163,7 @@ func _update_drunkness_streams(_target_volume_db) -> void:
 			_clip.set_sync_stream_volume(j, _target_volume_db)
 #endregion
 
-const _FILTER_CUTOFF_HZ_ON = 200
+const _FILTER_CUTOFF_HZ_ON = 500
 const _FILTER_CUTOFF_HZ_OFF = 10000
 const _FILTER_FX = 0
 

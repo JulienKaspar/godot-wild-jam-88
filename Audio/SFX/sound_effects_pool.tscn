@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://bk41hfuvlnxoe" path="res://Assets/Audio/SFX/Props/banana_slip_01.ogg" id="4_lrawr"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_mxvxv"]
-random_pitch = 1.3
+random_pitch = 1.5
 streams_count = 1
 stream_0/stream = ExtResource("4_lrawr")
 

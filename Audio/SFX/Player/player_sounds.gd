@@ -57,7 +57,7 @@ func play_voice(voice_stream : AudioStream) -> void:
 	voice_player.play()
 
 func duck_singing_volume() -> void:
-	AudioManager.fade_audio_out(singing_player, 0.15)
+	AudioManager.fade_audio_out(singing_player, 0.35)
 	if !voice_player.finished.has_connections():
 		voice_player.finished.connect(restore_singing_volume)
 
@@ -118,7 +118,7 @@ func setup_hiccups() -> void:
 	add_child(hiccup_timer)
 	
 
-const _FILTER_CUTOFF_HZ_ON = 300
+const _FILTER_CUTOFF_HZ_ON = 350
 const _FILTER_CUTOFF_HZ_OFF = 10000
 const _FILTER_FX = 0
 
@@ -139,7 +139,7 @@ func set_singing_filter(_enabled : bool, _target_hz : float = -1.0):
 	# tween
 	var t : Tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	#var tween_speed : float = 0.15 if _enabled else 0.35
-	t.tween_property(filter_effect, "cutoff_hz", target_hz, 0.5)
+	t.tween_property(filter_effect, "cutoff_hz", target_hz, 0.8)
 	
 	# disable if setting off
 	if !_enabled:

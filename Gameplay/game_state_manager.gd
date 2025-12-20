@@ -27,7 +27,6 @@ func _ready() -> void:
 	player_drunkness.on_sobriety.connect(handle_sobriety.call_deferred)
 	
 func _process(delta: float) -> void:
-	if player_drunkness.paused: return
 	player_drunkness.current_drunkness -= player_drunkness.drunkness_decay_per_second * delta
 	update_drunk_visual_effect()
 
@@ -42,19 +41,12 @@ func register_level_loader(loader: LevelLoader) -> void:
 func start_game() -> void:
 	get_tree().paused = false
 	await cache_shaders()
-	loading_screen.display_indefinite()
-	loading_screen.label.text = "Setting things up..."
-	AudioManager.ui_sounds.volume_db = AudioManager._VOLUME_DB_OFF
-
 	load_level_by_index(starting_level_index,false)
 	current_state = GameState.Game
 	PlayerMovementUtils.knock_player_down.call_deferred()
-	await GameStateManager.current_player.ChangeMovement
-	get_tree().paused = true
-	loading_screen.label.text = "Press enter / start to continue..."
-	await loading_screen.on_ready_to_proceed
-	get_tree().paused = false
-	AudioManager.ui_sounds.volume_db = 0.0
+	loading_screen.display(3 * UserSettings.loading_speed)
+	await loading_screen.on_completed
+	AudioManager.ui_sounds.game_started = true
 	
 	
 func cache_shaders() -> void:
