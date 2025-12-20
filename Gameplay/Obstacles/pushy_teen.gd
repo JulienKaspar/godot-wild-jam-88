@@ -16,6 +16,10 @@ func _process(delta: float) -> void:
 
 func handle_collision(body : Node3D) -> void:
 	
+	var teen_root : Teen = owner
+	if not teen_root.pushy:
+		return
+	
 	if body is not RigidBally:
 		return
 	
