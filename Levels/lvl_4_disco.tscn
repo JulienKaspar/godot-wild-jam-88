@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://d2a7apkvocsew"]
+[gd_scene load_steps=45 format=3 uid="uid://d2a7apkvocsew"]
 
 [ext_resource type="Script" uid="uid://bc8urqgpnntuw" path="res://Levels/lvl_4_disco.gd" id="1_n28pq"]
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="1_u88v8"]
@@ -40,6 +40,9 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_2ernl"]
 size = Vector3(6.11322, 5.400879, 2.6853256)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_8is7g"]
+size = Vector3(6.11322, 5.400879, 5.6984234)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_smwtj"]
 size = Vector3(2.8466797, 5.400879, 5.0246234)
 
@@ -70,7 +73,7 @@ size = Vector3(2.8951664, 3.6125727, 0.2)
 script = ExtResource("1_n28pq")
 
 [node name="PlayerSpawnPoint" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34808338, 0, 23.178928)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.195387, 0, -1.8170362)
 script = ExtResource("1_u88v8")
 metadata/_custom_type_script = "uid://cm1uqdo37kpmi"
 
@@ -98,6 +101,24 @@ ExitCam = NodePath("../CameraEnter")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="EnterCameraTrigger"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2612791, 2.2004395, 1.6066513)
 shape = SubResource("BoxShape3D_2ernl")
+
+[node name="CameraExit" type="Camera3D" parent="."]
+transform = Transform3D(0.9997705, -0.0021999993, -0.021311572, 0.0058628186, 0.984839, 0.17337191, 0.020607049, -0.17345706, 0.9846258, -10.705703, 1.372211, -6.122877)
+fov = 55.0
+script = ExtResource("3_8dcp4")
+blendInTime = 3.0
+blendOutTime = 1.5
+
+[node name="ExitCameraTrigger" type="Area3D" parent="." node_paths=PackedStringArray("ExitCam")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.074489, 0, -10.2803545)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("4_smwtj")
+ExitCam = NodePath("../CameraExit")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ExitCameraTrigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2612791, 2.2004395, 0.44759083)
+shape = SubResource("BoxShape3D_8is7g")
 
 [node name="SwitchrCameraTrigger" type="Area3D" parent="." node_paths=PackedStringArray("ExitCam")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42332637, 0, 16.225693)
