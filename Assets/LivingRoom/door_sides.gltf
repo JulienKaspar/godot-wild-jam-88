@@ -6,7 +6,7 @@
 	"scene":0,
 	"scenes":[
 		{
-			"name":"door_frame",
+			"name":"door_sides",
 			"nodes":[
 				0
 			]
@@ -15,12 +15,7 @@
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"Cube",
-			"translation":[
-				0,
-				0,
-				-0.37955108284950256
-			]
+			"name":"Cube.002"
 		}
 	],
 	"materials":[
@@ -35,7 +30,7 @@
 	],
 	"meshes":[
 		{
-			"name":"Cube",
+			"name":"Cube.004",
 			"primitives":[
 				{
 					"attributes":{
@@ -54,80 +49,80 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":150,
+			"count":28,
 			"max":[
-				0.7225181460380554,
-				2.4553074836730957,
-				0.11355258524417877
+				0.10348071902990341,
+				3.5840468406677246,
+				0.1650523543357849
 			],
 			"min":[
-				-0.7225181460380554,
+				-0.11668131500482559,
 				0,
-				-0.11355266720056534
+				-0.16376648843288422
 			],
 			"type":"VEC3"
 		},
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":150,
+			"count":28,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":150,
+			"count":28,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":3,
 			"componentType":5126,
-			"count":150,
+			"count":28,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":4,
 			"componentType":5123,
-			"count":672,
+			"count":114,
 			"type":"SCALAR"
 		}
 	],
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":1800,
+			"byteLength":336,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":1800,
-			"byteOffset":1800,
+			"byteLength":336,
+			"byteOffset":336,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":1200,
-			"byteOffset":3600,
+			"byteLength":224,
+			"byteOffset":672,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":1800,
-			"byteOffset":4800,
+			"byteLength":336,
+			"byteOffset":896,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":1344,
-			"byteOffset":6600,
+			"byteLength":228,
+			"byteOffset":1232,
 			"target":34963
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":7944,
-			"uri":"door_frame.bin"
+			"byteLength":1460,
+			"uri":"door_sides.bin"
 		}
 	]
 }
