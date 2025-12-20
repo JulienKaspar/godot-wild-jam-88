@@ -44,10 +44,11 @@ func start_game() -> void:
 	load_level_by_index(starting_level_index,false)
 	current_state = GameState.Game
 	PlayerMovementUtils.knock_player_down.call_deferred()
-	loading_screen.display(3 * UserSettings.loading_speed)
+	loading_screen.display_indefinite()
+	loading_screen.label.text = "Press enter / start to continue..."
 	AudioManager.ui_sounds.volume_db = AudioManager._VOLUME_DB_OFF
-	await loading_screen.on_completed
-	AudioManager.ui_sounds.game_started
+	await loading_screen.on_ready_to_proceed
+	AudioManager.ui_sounds.volume_db = 0.0
 	
 	
 func cache_shaders() -> void:
