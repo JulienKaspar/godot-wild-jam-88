@@ -3,6 +3,10 @@ extends Node3D
 class_name SlipObstacle
 
 @export var force_multiplier: float = 50
+@export var single_use: bool = false
+@export var disable_pfx: GPUParticles3D
+@export var hide_meshes: Array[Node3D]
+
 
 const cooldown: float = 5
 var time_elapsed_since_activation: float = 100000
@@ -30,12 +34,28 @@ func _ready() -> void:
 		player_detector.body_entered.connect(handle_player_collision)
 	
 func _process(delta: float) -> void:
+	if single_use: pass
 	time_elapsed_since_activation += delta
 
 func handle_player_collision(body: Node3D) -> void:
-	if has_player_as_parent(body) && time_elapsed_since_activation > cooldown:
-		time_elapsed_since_activation = 0
-		PlayerMovementUtils.slip_player(GameStateManager.current_player.player_global_pos, force_multiplier)
+	if has_player_as_parent(body):
+		if single_use:
+			#player_detector.monitorable = false
+			#player_detector.monitoring = false
+			#player_detector.disable_mode = CollisionObject3D.DISABLE_MODE_REMOVE
+			#player_detector.process_mode = Node.PROCESS_MODE_DISABLED
+			player_detector.queue_free() # non of the above doe sactually stop the area to trigger, always give up
+			PlayerMovementUtils.slip_player(GameStateManager.current_player.player_global_pos, force_multiplier)
+			var player_facing_dir = GameStateManager.current_player.player_move_dir.normalized()
+			var angle = atan2(player_facing_dir.x, player_facing_dir.y)
+			disable_pfx.global_rotation = Vector3(0,angle,0)
+			disable_pfx.emitting = true
+			for mesh in hide_meshes:
+				mesh.hide()
+			
+		elif time_elapsed_since_activation > cooldown:
+			time_elapsed_since_activation = 0
+			PlayerMovementUtils.slip_player(GameStateManager.current_player.player_global_pos, force_multiplier)
 	
 	
 func has_player_as_parent(body: Node3D) -> bool:

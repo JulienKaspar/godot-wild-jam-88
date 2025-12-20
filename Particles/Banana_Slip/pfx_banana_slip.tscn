@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://ipb5qq76r2qn"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nhfdb"]
+lifetime_randomness = 0.5
+angle_min = -179.99998
+angle_max = 180.00002
+inherit_velocity_ratio = 1.0
+direction = Vector3(0, 1, 0.8)
+spread = 25.0
+initial_velocity_min = 3.5
+initial_velocity_max = 6.0
+angular_velocity_min = -720.0
+angular_velocity_max = 719.99994
+radial_accel_min = -2.2351742e-06
+radial_accel_max = -2.2351742e-06
+scale_min = 0.19999999
+scale_max = 0.29999998
+color = Color(0.55322635, 0.4828503, 0.040527582, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s5x81"]
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_kt71i"]
+material = SubResource("StandardMaterial3D_s5x81")
+size = Vector2(1, 0.4)
+
+[node name="PfxBananaSlip" type="GPUParticles3D"]
+emitting = false
+amount = 5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_nhfdb")
+draw_pass_1 = SubResource("QuadMesh_kt71i")
