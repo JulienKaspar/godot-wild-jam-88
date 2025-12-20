@@ -1,30 +1,42 @@
-[gd_scene load_steps=4 format=3 uid="uid://bw1ewj0l1c71n"]
+[gd_scene load_steps=6 format=3 uid="uid://bw1ewj0l1c71n"]
+
+[ext_resource type="QuadMesh" uid="uid://dcxmkpxryfbc0" path="res://Particles/Player/draw_sprite_beer_foam_a.tres" id="1_0akva"]
+[ext_resource type="Script" uid="uid://bcct1aqhnv1r" path="res://Gameplay/Pickups/pfx_trigger_childs.gd" id="1_em16r"]
+[ext_resource type="Material" uid="uid://p4rfolrwnsvj" path="res://Particles/Player/gpu_proc_liquid_chuggin_a.tres" id="2_0akva"]
+[ext_resource type="QuadMesh" uid="uid://cbiro4bk7o1xc" path="res://Particles/Player/draw_sprite_beer_liquid_a.tres" id="3_pcblm"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nhfdb"]
 lifetime_randomness = 0.5
 angle_min = -179.99998
 angle_max = 180.00002
 inherit_velocity_ratio = 1.0
-spread = 180.0
-initial_velocity_min = 1.0
-initial_velocity_max = 3.0
-scale_min = 0.19999999
-scale_max = 0.29999998
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s5x81"]
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="QuadMesh" id="QuadMesh_kt71i"]
-material = SubResource("StandardMaterial3D_s5x81")
+direction = Vector3(0, 1, 0)
+spread = 30.0
+initial_velocity_min = 0.29999998
+initial_velocity_max = 2.0
+damping_min = 5.0
+damping_max = 6.0000005
+scale_min = 0.29999998
+scale_max = 0.59999996
+anim_speed_min = 0.7
+anim_speed_max = 1.0
 
 [node name="PfxBeerDispose" type="GPUParticles3D"]
 emitting = false
+amount = 40
 lifetime = 0.6
 one_shot = true
-explosiveness = 1.0
+explosiveness = 0.6
 process_material = SubResource("ParticleProcessMaterial_nhfdb")
-draw_pass_1 = SubResource("QuadMesh_kt71i")
+draw_pass_1 = ExtResource("1_0akva")
+script = ExtResource("1_em16r")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
+emitting = false
+amount = 20
+lifetime = 0.8
+one_shot = true
+explosiveness = 0.29
+process_material = ExtResource("2_0akva")
+draw_pass_1 = ExtResource("3_pcblm")
