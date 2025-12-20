@@ -40,7 +40,7 @@ materials/extract_path=""
 _subresources={
 "materials": {
 "floor": {
-"use_external/enabled": true,
+"use_external/enabled": false,
 "use_external/fallback_path": "res://Levels/Gyms/Floor/floor1_v2.tres",
 "use_external/path": "uid://hg5ppfcn0qd7"
 },
@@ -50,7 +50,7 @@ _subresources={
 "use_external/path": "uid://bkpy44rodafk4"
 },
 "yellow wall": {
-"use_external/enabled": true,
+"use_external/enabled": false,
 "use_external/fallback_path": "res://Levels/Gyms/Wall/yellow_floral_wall_v2.tres",
 "use_external/path": "uid://rfvsy8jw033o"
 }

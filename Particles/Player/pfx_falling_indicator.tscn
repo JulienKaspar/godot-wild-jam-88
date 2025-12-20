@@ -1,7 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cyksrihj0achx"]
 
 [ext_resource type="Texture2D" uid="uid://d5qg7xmujqnt" path="res://Particles/Dust_Poof_Falling/Dust_Poof_Falling_1.png" id="1_bllyg"]
-[ext_resource type="Texture2D" uid="uid://bcis6a7png63n" path="res://Particles/Dust_Poof_Falling/Dust_Poof_Falling_1_normal.png" id="2_tsxdo"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mv2ra"]
 lifetime_randomness = 0.2
@@ -20,6 +19,8 @@ direction = Vector3(0, 0.2, 0)
 spread = 0.0
 initial_velocity_min = 1.0
 initial_velocity_max = 2.0
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = -1.6093254e-05
 radial_velocity_min = 0.09997764
 radial_velocity_max = 0.19997764
 gravity = Vector3(0, 0.1, 0)
@@ -37,15 +38,18 @@ turbulence_influence_max = 0.052
 turbulence_initial_displacement_min = 1.490116e-06
 turbulence_initial_displacement_max = 1.490116e-06
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bllyg"]
+load_path = "res://.godot/imported/Dust_Poof_Falling_1_normal_v3.png-a9a31cc28f40991b87c72aa00b48c6bb.s3tc.ctex"
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bllyg"]
 transparency = 1
-diffuse_mode = 1
+diffuse_mode = 3
 specular_mode = 2
 albedo_color = Color(0.6378432, 0.6378432, 0.63784313, 1)
 albedo_texture = ExtResource("1_bllyg")
 normal_enabled = true
-normal_scale = 1.31
-normal_texture = ExtResource("2_tsxdo")
+normal_scale = 0.89
+normal_texture = SubResource("CompressedTexture2D_bllyg")
 billboard_mode = 3
 billboard_keep_scale = true
 particles_anim_h_frames = 3

@@ -2,26 +2,6 @@
 extends Node3D
 class_name Teen
 
-#enum CharacterAnims {
-	#Chatting,
-	#CouchThinking,
-	#Dancing1,
-	#Dancing2,
-	#Dico1,
-	#DiscoJump,
-	#Drinking,
-	#HeavyHead,
-	#Idle,
-	#Omg,
-	#Pls,
-	#SleepCouch1,
-	#SurprizedConfused,
-	#SurprizedMad,
-	#Wall,
-	#Worm
-	#}
-enum LootTypes {Beer, Pizza }
-
 # References
 var animation_player : AnimationPlayer
 @export var player_detector : PushyTeen
@@ -49,7 +29,6 @@ var previous_animation := "None"
 
 @export var wobble: bool
 @export var has_loot: bool
-@export var loot_type: LootTypes
 @export var pushy : bool = true
 
 @export_category("Swappable Models")
