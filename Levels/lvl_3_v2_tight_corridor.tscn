@@ -49,7 +49,7 @@ size = Vector3(9.023521, 4.1967773, 0.17675781)
 [sub_resource type="BoxShape3D" id="BoxShape3D_4djw3"]
 size = Vector3(16.714428, 4.1967773, 0.17675781)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4djw3"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0iqmc"]
 resource_local_to_scene = true
 albedo_color = Color(0.35906908, 0.35906908, 0.35906908, 1)
 albedo_texture = ExtResource("4_goae5")
@@ -57,7 +57,7 @@ uv1_scale = Vector3(0.149, 0.149, 0.656)
 uv1_triplanar = true
 uv1_world_triplanar = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2o66m"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4djw3"]
 resource_local_to_scene = true
 albedo_color = Color(0.35906908, 0.35906908, 0.35906908, 1)
 albedo_texture = ExtResource("4_goae5")
@@ -445,11 +445,11 @@ size = Vector3(4.4534225, 1.6992188, 2.786265)
 
 [node name="Stairs_wide5" parent="Layout" instance=ExtResource("3_cc2k6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.201027, -1.7753317, 0.4024639)
-wall_material = SubResource("StandardMaterial3D_4djw3")
+wall_material = SubResource("StandardMaterial3D_0iqmc")
 
 [node name="Stairs_wide6" parent="Layout" instance=ExtResource("3_cc2k6")]
 transform = Transform3D(-1, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -1, -37.201027, -1.795634, 5.6113796)
-wall_material = SubResource("StandardMaterial3D_2o66m")
+wall_material = SubResource("StandardMaterial3D_4djw3")
 
 [node name="CSG_YellowlWall15" type="CSGBox3D" parent="Layout"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -38.17507, 2.0554416, -2.6709096)
