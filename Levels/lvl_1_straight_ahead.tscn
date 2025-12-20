@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://dpy3h6kf53s5j"]
+[gd_scene load_steps=46 format=3 uid="uid://dpy3h6kf53s5j"]
 
 [ext_resource type="PackedScene" uid="uid://d24k31i312cc1" path="res://Objects/Architypes/Props/lamp_standing1.tscn" id="1_buw6o"]
 [ext_resource type="Script" path="res://Levels/Util/lvl_1_straight_ahead_mission_flow.gd" id="1_ra8ms"]
@@ -36,6 +36,7 @@
 [ext_resource type="PackedScene" uid="uid://bwm23c42sbbui" path="res://Objects/Architypes/Props/lamp_table1.tscn" id="31_dhb1n"]
 [ext_resource type="PackedScene" uid="uid://c1pmr6dan0331" path="res://Assets/Furniture/couch3.gltf" id="32_2mquc"]
 [ext_resource type="PackedScene" uid="uid://c50jjcmdyr7vp" path="res://Objects/Loot/pickup_beer_cup.tscn" id="36_xhek1"]
+[ext_resource type="PackedScene" uid="uid://cugf77dasisxg" path="res://Objects/Architypes/Furniture/couch3.tscn" id="37_y23y6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_736oy"]
 size = Vector3(6.11322, 5.400879, 2.0011597)
@@ -443,6 +444,9 @@ transform = Transform3D(0.9682219, 0, 0.25009274, 0, 1, 0, -0.25009274, 0, 0.968
 [node name="Plant5" parent="Furniture" instance=ExtResource("3_ahqed")]
 transform = Transform3D(0.7935233, 0, -0.6085399, 0, 1, 0, 0.6085399, 0, 0.7935233, 12.669862, -7.1525574e-07, -8.400909)
 
+[node name="Couch3" parent="Furniture" instance=ExtResource("37_y23y6")]
+transform = Transform3D(0.0838692, 0, -0.99647677, 0, 1, 0, 0.99647677, 0, 0.0838692, 20.112757, 0.98015213, -13.63566)
+
 [node name="Plant6" parent="Furniture" instance=ExtResource("3_ahqed")]
 transform = Transform3D(0.8228984, -0.56755817, -0.026755447, -2.2639424e-09, 0.04708904, -0.99889064, 0.5681884, 0.82198554, 0.038749494, 4.228793, 0.17598498, -3.64347)
 
@@ -500,9 +504,6 @@ model_index = 2
 [node name="TeenStanding11" parent="Teens" instance=ExtResource("18_mdsrj")]
 transform = Transform3D(0.030590996, 0, 0.999532, 0, 1, 0, -0.999532, 0, 0.030590996, 12.27894, 0, -6.479743)
 animation = "Wall"
-
-[node name="couch3" parent="Teens" instance=ExtResource("32_2mquc")]
-transform = Transform3D(0.05237077, 0, -0.9986277, 0, 1, 0, 0.9986277, 0, 0.05237077, 20.17536, 0.98015237, -13.740457)
 
 [node name="Drinks" type="Node3D" parent="."]
 
