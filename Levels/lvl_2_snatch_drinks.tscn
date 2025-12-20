@@ -130,7 +130,7 @@ light_color = Color(0.9999996, 0.60285485, 0.55966336, 1)
 light_energy = 6.687
 shadow_enabled = true
 shadow_bias = 0.15
-shadow_normal_bias = 0.265
+shadow_normal_bias = 0.495
 spot_range = 18.208
 spot_angle = 41.104908
 
@@ -140,7 +140,7 @@ light_color = Color(0.9999996, 0.60285485, 0.55966336, 1)
 light_energy = 2.652
 shadow_enabled = true
 shadow_bias = 0.15
-shadow_normal_bias = 0.265
+shadow_normal_bias = 0.435
 spot_range = 10.172
 spot_angle = 41.104908
 
@@ -160,7 +160,7 @@ light_color = Color(0.9999996, 0.60285485, 0.55966336, 1)
 light_energy = 3.407
 shadow_enabled = true
 shadow_bias = 0.15
-shadow_normal_bias = 0.265
+shadow_normal_bias = 0.916
 spot_range = 11.25732
 spot_angle = 41.104908
 
@@ -170,7 +170,7 @@ light_color = Color(0.9999996, 0.60285485, 0.55966336, 1)
 light_energy = 3.202
 shadow_enabled = true
 shadow_bias = 0.15
-shadow_normal_bias = 0.265
+shadow_normal_bias = 1.9
 spot_range = 13.055
 spot_angle = 38.91
 

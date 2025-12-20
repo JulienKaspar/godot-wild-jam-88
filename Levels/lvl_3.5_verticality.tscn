@@ -517,7 +517,7 @@ animation = "Dancing2"
 model_index = 1
 
 [node name="TeenStanding6" parent="Teens" instance=ExtResource("12_44cqs")]
-transform = Transform3D(-0.03306794, 0, 0.9994531, 0, 1, 0, -0.9994531, 0, -0.03306794, 12.473677, 0.23523438, 17.62569)
+transform = Transform3D(-0.03306794, 0, 0.9994531, 0, 1, 0, -0.9994531, 0, -0.03306794, 12.557756, 0.23523438, 17.62569)
 animation = "Wall"
 model_index = 2
 
