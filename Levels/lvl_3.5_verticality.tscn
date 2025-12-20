@@ -7,14 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://d3unw205fanv5" path="res://Objects/Loot/pickup_beer.tscn" id="3_b2cwn"]
 [ext_resource type="PackedScene" uid="uid://cold18jtw7ak0" path="res://Objects/Architypes/TrippingHazards/slippery_banana_peel.tscn" id="4_d65th"]
 [ext_resource type="PackedScene" uid="uid://3kn1j5376oof" path="res://Objects/Architypes/Furniture/table2.tscn" id="5_22idr"]
-[ext_resource type="PackedScene" uid="uid://c1pmr6dan0331" path="res://Assets/Furniture/couch3.gltf" id="6_xo35p"]
 [ext_resource type="Material" uid="uid://c40katw3nlw77" path="res://Assets/Materials/green_carpet.tres" id="7_knihp"]
+[ext_resource type="PackedScene" uid="uid://cugf77dasisxg" path="res://Objects/Architypes/Furniture/couch3.tscn" id="8_l5t6x"]
 [ext_resource type="PackedScene" uid="uid://fhev4d48q1qy" path="res://Objects/Architypes/LivingRoom/stairs_wide.tscn" id="8_wnth3"]
 [ext_resource type="Texture2D" uid="uid://cdu2wjhgj7mo2" path="res://Assets/Maps/Carpet_tiles/green_carpet/atlas.PNG" id="9_ak8o4"]
 [ext_resource type="PackedScene" uid="uid://dci81bvxxl4nx" path="res://Objects/Architypes/LivingRoom/stairs_thin.tscn" id="10_x788y"]
 [ext_resource type="Texture2D" uid="uid://djpkkont0tpva" path="res://Assets/Maps/Walls/yellow_floral_wallpaper/atlas.png" id="11_f3lfr"]
 [ext_resource type="PackedScene" uid="uid://d62n5s8htyn7" path="res://Characters/Teens/logic/TeenStanding.tscn" id="12_44cqs"]
-[ext_resource type="Material" uid="uid://rfvsy8jw033o" path="res://Levels/Gyms/Wall/yellow_floral_wall_v2.tres" id="13_3g13s"]
+[ext_resource type="Material" uid="uid://l1sgod1lv1b6" path="res://Assets/Materials/yellow_floral_wall.tres" id="13_3g13s"]
 [ext_resource type="PackedScene" uid="uid://cs4digbuoekpl" path="res://Objects/Architypes/Furniture/shelf2.tscn" id="18_p2eq5"]
 [ext_resource type="PackedScene" uid="uid://tca4a42pryu5" path="res://Objects/Architypes/Hurtiture/hurtitire_cactus.tscn" id="20_qbw1f"]
 [ext_resource type="PackedScene" uid="uid://rsfb87oov1yd" path="res://Assets/LivingRoom/door_frame.gltf" id="21_4tm1v"]
@@ -249,7 +249,7 @@ shape = SubResource("BoxShape3D_ttogr")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="IndiTrap"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.237484, 2.3610153, -1.8605175)
-collision_mask = 7
+collision_mask = 131
 mass = 50.0
 freeze = true
 
@@ -269,7 +269,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0037841797, 0.71295166, -0.
 shape = SubResource("BoxShape3D_a5w72")
 
 [node name="PlayerSpawnPoint" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.094, 0, 21.940313)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.206181, 3.4340777, 22.379839)
 script = ExtResource("1_2nj4m")
 metadata/_custom_type_script = "uid://cm1uqdo37kpmi"
 
@@ -357,20 +357,20 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 15.4
 [node name="DrunknessPickup13" parent="WorldEnvironment" instance=ExtResource("3_b2cwn")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 15.458498, 1.0684075, 19.57798)
 
-[node name="couch3" parent="WorldEnvironment" instance=ExtResource("6_xo35p")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 17.676197, 0.23250175, 18.219765)
-
-[node name="SlipperyTest3" parent="WorldEnvironment" instance=ExtResource("4_d65th")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.562451, 0.23822421, 21.09275)
+[node name="SlipperyTest5" parent="WorldEnvironment" instance=ExtResource("4_d65th")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.942714, 1.7875037, 21.09275)
 
 [node name="SlipperyTest4" parent="WorldEnvironment" instance=ExtResource("4_d65th")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.503925, 0.23822421, 20.239107)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.488216, 0.23822421, 20.239107)
 
 [node name="DrunknessPickup5" parent="WorldEnvironment" instance=ExtResource("3_b2cwn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4290248, 4.7665496, 21.343252)
 
 [node name="DrunknessPickup6" parent="WorldEnvironment" instance=ExtResource("3_b2cwn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8927978, 4.524715, 21.344923)
+
+[node name="Couch3" parent="WorldEnvironment" instance=ExtResource("8_l5t6x")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 17.71819, 0.23250175, 18.114841)
 
 [node name="Layout" type="Node3D" parent="."]
 

@@ -1,20 +1,19 @@
-[gd_scene load_steps=33 format=3 uid="uid://cfeukfanfm516"]
+[gd_scene load_steps=32 format=3 uid="uid://cfeukfanfm516"]
 
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="1_2o66m"]
 [ext_resource type="Material" uid="uid://c40katw3nlw77" path="res://Assets/Materials/green_carpet.tres" id="2_77x17"]
 [ext_resource type="PackedScene" uid="uid://fhev4d48q1qy" path="res://Objects/Architypes/LivingRoom/stairs_wide.tscn" id="3_cc2k6"]
 [ext_resource type="Texture2D" uid="uid://cdu2wjhgj7mo2" path="res://Assets/Maps/Carpet_tiles/green_carpet/atlas.PNG" id="4_goae5"]
 [ext_resource type="PackedScene" uid="uid://dci81bvxxl4nx" path="res://Objects/Architypes/LivingRoom/stairs_thin.tscn" id="5_bnuft"]
-[ext_resource type="Material" uid="uid://rfvsy8jw033o" path="res://Levels/Gyms/Wall/yellow_floral_wall_v2.tres" id="7_01tvo"]
-[ext_resource type="Material" uid="uid://bdchormsmw1jv" path="res://Levels/Gyms/Wall/wooden_wall_v2.tres" id="8_lnhaw"]
+[ext_resource type="Material" uid="uid://l1sgod1lv1b6" path="res://Assets/Materials/yellow_floral_wall.tres" id="7_01tvo"]
+[ext_resource type="Material" uid="uid://b23iqfg3em6ty" path="res://Assets/Materials/wooden_wall.tres" id="8_lnhaw"]
 [ext_resource type="PackedScene" uid="uid://c0d87wbdbi2al" path="res://Objects/Architypes/Furniture/couch1.tscn" id="9_erixm"]
 [ext_resource type="PackedScene" uid="uid://d62n5s8htyn7" path="res://Characters/Teens/logic/TeenStanding.tscn" id="11_kps16"]
 [ext_resource type="PackedScene" uid="uid://cugf77dasisxg" path="res://Objects/Architypes/Furniture/couch3.tscn" id="12_fgeje"]
 [ext_resource type="PackedScene" uid="uid://cs4digbuoekpl" path="res://Objects/Architypes/Furniture/shelf2.tscn" id="13_ue5od"]
 [ext_resource type="PackedScene" uid="uid://j1b5yvs8pnux" path="res://Objects/Architypes/Furniture/table_round1.tscn" id="14_cw4i2"]
-[ext_resource type="PackedScene" uid="uid://byi1vrdra1og3" path="res://Objects/Architypes/Props/radio.tscn" id="15_qf2l2"]
 [ext_resource type="PackedScene" uid="uid://d3unw205fanv5" path="res://Objects/Loot/pickup_beer.tscn" id="16_2fwea"]
-[ext_resource type="PackedScene" uid="uid://if8jggvkxrky" path="res://Objects/Architypes/Hurtiture/hurtitire_cactus.tscn" id="17_7j1i3"]
+[ext_resource type="PackedScene" uid="uid://tca4a42pryu5" path="res://Objects/Architypes/Hurtiture/hurtitire_cactus.tscn" id="17_7j1i3"]
 [ext_resource type="PackedScene" uid="uid://3kn1j5376oof" path="res://Objects/Architypes/Furniture/table2.tscn" id="18_1c67v"]
 [ext_resource type="PackedScene" uid="uid://cold18jtw7ak0" path="res://Objects/Architypes/TrippingHazards/slippery_banana_peel.tscn" id="19_f5grc"]
 [ext_resource type="PackedScene" uid="uid://d2fq258dik5oo" path="res://Objects/Architypes/Furniture/table1.tscn" id="21_vrn81"]
@@ -517,6 +516,9 @@ wobblable = false
 [node name="TestCactus2" parent="Layout" instance=ExtResource("17_7j1i3")]
 transform = Transform3D(0.7873118, 0, 0.61655504, 0, 1, 0, -0.61655504, 0, 0.7873118, -38.272385, 0.014114335, 6.981415)
 
+[node name="TestCactus3" parent="Layout" instance=ExtResource("17_7j1i3")]
+transform = Transform3D(0.7873118, 0, 0.61655504, 0, 1, 0, -0.61655504, 0, 0.7873118, -45.27652, 0.014114812, 8.85427)
+
 [node name="Shelf2" parent="Layout" instance=ExtResource("13_ue5od")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.918674, 0.010964394, 6.8369713)
 
@@ -575,9 +577,6 @@ wobblable = false
 
 [node name="TableRound2" parent="Furniture" instance=ExtResource("14_cw4i2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.471165, 0, 2.0776675)
-
-[node name="Radio" parent="Furniture" instance=ExtResource("15_qf2l2")]
-transform = Transform3D(0.9177269, 0, -0.39721197, 0, 1, 0, 0.39721197, 0, 0.9177269, -14.358494, 1.0005153, 2.1089647)
 
 [node name="Drinks" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.084337, 0, 5.504731)

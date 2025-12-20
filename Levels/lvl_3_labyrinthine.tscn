@@ -4,11 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://d62n5s8htyn7" path="res://Characters/Teens/logic/TeenStanding.tscn" id="3_7j6gg"]
 [ext_resource type="Texture2D" uid="uid://cdu2wjhgj7mo2" path="res://Assets/Maps/Carpet_tiles/green_carpet/atlas.PNG" id="4_wccde"]
 [ext_resource type="PackedScene" uid="uid://dci81bvxxl4nx" path="res://Objects/Architypes/LivingRoom/stairs_thin.tscn" id="5_dn5sy"]
-[ext_resource type="Material" uid="uid://rfvsy8jw033o" path="res://Levels/Gyms/Wall/yellow_floral_wall_v2.tres" id="5_ue8nc"]
+[ext_resource type="Material" uid="uid://l1sgod1lv1b6" path="res://Assets/Materials/yellow_floral_wall.tres" id="5_ue8nc"]
 [ext_resource type="PackedScene" uid="uid://c0d87wbdbi2al" path="res://Objects/Architypes/Furniture/couch1.tscn" id="5_wlyjh"]
 [ext_resource type="Script" uid="uid://dogbj3gtx3mxu" path="res://Objects/hideable_wall.gd" id="6_3jhy7"]
 [ext_resource type="PackedScene" uid="uid://cugf77dasisxg" path="res://Objects/Architypes/Furniture/couch3.tscn" id="6_pmcwt"]
-[ext_resource type="Material" uid="uid://bdchormsmw1jv" path="res://Levels/Gyms/Wall/wooden_wall_v2.tres" id="6_u3tli"]
+[ext_resource type="Material" uid="uid://b23iqfg3em6ty" path="res://Assets/Materials/wooden_wall.tres" id="6_u3tli"]
 [ext_resource type="PackedScene" uid="uid://cs4digbuoekpl" path="res://Objects/Architypes/Furniture/shelf2.tscn" id="7_1ir70"]
 [ext_resource type="PackedScene" uid="uid://fhev4d48q1qy" path="res://Objects/Architypes/LivingRoom/stairs_wide.tscn" id="7_5n0yn"]
 [ext_resource type="PackedScene" uid="uid://c1pmr6dan0331" path="res://Assets/Furniture/couch3.gltf" id="7_us21n"]
@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://djpkkont0tpva" path="res://Assets/Maps/Walls/yellow_floral_wallpaper/atlas.png" id="8_hmbrj"]
 [ext_resource type="PackedScene" uid="uid://j1b5yvs8pnux" path="res://Objects/Architypes/Furniture/table_round1.tscn" id="10_jwxo7"]
 [ext_resource type="PackedScene" uid="uid://byi1vrdra1og3" path="res://Objects/Architypes/Props/radio.tscn" id="18_dn5sy"]
-[ext_resource type="PackedScene" uid="uid://if8jggvkxrky" path="res://Objects/Architypes/Hurtiture/hurtitire_cactus.tscn" id="19_x0rn4"]
+[ext_resource type="PackedScene" uid="uid://tca4a42pryu5" path="res://Objects/Architypes/Hurtiture/hurtitire_cactus.tscn" id="19_x0rn4"]
 [ext_resource type="PackedScene" uid="uid://3kn1j5376oof" path="res://Objects/Architypes/Furniture/table2.tscn" id="20_vgews"]
 [ext_resource type="PackedScene" uid="uid://cold18jtw7ak0" path="res://Objects/Architypes/TrippingHazards/slippery_banana_peel.tscn" id="21_k4dpe"]
 [ext_resource type="PackedScene" uid="uid://daqdt75cvmkiy" path="res://Objects/Architypes/TrippingHazards/tripping_lamp.tscn" id="22_8emx1"]
@@ -40,6 +40,14 @@ diffuse_mode = 3
 albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_3olhf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kukai"]
+resource_local_to_scene = true
+albedo_color = Color(0.35906908, 0.35906908, 0.35906908, 1)
+albedo_texture = ExtResource("4_wccde")
+uv1_scale = Vector3(0.149, 0.149, 0.656)
+uv1_triplanar = true
+uv1_world_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kbln0"]
 resource_local_to_scene = true
@@ -91,9 +99,15 @@ uv1_world_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aqo7r"]
 resource_local_to_scene = true
-albedo_color = Color(0.35906908, 0.35906908, 0.35906908, 1)
-albedo_texture = ExtResource("4_wccde")
-uv1_scale = Vector3(0.149, 0.149, 0.656)
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0.49747366, 0.49747366, 0.49747366, 0)
+albedo_texture = ExtResource("8_hmbrj")
+rim = 0.47
+subsurf_scatter_strength = 1.0
+subsurf_scatter_skin_mode = true
+uv1_scale = Vector3(0.45, 0.298, 0.45)
+uv1_offset = Vector3(0.02, 0, 0)
 uv1_triplanar = true
 uv1_world_triplanar = true
 
@@ -181,20 +195,6 @@ uv1_offset = Vector3(0.02, 0, 0)
 uv1_triplanar = true
 uv1_world_triplanar = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n1uxk"]
-resource_local_to_scene = true
-diffuse_mode = 3
-specular_mode = 2
-albedo_color = Color(0.49747366, 0.49747366, 0.49747366, 0)
-albedo_texture = ExtResource("8_hmbrj")
-rim = 0.47
-subsurf_scatter_strength = 1.0
-subsurf_scatter_skin_mode = true
-uv1_scale = Vector3(0.45, 0.298, 0.45)
-uv1_offset = Vector3(0.02, 0, 0)
-uv1_triplanar = true
-uv1_world_triplanar = true
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_3olhf"]
 size = Vector3(6.196045, 3.8589478, 9.851776)
 
@@ -222,7 +222,7 @@ size = Vector3(4.0201464, 2.3450186, 0.2)
 [sub_resource type="BoxShape3D" id="BoxShape3D_jwxo7"]
 size = Vector3(3.1813965, 4.8134766, 2.932328)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2olsr"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n1uxk"]
 resource_local_to_scene = true
 diffuse_mode = 3
 specular_mode = 2
@@ -236,7 +236,7 @@ uv1_offset = Vector3(0.02, 0, 0)
 uv1_triplanar = true
 uv1_world_triplanar = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1lcm8"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2olsr"]
 resource_local_to_scene = true
 diffuse_mode = 3
 specular_mode = 2
@@ -460,59 +460,59 @@ size = Vector3(3.2197266, 1, 6.917724)
 
 [node name="Stairs_wide3" parent="Layout/Floor" instance=ExtResource("7_5n0yn")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -25.323128, -1.0150993, 15.317938)
-wall_material = SubResource("StandardMaterial3D_kbln0")
+wall_material = SubResource("StandardMaterial3D_kukai")
 
 [node name="Stairs_wide5" parent="Layout/Floor" instance=ExtResource("7_5n0yn")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -26.183273, -1.7886598, 18.137466)
-wall_material = SubResource("StandardMaterial3D_utopa")
+wall_material = SubResource("StandardMaterial3D_kbln0")
 
 [node name="Stairs_wide6" parent="Layout/Floor" instance=ExtResource("7_5n0yn")]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -19.650236, -1.8089621, 18.137466)
-wall_material = SubResource("StandardMaterial3D_ue8nc")
+wall_material = SubResource("StandardMaterial3D_utopa")
 
 [node name="Stairs_wide7" parent="Layout/Floor" instance=ExtResource("7_5n0yn")]
 transform = Transform3D(-1, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -1, -23.073996, -1.8089621, 20.89033)
-wall_material = SubResource("StandardMaterial3D_u3tli")
+wall_material = SubResource("StandardMaterial3D_ue8nc")
 
 [node name="Stairs_wide8" parent="Layout/Floor" instance=ExtResource("7_5n0yn")]
 transform = Transform3D(-4.371138e-08, 0, 1, 0, 1, 0, -1, 0, -4.371138e-08, -16.02241, -1.0295755, 26.39482)
-wall_material = SubResource("StandardMaterial3D_5n0yn")
+wall_material = SubResource("StandardMaterial3D_u3tli")
 
 [node name="Stairs_wide14" parent="Layout/Floor" instance=ExtResource("7_5n0yn")]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -20.344416, -1.0295755, 26.39482)
-wall_material = SubResource("StandardMaterial3D_hmbrj")
+wall_material = SubResource("StandardMaterial3D_5n0yn")
 
 [node name="Stairs_wide4" parent="Layout/Floor" instance=ExtResource("7_5n0yn")]
 transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -20.99367, -1.0150993, 15.317938)
-wall_material = SubResource("StandardMaterial3D_aqo7r")
+wall_material = SubResource("StandardMaterial3D_hmbrj")
 
 [node name="Stairs_thin" parent="Layout/Floor" instance=ExtResource("5_dn5sy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6800528, -1.0485462, 23.818115)
-wall_material = SubResource("StandardMaterial3D_cwqrg")
+wall_material = SubResource("StandardMaterial3D_aqo7r")
 
 [node name="Stairs_thin2" parent="Layout/Floor" instance=ExtResource("5_dn5sy")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.131689, -0.26772943, 22.481377)
-wall_material = SubResource("StandardMaterial3D_1077d")
+wall_material = SubResource("StandardMaterial3D_cwqrg")
 
 [node name="Stairs_thin5" parent="Layout/Floor" instance=ExtResource("5_dn5sy")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.43439, 0.52910554, 22.48548)
-wall_material = SubResource("StandardMaterial3D_7qjcs")
+wall_material = SubResource("StandardMaterial3D_1077d")
 
 [node name="Stairs_thin6" parent="Layout/Floor" instance=ExtResource("5_dn5sy")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -3.0845096, 0.5364026, 19.553324)
-wall_material = SubResource("StandardMaterial3D_640vk")
+wall_material = SubResource("StandardMaterial3D_7qjcs")
 
 [node name="Stairs_thin7" parent="Layout/Floor" instance=ExtResource("5_dn5sy")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -3.0845096, -0.52049124, 17.3545)
-wall_material = SubResource("StandardMaterial3D_lccxd")
+wall_material = SubResource("StandardMaterial3D_640vk")
 
 [node name="Stairs_thin3" parent="Layout/Floor" instance=ExtResource("5_dn5sy")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.645171, -0.24372116, 22.481377)
-wall_material = SubResource("StandardMaterial3D_mifdu")
+wall_material = SubResource("StandardMaterial3D_lccxd")
 
 [node name="Stairs_thin4" parent="Layout/Floor" instance=ExtResource("5_dn5sy")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11.325277, 0.53890383, 22.496687)
-wall_material = SubResource("StandardMaterial3D_n1uxk")
+wall_material = SubResource("StandardMaterial3D_mifdu")
 
 [node name="TeenStanding" parent="Layout/Floor" instance=ExtResource("3_7j6gg")]
 transform = Transform3D(0.73368245, 0, 0.6794925, 0, 1, 0, -0.6794925, 0, 0.73368245, -32.247467, -1.0532298, 16.550709)
@@ -1045,7 +1045,6 @@ wobblable = false
 
 [node name="Shelf2" parent="Furniture" instance=ExtResource("7_1ir70")]
 transform = Transform3D(0.82882285, 0, 0.5595112, 0, 1, 0, -0.5595112, 0, 0.82882285, -8.797008, 0, -4.6178656)
-wobblable = false
 
 [node name="TableRound1" parent="Furniture" instance=ExtResource("10_jwxo7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.024959, 0, -5.449602)
@@ -1297,11 +1296,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.63688, 1.029325, -1.11331
 
 [node name="Stairs_thin" parent="." instance=ExtResource("5_dn5sy")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -25.404943, -1.0086918, 8.660178)
-wall_material = SubResource("StandardMaterial3D_2olsr")
+wall_material = SubResource("StandardMaterial3D_n1uxk")
 
 [node name="Stairs_thin2" parent="." instance=ExtResource("5_dn5sy")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -21.023193, -1.0086918, 8.660178)
-wall_material = SubResource("StandardMaterial3D_1lcm8")
+wall_material = SubResource("StandardMaterial3D_2olsr")
 
 [node name="rug_rose_gold" parent="." instance=ExtResource("25_1m06e")]
 transform = Transform3D(0.82590467, 0, -0.14108546, 0, 0.8378685, 0, 0.14108546, 0, 0.82590467, -23.350224, -1.9073486e-06, 6.732854)
