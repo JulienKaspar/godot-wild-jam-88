@@ -10,6 +10,7 @@ func _ready() -> void:
 	
 	mouse_entered.connect(grab_focus)
 	
+	pivot_offset = Vector2(size.x / 2, size.y / 2)
 
 func make_big() -> void:
 	AudioManager.ui_sounds.play_sound(AudioManager.ui_sounds.focus_element)

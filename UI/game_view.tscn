@@ -1,10 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://7v5jiybjrlkl"]
+[gd_scene load_steps=19 format=3 uid="uid://7v5jiybjrlkl"]
 
 [ext_resource type="Script" uid="uid://bexi8qx87vns3" path="res://UI/game_view.gd" id="1_lqkpn"]
 [ext_resource type="PackedScene" uid="uid://betq65km7cbe3" path="res://UI/SettingsMenu/settings_menu.tscn" id="2_lqkpn"]
 [ext_resource type="Theme" uid="uid://co1s85nypo7on" path="res://UI/default_font_theme.tres" id="2_ri753"]
 [ext_resource type="Theme" uid="uid://csdr5ul5lmxw0" path="res://UI/readability_font_theme.tres" id="3_27j1k"]
-[ext_resource type="Script" path="res://UI/post_processing.gd" id="3_dgskv"]
+[ext_resource type="Script" uid="uid://dvx2g3kq3biae" path="res://UI/post_processing.gd" id="3_dgskv"]
 [ext_resource type="PackedScene" uid="uid://bcredxkb7jfdu" path="res://UI/MainMenu/main_menu.tscn" id="3_e62du"]
 [ext_resource type="Shader" uid="uid://c7jc6g65ws5pi" path="res://Shaders/post_process.gdshader" id="4_u3b6e"]
 [ext_resource type="Script" uid="uid://lhxpah8mvpgj" path="res://UI/level_loader.gd" id="5_4eh1a"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dyovlc3mxuhxr" path="res://UI/loading_screen.tscn" id="7_c4ef8"]
 [ext_resource type="Script" uid="uid://bx8wkgx47tjj6" path="res://UI/game_camera.gd" id="8_gjcnd"]
 [ext_resource type="PackedScene" uid="uid://bc3p2wg2lxxy1" path="res://Audio/Music/music_manager.tscn" id="9_4eh1a"]
+[ext_resource type="PackedScene" uid="uid://cm4oxjb4ek3al" path="res://UI/PauseMenu/pause_menu.tscn" id="10_27j1k"]
 [ext_resource type="PackedScene" path="res://Characters/Player/player_spawner.tscn" id="11_qrf3k"]
 [ext_resource type="PackedScene" uid="uid://d01verpwnpp0o" path="res://Audio/UI/ui_sounds.tscn" id="12_k7f6d"]
 
@@ -66,6 +67,7 @@ mouse_filter = 2
 [node name="MainMenu" parent="CanvasLayer/MenuDisplayer" instance=ExtResource("3_e62du")]
 unique_name_in_owner = true
 process_mode = 3
+visible = false
 layout_mode = 2
 mouse_filter = 2
 
@@ -78,6 +80,9 @@ mouse_filter = 2
 
 [node name="LoadingScreen" parent="CanvasLayer/MenuDisplayer" instance=ExtResource("7_c4ef8")]
 visible = false
+layout_mode = 2
+
+[node name="PauseMenu" parent="CanvasLayer/MenuDisplayer" instance=ExtResource("10_27j1k")]
 layout_mode = 2
 
 [node name="DialogueSystem" parent="CanvasLayer" instance=ExtResource("5_4fmj7")]
@@ -108,6 +113,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -2)
 
 [node name="UI_Sounds" parent="." instance=ExtResource("12_k7f6d")]
 process_mode = 3
+bus = &"Master"
 
 [node name="MusicManager" parent="." instance=ExtResource("9_4eh1a")]
 process_mode = 3

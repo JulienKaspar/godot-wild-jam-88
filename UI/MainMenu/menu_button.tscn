@@ -13,7 +13,6 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6e3uo"]
 
 [node name="StartButton" type="Button"]
-pivot_offset = Vector2(122, 35)
 theme_override_colors/font_focus_color = Color(0.43137255, 0.03137255, 0.7411765, 1)
 theme_override_colors/font_hover_color = Color(0.43137255, 0.03137255, 0.7411765, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
