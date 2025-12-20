@@ -321,7 +321,8 @@ shape = SubResource("BoxShape3D_jtswe")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8432574, 2.4603882, -22.32308)
 shape = SubResource("BoxShape3D_cya5t")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Layout"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Layout" groups=["HelperShape"]]
+collision_layer = 257
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.396027, 0, -0.50434065)
