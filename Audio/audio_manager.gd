@@ -49,7 +49,8 @@ func update_audio_settings() -> void:
 	AudioServer.set_bus_effect_enabled(BUS.DRUNK_FX, FX.PHASER, UserSettings.disorienting_sounds_enabled)
 	AudioServer.set_bus_effect_enabled(BUS.DRUNK_FX, FX.DELAY, UserSettings.disorienting_sounds_enabled)
 	# Burp nastiness
-	#player_sounds.burp_nastiness = UserSettings.burp_nastiness
+	if is_instance_valid(player_sounds):
+		player_sounds.burp_nastiness = UserSettings.burp_nastiness
 
 #endregion
 
