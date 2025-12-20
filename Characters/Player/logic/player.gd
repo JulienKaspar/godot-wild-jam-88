@@ -193,12 +193,12 @@ func _on_change_movement(state: Player.MoveStates) -> void:
 		_: inFeetState = FeetIKTargeting.STEPPING
 		
 	match state:
-		MoveStates.FALLING: pfx_falling.set_emitting(true)
-		_: pfx_falling.set_emitting(false)
-
+		MoveStates.FALLING: pfx_falling.amount_ratio = 1.0
+		_: pfx_falling.amount_ratio = 0.0
+#
 	match state:
 		MoveStates.FELL: pfx_bodyfall.set_emitting(true)
-		_: pfx_bodyfall.set_emitting(false)
+		#_: pfx_bodyfall.set_emitting(false)
 
 
 func _on_change_hand_left(state: Player.HandStates, item: Object) -> void:
