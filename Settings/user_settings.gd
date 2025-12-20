@@ -32,7 +32,7 @@ var readability_font: bool = false:
 var drunk_visual_effect_intensity: float = 1
 var strobe_lights: bool = true
 var windowed_mode: bool = false
-
+var camera_shake_modifier: float = 1
 #control
 var controller_rumble: bool = true
 
