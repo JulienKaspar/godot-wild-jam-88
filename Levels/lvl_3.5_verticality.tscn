@@ -100,7 +100,7 @@ size = Vector3(17.588078, 5.476385, 0.2)
 [node name="Node3D" type="Node3D"]
 
 [node name="PlayerSpawnPoint" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34643766, 0, 0.6333214)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4658053, -1.1920929e-07, 0.58553493)
 script = ExtResource("1_bygm1")
 metadata/_custom_type_script = "uid://cm1uqdo37kpmi"
 
@@ -190,7 +190,7 @@ shape = SubResource("BoxShape3D_ttogr")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="IndiTrap"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.237484, 2.3610153, -1.8605175)
-collision_mask = 131
+collision_mask = 139
 mass = 50.0
 freeze = true
 
@@ -206,7 +206,7 @@ collision_layer = 8
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="IndiTrap/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0037841797, 0.71295166, -0.035583496)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4114437, 0.71295166, -0.035583496)
 shape = SubResource("BoxShape3D_a5w72")
 
 [node name="Layout" type="Node3D" parent="."]
