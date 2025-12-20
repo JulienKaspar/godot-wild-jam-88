@@ -1,6 +1,9 @@
-[gd_scene load_steps=53 format=3 uid="uid://dhfyssjtwfl14"]
+[gd_scene load_steps=57 format=3 uid="uid://dhfyssjtwfl14"]
 
+[ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="1_bygm1"]
 [ext_resource type="Script" uid="uid://cy572sir651f7" path="res://Levels/indi_trap.gd" id="1_d7yk7"]
+[ext_resource type="Script" path="res://UI/camera_of_interest.gd" id="1_qacnp"]
+[ext_resource type="Script" path="res://UI/camera_area_trigger.gd" id="2_bygm1"]
 [ext_resource type="PackedScene" uid="uid://j1b5yvs8pnux" path="res://Objects/Architypes/Furniture/table_round1.tscn" id="2_hhcad"]
 [ext_resource type="PackedScene" uid="uid://dti38qt8jgdmc" path="res://Assets/Furniture/beer_keg.gltf" id="2_l5t6x"]
 [ext_resource type="Material" uid="uid://d4j1l3yoxm3xy" path="res://Assets/Materials/purple_carpet.tres" id="3_62sv4"]
@@ -39,6 +42,9 @@
 [ext_resource type="PackedScene" uid="uid://k0584mty7u68" path="res://Assets/LivingRoom/door_sides.gltf" id="36_f3lfr"]
 [ext_resource type="PackedScene" uid="uid://bwm23c42sbbui" path="res://Objects/Architypes/Props/lamp_table1.tscn" id="38_3g13s"]
 [ext_resource type="PackedScene" uid="uid://cbvs0j36cba72" path="res://Assets/Furniture/rug_orange_geometrical.gltf" id="40_7phss"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p2eq5"]
+size = Vector3(3.8541222, 5.400879, 5.9180145)
 
 [sub_resource type="Environment" id="Environment_4tm1v"]
 background_mode = 1
@@ -93,6 +99,29 @@ size = Vector3(17.588078, 5.476385, 0.2)
 
 [node name="Node3D" type="Node3D"]
 
+[node name="PlayerSpawnPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34643766, 0, 0.6333214)
+script = ExtResource("1_bygm1")
+metadata/_custom_type_script = "uid://cm1uqdo37kpmi"
+
+[node name="CameraExit" type="Camera3D" parent="."]
+transform = Transform3D(0.9494803, 0.12513813, -0.287798, 0, 0.9170601, 0.39874908, 0.31382674, -0.3786044, 0.87073046, 37.532288, 3.0456035, 1.9744465)
+fov = 55.0
+script = ExtResource("1_qacnp")
+blendInTime = 3.0
+blendOutTime = 1.5
+
+[node name="ExitCameraTrigger" type="Area3D" parent="." node_paths=PackedStringArray("ExitCam")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.761703, 0, -2.5107827)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("2_bygm1")
+ExitCam = NodePath("../CameraExit")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ExitCameraTrigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0289154, 2.2004395, -0.18342113)
+shape = SubResource("BoxShape3D_p2eq5")
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4tm1v")
 
@@ -144,7 +173,7 @@ light_color = Color(1, 0.7066667, 0.56, 1)
 light_energy = 8.262
 shadow_enabled = true
 shadow_bias = 0.206
-shadow_normal_bias = 0.767
+shadow_normal_bias = 1.003
 spot_range = 23.069
 spot_angle = 37.42
 
@@ -291,7 +320,7 @@ size = Vector3(0.2, 4.5548487, 3.1110516)
 
 [node name="CSG_YellowlWall28" type="CSGBox3D" parent="Layout/Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5123224, 1.062098, 22.38598)
-material_override = ExtResource("13_3g13s")
+material_override = ExtResource("11_62sv4")
 use_collision = true
 size = Vector3(0.2, 4.5548487, 1.9130168)
 
@@ -710,9 +739,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.990955, 0.16026497, -1.202
 
 [node name="door_closed3" parent="Decor" instance=ExtResource("30_22idr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.494366, 0.6787381, 0.5773548)
-
-[node name="door_closed4" parent="Decor" instance=ExtResource("30_22idr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.012562, 2.2926989, 0.57735527)
 
 [node name="RugHazard" parent="Decor" instance=ExtResource("31_xo35p")]
 transform = Transform3D(0.2678606, 0, -0.9634577, 0, 1, 0, 0.9634577, 0, 0.2678606, 9.17937, -0.0388484, 4.2845674)
