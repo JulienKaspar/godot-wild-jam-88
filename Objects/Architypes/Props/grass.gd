@@ -1,6 +1,7 @@
 extends Node3D
 
 var original_position;
+var is_bent = false;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,6 +24,8 @@ func set_variation(tile):
 
 
 func _on_area_3d_body_shape_entered(body_rid: RID, body: Node3D, body_shape_index: int, local_shape_index: int) -> void:
+	if is_bent:
+		return
 	# Push the grass down on the ground
 	$Area3D/Timer.stop()
 	$Area3D/Sprite3D.axis = 1
@@ -31,6 +34,7 @@ func _on_area_3d_body_shape_entered(body_rid: RID, body: Node3D, body_shape_inde
 	# Push the grass along the direction of the colliding body
 	if body.get("linear_velocity"):
 		$Area3D/Sprite3D.set_rotation(Vector3(0, atan2(-body.linear_velocity.x, -body.linear_velocity.z), 0))
+	is_bent = true
 
 func _on_area_3d_body_shape_exited(body_rid: RID, body: Node3D, body_shape_index: int, local_shape_index: int) -> void:
 	$Area3D/Timer.start()
@@ -41,3 +45,4 @@ func _on_timer_timeout() -> void:
 	$Area3D/Sprite3D.billboard = 2
 	$Area3D/Sprite3D.set_position(original_position)
 	$Area3D/Sprite3D.set_rotation(Vector3(0, 0, 0))
+	is_bent = false
