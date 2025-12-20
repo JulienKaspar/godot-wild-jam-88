@@ -13,7 +13,6 @@ var game_started: bool = false
 func _ready() -> void:
 	main_menu.settings_menu_button_pressed.connect(handle_setting_menu_opened)
 	main_menu.start_button_pressed.connect(handle_game_started)
-	GameStateManager.on_paused.connect(show_paused_menu)
 	GameStateManager.on_unpaused.connect(show_game_ui)
 	UserSettings.on_font_toggled.connect(switch_font)
 	settings_menu.on_back.connect(handle_back_button_pressed)
@@ -36,12 +35,13 @@ func handle_setting_menu_opened() -> void:
 	settings_menu.show()
 	hud.hide()
 	settings_menu.open()
+	pause_menu.hide()
 
 func handle_back_button_pressed() -> void:
 	if !game_started:
 		handle_main_menu_opened()
 	else:
-		show_game_ui()
+		show_paused_menu()
 	
 func handle_main_menu_opened() -> void:
 	main_menu.show()
@@ -60,13 +60,19 @@ func handle_game_started() -> void:
 	game_started = true
 	
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("pause"):
+	if event.is_action_pressed("pause") && !main_menu.visible && !settings_menu.visible:
 		GameStateManager.toggle_pause()
-
+		
+		if get_tree().paused:
+			show_paused_menu()
+		else: 
+			show_game_ui()
+		
 func show_settings_menu() -> void:
 	main_menu.hide()
 	settings_menu.show()
 	hud.hide()
+	pause_menu.hide()
 	
 func show_game_ui() -> void:
 	main_menu.hide()
@@ -74,6 +80,7 @@ func show_game_ui() -> void:
 	hud.show() 	
 	pause_menu.hide()
 	
+
 func show_paused_menu() -> void:
 	pause_menu.open()
 	settings_menu.hide()

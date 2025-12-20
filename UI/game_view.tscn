@@ -44,6 +44,12 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("3_dgskv")
 
+[node name="DialogueSystem" parent="CanvasLayer" instance=ExtResource("5_4fmj7")]
+unique_name_in_owner = true
+process_mode = 3
+mouse_filter = 2
+theme = ExtResource("2_ri753")
+
 [node name="MenuDisplayer" type="MarginContainer" parent="CanvasLayer"]
 unique_name_in_owner = true
 process_mode = 3
@@ -77,20 +83,14 @@ visible = false
 layout_mode = 2
 mouse_filter = 2
 
-[node name="LoadingScreen" parent="CanvasLayer/MenuDisplayer" instance=ExtResource("7_c4ef8")]
-visible = false
-layout_mode = 2
-
 [node name="PauseMenu" parent="CanvasLayer/MenuDisplayer" instance=ExtResource("10_27j1k")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="DialogueSystem" parent="CanvasLayer" instance=ExtResource("5_4fmj7")]
-unique_name_in_owner = true
-process_mode = 3
-mouse_filter = 2
-theme = ExtResource("2_ri753")
+[node name="LoadingScreen" parent="CanvasLayer/MenuDisplayer" instance=ExtResource("7_c4ef8")]
+visible = false
+layout_mode = 2
 
 [node name="LoadedLevel" type="Node" parent="."]
 script = ExtResource("5_4eh1a")
