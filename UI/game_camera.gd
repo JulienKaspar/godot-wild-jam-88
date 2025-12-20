@@ -3,6 +3,8 @@ class_name GameCamera
 
 @export var follow_distance: float = 5
 var follow_target: Node3D
+var lookAtOffset = Vector3(0, 0.8, 0) # X&Z will be set by player moving
+var followOffset = Vector3(0, 0.0, 0)
 var interestingCam: Camera3D
 var isInterested = false
 var blendingLerp = 0.0
@@ -13,17 +15,21 @@ func _ready() -> void:
 	GameStateManager.game_camera = self
 
 func _physics_process(_delta: float) -> void:
+	#updatefollowOffset() # camara clips in walls, to late to add
 	if follow_target == null: return
 	var newPos = follow_target.global_position
 	newPos += Vector3(0, follow_distance, follow_distance)
 	position = lerp(position, newPos, 0.4)
-	look_at(follow_target.global_position)
+	look_at(follow_target.global_position + lookAtOffset)
 	if isInterested:
 		global_transform = lerp(global_transform, interestingCam.global_transform, blendingLerp)
 	applyShake(shakeStrength * UserSettings.camera_shake_modifier)
 
-func updateBlending() -> void:
-	pass
+func updatefollowOffset() -> void:
+	if GameStateManager.current_player: 
+		var movDir = GameStateManager.current_player.player_move_dir * 0.25
+		followOffset.x = lerp(followOffset.x, clampf(movDir.x, -1.0, 1.0), 0.1)
+		followOffset.z = lerp(followOffset.x, clampf(movDir.y, -1.0, 1.0), 0.1)
 
 func lookHere(cam: Camera3D, blendtime: float) -> void:
 	var tween = get_tree().create_tween()
