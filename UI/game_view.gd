@@ -114,7 +114,7 @@ func handle_settings_to_main_menu_transition() -> void:
 	settings_menu_exit_tween.tween_property(settings_menu, 'position', Vector2(settings_menu.position.x - 1920 , settings_menu.position.y), 0.3).set_ease(Tween.EASE_IN_OUT)
 	settings_menu_exit_tween.finished.connect(func(): 
 		settings_menu.hide()
-		schmear_frame.show()
+		schmear_frame.hide()
 		)
 			
 	var main_menu_enter_tween: Tween = create_tween()
