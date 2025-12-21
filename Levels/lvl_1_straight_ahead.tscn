@@ -1,7 +1,7 @@
-[gd_scene load_steps=54 format=3 uid="uid://dpy3h6kf53s5j"]
+[gd_scene load_steps=56 format=3 uid="uid://dpy3h6kf53s5j"]
 
 [ext_resource type="PackedScene" uid="uid://d24k31i312cc1" path="res://Objects/Architypes/Props/lamp_standing1.tscn" id="1_buw6o"]
-[ext_resource type="Script" path="res://Levels/Util/lvl_1_straight_ahead_mission_flow.gd" id="1_ra8ms"]
+[ext_resource type="Script" uid="uid://8px1bb7haxfx" path="res://Levels/Util/lvl_1_straight_ahead_mission_flow.gd" id="1_ra8ms"]
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="1_rqsde"]
 [ext_resource type="PackedScene" uid="uid://dh3i5uan6dujl" path="res://Objects/Architypes/Props/plant_palm1.tscn" id="3_ahqed"]
 [ext_resource type="Material" uid="uid://dmxe2qlk68jn" path="res://Assets/Materials/reddish_floral_wall.tres" id="4_5d0l3"]
@@ -9,11 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://cs4digbuoekpl" path="res://Objects/Architypes/Furniture/shelf2.tscn" id="5_crrcm"]
 [ext_resource type="Material" uid="uid://c40katw3nlw77" path="res://Assets/Materials/green_carpet.tres" id="5_va1hs"]
 [ext_resource type="PackedScene" uid="uid://dkigsk0khpxet" path="res://Objects/Architypes/Furniture/frame1.tscn" id="5_y6gv2"]
-[ext_resource type="Script" uid="uid://dogbj3gtx3mxu" path="res://Objects/hideable_wall.gd" id="6_xxf8q"]
+[ext_resource type="Script" path="res://Objects/hideable_wall.gd" id="6_xxf8q"]
 [ext_resource type="Material" uid="uid://b23iqfg3em6ty" path="res://Assets/Materials/wooden_wall.tres" id="8_okfwc"]
 [ext_resource type="Material" uid="uid://c20xc8e5t6yna" path="res://Assets/Materials/creme_carpet.tres" id="8_y6gv2"]
 [ext_resource type="PackedScene" uid="uid://j1b5yvs8pnux" path="res://Objects/Architypes/Furniture/table_round1.tscn" id="9_82upk"]
-[ext_resource type="PackedScene" uid="uid://c5gvg6210vgku" path="res://Objects/Architypes/LivingRoom/door.tscn" id="10_va1hs"]
+[ext_resource type="PackedScene" path="res://Objects/Architypes/LivingRoom/door.tscn" id="10_va1hs"]
 [ext_resource type="PackedScene" uid="uid://d3unw205fanv5" path="res://Objects/Loot/pickup_beer.tscn" id="11_2icu1"]
 [ext_resource type="Material" uid="uid://l1sgod1lv1b6" path="res://Assets/Materials/yellow_floral_wall.tres" id="11_y6gv2"]
 [ext_resource type="PackedScene" uid="uid://d2fq258dik5oo" path="res://Objects/Architypes/Furniture/table1.tscn" id="12_gh4oo"]
@@ -43,6 +43,7 @@
 [ext_resource type="PackedScene" uid="uid://druufnhmbc0et" path="res://Assets/Props/beer_bottle_broken.gltf" id="41_y6674"]
 [ext_resource type="PackedScene" uid="uid://dsxj8qcelbum7" path="res://Assets/Props/beer_cup_broken.gltf" id="42_pcqx0"]
 [ext_resource type="PackedScene" uid="uid://dxvnrp0252dr0" path="res://Assets/Furniture/table_round1.gltf" id="43_pcqx0"]
+[ext_resource type="PackedScene" uid="uid://djvhkhmcy0tn5" path="res://Shaders/shader_caching_onpath.tscn" id="44_6pn5q"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_736oy"]
 size = Vector3(6.11322, 5.400879, 2.0011597)
@@ -85,6 +86,14 @@ size = Vector3(2.1617432, 4.0363245, 0.2)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_pcqx0"]
 radius = 0.5522461
+
+[sub_resource type="Curve3D" id="Curve3D_na4ed"]
+bake_interval = 1.0
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 1.6757088, 0, 0.20363998, 0, 0, 0, 0, 0, 0, -8.948946, 0, 6.055421, 0, 0, 0, 0, 0, 0, -5.63463, 0, 12.719519, 0, 0, 0, 0, 0, 0, -9.227352, 0, 18.839582, 0, 0, 0, 0, 0, 0, -21.17423, 0, 19.107267),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
 
 [node name="lvl_1_straight_ahead" type="Node3D"]
 script = ExtResource("1_ra8ms")
@@ -763,3 +772,12 @@ transform = Transform3D(0.96556807, 0, 0.26015058, 0, 1, 0, -0.26015058, 0, 0.96
 
 [node name="Flowers1" parent="." instance=ExtResource("29_736oy")]
 transform = Transform3D(0.06955148, -0.97859526, -0.19368504, 0.3307319, 0.20579433, -0.92101306, 0.9411583, 0, 0.337966, 5.4672956, 0.11695795, -0.4644703)
+
+[node name="AutoShaderCache" type="Node3D" parent="."]
+
+[node name="Path3D" type="Path3D" parent="AutoShaderCache"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.493954, 6.9392023, -19.786144)
+curve = SubResource("Curve3D_na4ed")
+
+[node name="ShaderCachingOnpath" parent="AutoShaderCache/Path3D" instance=ExtResource("44_6pn5q")]
+visible = false

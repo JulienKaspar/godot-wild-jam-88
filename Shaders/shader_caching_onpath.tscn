@@ -1,0 +1,40 @@
+[gd_scene load_steps=9 format=3 uid="uid://djvhkhmcy0tn5"]
+
+[ext_resource type="Script" uid="uid://7c1i364eqput" path="res://Shaders/shader_caching_onpath.gd" id="1_abkta"]
+[ext_resource type="PackedScene" uid="uid://ipb5qq76r2qn" path="res://Particles/Banana_Slip/pfx_banana_slip.tscn" id="2_kevtw"]
+[ext_resource type="PackedScene" uid="uid://cpegwj8uc0kq5" path="res://Particles/DrunknessPickups/pfx_beer_break.tscn" id="3_70ohq"]
+[ext_resource type="PackedScene" uid="uid://digw728iiuyg2" path="res://Particles/DrunknessPickups/pfx_beer_consuming.tscn" id="4_eo5xc"]
+[ext_resource type="PackedScene" uid="uid://bw1ewj0l1c71n" path="res://Particles/DrunknessPickups/pfx_beer_dispose.tscn" id="5_ru8wq"]
+[ext_resource type="PackedScene" uid="uid://cup17xrrbj5on" path="res://Particles/DrunknessPickups/pfx_pizza_consuming.tscn" id="6_3a0sb"]
+[ext_resource type="PackedScene" uid="uid://bhvwgh4ef0sj6" path="res://Particles/Player/pfx_bodyfall.tscn" id="7_l8iq0"]
+[ext_resource type="PackedScene" uid="uid://cyksrihj0achx" path="res://Particles/Player/pfx_falling_indicator.tscn" id="8_hy3tp"]
+
+[node name="ShaderCachingOnpath" type="Camera3D"]
+script = ExtResource("1_abkta")
+
+[node name="PfxBananaSlip" parent="." instance=ExtResource("2_kevtw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.6378279)
+emitting = true
+one_shot = false
+
+[node name="PfxBeerBreak" parent="." instance=ExtResource("3_70ohq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.6378279)
+
+[node name="PfxBeerConsuming" parent="." instance=ExtResource("4_eo5xc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.6378279)
+
+[node name="PfxBeerDispose" parent="." instance=ExtResource("5_ru8wq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.6378279)
+emitting = true
+one_shot = false
+
+[node name="PfxBeerConsuming2" parent="." instance=ExtResource("6_3a0sb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.6378279)
+
+[node name="PfxBodyfall" parent="." instance=ExtResource("7_l8iq0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.6378279)
+emitting = true
+one_shot = false
+
+[node name="PfxFallingIndicator" parent="." instance=ExtResource("8_hy3tp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.6378279)

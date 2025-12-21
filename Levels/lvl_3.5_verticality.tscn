@@ -1,9 +1,9 @@
-[gd_scene load_steps=58 format=3 uid="uid://dhfyssjtwfl14"]
+[gd_scene load_steps=60 format=3 uid="uid://dhfyssjtwfl14"]
 
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="1_bygm1"]
 [ext_resource type="Script" uid="uid://cy572sir651f7" path="res://Levels/indi_trap.gd" id="1_d7yk7"]
-[ext_resource type="Script" path="res://UI/camera_of_interest.gd" id="1_qacnp"]
-[ext_resource type="Script" path="res://UI/camera_area_trigger.gd" id="2_bygm1"]
+[ext_resource type="Script" uid="uid://ddci75ik2j7ul" path="res://UI/camera_of_interest.gd" id="1_qacnp"]
+[ext_resource type="Script" uid="uid://dbaf2uf6cx0uy" path="res://UI/camera_area_trigger.gd" id="2_bygm1"]
 [ext_resource type="PackedScene" uid="uid://j1b5yvs8pnux" path="res://Objects/Architypes/Furniture/table_round1.tscn" id="2_hhcad"]
 [ext_resource type="PackedScene" uid="uid://dti38qt8jgdmc" path="res://Assets/Furniture/beer_keg.gltf" id="2_l5t6x"]
 [ext_resource type="Material" uid="uid://d4j1l3yoxm3xy" path="res://Assets/Materials/purple_carpet.tres" id="3_62sv4"]
@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cold18jtw7ak0" path="res://Objects/Architypes/TrippingHazards/slippery_banana_peel.tscn" id="4_d65th"]
 [ext_resource type="Material" uid="uid://c20xc8e5t6yna" path="res://Assets/Materials/creme_carpet.tres" id="4_l5t6x"]
 [ext_resource type="PackedScene" uid="uid://3kn1j5376oof" path="res://Objects/Architypes/Furniture/table2.tscn" id="5_22idr"]
-[ext_resource type="Script" uid="uid://dogbj3gtx3mxu" path="res://Objects/hideable_wall.gd" id="8_44cqs"]
+[ext_resource type="Script" path="res://Objects/hideable_wall.gd" id="8_44cqs"]
 [ext_resource type="PackedScene" uid="uid://cugf77dasisxg" path="res://Objects/Architypes/Furniture/couch3.tscn" id="8_l5t6x"]
 [ext_resource type="PackedScene" uid="uid://fhev4d48q1qy" path="res://Objects/Architypes/LivingRoom/stairs_wide.tscn" id="8_wnth3"]
 [ext_resource type="PackedScene" uid="uid://dci81bvxxl4nx" path="res://Objects/Architypes/LivingRoom/stairs_thin.tscn" id="10_x788y"]
@@ -27,7 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://d24k31i312cc1" path="res://Objects/Architypes/Props/lamp_standing1.tscn" id="23_a5w72"]
 [ext_resource type="PackedScene" uid="uid://dh3i5uan6dujl" path="res://Objects/Architypes/Props/plant_palm1.tscn" id="23_b2cwn"]
 [ext_resource type="PackedScene" uid="uid://cri5otcpu2ukq" path="res://Assets/Furniture/frame1.gltf" id="24_a5w72"]
-[ext_resource type="PackedScene" uid="uid://c5gvg6210vgku" path="res://Objects/Architypes/LivingRoom/door.tscn" id="25_elkg8"]
+[ext_resource type="PackedScene" path="res://Objects/Architypes/LivingRoom/door.tscn" id="25_elkg8"]
 [ext_resource type="PackedScene" uid="uid://ctkeed4oy5kjx" path="res://Objects/Loot/pickup_beer_bottle.tscn" id="25_gq2bh"]
 [ext_resource type="PackedScene" uid="uid://c50jjcmdyr7vp" path="res://Objects/Loot/pickup_beer_cup.tscn" id="25_x788y"]
 [ext_resource type="PackedScene" uid="uid://bl2s2scly01yo" path="res://Objects/Architypes/Props/full_pizza.tscn" id="26_bw3jk"]
@@ -42,6 +42,7 @@
 [ext_resource type="PackedScene" uid="uid://k0584mty7u68" path="res://Assets/LivingRoom/door_sides.gltf" id="36_f3lfr"]
 [ext_resource type="PackedScene" uid="uid://bwm23c42sbbui" path="res://Objects/Architypes/Props/lamp_table1.tscn" id="38_3g13s"]
 [ext_resource type="PackedScene" uid="uid://cbvs0j36cba72" path="res://Assets/Furniture/rug_orange_geometrical.gltf" id="40_7phss"]
+[ext_resource type="PackedScene" uid="uid://djvhkhmcy0tn5" path="res://Shaders/shader_caching_onpath.tscn" id="43_p2eq5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p2eq5"]
 size = Vector3(3.8541222, 5.400879, 5.9180145)
@@ -99,6 +100,14 @@ size = Vector3(17.588078, 5.476385, 0.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bygm1"]
 size = Vector3(1.3359375, 2.6139526, 0.77711105)
+
+[sub_resource type="Curve3D" id="Curve3D_ho8xf"]
+bake_interval = 1.0
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 2.458725, 0, -2.4465673, 0, 0, 0, 0, 0, 0, -23.223925, 0, 1.2368615, 0, 0, 0, 0, 0, 0, -25.39072, 0, 5.130289, 0, 0, 0, 0, 0, 0, -36.21128, 0, 4.865762, 0, 0, 0, 0, 0, 0, -36.91709, 0, 1.9256761),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
 
 [node name="Node3D" type="Node3D"]
 
@@ -347,7 +356,6 @@ material_override = ExtResource("13_3g13s")
 use_collision = true
 size = Vector3(0.2, 5.2589, 13.080177)
 script = ExtResource("8_44cqs")
-metadata/_custom_type_script = "uid://dogbj3gtx3mxu"
 
 [node name="Area3D" type="Area3D" parent="Layout/Walls/CSG_YellowlWall26"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.322407, 0, -6.8966293)
@@ -804,3 +812,12 @@ collision_mask = 4
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HoldThosePlantsBack!"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8069763, -0.25896454)
 shape = SubResource("BoxShape3D_bygm1")
+
+[node name="AutoShaderCache" type="Node3D" parent="."]
+
+[node name="Path3D" type="Path3D" parent="AutoShaderCache"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.34057, 6.9392023, 0)
+curve = SubResource("Curve3D_ho8xf")
+
+[node name="ShaderCachingOnpath" parent="AutoShaderCache/Path3D" instance=ExtResource("43_p2eq5")]
+visible = false

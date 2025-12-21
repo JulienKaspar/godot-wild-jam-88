@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://cfeukfanfm516"]
+[gd_scene load_steps=50 format=3 uid="uid://cfeukfanfm516"]
 
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="1_2o66m"]
 [ext_resource type="Material" uid="uid://d4j1l3yoxm3xy" path="res://Assets/Materials/purple_carpet.tres" id="2_4djw3"]
@@ -20,9 +20,9 @@
 [ext_resource type="PackedScene" uid="uid://cold18jtw7ak0" path="res://Objects/Architypes/TrippingHazards/slippery_banana_peel.tscn" id="19_f5grc"]
 [ext_resource type="PackedScene" uid="uid://d2fq258dik5oo" path="res://Objects/Architypes/Furniture/table1.tscn" id="21_vrn81"]
 [ext_resource type="PackedScene" uid="uid://bwm23c42sbbui" path="res://Objects/Architypes/Props/lamp_table1.tscn" id="22_kps16"]
-[ext_resource type="PackedScene" uid="uid://xu48fxr0n02f" path="res://Objects/Architypes/Props/pizza_box.tscn" id="22_s2djd"]
+[ext_resource type="PackedScene" path="res://Objects/Architypes/Props/pizza_box.tscn" id="22_s2djd"]
 [ext_resource type="PackedScene" uid="uid://cbj1xsvngkbla" path="res://Assets/LivingRoom/door_closed.gltf" id="23_4djw3"]
-[ext_resource type="PackedScene" uid="uid://c5gvg6210vgku" path="res://Objects/Architypes/LivingRoom/door.tscn" id="23_ur1xt"]
+[ext_resource type="PackedScene" path="res://Objects/Architypes/LivingRoom/door.tscn" id="23_ur1xt"]
 [ext_resource type="PackedScene" uid="uid://d3padysgagsbx" path="res://Objects/Architypes/TrippingHazards/tripping_rug.tscn" id="24_2o66m"]
 [ext_resource type="PackedScene" uid="uid://d24k31i312cc1" path="res://Objects/Architypes/Props/lamp_standing1.tscn" id="24_77x17"]
 [ext_resource type="PackedScene" uid="uid://bl2s2scly01yo" path="res://Objects/Architypes/Props/full_pizza.tscn" id="24_536uo"]
@@ -39,6 +39,7 @@
 [ext_resource type="PackedScene" uid="uid://b0thpqx788jgo" path="res://Assets/Furniture/rug_black_flora.gltf" id="36_ue5od"]
 [ext_resource type="PackedScene" uid="uid://duj1jw0lqr015" path="res://Objects/Architypes/Props/chair1.tscn" id="37_cw4i2"]
 [ext_resource type="PackedScene" uid="uid://dq8pax2pwl72a" path="res://Objects/Architypes/Props/plant_algae1.tscn" id="38_qf2l2"]
+[ext_resource type="PackedScene" uid="uid://djvhkhmcy0tn5" path="res://Shaders/shader_caching_onpath.tscn" id="40_7j1i3"]
 
 [sub_resource type="Environment" id="Environment_4djw3"]
 background_mode = 1
@@ -75,6 +76,14 @@ size = Vector3(9.023521, 4.1967773, 0.17675781)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4djw3"]
 size = Vector3(16.714428, 4.1967773, 0.17675781)
+
+[sub_resource type="Curve3D" id="Curve3D_1c67v"]
+bake_interval = 1.0
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 2.863411, 0, -3.1529093, 0, 0, 0, 0, 0, 0, 15.678368, 0, 0.253129, 0, 0, 0, 0, 0, 0, 17.696892, 0, -12.947807, 0, 0, 0, 0, 0, 0, 27.311192, 0, -0.50012016, 0, 0, 0, 0, 0, 0, 38.642197, 0, -6.77347, 0, 0, 0, 0, 0, 0, 34.028088, 0, -13.477076),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
 
 [node name="Node3D2" type="Node3D"]
 
@@ -1073,3 +1082,12 @@ transform = Transform3D(0.55888903, 0, 0.82924247, 0, 1, 0, -0.82924247, 0, 0.55
 
 [node name="Couch3" parent="." instance=ExtResource("12_fgeje")]
 transform = Transform3D(0.9989443, 0, 0.045938347, 0, 1, 0, -0.045938347, 0, 0.9989443, -28.205141, 0.011239767, 12.726557)
+
+[node name="AutoShaderCache" type="Node3D" parent="."]
+
+[node name="Path3D" type="Path3D" parent="AutoShaderCache"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.952637, 6.9392023, 13.108034)
+curve = SubResource("Curve3D_1c67v")
+
+[node name="ShaderCachingOnpath" parent="AutoShaderCache/Path3D" instance=ExtResource("40_7j1i3")]
+visible = false

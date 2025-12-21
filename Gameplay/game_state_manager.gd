@@ -22,6 +22,7 @@ var current_player: Player
 var current_level_index: int
 var loading_into_level_index: int # need this to be set before level starts loading
 var loading_screen: LoadingScreen
+var precacheCam: Camera3D
 
 func _ready() -> void:
 	get_tree().paused = true

@@ -1,0 +1,37 @@
+extends Camera3D
+class_name ShaderCacheCamera
+
+var checkedPoint: int = 0
+var pointCount: int = 0
+var isCaching = true
+
+func _ready():
+	#startCache()
+	GameStateManager.precacheCam = self
+	hide()
+	
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	if 	isCaching:
+		if checkedPoint < pointCount:
+			position = get_parent().curve.get_baked_points()[checkedPoint]
+			rotation_degrees.x = -90
+			var fstring = "Caching: %s / %s in %s ms"
+			var debugoutput = fstring % [checkedPoint + 1, pointCount, delta]
+			print(debugoutput)
+			checkedPoint += 1
+		else:
+			doneCache()
+		
+func startCache() -> void:
+	show()
+	current = true
+	isCaching = true
+	print("Shader cache started")
+	pointCount = get_parent().curve.get_baked_points().size()
+
+func doneCache() -> void:
+	hide()
+	current = false
+	isCaching = false
+	print("Shader cache complete")

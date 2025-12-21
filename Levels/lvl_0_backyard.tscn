@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://b6vbg26wkrdh3"]
+[gd_scene load_steps=68 format=3 uid="uid://b6vbg26wkrdh3"]
 
 [ext_resource type="Script" uid="uid://blqvicje3efcj" path="res://Levels/Util/lvl_0_backyard_mission_flow.gd" id="1_jtswe"]
 [ext_resource type="Script" uid="uid://42mf003bq52u" path="res://Gameplay/level_teleporter.gd" id="2_jtswe"]
@@ -21,7 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://di5fte2dqxs0c" path="res://Assets/Furniture/window1.gltf" id="15_tao4m"]
 [ext_resource type="AudioStream" uid="uid://dwr8w5btu8k4h" path="res://Assets/Audio/UI/intro_fence_break.ogg" id="16_c33jy"]
 [ext_resource type="AudioStream" uid="uid://t2yngijmupfi" path="res://Assets/Audio/SFX/Props/bbq_fire.ogg" id="19_fkcxp"]
-[ext_resource type="PackedScene" uid="uid://cdrpgw2um6m6i" path="res://Objects/safety_plane.tscn" id="22_dgmkc"]
+[ext_resource type="PackedScene" path="res://Objects/safety_plane.tscn" id="22_dgmkc"]
+[ext_resource type="PackedScene" uid="uid://djvhkhmcy0tn5" path="res://Shaders/shader_caching_onpath.tscn" id="23_avm5o"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mr8n6"]
 size = Vector3(4.9821777, 3.3790894, 0.18530273)
@@ -178,6 +179,14 @@ size = Vector3(0.805, 0.2, 0.196)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_go0n3"]
 size = Vector3(0.833, 0.2, 0.216)
+
+[sub_resource type="Curve3D" id="Curve3D_avm5o"]
+bake_interval = 1.0
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -36.574196, 1.3157291, -18.18748, 0, 0, 0, 0, 0, 0, -36.912155, 0, 0.54421234),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
 
 [node name="LevelBackyard" type="Node3D" node_paths=PackedStringArray("startCam", "firstDrink", "StartBlockers", "StartTable")]
 script = ExtResource("1_jtswe")
@@ -626,3 +635,12 @@ shape = SubResource("BoxShape3D_go0n3")
 
 [node name="SafetyPlane" parent="." instance=ExtResource("22_dgmkc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.666697, 0)
+
+[node name="AutoShaderCache" type="Node3D" parent="."]
+
+[node name="Path3D" type="Path3D" parent="AutoShaderCache"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.34057, 6.9392023, 0)
+curve = SubResource("Curve3D_avm5o")
+
+[node name="ShaderCachingOnpath" parent="AutoShaderCache/Path3D" instance=ExtResource("23_avm5o")]
+visible = false
