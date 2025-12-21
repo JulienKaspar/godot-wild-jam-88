@@ -44,7 +44,7 @@
 [ext_resource type="PackedScene" uid="uid://ooe78twecepq" path="res://Assets/Furniture/fireplace.gltf" id="41_4f1ei"]
 [ext_resource type="Script" uid="uid://dlv1uit3dif5m" path="res://Assets/Furniture/fireplace.gd" id="42_csti4"]
 [ext_resource type="Texture2D" uid="uid://ttnt843dqh5f" path="res://Assets/2D_Assets/Fire_Anim/fire_anim_atlas.png" id="42_qsgyk"]
-[ext_resource type="PackedScene" uid="uid://cri5otcpu2ukq" path="res://Assets/Furniture/frame1.gltf" id="42_uyt62"]
+[ext_resource type="PackedScene" uid="uid://dkigsk0khpxet" path="res://Objects/Architypes/Furniture/frame.tscn" id="42_uyt62"]
 [ext_resource type="PackedScene" uid="uid://wrdfnbkf7w2k" path="res://Objects/Architypes/Props/candle1.tscn" id="45_csti4"]
 [ext_resource type="AudioStream" uid="uid://t2yngijmupfi" path="res://Assets/Audio/SFX/Props/bbq_fire.ogg" id="46_pmix6"]
 [ext_resource type="PackedScene" uid="uid://djvhkhmcy0tn5" path="res://Shaders/shader_caching_onpath.tscn" id="47_10cov"]
@@ -93,7 +93,7 @@ size = Vector3(1.8151245, 3.45717, 0.2)
 [sub_resource type="BoxShape3D" id="BoxShape3D_17q8k"]
 size = Vector3(3.1295853, 3.45717, 0.09472656)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ed3ej"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x8cmt"]
 resource_local_to_scene = true
 diffuse_mode = 3
 specular_mode = 2
@@ -504,7 +504,7 @@ shape = SubResource("BoxShape3D_17q8k")
 
 [node name="Stairs_wide" parent="Layout/Stairs" instance=ExtResource("17_iy3ty")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12.69914, -0.7660129, -12.728362)
-wall_material = SubResource("StandardMaterial3D_ed3ej")
+wall_material = SubResource("StandardMaterial3D_x8cmt")
 ground_material = ExtResource("3_t4a3y")
 
 [node name="Stairs_wide2" parent="Layout/Stairs" instance=ExtResource("17_iy3ty")]
@@ -815,6 +815,13 @@ transform = Transform3D(0.72924334, 0, 0.6842544, 0, 1, 0, -0.6842544, 0, 0.7292
 
 [node name="Plant1" parent="Decor" instance=ExtResource("33_g3cye")]
 transform = Transform3D(0.9136377, 0, -0.40652934, 0, 1, 0, 0.40652934, 0, 0.9136377, 18.709875, 4.7683716e-07, -5.8530436)
+
+[node name="Frame" parent="Decor" instance=ExtResource("42_uyt62")]
+transform = Transform3D(1.1880853, -0.27086422, 0, 0.27086422, 1.1880853, 0, 0, 0, 1.2185706, 7.491101, 2.521474, -3.8482308)
+
+[node name="Frame2" parent="Decor" instance=ExtResource("42_uyt62")]
+transform = Transform3D(0.7251885, 0.058754936, 0, -0.058754936, 0.7251885, 0, 0, 0, 0.7275649, 8.8639555, 3.0720205, -3.8482308)
+model_index = 3
 
 [node name="LampStanding1" parent="." instance=ExtResource("39_vx8r6")]
 transform = Transform3D(-0.16828284, 0, 0.9857387, 0, 1, 0, -0.9857387, 0, -0.16828284, -0.62364745, 0.0027188167, -5.530841)
