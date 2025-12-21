@@ -14,10 +14,10 @@ uniform float bleakness : hint_range(0.0, 1.0) = 0.;
 vec3 sampleScreen(vec2 uv) {
 	vec3 sample = textureLod(screen_texture, uv, 0.).rgb;
 	// Bleakness
-	sample *= mix(1., .8, bleakness);
-    sample.rgb = mix(vec3(0.5), sample.rgb, mix(1., .8, bleakness));
-    sample.rgb = mix(vec3(dot(vec3(1.0), sample.rgb) * vec3(.28, .28, .4)), sample.rgb, 1.-bleakness);
-
+    sample.rgb = mix(vec3(0.5), sample.rgb, mix(1., 1.3, bleakness));
+	//sample *= mix(1., .75, bleakness);
+    sample.rgb = mix(sample.rgb, dot(vec3(1.0), sample.rgb) * vec3(.28, .3, .5), bleakness);
+    sample.rgb = mix(sample.rgb, vec3(.28, .3, .45), bleakness * .2);
 	return sample;
 }
 
@@ -40,7 +40,8 @@ void fragment() {
 	vec2 offset_r = (vec2(noise1D(t + 50.), noise1D(t + 150.)) - vec2(.5));
 	vec2 offset_g = (vec2(noise1D(t + 200.), noise1D(t + 300.)) - vec2(.5));
 	vec2 offset_b = -offset_r;
-
+	
+	offset_b += vec2(-1., .5) * bleakness;
 	offset_r = mix(offset_r, offset_g, bleakness);
 
 	vec2 sample_offset_r;
@@ -73,9 +74,9 @@ void fragment() {
     c.rgb = mix(vec3(0.5), c.rgb, contrast);
 
 	// Brightness
-	float vignette_strength = mix(.25, .8, drunkness);
-	vignette_strength = mix(vignette_strength, 2., bleakness);
-	c = mix(c, vec3(0.), vignette_mask * .5);
+	float vignette_strength = mix(.3, .6, drunkness);
+	vignette_strength = mix(vignette_strength, .8, bleakness);
+	c = mix(c, vec3(0.), vignette_mask * vignette_strength);
 	c *= mix(1., 1.25, pow(drunkness, 2.));
 
 	COLOR.rgb = c;
