@@ -134,9 +134,11 @@ size_flags_stretch_ratio = 1.5
 unique_name_in_owner = true
 stream = ExtResource("7_bddxb")
 volume_db = -8.0
+bus = &"Ambience"
 
 [node name="ThemeMusicMuted" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("8_iau2q")
 volume_db = -4.5
 autoplay = true
+bus = &"Music"

@@ -31,10 +31,18 @@ func handle_exit_button_pressed() -> void:
 @onready var theme_music_muted : AudioStreamPlayer = %ThemeMusicMuted
 
 func enter_menu_sounds():
-	title_screen_ambience.volume_db = AudioManager._VOLUME_DB_OFF
+	title_screen_ambience.bus = AudioServer.get_bus_name(AudioManager.BUS.AMBIENCE)
+	theme_music_muted.bus = AudioServer.get_bus_name(AudioManager.BUS.MUSIC)
+	
+	title_screen_ambience.volume_db = AudioManager.VOLUME_DB_OFF
+	#theme_music_muted.volume_db = AudioManager.VOLUME_DB_OFF
+	
 	var tween : Tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property(title_screen_ambience, "volume_db", 0.0, 2.5)
+	tween.tween_property(title_screen_ambience, "volume_db", 0.0, 2.0)
+	#tween.tween_property(theme_music_muted, "volume_db", 0.0, 1.0)
+	
 	title_screen_ambience.play()
+	#theme_music_muted.play()
 
 func exit_menu_sounds():
 	AudioManager.fade_audio_out(title_screen_ambience, 2.5)

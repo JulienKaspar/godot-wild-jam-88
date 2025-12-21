@@ -1,63 +1,82 @@
 ## music_manager.gd
+extends Node
+class_name MusicManager
 # =================
 # start_music()
 # stop_music()
 # switch_music(theme : MusicManager.MUSIC_THEMES) - check enum for possible themes
 # drunkness_intensity : float - range 0.0 to 1.0
 # _update_drunkness_effect() - called when "drunkness_intensity" is updated
-extends Node
-class_name MusicManager
 
 signal switch_music(theme : MUSIC_THEMES)
 
 @onready var music_player : AudioStreamPlayer = %MusicPlayer
-const _DEFAULT_VOLUME_DB : float = -1.5
+const VOLUME_DB_DEFAULT : float = -1.5
+const VOLUME_DB_DUCKING : float = -4.5
 
 
 func _ready():
 	if !AudioManager.music_manager:
 		AudioManager.music_manager = self
 	
-	_connect_signals()
+	GameStateManager.on_paused.connect(_set_filter.bind(true))
+	GameStateManager.on_unpaused.connect(_set_filter.bind(false))
+	GameStateManager.player_drunkness.on_drunkness_changed.connect(_update_drunk_streams)
+	GameStateManager.on_level_loaded.connect(_on_level_change)
 	
-func trigger_random_chord_changes():
+	switch_music.connect(switch_music_to_theme)
+
+func activate_chord_changes():
 	var chord_change_timer : Timer = Timer.new()
 	chord_change_timer.wait_time = 10.0
 	chord_change_timer.one_shot = false
-	chord_change_timer.timeout.connect(_change_theme_randomly)
+	chord_change_timer.timeout.connect(randomize_chord)
 	add_child(chord_change_timer)
 	chord_change_timer.start()
 
-func _change_theme_randomly() -> void:
+func randomize_chord() -> void:
 	if (randf() < 0.5): return # chance to skip
 	var _target_theme : int = current_theme
 	while(_target_theme == current_theme): # skip if same
 		_target_theme = randi_range(0, MUSIC_THEMES.size() - 1)
 	switch_music_to_theme(_target_theme)
-	
-
-func _connect_signals():
-	switch_music.connect(switch_music_to_theme)
-	GameStateManager.on_paused.connect(_set_filter.bind(true))
-	GameStateManager.on_unpaused.connect(_set_filter.bind(false))
-	GameStateManager.player_drunkness.on_drunkness_changed.connect(_update_drunk_streams)
-	GameStateManager.on_level_loaded.connect(_on_level_change)
 
 
 func _on_level_change(level_index : int):
-	if level_index > 0:
-		if level_index > 4:
+	var target_volume_db : float
+	
+	match level_index:
+		0: # backyard
+			target_volume_db = AudioManager.VOLUME_DB_OFF
+		1, 2, 3, 4, 5: # core levels
+			target_volume_db = AudioManager.VOLUME_DB_ON
+			activate_chord_changes()
+		6: # fridge
+			target_volume_db = AudioManager.VOLUME_DB_OFF
+	
+	match target_volume_db:
+		AudioManager.VOLUME_DB_OFF:
 			AudioManager.fade_audio_out(music_player)
-			return
-		
-		AudioManager.fade_audio_in(music_player)
-		
-		if !music_player.playing:
-			music_player.play()
-			AudioManager.fade_audio_in(music_player, _DEFAULT_VOLUME_DB)
-			trigger_random_chord_changes()
-		else:
-			AudioManager.tween_volume_db(music_player, _DEFAULT_VOLUME_DB)
+		AudioManager.VOLUME_DB_ON:
+			AudioManager.fade_audio_in(music_player)
+			if !music_player.playing:
+				music_player.play()
+		_:
+			AudioManager.tween_volume_db(music_player, target_volume_db)
+	
+	#if level_index > 0:
+		#if level_index > 4:
+			#AudioManager.fade_audio_out(music_player)
+			#return
+		#
+		#AudioManager.fade_audio_in(music_player)
+		#
+		#if !music_player.playing:
+			#music_player.play()
+			#AudioManager.fade_audio_in(music_player, AudioManager.VOLUME_DB_ON)
+			#activate_chord_changes()
+		#else:
+			#AudioManager.tween_volume_db(music_player, AudioManager.VOLUME_DB_ON)
 
 #region MUSIC
 # Music themes - enum makes it easily callable from other scripts
@@ -87,10 +106,10 @@ func stop_music():
 	music_player.stop()
 
 func duck_volume():
-	AudioManager.tween_volume_db(music_player, (_DEFAULT_VOLUME_DB - 4.5), 1.5)
+	AudioManager.tween_volume_db(music_player, (VOLUME_DB_DEFAULT - 4.5), 1.5)
 
 func restore_volume():
-	AudioManager.tween_volume_db(music_player, _DEFAULT_VOLUME_DB, 2.5)
+	AudioManager.tween_volume_db(music_player, VOLUME_DB_DEFAULT, 2.5)
 
 func switch_music_to_theme(theme : MUSIC_THEMES):
 	var _playback : AudioStreamPlaybackInteractive = music_player.get_stream_playback()
@@ -117,7 +136,7 @@ const DRUNK_THRESHOLD_HIGH : float = 0.7
 func _update_drunk_streams(drunk_value):
 	if !music_player.playing: return
 	
-	drunk_value = AudioManager._remap_drunk_value(drunk_value)
+	drunk_value = AudioManager.remap_drunkness(drunk_value)
 	
 	## TODO: CLAMP ALL REMAPS!
 	if drunk_value >= DRUNK_THRESHOLD_LOW:

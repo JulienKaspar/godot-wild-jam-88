@@ -19,8 +19,8 @@ var shrink_timer : Timer
 
 func _ready():
 	# singleton setup
-	if AudioManager.sfx_pool == null:
-		AudioManager.sfx_pool = self
+	if AudioManager.sfx_manager == null:
+		AudioManager.sfx_manager = self
 	
 	init_pool()
 
