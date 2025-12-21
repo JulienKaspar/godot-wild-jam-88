@@ -27,17 +27,17 @@ func play_sound(_stream : AudioStream):
 		push_warning(str("UI_Sounds: cannot play sound: ", _stream, " is no valid AudioStream resource"))
 		return
 	
-	if !game_started:
+	if GameStateManager.current_state == GameStateManager.GameState.Game:
 		match _stream:
 			drunkness_down, drunkness_up, shake_impact:
+				self.stream = _stream
+				self.play()
 				return
-	
-	if GameStateManager.current_state == GameStateManager.GameState.Game:
-		return
-	
-	#print(stream)
-	self.stream = _stream
-	self.play()
+	else:
+
+		#print(stream)
+		self.stream = _stream
+		self.play()
 
 
 func select_burps(intensity : float) -> void:
