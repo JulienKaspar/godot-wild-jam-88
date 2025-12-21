@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://dhfyssjtwfl14"]
+[gd_scene load_steps=62 format=3 uid="uid://dhfyssjtwfl14"]
 
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="1_bygm1"]
 [ext_resource type="Script" uid="uid://cy572sir651f7" path="res://Levels/indi_trap.gd" id="1_d7yk7"]
@@ -96,8 +96,11 @@ size = Vector3(4.957185, 3.9253168, 0.2)
 [sub_resource type="BoxShape3D" id="BoxShape3D_l5t6x"]
 size = Vector3(9.523728, 6.3348722, 0.2)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_d7yk7"]
-size = Vector3(17.588078, 5.476385, 0.2)
+[sub_resource type="BoxShape3D" id="BoxShape3D_ho8xf"]
+size = Vector3(11.380953, 5.476385, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qbw1f"]
+size = Vector3(6.249596, 5.476385, 0.581189)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bygm1"]
 size = Vector3(1.3359375, 2.6139526, 0.77711105)
@@ -194,7 +197,17 @@ light_energy = 8.262
 shadow_enabled = true
 shadow_bias = 0.206
 shadow_normal_bias = 1.003
-spot_range = 23.069
+spot_range = 16.064
+spot_angle = 37.42
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="WorldEnvironment"]
+transform = Transform3D(0.077364296, -0.9079809, 0.41180748, -0.7442604, 0.22223987, 0.62983024, -0.66339386, -0.35521838, -0.65858066, 40.799877, 5.2764564, -5.236573)
+light_color = Color(1, 0.7066667, 0.56, 1)
+light_energy = 3.972
+shadow_enabled = true
+shadow_bias = 0.206
+shadow_normal_bias = 1.003
+spot_range = 16.064
 spot_angle = 37.42
 
 [node name="IndiTrap" type="Area3D" parent="." node_paths=PackedStringArray("indie_ball")]
@@ -237,18 +250,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.15581, 0, -21.550133)
 [node name="Floor" type="Node3D" parent="Layout"]
 
 [node name="CSGBox3D17" type="CSGBox3D" parent="Layout/Floor"]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 16.196901, -0.61738384, 18.906061)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 16.196901, -0.61738384, 19.034916)
 material_override = ExtResource("3_62sv4")
 use_collision = true
 collision_layer = 65
-size = Vector3(6.0069532, 1.6992188, 7.470875)
+size = Vector3(6.264663, 1.6992188, 7.470875)
 
 [node name="CSGBox3D18" type="CSGBox3D" parent="Layout/Floor"]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.905196, -0.61738384, 20.860867)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.905195, -0.61738384, 20.990105)
 material_override = ExtResource("3_62sv4")
 use_collision = true
 collision_layer = 65
-size = Vector3(2.1014926, 1.6992188, 10.906118)
+size = Vector3(2.359968, 1.6992188, 10.906118)
 
 [node name="CSGBox3D19" type="CSGBox3D" parent="Layout/Floor"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.5611488, 2.6209345, 22.09062)
@@ -301,10 +314,10 @@ use_collision = true
 size = Vector3(0.2, 5.655167, 3.6271973)
 
 [node name="CSG_YellowlWall23" type="CSGBox3D" parent="Layout/Walls"]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 19.136168, 2.135094, 21.729307)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 19.13426, 2.135094, 21.854618)
 material_override = ExtResource("11_62sv4")
 use_collision = true
-size = Vector3(0.35634765, 5.655167, 1.5911865)
+size = Vector3(0.60786134, 5.655167, 1.5950012)
 
 [node name="CSG_YellowlWall37" type="CSGBox3D" parent="Layout/Walls"]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 18.436079, 4.2229576, 20.57101)
@@ -388,7 +401,7 @@ use_collision = true
 size = Vector3(0.2, 0.16984421, 17.696112)
 
 [node name="CSG_YellowlWall31" type="CSGBox3D" parent="Layout/Walls"]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.558878, 0.30121127, 21.811264)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.558878, 0.30121127, 22.066238)
 material_override = ExtResource("11_62sv4")
 use_collision = true
 size = Vector3(0.2, 0.16984421, 15.965005)
@@ -462,8 +475,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.988186, 1.508729, -0.945486
 shape = SubResource("BoxShape3D_l5t6x")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Layout/Walls/InvisibleWall5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.548605, 1.0794854, -2.4127254)
-shape = SubResource("BoxShape3D_d7yk7")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.652166, 1.0794854, -2.289716)
+shape = SubResource("BoxShape3D_ho8xf")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Layout/Walls/InvisibleWall5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.847195, 1.0794854, -2.5179875)
+shape = SubResource("BoxShape3D_qbw1f")
 
 [node name="TeenStanding" parent="Layout/Walls" instance=ExtResource("12_44cqs")]
 transform = Transform3D(0.13107994, 0, 0.9913718, 0, 1, 0, -0.9913718, 0, 0.13107994, -3.4972637, 5.174872, 21.007378)
