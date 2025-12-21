@@ -9,6 +9,8 @@ func _ready() -> void:
 	$AnimationPlayer.play("RESET")
 	$Fridge/fridge_trap_wall/CollisionShape3D.disabled = true
 	GameStateManager.player_drunkness.paused = true
+	$Fridge/fridge_door_right_rendering.show()
+	$Fridge.show()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
