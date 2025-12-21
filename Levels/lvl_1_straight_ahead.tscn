@@ -345,6 +345,15 @@ size = Vector3(2.9959793, 3.9618232, 0.15405273)
 [node name="door_sides3" parent="Layout/Walls/CSG_YellowlWall4" instance=ExtResource("30_fprnk")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1.1235682, 0, -8.742278e-08, 0, -1, 2.2660446, -1.978537, -0.037501335)
 
+[node name="Frame" parent="Layout/Walls/CSG_YellowlWall4" instance=ExtResource("5_y6gv2")]
+transform = Transform3D(-0.07651018, -0.9970688, 8.742278e-08, -0.9970688, 0.07651018, 0, -6.6887327e-09, -8.7166526e-08, -1, 1.0182476, 0.5216831, -0.07702637)
+
+[node name="Frame2" parent="Layout/Walls/CSG_YellowlWall4" instance=ExtResource("5_y6gv2")]
+transform = Transform3D(0.0013788305, -0.99999905, 8.742278e-08, -0.99999905, -0.0013788305, 0, 1.2054119e-10, -8.742269e-08, -1, -0.064603806, 0.6578127, -0.07702637)
+
+[node name="Frame3" parent="Layout/Walls/CSG_YellowlWall4" instance=ExtResource("5_y6gv2")]
+transform = Transform3D(0.99236643, -0.12332438, 8.742278e-08, -0.12332438, -0.99236643, 0, 8.675543e-08, -1.078136e-08, -1, -0.92204857, 0.33767045, -0.07702637)
+
 [node name="CSG_YellowlWall8" type="CSGBox3D" parent="Layout/Walls"]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 11.488768, 2.8255844, -17.138153)
 material_override = ExtResource("11_y6gv2")
@@ -780,12 +789,3 @@ curve = SubResource("Curve3D_na4ed")
 
 [node name="ShaderCachingOnpath" parent="AutoShaderCache/Path3D" instance=ExtResource("44_6pn5q")]
 visible = false
-
-[node name="Frame" parent="." instance=ExtResource("5_y6gv2")]
-transform = Transform3D(0.07651018, 0.9970688, 0, -0.9970688, 0.07651018, 0, 0, 0, 1, 13.377672, 2.50022, -8.841453)
-
-[node name="Frame2" parent="." instance=ExtResource("5_y6gv2")]
-transform = Transform3D(-0.0013788305, 0.99999905, 0, -0.99999905, -0.0013788305, 0, 0, 0, 1, 14.460524, 2.6363497, -8.841453)
-
-[node name="Frame3" parent="." instance=ExtResource("5_y6gv2")]
-transform = Transform3D(-0.99236643, 0.12332438, 0, -0.12332438, -0.99236643, 0, 0, 0, 1, 15.317968, 2.3162074, -8.841453)

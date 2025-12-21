@@ -16,12 +16,7 @@
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"Cube.001",
-			"scale":[
-				0.7063642740249634,
-				0.5909113883972168,
-				0.3878934979438782
-			]
+			"name":"Cube.001"
 		},
 		{
 			"mesh":1,
@@ -79,35 +74,35 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":264,
+			"count":248,
 			"max":[
-				0.34241819381713867,
-				0.6888582706451416,
-				0.5591778755187988
+				0.23479492962360382,
+				0.40705418586730957,
+				0.20875965058803558
 			],
 			"min":[
-				-0.32129955291748047,
-				0.02434573322534561,
-				-0.5609340071678162
+				-0.21986357867717743,
+				0.0076627894304692745,
+				-0.2094341665506363
 			],
 			"type":"VEC3"
 		},
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":264,
+			"count":248,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":264,
+			"count":248,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":3,
 			"componentType":5126,
-			"count":264,
+			"count":248,
 			"type":"VEC3"
 		},
 		{
@@ -160,68 +155,68 @@
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":3168,
+			"byteLength":2976,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":3168,
-			"byteOffset":3168,
+			"byteLength":2976,
+			"byteOffset":2976,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":2112,
-			"byteOffset":6336,
+			"byteLength":1984,
+			"byteOffset":5952,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":3168,
-			"byteOffset":8448,
+			"byteLength":2976,
+			"byteOffset":7936,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":1008,
-			"byteOffset":11616,
+			"byteOffset":10912,
 			"target":34963
 		},
 		{
 			"buffer":0,
 			"byteLength":792,
-			"byteOffset":12624,
+			"byteOffset":11920,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":792,
-			"byteOffset":13416,
+			"byteOffset":12712,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":528,
-			"byteOffset":14208,
+			"byteOffset":13504,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":792,
-			"byteOffset":14736,
+			"byteOffset":14032,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":264,
-			"byteOffset":15528,
+			"byteOffset":14824,
 			"target":34963
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":15792,
+			"byteLength":15088,
 			"uri":"lamp_table1.bin"
 		}
 	]

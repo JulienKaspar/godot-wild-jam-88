@@ -13,7 +13,8 @@
 				2,
 				3,
 				4,
-				5
+				5,
+				6
 			]
 		}
 	],
@@ -80,6 +81,21 @@
 				0.03868723660707474,
 				0.45350977778434753,
 				-0.0010846540099009871
+			]
+		},
+		{
+			"mesh":6,
+			"name":"Cone.014",
+			"rotation":[
+				-0.6449868679046631,
+				-0.6469604969024658,
+				0.28538066148757935,
+				0.2898136377334595
+			],
+			"translation":[
+				0.015284433960914612,
+				0.6329776048660278,
+				-0.25362563133239746
 			]
 		}
 	],
@@ -180,6 +196,20 @@
 					},
 					"indices":28,
 					"material":0
+				}
+			]
+		},
+		{
+			"name":"Cone.014",
+			"primitives":[
+				{
+					"attributes":{
+						"POSITION":29,
+						"NORMAL":30,
+						"TEXCOORD_0":31,
+						"COLOR_0":32
+					},
+					"indices":33
 				}
 			]
 		}
@@ -390,14 +420,14 @@
 			"componentType":5126,
 			"count":356,
 			"max":[
-				0.22534045577049255,
+				0.2506207227706909,
 				1.5817242860794067,
-				0.29049476981163025
+				0.2934075891971588
 			],
 			"min":[
-				-0.360879510641098,
+				-0.3568880259990692,
 				-0.07233041524887085,
-				-0.2610075771808624
+				-0.2596467435359955
 			],
 			"type":"VEC3"
 		},
@@ -417,6 +447,47 @@
 			"bufferView":28,
 			"componentType":5123,
 			"count":2079,
+			"type":"SCALAR"
+		},
+		{
+			"bufferView":29,
+			"componentType":5126,
+			"count":195,
+			"max":[
+				1.289705753326416,
+				0.12158511579036713,
+				0.3517581820487976
+			],
+			"min":[
+				-0.016161764040589333,
+				-0.633734941482544,
+				-0.5190640091896057
+			],
+			"type":"VEC3"
+		},
+		{
+			"bufferView":30,
+			"componentType":5126,
+			"count":195,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":31,
+			"componentType":5126,
+			"count":195,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":32,
+			"componentType":5123,
+			"count":195,
+			"normalized":true,
+			"type":"VEC4"
+		},
+		{
+			"bufferView":33,
+			"componentType":5123,
+			"count":450,
 			"type":"SCALAR"
 		}
 	],
@@ -594,11 +665,41 @@
 			"byteLength":4158,
 			"byteOffset":33912,
 			"target":34963
+		},
+		{
+			"buffer":0,
+			"byteLength":2340,
+			"byteOffset":38072,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":2340,
+			"byteOffset":40412,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":1560,
+			"byteOffset":42752,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":1560,
+			"byteOffset":44312,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":900,
+			"byteOffset":45872,
+			"target":34963
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":38072,
+			"byteLength":46772,
 			"uri":"plant_cactus1.bin"
 		}
 	]

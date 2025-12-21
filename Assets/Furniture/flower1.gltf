@@ -17,11 +17,6 @@
 		{
 			"mesh":0,
 			"name":"Flower.004",
-			"scale":[
-				0.0889216735959053,
-				0.0889216884970665,
-				0.0889216884970665
-			],
 			"translation":[
 				0.14076541364192963,
 				0.4884934425354004,
@@ -84,47 +79,47 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":345,
+			"count":1386,
 			"max":[
-				1.2629467248916626,
-				1.3829898834228516,
-				4.151952266693115
+				0.10595212131738663,
+				0.10789377987384796,
+				0.3449276089668274
 			],
 			"min":[
-				-3.9173264503479004,
-				-5.385150909423828,
-				-1.8250840902328491
+				-0.33644193410873413,
+				-0.4788397550582886,
+				-0.10539502650499344
 			],
 			"type":"VEC3"
 		},
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":345,
+			"count":1386,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":345,
+			"count":1386,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":3,
 			"componentType":5126,
-			"count":345,
+			"count":1386,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":4,
 			"componentType":5123,
-			"count":621,
+			"count":6300,
 			"type":"SCALAR"
 		},
 		{
 			"bufferView":5,
 			"componentType":5126,
-			"count":156,
+			"count":192,
 			"max":[
 				0.1242661401629448,
 				0.289209246635437,
@@ -140,93 +135,93 @@
 		{
 			"bufferView":6,
 			"componentType":5126,
-			"count":156,
+			"count":192,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":7,
 			"componentType":5126,
-			"count":156,
+			"count":192,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":8,
 			"componentType":5126,
-			"count":156,
+			"count":192,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":9,
 			"componentType":5123,
-			"count":708,
+			"count":924,
 			"type":"SCALAR"
 		}
 	],
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":4140,
+			"byteLength":16632,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":4140,
-			"byteOffset":4140,
+			"byteLength":16632,
+			"byteOffset":16632,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":2760,
-			"byteOffset":8280,
+			"byteLength":11088,
+			"byteOffset":33264,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":4140,
-			"byteOffset":11040,
+			"byteLength":16632,
+			"byteOffset":44352,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":1242,
-			"byteOffset":15180,
+			"byteLength":12600,
+			"byteOffset":60984,
 			"target":34963
 		},
 		{
 			"buffer":0,
-			"byteLength":1872,
-			"byteOffset":16424,
+			"byteLength":2304,
+			"byteOffset":73584,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":1872,
-			"byteOffset":18296,
+			"byteLength":2304,
+			"byteOffset":75888,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":1248,
-			"byteOffset":20168,
+			"byteLength":1536,
+			"byteOffset":78192,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":1872,
-			"byteOffset":21416,
+			"byteLength":2304,
+			"byteOffset":79728,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":1416,
-			"byteOffset":23288,
+			"byteLength":1848,
+			"byteOffset":82032,
 			"target":34963
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":24704,
+			"byteLength":83880,
 			"uri":"flower1.bin"
 		}
 	]
