@@ -75,7 +75,7 @@ func has_player_as_parent(body: Node3D) -> bool:
 		
 
 func play_slip_sound() -> void:
-	var slip_player : AudioStreamPlayer3D = AudioManager.sfx_pool.get_item()
-	slip_player.stream = AudioManager.sfx_pool.banana_slip_sounds
+	var slip_player : AudioStreamPlayer3D = AudioManager.sfx_manager.get_item()
+	slip_player.stream = AudioManager.sfx_manager.banana_slip_sounds
 	slip_player.position = self.global_position
 	slip_player.play()

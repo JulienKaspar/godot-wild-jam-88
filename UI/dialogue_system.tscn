@@ -137,11 +137,9 @@ texture = ExtResource("6_v3t8y")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="BabbleSounds" type="AudioStreamPlayer2D" parent="."]
+[node name="BabbleSounds" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-position = Vector2(1511, 783)
 stream = ExtResource("6_eaacc")
-volume_db = -1.0
-max_distance = 4096.0
+volume_db = -3.0
 max_polyphony = 8
-bus = &"UI"
+bus = &"Flasky"

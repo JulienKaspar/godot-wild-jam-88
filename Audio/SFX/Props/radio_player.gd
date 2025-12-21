@@ -37,7 +37,7 @@ func _process(_delta):
 		var attenuation_volume : float = clampf(remap(distance_squared, voice_trigger_radius * voice_trigger_radius, 5.0, -3.0, 0.0), -3.0, 0.0)
 		voice_clip.set_sync_stream_volume(0, attenuation_volume)
 	elif music_on:
-		voice_clip.set_sync_stream_volume(0, AudioManager._VOLUME_DB_OFF)
+		voice_clip.set_sync_stream_volume(0, AudioManager.VOLUME_DB_OFF)
 
 func _check_intro_done() -> bool:
 	var playback : AudioStreamPlaybackInteractive = get_stream_playback()

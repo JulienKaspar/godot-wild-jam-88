@@ -74,7 +74,7 @@ func on_player_collision(collision_velocity : Vector3) -> void:
 	
 	
 func play_wobble_sound() -> void:
-	var sound_player : AudioStreamPlayer3D = AudioManager.sfx_pool.get_item()
-	sound_player.stream = AudioManager.sfx_pool.wobble_sounds
+	var sound_player : AudioStreamPlayer3D = AudioManager.sfx_manager.get_item()
+	sound_player.stream = AudioManager.sfx_manager.wobble_sounds
 	sound_player.position = self.global_position
 	sound_player.play()
