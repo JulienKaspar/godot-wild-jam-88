@@ -1,0 +1,50 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=5 format=3 uid="uid://dcwhprpxasi1k"]
+
+[sub_resource type="Curve" id="Curve_22u0x"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.11347519, 0.61281586), -0.33155307, -0.33155307, 0, 0, Vector2(0.22931443, 0.90613717), 0.0, 0.0, 0, 0, Vector2(0.29550827, -0.17328525), 0.0, 0.0, 0, 0, Vector2(0.4255319, 0.8826715), 0.0, 0.0, 0, 0, Vector2(0.55082744, 0.8826715), 0.0, 0.0, 0, 0, Vector2(0.5744681, -0.12635386), 0.0, 0.0, 0, 0, Vector2(0.6595745, -0.20848382), 0.0, 0.0, 0, 0, Vector2(0.69739956, 0.9530686), 0.0, 0.0, 0, 0, Vector2(0.855792, 0.50722015), 0.0, 0.0, 0, 0, Vector2(1, -0.830325), 0.0, 0.0, 0, 0]
+point_count = 11
+
+[sub_resource type="CurveTexture" id="CurveTexture_k3ksw"]
+curve = SubResource("Curve_22u0x")
+
+[sub_resource type="Curve" id="Curve_k3ksw"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.11111112, 1), 0.0, 0.0, 0, 0, Vector2(0.8463357, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_go0n3"]
+curve = SubResource("Curve_k3ksw")
+
+[resource]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 3.0
+emission_ring_radius = 3.0
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+angle_min = -49.99999
+angle_max = -29.99999
+orbit_velocity_min = -0.09999991
+orbit_velocity_max = 0.1000001
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = -2.2351742e-05
+gravity = Vector3(0, -3, 0)
+radial_accel_min = -12.000002
+radial_accel_max = -12.000002
+radial_accel_curve = SubResource("CurveTexture_k3ksw")
+tangential_accel_min = -2.0000021
+tangential_accel_max = 19.999998
+damping_min = 0.3
+damping_max = 0.6
+scale_min = 0.099999994
+scale_max = 0.099999994
+scale_curve = SubResource("CurveTexture_go0n3")
+anim_speed_min = 250.0
+anim_speed_max = 250.0
+turbulence_enabled = true
+turbulence_noise_strength = 7.0
+turbulence_noise_scale = 0.001
+turbulence_noise_speed = Vector3(1, 4, 2)
+turbulence_noise_speed_random = 4.0
+turbulence_influence_min = 0.4
+turbulence_influence_max = 0.4

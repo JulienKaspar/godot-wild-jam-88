@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://d2a7apkvocsew"]
+[gd_scene load_steps=57 format=3 uid="uid://d2a7apkvocsew"]
 
 [ext_resource type="Script" uid="uid://bc8urqgpnntuw" path="res://Levels/lvl_4_disco.gd" id="1_n28pq"]
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="1_u88v8"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://cugf77dasisxg" path="res://Objects/Architypes/Furniture/couch3.tscn" id="11_w3xq8"]
 [ext_resource type="PackedScene" uid="uid://d24k31i312cc1" path="res://Objects/Architypes/Props/lamp_standing1.tscn" id="12_ayeew"]
 [ext_resource type="PackedScene" uid="uid://d62n5s8htyn7" path="res://Characters/Teens/logic/TeenStanding.tscn" id="12_nk7wp"]
+[ext_resource type="Texture2D" uid="uid://chs501hxidqt3" path="res://Assets/2D_Assets/Strobing_Lights_Warning/strobing_lights_wall_sticker.png" id="12_q87cs"]
 [ext_resource type="PackedScene" uid="uid://d2fq258dik5oo" path="res://Objects/Architypes/Furniture/table1.tscn" id="13_lkepb"]
 [ext_resource type="PackedScene" uid="uid://daqdt75cvmkiy" path="res://Objects/Architypes/TrippingHazards/tripping_lamp.tscn" id="13_ltcua"]
 [ext_resource type="Material" uid="uid://b23iqfg3em6ty" path="res://Assets/Materials/wooden_wall.tres" id="13_smwtj"]
@@ -72,6 +73,14 @@ diffuse_mode = 3
 albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xyml4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lxk6h"]
+transparency = 1
+albedo_texture = ExtResource("12_q87cs")
+emission_enabled = true
+emission = Color(0.82, 0.22139998, 0.4109566, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_imu1o"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vrnn0"]
 size = Vector3(11.354492, 4.661133, 13.5503845)
@@ -331,7 +340,12 @@ collision_layer = 65
 size = Vector3(2.9970522, 1, 17.276482)
 
 [node name="InteractSwitch" parent="Layout/Floor" instance=ExtResource("8_0mfmk")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -1.3669227, 1.4431176, 17.574291)
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -1.3658918, 1.4414339, 17.574444)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Layout/Floor/InteractSwitch"]
+transform = Transform3D(1, 4.371138e-08, -2.1855695e-07, -2.1855693e-07, 4.3711395e-08, -1, -4.371138e-08, 1, 4.3711406e-08, -0.027830124, 0.6693814, -0.017969012)
+material_override = SubResource("StandardMaterial3D_lxk6h")
+mesh = SubResource("PlaneMesh_imu1o")
 
 [node name="door_closed" parent="Layout/Floor" instance=ExtResource("9_enbb8")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.91683936, 0, 23.113823)

@@ -16,7 +16,11 @@ var sfx_volume: float = 1
 var ambience_volume : float = 1
 var ui_volume: float = 1
 var disorienting_sounds_enabled: bool = true
-var burp_nastiness: float = 0.5
+var burp_nastiness: float = 0.5:
+	set(value):
+		burp_nastiness = value
+		AudioManager.ui_sounds.select_burps(value)
+
 
 #accesibility / general
 var fail_state: bool = false

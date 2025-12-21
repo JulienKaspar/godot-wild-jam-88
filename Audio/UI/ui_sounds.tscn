@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d01verpwnpp0o"]
+[gd_scene load_steps=13 format=3 uid="uid://d01verpwnpp0o"]
 
 [ext_resource type="Script" uid="uid://b4ypm2nwmnp2u" path="res://Audio/UI/ui_sounds.gd" id="1_0bhj7"]
 [ext_resource type="AudioStream" uid="uid://dwr8w5btu8k4h" path="res://Assets/Audio/UI/intro_fence_break.ogg" id="1_jtqst"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://v2ob0p8lbrnr" path="res://Assets/Audio/UI/shake_impact.ogg" id="6_wm4qx"]
 [ext_resource type="AudioStream" uid="uid://b2h4fsees6vly" path="res://Audio/UI/checkbox_on.tres" id="7_7bs5b"]
 [ext_resource type="AudioStream" uid="uid://0d44qokdp7q2" path="res://Audio/UI/checkbox_off.tres" id="8_b6loc"]
+[ext_resource type="AudioStream" uid="uid://om8mhc6jo5u0" path="res://Audio/SFX/Player/player_voice_burps.tres" id="9_kmyej"]
 
 [node name="UI_Sounds" type="AudioStreamPlayer"]
 stream = ExtResource("1_jtqst")
@@ -24,6 +25,7 @@ tab_change = ExtResource("6_7bs5b")
 update_slider = ExtResource("3_dlnjr")
 checkbox_on = ExtResource("7_7bs5b")
 checkbox_off = ExtResource("8_b6loc")
+burp_sounds = ExtResource("9_kmyej")
 drunkness_up = ExtResource("4_fceo1")
 drunkness_down = ExtResource("5_wm4qx")
 shake_impact = ExtResource("6_wm4qx")

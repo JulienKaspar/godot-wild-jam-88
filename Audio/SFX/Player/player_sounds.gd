@@ -20,21 +20,21 @@ var burp_timer : Timer
 var drinking_timer : Timer
 var is_drinking : bool = false
 
-@export_range(0.0, 1.0) var burp_nastiness : float = UserSettings.burp_nastiness:  # range (0.0, 1.0)
-	set(value):
-		select_burps(value)
-
 var ducking_singing : bool = false
+
+#@export_range(0.0, 1.0) var burp_nastiness : float = UserSettings.burp_nastiness:
+	#set(value):
+		#select_burps(value)
 
 func _ready():
 	# setup singleton
 	if AudioManager.player_sounds == null:
 		AudioManager.player_sounds = self
 	
-	select_burps(burp_nastiness)
 	setup_burps()
 	setup_hiccups()
 	setup_drinking()
+
 
 func play_voice(voice_stream : AudioStream) -> void:
 	if voice_player.playing and voice_stream != falling_sounds: # falling always sound
@@ -70,17 +70,6 @@ func restore_singing_volume() -> void:
 	else:
 		restore_singing_volume() # recursion yay!
 
-
-func select_burps(intensity : float) -> void:
-	var sum : float = burp_sounds.streams_count
-	var mean : float = sum * intensity
-	var center : int = round(mean)
-	var max_dist : int = 5
-	for i in range(sum - 1):
-		var diff : int = abs(i - center)
-		var prob : float = remap(diff, 0, max_dist, 1.0, 0.5) if (diff <= max_dist) else 0.0
-		burp_sounds.set_stream_probability_weight(i, prob)
-
 func setup_burps() -> void:
 	burp_timer = Timer.new()
 	burp_timer.one_shot = true
@@ -91,6 +80,13 @@ func setup_burps() -> void:
 			burp_timer.wait_time = randf_range(0.5, 1.2)
 	)
 	add_child(burp_timer)
+	AudioManager.ui_sounds.select_burps(UserSettings.burp_nastiness)
+	
+	var burp_chance : Array
+	for i in range(burp_sounds.streams_count):
+		burp_chance.append(burp_sounds.get_stream_probability_weight(i))
+	
+	print("BURPS: ", burp_chance)
 
 func setup_drinking() -> void:
 	drinking_timer = Timer.new()
