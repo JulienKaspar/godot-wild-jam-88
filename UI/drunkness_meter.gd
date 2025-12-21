@@ -45,7 +45,6 @@ func _process(delta: float) -> void:
 		
 	if flashing:
 		flash_time_elapsed += delta
-		
 		frame_time = 1 / base_framerate
 	
 	if excited:
