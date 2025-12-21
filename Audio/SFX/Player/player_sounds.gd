@@ -67,7 +67,7 @@ func restore_singing_volume() -> void:
 	else:
 		restore_singing_volume() # recursion yay!
 
-func setup_player_bus():
+func setup_player_bus() -> void:
 	footstep_player.bus = AudioServer.get_bus_name(AudioManager.BUS.PLAYER)
 	voice_player.bus = AudioServer.get_bus_name(AudioManager.BUS.PLAYER)
 	singing_player.bus = AudioServer.get_bus_name(AudioManager.BUS.PLAYER)
@@ -124,7 +124,7 @@ const _FILTER_FX = 0
 
 var filter_effect : AudioEffectLowPassFilter = AudioServer.get_bus_effect(AudioManager.BUS.PLAYER, _FILTER_FX)
 
-func set_singing_filter(_enabled : bool, _target_hz : float = -1.0):
+func set_singing_filter(_enabled : bool, _target_hz : float = -1.0) -> void:
 	var target_hz : float = _target_hz
 	
 	if _target_hz < 0:

@@ -3,7 +3,7 @@ class_name SoundEffectsPool
 
 var pool_items : Array
 @export var min_num_items : int = 0
-@export var max_num_items : int = -1
+@export var max_num_items : int = 8
 @export var item_scene : PackedScene
 
 var shrink_timer : Timer
@@ -25,7 +25,7 @@ func _ready():
 	init_pool()
 
 ## initalizes object pool with type and prefab scene, and inital number of objects if necessary
-func init_pool():
+func init_pool() -> void:
 	var item_type = typeof(item_scene)
 	
 	pool_items = Array([], item_type, type_string(item_type), null)
@@ -80,7 +80,7 @@ func return_item(item_returned : Variant) -> void:
 
 
 ## adds shrink timer with wait and cooldown time
-func set_shrink_timer():
+func set_shrink_timer() -> void:
 	shrink_timer = Timer.new()
 	shrink_timer.wait_time = shrink_wait_time
 	shrink_timer.timeout.connect(shrink_pool)

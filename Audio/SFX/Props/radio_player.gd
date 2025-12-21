@@ -43,3 +43,5 @@ func _check_intro_done() -> bool:
 	var playback : AudioStreamPlaybackInteractive = get_stream_playback()
 	var clip_name = stream.get_clip_name(playback.get_current_clip_index())
 	return (clip_name == "loop")
+	
+	
