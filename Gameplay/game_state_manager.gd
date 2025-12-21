@@ -34,8 +34,11 @@ func _process(delta: float) -> void:
 
 func update_drunk_visual_effect() -> void:
 	var effect_intensity: float = 0.05
-	var drunk_effect_intensity = player_drunkness.current_drunkness * effect_intensity * clampf(UserSettings.drunk_visual_effect_intensity, 0.1, 1)
+	var sobriety_threshold: float = 2.
+	var drunk_effect_intensity = max(player_drunkness.current_drunkness, sobriety_threshold) * effect_intensity * clampf(UserSettings.drunk_visual_effect_intensity, 0.1, 1)
 	post_processing.material.set('shader_parameter/drunkness', drunk_effect_intensity)
+	var bleak_effect_intensity = clampf(1. - (player_drunkness.current_drunkness / sobriety_threshold), 0., 1.)
+	post_processing.material.set('shader_parameter/bleakness', bleak_effect_intensity)
 
 func register_level_loader(loader: LevelLoader) -> void:
 	level_loader = loader

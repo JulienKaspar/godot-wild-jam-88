@@ -7,8 +7,19 @@ uniform float noise_scale : hint_range(0.0, 100.0) = 2.;
 uniform int distortion_samples : hint_range(1, 100) = 8;
 
 uniform float drunkness : hint_range(0.0, 1.0) = 0.;
+uniform float bleakness : hint_range(0.0, 1.0) = 0.;
 
 #include "./noise.gdshaderinc"
+
+vec3 sampleScreen(vec2 uv) {
+	vec3 sample = textureLod(screen_texture, uv, 0.).rgb;
+	// Bleakness
+	sample *= mix(1., .8, bleakness);
+    sample.rgb = mix(vec3(0.5), sample.rgb, mix(1., .8, bleakness));
+    sample.rgb = mix(vec3(dot(vec3(1.0), sample.rgb) * vec3(.28, .28, .4)), sample.rgb, 1.-bleakness);
+
+	return sample;
+}
 
 void fragment() {
 	float sat = 1.;
@@ -30,7 +41,7 @@ void fragment() {
 	vec2 offset_g = (vec2(noise1D(t + 200.), noise1D(t + 300.)) - vec2(.5));
 	vec2 offset_b = -offset_r;
 
-    vec3 c = textureLod(screen_texture, SCREEN_UV, 0.0).rgb;
+	offset_r = mix(offset_r, offset_g, bleakness);
 
 	vec2 sample_offset_r;
 	vec2 sample_offset_g;
@@ -43,12 +54,12 @@ void fragment() {
 	for (int i=0;i<distortion_samples;++i){
 		sample_scale = float(i + 1)/float(distortion_samples);
 
-		distortion_buffer.r += textureLod(screen_texture, SCREEN_UV + offset_r * distortion_strength * sample_scale, 0.0).r;
-		distortion_buffer.g += textureLod(screen_texture, SCREEN_UV + offset_g * distortion_strength * sample_scale, 0.0).g;
-		distortion_buffer.b += textureLod(screen_texture, SCREEN_UV + offset_b * distortion_strength * sample_scale, 0.0).b;
+		distortion_buffer.r += sampleScreen(SCREEN_UV + offset_r * distortion_strength * sample_scale).r;
+		distortion_buffer.g += sampleScreen(SCREEN_UV + offset_g * distortion_strength * sample_scale).g;
+		distortion_buffer.b += sampleScreen(SCREEN_UV + offset_b * distortion_strength * sample_scale).b;
 	}
 
-	c = distortion_buffer / float(distortion_samples);
+	vec3 c = distortion_buffer / float(distortion_samples);
 
 	float distortion_amount = (length(offset_r) + length(offset_g) + length(offset_b)) / 3.;
 
@@ -63,9 +74,9 @@ void fragment() {
 
 	// Brightness
 	float vignette_strength = mix(.25, .8, drunkness);
+	vignette_strength = mix(vignette_strength, 2., bleakness);
 	c = mix(c, vec3(0.), vignette_mask * .5);
 	c *= mix(1., 1.25, pow(drunkness, 2.));
-
 
 	COLOR.rgb = c;
 }
