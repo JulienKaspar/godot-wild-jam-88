@@ -20,6 +20,7 @@ var game_camera: GameCamera
 var player_spawner: PlayerSpawner
 var current_player: Player
 var current_level_index: int
+var loading_into_level_index: int # need this to be set before level starts loading
 var loading_screen: LoadingScreen
 
 func _ready() -> void:
@@ -72,6 +73,7 @@ func set_follow_camera(player: Player) -> void:
 	game_camera.follow_target = player.get_node("PlayerController/RigidBally3D")
 
 func load_level_by_index(index: int, show_loading_screen: bool) -> void:
+	loading_into_level_index = index
 	if show_loading_screen:
 		loading_screen.display(2 * UserSettings.loading_speed)
 		pause_game()

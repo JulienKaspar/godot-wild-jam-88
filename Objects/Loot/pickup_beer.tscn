@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://d3unw205fanv5"]
+[gd_scene load_steps=12 format=3 uid="uid://d3unw205fanv5"]
 
 [ext_resource type="Script" uid="uid://b3w4gu3se7vnv" path="res://Gameplay/Pickups/drunkness_pickup.gd" id="1_ecdgq"]
-[ext_resource type="Script" path="res://Gameplay/Pickups/pick_point.gd" id="2_ecdgq"]
+[ext_resource type="Script" uid="uid://dov4lhtuyrycf" path="res://Gameplay/Pickups/pick_point.gd" id="2_ecdgq"]
 [ext_resource type="PackedScene" uid="uid://digw728iiuyg2" path="res://Particles/DrunknessPickups/pfx_beer_consuming.tscn" id="3_mrtou"]
 [ext_resource type="PackedScene" uid="uid://cpegwj8uc0kq5" path="res://Particles/DrunknessPickups/pfx_beer_break.tscn" id="4_4p7tg"]
 [ext_resource type="PackedScene" uid="uid://bw1ewj0l1c71n" path="res://Particles/DrunknessPickups/pfx_beer_dispose.tscn" id="5_7fyj8"]
+[ext_resource type="Script" uid="uid://bcct1aqhnv1r" path="res://Gameplay/Pickups/pfx_trigger_childs.gd" id="5_ysmv5"]
 [ext_resource type="PackedScene" uid="uid://dlcyjsr63f0oh" path="res://Assets/Props/beer_can.gltf" id="6_7fyj8"]
 [ext_resource type="PackedScene" uid="uid://b2rny3w0qdj7n" path="res://Assets/Props/beer_can_broken.gltf" id="7_dirpb"]
 
@@ -25,9 +26,9 @@ script = ExtResource("1_ecdgq")
 pick_point = NodePath("PickPoint")
 drunkness_increase = 2.5
 pristine_mesh = NodePath("can")
-consume_pfx = NodePath("PfxBeerConsuming")
-dispose_pfx = NodePath("PfxBeerDispose")
-break_pfx = NodePath("PfxBeerBreak")
+consume_pfx = NodePath("can/PfxBeerConsuming")
+dispose_pfx = NodePath("can/PfxBeerDispose")
+break_pfx = NodePath("can/PfxBeerBreak")
 broken_mesh = NodePath("can_broken")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -36,7 +37,7 @@ shape = SubResource("CylinderShape3D_px5wb")
 
 [node name="PickupPrompt" type="Sprite3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0013433695, 0.34856614, 0.000672698)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.002987504, 0.350042, 0.003801167)
 billboard = 1
 texture = SubResource("ViewportTexture_fwtl3")
 
@@ -65,15 +66,21 @@ script = ExtResource("2_ecdgq")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PickPoint"]
 shape = SubResource("SphereShape3D_fwtl3")
 
-[node name="PfxBeerConsuming" parent="." instance=ExtResource("3_mrtou")]
+[node name="can" parent="." instance=ExtResource("6_7fyj8")]
+
+[node name="PfxBeerConsuming" parent="can" instance=ExtResource("3_mrtou")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29612786, 0)
+visible = false
 emitting = false
 
-[node name="PfxBeerBreak" parent="." instance=ExtResource("4_4p7tg")]
+[node name="PfxBeerBreak" parent="can" instance=ExtResource("4_4p7tg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34591833, 0)
+visible = false
+script = ExtResource("5_ysmv5")
 
-[node name="PfxBeerDispose" parent="." instance=ExtResource("5_7fyj8")]
-
-[node name="can" parent="." instance=ExtResource("6_7fyj8")]
+[node name="PfxBeerDispose" parent="can" instance=ExtResource("5_7fyj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34305182, 0)
+visible = false
 
 [node name="can_broken" parent="." instance=ExtResource("7_dirpb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09519374, 0)

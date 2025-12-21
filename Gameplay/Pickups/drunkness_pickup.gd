@@ -23,8 +23,16 @@ var inState = PickupStates.ALIVE
 func _ready() -> void:
 	if broken_mesh: broken_mesh.hide()
 	if pristine_mesh: pristine_mesh.show()
-	if consume_pfx: consume_pfx.emit_none()
-	if dispose_pfx: dispose_pfx.stop_emit()
+	if consume_pfx:
+		consume_pfx.show()
+		consume_pfx.emit_none()
+	if dispose_pfx:
+		dispose_pfx.show()
+		dispose_pfx.stop_emit()
+	if break_pfx:
+		break_pfx.show()
+		break_pfx.stop_emit()
+	
 	hide_prompt()
 	checkIfAlive(true)
 
