@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://oklexjbph231"]
+[gd_scene load_steps=25 format=3 uid="uid://oklexjbph231"]
 
 [ext_resource type="Script" uid="uid://dpfibn6rvgqgy" path="res://UI/hud.gd" id="1_ne75i"]
 [ext_resource type="Texture2D" uid="uid://bxwq8k3qy44bt" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_frame.png" id="2_phrgc"]
@@ -17,6 +17,12 @@
 [ext_resource type="Texture2D" uid="uid://dex3joicmy4ni" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_liquid_rising_4.png" id="14_hjmqc"]
 [ext_resource type="Texture2D" uid="uid://cclekh2jlkfyb" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_liquid_rising_5.png" id="15_2pa52"]
 [ext_resource type="Texture2D" uid="uid://jd8tbqagg6vd" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_liquid_rising_6.png" id="16_xiih7"]
+[ext_resource type="Texture2D" uid="uid://bdw4wjl6mv4lm" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_liquid_red_1.png" id="17_0mm64"]
+[ext_resource type="Texture2D" uid="uid://bosl40aw01kc1" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_liquid_red_2.png" id="18_x8e40"]
+[ext_resource type="Texture2D" uid="uid://dcsbba2l6h677" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_liquid_red_3.png" id="19_lgfjo"]
+[ext_resource type="Texture2D" uid="uid://vn5bgpjyj3km" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_liquid_red_4.png" id="20_87l0j"]
+[ext_resource type="Texture2D" uid="uid://bk67q73q35g1v" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_liquid_red_5.png" id="21_sf3w6"]
+[ext_resource type="Texture2D" uid="uid://d2tp72r6pfuid" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_liquid_red_6.png" id="22_lgp2o"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_23s3h"]
 load_path = "res://.godot/imported/current_drunkness_marker.png-729feb2f0d6745c2116929468b4271f6.s3tc.ctex"
@@ -32,7 +38,6 @@ script = ExtResource("1_ne75i")
 
 [node name="DrunknessMeter" type="TextureProgressBar" parent="."]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(832, 155)
 layout_mode = 0
 offset_left = 15.0
 offset_top = 15.0
@@ -47,9 +52,11 @@ texture_progress = ExtResource("3_2o5uh")
 script = ExtResource("4_rnl6m")
 frames = Array[Texture2D]([ExtResource("5_23s3h"), ExtResource("6_phrgc"), ExtResource("7_8nmcf"), ExtResource("8_sab3h"), ExtResource("9_vdnig"), ExtResource("10_pueji")])
 excited_frames = Array[Texture2D]([ExtResource("11_4evux"), ExtResource("12_508rn"), ExtResource("13_4lx80"), ExtResource("14_hjmqc"), ExtResource("15_2pa52"), ExtResource("16_xiih7")])
+hurt_frames = Array[Texture2D]([ExtResource("17_0mm64"), ExtResource("18_x8e40"), ExtResource("19_lgfjo"), ExtResource("20_87l0j"), ExtResource("21_sf3w6"), ExtResource("22_lgp2o")])
 base_framerate = 12.0
 base_frame_sprite = ExtResource("2_phrgc")
 flashing_frame_sprite = ExtResource("11_8nmcf")
+hurt_frame_sprite = ExtResource("11_8nmcf")
 
 [node name="DrunknessMarker" type="TextureRect" parent="DrunknessMeter"]
 unique_name_in_owner = true

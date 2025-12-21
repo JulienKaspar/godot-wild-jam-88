@@ -22,6 +22,8 @@ func update_meter(new_value: float) -> void:
 	 
 	if abs(old_value - new_value) > drunkness_change_effect_threshold:
 		drunkness_meter.flash()
+		if new_value < old_value:
+			drunkness_meter.hurt = true
 	
 	
 func _process(_delta: float) -> void:

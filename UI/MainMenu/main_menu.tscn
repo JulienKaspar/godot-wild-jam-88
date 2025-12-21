@@ -27,7 +27,7 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_kf43y")
 script = ExtResource("1_jld46")
 
 [node name="ParallaxBackground" type="Node2D" parent="."]
-position = Vector2(961.00006, 546.00006)
+position = Vector2(958, 574)
 scale = Vector2(0.68, 0.68)
 
 [node name="SkyLayer" type="Parallax2D" parent="ParallaxBackground"]
