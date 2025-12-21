@@ -17,6 +17,8 @@ signal on_too_drunk()
 
 var current_drunkness: float: 
 	set(value):
+		if paused:
+			return
 		var drunkness_delta = abs(current_drunkness - value)
 		if drunkness_delta >= threshold and !is_resetting:
 			# skip drunkness reset when out of bounds
