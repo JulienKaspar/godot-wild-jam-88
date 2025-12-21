@@ -21,7 +21,7 @@ var excited_elapsed: float
 var excited: bool
 var hurt: bool
 
-var hurt_time: float = 0.6
+var hurt_time: float = 0.45
 var hurt_time_elapsed: float
 
 var frame_time: float
