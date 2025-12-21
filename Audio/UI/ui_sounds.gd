@@ -9,6 +9,7 @@ class_name UI_Sounds
 @export var update_slider : AudioStreamRandomizer
 @export var checkbox_on : AudioStreamRandomizer
 @export var checkbox_off : AudioStreamRandomizer
+@export var burp_sounds : AudioStreamRandomizer
 
 @export var drunkness_up : AudioStream
 @export var drunkness_down : AudioStream
@@ -30,5 +31,22 @@ func play_sound(_stream : AudioStream):
 			drunkness_down, drunkness_up, shake_impact:
 				return
 	
+	#print(stream)
 	self.stream = _stream
 	self.play()
+	
+
+
+func select_burps(intensity : float) -> void:
+	var sum : float = burp_sounds.streams_count
+	var mean : float = sum * intensity
+	var center : int = round(mean)
+	var max_dist : int = 3
+	
+	for i in range(sum - 1):
+		var diff : int = abs(i - center)
+		var prob : float = remap(diff, 0, max_dist, 1.0, 0.5) if (diff <= max_dist) else 0.0
+		burp_sounds.set_stream_probability_weight(i, prob)
+	
+	play_sound(burp_sounds.get_stream(center-1))
+	

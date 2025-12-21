@@ -74,9 +74,7 @@ func update_audio_settings() -> void:
 	AudioServer.set_bus_volume_linear(BUS.UI, UserSettings.ui_volume)
 	
 	set_drunk_fx(UserSettings.disorienting_sounds_enabled)
-	
-	if is_instance_valid(player_sounds):
-		player_sounds.burp_nastiness = UserSettings.burp_nastiness
+	ui_sounds.select_burps(UserSettings.burp_nastiness)
 
 
 func set_drunk_fx(enabled : bool) -> void:
