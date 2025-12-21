@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://yh4n54iqw5mr"]
+
+[ext_resource type="Script" uid="uid://bvhawymhqmo1y" path="res://Gameplay/Interactables/interact_object.gd" id="1_6e1xx"]
+[ext_resource type="Script" uid="uid://dov4lhtuyrycf" path="res://Gameplay/Pickups/pick_point.gd" id="2_cdf01"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1tl1w"]
+radius = 0.1
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_1y5vm"]
+viewport_path = NodePath("PickupPrompt/SubViewport")
+
+[node name="InteractSwitch" type="Node3D" node_paths=PackedStringArray("pick_point", "switchPivot")]
+script = ExtResource("1_6e1xx")
+pick_point = NodePath("PickPoint")
+switchPivot = NodePath("")
+function = 1
+
+[node name="PickPoint" type="Area3D" parent="."]
+monitoring = false
+script = ExtResource("2_cdf01")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PickPoint"]
+shape = SubResource("SphereShape3D_1tl1w")
+
+[node name="PickupPrompt" type="Sprite3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_1y5vm")
+
+[node name="SubViewport" type="SubViewport" parent="PickupPrompt"]
+transparent_bg = true
+size = Vector2i(200, 50)
+
+[node name="Label" type="Label" parent="PickupPrompt/SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+text = "*
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CooldownTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_timer_timeout"]

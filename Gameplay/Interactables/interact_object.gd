@@ -13,42 +13,53 @@ signal Switched(newState: bool)
 @export var function : SwitchFunction
 @onready var pickOffset = $PickPoint.position
 
+var isEnabled = true
+
 enum SwitchFunction {Toggle_Strobe_Lights, Fridge}
 
 func setSwitch() -> void:
-	var tween = get_tree().create_tween()
-	tween.set_ease(Tween.EASE_OUT)
-	tween.set_trans(Tween.TRANS_BACK)
-	
-	if OnOff: 
-		tween.tween_property(switchPivot, "rotation_degrees:x", onAngle, 0.2)
-	else:
-		tween.tween_property(switchPivot, "rotation_degrees:x", offAngle, 0.2)
+	if switchPivot:
+		var tween = get_tree().create_tween()
+		tween.set_ease(Tween.EASE_OUT)
+		tween.set_trans(Tween.TRANS_BACK)
+		
+		if OnOff: 
+			tween.tween_property(switchPivot, "rotation_degrees:x", onAngle, 0.2)
+		else:
+			tween.tween_property(switchPivot, "rotation_degrees:x", offAngle, 0.2)
 
 func _ready() -> void:
 	hide_prompt()
 	setSwitch()
 
 func switch() -> void:
-	print("switched")
-	pick_point.monitorable = false
-	OnOff = !OnOff
-	setSwitch()
-	Switched.emit(OnOff)
-	$CooldownTimer.start()
-	
-	match function:
-		SwitchFunction.Toggle_Strobe_Lights:
-			UserSettings.strobe_lights = !UserSettings.strobe_lights
+	if isEnabled:
+		print("switched")
+		pick_point.monitorable = false
+		OnOff = !OnOff
+		setSwitch()
+		Switched.emit(OnOff)
+		$CooldownTimer.start()
+		
+		match function:
+			SwitchFunction.Toggle_Strobe_Lights:
+				UserSettings.strobe_lights = !UserSettings.strobe_lights
 
 func display_prompt() -> void: 
-	pickup_prompt.show()
+	if isEnabled: pickup_prompt.show()
 	
 func hide_prompt() -> void:
 	pickup_prompt.hide()
 
+func disable() -> void:
+	$CooldownTimer.stop()
+	pickup_prompt.hide()
+	pick_point.monitorable = false
+	isEnabled = false
 
-
+func enable() -> void:
+	pick_point.monitorable = true
+	isEnabled = true
 
 func _on_timer_timeout() -> void:
-	pick_point.monitorable = true
+	if isEnabled: pick_point.monitorable = true

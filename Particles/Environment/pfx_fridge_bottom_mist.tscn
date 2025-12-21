@@ -1,0 +1,99 @@
+[gd_scene load_steps=11 format=3 uid="uid://b6wygim3drvis"]
+
+[ext_resource type="Texture2D" uid="uid://dj7qr1suvy7ha" path="res://Assets/Maps/Sprites/smoke_a_diff.png" id="1_nl8ih"]
+[ext_resource type="Texture2D" uid="uid://cwwype7x8vlx5" path="res://Assets/Maps/Sprites/smoke_a_normal.png" id="2_po3wj"]
+
+[sub_resource type="Curve" id="Curve_h2rfd"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.24537036, 0.8988764), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_b3xpa"]
+curve = SubResource("Curve_h2rfd")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b4mql"]
+lifetime_randomness = 0.3
+emission_shape_offset = Vector3(0.3, 0, -1)
+emission_shape_scale = Vector3(1, 0.2, 1)
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = -19.99999
+angle_max = 20.000011
+direction = Vector3(0, 0, -1)
+flatness = 1.0
+initial_velocity_min = 0.29999998
+initial_velocity_max = 0.7
+angular_velocity_min = -5.000016
+angular_velocity_max = 4.999984
+gravity = Vector3(0, 0, 0)
+tangential_accel_min = -0.30000222
+tangential_accel_max = -0.30000222
+scale_min = 1.1999999
+scale_max = 2.0
+alpha_curve = SubResource("CurveTexture_b3xpa")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eup1a"]
+transparency = 1
+diffuse_mode = 1
+specular_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 1, 1, 0.4745098)
+albedo_texture = ExtResource("1_nl8ih")
+normal_enabled = true
+normal_scale = 1.16
+normal_texture = ExtResource("2_po3wj")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+grow = true
+grow_amount = 0.256
+
+[sub_resource type="QuadMesh" id="QuadMesh_65ygr"]
+material = SubResource("StandardMaterial3D_eup1a")
+size = Vector2(1, 0.5)
+
+[sub_resource type="Curve" id="Curve_nl8ih"]
+_data = [Vector2(0, 0.57303375), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_po3wj"]
+curve = SubResource("Curve_nl8ih")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nl8ih"]
+lifetime_randomness = 0.3
+emission_shape_offset = Vector3(-0.3, 0, -1)
+emission_shape_scale = Vector3(1, 0.2, 1)
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = -19.99999
+angle_max = 20.000011
+direction = Vector3(0, 0, -1)
+flatness = 1.0
+initial_velocity_min = 0.29999998
+initial_velocity_max = 0.7
+angular_velocity_min = -5.000016
+angular_velocity_max = 4.999984
+gravity = Vector3(0, 0, 0)
+tangential_accel_min = 0.29999775
+tangential_accel_max = 0.29999775
+scale_min = 1.1999999
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_po3wj")
+alpha_curve = SubResource("CurveTexture_b3xpa")
+
+[node name="PfxFridgeBottomMist" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 20
+lifetime = 4.0
+explosiveness = 0.09
+process_material = SubResource("ParticleProcessMaterial_b4mql")
+draw_pass_1 = SubResource("QuadMesh_65ygr")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
+amount = 20
+lifetime = 4.0
+explosiveness = 0.09
+process_material = SubResource("ParticleProcessMaterial_nl8ih")
+draw_pass_1 = SubResource("QuadMesh_65ygr")

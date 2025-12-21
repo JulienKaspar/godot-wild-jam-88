@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://et2abtkee7pw"]
+[gd_scene load_steps=34 format=3 uid="uid://et2abtkee7pw"]
 
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="1_4dvnr"]
 [ext_resource type="Script" uid="uid://qswe4jvjrgpv" path="res://Levels/Util/lvl_end_kitchen_mission_flow.gd" id="1_6kd8d"]
@@ -9,7 +9,10 @@
 [ext_resource type="AudioStream" uid="uid://chm21oaoy0bxx" path="res://Assets/Audio/Music/FinalFridgeTheme/FinalFridgeIntro.ogg" id="5_2kg0s"]
 [ext_resource type="AudioStream" uid="uid://pdtxdl84vfyb" path="res://Assets/Audio/Music/FinalFridgeTheme/FinalFridgeIntroChoir.ogg" id="6_fwmbu"]
 [ext_resource type="AudioStream" uid="uid://dwpymy84i3toc" path="res://Assets/Audio/Music/FinalFridgeTheme/FinalFridgeLoop.ogg" id="7_fwmbu"]
-[ext_resource type="Script" path="res://Levels/final_fridge_theme.gd" id="8_y8nvo"]
+[ext_resource type="Script" uid="uid://dxfu8cxtr72lt" path="res://Levels/final_fridge_theme.gd" id="8_y8nvo"]
+[ext_resource type="PackedScene" uid="uid://yh4n54iqw5mr" path="res://Gameplay/Interactables/interact_fridge.tscn" id="11_477ct"]
+[ext_resource type="PackedScene" uid="uid://b6wygim3drvis" path="res://Particles/Environment/pfx_fridge_bottom_mist.tscn" id="12_2c0cr"]
+[ext_resource type="PackedScene" uid="uid://d3unw205fanv5" path="res://Objects/Loot/pickup_beer.tscn" id="13_k7okp"]
 
 [sub_resource type="Environment" id="Environment_v85wt"]
 background_mode = 1
@@ -66,6 +69,394 @@ Vector2i(0, 1): {
 }
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_k7okp"]
+size = Vector3(0.47375488, 2.378662, 0.08049011)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m6ev1"]
+size = Vector3(0.89089966, 2.378662, 0.2575302)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_477ct"]
+size = Vector3(3.0974426, 2.7067375, 2.824997)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2c0cr"]
+size = Vector3(1.8701172, 3.1756592, 1.3336182)
+
+[sub_resource type="Animation" id="Animation_k7okp"]
+resource_name = "fridge_open"
+length = 2.0
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fridge/FridgeBlockerStart")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.4908047, 0, 0.5045917, 0.8333333, 1, -0.4908047, 0, 0.5045917, 2, 1, 0, 0, 3.466)
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fridge/fridge_door_left:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2),
+"points": PackedFloat32Array(2.3788433, -0.25, 0, 0.53333336, -0.024000645, 1.4476967, -0.46666664, 0.53534114, 0.28091598, -0.3222555, 1.3336889, -0.39999998, 0.004077196, 0, 0),
+"times": PackedFloat32Array(0, 1.3, 2)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fridge/fridge_door_right:rotation:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(2, 2, 0),
+"points": PackedFloat32Array(-2.435, -0.2498238, -0.0475392, 0.6666666, 0.12686062, -1.5510973, -0.16147792, -0.2701275, 0.29937136, 0.5008018, -1.175, -0.33396196, -0.009173274, 0, 0),
+"times": PackedFloat32Array(0, 1.2333333, 2)
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WorldEnvironment:environment:ambient_light_energy")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.93, 0.18]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("WorldEnvironment/Light_Counter_Right:light_energy")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [2.844, 0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("WorldEnvironment/Light_Counter_Left:light_energy")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [2.844, 0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Fridge/Fridge Light2:light_energy")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [2.518, 8.86]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Fridge/Fridge Light Crack:light_energy")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [2.173, 9.957]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("WorldEnvironment/Light_Counter_Right:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1.4333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("WorldEnvironment/Light_Counter_Left:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 1.4333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_m6ev1"]
+resource_name = "fridge_close"
+length = 5.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fridge/fridge_door_left:rotation:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(1.334, -0.24998023, -0.005018833, 1.3583333, 0.027271152, 3.142, -1.7416666, -0.0081169605, 0, 0),
+"times": PackedFloat32Array(0, 5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fridge/fridge_door_right:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(-1.175, 0, 0, 1.1666666, -0.037926793, -3.141, -1.8333333, -0.018841028, 0, 0),
+"times": PackedFloat32Array(0, 5)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WorldEnvironment:environment:ambient_light_energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.18, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WorldEnvironment/GeneralLight:light_energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.248, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Fridge/Fridge Outside Spot:light_energy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 16.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Fridge/Fridge Outside Spot:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+
+[sub_resource type="Animation" id="Animation_477ct"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fridge/FridgeBlockerStart")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.4908047, 0, 0.5045917)
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fridge/fridge_door_left:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(2.3788433, -0.25, 0, 0.93333334, -0.0966568),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fridge/fridge_door_right:rotation:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-2.435, -0.2498238, -0.0475392, 0.6666666, 0.12686062),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WorldEnvironment:environment:ambient_light_energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.93]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("WorldEnvironment/Light_Counter_Right:light_energy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.844]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("WorldEnvironment/Light_Counter_Left:light_energy")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.844]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Fridge/Fridge Light2:light_energy")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.518]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Fridge/Fridge Light Crack:light_energy")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.173]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("WorldEnvironment/GeneralLight:light_energy")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.248]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Fridge/Fridge Outside Spot:light_energy")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Fridge/Fridge Outside Spot:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("WorldEnvironment/Light_Counter_Right:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("WorldEnvironment/Light_Counter_Left:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_2c0cr"]
+resource_name = "fridge_end"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fridge/fridge_door_right:rotation:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(-3.14, -0.25, 0, 0.25, 0, -0.10373497, -0.099999994, -1.2084637, 0.099999994, -0.41197628, -0.10373497, -0.06666666, -0.13732542, 0.099999964, -0.21972066, 0, -0.13333333, 0.006125372, 0, 0),
+"times": PackedFloat32Array(0, 0.46666667, 0.73333335, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fridge/fridge_door_left:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(3.14, -0.25, 0, 0.13333334, 0.12211108, 0.20119262, -0.06666666, 0.9768889, 0.099999994, 0.91176295, 0.09166376, -0.06666666, 0.6838222, 0.100000024, 0.09796131, 0, -0.16666669, 0.0058148503, 0, 0),
+"times": PackedFloat32Array(0, 0.36666667, 0.6333333, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bv1kn"]
+_data = {
+&"RESET": SubResource("Animation_477ct"),
+&"fridge_close": SubResource("Animation_m6ev1"),
+&"fridge_end": SubResource("Animation_2c0cr"),
+&"fridge_open": SubResource("Animation_k7okp")
+}
+
 [node name="LvlEndKitchen" type="Node3D"]
 script = ExtResource("1_6kd8d")
 
@@ -109,7 +500,7 @@ light_energy = 0.248
 light_indirect_energy = 1.804
 shadow_opacity = 0.5
 
-[node name="SpotLight3D" type="SpotLight3D" parent="WorldEnvironment"]
+[node name="Light_Counter_Left" type="SpotLight3D" parent="WorldEnvironment"]
 transform = Transform3D(0.7414023, -0.46455476, 0.484264, -3.907017e-08, 0.7216394, 0.69226927, -0.6710609, -0.51325, 0.5350251, 4.4773517, 1.9510137, 4.6172047)
 light_color = Color(0.54389507, 0.93, 0.43710002, 1)
 light_energy = 2.844
@@ -117,35 +508,13 @@ shadow_enabled = true
 spot_range = 10.287
 spot_angle = 59.96
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="WorldEnvironment"]
+[node name="Light_Counter_Right" type="SpotLight3D" parent="WorldEnvironment"]
 transform = Transform3D(0.76992327, 0.44176215, -0.4605044, 4.3712106e-08, 0.72163945, 0.69226915, 0.6381365, -0.53299415, 0.55560696, -4.2080173, 1.9510137, 4.4962335)
 light_color = Color(0.54509807, 0.92941177, 0.43529412, 1)
 light_energy = 2.844
 shadow_enabled = true
 spot_range = 10.287
 spot_angle = 59.85
-
-[node name="Fridge Light" type="SpotLight3D" parent="WorldEnvironment"]
-transform = Transform3D(0.9957714, -0.06359639, 0.0662945, 0.027999213, 0.897404, 0.4403205, -0.08749575, -0.43660247, 0.89538974, -0.23609972, 2.295163, 4.171975)
-light_color = Color(0.5565561, 0.9325064, 0.7943615, 1)
-light_energy = 2.173
-shadow_enabled = true
-spot_range = 10.287
-spot_angle = 55.25
-
-[node name="Fridge Light2" type="SpotLight3D" parent="WorldEnvironment"]
-transform = Transform3D(0.99577135, -0.06359635, 0.0662947, -0.0917477, -0.6517379, 0.75287455, -0.004673308, -0.7557732, -0.6548167, -0.23609966, 2.295163, 3.522963)
-light_color = Color(0.5565561, 0.9325064, 0.7943615, 1)
-light_energy = 2.518
-shadow_enabled = true
-spot_range = 10.287
-spot_angle = 55.25
-
-[node name="fridge_door_left" parent="WorldEnvironment" instance=ExtResource("3_kqsjv")]
-transform = Transform3D(-0.788891, 0, 0.6145331, 0, 1, 0, -0.6145331, 0, -0.788891, 0.1981211, 1.1838306, 3.000644)
-
-[node name="fridge_door_right" parent="WorldEnvironment" instance=ExtResource("4_f37uh")]
-transform = Transform3D(-0.74426496, 0, -0.66788447, 0, 1, 0, 0.66788447, 0, -0.74426496, -1.053345, 1.1838306, 2.9814825)
 
 [node name="Floor" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20018315, 0, 0)
@@ -194,3 +563,107 @@ stream = SubResource("AudioStreamInteractive_kqsjv")
 volume_db = -60.0
 bus = &"Music"
 script = ExtResource("8_y8nvo")
+
+[node name="Fridge" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Fridge Light Crack" type="SpotLight3D" parent="Fridge"]
+transform = Transform3D(0.99577135, -0.0635964, 0.066294506, 0.027999211, 0.897404, 0.44032064, -0.08749575, -0.43660247, 0.8953898, -0.23609972, 2.295163, 1.1719751)
+light_color = Color(0.5565561, 0.9325064, 0.7943615, 1)
+light_energy = 2.173
+shadow_enabled = true
+spot_range = 10.287
+spot_angle = 55.25
+
+[node name="Fridge Light2" type="SpotLight3D" parent="Fridge"]
+transform = Transform3D(0.99577135, -0.06359635, 0.06629468, -0.0917477, -0.651738, 0.7528745, -0.004673308, -0.75577325, -0.6548168, -0.23609966, 2.295163, 0.52296305)
+light_color = Color(0.5565561, 0.9325064, 0.7943615, 1)
+light_energy = 2.518
+shadow_enabled = true
+spot_range = 10.287
+spot_angle = 55.25
+
+[node name="Fridge Outside Spot" type="SpotLight3D" parent="Fridge"]
+transform = Transform3D(1, 0, 0, 0, -0.14128137, 0.9899695, 0, -0.9899696, -0.14128134, -0.42109767, 4.7442245, -0.8496201)
+visible = false
+light_color = Color(0.9384921, 0.8102165, 0.79689866, 1)
+light_energy = 0.0
+shadow_enabled = true
+spot_range = 5.31518
+spot_angle = 18.299536
+
+[node name="fridge_door_left" parent="Fridge" instance=ExtResource("3_kqsjv")]
+transform = Transform3D(-0.72293913, 0, 0.6909116, 0, 1, 0, -0.6909116, 0, -0.72293913, 0.1981211, 1.1838306, 0.00064373016)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="Fridge/fridge_door_left"]
+collision_layer = 8
+collision_mask = 2
+freeze = true
+freeze_mode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fridge/fridge_door_left/RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2031858, 0.023803711, -0.0012443066)
+shape = SubResource("BoxShape3D_k7okp")
+
+[node name="fridge_door_right" parent="Fridge" instance=ExtResource("4_f37uh")]
+transform = Transform3D(-0.7605784, 0, -0.649246, 0, 1, 0, 0.649246, 0, -0.7605784, -1.053345, 1.1838306, -0.018517494)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="Fridge/fridge_door_right"]
+collision_layer = 8
+collision_mask = 2
+freeze = true
+freeze_mode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fridge/fridge_door_right/RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.39921594, 0.023803711, -0.08976495)
+shape = SubResource("BoxShape3D_m6ev1")
+
+[node name="FridgeBlockerStart" type="RigidBody3D" parent="Fridge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4908047, 0, 0.5045917)
+freeze = true
+freeze_mode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fridge/FridgeBlockerStart"]
+transform = Transform3D(0.7355298, 0, 0.6774924, 0, 1, 0, -0.6774924, 0, 0.7355298, -0.11017239, 1.0575659, 1.017102)
+shape = SubResource("BoxShape3D_477ct")
+debug_color = Color(0, 0.6, 0.69803923, 1)
+
+[node name="InteractSwitch" parent="Fridge" instance=ExtResource("11_477ct")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.51090646, 1.2179099, -0.650681)
+
+[node name="FridgeInsideArea" type="Area3D" parent="Fridge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4171213, 0, 2.182181)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fridge/FridgeInsideArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0878296, 0.36846924)
+shape = SubResource("BoxShape3D_2c0cr")
+
+[node name="PfxFridgeBottomMist" parent="Fridge" instance=ExtResource("12_2c0cr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.446, 0.055, 0.29)
+
+[node name="InsideFridgeTime" type="Timer" parent="Fridge"]
+wait_time = 10.0
+one_shot = true
+
+[node name="TimerCredits" type="Timer" parent="Fridge"]
+wait_time = 15.0
+one_shot = true
+
+[node name="PickupBeer" parent="Fridge" instance=ExtResource("13_k7okp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4178669, 1.5482526, 1.8032379)
+freeze = true
+fully_consumable = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_bv1kn")
+}
+
+[connection signal="Switched" from="Fridge/InteractSwitch" to="." method="_on_interact_switch_switched"]
+[connection signal="body_entered" from="Fridge/FridgeInsideArea" to="." method="_on_fridge_inside_area_body_entered"]
+[connection signal="timeout" from="Fridge/InsideFridgeTime" to="." method="_on_inside_fridge_time_timeout"]
+[connection signal="timeout" from="Fridge/TimerCredits" to="." method="_on_timer_credits_timeout"]
+[connection signal="PickedUp" from="Fridge/PickupBeer" to="." method="_on_pickup_beer_picked_up"]
