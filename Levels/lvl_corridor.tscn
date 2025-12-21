@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://d62n5s8htyn7" path="res://Characters/Teens/logic/TeenStanding.tscn" id="1_heiu2"]
 [ext_resource type="Material" uid="uid://dmxe2qlk68jn" path="res://Assets/Materials/reddish_floral_wall.tres" id="1_hlpl7"]
 [ext_resource type="PackedScene" uid="uid://csh5kgfnsuy4w" path="res://Assets/Characters/Teens/teen2.gltf" id="2_nl8db"]
-[ext_resource type="PackedScene" uid="uid://dkigsk0khpxet" path="res://Objects/Architypes/Furniture/frame.tscn" id="3_5xgo6"]
+[ext_resource type="PackedScene" path="res://Objects/Architypes/Furniture/frame.tscn" id="3_5xgo6"]
 [ext_resource type="PackedScene" uid="uid://l4nbchy8y1g1" path="res://Objects/Architypes/Props/flowers1.tscn" id="4_55vo0"]
 [ext_resource type="PackedScene" uid="uid://d2vcgl4k66dnb" path="res://Objects/Architypes/Furniture/napkin.tscn" id="5_hlpl7"]
 [ext_resource type="PackedScene" uid="uid://j1b5yvs8pnux" path="res://Objects/Architypes/Furniture/table_round1.tscn" id="6_x0cel"]
@@ -162,7 +162,6 @@ animation = "Omg"
 [node name="TeenStanding6" parent="Crowd" instance=ExtResource("1_heiu2")]
 transform = Transform3D(-0.7071068, 0, -0.7071067, 0, 1, 0, 0.7071067, 0, -0.7071068, 3.124, 0.017407537, -0.06130594)
 animation = "Drinking"
-loot_type = 1
 
 [node name="TeenStanding7" parent="Crowd" instance=ExtResource("1_heiu2")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7.341136, 1.0288233, 0.19901931)
