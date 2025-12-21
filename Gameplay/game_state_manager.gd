@@ -33,6 +33,7 @@ func _ready() -> void:
 	player_drunkness.on_sobriety.connect(handle_sobriety.call_deferred)
 	
 func _process(delta: float) -> void:
+	checkLevelIssues() 
 	player_drunkness.current_drunkness -= player_drunkness.drunkness_decay_per_second * delta
 	update_drunk_visual_effect()
 
@@ -154,8 +155,10 @@ func handle_sobriety() -> void:
 		
 		GameStateManager.dialogue_system.handle_quip_event(DialogueSystem.QuipType.Falling)
 		show_wasted_screen.emit()
-		
 
+func checkLevelIssues() -> void:
+	if current_player:
+		if current_player.player_global_pos.y < -100: next_level()
 
 func reset_level() -> void:
 	player_drunkness.paused = false
