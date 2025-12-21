@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://b6vbg26wkrdh3"]
+[gd_scene load_steps=70 format=3 uid="uid://b6vbg26wkrdh3"]
 
 [ext_resource type="Script" uid="uid://blqvicje3efcj" path="res://Levels/Util/lvl_0_backyard_mission_flow.gd" id="1_jtswe"]
 [ext_resource type="Script" uid="uid://42mf003bq52u" path="res://Gameplay/level_teleporter.gd" id="2_jtswe"]
@@ -23,6 +23,8 @@
 [ext_resource type="AudioStream" uid="uid://t2yngijmupfi" path="res://Assets/Audio/SFX/Props/bbq_fire.ogg" id="19_fkcxp"]
 [ext_resource type="PackedScene" uid="uid://cdrpgw2um6m6i" path="res://Objects/safety_plane.tscn" id="22_dgmkc"]
 [ext_resource type="PackedScene" uid="uid://djvhkhmcy0tn5" path="res://Shaders/shader_caching_onpath.tscn" id="23_avm5o"]
+[ext_resource type="Material" uid="uid://dcwhprpxasi1k" path="res://Particles/Moth/proc_gpu_moths.tres" id="24_k3ksw"]
+[ext_resource type="QuadMesh" uid="uid://b18jfrn325imy" path="res://Particles/Moth/draw_moths_a.tres" id="25_go0n3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mr8n6"]
 size = Vector3(4.9821777, 3.3790894, 0.18530273)
@@ -644,3 +646,10 @@ curve = SubResource("Curve3D_avm5o")
 
 [node name="ShaderCachingOnpath" parent="AutoShaderCache/Path3D" instance=ExtResource("23_avm5o")]
 visible = false
+
+[node name="GPUMoths" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.367212, 4.444743, 1.3960156)
+amount = 5
+lifetime = 10.0
+process_material = ExtResource("24_k3ksw")
+draw_pass_1 = ExtResource("25_go0n3")
