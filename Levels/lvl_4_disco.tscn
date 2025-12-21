@@ -159,6 +159,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.180691, 3.6303673, 2.77635
 
 [node name="DiscoSpotlight" type="SpotLight3D" parent="WorldEnvironment/Disco_spinner"]
 transform = Transform3D(1, 0, 0, 0, 0.7724344, 0.6350946, 0, -0.6350946, 0.7724344, 0.1808176, -0.78835106, 3.8376193)
+visible = false
 light_color = Color(0.5685908, 1, 0.92133784, 1)
 light_energy = 16.0
 light_specular = 1.798
@@ -170,27 +171,25 @@ spot_angle = 65.91724
 script = ExtResource("2_0me7d")
 
 [node name="AccessibilityLight" type="SpotLight3D" parent="WorldEnvironment"]
-transform = Transform3D(0.67857003, -3.2107575e-08, 0.7345357, -0.7345357, -2.9661239e-08, 0.67857003, 0, -1, -4.371139e-08, -0.6798074, 5.682051, 2.1711752)
-visible = false
-light_color = Color(1, 0.27999997, 0.27999997, 1)
-light_energy = 7.639
+transform = Transform3D(0.54730034, -3.658365e-08, 0.8369363, -0.8369363, -2.3923258e-08, 0.54730034, 0, -1, -4.3711392e-08, 0.27001655, 5.682051, 2.1711752)
+light_color = Color(1, 0.13, 0.14449978, 1)
+light_energy = 12.029
 shadow_enabled = true
 shadow_bias = 0.422
 shadow_normal_bias = 1.703
-spot_range = 11.068
+spot_range = 9.918
 spot_attenuation = 0.0
 spot_angle = 66.988304
 script = ExtResource("7_08ply")
 
 [node name="AccessibilityLight2" type="SpotLight3D" parent="WorldEnvironment"]
-transform = Transform3D(0.34948865, -0.52179897, -0.7781925, 0.91222745, -3.1501116e-08, 0.40968418, -0.21377279, -0.85306853, 0.47599933, -11.593518, 5.6820507, 4.7641497)
-visible = false
-light_color = Color(0.17940001, 0.6598798, 0.78, 1)
-light_energy = 7.639
+transform = Transform3D(0.34071594, -0.5217749, -0.78208923, 0.9155402, -0.0050088805, 0.4021953, -0.21377277, -0.85306853, 0.4759993, -11.593518, 5.6820507, 4.7641497)
+light_color = Color(0.075999916, 0.00999999, 1, 1)
+light_energy = 7.126
 shadow_enabled = true
-shadow_bias = 0.422
+shadow_bias = 0.672
 shadow_normal_bias = 3.047
-spot_range = 11.068
+spot_range = 12.48
 spot_attenuation = 0.0
 spot_angle = 66.988304
 script = ExtResource("7_08ply")
