@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://cofqoseqs4itl"]
+[gd_scene load_steps=13 format=3 uid="uid://cofqoseqs4itl"]
 
 [ext_resource type="Script" uid="uid://3x4na13uxxj4" path="res://Audio/SFX/Player/player_sounds.gd" id="1_nwop1"]
 [ext_resource type="AudioStream" uid="uid://bvjdmfy7thpa6" path="res://Audio/SFX/Player/player_voice_falling.tres" id="2_pfifw"]
+[ext_resource type="AudioStream" uid="uid://661ni1b60qio" path="res://Assets/Audio/UI/intro_fence_break_long.ogg" id="2_rxmia"]
 [ext_resource type="AudioStream" uid="uid://de6p6f5p7uphw" path="res://Assets/Audio/SFX/Player/footsteps_soft_01.ogg" id="2_umc7b"]
 [ext_resource type="AudioStream" uid="uid://cibdjrhydf3dx" path="res://Assets/Audio/SFX/Player/footsteps_soft_02.ogg" id="3_xdpom"]
 [ext_resource type="AudioStream" uid="uid://qg8ndqqtgrrw" path="res://Audio/SFX/Player/player_voice_ouch_grunts.tres" id="4_a8uc4"]
@@ -19,6 +20,7 @@ stream_1/stream = ExtResource("3_xdpom")
 
 [node name="PlayerSounds" type="Node3D" node_paths=PackedStringArray("footstep_player", "voice_player", "singing_player")]
 script = ExtResource("1_nwop1")
+break_fence = ExtResource("2_rxmia")
 footstep_player = NodePath("FootstepAudioPlayer")
 voice_player = NodePath("VoiceAudioPlayer")
 singing_player = NodePath("SingingAudioPlayer")

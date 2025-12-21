@@ -44,7 +44,6 @@ func start_game() -> void:
 	await cache_shaders()
 	loading_screen.display_indefinite(true)
 	loading_screen.label.text = "Setting things up..."
-	AudioManager.ui_sounds.volume_db = AudioManager._VOLUME_DB_OFF
 
 	load_level_by_index(starting_level_index,false)
 	current_state = GameState.Game
@@ -52,9 +51,11 @@ func start_game() -> void:
 	await GameStateManager.current_player.ChangeMovement
 	get_tree().paused = true
 	loading_screen.label.text = "Press enter / start to continue..."
+	AudioManager.ui_sounds.play_sound(AudioManager.ui_sounds.break_anticipation)
 	await loading_screen.on_ready_to_proceed
+	AudioManager.player_sounds.play_voice(AudioManager.player_sounds.break_fence)
 	get_tree().paused = false
-	AudioManager.ui_sounds.volume_db = 0.0
+	AudioManager.ui_sounds.game_started = true
 	
 func cache_shaders() -> void:
 	loading_screen.display_indefinite(false)

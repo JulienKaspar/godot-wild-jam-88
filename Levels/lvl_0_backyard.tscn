@@ -19,6 +19,7 @@
 [ext_resource type="Script" uid="uid://c786nbmcn6vxf" path="res://dialogue_trigger_area.gd" id="14_cya5t"]
 [ext_resource type="AudioStream" uid="uid://brc0gdp873p3j" path="res://Assets/Audio/Ambience/ambience_crickets1.ogg" id="15_kfoxe"]
 [ext_resource type="PackedScene" uid="uid://di5fte2dqxs0c" path="res://Assets/Furniture/window1.gltf" id="15_tao4m"]
+[ext_resource type="AudioStream" uid="uid://dwr8w5btu8k4h" path="res://Assets/Audio/UI/intro_fence_break.ogg" id="16_c33jy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mr8n6"]
 size = Vector3(4.9821777, 3.3790894, 0.18530273)
@@ -432,6 +433,12 @@ stream = SubResource("AudioStreamSynchronized_c33jy")
 max_db = -6.0
 pitch_scale = 0.5
 autoplay = true
+max_distance = 12.0
+
+[node name="BreakFenceSound" type="AudioStreamPlayer3D" parent="AmbienceSounds"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9136918, 2.5187275, 3.7431679)
+stream = ExtResource("16_c33jy")
+max_db = 0.0
 max_distance = 12.0
 
 [node name="HousePartyMusic" type="AudioStreamPlayer3D" parent="AmbienceSounds"]
