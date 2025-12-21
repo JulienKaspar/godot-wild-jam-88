@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://basl5o5uoewcs"]
+[gd_resource type="StandardMaterial3D" load_steps=0 format=3 uid="uid://basl5o5uoewcs"]
 
 [resource]
 diffuse_mode = 3

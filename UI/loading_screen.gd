@@ -25,7 +25,8 @@ func display(_duration: float, text: String = "Loading...") -> void:
 	open = true
 	label.text = text
 	continue_button.grab_focus()
-	
+	animation.show()
+	continue_button.hide()
 	
 func display_indefinite(next_button: bool) -> void:
 	show()

@@ -9,7 +9,6 @@
 size = Vector3(0.76782227, 0.6689453, 0.35058594)
 
 [node name="Radio" type="Node3D"]
-process_mode = 1
 
 [node name="PropCollider" parent="." instance=ExtResource("1_sfv7d")]
 

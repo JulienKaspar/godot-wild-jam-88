@@ -23,7 +23,7 @@ var burp_nastiness: float = 0.5:
 
 
 #accesibility / general
-var fail_state: bool = false
+var fail_state: bool = true
 var loading_speed: float = 1
 var text_scrolling_speed:float = 1
 var easy_mode: bool = false
