@@ -16,13 +16,14 @@ class_name UI_Sounds
 @export var shake_impact : AudioStream
 
 var game_started : bool = false
+var burp_intensity : float
 
 func _ready():
 	if (AudioManager.ui_sounds == null):
 		AudioManager.ui_sounds = self
 
 
-func play_sound(_stream : AudioStream):
+func play_sound(_stream : AudioStream) -> void:
 	if !is_instance_valid(_stream):
 		push_warning(str("UI_Sounds: cannot play sound: ", _stream, " is no valid AudioStream resource"))
 		return
@@ -35,7 +36,6 @@ func play_sound(_stream : AudioStream):
 	self.stream = _stream
 	self.play()
 
-var burp_intensity : float
 
 func select_burps(intensity : float) -> void:
 	if burp_intensity == intensity: return 

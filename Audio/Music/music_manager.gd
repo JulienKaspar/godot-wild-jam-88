@@ -44,19 +44,25 @@ func randomize_chords() -> void:
 	switch_music_to_theme(_target_theme)
 
 
-func _on_level_change(level_index : int):
+func _on_level_change(level_index : int) -> void:
 	match level_index:
 		0: # backyard
 			music_player.volume_db = AudioManager.VOLUME_DB_OFF
-		1, 2, 3, 4, 5: # core levels
+			if music_player.playing: music_player.stop()
+			return
+			
+		1, 2, 3, 4, 5: # house
 			var target_volume_db = VOLUME_DB_DEFAULT
 			AudioManager.tween_volume_db(music_player, target_volume_db)
 			if !music_player.playing:
 				start_music()
 				chord_change_timer.start()
+			return
+			
 		6: # fridge
 			chord_change_timer.stop()
 			stop_music()
+			return
 
 
 # Music themes - enum makes it easily callable from other scripts
@@ -78,20 +84,20 @@ const MUSIC_BANK : Dictionary[MUSIC_THEMES, String] = {
 	MUSIC_THEMES.THEME_D : "theme_d",
 }
 
-func start_music():
+func start_music() -> void:
 	music_player.play()
 	AudioManager.fade_audio_in(music_player)
 
-func stop_music():
+func stop_music() -> void:
 	music_player.stop()
 
-func duck_volume():
+func duck_volume() -> void:
 	AudioManager.tween_volume_db(music_player, (VOLUME_DB_DEFAULT - 4.5), 1.5)
 
-func restore_volume():
+func restore_volume() -> void:
 	AudioManager.tween_volume_db(music_player, VOLUME_DB_DEFAULT, 2.5)
 
-func switch_music_to_theme(theme : MUSIC_THEMES):
+func switch_music_to_theme(theme : MUSIC_THEMES) -> void:
 	var _playback : AudioStreamPlaybackInteractive = music_player.get_stream_playback()
 	_playback.switch_to_clip_by_name(MUSIC_BANK[theme])
 	current_theme = theme
@@ -111,7 +117,7 @@ const DRUNK_THRESHOLD_MED : float = 0.3
 const DRUNK_THRESHOLD_HIGH : float = 0.7
 
 # All drunkness audio processing
-func _update_drunk_streams(drunk_value):
+func _update_drunk_streams(drunk_value) -> void:
 	if !music_player.playing: return
 	
 	drunk_value = AudioManager.remap_drunkness(drunk_value)
@@ -157,7 +163,7 @@ const _FILTER_FX = 0
 
 var filter_effect : AudioEffectLowPassFilter = AudioServer.get_bus_effect(AudioManager.BUS.MUSIC, 0)
 
-func _set_filter(_enabled : bool, _target_hz : float = -1.0):
+func _set_filter(_enabled : bool, _target_hz : float = -1.0) -> void:
 	# target value
 	var target_hz : float = _target_hz
 	if _target_hz < 0:
