@@ -58,7 +58,8 @@ func consume() -> void:
 	if consume_pfx: consume_pfx.emit_all()
 	
 func display_prompt() -> void: 
-	pickup_prompt.show()
+	pass
+	#pickup_prompt.show()
 	
 func hide_prompt() -> void:
 	pickup_prompt.hide()
