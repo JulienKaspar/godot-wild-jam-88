@@ -44,7 +44,7 @@ func update_texture_bar(new_value: float) -> void:
 func update_playhead_position() -> void:
 	var normalized_progress = texture_bar.value /texture_bar.max_value 
 	var bar_rect = texture_bar.get_rect()
-	var new_x = bar_rect.position.x + (bar_rect.size.x * normalized_progress)
+	var new_x = bar_rect.position.x + (bar_rect.size.x * normalized_progress) - playhead.get_rect().size.x / 2
 	
 	var new_target_position = Vector2(new_x,playhead.position.y)
 	var position_tween: Tween = create_tween()

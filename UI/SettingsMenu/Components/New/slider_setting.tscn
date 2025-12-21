@@ -56,7 +56,7 @@ focus_color = Color(0.43137255, 0.03137255, 0.7411765, 1)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 60
-theme_override_constants/margin_right = 220
+theme_override_constants/margin_right = 200
 
 [node name="HSlider" type="HSlider" parent="MarginContainer" node_paths=PackedStringArray("playhead", "texture_bar", "label")]
 unique_name_in_owner = true
@@ -71,7 +71,7 @@ theme_override_styles/slider = SubResource("StyleBoxEmpty_v861l")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_4wath")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_gabah")
 max_value = 1.0
-step = 0.1
+step = 0.05
 script = ExtResource("1_cjbty")
 playhead = NodePath("Playhead")
 texture_bar = NodePath("TextureProgressBar")
@@ -83,9 +83,9 @@ label = NodePath("../../Control/Label")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/HSlider"]
 layout_mode = 0
-offset_left = -12.0
+offset_left = 1.0
 offset_top = -21.0
-offset_right = 691.0
+offset_right = 704.0
 offset_bottom = 69.0
 pivot_offset = Vector2(457, 64)
 mouse_filter = 2
@@ -101,3 +101,4 @@ offset_left = 21.0
 offset_top = -53.0
 offset_right = 98.0
 offset_bottom = 116.0
+pivot_offset = Vector2(38, 84)
