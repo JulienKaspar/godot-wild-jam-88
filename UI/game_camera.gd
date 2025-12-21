@@ -10,6 +10,8 @@ var isInterested = false
 var blendingLerp = 0.0
 var shakeAngleX = 0.0
 var shakeStrength = 1.2
+var followFov = 55
+var customFov = 55
 
 func _ready() -> void:
 	GameStateManager.game_camera = self
@@ -36,6 +38,7 @@ func lookHere(cam: Camera3D, blendtime: float) -> void:
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(self, "blendingLerp", 1.0, blendtime)
+	tween.tween_property(self, "fov", cam.fov, blendtime)
 	isInterested = true
 	interestingCam = cam
 
@@ -45,10 +48,12 @@ func followPlayer(blendtime: float):
 	tween.set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(self, "blendingLerp", 0.0, blendtime)
 	tween.tween_property(self, "isInterested", false, blendtime)
+	tween.tween_property(self, "fov", followFov, blendtime)
 
 func hardFollowPlayer() -> void:
 	isInterested = false
 	blendingLerp = 0.0
+	fov = followFov
 
 func shake(intensity: float) -> void:
 	var tween = get_tree().create_tween()
