@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cl2i7omutjdby"]
+[gd_scene load_steps=16 format=3 uid="uid://cl2i7omutjdby"]
 
 [ext_resource type="Script" uid="uid://13iqlecj5v0m" path="res://UI/SettingsMenu/Components/New/settings_label.gd" id="1_4wath"]
 [ext_resource type="Script" uid="uid://cjydg77pybxxi" path="res://UI/SettingsMenu/Components/New/slider_setting.gd" id="1_arimu"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bk1t3pbv2ldcv" path="res://UI/SettingsMenu/settings_slider_frame.png" id="2_cjbty"]
 [ext_resource type="Texture2D" uid="uid://ssbef6aqp0j3" path="res://UI/SettingsMenu/settings_slider_selected.png" id="2_cl5xb"]
 [ext_resource type="Texture2D" uid="uid://368o4sqfxfqp" path="res://UI/SettingsMenu/settings_slider_fill_bg.png" id="3_cl5xb"]
+[ext_resource type="Texture2D" uid="uid://dve3oot116bpq" path="res://UI/SettingsMenu/settings_slider_frame_selected.png" id="7_arimu"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_gabah"]
 
@@ -54,8 +55,8 @@ focus_color = Color(0.43137255, 0.03137255, 0.7411765, 1)
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_right = 70
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_right = 220
 
 [node name="HSlider" type="HSlider" parent="MarginContainer" node_paths=PackedStringArray("playhead", "texture_bar", "label")]
 unique_name_in_owner = true
@@ -76,14 +77,17 @@ playhead = NodePath("Playhead")
 texture_bar = NodePath("TextureProgressBar")
 focus_playhead = ExtResource("2_cl5xb")
 unfocused_playhead = ExtResource("1_gabah")
+focused_slider_bar = ExtResource("7_arimu")
+unfocused_slider_bar = ExtResource("2_cjbty")
 label = NodePath("../../Control/Label")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/HSlider"]
 layout_mode = 0
-offset_left = -37.0
-offset_top = -31.0
-offset_right = 877.0
-offset_bottom = 97.0
+offset_left = -12.0
+offset_top = -21.0
+offset_right = 691.0
+offset_bottom = 69.0
+pivot_offset = Vector2(457, 64)
 mouse_filter = 2
 max_value = 1.0
 step = 0.02
