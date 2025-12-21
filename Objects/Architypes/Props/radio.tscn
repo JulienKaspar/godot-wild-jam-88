@@ -9,6 +9,7 @@
 size = Vector3(0.76782227, 0.6689453, 0.35058594)
 
 [node name="Radio" type="Node3D"]
+process_mode = 1
 
 [node name="PropCollider" parent="." instance=ExtResource("1_sfv7d")]
 
@@ -25,5 +26,4 @@ unit_size = 4.0
 max_db = -3.0
 max_distance = 20.0
 panning_strength = 1.2
-bus = &"SFX"
 script = ExtResource("6_h3dv2")

@@ -102,6 +102,7 @@ func end_credits() -> void:
 	hud.hide()
 	main_menu.hide()
 	credits_screen.show()
+	dialogue_system.hide()
 	
 func handle_main_menu_to_settings_transition() -> void:
 	main_menu.show()

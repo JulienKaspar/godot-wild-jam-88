@@ -12,7 +12,7 @@ var scrolled: float
 
 
 func _ready() -> void:
-
+	commits.shuffle()
 	for commit in commits:
 		var instance: CreditItem = credit_scene.instantiate()
 		grid_container.add_child(instance)
