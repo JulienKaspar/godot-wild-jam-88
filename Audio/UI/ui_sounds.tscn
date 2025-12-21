@@ -1,7 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://d01verpwnpp0o"]
+[gd_scene load_steps=12 format=3 uid="uid://d01verpwnpp0o"]
 
 [ext_resource type="Script" uid="uid://b4ypm2nwmnp2u" path="res://Audio/UI/ui_sounds.gd" id="1_0bhj7"]
-[ext_resource type="AudioStream" uid="uid://dwr8w5btu8k4h" path="res://Assets/Audio/UI/intro_fence_break.ogg" id="1_jtqst"]
 [ext_resource type="AudioStream" uid="uid://bjrgsd4nxbrv0" path="res://Assets/Audio/UI/start_game.ogg" id="2_qx8p4"]
 [ext_resource type="AudioStream" uid="uid://dhkvmk7eqta25" path="res://Audio/UI/ui_pops.tres" id="3_dlnjr"]
 [ext_resource type="AudioStream" uid="uid://bqnorce5ktst7" path="res://Assets/Audio/UI/intro_fence_anticipation.ogg" id="4_cfb22"]
@@ -14,7 +13,6 @@
 [ext_resource type="AudioStream" uid="uid://om8mhc6jo5u0" path="res://Audio/SFX/Player/player_voice_burps.tres" id="9_kmyej"]
 
 [node name="UI_Sounds" type="AudioStreamPlayer"]
-stream = ExtResource("1_jtqst")
 max_polyphony = 8
 bus = &"UI"
 script = ExtResource("1_0bhj7")
