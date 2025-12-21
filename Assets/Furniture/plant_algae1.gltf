@@ -67,13 +67,8 @@
 			"rotation":[
 				0.06360554695129395,
 				-0.7881850004196167,
-				0.04243765026330948,
+				0.04243765398859978,
 				0.6106699705123901
-			],
-			"scale":[
-				1.4151244163513184,
-				1.415124535560608,
-				1.4151246547698975
 			],
 			"translation":[
 				-0.04821710288524628,
@@ -477,41 +472,41 @@
 		{
 			"bufferView":25,
 			"componentType":5126,
-			"count":576,
+			"count":1152,
 			"max":[
-				0.13533011078834534,
-				0.3788105845451355,
-				0.15457621216773987
+				0.191508948802948,
+				0.5387570858001709,
+				0.23362915217876434
 			],
 			"min":[
-				-0.17755307257175446,
-				-0.44988852739334106,
-				-0.19554156064987183
+				-0.2512596845626831,
+				-0.6435920000076294,
+				-0.2828015387058258
 			],
 			"type":"VEC3"
 		},
 		{
 			"bufferView":26,
 			"componentType":5126,
-			"count":576,
+			"count":1152,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":27,
 			"componentType":5126,
-			"count":576,
+			"count":1152,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":28,
 			"componentType":5126,
-			"count":576,
+			"count":1152,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":29,
 			"componentType":5123,
-			"count":3348,
+			"count":6696,
 			"type":"SCALAR"
 		},
 		{
@@ -782,122 +777,122 @@
 		},
 		{
 			"buffer":0,
-			"byteLength":6912,
+			"byteLength":13824,
 			"byteOffset":22668,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":6912,
-			"byteOffset":29580,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":4608,
+			"byteLength":13824,
 			"byteOffset":36492,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":6912,
-			"byteOffset":41100,
+			"byteLength":9216,
+			"byteOffset":50316,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":6696,
-			"byteOffset":48012,
+			"byteLength":13824,
+			"byteOffset":59532,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":13392,
+			"byteOffset":73356,
 			"target":34963
 		},
 		{
 			"buffer":0,
 			"byteLength":408,
-			"byteOffset":54708,
+			"byteOffset":86748,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":408,
-			"byteOffset":55116,
+			"byteOffset":87156,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":272,
-			"byteOffset":55524,
+			"byteOffset":87564,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":408,
-			"byteOffset":55796,
+			"byteOffset":87836,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":180,
-			"byteOffset":56204,
+			"byteOffset":88244,
 			"target":34963
 		},
 		{
 			"buffer":0,
 			"byteLength":396,
-			"byteOffset":56384,
+			"byteOffset":88424,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":396,
-			"byteOffset":56780,
+			"byteOffset":88820,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":264,
-			"byteOffset":57176,
+			"byteOffset":89216,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":396,
-			"byteOffset":57440,
+			"byteOffset":89480,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":336,
-			"byteOffset":57836,
+			"byteOffset":89876,
 			"target":34963
 		},
 		{
 			"buffer":0,
 			"byteLength":408,
-			"byteOffset":58172,
+			"byteOffset":90212,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":408,
-			"byteOffset":58580,
+			"byteOffset":90620,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":272,
-			"byteOffset":58988,
+			"byteOffset":91028,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":408,
-			"byteOffset":59260,
+			"byteOffset":91300,
 			"target":34962
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":59668,
+			"byteLength":91708,
 			"uri":"plant_algae1.bin"
 		}
 	]

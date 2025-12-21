@@ -31,7 +31,8 @@ func _ready() -> void:
 func handle_pressed(toggled_on: bool) -> void:
 	UserSettings.set(property_name, toggled_on)
 	UserSettings.on_settings_updated.emit()
-	AudioManager.ui_sounds.play_sound(AudioManager.ui_sounds.focus_element)
+	var _sound = AudioManager.ui_sounds.checkbox_on if toggled_on else AudioManager.ui_sounds.checkbox_off
+	AudioManager.ui_sounds.play_sound(_sound)
 
 func focus() -> void:
 	label.focus()

@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://yaagdy5rwoee"]
 
 [ext_resource type="Shader" uid="uid://bg4owxt8roht6" path="res://Shaders/tileable_floor.gdshader" id="1_gmk3v"]
-[ext_resource type="Texture2D" uid="uid://86kyjqqpq57d" path="res://Assets/Kitchen/kitchen_tiles.png" id="2_gmk3v"]
+[ext_resource type="Texture2D" uid="uid://dic4pevkohwu4" path="res://Assets/Kitchen/kitchen_tiles.png" id="2_gmk3v"]
 
 [resource]
 render_priority = 0

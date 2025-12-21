@@ -43,26 +43,17 @@ func randomize_chord() -> void:
 
 
 func _on_level_change(level_index : int):
-	var target_volume_db : float
-	
 	match level_index:
 		0: # backyard
-			target_volume_db = AudioManager.VOLUME_DB_OFF
+			music_player.volume_db = AudioManager.VOLUME_DB_OFF
 		1, 2, 3, 4, 5: # core levels
-			target_volume_db = AudioManager.VOLUME_DB_ON
-			activate_chord_changes()
-		6: # fridge
-			target_volume_db = AudioManager.VOLUME_DB_OFF
-	
-	match target_volume_db:
-		AudioManager.VOLUME_DB_OFF:
-			AudioManager.fade_audio_out(music_player)
-		AudioManager.VOLUME_DB_ON:
-			AudioManager.fade_audio_in(music_player)
-			if !music_player.playing:
-				music_player.play()
-		_:
+			var target_volume_db = AudioManager.VOLUME_DB_ON
 			AudioManager.tween_volume_db(music_player, target_volume_db)
+			if !music_player.playing:
+				start_music()
+				activate_chord_changes()
+		6: # fridge
+			stop_music()
 	
 	#if level_index > 0:
 		#if level_index > 4:

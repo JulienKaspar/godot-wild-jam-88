@@ -7,8 +7,8 @@ class_name UI_Sounds
 @export var focus_element : AudioStreamRandomizer
 @export var tab_change : AudioStreamRandomizer
 @export var update_slider : AudioStreamRandomizer
-@export var check_box : AudioStream
-@export var uncheck_box : AudioStream
+@export var checkbox_on : AudioStreamRandomizer
+@export var checkbox_off : AudioStreamRandomizer
 
 @export var drunkness_up : AudioStream
 @export var drunkness_down : AudioStream

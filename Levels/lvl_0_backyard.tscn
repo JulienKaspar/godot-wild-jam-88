@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://di5fte2dqxs0c" path="res://Assets/Furniture/window1.gltf" id="15_tao4m"]
 [ext_resource type="AudioStream" uid="uid://dwr8w5btu8k4h" path="res://Assets/Audio/UI/intro_fence_break.ogg" id="16_c33jy"]
 [ext_resource type="AudioStream" uid="uid://t2yngijmupfi" path="res://Assets/Audio/SFX/Props/bbq_fire.ogg" id="19_fkcxp"]
-[ext_resource type="PackedScene" path="res://Objects/safety_plane.tscn" id="22_dgmkc"]
+[ext_resource type="PackedScene" uid="uid://cdrpgw2um6m6i" path="res://Objects/safety_plane.tscn" id="22_dgmkc"]
 [ext_resource type="PackedScene" uid="uid://djvhkhmcy0tn5" path="res://Shaders/shader_caching_onpath.tscn" id="23_avm5o"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mr8n6"]
