@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://dhfyssjtwfl14"]
+[gd_scene load_steps=58 format=3 uid="uid://dhfyssjtwfl14"]
 
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="1_bygm1"]
 [ext_resource type="Script" uid="uid://cy572sir651f7" path="res://Levels/indi_trap.gd" id="1_d7yk7"]
@@ -96,6 +96,9 @@ size = Vector3(9.523728, 6.3348722, 0.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d7yk7"]
 size = Vector3(17.588078, 5.476385, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bygm1"]
+size = Vector3(1.3359375, 2.6139526, 0.77711105)
 
 [node name="Node3D" type="Node3D"]
 
@@ -790,3 +793,12 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10.3
 
 [node name="rug_black_flora" parent="." instance=ExtResource("32_knihp")]
 transform = Transform3D(0.9846193, 0, 0.17471373, 0, 1, 0, -0.17471373, 0, 0.9846193, 38.317146, 0.23222542, -1.6908236)
+
+[node name="HoldThosePlantsBack!" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 41.389153, 0, -1.0370173)
+collision_layer = 512
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HoldThosePlantsBack!"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8069763, -0.25896454)
+shape = SubResource("BoxShape3D_bygm1")

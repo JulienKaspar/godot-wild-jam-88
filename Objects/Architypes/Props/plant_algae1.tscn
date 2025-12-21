@@ -10,6 +10,7 @@ radius = 0.359375
 [node name="Plant2" type="Node3D"]
 
 [node name="PropCollider" parent="." instance=ExtResource("1_3ni0i")]
+collision_mask = 575
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PropCollider"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6809082, 0)
