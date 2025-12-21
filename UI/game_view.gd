@@ -2,6 +2,7 @@ extends Node
 @onready var main_menu: MainMenu = %MainMenu
 @onready var settings_menu: SettingsMenu = %SettingsMenu
 @onready var pause_menu: PauseMenu = %PauseMenu
+@onready var credits_screen: CreditScreen = %CreditScreen
 @onready var hud: HUD = %HUD
 @onready var menu_displayer: Control = %MenuDisplayer
 @onready var dialogue_system: Control = %DialogueSystem
@@ -93,6 +94,13 @@ func show_paused_menu() -> void:
 	pause_menu.open()
 	settings_menu.hide()
 	hud.hide()
+	
+func end_credits() -> void:
+	pause_menu.hide()
+	settings_menu.hide()
+	hud.hide()
+	main_menu.hide()
+	credits_screen.show()
 	
 func handle_main_menu_to_settings_transition() -> void:
 	main_menu.show()

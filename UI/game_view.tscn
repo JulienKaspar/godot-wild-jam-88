@@ -29,6 +29,7 @@ shader_parameter/offset_scale = 0.0800000038
 shader_parameter/noise_scale = 3.0000001425
 shader_parameter/distortion_samples = 8
 shader_parameter/drunkness = 0.150000007125
+shader_parameter/bleakness = 0.0
 
 [sub_resource type="Resource" id="Resource_kjk0m"]
 script = ExtResource("14_tk456")

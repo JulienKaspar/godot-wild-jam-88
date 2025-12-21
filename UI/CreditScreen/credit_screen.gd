@@ -20,7 +20,9 @@ func _ready() -> void:
 	
 	
 
+
 func _process(delta: float) -> void:
+	if !visible: return
 	time_elapsed += delta
 	if time_elapsed > start_delay:
 		scrolled += delta * scroll_speed
