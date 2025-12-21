@@ -57,14 +57,14 @@ func play_voice(voice_stream : AudioStream) -> void:
 	voice_player.play()
 
 func duck_singing_volume() -> void:
-	AudioManager.fade_audio_out(singing_player, 0.35)
+	AudioManager.fade_audio_out(singing_player, 0.5)
 	if !voice_player.finished.has_connections():
 		voice_player.finished.connect(restore_singing_volume)
 
 func restore_singing_volume() -> void:
 	await get_tree().create_timer(randf_range(0.35, 0.8)).timeout
 	if !voice_player.playing:
-		AudioManager.fade_audio_in(singing_player, 0.0, 0.35)
+		AudioManager.fade_audio_in(singing_player, 0.0, 0.5)
 	else:
 		restore_singing_volume() # recursion yay!
 
@@ -139,7 +139,7 @@ func set_singing_filter(_enabled : bool, _target_hz : float = -1.0):
 	# tween
 	var t : Tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	#var tween_speed : float = 0.15 if _enabled else 0.35
-	t.tween_property(filter_effect, "cutoff_hz", target_hz, 0.8)
+	t.tween_property(filter_effect, "cutoff_hz", target_hz, 0.5)
 	
 	# disable if setting off
 	if !_enabled:
