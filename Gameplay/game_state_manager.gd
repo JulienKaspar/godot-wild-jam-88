@@ -4,6 +4,8 @@ extends Node
 signal on_paused()
 signal on_unpaused()
 signal show_credits()
+signal show_wasted_screen()
+signal hide_wasted_screen()
 signal on_level_loaded(level_index : int)
 
 @export var starting_level_index: int = 0
@@ -143,10 +145,16 @@ func unpause_game() -> void:
 		
 func handle_sobriety() -> void:
 	if UserSettings.fail_state:
+		player_drunkness.paused = true
+		PlayerMovementUtils.knock_player_down()
+		
 		GameStateManager.dialogue_system.handle_quip_event(DialogueSystem.QuipType.Falling)
-		reset_level()
+		show_wasted_screen.emit()
+		
+
 
 func reset_level() -> void:
+	player_drunkness.paused = false
 	player_drunkness.reset_drunkness()
 
 	load_level_by_index(current_level_index, false)

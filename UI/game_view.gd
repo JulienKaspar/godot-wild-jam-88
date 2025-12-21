@@ -7,6 +7,7 @@ extends Node
 @onready var menu_displayer: Control = %MenuDisplayer
 @onready var dialogue_system: Control = %DialogueSystem
 @onready var schmear_frame: TextureRect = %SchmearFrame
+@onready var wasted_screen: WastedScreen = %WastedScreen
 @export var default_font_theme: Theme
 @export var readability_font_theme: Theme
 
@@ -20,7 +21,8 @@ func _ready() -> void:
 	UserSettings.on_font_toggled.connect(switch_font)
 	settings_menu.on_back.connect(handle_back_button_pressed)
 	main_menu.start_button.grab_focus.call_deferred()
-	
+	GameStateManager.show_wasted_screen.connect(show_wasted_screen)
+	wasted_screen.on_continued.connect(show_game_ui)
 	pause_menu.on_main_menu_opened.connect(handle_main_menu_opened)
 	pause_menu.on_restarted.connect(GameStateManager.reset_level)
 	pause_menu.on_settings_opened.connect(handle_setting_menu_opened)
@@ -103,6 +105,11 @@ func end_credits() -> void:
 	main_menu.hide()
 	credits_screen.show()
 	dialogue_system.hide()
+	
+func show_wasted_screen() -> void:
+	hud.hide()
+	wasted_screen.show()
+	
 	
 func handle_main_menu_to_settings_transition() -> void:
 	main_menu.show()

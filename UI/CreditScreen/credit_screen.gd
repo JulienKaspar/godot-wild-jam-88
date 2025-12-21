@@ -29,6 +29,8 @@ func _process(delta: float) -> void:
 		scroll_container.scroll_vertical = roundi(scrolled)
 
 func _unhandled_key_input(event: InputEvent) -> void:
+	if event.is_action("move_back") || event.is_action("move_forward") || event.is_action("move_left") || event.is_action("move_right"):
+		return
 	if event.is_pressed():
 		scroll_speed = 120 * 2
 	if event.is_released():
