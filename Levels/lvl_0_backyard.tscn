@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://b6vbg26wkrdh3"]
+[gd_scene load_steps=65 format=3 uid="uid://b6vbg26wkrdh3"]
 
 [ext_resource type="Script" uid="uid://blqvicje3efcj" path="res://Levels/Util/lvl_0_backyard_mission_flow.gd" id="1_jtswe"]
 [ext_resource type="Script" uid="uid://42mf003bq52u" path="res://Gameplay/level_teleporter.gd" id="2_jtswe"]
@@ -20,6 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://brc0gdp873p3j" path="res://Assets/Audio/Ambience/ambience_crickets1.ogg" id="15_kfoxe"]
 [ext_resource type="PackedScene" uid="uid://di5fte2dqxs0c" path="res://Assets/Furniture/window1.gltf" id="15_tao4m"]
 [ext_resource type="AudioStream" uid="uid://dwr8w5btu8k4h" path="res://Assets/Audio/UI/intro_fence_break.ogg" id="16_c33jy"]
+[ext_resource type="AudioStream" uid="uid://t2yngijmupfi" path="res://Assets/Audio/SFX/Props/bbq_fire.ogg" id="19_fkcxp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mr8n6"]
 size = Vector3(4.9821777, 3.3790894, 0.18530273)
@@ -450,6 +451,15 @@ max_db = 0.0
 autoplay = true
 max_distance = 12.0
 bus = &"Music"
+
+[node name="BbqFireSound" type="AudioStreamPlayer3D" parent="AmbienceSounds"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7231383, 0.6826178, -7.028783)
+stream = ExtResource("19_fkcxp")
+max_db = 0.0
+autoplay = true
+max_distance = 12.0
+bus = &"Ambience"
+attenuation_filter_cutoff_hz = 10000.0
 
 [node name="StartBlokker" type="StaticBody3D" parent="."]
 
