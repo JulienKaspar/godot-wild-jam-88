@@ -44,28 +44,20 @@ func _connect_signals():
 	GameStateManager.on_level_loaded.connect(_on_level_change)
 
 
-const _LEVEL_VOLUME_OFFSET_DB : float = -9.0
-const _LEVEL_VOLUME_FACTOR : float = 1.5
-
 func _on_level_change(level_index : int):
 	if level_index > 0:
-		if level_index == 6:
+		if level_index > 4:
 			AudioManager.fade_audio_out(music_player)
 			return
 		
 		AudioManager.fade_audio_in(music_player)
 		
-		var _volume_db = _LEVEL_VOLUME_OFFSET_DB - (level_index * _LEVEL_VOLUME_FACTOR)
-		_volume_db = clampf(_volume_db, -60.0, _DEFAULT_VOLUME_DB)
-		
 		if !music_player.playing:
 			music_player.play()
-			AudioManager.fade_audio_in(music_player, _volume_db)
-		else:
-			AudioManager.tween_volume_db(music_player, _volume_db)
+			AudioManager.fade_audio_in(music_player, _DEFAULT_VOLUME_DB)
 			trigger_random_chord_changes()
-			
-		
+		else:
+			AudioManager.tween_volume_db(music_player, _DEFAULT_VOLUME_DB)
 
 #region MUSIC
 # Music themes - enum makes it easily callable from other scripts

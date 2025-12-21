@@ -85,15 +85,17 @@ func _is_audio_player(node : Node) -> bool:
 
 #region DRUNK_FX
 enum FX {
-	STEREO_ENHANCE = 0,
-	CHORUS = 1,
-	PHASER = 2,
-	DELAY = 3,
+	STEREO_ENHANCE,
+	PHASER,
+	CHORUS,
+	DELAY,
 }
 
-const DRUNK_FX_LOW : float = 0.1
+const DRUNK_FX_MIN : float = 0.0
+const DRUNK_FX_LOW : float = 0.15
 const DRUNK_FX_MED : float = 0.35
-const DRUNK_FX_HIGH : float = 0.75
+const DRUNK_FX_HIGH : float = 0.65
+const DRUNK_FX_MAX : float = 1.0
 
 var stereo_enhancer_effect : AudioEffectStereoEnhance
 var chorus_effect : AudioEffectChorus
@@ -105,60 +107,70 @@ var drunk_effect_intensity : float
 func update_drunk_effects(drunk_value : float = -1.0) -> void:
 	drunk_effect_intensity = _remap_drunk_value(drunk_value) if drunk_value > 0.0 else drunk_effect_intensity
 	
-	_update_stereo_enhance_fx(drunk_effect_intensity)
-	_update_phaser_fx(drunk_effect_intensity)
-	_update_chorus_fx(drunk_effect_intensity)
-	
+	if drunk_effect_intensity > DRUNK_FX_LOW:
+		_update_stereo_enhance_fx(drunk_effect_intensity)
+		
+		if drunk_effect_intensity > DRUNK_FX_MED:
+			_update_phaser_fx(drunk_effect_intensity)
+			_update_chorus_fx(drunk_effect_intensity)
+			
+			if drunk_effect_intensity > DRUNK_FX_HIGH:
+				_update_delay_fx(drunk_effect_intensity)
+
+# DRUNK FX LOW
 func _update_stereo_enhance_fx(value) -> void:
-	var pan_value : float = remap(value, DRUNK_FX_LOW, 1.0, 1.0, 4.0)
-	pan_value = clampf(pan_value, 1.0, 4.0)
+	var pan_value : float = remap(value, DRUNK_FX_LOW, DRUNK_FX_MAX, 0.5, 4.0)
+	pan_value = clampf(pan_value, 0.5, 4.0)
 	stereo_enhancer_effect.pan_pullout = pan_value
 	
-func _update_delay_fx(value) -> void:
-	var dry_value = 1.0 - value * 0.25
-	delay_effect.dry = dry_value
-	
-	var tap_level : float = remap(value, DRUNK_FX_HIGH, 1.0, 0.0, 0.25)
-	tap_level = clampf(tap_level, 0.0, 2.5)
-	tap_level = linear_to_db(tap_level)
-	delay_effect.tap1_level_db = tap_level
-	delay_effect.tap2_level_db = tap_level
-	
-	var feedback_level : float = remap(value, DRUNK_FX_HIGH, 1.0, 0.0, 0.25)
-	feedback_level = clampf(feedback_level, 0.0, 0.25)
-	feedback_level = linear_to_db(feedback_level)
-	delay_effect.feedback_level_db = feedback_level
-	
+# DRUNK FX MED
 func _update_phaser_fx(value) -> void:
-	var feedback_value : float = remap(value, DRUNK_FX_HIGH, 1.0, 0.1, 0.4)
-	feedback_value = clampf(feedback_value, 0.1, 0.4)
-	phaser_effect.feedback = feedback_value
-	
-	var rate_hz_value : float = remap(value, DRUNK_FX_HIGH, 1.0, 0.01, 5.0)
-	rate_hz_value = clampf(rate_hz_value, 0.01, 5.0)
+	var rate_hz_value : float = remap(value, DRUNK_FX_HIGH, DRUNK_FX_MAX, 0.01, 4.5)
+	rate_hz_value = clampf(rate_hz_value, 0.01, 0.5)
 	phaser_effect.rate_hz = rate_hz_value
 	
-	var depth_value : float = remap(value, DRUNK_FX_HIGH, 1.0, 0.1, 0.3)
+	var feedback_value : float = remap(value, DRUNK_FX_HIGH, DRUNK_FX_MAX, 0.1, 0.4)
+	feedback_value = clampf(feedback_value, 0.1, 0.3)
+	phaser_effect.feedback = feedback_value
+	
+	var depth_value : float = remap(value, DRUNK_FX_HIGH, DRUNK_FX_MAX, 0.1, 0.3)
 	depth_value = clampf(depth_value, 0.1, 0.3)
 	phaser_effect.depth = depth_value
 	
 func _update_chorus_fx(value) -> void:
-	var dry_value : float = 1.0 - value * 0.5
-	chorus_effect.dry = dry_value
-	
-	var wet_value : float = remap(value, DRUNK_FX_MED, 1.0, 0.0, 0.7)
+	var wet_value : float = remap(value, DRUNK_FX_MED, DRUNK_FX_MAX, 0.0, 0.7)
 	wet_value = clampf(wet_value, 0.0, 0.7)
 	chorus_effect.wet = wet_value
+	
+	var dry_value : float = DRUNK_FX_MAX - wet_value
+	chorus_effect.dry = dry_value
+	
+
+# DRUNK FX HIGH
+func _update_delay_fx(value) -> void:
+	var dry_value = DRUNK_FX_MAX - value * DRUNK_FX_MED
+	delay_effect.dry = dry_value
+	
+	var tap_level : float = remap(value, DRUNK_FX_HIGH, DRUNK_FX_MAX, 0.0, 0.3)
+	tap_level = clampf(tap_level, 0.0, 0.5)
+	tap_level = linear_to_db(tap_level)
+	delay_effect.tap1_level_db = tap_level
+	delay_effect.tap2_level_db = tap_level
+	
+	var feedback_level : float = remap(value, DRUNK_FX_HIGH, DRUNK_FX_MAX, 0.0, 0.3)
+	feedback_level = clampf(feedback_level, 0.0, 0.25)
+	feedback_level = linear_to_db(feedback_level)
+	delay_effect.feedback_level_db = feedback_level
 
 func _remap_drunk_value(value : float) -> float:
 	value = remap(
 		value, 
 		GameStateManager.player_drunkness.min_drunkness, # min input
 		GameStateManager.player_drunkness.max_drunkness, # max input
-		0.0,# min output
-		1.0 # max output
+		DRUNK_FX_MIN,# min output
+		DRUNK_FX_MAX # max output
 	)
-	value = clampf(value, 0.0, 1.0)
+	value = clampf(value, DRUNK_FX_MIN, DRUNK_FX_MAX)
 	return value
 	
 #endregion DRUNK_FX
