@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://dhfyssjtwfl14"]
+[gd_scene load_steps=61 format=3 uid="uid://dhfyssjtwfl14"]
 
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="1_bygm1"]
 [ext_resource type="Script" uid="uid://cy572sir651f7" path="res://Levels/indi_trap.gd" id="1_d7yk7"]
@@ -9,9 +9,10 @@
 [ext_resource type="Material" uid="uid://d4j1l3yoxm3xy" path="res://Assets/Materials/purple_carpet.tres" id="3_62sv4"]
 [ext_resource type="PackedScene" uid="uid://d3unw205fanv5" path="res://Objects/Loot/pickup_beer.tscn" id="3_b2cwn"]
 [ext_resource type="PackedScene" uid="uid://cold18jtw7ak0" path="res://Objects/Architypes/TrippingHazards/slippery_banana_peel.tscn" id="4_d65th"]
+[ext_resource type="PackedScene" uid="uid://cdrpgw2um6m6i" path="res://Objects/safety_plane.tscn" id="4_ho8xf"]
 [ext_resource type="Material" uid="uid://c20xc8e5t6yna" path="res://Assets/Materials/creme_carpet.tres" id="4_l5t6x"]
 [ext_resource type="PackedScene" uid="uid://3kn1j5376oof" path="res://Objects/Architypes/Furniture/table2.tscn" id="5_22idr"]
-[ext_resource type="Script" path="res://Objects/hideable_wall.gd" id="8_44cqs"]
+[ext_resource type="Script" uid="uid://dogbj3gtx3mxu" path="res://Objects/hideable_wall.gd" id="8_44cqs"]
 [ext_resource type="PackedScene" uid="uid://cugf77dasisxg" path="res://Objects/Architypes/Furniture/couch3.tscn" id="8_l5t6x"]
 [ext_resource type="PackedScene" uid="uid://fhev4d48q1qy" path="res://Objects/Architypes/LivingRoom/stairs_wide.tscn" id="8_wnth3"]
 [ext_resource type="PackedScene" uid="uid://dci81bvxxl4nx" path="res://Objects/Architypes/LivingRoom/stairs_thin.tscn" id="10_x788y"]
@@ -26,8 +27,8 @@
 [ext_resource type="PackedScene" uid="uid://d2fq258dik5oo" path="res://Objects/Architypes/Furniture/table1.tscn" id="22_ssr0p"]
 [ext_resource type="PackedScene" uid="uid://d24k31i312cc1" path="res://Objects/Architypes/Props/lamp_standing1.tscn" id="23_a5w72"]
 [ext_resource type="PackedScene" uid="uid://dh3i5uan6dujl" path="res://Objects/Architypes/Props/plant_palm1.tscn" id="23_b2cwn"]
-[ext_resource type="PackedScene" uid="uid://cri5otcpu2ukq" path="res://Assets/Furniture/frame1.gltf" id="24_a5w72"]
-[ext_resource type="PackedScene" path="res://Objects/Architypes/LivingRoom/door.tscn" id="25_elkg8"]
+[ext_resource type="PackedScene" uid="uid://dkigsk0khpxet" path="res://Objects/Architypes/Furniture/frame.tscn" id="24_a5w72"]
+[ext_resource type="PackedScene" uid="uid://c5gvg6210vgku" path="res://Objects/Architypes/LivingRoom/door.tscn" id="25_elkg8"]
 [ext_resource type="PackedScene" uid="uid://ctkeed4oy5kjx" path="res://Objects/Loot/pickup_beer_bottle.tscn" id="25_gq2bh"]
 [ext_resource type="PackedScene" uid="uid://c50jjcmdyr7vp" path="res://Objects/Loot/pickup_beer_cup.tscn" id="25_x788y"]
 [ext_resource type="PackedScene" uid="uid://bl2s2scly01yo" path="res://Objects/Architypes/Props/full_pizza.tscn" id="26_bw3jk"]
@@ -115,6 +116,13 @@ point_count = 5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4658053, -1.1920929e-07, 0.58553493)
 script = ExtResource("1_bygm1")
 metadata/_custom_type_script = "uid://cm1uqdo37kpmi"
+
+[node name="FinalDoor" parent="." instance=ExtResource("25_elkg8")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 41.099106, 0.19532156, -1.035038)
+wall_material = ExtResource("11_62sv4")
+
+[node name="SafetyPlane" parent="." instance=ExtResource("4_ho8xf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.423046, -1.0330356, 3.8836818)
 
 [node name="CameraExit" type="Camera3D" parent="."]
 transform = Transform3D(0.9494803, 0.12513813, -0.287798, 0, 0.9170601, 0.39874908, 0.31382674, -0.3786044, 0.87073046, 37.532288, 3.0456035, 1.9744465)
@@ -225,10 +233,6 @@ shape = SubResource("BoxShape3D_a5w72")
 
 [node name="Layout" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.15581, 0, -21.550133)
-
-[node name="Door7" parent="Layout" instance=ExtResource("25_elkg8")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 17.943296, 0.19532156, 20.515095)
-wall_material = ExtResource("11_62sv4")
 
 [node name="Floor" type="Node3D" parent="Layout"]
 
@@ -800,6 +804,52 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.03
 
 [node name="door_closed6" parent="Decor" instance=ExtResource("30_22idr")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10.359542, 2.310658, 1.003407)
+
+[node name="Frame" parent="Decor" instance=ExtResource("24_a5w72")]
+transform = Transform3D(0.9853097, -0.17077702, 0, 0.17077702, 0.9853097, 0, 0, 0, 1, 17.323885, 3.194279, 0.084251404)
+model_index = 2
+
+[node name="Frame4" parent="Decor" instance=ExtResource("24_a5w72")]
+transform = Transform3D(-0.0050789267, -0.9999871, 0, 0.9999871, -0.0050789267, 0, 0, 0, 1, 19.38018, 3.7778833, 0.08425188)
+
+[node name="Frame5" parent="Decor" instance=ExtResource("24_a5w72")]
+transform = Transform3D(0.18573518, -0.9825999, 0, 0.9825999, 0.18573518, 0, 0, 0, 1, 19.880558, 4.313102, 0.10000801)
+
+[node name="Frame6" parent="Decor" instance=ExtResource("24_a5w72")]
+transform = Transform3D(0.18573518, -0.9825999, 0, 0.9825999, 0.18573518, 0, 0, 0, 1, 20.92777, 3.7933311, 0.10000801)
+model_index = 1
+
+[node name="Frame2" parent="Decor" instance=ExtResource("24_a5w72")]
+transform = Transform3D(-0.08235599, 0.996603, 0, -0.996603, -0.08235599, 0, 0, 0, 1, 13.397463, 2.4883747, 0.084251404)
+
+[node name="Frame3" parent="Decor" instance=ExtResource("24_a5w72")]
+transform = Transform3D(-0.08235599, 0.996603, 0, -0.996603, -0.08235599, 0, 0, 0, 1, 13.94499, 3.1336768, 0.084251404)
+model_index = 1
+
+[node name="Frame7" parent="Decor" instance=ExtResource("24_a5w72")]
+transform = Transform3D(0.70131016, 0, 0, 0, 0.70131016, 0, 0, 0, 0.70131016, 22.998568, 6.1360617, -1.7021587)
+model_index = 2
+
+[node name="Frame8" parent="Decor" instance=ExtResource("24_a5w72")]
+transform = Transform3D(0.85257316, 0, 0, 0, 0.85257316, 0, 0, 0, 0.85257316, 23.774343, 5.1336784, -1.7021587)
+
+[node name="Frame9" parent="Decor" instance=ExtResource("24_a5w72")]
+transform = Transform3D(-0.12407541, -0.84349644, 0, 0.84349644, -0.12407541, 0, 0, 0, 0.85257316, 22.984953, 5.118046, -1.7021587)
+
+[node name="Frame10" parent="Decor" instance=ExtResource("24_a5w72")]
+transform = Transform3D(-0.12407541, -0.84349644, 0, 0.84349644, -0.12407541, 0, 0, 0, 0.85257316, 27.908545, 4.4813657, -1.7021587)
+model_index = 1
+
+[node name="Frame11" parent="Decor" instance=ExtResource("24_a5w72")]
+transform = Transform3D(0.1707339, -0.8353029, 0, 0.8353029, 0.1707339, 0, 0, 0, 0.85257304, 28.450506, 3.7838244, -1.7021587)
+model_index = 1
+
+[node name="Frame12" parent="Decor" instance=ExtResource("24_a5w72")]
+transform = Transform3D(-0.06888819, -0.88045466, 0, 0.56594837, -0.107170425, 0, 0, 0, 0.852573, 30.236301, 2.5178282, -1.7021587)
+model_index = 2
+
+[node name="window_1_curtain" parent="Decor" instance=ExtResource("17_2nj4m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.63913, 1.9852259, -5.43076)
 
 [node name="rug_black_flora" parent="." instance=ExtResource("32_knihp")]
 transform = Transform3D(0.9846193, 0, 0.17471373, 0, 1, 0, -0.17471373, 0, 0.9846193, 38.317146, 0.23222542, -1.6908236)

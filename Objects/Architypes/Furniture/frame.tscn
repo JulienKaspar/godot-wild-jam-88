@@ -1,0 +1,16 @@
+[gd_scene load_steps=7 format=3 uid="uid://dkigsk0khpxet"]
+
+[ext_resource type="Script" uid="uid://bfscaiegqo0r1" path="res://Objects/Architypes/Furniture/frame.gd" id="1_4kbqo"]
+[ext_resource type="Material" uid="uid://ctmyo6fovqoco" path="res://Assets/Materials/frame_pictures/schweini.tres" id="2_061hc"]
+[ext_resource type="PackedScene" uid="uid://cri5otcpu2ukq" path="res://Assets/Furniture/frame1.gltf" id="3_26oui"]
+[ext_resource type="PackedScene" uid="uid://bndaukkcv8gd6" path="res://Assets/Furniture/frame2.gltf" id="4_hgxpv"]
+[ext_resource type="PackedScene" uid="uid://vjqdqfphlsvs" path="res://Assets/Furniture/frame3.gltf" id="5_7aqnw"]
+[ext_resource type="PackedScene" uid="uid://cqqumnpk2g13b" path="res://Assets/Furniture/frame4.gltf" id="6_vl1qm"]
+
+[node name="Frame" type="Node3D" node_paths=PackedStringArray("model_slot")]
+script = ExtResource("1_4kbqo")
+picture_material = ExtResource("2_061hc")
+models = Array[PackedScene]([ExtResource("3_26oui"), ExtResource("4_hgxpv"), ExtResource("5_7aqnw"), ExtResource("6_vl1qm")])
+model_slot = NodePath("model")
+
+[node name="model" type="Node3D" parent="."]
