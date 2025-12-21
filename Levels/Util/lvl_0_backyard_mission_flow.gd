@@ -36,6 +36,8 @@ func _on_glass_trigger_body_entered(body: Node3D) -> void:
 	if glass_alive:
 		$PfxGlassdoorBreak.emitting = true
 		$PfxGlassdoorBreak/GlassMesh.hide()
+		$AmbienceSounds/GlassBreak.play()
+		glass_alive = false
 		
 
 
