@@ -1,19 +1,20 @@
-[gd_scene load_steps=56 format=3 uid="uid://dpy3h6kf53s5j"]
+[gd_scene load_steps=57 format=3 uid="uid://dpy3h6kf53s5j"]
 
 [ext_resource type="PackedScene" uid="uid://d24k31i312cc1" path="res://Objects/Architypes/Props/lamp_standing1.tscn" id="1_buw6o"]
-[ext_resource type="Script" uid="uid://8px1bb7haxfx" path="res://Levels/Util/lvl_1_straight_ahead_mission_flow.gd" id="1_ra8ms"]
+[ext_resource type="Script" path="res://Levels/Util/lvl_1_straight_ahead_mission_flow.gd" id="1_ra8ms"]
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="1_rqsde"]
 [ext_resource type="PackedScene" uid="uid://dh3i5uan6dujl" path="res://Objects/Architypes/Props/plant_palm1.tscn" id="3_ahqed"]
+[ext_resource type="PackedScene" uid="uid://cdrpgw2um6m6i" path="res://Objects/safety_plane.tscn" id="3_na4ed"]
 [ext_resource type="Material" uid="uid://dmxe2qlk68jn" path="res://Assets/Materials/reddish_floral_wall.tres" id="4_5d0l3"]
 [ext_resource type="PackedScene" uid="uid://fhev4d48q1qy" path="res://Objects/Architypes/LivingRoom/stairs_wide.tscn" id="5_5d0l3"]
 [ext_resource type="PackedScene" uid="uid://cs4digbuoekpl" path="res://Objects/Architypes/Furniture/shelf2.tscn" id="5_crrcm"]
 [ext_resource type="Material" uid="uid://c40katw3nlw77" path="res://Assets/Materials/green_carpet.tres" id="5_va1hs"]
 [ext_resource type="PackedScene" uid="uid://dkigsk0khpxet" path="res://Objects/Architypes/Furniture/frame1.tscn" id="5_y6gv2"]
-[ext_resource type="Script" path="res://Objects/hideable_wall.gd" id="6_xxf8q"]
+[ext_resource type="Script" uid="uid://dogbj3gtx3mxu" path="res://Objects/hideable_wall.gd" id="6_xxf8q"]
 [ext_resource type="Material" uid="uid://b23iqfg3em6ty" path="res://Assets/Materials/wooden_wall.tres" id="8_okfwc"]
 [ext_resource type="Material" uid="uid://c20xc8e5t6yna" path="res://Assets/Materials/creme_carpet.tres" id="8_y6gv2"]
 [ext_resource type="PackedScene" uid="uid://j1b5yvs8pnux" path="res://Objects/Architypes/Furniture/table_round1.tscn" id="9_82upk"]
-[ext_resource type="PackedScene" path="res://Objects/Architypes/LivingRoom/door.tscn" id="10_va1hs"]
+[ext_resource type="PackedScene" uid="uid://c5gvg6210vgku" path="res://Objects/Architypes/LivingRoom/door.tscn" id="10_va1hs"]
 [ext_resource type="PackedScene" uid="uid://d3unw205fanv5" path="res://Objects/Loot/pickup_beer.tscn" id="11_2icu1"]
 [ext_resource type="Material" uid="uid://l1sgod1lv1b6" path="res://Assets/Materials/yellow_floral_wall.tres" id="11_y6gv2"]
 [ext_resource type="PackedScene" uid="uid://d2fq258dik5oo" path="res://Objects/Architypes/Furniture/table1.tscn" id="12_gh4oo"]
@@ -103,6 +104,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19977641, 1.9073486e-06, -
 script = ExtResource("1_rqsde")
 metadata/_custom_type_script = "uid://cm1uqdo37kpmi"
 
+[node name="FinalDoor" parent="." instance=ExtResource("10_va1hs")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 20.37812, 2.256463, -19.91583)
+wall_material = ExtResource("4_5d0l3")
+
+[node name="SafetyPlane" parent="." instance=ExtResource("3_na4ed")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.380575, -0.79478216, -2.5209475)
+
 [node name="CameraExit" type="Camera3D" parent="."]
 transform = Transform3D(0.7253744, 0.27448076, -0.6312625, 0, 0.9170601, 0.39874908, 0.68835455, -0.2892424, 0.6652119, 15.651, 4.615, -15.719)
 fov = 55.0
@@ -176,10 +184,6 @@ spot_range = 14.537593
 spot_angle = 41.104908
 
 [node name="Layout" type="Node3D" parent="."]
-
-[node name="Door" parent="Layout" instance=ExtResource("10_va1hs")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 20.37812, 2.256463, -19.91583)
-wall_material = ExtResource("4_5d0l3")
 
 [node name="Floor" type="Node3D" parent="Layout"]
 

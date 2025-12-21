@@ -1,9 +1,10 @@
-[gd_scene load_steps=50 format=3 uid="uid://cfeukfanfm516"]
+[gd_scene load_steps=51 format=3 uid="uid://cfeukfanfm516"]
 
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="1_2o66m"]
 [ext_resource type="Material" uid="uid://d4j1l3yoxm3xy" path="res://Assets/Materials/purple_carpet.tres" id="2_4djw3"]
 [ext_resource type="PackedScene" uid="uid://0citmm75hpfv" path="res://Objects/Architypes/Furniture/couch4.tscn" id="2_fgeje"]
 [ext_resource type="PackedScene" uid="uid://fhev4d48q1qy" path="res://Objects/Architypes/LivingRoom/stairs_wide.tscn" id="3_cc2k6"]
+[ext_resource type="PackedScene" uid="uid://cdrpgw2um6m6i" path="res://Objects/safety_plane.tscn" id="4_1c67v"]
 [ext_resource type="Material" uid="uid://c20xc8e5t6yna" path="res://Assets/Materials/creme_carpet.tres" id="4_fgeje"]
 [ext_resource type="PackedScene" uid="uid://dci81bvxxl4nx" path="res://Objects/Architypes/LivingRoom/stairs_thin.tscn" id="5_bnuft"]
 [ext_resource type="Material" uid="uid://dmxe2qlk68jn" path="res://Assets/Materials/reddish_floral_wall.tres" id="5_ue5od"]
@@ -20,9 +21,9 @@
 [ext_resource type="PackedScene" uid="uid://cold18jtw7ak0" path="res://Objects/Architypes/TrippingHazards/slippery_banana_peel.tscn" id="19_f5grc"]
 [ext_resource type="PackedScene" uid="uid://d2fq258dik5oo" path="res://Objects/Architypes/Furniture/table1.tscn" id="21_vrn81"]
 [ext_resource type="PackedScene" uid="uid://bwm23c42sbbui" path="res://Objects/Architypes/Props/lamp_table1.tscn" id="22_kps16"]
-[ext_resource type="PackedScene" path="res://Objects/Architypes/Props/pizza_box.tscn" id="22_s2djd"]
+[ext_resource type="PackedScene" uid="uid://xu48fxr0n02f" path="res://Objects/Architypes/Props/pizza_box.tscn" id="22_s2djd"]
 [ext_resource type="PackedScene" uid="uid://cbj1xsvngkbla" path="res://Assets/LivingRoom/door_closed.gltf" id="23_4djw3"]
-[ext_resource type="PackedScene" path="res://Objects/Architypes/LivingRoom/door.tscn" id="23_ur1xt"]
+[ext_resource type="PackedScene" uid="uid://c5gvg6210vgku" path="res://Objects/Architypes/LivingRoom/door.tscn" id="23_ur1xt"]
 [ext_resource type="PackedScene" uid="uid://d3padysgagsbx" path="res://Objects/Architypes/TrippingHazards/tripping_rug.tscn" id="24_2o66m"]
 [ext_resource type="PackedScene" uid="uid://d24k31i312cc1" path="res://Objects/Architypes/Props/lamp_standing1.tscn" id="24_77x17"]
 [ext_resource type="PackedScene" uid="uid://bl2s2scly01yo" path="res://Objects/Architypes/Props/full_pizza.tscn" id="24_536uo"]
@@ -90,6 +91,13 @@ point_count = 6
 [node name="PlayerSpawnPoint" type="Node3D" parent="."]
 script = ExtResource("1_2o66m")
 metadata/_custom_type_script = "uid://cm1uqdo37kpmi"
+
+[node name="FinalDoor" parent="." instance=ExtResource("23_ur1xt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.092375, -0.020135641, 13.78611)
+wall_material = ExtResource("5_ue5od")
+
+[node name="SafetyPlane" parent="." instance=ExtResource("4_1c67v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.576897, -1.6660763, 16.42501)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4djw3")
@@ -178,10 +186,6 @@ spot_angle = 34.41
 
 [node name="Layout" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.084337, 0, 5.504731)
-
-[node name="Door6" parent="Layout" instance=ExtResource("23_ur1xt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.176712, -0.020135641, 8.281379)
-wall_material = ExtResource("5_ue5od")
 
 [node name="Floor" type="Node3D" parent="Layout"]
 
