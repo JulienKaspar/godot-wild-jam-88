@@ -45,6 +45,7 @@
 [ext_resource type="Texture2D" uid="uid://ttnt843dqh5f" path="res://Assets/2D_Assets/Fire_Anim/fire_anim_atlas.png" id="42_qsgyk"]
 [ext_resource type="PackedScene" uid="uid://cri5otcpu2ukq" path="res://Assets/Furniture/frame1.gltf" id="42_uyt62"]
 [ext_resource type="PackedScene" uid="uid://wrdfnbkf7w2k" path="res://Objects/Architypes/Props/candle1.tscn" id="45_csti4"]
+[ext_resource type="AudioStream" uid="uid://t2yngijmupfi" path="res://Assets/Audio/SFX/Props/bbq_fire.ogg" id="46_pmix6"]
 
 [sub_resource type="Environment" id="Environment_jwfug"]
 background_mode = 1
@@ -883,3 +884,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7780514, 1.1723398, -6.5526
 
 [node name="DrunknessPickup" parent="." instance=ExtResource("28_18f06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.711766, 1.1684225, -6.201976)
+
+[node name="FirePlaceSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6, 0.25, -6)
+stream = ExtResource("46_pmix6")
+max_db = 0.0
+autoplay = true
+max_distance = 7.0
+bus = &"Ambience"
+emission_angle_enabled = true
+emission_angle_degrees = 60.0
+attenuation_filter_cutoff_hz = 10000.0
