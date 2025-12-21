@@ -17,6 +17,8 @@ func get_player_distance() -> float:
 	return distance
 
 func _process(_delta):
+	if GameStateManager.inCacheMode: return
+	
 	if get_player_distance() < music_trigger_radius and !music_on:
 		voice_clip = AudioManager.player_sounds.singing_player.stream.get_clip_stream(1) # song loop
 		AudioManager.player_sounds.singing_player.play()

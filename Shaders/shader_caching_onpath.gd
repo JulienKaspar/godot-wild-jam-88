@@ -1,5 +1,6 @@
 extends Camera3D
 class_name ShaderCacheCamera
+signal completed()
 
 var checkedPoint: int = 0
 var pointCount: int = 0
@@ -27,11 +28,13 @@ func startCache() -> void:
 	show()
 	current = true
 	isCaching = true
-	print("Shader cache started")
+	print("Shader cache started in level")
 	pointCount = get_parent().curve.get_baked_points().size()
 
 func doneCache() -> void:
+	GameStateManager.precacheCam = null
 	hide()
 	current = false
 	isCaching = false
-	print("Shader cache complete")
+	print("Shader cache completed here")
+	completed.emit()

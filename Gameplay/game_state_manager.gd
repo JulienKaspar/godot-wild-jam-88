@@ -23,6 +23,7 @@ var current_level_index: int
 var loading_into_level_index: int # need this to be set before level starts loading
 var loading_screen: LoadingScreen
 var precacheCam: Camera3D
+var inCacheMode = false
 
 func _ready() -> void:
 	get_tree().paused = true
@@ -64,8 +65,21 @@ func start_game() -> void:
 func cache_shaders() -> void:
 	loading_screen.display_indefinite(false)
 	loading_screen.label.text = "Caching Shaders..."
-	var instance: ShaderCashing = level_loader.load_level(shader_cashing_level)
-	await instance.completed
+
+	#pause_game()
+	#unpause_game()
+	inCacheMode = true
+	var index = 0
+	for level in levels:
+		var loaded_level = level_loader.load_level(levels[index])
+		if precacheCam:
+			print("level has shaders to load:" + levels[index].get_path())
+			precacheCam.startCache()
+			await precacheCam.completed
+		index += 1
+	#var instance: ShaderCashing = level_loader.load_level(shader_cashing_level)
+	#await instance.completed
+	inCacheMode = false
 	loading_screen.close()
 
 func find_spawn_point_in_level(level: Node3D) -> Vector3:

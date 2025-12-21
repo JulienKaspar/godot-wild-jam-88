@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cyksrihj0achx" path="res://Particles/Player/pfx_falling_indicator.tscn" id="8_hy3tp"]
 
 [node name="ShaderCachingOnpath" type="Camera3D"]
+process_mode = 3
 script = ExtResource("1_abkta")
 
 [node name="PfxBananaSlip" parent="." instance=ExtResource("2_kevtw")]
