@@ -81,7 +81,7 @@ size = Vector3(0.89089966, 2.378662, 0.2575302)
 size = Vector3(3.0974426, 2.7067375, 2.824997)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2c0cr"]
-size = Vector3(3.0959473, 3.1756592, 1.3336182)
+size = Vector3(8.234375, 3.1756592, 1.3336182)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bv1kn"]
 size = Vector3(2.0544434, 2.9229736, 0.49495697)
@@ -322,6 +322,18 @@ tracks/20/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("CameraRoot/PlayerFollowSpot:spot_angle")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [34.433174]
 }
 
 [sub_resource type="Animation" id="Animation_m6ev1"]
@@ -569,7 +581,7 @@ tracks/2/path = NodePath("Fridge/Fridge Light2:light_energy")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.9666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [8.86, 0.0]
@@ -581,7 +593,7 @@ tracks/3/path = NodePath("Fridge/Fridge Light Crack:light_energy")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.96666664),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [9.957, 0.0]
@@ -626,13 +638,13 @@ tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/path = NodePath("CameraRoot/PlayerFollowSpot:light_energy")
-tracks/7/interp = 1
+tracks/7/interp = 2
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0.33333334, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.33333334, 0.76666665, 2.8333333),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.0, 16.0]
+"values": [0.0, 11.414, 16.0]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -653,6 +665,18 @@ tracks/9/path = NodePath("CameraRoot/Camera3D")
 tracks/9/interp = 2
 tracks/9/loop_wrap = true
 tracks/9/keys = PackedFloat32Array(0, 1, 0, 0.423, -5.897, 3.4, 1, 0, 1.0534431, -9.858949)
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CameraRoot/PlayerFollowSpot:spot_angle")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(1, 4.44),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [34.433174, 71.2]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bv1kn"]
 _data = {
@@ -667,11 +691,11 @@ _data = {
 size = Vector3(8.106323, 5.710083, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r6pq0"]
-size = Vector3(22.134277, 5.031006, 1.359436)
+size = Vector3(83.969, 5.031, 1.359)
 
 [sub_resource type="BoxMesh" id="BoxMesh_pt5ak"]
 material = ExtResource("15_bv1kn")
-size = Vector3(45.72, 1, 18.79)
+size = Vector3(100, 1, 18.79)
 
 [node name="LvlEndKitchen" type="Node3D"]
 script = ExtResource("1_6kd8d")
@@ -806,6 +830,7 @@ light_energy = 0.0
 shadow_enabled = true
 spot_range = 5.31518
 spot_angle = 18.299536
+spot_angle_attenuation = 3.8637452
 
 [node name="fridge_door_left" parent="Fridge" instance=ExtResource("3_kqsjv")]
 transform = Transform3D(-0.72293913, 0, 0.6909116, 0, 1, 0, -0.6909116, 0, -0.72293913, 0.1981211, 1.1838306, 0.00064373016)
@@ -853,7 +878,7 @@ collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Fridge/FridgeOutsideArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0878296, -0.034584045)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0878296, -0.8203409)
 shape = SubResource("BoxShape3D_2c0cr")
 
 [node name="PfxFridgeBottomMist" parent="Fridge" instance=ExtResource("12_2c0cr")]
@@ -988,23 +1013,27 @@ collision_mask = 0
 freeze = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CreditsCollision"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6813965, 0.96447754, 3.7557068)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6813965, 0.96447754, 3.5539398)
 shape = SubResource("BoxShape3D_r6pq0")
+disabled = true
 debug_color = Color(0.8235294, 0, 0.9647059, 1)
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="CreditsCollision"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6813965, 0.96447754, -3.382979)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6813965, 0.96447754, -1.9802945)
 shape = SubResource("BoxShape3D_r6pq0")
+disabled = true
 debug_color = Color(0.8235294, 0, 0.9647059, 1)
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="CreditsCollision"]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9.624471, 0.96447754, 0.558059)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 36.51861, 0.96447754, 0.558059)
 shape = SubResource("BoxShape3D_r6pq0")
+disabled = true
 debug_color = Color(0.8235294, 0, 0.9647059, 1)
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="CreditsCollision"]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -13.046584, 0.96447754, 0.558059)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -43.677505, 0.96447754, 0.558059)
 shape = SubResource("BoxShape3D_r6pq0")
+disabled = true
 debug_color = Color(0.8235294, 0, 0.9647059, 1)
 
 [node name="CreditsRoom" type="Node3D" parent="."]
@@ -1027,12 +1056,12 @@ blendInTime = 0.0
 [node name="PlayerFollowSpot" type="SpotLight3D" parent="CameraRoot"]
 transform = Transform3D(1, 0, 0, 0, -0.22455989, 0.97446036, 0, -0.97446036, -0.22455989, -0.42109767, 4.7442245, -2.1033173)
 visible = false
-light_color = Color(0.9364835, 0.8130901, 0.78913975, 1)
+light_color = Color(0.8773318, 0.83382785, 0.8198783, 1)
 light_energy = 0.0
 shadow_enabled = true
-spot_range = 8.434004
+spot_range = 6.571068
 spot_angle = 34.433174
-spot_angle_attenuation = 10.1964655
+spot_angle_attenuation = 3.999994
 
 [connection signal="Switched" from="Fridge/InteractSwitch" to="." method="_on_interact_switch_switched"]
 [connection signal="body_entered" from="Fridge/FridgeOutsideArea" to="." method="_on_fridge_inside_area_body_entered"]
