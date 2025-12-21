@@ -21,10 +21,10 @@
 [ext_resource type="PackedScene" uid="uid://di5fte2dqxs0c" path="res://Assets/Furniture/window1.gltf" id="15_tao4m"]
 [ext_resource type="AudioStream" uid="uid://dwr8w5btu8k4h" path="res://Assets/Audio/UI/intro_fence_break.ogg" id="16_c33jy"]
 [ext_resource type="AudioStream" uid="uid://t2yngijmupfi" path="res://Assets/Audio/SFX/Props/bbq_fire.ogg" id="19_fkcxp"]
-[ext_resource type="PackedScene" uid="uid://cdrpgw2um6m6i" path="res://Objects/safety_plane.tscn" id="22_dgmkc"]
+[ext_resource type="PackedScene" path="res://Objects/safety_plane.tscn" id="22_dgmkc"]
 [ext_resource type="PackedScene" uid="uid://djvhkhmcy0tn5" path="res://Shaders/shader_caching_onpath.tscn" id="23_avm5o"]
-[ext_resource type="Material" uid="uid://dcwhprpxasi1k" path="res://Particles/Moth/proc_gpu_moths.tres" id="24_k3ksw"]
-[ext_resource type="QuadMesh" uid="uid://b18jfrn325imy" path="res://Particles/Moth/draw_moths_a.tres" id="25_go0n3"]
+[ext_resource type="Material" uid="uid://b0yapmto6mf3m" path="res://Particles/Moth/proc_gpu_moths.tres" id="24_k3ksw"]
+[ext_resource type="QuadMesh" uid="uid://dc3s4t3oon4gi" path="res://Particles/Moth/draw_moths_a.tres" id="25_go0n3"]
 [ext_resource type="PackedScene" uid="uid://dllg3pgdjal2i" path="res://Particles/Glass_Shards/pfx_glassdoor_break.tscn" id="26_go0n3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mr8n6"]
@@ -88,7 +88,7 @@ stream_count = 2
 stream_0/stream = ExtResource("10_5g7ny")
 stream_0/volume = 6.0
 stream_1/stream = ExtResource("15_kfoxe")
-stream_1/volume = -15.0
+stream_1/volume = -4.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tao4m"]
 size = Vector3(6.743408, 4.0372314, 1)

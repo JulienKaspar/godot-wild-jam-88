@@ -22,15 +22,12 @@ var is_drinking : bool = false
 
 var ducking_singing : bool = false
 
-#@export_range(0.0, 1.0) var burp_nastiness : float = UserSettings.burp_nastiness:
-	#set(value):
-		#select_burps(value)
-
 func _ready():
 	# setup singleton
 	if AudioManager.player_sounds == null:
 		AudioManager.player_sounds = self
 	
+	setup_player_bus()
 	setup_burps()
 	setup_hiccups()
 	setup_drinking()
@@ -69,6 +66,11 @@ func restore_singing_volume() -> void:
 		AudioManager.fade_audio_in(singing_player, 0.0, 0.5)
 	else:
 		restore_singing_volume() # recursion yay!
+
+func setup_player_bus():
+	footstep_player.bus = AudioServer.get_bus_name(AudioManager.BUS.PLAYER)
+	voice_player.bus = AudioServer.get_bus_name(AudioManager.BUS.PLAYER)
+	singing_player.bus = AudioServer.get_bus_name(AudioManager.BUS.PLAYER)
 
 func setup_burps() -> void:
 	burp_timer = Timer.new()
@@ -123,24 +125,17 @@ const _FILTER_FX = 0
 var filter_effect : AudioEffectLowPassFilter = AudioServer.get_bus_effect(AudioManager.BUS.PLAYER, _FILTER_FX)
 
 func set_singing_filter(_enabled : bool, _target_hz : float = -1.0):
-	# target value
 	var target_hz : float = _target_hz
+	
 	if _target_hz < 0:
 		target_hz = _FILTER_CUTOFF_HZ_ON if _enabled else _FILTER_CUTOFF_HZ_OFF
-	
-	# start value
+		
 	filter_effect.cutoff_hz = _FILTER_CUTOFF_HZ_OFF if _enabled else _FILTER_CUTOFF_HZ_ON
-	
-	# enable if setting on
+
 	if _enabled: AudioServer.set_bus_effect_enabled(AudioManager.BUS.PLAYER, _FILTER_FX, _enabled) # enable effect
 	
-	# tween
 	var t : Tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
-	#var tween_speed : float = 0.15 if _enabled else 0.35
 	t.tween_property(filter_effect, "cutoff_hz", target_hz, 0.5)
-	
-	# disable if setting off
 	if !_enabled:
-		# wait for tween to finish
 		await t.finished
 		AudioServer.set_bus_effect_enabled(AudioManager.BUS.PLAYER, _FILTER_FX, _enabled)
