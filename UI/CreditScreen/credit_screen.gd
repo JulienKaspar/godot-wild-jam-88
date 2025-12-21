@@ -1,7 +1,7 @@
 extends PanelContainer
 class_name CreditScreen
 
-@export var scroll_speed: float = 100
+@export var scroll_speed: float = 120
 @export var start_delay: float = 1
 @export var commits: Array[Credit]
 @export var credit_scene: PackedScene
@@ -27,3 +27,9 @@ func _process(delta: float) -> void:
 	if time_elapsed > start_delay:
 		scrolled += delta * scroll_speed
 		scroll_container.scroll_vertical = roundi(scrolled)
+
+func _unhandled_key_input(event: InputEvent) -> void:
+	if event.is_pressed():
+		scroll_speed = 120 * 2
+	if event.is_released():
+		scroll_speed = float(120) / float(2)
