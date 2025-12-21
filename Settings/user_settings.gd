@@ -10,11 +10,11 @@ signal on_settings_updated()
 signal on_font_toggled(readability_font: bool)
 
 #volume
-var master_volume: float = 1
-var music_volume: float = .6
-var sfx_volume: float = 1
-var ambience_volume : float = 1
-var ui_volume: float = 1
+var master_volume: float = .8
+var music_volume: float = .8
+var sfx_volume: float = .8
+var ambience_volume : float = .8
+var ui_volume: float = .8
 var disorienting_sounds_enabled: bool = true
 var burp_nastiness: float = 0.5:
 	set(value):
