@@ -153,6 +153,7 @@ loading_screen_confirm={
 3d_physics/layer_7="IK Raycast"
 3d_physics/layer_8="Stairs"
 3d_physics/layer_9="HelperShape"
+3d_physics/layer_10="PropStopper"
 
 [physics]
 
