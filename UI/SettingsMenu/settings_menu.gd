@@ -6,7 +6,7 @@ class_name SettingsMenu
 @onready var accesibility_tab_button: TextureButton = %AccesibilityTabButton
 @onready var visual_tab_button: TextureButton = %VisualTabButton
 @onready var tab_container: TabContainer = %TabContainer
-@onready var back_button: Button = %BackButton
+@onready var back_button: TextureButton = %BackButton
 @onready var fence_background: TextureRect = %FenceBackground
 @onready var game_background: TextureRect = %GameBackground
 signal on_back()
