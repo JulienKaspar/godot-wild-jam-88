@@ -39,8 +39,12 @@ func play_sound(_stream : AudioStream):
 		self.stream = _stream
 		self.play()
 
+var burp_intensity : float
 
 func select_burps(intensity : float) -> void:
+	if burp_intensity == intensity: return 
+	else: burp_intensity = intensity
+	
 	var sum : float = burp_sounds.streams_count
 	var mean : float = sum * intensity
 	var center : int = round(mean)
