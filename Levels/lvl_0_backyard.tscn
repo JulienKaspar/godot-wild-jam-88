@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://b6vbg26wkrdh3"]
+[gd_scene load_steps=74 format=3 uid="uid://b6vbg26wkrdh3"]
 
 [ext_resource type="Script" uid="uid://blqvicje3efcj" path="res://Levels/Util/lvl_0_backyard_mission_flow.gd" id="1_jtswe"]
 [ext_resource type="Script" uid="uid://42mf003bq52u" path="res://Gameplay/level_teleporter.gd" id="2_jtswe"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://djvhkhmcy0tn5" path="res://Shaders/shader_caching_onpath.tscn" id="23_avm5o"]
 [ext_resource type="Material" uid="uid://dcwhprpxasi1k" path="res://Particles/Moth/proc_gpu_moths.tres" id="24_k3ksw"]
 [ext_resource type="QuadMesh" uid="uid://b18jfrn325imy" path="res://Particles/Moth/draw_moths_a.tres" id="25_go0n3"]
+[ext_resource type="PackedScene" uid="uid://dllg3pgdjal2i" path="res://Particles/Glass_Shards/pfx_glassdoor_break.tscn" id="26_go0n3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mr8n6"]
 size = Vector3(4.9821777, 3.3790894, 0.18530273)
@@ -189,6 +190,18 @@ _data = {
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_23oor"]
+size = Vector3(3.533081, 2.9213867, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3unou"]
+transparency = 1
+albedo_color = Color(0.7405404, 0.7995323, 0.94530314, 0.24705882)
+roughness = 0.11
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3gana"]
+material = SubResource("StandardMaterial3D_3unou")
+size = Vector2(3.72, 2.635)
 
 [node name="LevelBackyard" type="Node3D" node_paths=PackedStringArray("startCam", "firstDrink", "StartBlockers", "StartTable")]
 script = ExtResource("1_jtswe")
@@ -653,3 +666,20 @@ amount = 5
 lifetime = 10.0
 process_material = ExtResource("24_k3ksw")
 draw_pass_1 = ExtResource("25_go0n3")
+
+[node name="PfxGlassdoorBreak" parent="." instance=ExtResource("26_go0n3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38022912, 0.27770996, -22.990938)
+
+[node name="glass_trigger" type="Area3D" parent="PfxGlassdoorBreak"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PfxGlassdoorBreak/glass_trigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08306885, 0.96069336, -0.26849747)
+shape = SubResource("BoxShape3D_23oor")
+
+[node name="GlassMesh" type="MeshInstance3D" parent="PfxGlassdoorBreak"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 1.2746016, 0)
+mesh = SubResource("PlaneMesh_3gana")
+
+[connection signal="body_entered" from="PfxGlassdoorBreak/glass_trigger" to="." method="_on_glass_trigger_body_entered"]

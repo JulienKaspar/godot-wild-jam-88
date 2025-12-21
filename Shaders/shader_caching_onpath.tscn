@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://djvhkhmcy0tn5"]
+[gd_scene load_steps=10 format=3 uid="uid://djvhkhmcy0tn5"]
 
 [ext_resource type="Script" uid="uid://7c1i364eqput" path="res://Shaders/shader_caching_onpath.gd" id="1_abkta"]
 [ext_resource type="PackedScene" uid="uid://ipb5qq76r2qn" path="res://Particles/Banana_Slip/pfx_banana_slip.tscn" id="2_kevtw"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cup17xrrbj5on" path="res://Particles/DrunknessPickups/pfx_pizza_consuming.tscn" id="6_3a0sb"]
 [ext_resource type="PackedScene" uid="uid://bhvwgh4ef0sj6" path="res://Particles/Player/pfx_bodyfall.tscn" id="7_l8iq0"]
 [ext_resource type="PackedScene" uid="uid://cyksrihj0achx" path="res://Particles/Player/pfx_falling_indicator.tscn" id="8_hy3tp"]
+[ext_resource type="PackedScene" uid="uid://dllg3pgdjal2i" path="res://Particles/Glass_Shards/pfx_glassdoor_break.tscn" id="9_kevtw"]
 
 [node name="ShaderCachingOnpath" type="Camera3D"]
 process_mode = 3
@@ -39,3 +40,8 @@ one_shot = false
 
 [node name="PfxFallingIndicator" parent="." instance=ExtResource("8_hy3tp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.6378279)
+
+[node name="PfxGlassdoorBreak" parent="." instance=ExtResource("9_kevtw")]
+emitting = true
+amount = 5
+one_shot = false
