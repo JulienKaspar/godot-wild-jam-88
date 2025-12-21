@@ -8,8 +8,6 @@ class_name MusicManager
 # drunkness_intensity : float - range 0.0 to 1.0
 # _update_drunkness_effect() - called when "drunkness_intensity" is updated
 
-signal switch_music(theme : MUSIC_THEMES)
-
 @onready var music_player : AudioStreamPlayer = %MusicPlayer
 const VOLUME_DB_DEFAULT : float = -3.0
 const VOLUME_DB_DUCKING : float = -6.0
@@ -25,7 +23,6 @@ func _ready():
 	GameStateManager.player_drunkness.on_drunkness_changed.connect(_update_drunk_streams)
 	GameStateManager.on_level_loaded.connect(_on_level_change)
 	
-	switch_music.connect(switch_music_to_theme)
 	setup_chord_changes()
 
 func setup_chord_changes() -> void:
@@ -36,12 +33,13 @@ func setup_chord_changes() -> void:
 	add_child(chord_change_timer)
 
 func randomize_chords() -> void:
-	if (!music_player.playing or randf() < 0.5): return # skip condition
+	if !music_player.playing: return
+	if randf() < 0.5: return
 	
-	var _target_theme : int = current_theme
-	while(_target_theme == current_theme): # skip if same
-		_target_theme = randi_range(0, MUSIC_THEMES.size() - 1)
-	switch_music_to_theme(_target_theme)
+	var _target_theme : int = randi_range(0, MUSIC_THEMES.size() - 1)
+	
+	if (_target_theme == current_theme): return
+	else: switch_music_to_theme(_target_theme)
 
 
 func _on_level_change(level_index : int) -> void:
@@ -49,20 +47,19 @@ func _on_level_change(level_index : int) -> void:
 		0: # backyard
 			music_player.volume_db = AudioManager.VOLUME_DB_OFF
 			if music_player.playing: music_player.stop()
-			return
 			
-		1, 2, 3, 4, 5: # house
-			var target_volume_db = VOLUME_DB_DEFAULT
-			AudioManager.tween_volume_db(music_player, target_volume_db)
+		1: # enter house
 			if !music_player.playing:
 				start_music()
 				chord_change_timer.start()
-			return
+		
+		2, 3, 4, 5: # house
+			var target_volume_db = VOLUME_DB_DEFAULT
+			AudioManager.tween_volume_db(music_player, target_volume_db)
 			
 		6: # fridge
 			chord_change_timer.stop()
 			stop_music()
-			return
 
 
 # Music themes - enum makes it easily callable from other scripts
@@ -85,7 +82,7 @@ const MUSIC_BANK : Dictionary[MUSIC_THEMES, String] = {
 }
 
 func start_music() -> void:
-	music_player.play()
+	if !music_player.playing: music_player.play()
 	AudioManager.fade_audio_in(music_player)
 
 func stop_music() -> void:
