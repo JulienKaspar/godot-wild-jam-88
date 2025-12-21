@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ctmyo6fovqoco"]
+
+[ext_resource type="Texture2D" uid="uid://dw6rpcrvgmspl" path="res://Assets/2D_Assets/Wall_Paintings/schweini_on_canwasdalos.png" id="1_g2lil"]
+
+[resource]
+diffuse_mode = 3
+albedo_texture = ExtResource("1_g2lil")
+uv1_scale = Vector3(0.669, 1.619, 0.669)
+uv1_offset = Vector3(0.19, -0.56, 0)
+uv1_triplanar = true
+uv1_world_triplanar = true
