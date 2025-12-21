@@ -47,7 +47,7 @@ dying_quips = Dictionary[String, int]({
 })
 drinking_quips = Dictionary[String, int]({
 "Easy enough to grab some freebies around here.": 0,
-"Getting aaaaalll juiced up, aren't we 🙂": 0,
+"Getting aaaaalll juiced up, aren't we": 0,
 "I think this one was mine actually": 0,
 "Ripe for the taking.": 0,
 "That gets the old blood pumping, don't it.": 0

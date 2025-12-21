@@ -17,9 +17,11 @@ func _process(delta: float) -> void:
 		if checkedPoint < pointCount:
 			position = get_parent().curve.get_baked_points()[checkedPoint]
 			rotation_degrees.x = -90
-			var fstring = "Caching: %s / %s in %s ms"
-			var debugoutput = fstring % [checkedPoint + 1, pointCount, delta]
+			var fstring = "Caching Shaders: %s / %s"
+			
+			var debugoutput = fstring % [checkedPoint + 1, pointCount]
 			print(debugoutput)
+			GameStateManager.loading_screen.label.text = debugoutput
 			checkedPoint += 1
 		else:
 			doneCache()

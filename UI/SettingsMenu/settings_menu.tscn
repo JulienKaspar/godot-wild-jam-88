@@ -172,14 +172,8 @@ metadata/_tab_index = 0
 layout_mode = 2
 size_flags_stretch_ratio = 0.9
 
-[node name="ControllerRumble" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer/Controls/VBoxContainer" node_paths=PackedStringArray("top_focus") instance=ExtResource("11_3iwun")]
-layout_mode = 2
-top_focus = NodePath("../../../../HBoxContainer/MarginContainer/ControlTabButton")
-setting_name = "Controller Rumble"
-property_name = &"controller_rumble"
-
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer/Controls/VBoxContainer"]
-custom_minimum_size = Vector2(500, 550)
+custom_minimum_size = Vector2(500, 650)
 layout_mode = 2
 texture = ExtResource("14_ojxai")
 expand_mode = 1
