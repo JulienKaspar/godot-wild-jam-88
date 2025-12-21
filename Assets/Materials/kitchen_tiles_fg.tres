@@ -6,7 +6,7 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_wmkcc")
-shader_parameter/albedo = Vector4(0.8, 0.8, 0.8, 0)
+shader_parameter/albedo = Vector4(0.8, 0.8, 0.8, 2.92)
 shader_parameter/texture_albedo = ExtResource("2_wmkcc")
 shader_parameter/scale = 1.05
 shader_parameter/roughness = 1.0
