@@ -1,10 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://7v5jiybjrlkl"]
+[gd_scene load_steps=23 format=3 uid="uid://7v5jiybjrlkl"]
 
 [ext_resource type="Script" uid="uid://bexi8qx87vns3" path="res://UI/game_view.gd" id="1_lqkpn"]
 [ext_resource type="PackedScene" uid="uid://betq65km7cbe3" path="res://UI/SettingsMenu/settings_menu.tscn" id="2_lqkpn"]
 [ext_resource type="Theme" uid="uid://co1s85nypo7on" path="res://UI/default_font_theme.tres" id="2_ri753"]
 [ext_resource type="Theme" uid="uid://csdr5ul5lmxw0" path="res://UI/readability_font_theme.tres" id="3_27j1k"]
-[ext_resource type="Script" path="res://UI/post_processing.gd" id="3_dgskv"]
+[ext_resource type="Script" uid="uid://dvx2g3kq3biae" path="res://UI/post_processing.gd" id="3_dgskv"]
 [ext_resource type="PackedScene" uid="uid://bcredxkb7jfdu" path="res://UI/MainMenu/main_menu.tscn" id="3_e62du"]
 [ext_resource type="Shader" uid="uid://c7jc6g65ws5pi" path="res://Shaders/post_process.gdshader" id="4_u3b6e"]
 [ext_resource type="Script" uid="uid://lhxpah8mvpgj" path="res://UI/level_loader.gd" id="5_4eh1a"]
@@ -18,7 +18,9 @@
 [ext_resource type="PackedScene" uid="uid://cm4oxjb4ek3al" path="res://UI/PauseMenu/pause_menu.tscn" id="10_27j1k"]
 [ext_resource type="PackedScene" path="res://Characters/Player/player_spawner.tscn" id="11_qrf3k"]
 [ext_resource type="PackedScene" uid="uid://d01verpwnpp0o" path="res://Audio/UI/ui_sounds.tscn" id="12_k7f6d"]
-[ext_resource type="PackedScene" uid="uid://c46y87jtli80e" path="res://Audio/SFX/sound_effects_pool.tscn" id="17_27j1k"]
+[ext_resource type="PackedScene" uid="uid://djd236vqkmdxu" path="res://UI/CreditScreen/credit_screen.tscn" id="13_wyqiv"]
+[ext_resource type="PackedScene" uid="uid://b05fcm4kyx5od" path="res://UI/CreditScreen/credit.tscn" id="14_ar0mi"]
+[ext_resource type="PackedScene" path="res://Audio/SFX/sound_effects_pool.tscn" id="17_27j1k"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gjcnd"]
 shader = ExtResource("4_u3b6e")
@@ -102,6 +104,12 @@ layout_mode = 2
 [node name="LoadingScreen" parent="CanvasLayer/MenuDisplayer" instance=ExtResource("7_c4ef8")]
 visible = false
 layout_mode = 2
+
+[node name="CreditScreen" parent="CanvasLayer/MenuDisplayer" instance=ExtResource("13_wyqiv")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+credit_scene = ExtResource("14_ar0mi")
 
 [node name="LoadedLevel" type="Node" parent="."]
 script = ExtResource("5_4eh1a")
