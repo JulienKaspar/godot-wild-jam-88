@@ -35,12 +35,12 @@ func _process(delta: float) -> void:
 	if frame_time_elapsed > frame_time:
 		frame_time_elapsed = 0
 		if excited:
-			texture_progress = frames[index % frames.size()] 
-		else: 
 			texture_progress = excited_frames[index % excited_frames.size()]
+		else: 
+			texture_progress = frames[index % frames.size()] 
 		
 		if hurt:
-			texture_progress = hurt_frames[index % hurt_frames.size()]
+			texture_over = hurt_frame_sprite
 		index += 1
 		
 	if flashing:
@@ -58,16 +58,18 @@ func _process(delta: float) -> void:
 	if flash_time_elapsed > flash_time:
 		flash_time_elapsed = 0
 		flashing = false
+		texture_over = base_frame_sprite
 	
 	if hurt_time_elapsed > hurt_time:
 		hurt_time_elapsed = 0
 		hurt = false
-
-		texture_over = base_frame_sprite
 		
 	if excited_elapsed > excited_duration:
 		excited = false
 		excited_elapsed = 0
+		
+	if !excited && !hurt:
+		texture_over = base_frame_sprite
 
 func flash() -> void:
 	flashing = true
