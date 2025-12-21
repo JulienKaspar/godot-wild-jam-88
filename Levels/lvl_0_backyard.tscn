@@ -27,7 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://dllg3pgdjal2i" path="res://Particles/Glass_Shards/pfx_glassdoor_break.tscn" id="26_go0n3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mr8n6"]
-size = Vector3(4.9821777, 3.3790894, 0.18530273)
+size = Vector3(7.2036743, 3.3790894, 0.18530273)
 
 [sub_resource type="Environment" id="Environment_vu8ij"]
 background_mode = 1
@@ -52,10 +52,10 @@ size = Vector3(5.0166626, 0.77770996, 2.171692)
 size = Vector3(4.998535, 1, 0.7142334)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jtswe"]
-size = Vector3(3.53125, 5.9207764, 1.696228)
+size = Vector3(3.53125, 5.9207764, 3.6943207)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cya5t"]
-size = Vector3(5.201294, 5.9207764, 1.6745605)
+size = Vector3(5.201294, 5.9207764, 3.762146)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_tao4m"]
 height = 0.2
@@ -217,7 +217,7 @@ script = ExtResource("2_jtswe")
 metadata/_custom_type_script = "uid://42mf003bq52u"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LevelTeleporter"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1895447, -0.73029137)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3791809, 1.1895447, -0.73029137)
 shape = SubResource("BoxShape3D_mr8n6")
 
 [node name="backyard_level" parent="." instance=ExtResource("3_cya5t")]
@@ -347,11 +347,11 @@ transform = Transform3D(-5.7320566e-15, 1.3113416e-07, 1, -1, -4.371139e-08, 0, 
 shape = SubResource("WorldBoundaryShape3D_wj60t")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="Layout/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9268432, 2.4603882, -22.312246)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9268432, 2.4603882, -23.311293)
 shape = SubResource("BoxShape3D_jtswe")
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="Layout/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8432574, 2.4603882, -22.32308)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8432574, 2.4603882, -23.366873)
 shape = SubResource("BoxShape3D_cya5t")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Layout" groups=["HelperShape"]]
