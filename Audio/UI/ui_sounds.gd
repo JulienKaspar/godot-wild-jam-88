@@ -32,6 +32,9 @@ func play_sound(_stream : AudioStream):
 			drunkness_down, drunkness_up, shake_impact:
 				return
 	
+	if GameStateManager.current_state == GameStateManager.GameState.Game:
+		return
+	
 	#print(stream)
 	self.stream = _stream
 	self.play()
