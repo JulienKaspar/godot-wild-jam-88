@@ -1,6 +1,6 @@
-[gd_scene load_steps=57 format=3 uid="uid://d2a7apkvocsew"]
+[gd_scene load_steps=58 format=3 uid="uid://d2a7apkvocsew"]
 
-[ext_resource type="Script" path="res://Levels/lvl_4_disco.gd" id="1_n28pq"]
+[ext_resource type="Script" uid="uid://bc8urqgpnntuw" path="res://Levels/lvl_4_disco.gd" id="1_n28pq"]
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="1_u88v8"]
 [ext_resource type="Script" uid="uid://cplcsgmwkxa3h" path="res://Levels/disco_light.gd" id="2_0me7d"]
 [ext_resource type="PackedScene" uid="uid://j1b5yvs8pnux" path="res://Objects/Architypes/Furniture/table_round1.tscn" id="3_6td24"]
@@ -13,7 +13,7 @@
 [ext_resource type="Script" path="res://Levels/accessibility_light.gd" id="7_08ply"]
 [ext_resource type="PackedScene" uid="uid://dhy34qs7pvk36" path="res://Gameplay/Interactables/interact_switch.tscn" id="8_0mfmk"]
 [ext_resource type="Material" uid="uid://dma21o2hw2ihv" path="res://Assets/Materials/kitchen_tiles_fg.tres" id="8_4rx7x"]
-[ext_resource type="Script" path="res://Objects/hideable_wall.gd" id="8_6pvw3"]
+[ext_resource type="Script" uid="uid://dogbj3gtx3mxu" path="res://Objects/hideable_wall.gd" id="8_6pvw3"]
 [ext_resource type="PackedScene" uid="uid://cbj1xsvngkbla" path="res://Assets/LivingRoom/door_closed.gltf" id="9_enbb8"]
 [ext_resource type="PackedScene" uid="uid://3kn1j5376oof" path="res://Objects/Architypes/Furniture/table2.tscn" id="10_v1l8h"]
 [ext_resource type="PackedScene" uid="uid://c3exm36djed3o" path="res://Assets/Furniture/window_1_curtain.gltf" id="11_lkepb"]
@@ -27,7 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://c0d87wbdbi2al" path="res://Objects/Architypes/Furniture/couch1.tscn" id="18_r1olg"]
 [ext_resource type="PackedScene" uid="uid://bkm1uu37o63vq" path="res://Objects/Architypes/Furniture/shelf1.tscn" id="19_u88v8"]
 [ext_resource type="PackedScene" uid="uid://c0gyul67lvgh6" path="res://Assets/Furniture/rug_rose_gold.gltf" id="20_n8q5n"]
-[ext_resource type="PackedScene" path="res://Objects/Architypes/LivingRoom/door.tscn" id="21_0mfmk"]
+[ext_resource type="PackedScene" uid="uid://c5gvg6210vgku" path="res://Objects/Architypes/LivingRoom/door.tscn" id="21_0mfmk"]
 [ext_resource type="PackedScene" uid="uid://c50jjcmdyr7vp" path="res://Objects/Loot/pickup_beer_cup.tscn" id="21_2ernl"]
 [ext_resource type="PackedScene" uid="uid://0citmm75hpfv" path="res://Objects/Architypes/Furniture/couch4.tscn" id="21_oa7ln"]
 [ext_resource type="PackedScene" uid="uid://dh3i5uan6dujl" path="res://Objects/Architypes/Props/plant_palm1.tscn" id="23_u1rm7"]
@@ -87,6 +87,9 @@ size = Vector3(11.354492, 4.661133, 13.5503845)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k8d6m"]
 size = Vector3(2.8951664, 3.6125727, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q87cs"]
+size = Vector3(1.823761, 2.6583252, 1.2416992)
 
 [sub_resource type="Curve3D" id="Curve3D_p3124"]
 bake_interval = 1.0
@@ -685,6 +688,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8293841, -2.3841858e-07, 1
 
 [node name="Shelf4" parent="Furniture" instance=ExtResource("19_u88v8")]
 transform = Transform3D(-0.20302579, 0.12879346, -0.9706662, -0.03106161, 0.989966, 0.13785115, 0.97868073, 0.05813777, -0.19698805, 0.59136, 0.005311489, 15.344576)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Furniture/Shelf4"]
+transform = Transform3D(0.99912244, 0.005750444, -0.041493505, -0.0058044493, 0.9999825, -0.0011845902, 0.041486233, 0.0014217375, 0.9991395, -8.869171e-05, 0.8306892, -0.27017164)
+shape = SubResource("BoxShape3D_q87cs")
 
 [node name="TableRound3" parent="Furniture" instance=ExtResource("3_6td24")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.366045, 0.014164925, 6.919895)
