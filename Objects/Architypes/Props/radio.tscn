@@ -1,14 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://byi1vrdra1og3"]
+[gd_scene load_steps=11 format=3 uid="uid://byi1vrdra1og3"]
 
+[ext_resource type="Script" uid="uid://bmy3qbsb6w25k" path="res://Objects/Props/radio.gd" id="1_g1kff"]
 [ext_resource type="PackedScene" uid="uid://142xvokhmr2g" path="res://Objects/PropCollider.tscn" id="1_sfv7d"]
 [ext_resource type="PackedScene" uid="uid://btdb58ye5uhj8" path="res://Assets/Furniture/radio.gltf" id="2_sfv7d"]
 [ext_resource type="AudioStream" uid="uid://3ri6k5np7te8" path="res://Audio/SFX/Props/radio_theme_music.tres" id="3_dxyp4"]
+[ext_resource type="Texture2D" uid="uid://c1wvwm7w4wab4" path="res://Assets/2D_Assets/Radio_Speaker_FX/radio_speaker_fx_1.png" id="5_mnuml"]
+[ext_resource type="Script" path="res://Characters/Teens/logic/speech_bubble_animation.gd" id="6_g1kff"]
 [ext_resource type="Script" uid="uid://bohxn3qbwpg6h" path="res://Audio/SFX/Props/radio_player.gd" id="6_h3dv2"]
+[ext_resource type="Texture2D" uid="uid://bouvsj2rmn1pp" path="res://Assets/2D_Assets/Radio_Speaker_FX/radio_speaker_fx_2.png" id="7_iqfpj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sssrd"]
 size = Vector3(0.76782227, 0.6689453, 0.35058594)
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_ifhm4"]
+viewport_path = NodePath("PropCollider/SpeechBubbleSprite3D/SpeechBubbleViewPort")
+
 [node name="Radio" type="Node3D"]
+script = ExtResource("1_g1kff")
 
 [node name="PropCollider" parent="." instance=ExtResource("1_sfv7d")]
 
@@ -26,3 +34,31 @@ max_db = -3.0
 max_distance = 20.0
 panning_strength = 1.2
 script = ExtResource("6_h3dv2")
+
+[node name="SpeechBubbleSprite3D" type="Sprite3D" parent="PropCollider"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14633541, 0.20823577, 0.29533735)
+billboard = 1
+texture = SubResource("ViewportTexture_ifhm4")
+
+[node name="SpeechBubbleViewPort" type="SubViewport" parent="PropCollider/SpeechBubbleSprite3D"]
+transparent_bg = true
+size = Vector2i(121, 79)
+
+[node name="SpeechBubbleAnimation" type="TextureRect" parent="PropCollider/SpeechBubbleSprite3D/SpeechBubbleViewPort"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(121, 79)
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("5_mnuml")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("6_g1kff")
+frames = Array[Texture2D]([ExtResource("5_mnuml"), ExtResource("7_iqfpj")])
+framerate = 1.3
+
+[node name="RadioSpeakerFx1" type="Sprite2D" parent="PropCollider/SpeechBubbleSprite3D/SpeechBubbleViewPort"]
+position = Vector2(45, 197)
+texture = ExtResource("5_mnuml")

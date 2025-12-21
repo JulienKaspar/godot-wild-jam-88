@@ -682,4 +682,5 @@ shape = SubResource("BoxShape3D_23oor")
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 1.2746016, 0)
 mesh = SubResource("PlaneMesh_3gana")
 
+[connection signal="on_collided_with" from="Furniture/TableSquare2" to="." method="_on_table_square_2_on_collided_with"]
 [connection signal="body_entered" from="PfxGlassdoorBreak/glass_trigger" to="." method="_on_glass_trigger_body_entered"]

@@ -37,3 +37,7 @@ func _on_glass_trigger_body_entered(body: Node3D) -> void:
 		$PfxGlassdoorBreak.emitting = true
 		$PfxGlassdoorBreak/GlassMesh.hide()
 		
+
+
+func _on_table_square_2_on_collided_with() -> void:
+	if $Furniture/Radio: $Furniture/Radio.hide_animation()
