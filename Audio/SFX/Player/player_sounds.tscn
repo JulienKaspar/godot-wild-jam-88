@@ -13,7 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://jq4vgeeay6ny" path="res://Audio/SFX/Player/player_voice_chugging.tres" id="9_rjaj4"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xf5fp"]
-random_pitch = 1.05
+random_pitch = 1.2
 streams_count = 2
 stream_0/stream = ExtResource("2_umc7b")
 stream_1/stream = ExtResource("3_xdpom")
@@ -33,9 +33,13 @@ hiccup_sounds = ExtResource("8_w2ggi")
 
 [node name="FootstepAudioPlayer" type="AudioStreamPlayer3D" parent="."]
 stream = SubResource("AudioStreamRandomizer_xf5fp")
-max_distance = 7.5
+max_db = 0.0
+pitch_scale = 1.5
+max_distance = 7.0
 max_polyphony = 2
-bus = &"SFX"
+panning_strength = 1.2
+bus = &"Player"
+attenuation_filter_cutoff_hz = 4000.0
 
 [node name="VoiceAudioPlayer" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("8_w2ggi")

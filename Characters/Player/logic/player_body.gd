@@ -110,9 +110,6 @@ func _ready() -> void:
 	debugDraw = false
 	#left_foot_ik_target.has_started_stepping.connect(on_has_start_stepping)
 	#right_foot_ik_target.has_started_stepping.connect(on_has_start_stepping)
-	# sounds
-	#left_foot_ik_target.has_finished_stepping.connect(AudioManager.player_sounds.footstep_player.play)
-	#right_foot_ik_target.has_finished_stepping.connect(AudioManager.player_sounds.footstep_player.play)
 	
 	left_shoulder_ray.target_position = RAYDIR
 	right_shoulder_ray.target_position = RAYDIR
@@ -317,10 +314,13 @@ func _on_feet_state_changed(state: int, foot: Player.Hands) -> void:
 		FeetStates.MOVING_LEFT: $StepInProgress.start()
 		FeetStates.MOVING_RIGHT: $StepInProgress.start()
 		FeetStates.PLANTED_LEFT:
+			AudioManager.player_sounds.footstep_player.play()
 			$StepInProgress.wait_time = randf_range(0.15, 0.2)
 			setFeetState(FeetStates.ACTIVE, foot)
 			lastStepWas = foot
 		FeetStates.PLANTED_RIGHT:
+	# sounds
+			AudioManager.player_sounds.footstep_player.play()
 			$StepInProgress.wait_time = randf_range(0.15, 0.2)
 			setFeetState(FeetStates.ACTIVE, foot)
 			lastStepWas = foot
