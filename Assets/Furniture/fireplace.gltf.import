@@ -3,17 +3,17 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cri5otcpu2ukq"
-path="res://.godot/imported/frame1.gltf-6b0046ab8f5c046537b5e8ef1273f730.scn"
+uid="uid://ooe78twecepq"
+path="res://.godot/imported/fireplace.gltf-3deab43fd060ce7b25b08d4d0d10cf39.scn"
 
 [deps]
 
-source_file="res://Assets/Furniture/frame1.gltf"
-dest_files=["res://.godot/imported/frame1.gltf-6b0046ab8f5c046537b5e8ef1273f730.scn"]
+source_file="res://Assets/Furniture/fireplace.gltf"
+dest_files=["res://.godot/imported/fireplace.gltf-3deab43fd060ce7b25b08d4d0d10cf39.scn"]
 
 [params]
 
-nodes/root_type=""
+nodes/root_type="StaticBody3D"
 nodes/root_name=""
 nodes/root_script=null
 nodes/apply_root_scale=true
@@ -39,7 +39,7 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "materials": {
-"vertex_colors": {
+"vertex colors": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://Assets/Materials/generic_soft.tres",
 "use_external/path": "uid://bkpy44rodafk4"

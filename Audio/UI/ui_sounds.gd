@@ -2,10 +2,11 @@ extends AudioStreamPlayer
 class_name UI_Sounds
 
 @export var start_game : AudioStream
+@export var break_anticipation : AudioStream
 
-@export var focus_element : AudioStream
-@export var tab_change : AudioStream
-@export var update_slider : AudioStream
+@export var focus_element : AudioStreamRandomizer
+@export var tab_change : AudioStreamRandomizer
+@export var update_slider : AudioStreamRandomizer
 @export var check_box : AudioStream
 @export var uncheck_box : AudioStream
 

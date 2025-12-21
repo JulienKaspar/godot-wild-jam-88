@@ -14,6 +14,7 @@ var shrink_timer : Timer
 @export_category("Sounds")
 @export var wobble_sounds : AudioStreamRandomizer
 @export var banana_slip_sounds : AudioStreamRandomizer
+@export var keg_sounds : AudioStreamRandomizer
 
 
 func _ready():
@@ -70,6 +71,7 @@ func get_item() -> Variant:
 func return_item(item_returned : Variant) -> void:
 	pool_items.append(item_returned)
 	
+	item_returned.reparent(self)
 	item_returned.set_process(false)
 	item_returned.set_physics_process(false)
 	item_returned.hide() # is this necessary for audioplayers?

@@ -2,6 +2,8 @@
 extends Node3D
 class_name PlayerSounds
 
+@export var break_fence : AudioStreamOggVorbis
+
 @export var footstep_player : AudioStreamPlayer3D
 @export var voice_player : AudioStreamPlayer3D
 @export var singing_player : AudioStreamPlayer3D

@@ -10,9 +10,8 @@ var time_now : int
 var choir_volume : float = -60.0
 
 func _ready():
-	print("FRIDGE")
 	AudioManager.fade_audio_in(self, 0.0)
-	AudioManager.music_manager._set_filter(false)	
+	AudioManager.music_manager._set_filter(false)
 	
 	time_start = Time.get_ticks_msec()
 	var t : Tween = create_tween()
