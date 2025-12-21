@@ -16,7 +16,7 @@
 [ext_resource type="Script" uid="uid://bx8wkgx47tjj6" path="res://UI/game_camera.gd" id="8_gjcnd"]
 [ext_resource type="PackedScene" uid="uid://bc3p2wg2lxxy1" path="res://Audio/Music/music_manager.tscn" id="9_4eh1a"]
 [ext_resource type="PackedScene" uid="uid://cm4oxjb4ek3al" path="res://UI/PauseMenu/pause_menu.tscn" id="10_27j1k"]
-[ext_resource type="PackedScene" path="res://Characters/Player/player_spawner.tscn" id="11_qrf3k"]
+[ext_resource type="PackedScene" uid="uid://ci283iyst43yj" path="res://Characters/Player/player_spawner.tscn" id="11_qrf3k"]
 [ext_resource type="PackedScene" uid="uid://d01verpwnpp0o" path="res://Audio/UI/ui_sounds.tscn" id="12_k7f6d"]
 [ext_resource type="PackedScene" uid="uid://djd236vqkmdxu" path="res://UI/CreditScreen/credit_screen.tscn" id="13_wyqiv"]
 [ext_resource type="PackedScene" uid="uid://b05fcm4kyx5od" path="res://UI/CreditScreen/credit.tscn" id="14_ar0mi"]

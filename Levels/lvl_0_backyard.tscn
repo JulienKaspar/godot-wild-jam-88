@@ -20,7 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://brc0gdp873p3j" path="res://Assets/Audio/Ambience/ambience_crickets1.ogg" id="15_kfoxe"]
 [ext_resource type="PackedScene" uid="uid://di5fte2dqxs0c" path="res://Assets/Furniture/window1.gltf" id="15_tao4m"]
 [ext_resource type="AudioStream" uid="uid://t2yngijmupfi" path="res://Assets/Audio/SFX/Props/bbq_fire.ogg" id="19_fkcxp"]
-[ext_resource type="PackedScene" path="res://Objects/safety_plane.tscn" id="22_dgmkc"]
+[ext_resource type="PackedScene" uid="uid://cdrpgw2um6m6i" path="res://Objects/safety_plane.tscn" id="22_dgmkc"]
 [ext_resource type="PackedScene" uid="uid://djvhkhmcy0tn5" path="res://Shaders/shader_caching_onpath.tscn" id="23_avm5o"]
 [ext_resource type="Material" uid="uid://b0yapmto6mf3m" path="res://Particles/Moth/proc_gpu_moths.tres" id="24_k3ksw"]
 [ext_resource type="QuadMesh" uid="uid://dc3s4t3oon4gi" path="res://Particles/Moth/draw_moths_a.tres" id="25_go0n3"]

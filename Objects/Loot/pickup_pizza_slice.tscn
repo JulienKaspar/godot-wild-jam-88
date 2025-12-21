@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://0xl2hvp8lpd8"]
 
 [ext_resource type="Script" uid="uid://b3w4gu3se7vnv" path="res://Gameplay/Pickups/drunkness_pickup.gd" id="1_oecnb"]
-[ext_resource type="Script" uid="uid://dov4lhtuyrycf" path="res://Gameplay/Pickups/pick_point.gd" id="2_jprtf"]
+[ext_resource type="Script" path="res://Gameplay/Pickups/pick_point.gd" id="2_jprtf"]
 [ext_resource type="PackedScene" uid="uid://cup17xrrbj5on" path="res://Particles/DrunknessPickups/pfx_pizza_consuming.tscn" id="3_f3k6e"]
 [ext_resource type="PackedScene" uid="uid://b68w14ql4fcn8" path="res://Assets/Furniture/pizza_slice.gltf" id="6_cryrt"]
 

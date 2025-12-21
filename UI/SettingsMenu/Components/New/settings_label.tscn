@@ -1,4 +1,4 @@
-[gd_scene load_steps=0 format=3 uid="uid://b43552kh4ehgu"]
+[gd_scene format=3 uid="uid://b43552kh4ehgu"]
 
 [node name="SettingsLabel" type="Control"]
 layout_mode = 3

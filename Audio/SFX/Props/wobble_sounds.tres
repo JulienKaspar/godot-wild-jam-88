@@ -1,4 +1,4 @@
-[gd_resource type="AudioStreamRandomizer" load_steps=5 format=3 uid="uid://c26db5wy5c718"]
+[gd_resource type="AudioStreamRandomizer" load_steps=5 format=3 uid="uid://dagadx8b0xrrn"]
 
 [ext_resource type="AudioStream" uid="uid://cw7t0677oa7cn" path="res://Assets/Audio/SFX/Props/prop_wobble_01.ogg" id="1_gp2ho"]
 [ext_resource type="AudioStream" uid="uid://dnk3peqdobuvm" path="res://Assets/Audio/SFX/Props/prop_wobble_02.ogg" id="2_hrxxh"]

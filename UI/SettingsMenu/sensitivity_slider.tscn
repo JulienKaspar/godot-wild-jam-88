@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://v6l022lo4u2v"]
 
-[ext_resource type="Script" uid="uid://dm6jckkteoq6p" path="res://UI/SettingsMenu/sensitivity_slider.gd" id="1_yaw17"]
+[ext_resource type="Script" path="res://UI/SettingsMenu/sensitivity_slider.gd" id="1_yaw17"]
 
 [node name="Sensitivity" type="HBoxContainer"]
 script = ExtResource("1_yaw17")

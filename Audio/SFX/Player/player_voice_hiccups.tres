@@ -1,4 +1,4 @@
-[gd_resource type="AudioStreamRandomizer" load_steps=10 format=3 uid="uid://dtxwpdwowusj1"]
+[gd_resource type="AudioStreamRandomizer" load_steps=10 format=3 uid="uid://dictkmr4xp412"]
 
 [ext_resource type="AudioStream" uid="uid://mlxhe7drfs21" path="res://Assets/Audio/SFX/Player/player_voice_hiccups_01.ogg" id="1_eght8"]
 [ext_resource type="AudioStream" uid="uid://ru8css36qdx8" path="res://Assets/Audio/SFX/Player/player_voice_hiccups_02.ogg" id="2_7x8si"]

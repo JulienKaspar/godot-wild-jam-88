@@ -1,4 +1,4 @@
-[gd_scene load_steps=0 format=3 uid="uid://c582dhy7jbej6"]
+[gd_scene format=3 uid="uid://c582dhy7jbej6"]
 
 [node name="SfxPlayer" type="AudioStreamPlayer3D"]
 unit_size = 8.0

@@ -3,7 +3,7 @@
 [ext_resource type="Material" uid="uid://p4rfolrwnsvj" path="res://Particles/Player/gpu_proc_liquid_chuggin_a.tres" id="1_fl26i"]
 [ext_resource type="QuadMesh" uid="uid://cbiro4bk7o1xc" path="res://Particles/Player/draw_sprite_beer_liquid_a.tres" id="2_fl26i"]
 [ext_resource type="QuadMesh" uid="uid://dcxmkpxryfbc0" path="res://Particles/Player/draw_sprite_beer_foam_a.tres" id="2_l7apo"]
-[ext_resource type="Script" uid="uid://bcct1aqhnv1r" path="res://Gameplay/Pickups/pfx_trigger_childs.gd" id="3_l7apo"]
+[ext_resource type="Script" path="res://Gameplay/Pickups/pfx_trigger_childs.gd" id="3_l7apo"]
 [ext_resource type="Material" uid="uid://cefcaf24kjy0j" path="res://Particles/Player/gpu_proc_liquid_chuggin_b.tres" id="4_febsr"]
 
 [node name="PfxBeerConsuming" type="GPUParticles3D"]

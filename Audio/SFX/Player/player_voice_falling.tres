@@ -1,4 +1,4 @@
-[gd_resource type="AudioStreamRandomizer" load_steps=11 format=3 uid="uid://bvjdmfy7thpa6"]
+[gd_resource type="AudioStreamRandomizer" load_steps=11 format=3 uid="uid://b3kpdlj57qbye"]
 
 [ext_resource type="AudioStream" uid="uid://f76ychnmxm3b" path="res://Assets/Audio/SFX/Player/player_voice_falling_01.ogg" id="1_md1em"]
 [ext_resource type="AudioStream" uid="uid://dgw8klw28s6ua" path="res://Assets/Audio/SFX/Player/player_voice_falling_02.ogg" id="2_a3e8w"]

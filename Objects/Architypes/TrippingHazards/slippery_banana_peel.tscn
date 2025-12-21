@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cold18jtw7ak0"]
+[gd_scene load_steps=5 format=3 uid="uid://8jsl1k2fwjho"]
 
 [ext_resource type="Script" uid="uid://04nw6yd3gy23" path="res://Gameplay/Obstacles/slip_obstacle.gd" id="1_r4kwa"]
 [ext_resource type="PackedScene" uid="uid://de4ybhxhy2q8x" path="res://Assets/Furniture/banana_peel.gltf" id="2_8fpav"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://wrdfnbkf7w2k"]
 
-[ext_resource type="PackedScene" path="res://Objects/PropCollider.tscn" id="1_7bm7y"]
+[ext_resource type="PackedScene" uid="uid://142xvokhmr2g" path="res://Objects/PropCollider.tscn" id="1_7bm7y"]
 [ext_resource type="PackedScene" uid="uid://b36mkho6bwbjy" path="res://Assets/Furniture/candle1.gltf" id="1_fmgnp"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_fmgnp"]

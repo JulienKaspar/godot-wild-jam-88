@@ -6,11 +6,11 @@
 [ext_resource type="AudioStream" uid="uid://bqnorce5ktst7" path="res://Assets/Audio/UI/intro_fence_anticipation.ogg" id="4_cfb22"]
 [ext_resource type="AudioStream" uid="uid://chug1vk6s4ox7" path="res://Assets/Audio/SFX/Player/drunkness_up.ogg" id="4_fceo1"]
 [ext_resource type="AudioStream" uid="uid://f22updhqbnul" path="res://Assets/Audio/SFX/Player/drunkness_down.ogg" id="5_wm4qx"]
-[ext_resource type="AudioStream" uid="uid://cpt3vfg1sj50k" path="res://Audio/UI/tab_changes.tres" id="6_7bs5b"]
+[ext_resource type="AudioStream" path="res://Audio/UI/tab_changes.tres" id="6_7bs5b"]
 [ext_resource type="AudioStream" uid="uid://v2ob0p8lbrnr" path="res://Assets/Audio/UI/shake_impact.ogg" id="6_wm4qx"]
-[ext_resource type="AudioStream" uid="uid://b2h4fsees6vly" path="res://Audio/UI/checkbox_on.tres" id="7_7bs5b"]
-[ext_resource type="AudioStream" uid="uid://0d44qokdp7q2" path="res://Audio/UI/checkbox_off.tres" id="8_b6loc"]
-[ext_resource type="AudioStream" uid="uid://om8mhc6jo5u0" path="res://Audio/SFX/Player/player_voice_burps.tres" id="9_kmyej"]
+[ext_resource type="AudioStream" path="res://Audio/UI/checkbox_on.tres" id="7_7bs5b"]
+[ext_resource type="AudioStream" path="res://Audio/UI/checkbox_off.tres" id="8_b6loc"]
+[ext_resource type="AudioStream" path="res://Audio/SFX/Player/player_voice_burps.tres" id="9_kmyej"]
 
 [node name="UI_Sounds" type="AudioStreamPlayer"]
 max_polyphony = 8

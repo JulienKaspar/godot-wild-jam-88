@@ -1,4 +1,4 @@
-[gd_resource type="AudioStreamRandomizer" load_steps=27 format=3 uid="uid://om8mhc6jo5u0"]
+[gd_resource type="AudioStreamRandomizer" load_steps=27 format=3 uid="uid://b1p8lrwlt6g2v"]
 
 [ext_resource type="AudioStream" uid="uid://butikcrtvwd48" path="res://Assets/Audio/SFX/Player/player_voice_burps_01.ogg" id="1_4amqo"]
 [ext_resource type="AudioStream" uid="uid://dd1tlmi0ph8yc" path="res://Assets/Audio/SFX/Player/player_voice_burps_02.ogg" id="2_ws7ut"]

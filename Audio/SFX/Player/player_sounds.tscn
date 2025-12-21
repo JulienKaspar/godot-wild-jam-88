@@ -1,14 +1,14 @@
 [gd_scene load_steps=13 format=3 uid="uid://cofqoseqs4itl"]
 
 [ext_resource type="Script" uid="uid://3x4na13uxxj4" path="res://Audio/SFX/Player/player_sounds.gd" id="1_nwop1"]
-[ext_resource type="AudioStream" uid="uid://bvjdmfy7thpa6" path="res://Audio/SFX/Player/player_voice_falling.tres" id="2_pfifw"]
+[ext_resource type="AudioStream" path="res://Audio/SFX/Player/player_voice_falling.tres" id="2_pfifw"]
 [ext_resource type="AudioStream" uid="uid://661ni1b60qio" path="res://Assets/Audio/UI/intro_fence_break_long.ogg" id="2_rxmia"]
 [ext_resource type="AudioStream" uid="uid://de6p6f5p7uphw" path="res://Assets/Audio/SFX/Player/footsteps_soft_01.ogg" id="2_umc7b"]
 [ext_resource type="AudioStream" uid="uid://cibdjrhydf3dx" path="res://Assets/Audio/SFX/Player/footsteps_soft_02.ogg" id="3_xdpom"]
 [ext_resource type="AudioStream" uid="uid://qg8ndqqtgrrw" path="res://Audio/SFX/Player/player_voice_ouch_grunts.tres" id="4_a8uc4"]
-[ext_resource type="AudioStream" uid="uid://q32rd2oxe5gl" path="res://Audio/SFX/Player/player_voice_getting_up.tres" id="4_c5yvn"]
-[ext_resource type="AudioStream" uid="uid://om8mhc6jo5u0" path="res://Audio/SFX/Player/player_voice_burps.tres" id="7_a8uc4"]
-[ext_resource type="AudioStream" uid="uid://dtxwpdwowusj1" path="res://Audio/SFX/Player/player_voice_hiccups.tres" id="8_w2ggi"]
+[ext_resource type="AudioStream" path="res://Audio/SFX/Player/player_voice_getting_up.tres" id="4_c5yvn"]
+[ext_resource type="AudioStream" path="res://Audio/SFX/Player/player_voice_burps.tres" id="7_a8uc4"]
+[ext_resource type="AudioStream" path="res://Audio/SFX/Player/player_voice_hiccups.tres" id="8_w2ggi"]
 [ext_resource type="AudioStream" uid="uid://cwsqstsgatx0q" path="res://Audio/SFX/Player/radio_theme_voice.tres" id="8_wdt07"]
 [ext_resource type="AudioStream" uid="uid://jq4vgeeay6ny" path="res://Audio/SFX/Player/player_voice_chugging.tres" id="9_rjaj4"]
 

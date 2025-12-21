@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c7hneeofvntpl" path="res://Audio/SFX/sound_effects_pool.gd" id="1_5noex"]
 [ext_resource type="PackedScene" uid="uid://c582dhy7jbej6" path="res://Audio/SFX/sfx_player.tscn" id="2_kecfh"]
-[ext_resource type="AudioStream" uid="uid://c26db5wy5c718" path="res://Audio/SFX/Props/wobble_sounds.tres" id="3_rk4f4"]
+[ext_resource type="AudioStream" path="res://Audio/SFX/Props/wobble_sounds.tres" id="3_rk4f4"]
 [ext_resource type="AudioStream" uid="uid://bk41hfuvlnxoe" path="res://Assets/Audio/SFX/Props/banana_slip_01.ogg" id="4_lrawr"]
 [ext_resource type="AudioStream" uid="uid://bhogek5lud7b1" path="res://Assets/Audio/SFX/Props/keg_collision_sound.ogg" id="5_mxvxv"]
 
@@ -19,7 +19,6 @@ stream_0/stream = ExtResource("5_mxvxv")
 
 [node name="SoundEffectsPool" type="Node"]
 script = ExtResource("1_5noex")
-max_num_items = 8
 item_scene = ExtResource("2_kecfh")
 wobble_sounds = ExtResource("3_rk4f4")
 banana_slip_sounds = SubResource("AudioStreamRandomizer_mxvxv")

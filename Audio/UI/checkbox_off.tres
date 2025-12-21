@@ -1,4 +1,4 @@
-[gd_resource type="AudioStreamRandomizer" load_steps=2 format=3 uid="uid://0d44qokdp7q2"]
+[gd_resource type="AudioStreamRandomizer" load_steps=2 format=3 uid="uid://bx17lyuvqqul2"]
 
 [ext_resource type="AudioStream" uid="uid://mgrecjex6evk" path="res://Assets/Audio/UI/checkbox_off.ogg" id="1_jetow"]
 

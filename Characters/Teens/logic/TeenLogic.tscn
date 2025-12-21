@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://b06fya8kv8bl5"]
+[gd_scene load_steps=2 format=3 uid="uid://b4vog6lh883if"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_omi34"]
 radius = 0.21142578

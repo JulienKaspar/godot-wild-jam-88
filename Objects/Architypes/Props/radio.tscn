@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://btdb58ye5uhj8" path="res://Assets/Furniture/radio.gltf" id="2_sfv7d"]
 [ext_resource type="AudioStream" uid="uid://3ri6k5np7te8" path="res://Audio/SFX/Props/radio_theme_music.tres" id="3_dxyp4"]
 [ext_resource type="Texture2D" uid="uid://c1wvwm7w4wab4" path="res://Assets/2D_Assets/Radio_Speaker_FX/radio_speaker_fx_1.png" id="5_mnuml"]
-[ext_resource type="Script" path="res://Characters/Teens/logic/speech_bubble_animation.gd" id="6_g1kff"]
+[ext_resource type="Script" uid="uid://bcjcsa8nw5iec" path="res://Characters/Teens/logic/speech_bubble_animation.gd" id="6_g1kff"]
 [ext_resource type="Script" uid="uid://bohxn3qbwpg6h" path="res://Audio/SFX/Props/radio_player.gd" id="6_h3dv2"]
 [ext_resource type="Texture2D" uid="uid://bouvsj2rmn1pp" path="res://Assets/2D_Assets/Radio_Speaker_FX/radio_speaker_fx_2.png" id="7_iqfpj"]
 

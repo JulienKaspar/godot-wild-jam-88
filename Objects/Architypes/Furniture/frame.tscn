@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dkigsk0khpxet"]
+[gd_scene load_steps=7 format=3 uid="uid://cksssdqb3x0hy"]
 
 [ext_resource type="Script" uid="uid://bfscaiegqo0r1" path="res://Objects/Architypes/Furniture/frame.gd" id="1_4kbqo"]
 [ext_resource type="Material" uid="uid://ctmyo6fovqoco" path="res://Assets/Materials/frame_pictures/schweini.tres" id="2_061hc"]

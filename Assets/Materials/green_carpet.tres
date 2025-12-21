@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://c40katw3nlw77"]
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dxy5f3akktyqu"]
 
 [ext_resource type="Shader" uid="uid://bg4owxt8roht6" path="res://Shaders/tileable_floor.gdshader" id="1_m7bmx"]
 [ext_resource type="Texture2D" uid="uid://cdu2wjhgj7mo2" path="res://Assets/Maps/Carpet_tiles/green_carpet/atlas.PNG" id="2_4n0s6"]

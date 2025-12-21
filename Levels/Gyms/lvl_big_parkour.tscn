@@ -1,15 +1,15 @@
 [gd_scene load_steps=33 format=3 uid="uid://dbtkwlffndd80"]
 
-[ext_resource type="Material" uid="uid://c40katw3nlw77" path="res://Assets/Materials/green_carpet.tres" id="1_3e7wy"]
+[ext_resource type="Material" path="res://Assets/Materials/green_carpet.tres" id="1_3e7wy"]
 [ext_resource type="Material" uid="uid://dmxe2qlk68jn" path="res://Assets/Materials/reddish_floral_wall.tres" id="2_lb2wt"]
 [ext_resource type="Material" uid="uid://b23iqfg3em6ty" path="res://Assets/Materials/wooden_wall.tres" id="3_i5ry1"]
-[ext_resource type="Script" uid="uid://dogbj3gtx3mxu" path="res://Objects/hideable_wall.gd" id="3_qdxjv"]
+[ext_resource type="Script" path="res://Objects/hideable_wall.gd" id="3_qdxjv"]
 [ext_resource type="Material" uid="uid://l1sgod1lv1b6" path="res://Assets/Materials/yellow_floral_wall.tres" id="4_277pc"]
 [ext_resource type="PackedScene" uid="uid://j1b5yvs8pnux" path="res://Objects/Architypes/Furniture/table_round1.tscn" id="5_y2dxn"]
 [ext_resource type="PackedScene" uid="uid://d3unw205fanv5" path="res://Objects/Loot/pickup_beer.tscn" id="6_hlsyq"]
 [ext_resource type="PackedScene" uid="uid://3kn1j5376oof" path="res://Objects/Architypes/Furniture/table2.tscn" id="7_hlsyq"]
 [ext_resource type="PackedScene" uid="uid://fhev4d48q1qy" path="res://Objects/Architypes/LivingRoom/stairs_wide.tscn" id="7_tnewr"]
-[ext_resource type="PackedScene" uid="uid://c3nkcb3esyxsx" path="res://Objects/Architypes/Furniture/couch2.tscn" id="8_8om6w"]
+[ext_resource type="PackedScene" path="res://Objects/Architypes/Furniture/couch2.tscn" id="8_8om6w"]
 [ext_resource type="PackedScene" uid="uid://dci81bvxxl4nx" path="res://Objects/Architypes/LivingRoom/stairs_thin.tscn" id="12_wtfsr"]
 [ext_resource type="Texture2D" uid="uid://cdu2wjhgj7mo2" path="res://Assets/Maps/Carpet_tiles/green_carpet/atlas.PNG" id="13_tnewr"]
 [ext_resource type="Texture2D" uid="uid://djpkkont0tpva" path="res://Assets/Maps/Walls/yellow_floral_wallpaper/atlas.png" id="13_wtfsr"]
@@ -299,7 +299,6 @@ material_override = ExtResource("2_lb2wt")
 use_collision = true
 size = Vector3(0.2, 3.336, 12.562899)
 script = ExtResource("3_qdxjv")
-metadata/_custom_type_script = "uid://dogbj3gtx3mxu"
 
 [node name="Area3D" type="Area3D" parent="Layout/Walls/CSG_ReddishWall12"]
 collision_mask = 2
@@ -328,7 +327,6 @@ material_override = ExtResource("2_lb2wt")
 use_collision = true
 size = Vector3(0.2, 3.336, 3.8314748)
 script = ExtResource("3_qdxjv")
-metadata/_custom_type_script = "uid://dogbj3gtx3mxu"
 
 [node name="Area3D" type="Area3D" parent="Layout/Walls/CSG_ReddishWall11"]
 visible = false
@@ -356,7 +354,6 @@ material_override = ExtResource("3_i5ry1")
 use_collision = true
 size = Vector3(0.2, 3.4268346, 8.560694)
 script = ExtResource("3_qdxjv")
-metadata/_custom_type_script = "uid://dogbj3gtx3mxu"
 
 [node name="Area3D" type="Area3D" parent="Layout/Walls/CSG_WoodenlWall3"]
 collision_mask = 3
@@ -371,7 +368,6 @@ material_override = ExtResource("3_i5ry1")
 use_collision = true
 size = Vector3(0.2, 3.4268346, 8.560694)
 script = ExtResource("3_qdxjv")
-metadata/_custom_type_script = "uid://dogbj3gtx3mxu"
 
 [node name="Area3D" type="Area3D" parent="Layout/Walls/CSG_WoodenlWall4"]
 collision_mask = 3

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://buuayjnejq81w" path="res://Objects/Architypes/LivingRoom/stairs.gd" id="1_e1ufy"]
 [ext_resource type="Material" uid="uid://b23iqfg3em6ty" path="res://Assets/Materials/wooden_wall.tres" id="2_3cf7q"]
-[ext_resource type="Material" uid="uid://c40katw3nlw77" path="res://Assets/Materials/green_carpet.tres" id="3_57ya7"]
+[ext_resource type="Material" path="res://Assets/Materials/green_carpet.tres" id="3_57ya7"]
 [ext_resource type="PackedScene" uid="uid://0hygty4adh3m" path="res://Assets/LivingRoom/stairs_thin.gltf" id="3_e1ufy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uixye"]

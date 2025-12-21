@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cpegwj8uc0kq5" path="res://Particles/DrunknessPickups/pfx_beer_break.tscn" id="4_obf1n"]
 [ext_resource type="PackedScene" uid="uid://digw728iiuyg2" path="res://Particles/DrunknessPickups/pfx_beer_consuming.tscn" id="5_vfn7d"]
 [ext_resource type="PackedScene" uid="uid://bw1ewj0l1c71n" path="res://Particles/DrunknessPickups/pfx_beer_dispose.tscn" id="6_liucq"]
-[ext_resource type="PackedScene" uid="uid://d0sfog08mwxuw" path="res://Particles/DrunknessPickups/pfx_pizza_consuming.tscn" id="7_4eyx1"]
+[ext_resource type="PackedScene" uid="uid://cup17xrrbj5on" path="res://Particles/DrunknessPickups/pfx_pizza_consuming.tscn" id="7_4eyx1"]
 
 [sub_resource type="Environment" id="Environment_5wqvq"]
 

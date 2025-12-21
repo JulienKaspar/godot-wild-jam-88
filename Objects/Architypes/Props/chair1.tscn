@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://duj1jw0lqr015"]
+[gd_scene load_steps=5 format=3 uid="uid://cq2dax3g44gvp"]
 
 [ext_resource type="PackedScene" uid="uid://142xvokhmr2g" path="res://Objects/PropCollider.tscn" id="1_x0xy4"]
 [ext_resource type="PackedScene" uid="uid://c7wjbfh7jn1l4" path="res://Assets/Furniture/chair1.gltf" id="2_x0xy4"]

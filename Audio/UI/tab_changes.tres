@@ -1,4 +1,4 @@
-[gd_resource type="AudioStreamRandomizer" load_steps=2 format=3 uid="uid://cpt3vfg1sj50k"]
+[gd_resource type="AudioStreamRandomizer" load_steps=2 format=3 uid="uid://cn5hrap8ewewh"]
 
 [ext_resource type="AudioStream" uid="uid://conct7d35dax0" path="res://Assets/Audio/UI/tab_change.ogg" id="1_htg27"]
 

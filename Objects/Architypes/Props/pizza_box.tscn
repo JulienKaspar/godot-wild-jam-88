@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://xu48fxr0n02f"]
+[gd_scene load_steps=5 format=3 uid="uid://c100p8cq5op0g"]
 
 [ext_resource type="PackedScene" uid="uid://142xvokhmr2g" path="res://Objects/PropCollider.tscn" id="1_1idxj"]
 [ext_resource type="PackedScene" uid="uid://conm1t2n8p6hr" path="res://Assets/Furniture/pizza_box.gltf" id="2_s2rin"]

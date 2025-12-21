@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://l4nbchy8y1g1"]
 
 [ext_resource type="PackedScene" uid="uid://bhl3yc3cmsqrc" path="res://Assets/Furniture/flower1.gltf" id="1_ec8ns"]
-[ext_resource type="PackedScene" path="res://Objects/PropCollider.tscn" id="2_f1tku"]
+[ext_resource type="PackedScene" uid="uid://142xvokhmr2g" path="res://Objects/PropCollider.tscn" id="2_f1tku"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ec8ns"]
 height = 0.5761719

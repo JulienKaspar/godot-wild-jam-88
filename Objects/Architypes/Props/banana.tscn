@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://o4os6bn1rkdq"]
 
-[ext_resource type="PackedScene" path="res://Objects/PropCollider.tscn" id="1_df5br"]
+[ext_resource type="PackedScene" uid="uid://142xvokhmr2g" path="res://Objects/PropCollider.tscn" id="1_df5br"]
 [ext_resource type="PackedScene" uid="uid://dah5q3vw2jba7" path="res://Assets/Furniture/banana1.gltf" id="1_iblvs"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_df5br"]

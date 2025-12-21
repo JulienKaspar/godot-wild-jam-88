@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c5gvg6210vgku"]
+[gd_scene load_steps=9 format=3 uid="uid://c5xjwe237ug3y"]
 
 [ext_resource type="PackedScene" uid="uid://rsfb87oov1yd" path="res://Assets/LivingRoom/door_frame.gltf" id="1_be475"]
 [ext_resource type="Script" uid="uid://d18ctfvwniq4s" path="res://Objects/Architypes/LivingRoom/door.gd" id="1_kw20h"]
