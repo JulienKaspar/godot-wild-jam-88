@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://c50jjcmdyr7vp"]
+[gd_scene load_steps=12 format=3 uid="uid://c50jjcmdyr7vp"]
 
 [ext_resource type="Script" uid="uid://b3w4gu3se7vnv" path="res://Gameplay/Pickups/drunkness_pickup.gd" id="1_1ac8f"]
 [ext_resource type="Script" uid="uid://dov4lhtuyrycf" path="res://Gameplay/Pickups/pick_point.gd" id="2_t35mh"]
 [ext_resource type="PackedScene" uid="uid://digw728iiuyg2" path="res://Particles/DrunknessPickups/pfx_beer_consuming.tscn" id="3_jbig5"]
 [ext_resource type="PackedScene" uid="uid://cpegwj8uc0kq5" path="res://Particles/DrunknessPickups/pfx_beer_break.tscn" id="4_rbkuy"]
+[ext_resource type="Script" uid="uid://bcct1aqhnv1r" path="res://Gameplay/Pickups/pfx_trigger_childs.gd" id="5_rbkuy"]
 [ext_resource type="PackedScene" uid="uid://bw1ewj0l1c71n" path="res://Particles/DrunknessPickups/pfx_beer_dispose.tscn" id="5_u18ou"]
 [ext_resource type="PackedScene" uid="uid://do1w53g6gv4v7" path="res://Assets/Props/beer_cup.gltf" id="6_t35mh"]
 [ext_resource type="PackedScene" uid="uid://dsxj8qcelbum7" path="res://Assets/Props/beer_cup_broken.gltf" id="7_jbig5"]
@@ -25,10 +26,10 @@ script = ExtResource("1_1ac8f")
 pick_point = NodePath("PickPoint")
 drunkness_increase = 2.5
 pristine_mesh = NodePath("cup")
-consume_pfx = NodePath("PfxBeerConsuming")
-dispose_pfx = NodePath("PfxBeerDispose")
+consume_pfx = NodePath("cup/PfxBeerConsuming")
+dispose_pfx = NodePath("cup/PfxBeerDispose")
 can_break = true
-break_pfx = NodePath("PfxBeerBreak")
+break_pfx = NodePath("cup/PfxBeerBreak")
 broken_mesh = NodePath("cup_broken")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -66,17 +67,21 @@ script = ExtResource("2_t35mh")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PickPoint"]
 shape = SubResource("SphereShape3D_fwtl3")
 
-[node name="PfxBeerConsuming" parent="." instance=ExtResource("3_jbig5")]
+[node name="cup" parent="." instance=ExtResource("6_t35mh")]
+
+[node name="PfxBeerConsuming" parent="cup" instance=ExtResource("3_jbig5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29612786, 0)
+visible = false
 emitting = false
 
-[node name="PfxBeerBreak" parent="." instance=ExtResource("4_rbkuy")]
+[node name="PfxBeerBreak" parent="cup" instance=ExtResource("4_rbkuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2697593, 0)
+visible = false
+script = ExtResource("5_rbkuy")
 
-[node name="PfxBeerDispose" parent="." instance=ExtResource("5_u18ou")]
+[node name="PfxBeerDispose" parent="cup" instance=ExtResource("5_u18ou")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.264432, 0)
-
-[node name="cup" parent="." instance=ExtResource("6_t35mh")]
+visible = false
 
 [node name="cup_broken" parent="." instance=ExtResource("7_jbig5")]
 transform = Transform3D(0.07426519, 0.9972385, 0, -0.9972385, 0.07426519, 0, 0, 0, 1, -0.05959561, 0.11651543, 0)

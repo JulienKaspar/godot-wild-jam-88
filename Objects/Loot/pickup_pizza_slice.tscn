@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b3w4gu3se7vnv" path="res://Gameplay/Pickups/drunkness_pickup.gd" id="1_oecnb"]
 [ext_resource type="Script" uid="uid://dov4lhtuyrycf" path="res://Gameplay/Pickups/pick_point.gd" id="2_jprtf"]
-[ext_resource type="PackedScene" path="res://Particles/DrunknessPickups/pfx_pizza_consuming.tscn" id="3_f3k6e"]
+[ext_resource type="PackedScene" uid="uid://cup17xrrbj5on" path="res://Particles/DrunknessPickups/pfx_pizza_consuming.tscn" id="3_f3k6e"]
 [ext_resource type="PackedScene" uid="uid://b68w14ql4fcn8" path="res://Assets/Furniture/pizza_slice.gltf" id="6_cryrt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f3k6e"]
@@ -52,7 +52,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PickPoint" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15536867, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02576831, -0.0078573525)
 monitoring = false
 script = ExtResource("2_jprtf")
 

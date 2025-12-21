@@ -21,7 +21,7 @@ func _physics_process(_delta: float) -> void:
 	newPos += Vector3(0, follow_distance, follow_distance)
 	position = lerp(position, newPos, 0.4)
 	look_at(follow_target.global_position + lookAtOffset)
-	if isInterested:
+	if interestingCam and isInterested:
 		global_transform = lerp(global_transform, interestingCam.global_transform, blendingLerp)
 	applyShake(shakeStrength * UserSettings.camera_shake_modifier)
 

@@ -13,7 +13,9 @@ func _process(delta: float) -> void:
 	pass
 	
 func viewThis() -> void:
+	print("Uhhh, look: interesting camera:" + self.name)
 	GameStateManager.game_camera.lookHere(self, blendInTime)
 
 func stopView() -> void:
+	print("Camera not interesting anymore:" + self.name)
 	GameStateManager.game_camera.followPlayer(blendOutTime)
