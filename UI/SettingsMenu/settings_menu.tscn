@@ -231,22 +231,22 @@ top_focus_target = NodePath("../../../../HBoxContainer/MarginContainer3/AudioTab
 
 [node name="MusicVolume" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer/Audio/VBoxContainer" instance=ExtResource("11_dxnqk")]
 layout_mode = 2
-setting_name = "Music Volume"
+setting_name = "Music"
 property_name = &"music_volume"
 
 [node name="SFXVolume" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer/Audio/VBoxContainer" instance=ExtResource("11_dxnqk")]
 layout_mode = 2
-setting_name = "SFX Volume"
+setting_name = "SFX"
 property_name = &"sfx_volume"
 
 [node name="UIVolume" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer/Audio/VBoxContainer" instance=ExtResource("11_dxnqk")]
 layout_mode = 2
-setting_name = "UI Volume"
+setting_name = "UI"
 property_name = &"ui_volume"
 
 [node name="AmbienceVolume" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer/Audio/VBoxContainer" instance=ExtResource("11_dxnqk")]
 layout_mode = 2
-setting_name = "Ambience Volume"
+setting_name = "Ambience"
 property_name = &"ambience_volume"
 
 [node name="BurpNastiness" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer/Audio/VBoxContainer" instance=ExtResource("11_dxnqk")]
