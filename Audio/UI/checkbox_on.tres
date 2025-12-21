@@ -1,0 +1,8 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=2 format=3 uid="uid://b2h4fsees6vly"]
+
+[ext_resource type="AudioStream" uid="uid://cu4n4ulhoxa1c" path="res://Assets/Audio/UI/checkbox_on.ogg" id="1_tv108"]
+
+[resource]
+random_pitch = 1.2
+streams_count = 1
+stream_0/stream = ExtResource("1_tv108")
