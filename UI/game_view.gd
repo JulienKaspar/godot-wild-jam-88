@@ -16,6 +16,7 @@ func _ready() -> void:
 	main_menu.settings_menu_button_pressed.connect(handle_setting_menu_opened)
 	main_menu.start_button_pressed.connect(handle_game_started)
 	GameStateManager.on_unpaused.connect(show_game_ui)
+	GameStateManager.show_credits.connect(end_credits)
 	UserSettings.on_font_toggled.connect(switch_font)
 	settings_menu.on_back.connect(handle_back_button_pressed)
 	main_menu.start_button.grab_focus.call_deferred()

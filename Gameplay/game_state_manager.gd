@@ -3,6 +3,7 @@ extends Node
 
 signal on_paused()
 signal on_unpaused()
+signal show_credits()
 signal on_level_loaded(level_index : int)
 
 @export var starting_level_index: int = 0
