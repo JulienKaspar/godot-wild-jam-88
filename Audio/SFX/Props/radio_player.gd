@@ -1,7 +1,7 @@
 extends AudioStreamPlayer3D
 
-@export var voice_trigger_radius: float = 8.0
-@export var music_trigger_radius: float = 10.0
+@export var voice_trigger_radius: float = 9.0
+@export var music_trigger_radius: float = 11.0
 
 var music_on : bool = false
 var intro_done : bool = false
