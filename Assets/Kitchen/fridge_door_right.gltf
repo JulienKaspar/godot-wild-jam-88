@@ -260,6 +260,17 @@
 			"pbrMetallicRoughness":{
 				"metallicFactor":0
 			}
+		},
+		{
+			"doubleSided":true,
+			"name":"magnet",
+			"pbrMetallicRoughness":{
+				"baseColorTexture":{
+					"index":0
+				},
+				"metallicFactor":0,
+				"roughnessFactor":0.5
+			}
 		}
 	],
 	"meshes":[
@@ -425,8 +436,31 @@
 					},
 					"indices":46,
 					"material":1
+				},
+				{
+					"attributes":{
+						"POSITION":47,
+						"NORMAL":48,
+						"TEXCOORD_0":49,
+						"COLOR_0":50
+					},
+					"indices":51,
+					"material":2
 				}
 			]
+		}
+	],
+	"textures":[
+		{
+			"sampler":0,
+			"source":0
+		}
+	],
+	"images":[
+		{
+			"mimeType":"image/png",
+			"name":"the_kitchen_magnets",
+			"uri":"the_kitchen_magnets.png"
 		}
 	],
 	"accessors":[
@@ -785,7 +819,7 @@
 		{
 			"bufferView":42,
 			"componentType":5126,
-			"count":266,
+			"count":383,
 			"max":[
 				0,
 				1.2257429361343384,
@@ -801,25 +835,65 @@
 		{
 			"bufferView":43,
 			"componentType":5126,
-			"count":266,
+			"count":383,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":44,
 			"componentType":5126,
-			"count":266,
+			"count":383,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":45,
 			"componentType":5126,
-			"count":266,
+			"count":383,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":46,
 			"componentType":5123,
-			"count":480,
+			"count":618,
+			"type":"SCALAR"
+		},
+		{
+			"bufferView":47,
+			"componentType":5126,
+			"count":14,
+			"max":[
+				-0.03642398118972778,
+				1.1893190145492554,
+				0.03642392158508301
+			],
+			"min":[
+				-0.709678590297699,
+				-1.1474066972732544,
+				0.03642392158508301
+			],
+			"type":"VEC3"
+		},
+		{
+			"bufferView":48,
+			"componentType":5126,
+			"count":14,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":49,
+			"componentType":5126,
+			"count":14,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":50,
+			"componentType":5126,
+			"count":14,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":51,
+			"componentType":5123,
+			"count":24,
 			"type":"SCALAR"
 		}
 	],
@@ -1078,38 +1152,74 @@
 		},
 		{
 			"buffer":0,
-			"byteLength":3192,
+			"byteLength":4596,
 			"byteOffset":24372,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":3192,
-			"byteOffset":27564,
+			"byteLength":4596,
+			"byteOffset":28968,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":2128,
-			"byteOffset":30756,
+			"byteLength":3064,
+			"byteOffset":33564,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":3192,
-			"byteOffset":32884,
+			"byteLength":4596,
+			"byteOffset":36628,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":960,
-			"byteOffset":36076,
+			"byteLength":1236,
+			"byteOffset":41224,
 			"target":34963
+		},
+		{
+			"buffer":0,
+			"byteLength":168,
+			"byteOffset":42460,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":168,
+			"byteOffset":42628,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":112,
+			"byteOffset":42796,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":168,
+			"byteOffset":42908,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":48,
+			"byteOffset":43076,
+			"target":34963
+		}
+	],
+	"samplers":[
+		{
+			"magFilter":9729,
+			"minFilter":9987
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":37036,
+			"byteLength":43124,
 			"uri":"fridge_door_right.bin"
 		}
 	]
