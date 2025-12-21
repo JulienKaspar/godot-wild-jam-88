@@ -31,6 +31,7 @@ func handle_exit_button_pressed() -> void:
 @onready var theme_music_muted : AudioStreamPlayer = %ThemeMusicMuted
 
 func enter_menu_sounds():
+	AudioManager.set_credits_settings(false)
 	title_screen_ambience.bus = AudioServer.get_bus_name(AudioManager.BUS.AMBIENCE)
 	theme_music_muted.bus = AudioServer.get_bus_name(AudioManager.BUS.MUSIC)
 	
@@ -47,8 +48,9 @@ func enter_menu_sounds():
 func exit_menu_sounds():
 	AudioManager.fade_audio_out(title_screen_ambience, 2.5)
 	AudioManager.fade_audio_out(theme_music_muted, 2.5)
-	
-func _unhandled_key_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_down") || event.is_action_pressed("ui_up") || event.is_action_pressed("ui_left") || event.is_action_pressed("ui_right") || event.is_action_pressed("ui_select"):
-		start_button.grab_focus()
+
+## NOTE: use if losing focus 
+#func _unhandled_key_input(event: InputEvent) -> void:
+	#if event.is_action_pressed("ui_down") || event.is_action_pressed("ui_up") || event.is_action_pressed("ui_left") || event.is_action_pressed("ui_right") || event.is_action_pressed("ui_select"):
+		#start_button.grab_focus()
 	

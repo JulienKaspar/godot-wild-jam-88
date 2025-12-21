@@ -36,6 +36,8 @@ func _on_fridge_inside_area_body_entered(body: Node3D) -> void:
 func _on_inside_fridge_time_timeout() -> void:
 	isProgress = Progress.EXIT
 	$AnimationPlayer.play("fridge_end")
+	var music = $FinalFridgeTheme as FinalFridgeTheme
+	music.finish()
 	$Fridge/fridge_trap_wall/CollisionShape3D.disabled = true
 	print("how are we gonna even spawn two in one fridge?")
 

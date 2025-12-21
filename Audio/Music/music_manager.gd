@@ -11,8 +11,8 @@ class_name MusicManager
 signal switch_music(theme : MUSIC_THEMES)
 
 @onready var music_player : AudioStreamPlayer = %MusicPlayer
-const VOLUME_DB_DEFAULT : float = -1.5
-const VOLUME_DB_DUCKING : float = -4.5
+const VOLUME_DB_DEFAULT : float = -3.0
+const VOLUME_DB_DUCKING : float = -6.0
 
 var chord_change_timer : Timer
 
@@ -49,7 +49,7 @@ func _on_level_change(level_index : int):
 		0: # backyard
 			music_player.volume_db = AudioManager.VOLUME_DB_OFF
 		1, 2, 3, 4, 5: # core levels
-			var target_volume_db = AudioManager.VOLUME_DB_ON
+			var target_volume_db = VOLUME_DB_DEFAULT
 			AudioManager.tween_volume_db(music_player, target_volume_db)
 			if !music_player.playing:
 				start_music()

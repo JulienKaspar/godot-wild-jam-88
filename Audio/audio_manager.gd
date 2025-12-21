@@ -84,6 +84,11 @@ func set_drunk_fx(enabled : bool) -> void:
 	AudioServer.set_bus_effect_enabled(BUS.DRUNK_FX, FX.DELAY, enabled)
 
 
+func set_credits_settings(enabled : bool) -> void:
+	AudioServer.set_bus_bypass_effects(BUS.MUSIC, enabled)
+	AudioServer.set_bus_mute(BUS.FLASKY, enabled)
+
+
 # ========================= #
 # === Drunkness Effects === #
 # ========================= #

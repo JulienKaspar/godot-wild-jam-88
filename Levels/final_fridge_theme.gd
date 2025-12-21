@@ -1,4 +1,5 @@
 extends AudioStreamPlayer
+class_name FinalFridgeTheme
 
 const FINISH : String = "finish"
 const CHOIR : int = 0
@@ -9,8 +10,10 @@ var time_now : int
 
 var choir_volume : float = -60.0
 
+var finishing: bool = false
+
 func _ready():
-	AudioManager.fade_audio_in(self, 0.0)
+	AudioManager.fade_audio_in(self, AudioManager.VOLUME_DB_ON)
 	AudioManager.music_manager._set_filter(false)
 	
 	time_start = Time.get_ticks_msec()
@@ -19,8 +22,8 @@ func _ready():
 	self.play()
 	
 	var _volume : float = 0.0
-	t.tween_property(self, "choir_volume", 0.0, 7.0)
-	get_tree().create_timer(10.0).timeout.connect(finish)
+	t.tween_property(self, "choir_volume", 0.0, 10.0)
+	#get_tree().create_timer(10.0).timeout.connect(finish)
 
 func adjust_choir_volume_db(volume : float):
 	var _interactive_stream : AudioStreamInteractive = stream
@@ -30,9 +33,12 @@ func adjust_choir_volume_db(volume : float):
 func finish():
 	var _playback : AudioStreamPlaybackInteractive = get_stream_playback()
 	_playback.switch_to_clip_by_name(FINISH)
+	finishing = true
+	AudioManager.set_credits_settings(true)
 #
 func _process(delta):
-	adjust_choir_volume_db(choir_volume)
+	if !finishing:
+		adjust_choir_volume_db(choir_volume)
 	#time_now = Time.get_ticks_msec()
 	#var time_elapsed = time_now - time_start
 	#var volume_adjust : float = sin(delta * time_elapsed)
