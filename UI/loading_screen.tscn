@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dyovlc3mxuhxr"]
+[gd_scene load_steps=15 format=3 uid="uid://dyovlc3mxuhxr"]
 
 [ext_resource type="Texture2D" uid="uid://g0olx5n00r1d" path="res://Assets/2D_Assets/Twerking_Art/twerk_silhouette_4.png" id="1_1j043"]
 [ext_resource type="Script" uid="uid://bgidq7t8ub8ha" path="res://UI/loading_screen.gd" id="1_v4uo1"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://dlm8hym8ragu" path="res://Assets/2D_Assets/Twerking_Art/twerk_2.png" id="4_x74xp"]
 [ext_resource type="Texture2D" uid="uid://cmu1lptxybtls" path="res://Assets/2D_Assets/Twerking_Art/twerk_3.png" id="5_v4uo1"]
 [ext_resource type="Texture2D" uid="uid://dcx4ujk24j4m1" path="res://Assets/2D_Assets/Twerking_Art/twerk_4.png" id="6_35kds"]
+[ext_resource type="Texture2D" uid="uid://bghga4ea8s7hn" path="res://UI/SettingsMenu/OK_button.png" id="10_368j8"]
+[ext_resource type="Texture2D" uid="uid://euqhdd2yukdo" path="res://UI/SettingsMenu/OK_button_hovered.png" id="11_h552v"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v4uo1"]
 
@@ -59,11 +61,13 @@ theme_override_constants/margin_bottom = 40
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_x74xp")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 60
 text = "Loading..."
 horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -75,6 +79,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("1_1j043")
@@ -84,3 +89,15 @@ script = ExtResource("2_pnnle")
 always_play = true
 framerate = 9
 frames = Array[Texture2D]([ExtResource("3_p1mo3"), ExtResource("4_x74xp"), ExtResource("5_v4uo1"), ExtResource("6_35kds")])
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer/CenterContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture_normal = ExtResource("10_368j8")
+texture_hover = ExtResource("11_h552v")
+ignore_texture_size = true
+stretch_mode = 5
