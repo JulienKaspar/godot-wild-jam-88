@@ -33,6 +33,25 @@ script = ExtResource("2_kcolf")
 dialogue_ending_position = Vector2(623, 310)
 gradient_start_transparency = Color(0.9851293, 0.9873226, 0.98717993, 0)
 gradient_end_transparency = Color(1, 1, 1, 1)
+falling_quips = Dictionary[String, int]({
+"Cant keep a fella like yourself down Dill-o": 0,
+"Was that a rug?? I hate rugs!!": 0,
+"You know what they say about getting knocked down": 0
+})
+dying_quips = Dictionary[String, int]({
+"Ain't that one dumpster fire of a party...": 0,
+"Getting stuck is part of life, ain't that true?": 0,
+"I'd give ya a sip, but you ain't ever filling me up no more...": 0,
+"Not our type of crowd, is it. Nuh-uh.": 0,
+"Nothing you can't shake off, old fella": 0
+})
+drinking_quips = Dictionary[String, int]({
+"Easy enough to grab some freebies around here.": 0,
+"Getting aaaaalll juiced up, aren't we 🙂": 0,
+"I think this one was mine actually": 0,
+"Ripe for the taking.": 0,
+"That gets the old blood pumping, don't it.": 0
+})
 
 [node name="Control2" type="Control" parent="."]
 anchors_preset = 0
@@ -142,4 +161,3 @@ unique_name_in_owner = true
 stream = ExtResource("6_eaacc")
 volume_db = -3.0
 max_polyphony = 8
-bus = &"Flasky"

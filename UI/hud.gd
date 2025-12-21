@@ -34,7 +34,7 @@ func update_drunkness_marker_position() -> void:
 	var bar_rect = drunkness_meter.get_rect()
 	var new_x = bar_rect.position.x + (bar_rect.size.x * normalized_progress)
 	
-	var new_target_position = Vector2(clampf(new_x,marker_margin, bar_rect.size.x - marker_margin),drunkness_marker.position.y)
+	var new_target_position = Vector2(clampf(new_x,marker_margin, bar_rect.size.x),drunkness_marker.position.y)
 	var position_tween: Tween = create_tween()
 	position_tween.tween_property(drunkness_marker, "position", new_target_position, bar_marker_update_time)
 	

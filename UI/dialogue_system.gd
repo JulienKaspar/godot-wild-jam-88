@@ -23,16 +23,33 @@ class_name DialogueSystem
 @export var fade_out_duration: float = 1.3
 @export var gradient_start_transparency: Color
 @export var gradient_end_transparency: Color
-
 @onready var babble_sounds = %BabbleSounds
-
+@export_category("Quip Database")
+@export var falling_quips: Dictionary[String, int]
+@export var falling_quip_chance: float = 0.20
+@export var dying_quips: Dictionary[String, int]
+@export var dying_quip_chance: float = 0.8
+@export var drinking_quips: Dictionary[String, int]
+@export var drinking_quip_chance: float = 0.06
+enum QuipType{Falling,Drinking,Dying}
 var displayed_time: float = 0
 
 func _ready() -> void:
 	GameStateManager.dialogue_system = self
 	gradient.self_modulate = gradient_start_transparency
 
-
+func handle_quip_event(type: QuipType) -> void:
+	match type:
+		QuipType.Falling:
+			if randf() < falling_quip_chance:
+				display_random_falling_quip()
+		QuipType.Drinking:
+			if randf() < drinking_quip_chance:
+				display_random_drinking_quip()
+		QuipType.Dying:
+			if randf() < dying_quip_chance:
+				display_random_dying_quip()
+				
 func display_dialogue(text: String) -> void:
 	gradient.show()
 	dialogue_prompt.show()
@@ -53,8 +70,42 @@ func display_dialogue(text: String) -> void:
 	
 	await get_tree().create_timer(text_bubble_up_delay).timeout
 	start_showing_text()
-
 	
+func display_random_falling_quip() -> void:
+	var lowest_number_seen: int = 10000
+	for quip in falling_quips:
+		if falling_quips[quip] < lowest_number_seen:
+			lowest_number_seen = falling_quips[quip]
+	
+	for quip in falling_quips:
+		if falling_quips[quip] == lowest_number_seen:
+			display_dialogue(quip)
+			falling_quips[quip] += 1
+			return
+	
+func display_random_drinking_quip() -> void:
+	var lowest_number_seen: int = 10000
+	for quip in drinking_quips:
+		if drinking_quips[quip] < lowest_number_seen:
+			lowest_number_seen = drinking_quips[quip]
+	
+	for quip in drinking_quips:
+		if drinking_quips[quip] == lowest_number_seen:
+			display_dialogue(quip)
+			drinking_quips[quip] += 1
+			return
+	
+func display_random_dying_quip() -> void:
+	var lowest_number_seen: int = 10000
+	for quip in dying_quips:
+		if dying_quips[quip] < lowest_number_seen:
+			lowest_number_seen = dying_quips[quip]
+	
+	for quip in dying_quips:
+		if dying_quips[quip] == lowest_number_seen:
+			display_dialogue(quip)
+			dying_quips[quip] += 1
+			return
 	
 func _process(delta: float) -> void:
 	if dialogue_prompt.visible:

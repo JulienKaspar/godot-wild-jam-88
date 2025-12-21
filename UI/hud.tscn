@@ -23,9 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://bk67q73q35g1v" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_liquid_red_5.png" id="21_sf3w6"]
 [ext_resource type="Texture2D" uid="uid://d2tp72r6pfuid" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_liquid_red_6.png" id="22_lgp2o"]
 [ext_resource type="Texture2D" uid="uid://b163pdpm1rygr" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_frame_blink_red.png" id="23_0mm64"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_23s3h"]
-load_path = "res://.godot/imported/current_drunkness_marker.png-729feb2f0d6745c2116929468b4271f6.s3tc.ctex"
+[ext_resource type="Texture2D" uid="uid://cdx6ybpshgxao" path="res://Assets/2D_Assets/GUI/Drunkmeter/current_drunkness_marker.png" id="24_x8e40"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -66,6 +64,6 @@ offset_right = 89.0
 offset_bottom = 43.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = SubResource("CompressedTexture2D_23s3h")
+texture = ExtResource("24_x8e40")
 expand_mode = 1
 stretch_mode = 3

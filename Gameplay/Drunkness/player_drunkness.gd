@@ -42,6 +42,8 @@ func set_drunkness(_new_value: float) -> void:
 	
 func drunkness_increased() -> void:
 	AudioManager.ui_sounds.play_sound(AudioManager.ui_sounds.drunkness_up)
+	GameStateManager.dialogue_system.handle_quip_event(DialogueSystem.QuipType.Drinking)
+
 	
 func drunkness_decreased() -> void:
 	AudioManager.ui_sounds.play_sound(AudioManager.ui_sounds.drunkness_down)
