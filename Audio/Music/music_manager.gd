@@ -14,6 +14,7 @@ signal switch_music(theme : MUSIC_THEMES)
 const VOLUME_DB_DEFAULT : float = -1.5
 const VOLUME_DB_DUCKING : float = -4.5
 
+var chord_change_timer : Timer
 
 func _ready():
 	if !AudioManager.music_manager:
@@ -25,17 +26,18 @@ func _ready():
 	GameStateManager.on_level_loaded.connect(_on_level_change)
 	
 	switch_music.connect(switch_music_to_theme)
+	setup_chord_changes()
 
-func activate_chord_changes():
-	var chord_change_timer : Timer = Timer.new()
+func setup_chord_changes() -> void:
+	chord_change_timer = Timer.new()
 	chord_change_timer.wait_time = 10.0
 	chord_change_timer.one_shot = false
-	chord_change_timer.timeout.connect(randomize_chord)
+	chord_change_timer.timeout.connect(randomize_chords)
 	add_child(chord_change_timer)
-	chord_change_timer.start()
 
-func randomize_chord() -> void:
-	if (randf() < 0.5): return # chance to skip
+func randomize_chords() -> void:
+	if (!music_player.playing or randf() < 0.5): return # skip condition
+	
 	var _target_theme : int = current_theme
 	while(_target_theme == current_theme): # skip if same
 		_target_theme = randi_range(0, MUSIC_THEMES.size() - 1)
@@ -51,25 +53,12 @@ func _on_level_change(level_index : int):
 			AudioManager.tween_volume_db(music_player, target_volume_db)
 			if !music_player.playing:
 				start_music()
-				activate_chord_changes()
+				chord_change_timer.start()
 		6: # fridge
+			chord_change_timer.stop()
 			stop_music()
-	
-	#if level_index > 0:
-		#if level_index > 4:
-			#AudioManager.fade_audio_out(music_player)
-			#return
-		#
-		#AudioManager.fade_audio_in(music_player)
-		#
-		#if !music_player.playing:
-			#music_player.play()
-			#AudioManager.fade_audio_in(music_player, AudioManager.VOLUME_DB_ON)
-			#activate_chord_changes()
-		#else:
-			#AudioManager.tween_volume_db(music_player, AudioManager.VOLUME_DB_ON)
 
-#region MUSIC
+
 # Music themes - enum makes it easily callable from other scripts
 enum MUSIC_THEMES {
 	THEME_A,
@@ -107,10 +96,8 @@ func switch_music_to_theme(theme : MUSIC_THEMES):
 	_playback.switch_to_clip_by_name(MUSIC_BANK[theme])
 	current_theme = theme
 	AudioManager.update_drunk_effects()
-#endregion
 
 
-#region DRUNKNESS EFFECT
 # Stream layers of music for each layer of drunkness_intensity
 enum DRUNKNESS_STREAMS {
 	DEFAULT = 0,
@@ -163,7 +150,6 @@ func _update_drunkness_streams(_target_volume_db) -> void:
 		# iterate sync streams
 		for j in range(0, _clip.stream_count - 1):
 			_clip.set_sync_stream_volume(j, _target_volume_db)
-#endregion
 
 const _FILTER_CUTOFF_HZ_ON = 500
 const _FILTER_CUTOFF_HZ_OFF = 10000
