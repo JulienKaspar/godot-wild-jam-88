@@ -24,8 +24,8 @@
 [ext_resource type="PackedScene" uid="uid://3kn1j5376oof" path="res://Objects/Architypes/Furniture/table2.tscn" id="22_ahqed"]
 [ext_resource type="PackedScene" uid="uid://dci81bvxxl4nx" path="res://Objects/Architypes/LivingRoom/stairs_thin.tscn" id="22_ijmkr"]
 [ext_resource type="PackedScene" uid="uid://d3padysgagsbx" path="res://Objects/Architypes/TrippingHazards/tripping_rug.tscn" id="22_ra8ms"]
-[ext_resource type="Script" path="res://UI/camera_of_interest.gd" id="24_okfwc"]
-[ext_resource type="Script" path="res://UI/camera_area_trigger.gd" id="25_okfwc"]
+[ext_resource type="Script" uid="uid://ddci75ik2j7ul" path="res://UI/camera_of_interest.gd" id="24_okfwc"]
+[ext_resource type="Script" uid="uid://dbaf2uf6cx0uy" path="res://UI/camera_area_trigger.gd" id="25_okfwc"]
 [ext_resource type="PackedScene" uid="uid://bg1n8yiy2cj3k" path="res://Assets/Furniture/rug_big_beige.gltf" id="27_846tk"]
 [ext_resource type="PackedScene" uid="uid://ctkeed4oy5kjx" path="res://Objects/Loot/pickup_beer_bottle.tscn" id="28_2h7dj"]
 [ext_resource type="PackedScene" uid="uid://b0thpqx788jgo" path="res://Assets/Furniture/rug_black_flora.gltf" id="28_41px5"]
@@ -757,3 +757,6 @@ transform = Transform3D(0.36575407, 0, 0.9307115, 0, 1, 0, -0.9307115, 0, 0.3657
 
 [node name="cup_broken" parent="Decor" instance=ExtResource("42_pcqx0")]
 transform = Transform3D(0.96556807, 0, 0.26015058, 0, 1, 0, -0.26015058, 0, 0.96556807, 5.557924, 0.0022555622, -0.1784645)
+
+[node name="Flowers1" parent="." instance=ExtResource("29_736oy")]
+transform = Transform3D(0.06955148, -0.97859526, -0.19368504, 0.3307319, 0.20579433, -0.92101306, 0.9411583, 0, 0.337966, 5.4672956, 0.11695795, -0.4644703)
