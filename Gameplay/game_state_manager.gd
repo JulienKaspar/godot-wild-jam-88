@@ -27,6 +27,7 @@ var loading_into_level_index: int # need this to be set before level starts load
 var loading_screen: LoadingScreen
 var precacheCam: Camera3D
 var inCacheMode = false
+var shader_cache_before_start = true # turn this one on for release
 
 func _ready() -> void:
 	get_tree().paused = true
@@ -67,11 +68,9 @@ func start_game() -> void:
 	AudioManager.ui_sounds.game_started = true
 	
 func cache_shaders() -> void:
+	if !shader_cache_before_start: return
 	loading_screen.display_indefinite(false)
 	loading_screen.label.text = "Caching Shaders..."
-
-	#pause_game()
-	#unpause_game()
 	inCacheMode = true
 	var index = 0
 	for level in levels:
@@ -81,8 +80,6 @@ func cache_shaders() -> void:
 			precacheCam.startCache()
 			await precacheCam.completed
 		index += 1
-	#var instance: ShaderCashing = level_loader.load_level(shader_cashing_level)
-	#await instance.completed
 	inCacheMode = false
 	loading_screen.close()
 

@@ -1,25 +1,25 @@
 [gd_scene load_steps=56 format=3 uid="uid://dpy3h6kf53s5j"]
 
 [ext_resource type="PackedScene" uid="uid://d24k31i312cc1" path="res://Objects/Architypes/Props/lamp_standing1.tscn" id="1_buw6o"]
-[ext_resource type="Script" path="res://Levels/Util/lvl_1_straight_ahead_mission_flow.gd" id="1_ra8ms"]
+[ext_resource type="Script" uid="uid://8px1bb7haxfx" path="res://Levels/Util/lvl_1_straight_ahead_mission_flow.gd" id="1_ra8ms"]
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="1_rqsde"]
 [ext_resource type="PackedScene" uid="uid://dh3i5uan6dujl" path="res://Objects/Architypes/Props/plant_palm1.tscn" id="3_ahqed"]
 [ext_resource type="PackedScene" uid="uid://cdrpgw2um6m6i" path="res://Objects/safety_plane.tscn" id="3_na4ed"]
 [ext_resource type="Material" uid="uid://dmxe2qlk68jn" path="res://Assets/Materials/reddish_floral_wall.tres" id="4_5d0l3"]
 [ext_resource type="PackedScene" uid="uid://fhev4d48q1qy" path="res://Objects/Architypes/LivingRoom/stairs_wide.tscn" id="5_5d0l3"]
 [ext_resource type="PackedScene" uid="uid://cs4digbuoekpl" path="res://Objects/Architypes/Furniture/shelf2.tscn" id="5_crrcm"]
-[ext_resource type="Material" path="res://Assets/Materials/green_carpet.tres" id="5_va1hs"]
-[ext_resource type="PackedScene" path="res://Objects/Architypes/Furniture/frame.tscn" id="5_y6gv2"]
+[ext_resource type="Material" uid="uid://dxy5f3akktyqu" path="res://Assets/Materials/green_carpet.tres" id="5_va1hs"]
+[ext_resource type="PackedScene" uid="uid://cksssdqb3x0hy" path="res://Objects/Architypes/Furniture/frame.tscn" id="5_y6gv2"]
 [ext_resource type="Script" path="res://Objects/hideable_wall.gd" id="6_xxf8q"]
 [ext_resource type="Material" uid="uid://b23iqfg3em6ty" path="res://Assets/Materials/wooden_wall.tres" id="8_okfwc"]
 [ext_resource type="Material" uid="uid://c20xc8e5t6yna" path="res://Assets/Materials/creme_carpet.tres" id="8_y6gv2"]
 [ext_resource type="PackedScene" uid="uid://j1b5yvs8pnux" path="res://Objects/Architypes/Furniture/table_round1.tscn" id="9_82upk"]
-[ext_resource type="PackedScene" path="res://Objects/Architypes/LivingRoom/door.tscn" id="10_va1hs"]
+[ext_resource type="PackedScene" uid="uid://c5xjwe237ug3y" path="res://Objects/Architypes/LivingRoom/door.tscn" id="10_va1hs"]
 [ext_resource type="PackedScene" uid="uid://d3unw205fanv5" path="res://Objects/Loot/pickup_beer.tscn" id="11_2icu1"]
 [ext_resource type="Material" uid="uid://l1sgod1lv1b6" path="res://Assets/Materials/yellow_floral_wall.tres" id="11_y6gv2"]
 [ext_resource type="PackedScene" uid="uid://d2fq258dik5oo" path="res://Objects/Architypes/Furniture/table1.tscn" id="12_gh4oo"]
-[ext_resource type="PackedScene" path="res://Objects/Architypes/TrippingHazards/slippery_banana_peel.tscn" id="16_y345g"]
-[ext_resource type="PackedScene" path="res://Objects/Architypes/TrippingHazards/tripping_lamp.tscn" id="17_1arg0"]
+[ext_resource type="PackedScene" uid="uid://8jsl1k2fwjho" path="res://Objects/Architypes/TrippingHazards/slippery_banana_peel.tscn" id="16_y345g"]
+[ext_resource type="PackedScene" uid="uid://dnn6p65hj813g" path="res://Objects/Architypes/TrippingHazards/tripping_lamp.tscn" id="17_1arg0"]
 [ext_resource type="PackedScene" uid="uid://d62n5s8htyn7" path="res://Characters/Teens/logic/TeenStanding.tscn" id="18_mdsrj"]
 [ext_resource type="PackedScene" uid="uid://c0d87wbdbi2al" path="res://Objects/Architypes/Furniture/couch1.tscn" id="20_fs7fc"]
 [ext_resource type="PackedScene" uid="uid://3kn1j5376oof" path="res://Objects/Architypes/Furniture/table2.tscn" id="22_ahqed"]
@@ -35,11 +35,11 @@
 [ext_resource type="PackedScene" uid="uid://dq8pax2pwl72a" path="res://Objects/Architypes/Props/plant_algae1.tscn" id="30_cla2b"]
 [ext_resource type="PackedScene" uid="uid://k0584mty7u68" path="res://Assets/LivingRoom/door_sides.gltf" id="30_fprnk"]
 [ext_resource type="PackedScene" uid="uid://c3exm36djed3o" path="res://Assets/Furniture/window_1_curtain.gltf" id="30_xhek1"]
-[ext_resource type="PackedScene" path="res://Objects/Architypes/Props/chair1.tscn" id="31_c48kr"]
+[ext_resource type="PackedScene" uid="uid://cq2dax3g44gvp" path="res://Objects/Architypes/Props/chair1.tscn" id="31_c48kr"]
 [ext_resource type="PackedScene" uid="uid://bwm23c42sbbui" path="res://Objects/Architypes/Props/lamp_table1.tscn" id="31_dhb1n"]
 [ext_resource type="PackedScene" uid="uid://c1pmr6dan0331" path="res://Assets/Furniture/couch3.gltf" id="32_2mquc"]
 [ext_resource type="PackedScene" uid="uid://c50jjcmdyr7vp" path="res://Objects/Loot/pickup_beer_cup.tscn" id="36_xhek1"]
-[ext_resource type="PackedScene" path="res://Objects/Architypes/Furniture/couch3.tscn" id="37_y23y6"]
+[ext_resource type="PackedScene" uid="uid://bakknr3opo6gq" path="res://Objects/Architypes/Furniture/couch3.tscn" id="37_y23y6"]
 [ext_resource type="PackedScene" uid="uid://druufnhmbc0et" path="res://Assets/Props/beer_bottle_broken.gltf" id="41_y6674"]
 [ext_resource type="PackedScene" uid="uid://dsxj8qcelbum7" path="res://Assets/Props/beer_cup_broken.gltf" id="42_pcqx0"]
 [ext_resource type="PackedScene" uid="uid://dxvnrp0252dr0" path="res://Assets/Furniture/table_round1.gltf" id="43_pcqx0"]
@@ -88,7 +88,7 @@ size = Vector3(2.1617432, 4.0363245, 0.2)
 radius = 0.5522461
 
 [sub_resource type="Curve3D" id="Curve3D_na4ed"]
-bake_interval = 1.0
+bake_interval = 2.0
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 1.6757088, 0, 0.20363998, 0, 0, 0, 0, 0, 0, -8.948946, 0, 6.055421, 0, 0, 0, 0, 0, 0, -5.63463, 0, 12.719519, 0, 0, 0, 0, 0, 0, -9.227352, 0, 18.839582, 0, 0, 0, 0, 0, 0, -21.17423, 0, 19.107267),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0)

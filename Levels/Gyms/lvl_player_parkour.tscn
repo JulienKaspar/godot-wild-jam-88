@@ -1,15 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://csh7g60ebb2xa"]
+[gd_scene load_steps=15 format=3 uid="uid://csh7g60ebb2xa"]
 
-[ext_resource type="PackedScene" uid="uid://c8m223mcy8u2o" path="res://Objects/Props/prop_box.tscn" id="2_g5tv7"]
+[ext_resource type="Script" uid="uid://dik2vrqjv0rts" path="res://Levels/Util/lvl_player_parkour_mission_flow.gd" id="1_8y3n1"]
 [ext_resource type="PackedScene" uid="uid://b32xnjnsc6xts" path="res://Levels/Gyms/Wall/wooden_wall.tscn" id="2_g78i3"]
 [ext_resource type="PackedScene" uid="uid://vyau441cbd2o" path="res://Levels/Gyms/Wall/yellow_floral_wall.tscn" id="3_jvag8"]
 [ext_resource type="PackedScene" uid="uid://fhev4d48q1qy" path="res://Objects/Architypes/LivingRoom/stairs_wide.tscn" id="4_2ryr4"]
 [ext_resource type="PackedScene" uid="uid://b7ee7to73wtp6" path="res://Levels/Gyms/Floor/floor1.tscn" id="4_g78i3"]
 [ext_resource type="Texture2D" uid="uid://djpkkont0tpva" path="res://Assets/Maps/Walls/yellow_floral_wallpaper/atlas.png" id="5_onn2k"]
 [ext_resource type="PackedScene" uid="uid://d62n5s8htyn7" path="res://Characters/Teens/logic/TeenStanding.tscn" id="6_cqxer"]
-[ext_resource type="PackedScene" uid="uid://d3unw205fanv5" path="res://Objects/Loot/pickup_beer.tscn" id="7_advv7"]
 [ext_resource type="PackedScene" uid="uid://3kn1j5376oof" path="res://Objects/Architypes/Furniture/table2.tscn" id="7_ioif7"]
-[ext_resource type="PackedScene" uid="uid://bo1p1dvgr50f4" path="res://Objects/Loot/pickup_banana.tscn" id="8_advv7"]
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="9_b8gvx"]
 [ext_resource type="PackedScene" uid="uid://duarfe60umd1m" path="res://Gameplay/level_teleporter.tscn" id="10_8y3n1"]
 
@@ -24,7 +22,7 @@ ambient_light_source = 2
 ambient_light_color = Color(0.51386654, 0.29520002, 0.82, 1)
 ambient_light_energy = 1.05
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ryr4"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b8gvx"]
 resource_local_to_scene = true
 diffuse_mode = 3
 specular_mode = 2
@@ -39,37 +37,9 @@ uv1_triplanar = true
 uv1_world_triplanar = true
 
 [node name="LvlPlayerParkour" type="Node3D"]
+script = ExtResource("1_8y3n1")
 
 [node name="Obsticles" type="Node3D" parent="."]
-
-[node name="Props" type="Node3D" parent="Obsticles"]
-
-[node name="PropBox" parent="Obsticles/Props" instance=ExtResource("2_g5tv7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.915783, 0.25, 1.3811442)
-
-[node name="PropBox2" parent="Obsticles/Props" instance=ExtResource("2_g5tv7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.296811, 0.25, 1.2604448)
-
-[node name="PropBox3" parent="Obsticles/Props" instance=ExtResource("2_g5tv7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0436337, 0.42830455, -0.041978955)
-
-[node name="PropBox4" parent="Obsticles/Props" instance=ExtResource("2_g5tv7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7838677, 0.25, 1.6883658)
-
-[node name="PropBox5" parent="Obsticles/Props" instance=ExtResource("2_g5tv7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.40283966, 0.25, 1.5676664)
-
-[node name="PropBox6" parent="Obsticles/Props" instance=ExtResource("2_g5tv7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.73628914, 0.25, 1.3318559)
-
-[node name="PropBox7" parent="Obsticles/Props" instance=ExtResource("2_g5tv7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.917051, 0.75196815, -0.42338014)
-
-[node name="PropBox8" parent="Obsticles/Props" instance=ExtResource("2_g5tv7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5360231, 0.75196815, -0.54407954)
-
-[node name="PropBox9" parent="Obsticles/Props" instance=ExtResource("2_g5tv7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8694727, 0.75196815, -0.77989006)
 
 [node name="Walls" type="Node3D" parent="Obsticles"]
 
@@ -137,36 +107,22 @@ wobble = true
 has_loot = true
 
 [node name="Table2" parent="." instance=ExtResource("7_ioif7")]
-transform = Transform3D(0.9954512, 0, 0.09527243, 0, 1, 0, -0.09527243, 0, 0.9954512, -0.39679515, -4.7683716e-07, -3.0328772)
+transform = Transform3D(0.9954512, 0, 0.09527243, 0, 1, 0, -0.09527243, 0, 0.9954512, 2.5229864, 0, 3.315428)
 
 [node name="Loot" type="Node3D" parent="."]
-
-[node name="DrunknessPickup" parent="Loot" instance=ExtResource("7_advv7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4190791, 0.8443067, -2.699389)
-
-[node name="DrunknessPickup2" parent="Loot" instance=ExtResource("7_advv7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2162056, 0.8443067, -3.1547353)
-
-[node name="DrunknessPickup3" parent="Loot" instance=ExtResource("7_advv7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5500355, 0.9314556, -0.5635946)
-
-[node name="DrunknessPickup" parent="." instance=ExtResource("8_advv7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9179133, 0.8382794, -2.5721056)
-
-[node name="DrunknessPickup2" parent="." instance=ExtResource("8_advv7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7835407, 0.502098, 1.7201093)
-
-[node name="DrunknessPickup3" parent="." instance=ExtResource("8_advv7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3724215, 0.10012102, 0.0153950155)
-
-[node name="PlayerSpawnPoint" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.9960875, -0.08837276, 0, 0.08837276, 0.9960875, 1.0011849, 0.25416687, -1.0375082)
-script = ExtResource("9_b8gvx")
-metadata/_custom_type_script = "uid://cm1uqdo37kpmi"
 
 [node name="LevelTeleporter" parent="." instance=ExtResource("10_8y3n1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22855115, 0, 3.7291195)
 
 [node name="Stairs_wide" parent="." instance=ExtResource("4_2ryr4")]
-transform = Transform3D(0.0038745773, 0, -0.9999925, 0, 1, 0, 0.9999925, 0, 0.0038745773, 3.5139418, -0.64262295, -2.559592)
-wall_material = SubResource("StandardMaterial3D_2ryr4")
+transform = Transform3D(0.9999925, 0, 0.0038746211, 0, 1, 0, -0.0038746211, 0, 0.9999925, -3.5180523, -0.64262295, -2.939535)
+wall_material = SubResource("StandardMaterial3D_b8gvx")
+
+[node name="Stairs_wide2" parent="." instance=ExtResource("4_2ryr4")]
+transform = Transform3D(-0.003874665, 0, 0.9999925, 0, 1, 0, -0.9999925, 0, -0.003874665, 0.06194234, -0.64262295, -4.0203066)
+wall_material = SubResource("StandardMaterial3D_b8gvx")
+
+[node name="PlayerSpawnPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06631327, 1.9073486e-06, -1.3069847)
+script = ExtResource("9_b8gvx")
+metadata/_custom_type_script = "uid://cm1uqdo37kpmi"

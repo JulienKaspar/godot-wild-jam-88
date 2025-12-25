@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ddjihknalfmo6"]
+[gd_scene load_steps=11 format=3 uid="uid://ddjihknalfmo6"]
 
 [ext_resource type="Script" uid="uid://nq3n22eyxno3" path="res://Gameplay/game_state_manager.gd" id="1_fnjh8"]
 [ext_resource type="PackedScene" uid="uid://cfeukfanfm516" path="res://Levels/lvl_3_v2_tight_corridor.tscn" id="2_528ii"]
@@ -8,9 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://dhfyssjtwfl14" path="res://Levels/lvl_3.5_verticality.tscn" id="6_528ii"]
 [ext_resource type="PackedScene" uid="uid://d2a7apkvocsew" path="res://Levels/lvl_4_disco.tscn" id="6_ygpte"]
 [ext_resource type="PackedScene" uid="uid://et2abtkee7pw" path="res://Levels/lvl_end_kitchen.tscn" id="7_dfbfs"]
+[ext_resource type="PackedScene" uid="uid://csh7g60ebb2xa" path="res://Levels/Gyms/lvl_player_parkour.tscn" id="9_ygpte"]
 [ext_resource type="PackedScene" uid="uid://b20exoh7acsdf" path="res://Levels/Util/lvl_shader_caching.tscn" id="12_2ik6d"]
 
 [node name="GameStateManager" type="Node"]
 script = ExtResource("1_fnjh8")
-levels = Array[PackedScene]([ExtResource("2_ww4k4"), ExtResource("3_w34dl"), ExtResource("4_avf66"), ExtResource("2_528ii"), ExtResource("6_528ii"), ExtResource("6_ygpte"), ExtResource("7_dfbfs"), ExtResource("12_2ik6d")])
+levels = Array[PackedScene]([ExtResource("2_ww4k4"), ExtResource("3_w34dl"), ExtResource("4_avf66"), ExtResource("2_528ii"), ExtResource("6_528ii"), ExtResource("6_ygpte"), ExtResource("7_dfbfs"), ExtResource("9_ygpte")])
 shader_cashing_level = ExtResource("12_2ik6d")

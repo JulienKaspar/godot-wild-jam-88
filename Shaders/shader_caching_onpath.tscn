@@ -16,32 +16,40 @@ script = ExtResource("1_abkta")
 
 [node name="PfxBananaSlip" parent="." instance=ExtResource("2_kevtw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.6378279)
+visible = false
 emitting = true
 one_shot = false
 
 [node name="PfxBeerBreak" parent="." instance=ExtResource("3_70ohq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.6378279)
+visible = false
 
 [node name="PfxBeerConsuming" parent="." instance=ExtResource("4_eo5xc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.6378279)
+visible = false
 
 [node name="PfxBeerDispose" parent="." instance=ExtResource("5_ru8wq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.6378279)
+visible = false
 emitting = true
 one_shot = false
 
 [node name="PfxBeerConsuming2" parent="." instance=ExtResource("6_3a0sb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.6378279)
+visible = false
 
 [node name="PfxBodyfall" parent="." instance=ExtResource("7_l8iq0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.6378279)
+visible = false
 emitting = true
 one_shot = false
 
 [node name="PfxFallingIndicator" parent="." instance=ExtResource("8_hy3tp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.6378279)
+visible = false
 
 [node name="PfxGlassdoorBreak" parent="." instance=ExtResource("9_kevtw")]
+visible = false
 emitting = true
 amount = 5
 one_shot = false
