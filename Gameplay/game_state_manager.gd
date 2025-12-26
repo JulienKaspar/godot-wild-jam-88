@@ -3,8 +3,10 @@ extends Node
 
 signal on_paused()
 signal on_unpaused()
+@warning_ignore("unused_signal")
 signal show_credits()
 signal show_wasted_screen()
+@warning_ignore("unused_signal")
 signal hide_wasted_screen()
 signal on_level_loaded(level_index : int)
 
@@ -12,7 +14,7 @@ signal on_level_loaded(level_index : int)
 @export var levels: Array[PackedScene]
 @export var shader_cashing_level: PackedScene
 
-enum GameState {Main_Menu, Paused, Game, Transition}
+enum GameState {Main_Menu, Paused, Game, Loading_Screen, Settings}
 var current_state: GameState = GameState.Main_Menu
 
 var post_processing: ColorRect
@@ -31,20 +33,9 @@ var shader_cache_before_start = true # turn this one on for release
 
 func _ready() -> void:
 	get_tree().paused = true
-	player_drunkness.on_sobriety.connect(handle_sobriety.call_deferred)
 	
 func _process(delta: float) -> void:
-	checkLevelIssues() 
 	player_drunkness.current_drunkness -= player_drunkness.drunkness_decay_per_second * delta
-	update_drunk_visual_effect()
-
-func update_drunk_visual_effect() -> void:
-	var effect_intensity: float = 0.05
-	var sobriety_threshold: float = 2.
-	var drunk_effect_intensity = max(player_drunkness.current_drunkness, sobriety_threshold) * effect_intensity * clampf(UserSettings.drunk_visual_effect_intensity, 0.1, 1)
-	post_processing.material.set('shader_parameter/drunkness', drunk_effect_intensity)
-	var bleak_effect_intensity = clampf(1. - (player_drunkness.current_drunkness / sobriety_threshold), 0., 1.)
-	post_processing.material.set('shader_parameter/bleakness', bleak_effect_intensity)
 
 func register_level_loader(loader: LevelLoader) -> void:
 	level_loader = loader
@@ -74,7 +65,7 @@ func cache_shaders() -> void:
 	inCacheMode = true
 	var index = 0
 	for level in levels:
-		var loaded_level = level_loader.load_level(levels[index])
+		level_loader.load_level(levels[index])
 		if precacheCam:
 			print("level has shaders to load:" + levels[index].get_path())
 			precacheCam.startCache()
@@ -145,17 +136,7 @@ func unpause_game() -> void:
 		current_state = GameState.Game
 		on_unpaused.emit()
 		
-func handle_sobriety() -> void:
-	if UserSettings.fail_state:
-		player_drunkness.paused = true
-		PlayerMovementUtils.knock_player_down()
-		
-		GameStateManager.dialogue_system.handle_quip_event(DialogueSystem.QuipType.Falling)
-		show_wasted_screen.emit()
 
-func checkLevelIssues() -> void:
-	if current_player:
-		if current_player.player_global_pos.y < -100: next_level()
 
 func reset_level() -> void:
 	player_drunkness.paused = false

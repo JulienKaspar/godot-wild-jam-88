@@ -42,7 +42,7 @@ _subresources={
 "LightStrips": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://Assets/Kitchen/kitchen_light_strips.tres",
-"use_external/path": "uid://basl5o5uoewcs"
+"use_external/path": "uid://rm87hvn0gxi"
 },
 "Material.001": {
 "use_external/enabled": true,
