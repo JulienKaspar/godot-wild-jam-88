@@ -15,6 +15,7 @@ var open: bool
 
 func _ready() -> void:
 	GameStateManager.loading_screen = self
+	GameStateManager.level_loader.loading_screen = self
 	continue_button.pressed.connect(signal_closed)
 	
 

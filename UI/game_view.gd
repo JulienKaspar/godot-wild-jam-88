@@ -30,10 +30,8 @@ func _ready() -> void:
 func switch_font(readability_font: bool) -> void:
 	menu_displayer.theme = readability_font_theme if readability_font else default_font_theme
 	menu_displayer.queue_redraw()
-	
 	dialogue_system.theme = readability_font_theme if readability_font else default_font_theme
 	dialogue_system.queue_redraw()
-	
 	
 func handle_setting_menu_opened() -> void:
 	settings_menu.show()
