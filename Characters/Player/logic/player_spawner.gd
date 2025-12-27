@@ -3,7 +3,7 @@ class_name PlayerSpawner
 const PLAYER = preload("res://Characters/Player/player.tscn")
 
 func _ready() -> void:
-	GameStateManager.level_loader.player_spawner = self
+	LevelLoader.player_spawner = self
 
 func respawn(new_position: Vector3) -> Player:
 	self.position = new_position

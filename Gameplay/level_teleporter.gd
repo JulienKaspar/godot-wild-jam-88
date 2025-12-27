@@ -22,7 +22,7 @@ func _ready() -> void:
 
 func handle_collision(body: Node3D) -> void:
 	if has_player_as_parent(body):
-		GameStateManager.next_level()
+		LevelLoader.next_level()
 
 func has_player_as_parent(body: Node3D) -> bool:
 	var current_node_checked: Node

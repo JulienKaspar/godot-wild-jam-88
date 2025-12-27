@@ -21,7 +21,7 @@ func _ready():
 	GameStateManager.on_paused.connect(_set_filter.bind(true))
 	GameStateManager.on_unpaused.connect(_set_filter.bind(false))
 	GameStateManager.player_drunkness.on_drunkness_changed.connect(_update_drunk_streams)
-	GameStateManager.level_loader.on_level_loaded.connect(_on_level_change)
+	LevelLoader.on_level_loaded.connect(_on_level_change)
 	
 	setup_chord_changes()
 

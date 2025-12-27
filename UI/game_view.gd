@@ -12,7 +12,7 @@ extends Node
 @export var readability_font_theme: Theme
 
 var game_started: bool = false
-
+var screens: Array[GameScreen]
 func _ready() -> void:
 	main_menu.settings_menu_button_pressed.connect(handle_setting_menu_opened)
 	main_menu.start_button_pressed.connect(handle_game_started)
@@ -90,7 +90,6 @@ func show_game_ui() -> void:
 	hud.show() 	
 	pause_menu.hide()
 	
-
 func show_paused_menu() -> void:
 	pause_menu.open()
 	settings_menu.hide()
@@ -107,7 +106,6 @@ func end_credits() -> void:
 func show_wasted_screen() -> void:
 	hud.hide()
 	wasted_screen.show()
-	
 	
 func handle_main_menu_to_settings_transition() -> void:
 	main_menu.show()

@@ -8,9 +8,9 @@ var levels: Array[PackedScene] # need to get
 var player_spawner: PlayerSpawner
 var current_level_index: int
 
-func _ready() -> void:
-	GameStateManager.register_level_loader(self)
-	
+func _ready() -> void: 
+	levels = GameStateManager.levels
+
 func _process(_delta: float) -> void:
 	checkLevelIssues()
 
@@ -48,6 +48,7 @@ func load_level_by_index(index: int, show_loading_screen: bool) -> void:
 	if current_player != null:
 		current_player.queue_free()
 	current_player = player
+	GameStateManager.current_player = player
 	call_deferred(set_follow_camera.get_method(),player)
 	
 	current_level_index = index
