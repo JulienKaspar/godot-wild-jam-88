@@ -1,4 +1,4 @@
-extends PanelContainer
+extends GameScreen
 class_name PauseMenu
 
 @onready var resume_button: Button = %ResumeButton
@@ -22,3 +22,5 @@ func open() -> void:
 	show()
 	resume_button.grab_focus()
 	
+func close() -> void:
+	hide()

@@ -3,24 +3,24 @@ extends Node
 
 signal on_paused()
 signal on_unpaused()
+@warning_ignore("unused_signal")
 signal show_credits()
 signal show_wasted_screen()
+@warning_ignore("unused_signal")
 signal hide_wasted_screen()
-signal on_level_loaded(level_index : int)
 
 @export var starting_level_index: int = 0
 @export var levels: Array[PackedScene]
 @export var shader_cashing_level: PackedScene
 
-enum GameState {Main_Menu, Paused, Game, Transition}
+enum GameState {Main_Menu, Paused, Game, Loading_Screen, Settings}
 var current_state: GameState = GameState.Main_Menu
 
 var post_processing: ColorRect
 var player_drunkness: PlayerDrunkness = PlayerDrunkness.new()
-var level_loader: LevelLoader
+
 var dialogue_system: DialogueSystem
 var game_camera: GameCamera
-var player_spawner: PlayerSpawner
 var current_player: Player
 var current_level_index: int
 var loading_into_level_index: int # need this to be set before level starts loading
@@ -31,31 +31,17 @@ var shader_cache_before_start = true # turn this one on for release
 
 func _ready() -> void:
 	get_tree().paused = true
-	player_drunkness.on_sobriety.connect(handle_sobriety.call_deferred)
 	
 func _process(delta: float) -> void:
-	checkLevelIssues() 
 	player_drunkness.current_drunkness -= player_drunkness.drunkness_decay_per_second * delta
-	update_drunk_visual_effect()
 
-func update_drunk_visual_effect() -> void:
-	var effect_intensity: float = 0.05
-	var sobriety_threshold: float = 2.
-	var drunk_effect_intensity = max(player_drunkness.current_drunkness, sobriety_threshold) * effect_intensity * clampf(UserSettings.drunk_visual_effect_intensity, 0.1, 1)
-	post_processing.material.set('shader_parameter/drunkness', drunk_effect_intensity)
-	var bleak_effect_intensity = clampf(1. - (player_drunkness.current_drunkness / sobriety_threshold), 0., 1.)
-	post_processing.material.set('shader_parameter/bleakness', bleak_effect_intensity)
-
-func register_level_loader(loader: LevelLoader) -> void:
-	level_loader = loader
 
 func start_game() -> void:
 	get_tree().paused = false
 	await cache_shaders()
 	loading_screen.display_indefinite(true)
 	loading_screen.label.text = "Setting things up..."
-
-	load_level_by_index(starting_level_index,false)
+	LevelLoader.load_level_by_index(starting_level_index,false)
 	current_state = GameState.Game
 	PlayerMovementUtils.knock_player_down.call_deferred()
 	await GameStateManager.current_player.ChangeMovement
@@ -74,7 +60,7 @@ func cache_shaders() -> void:
 	inCacheMode = true
 	var index = 0
 	for level in levels:
-		var loaded_level = level_loader.load_level(levels[index])
+		LevelLoader.load_level(levels[index])
 		if precacheCam:
 			print("level has shaders to load:" + levels[index].get_path())
 			precacheCam.startCache()
@@ -83,45 +69,8 @@ func cache_shaders() -> void:
 	inCacheMode = false
 	loading_screen.close()
 
-func find_spawn_point_in_level(level: Node3D) -> Vector3:
-	for child in level.get_children():
-		if child is PlayerSpawnPoint:
-			return child.position
-	return Vector3(0,0,0)
-
 func set_follow_camera(player: Player) -> void:
 	game_camera.follow_target = player.get_node("PlayerController/RigidBally3D")
-
-func load_level_by_index(index: int, show_loading_screen: bool) -> void:
-	loading_into_level_index = index
-	
-	if show_loading_screen:
-		loading_screen.display(2 * UserSettings.loading_speed)
-		pause_game()
-		
-	var loaded_level = level_loader.load_level(levels[index])
-	var spawn_point = find_spawn_point_in_level(loaded_level)
-	var player = player_spawner.respawn(spawn_point)
-	
-	if current_player != null:
-		current_player.queue_free()
-	current_player = player
-	call_deferred(set_follow_camera.get_method(),player)
-	
-	current_level_index = index
-	
-	if show_loading_screen:
-		await loading_screen.on_completed
-		unpause_game()
-		
-	on_level_loaded.emit(index)
-
-func next_level() -> void:
-	if current_level_index == levels.size() - 1:
-		print("you finished the game!")
-		return
-	
-	load_level_by_index(current_level_index + 1, true)
 
 func show_dialogue(text: String) -> void:
 	dialogue_system.display_dialogue(text)
@@ -145,19 +94,7 @@ func unpause_game() -> void:
 		current_state = GameState.Game
 		on_unpaused.emit()
 		
-func handle_sobriety() -> void:
-	if UserSettings.fail_state:
-		player_drunkness.paused = true
-		PlayerMovementUtils.knock_player_down()
-		
-		GameStateManager.dialogue_system.handle_quip_event(DialogueSystem.QuipType.Falling)
-		show_wasted_screen.emit()
-
-func checkLevelIssues() -> void:
-	if current_player:
-		if current_player.player_global_pos.y < -100: next_level()
-
 func reset_level() -> void:
 	player_drunkness.paused = false
 	player_drunkness.reset_drunkness()
-	load_level_by_index(current_level_index, false)
+	LevelLoader.load_level_by_index(current_level_index, false)

@@ -1,4 +1,4 @@
-extends PanelContainer
+extends GameScreen
 class_name MainMenu
 @onready var start_button: Button = %StartButton
 @onready var settings_button: Button = %SettingsButton
@@ -12,11 +12,8 @@ func _ready() -> void:
 	start_button.pressed.connect(handle_start_button_pressed)
 	exit_button.pressed.connect(handle_exit_button_pressed)
 	
-	enter_menu_sounds()
-
 func handle_start_button_pressed() -> void:
 	start_button_pressed.emit()
-	exit_menu_sounds()
 	AudioManager.ui_sounds.play_sound(AudioManager.ui_sounds.start_game)
 	GameStateManager.start_game()
 	
@@ -25,6 +22,13 @@ func handle_settings_menu_button_pressed() -> void:
 
 func handle_exit_button_pressed() -> void:
 	get_tree().quit(0)
+
+func open() -> void:
+	start_button.grab_focus()
+	enter_menu_sounds()
+
+func close() -> void:
+	exit_menu_sounds()
 
 # Sound
 @onready var title_screen_ambience : AudioStreamPlayer = %TitleScreenAmbience
@@ -48,9 +52,3 @@ func enter_menu_sounds():
 func exit_menu_sounds():
 	AudioManager.fade_audio_out(title_screen_ambience, 2.5)
 	AudioManager.fade_audio_out(theme_music_muted, 2.5)
-
-## NOTE: use if losing focus 
-#func _unhandled_key_input(event: InputEvent) -> void:
-	#if event.is_action_pressed("ui_down") || event.is_action_pressed("ui_up") || event.is_action_pressed("ui_left") || event.is_action_pressed("ui_right") || event.is_action_pressed("ui_select"):
-		#start_button.grab_focus()
-	

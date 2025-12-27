@@ -11,8 +11,6 @@ var paused: bool = false
 
 signal on_drunkness_changed(new_value: float)
 
-# for handling game over presumably
-signal on_sobriety() 
 signal on_too_drunk()
 
 var current_drunkness: float: 
@@ -32,7 +30,7 @@ var current_drunkness: float:
 func set_drunkness(_new_value: float) -> void:
 	on_drunkness_changed.emit(_new_value)
 	if current_drunkness < min_drunkness:
-		on_sobriety.emit()
+		handle_sobriety()
 		current_drunkness = min_drunkness
 		return
 	if current_drunkness > max_drunkness:
@@ -55,3 +53,11 @@ func reset_drunkness() -> void:
 	is_resetting = true
 	current_drunkness = starting_drunkness
 	is_resetting = false
+
+func handle_sobriety() -> void:
+	if UserSettings.fail_state:
+		paused = true
+		PlayerMovementUtils.knock_player_down()
+		
+		GameStateManager.dialogue_system.handle_quip_event(DialogueSystem.QuipType.Falling)
+		GameStateManager.show_wasted_screen.emit()
