@@ -12,6 +12,8 @@ func _ready() -> void:
 	start_button.pressed.connect(handle_start_button_pressed)
 	exit_button.pressed.connect(handle_exit_button_pressed)
 	
+	
+	
 func handle_start_button_pressed() -> void:
 	start_button_pressed.emit()
 	AudioManager.ui_sounds.play_sound(AudioManager.ui_sounds.start_game)

@@ -37,14 +37,15 @@ func _process(delta: float) -> void:
 
 func start_game() -> void:
 	get_tree().paused = false
+	loading_screen.display(0.2, "Preparing Shader Caching")
+	await loading_screen.on_completed
 	await cache_shaders()
-	loading_screen.display_indefinite(true)
-	loading_screen.label.text = "Setting things up..."
 	LevelLoader.load_level_by_index(starting_level_index,false)
 	current_state = GameState.Game
 	PlayerMovementUtils.knock_player_down.call_deferred()
 	await GameStateManager.current_player.ChangeMovement
 	get_tree().paused = true
+	loading_screen.display_indefinite(true)
 	loading_screen.label.text = "Press enter / start to continue..."
 	AudioManager.ui_sounds.play_sound(AudioManager.ui_sounds.break_anticipation)
 	await loading_screen.on_ready_to_proceed
@@ -67,7 +68,6 @@ func cache_shaders() -> void:
 			await precacheCam.completed
 		index += 1
 	inCacheMode = false
-	loading_screen.close()
 
 func set_follow_camera(player: Player) -> void:
 	game_camera.follow_target = player.get_node("PlayerController/RigidBally3D")

@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 			rotation_degrees.x = -90
 			var fstring = "Caching Shaders: %s / %s"
 			var debugoutput = fstring % [checkedPoint + 1, pointCount]
-			GameStateManager.loading_screen.label.text = debugoutput
+			LevelLoader.loading_screen.label.text = debugoutput
 			print(debugoutput + " in: "  + str(snapped(delta, 0.01)))
 			checkedPoint += 1
 		else:

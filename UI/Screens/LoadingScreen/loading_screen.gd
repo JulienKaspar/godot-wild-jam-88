@@ -31,6 +31,8 @@ func display(_duration: float, text: String = "Loading...") -> void:
 	
 func display_indefinite(next_button: bool) -> void:
 	show()
+	time_elapsed = 0
+	duration = 100000
 	if next_button:
 		animation.hide()
 		continue_button.show()

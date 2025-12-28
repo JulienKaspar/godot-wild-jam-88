@@ -3,7 +3,6 @@ extends Node
 @onready var settings_menu: SettingsMenu = %MenuDisplayer/%SettingsMenu
 @onready var credits_screen: CreditScreen = %MenuDisplayer/%CreditScreen
 @onready var hud: HUD = %MenuDisplayer/%HUD
-@onready var dialogue_system: Control = %DialogueSystem
 @onready var schmear_frame: TextureRect = %MenuDisplayer/%SchmearFrame
 @onready var wasted_screen: WastedScreen = %MenuDisplayer/%WastedScreen
 @onready var menu_displayer: MenuDisplayer = %MenuDisplayer
@@ -31,8 +30,8 @@ func connect_signals() -> void:
 func switch_font(readability_font: bool) -> void:
 	menu_displayer.theme = readability_font_theme if readability_font else default_font_theme
 	menu_displayer.queue_redraw()
-	dialogue_system.theme = readability_font_theme if readability_font else default_font_theme
-	dialogue_system.queue_redraw()
+	DialogueSystem.theme = readability_font_theme if readability_font else default_font_theme
+	DialogueSystem.queue_redraw()
 	
 func show_settings_menu() -> void:
 	var show_transition = menu_displayer.currently_open_screen == menu_displayer.get_screen_from_name(MenuDisplayer.ScreenName.MainMenu)
@@ -75,7 +74,7 @@ func show_paused_menu() -> void:
 	
 func end_credits() -> void:
 	menu_displayer.open_screen(MenuDisplayer.ScreenName.CreditScreen)
-	dialogue_system.hide()
+	DialogueSystem.hide()
 	
 func show_wasted_screen() -> void:
 	menu_displayer.open_screen(MenuDisplayer.ScreenName.WastedScreen)
