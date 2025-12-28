@@ -1,4 +1,4 @@
-extends PanelContainer
+extends GameScreen
 class_name WastedScreen
 
 signal on_continued()
@@ -10,3 +10,9 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		GameStateManager.reset_level()
 		on_continued.emit()
 		hide()
+
+func open() -> void:
+	show()
+	
+func close() -> void:
+	hide()

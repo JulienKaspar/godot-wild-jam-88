@@ -1,4 +1,4 @@
-extends PanelContainer
+extends GameScreen
 class_name CreditScreen
 
 @export var scroll_speed: float = 120
@@ -10,7 +10,6 @@ class_name CreditScreen
 var time_elapsed: float = 0 
 var scrolled: float
 
-
 func _ready() -> void:
 	commits.shuffle()
 	for commit in commits:
@@ -18,8 +17,11 @@ func _ready() -> void:
 		grid_container.add_child(instance)
 		instance.display(commit)
 	
+func open() -> void:
+	show()
 	
-
+func close() -> void:
+	hide()
 
 func _process(delta: float) -> void:
 	if !visible: return
