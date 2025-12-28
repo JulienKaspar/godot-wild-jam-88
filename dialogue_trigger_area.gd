@@ -23,7 +23,7 @@ func handle_body_entered(body: Node3D) -> void:
 		
 	if GameStateManager.loading_screen.open:
 		await GameStateManager.loading_screen.on_completed
-	GameStateManager.show_dialogue(dialogue_text)
+	DialogueSystem.display_dialogue(dialogue_text)
 	displayed_already = true
 	
 func has_player_as_parent(body: Node3D) -> bool:

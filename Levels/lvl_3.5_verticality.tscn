@@ -1,9 +1,9 @@
 [gd_scene load_steps=62 format=3 uid="uid://dhfyssjtwfl14"]
 
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="1_bygm1"]
-[ext_resource type="Script" uid="uid://cy572sir651f7" path="res://Levels/indi_trap.gd" id="1_d7yk7"]
-[ext_resource type="Script" uid="uid://ddci75ik2j7ul" path="res://UI/camera_of_interest.gd" id="1_qacnp"]
-[ext_resource type="Script" uid="uid://dbaf2uf6cx0uy" path="res://UI/camera_area_trigger.gd" id="2_bygm1"]
+[ext_resource type="Script" path="res://Levels/indi_trap.gd" id="1_d7yk7"]
+[ext_resource type="Script" uid="uid://ddci75ik2j7ul" path="res://Camera/camera_of_interest.gd" id="1_qacnp"]
+[ext_resource type="Script" uid="uid://dbaf2uf6cx0uy" path="res://Camera/camera_area_trigger.gd" id="2_bygm1"]
 [ext_resource type="PackedScene" uid="uid://j1b5yvs8pnux" path="res://Objects/Architypes/Furniture/table_round1.tscn" id="2_hhcad"]
 [ext_resource type="PackedScene" uid="uid://dti38qt8jgdmc" path="res://Assets/Furniture/beer_keg.gltf" id="2_l5t6x"]
 [ext_resource type="Material" uid="uid://c5e3ou8as7bf0" path="res://Assets/Materials/purple_carpet.tres" id="3_62sv4"]
@@ -19,7 +19,7 @@
 [ext_resource type="Material" uid="uid://b23iqfg3em6ty" path="res://Assets/Materials/wooden_wall.tres" id="11_62sv4"]
 [ext_resource type="PackedScene" uid="uid://d62n5s8htyn7" path="res://Characters/Teens/logic/TeenStanding.tscn" id="12_44cqs"]
 [ext_resource type="Material" uid="uid://l1sgod1lv1b6" path="res://Assets/Materials/yellow_floral_wall.tres" id="13_3g13s"]
-[ext_resource type="PackedScene" uid="uid://caon4iaxe5wiw" path="res://Objects/Architypes/Furniture/couch4.tscn" id="16_62sv4"]
+[ext_resource type="PackedScene" uid="uid://0citmm75hpfv" path="res://Objects/Architypes/Furniture/couch4.tscn" id="16_62sv4"]
 [ext_resource type="PackedScene" uid="uid://c3exm36djed3o" path="res://Assets/Furniture/window_1_curtain.gltf" id="17_2nj4m"]
 [ext_resource type="PackedScene" uid="uid://cs4digbuoekpl" path="res://Objects/Architypes/Furniture/shelf2.tscn" id="18_p2eq5"]
 [ext_resource type="PackedScene" uid="uid://tca4a42pryu5" path="res://Objects/Architypes/Hurtiture/hurtitire_cactus.tscn" id="20_qbw1f"]
@@ -44,6 +44,7 @@
 [ext_resource type="PackedScene" uid="uid://bwm23c42sbbui" path="res://Objects/Architypes/Props/lamp_table1.tscn" id="38_3g13s"]
 [ext_resource type="PackedScene" uid="uid://cbvs0j36cba72" path="res://Assets/Furniture/rug_orange_geometrical.gltf" id="40_7phss"]
 [ext_resource type="PackedScene" uid="uid://djvhkhmcy0tn5" path="res://Shaders/shader_caching_onpath.tscn" id="43_p2eq5"]
+
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p2eq5"]
 size = Vector3(3.8541222, 5.400879, 5.9180145)

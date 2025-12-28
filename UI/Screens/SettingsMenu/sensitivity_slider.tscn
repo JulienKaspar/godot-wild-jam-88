@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://v6l022lo4u2v"]
+
+[ext_resource type="Script" uid="uid://dm6jckkteoq6p" path="res://UI/Screens/SettingsMenu/sensitivity_slider.gd" id="1_yaw17"]
+
+
+[node name="Sensitivity" type="HBoxContainer"]
+script = ExtResource("1_yaw17")
+
+[node name="SensitivityLabel" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Sensitivity"
+
+[node name="SensitivityNumber" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 8
+text = "0"
+
+[node name="SensitivitySlider" type="HSlider" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 0.1
+max_value = 4.0
+step = 0.01
+value = 1.1

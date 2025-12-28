@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccfupjsy6hv33"]
+
+[ext_resource type="Script" uid="uid://sdgm4fbp6t2j" path="res://UI/Screens/WastedScreen/wasted_screen.gd" id="1_ar8h3"]
+[ext_resource type="Texture2D" uid="uid://llwu6fb5wffp" path="res://Assets/2D_Assets/Sober_Fail_Message/sober_fail_state_message.png" id="1_oeppo"]
+
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6pwi6"]
+
+[node name="WastedScreen" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_6pwi6")
+script = ExtResource("1_ar8h3")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_oeppo")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_top = 700
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 65
+text = "Get up to continue..."
+horizontal_alignment = 1

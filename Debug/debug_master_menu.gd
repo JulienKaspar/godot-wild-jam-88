@@ -76,10 +76,10 @@ func display_level_selector() -> void:
 func display_dialogue_debug() -> void:
 	ImGui.InputText("Dialogue Text", dialogue_text, 100)
 	if ImGui.Button("Dying Quip"):
-		GameStateManager.dialogue_system.display_random_dying_quip()
+		DialogueSystem.display_random_dying_quip()
 	if ImGui.Button("Drinking Quip"):
-		GameStateManager.dialogue_system.display_random_drinking_quip()
+		DialogueSystem.display_random_drinking_quip()
 	if ImGui.Button("Falling Quip"):
-		GameStateManager.dialogue_system.display_random_falling_quip()
+		DialogueSystem.display_random_falling_quip()
 	if ImGui.Button("Send text"):
-		GameStateManager.show_dialogue(dialogue_text[0])
+		DialogueSystem.display_dialogue(dialogue_text[0])

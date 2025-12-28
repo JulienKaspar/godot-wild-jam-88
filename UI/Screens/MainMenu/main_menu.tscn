@@ -1,0 +1,145 @@
+[gd_scene load_steps=13 format=3 uid="uid://bcredxkb7jfdu"]
+
+[ext_resource type="Script" uid="uid://c3pnv4i4pub4u" path="res://UI/Screens/MainMenu/main_menu.gd" id="1_jld46"]
+[ext_resource type="Texture2D" uid="uid://frr2qsjtumwm" path="res://Assets/2D_Assets/Menu_Art/house_1.png" id="2_h8rmy"]
+[ext_resource type="Texture2D" uid="uid://4pyna2f4x4mw" path="res://Assets/2D_Assets/Menu_Art/sky_0.png" id="2_iyy2y"]
+[ext_resource type="Texture2D" uid="uid://b8rxa7p6j26ld" path="res://Assets/2D_Assets/Menu_Art/fence_3.png" id="2_t17p2"]
+[ext_resource type="Texture2D" uid="uid://c1tqhcgn5b56s" path="res://Assets/2D_Assets/Menu_Art/table_2.png" id="3_iyy2y"]
+[ext_resource type="Script" uid="uid://jjhbwpi77cq1" path="res://UI/Screens/MainMenu/main_menu_camera.gd" id="6_trkrl"]
+[ext_resource type="AudioStream" uid="uid://bwkhlcxqvfarj" path="res://Audio/Ambience/title_screen_ambience.tres" id="7_bddxb"]
+[ext_resource type="Texture2D" uid="uid://bd1ff5rsfvtm4" path="res://UI/Screens/MainMenu/title.png" id="7_pbebc"]
+[ext_resource type="PackedScene" uid="uid://copb1h0542sta" path="res://UI/Screens/MainMenu/menu_button.tscn" id="8_ejg71"]
+[ext_resource type="AudioStream" uid="uid://fq0vj2ffsvip" path="res://Assets/Audio/Music/PartyTheme/Theme_A.ogg" id="8_iau2q"]
+
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kf43y"]
+
+[sub_resource type="Theme" id="Theme_u0e1r"]
+
+[node name="MainMenu" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_kf43y")
+script = ExtResource("1_jld46")
+
+[node name="ParallaxBackground" type="Node2D" parent="."]
+position = Vector2(958, 574)
+scale = Vector2(0.68, 0.68)
+
+[node name="SkyLayer" type="Parallax2D" parent="ParallaxBackground"]
+scroll_scale = Vector2(0.9, 0.9)
+scroll_offset = Vector2(44.565, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/SkyLayer"]
+texture = ExtResource("2_iyy2y")
+
+[node name="HouseLayer" type="Parallax2D" parent="ParallaxBackground"]
+scroll_scale = Vector2(0.82, 0.82)
+scroll_offset = Vector2(68.675, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/HouseLayer"]
+texture = ExtResource("2_h8rmy")
+
+[node name="TableLayer" type="Parallax2D" parent="ParallaxBackground"]
+scroll_scale = Vector2(0.86, 0.86)
+scroll_offset = Vector2(108.865, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/TableLayer"]
+texture = ExtResource("3_iyy2y")
+
+[node name="FenceLayer" type="Parallax2D" parent="ParallaxBackground"]
+scroll_scale = Vector2(0.93, 0.93)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/FenceLayer"]
+texture = ExtResource("2_t17p2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("6_trkrl")
+max_x = 4000.0
+min_x = -1000.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 25
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+texture = ExtResource("7_pbebc")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 6.0
+theme_override_constants/separation = 0
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="StartButton" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/CenterContainer" instance=ExtResource("8_ejg71")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_u0e1r")
+
+[node name="CenterContainer2" type="CenterContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SettingsButton" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/CenterContainer2" instance=ExtResource("8_ejg71")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "SETTINGS"
+
+[node name="CenterContainer3" type="CenterContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ExitButton" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/CenterContainer3" instance=ExtResource("8_ejg71")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "EXIT"
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.8
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+
+[node name="TitleScreenAmbience" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("7_bddxb")
+volume_db = -8.0
+bus = &"Ambience"
+
+[node name="ThemeMusicMuted" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("8_iau2q")
+volume_db = -4.5
+autoplay = true
+bus = &"Music"

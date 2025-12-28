@@ -1,6 +1,0 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://co1s85nypo7on"]
-
-[ext_resource type="FontFile" uid="uid://bo4ccwxk8mrea" path="res://Assets/Fonts/SquaredHand.otf" id="1_p0xkp"]
-
-[resource]
-default_font = ExtResource("1_p0xkp")

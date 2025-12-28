@@ -2,8 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://rsfb87oov1yd" path="res://Assets/LivingRoom/door_frame.gltf" id="1_be475"]
 [ext_resource type="Script" uid="uid://d18ctfvwniq4s" path="res://Objects/Architypes/LivingRoom/door.gd" id="1_kw20h"]
-[ext_resource type="Script" uid="uid://42mf003bq52u" path="res://Gameplay/level_teleporter.gd" id="2_3tb1t"]
+[ext_resource type="Script" uid="uid://42mf003bq52u" path="res://Gameplay/LevelTransitions/level_teleporter.gd" id="2_3tb1t"]
 [ext_resource type="Material" uid="uid://l1sgod1lv1b6" path="res://Assets/Materials/yellow_floral_wall.tres" id="2_rhni8"]
+
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kw20h"]
 size = Vector3(0.31262207, 2.5540771, 1.6123962)
