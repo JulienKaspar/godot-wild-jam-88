@@ -24,10 +24,13 @@ func handle_exit_button_pressed() -> void:
 	get_tree().quit(0)
 
 func open() -> void:
-	start_button.grab_focus()
+	show()
+	start_button.grab_focus.call_deferred()
+	GameStateManager.current_state = GameStateManager.GameState.MainMenu
 	enter_menu_sounds()
 
 func close() -> void:
+	hide()
 	exit_menu_sounds()
 
 # Sound

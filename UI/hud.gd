@@ -1,4 +1,4 @@
-extends Control
+extends GameScreen
 class_name HUD
 
 @onready var drunkness_meter: TextureProgressBar = %DrunknessMeter
@@ -25,6 +25,11 @@ func update_meter(new_value: float) -> void:
 		if new_value < old_value:
 			drunkness_meter.hurt = true
 	
+func open() -> void:
+	show()
+	
+func close() -> void:
+	hide()
 	
 func _process(_delta: float) -> void:
 	update_drunkness_marker_position()

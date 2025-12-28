@@ -1,20 +1,21 @@
 extends Node
-@onready var main_menu: MainMenu = %MainMenu
-@onready var settings_menu: SettingsMenu = %SettingsMenu
-@onready var pause_menu: PauseMenu = %PauseMenu
-@onready var credits_screen: CreditScreen = %CreditScreen
-@onready var hud: HUD = %HUD
-@onready var menu_displayer: Control = %MenuDisplayer
+@onready var main_menu: MainMenu = %MenuDisplayer/%MainMenu
+@onready var settings_menu: SettingsMenu = %MenuDisplayer/%SettingsMenu
+@onready var credits_screen: CreditScreen = %MenuDisplayer/%CreditScreen
+@onready var hud: HUD = %MenuDisplayer/%HUD
 @onready var dialogue_system: Control = %DialogueSystem
-@onready var schmear_frame: TextureRect = %SchmearFrame
-@onready var wasted_screen: WastedScreen = %WastedScreen
+@onready var schmear_frame: TextureRect = %MenuDisplayer/%SchmearFrame
+@onready var wasted_screen: WastedScreen = %MenuDisplayer/%WastedScreen
+@onready var menu_displayer: MenuDisplayer = %MenuDisplayer
+@onready var pause_menu: PauseMenu = %MenuDisplayer/%PauseMenu
 @export var default_font_theme: Theme
 @export var readability_font_theme: Theme
 
 var game_started: bool = false
-var screens: Array[GameScreen]
 func _ready() -> void:
-	main_menu.settings_menu_button_pressed.connect(handle_setting_menu_opened)
+	connect_signals.call_deferred()
+func connect_signals() -> void:
+	main_menu.settings_menu_button_pressed.connect(show_settings_menu)
 	main_menu.start_button_pressed.connect(handle_game_started)
 	GameStateManager.on_unpaused.connect(show_game_ui)
 	GameStateManager.show_credits.connect(end_credits)
@@ -23,9 +24,9 @@ func _ready() -> void:
 	main_menu.start_button.grab_focus.call_deferred()
 	GameStateManager.show_wasted_screen.connect(show_wasted_screen)
 	wasted_screen.on_continued.connect(show_game_ui)
-	pause_menu.on_main_menu_opened.connect(handle_main_menu_opened)
+	pause_menu.on_main_menu_opened.connect(show_main_menu)
 	pause_menu.on_restarted.connect(GameStateManager.reset_level)
-	pause_menu.on_settings_opened.connect(handle_setting_menu_opened)
+	pause_menu.on_settings_opened.connect(show_settings_menu)
 	
 func switch_font(readability_font: bool) -> void:
 	menu_displayer.theme = readability_font_theme if readability_font else default_font_theme
@@ -33,40 +34,27 @@ func switch_font(readability_font: bool) -> void:
 	dialogue_system.theme = readability_font_theme if readability_font else default_font_theme
 	dialogue_system.queue_redraw()
 	
-func handle_setting_menu_opened() -> void:
-	settings_menu.show()
-	hud.hide()
-	settings_menu.open(!game_started)
-	pause_menu.hide()
+func show_settings_menu() -> void:
+	var show_transition = menu_displayer.currently_open_screen == menu_displayer.get_screen_from_name(MenuDisplayer.ScreenName.MainMenu)
+	menu_displayer.open_screen(MenuDisplayer.ScreenName.SettingsMenu)
 	
-	if !game_started:
+	if show_transition:
 		handle_main_menu_to_settings_transition()
-	else:
-		main_menu.hide()
 
 func handle_back_button_pressed() -> void:
 	if !game_started:
-		handle_main_menu_opened()
+		show_main_menu()
 	else:
 		show_paused_menu()
 	
-func handle_main_menu_opened() -> void:
-	main_menu.show()
-	hud.hide()
-	pause_menu.hide()
-	main_menu.start_button.grab_focus.call_deferred()
-	
+func show_main_menu() -> void:
+	menu_displayer.open_screen(MenuDisplayer.ScreenName.MainMenu)
 	if !game_started:
 		handle_settings_to_main_menu_transition()
-	else:
-		settings_menu.hide()
 	game_started = false
 
 func handle_game_started() -> void:
-	main_menu.hide()
-	settings_menu.hide()
-	hud.show()
-	pause_menu.hide()
+	show_game_ui()
 	game_started = true
 	
 func _unhandled_input(event: InputEvent) -> void:
@@ -78,34 +66,19 @@ func _unhandled_input(event: InputEvent) -> void:
 		else: 
 			show_game_ui()
 		
-func show_settings_menu() -> void:
-	main_menu.hide()
-	settings_menu.show()
-	hud.hide()
-	pause_menu.hide()
-	
+
 func show_game_ui() -> void:
-	main_menu.hide()
-	settings_menu.hide()
-	hud.show() 	
-	pause_menu.hide()
+	menu_displayer.open_screen(MenuDisplayer.ScreenName.HUD)
 	
 func show_paused_menu() -> void:
-	pause_menu.open()
-	settings_menu.hide()
-	hud.hide()
+	menu_displayer.open_screen(MenuDisplayer.ScreenName.PauseMenu)
 	
 func end_credits() -> void:
-	pause_menu.hide()
-	settings_menu.hide()
-	hud.hide()
-	main_menu.hide()
-	credits_screen.show()
+	menu_displayer.open_screen(MenuDisplayer.ScreenName.CreditScreen)
 	dialogue_system.hide()
 	
 func show_wasted_screen() -> void:
-	hud.hide()
-	wasted_screen.show()
+	menu_displayer.open_screen(MenuDisplayer.ScreenName.WastedScreen)
 	
 func handle_main_menu_to_settings_transition() -> void:
 	main_menu.show()
@@ -123,6 +96,7 @@ func handle_main_menu_to_settings_transition() -> void:
 	
 func handle_settings_to_main_menu_transition() -> void:
 	schmear_frame.show()
+	main_menu.show()
 	var settings_menu_exit_tween: Tween = create_tween()
 	settings_menu_exit_tween.tween_property(settings_menu, 'position', Vector2(settings_menu.position.x - 1920 , settings_menu.position.y), 0.3).set_ease(Tween.EASE_IN_OUT)
 	settings_menu_exit_tween.finished.connect(func(): 
