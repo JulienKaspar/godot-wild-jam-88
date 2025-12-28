@@ -1,6 +1,8 @@
 extends MarginContainer
 class_name MenuDisplayer
 
+@onready var splash_screen: SplashScreen = %SplashScreen
+
 var game_screens: Array[GameScreen]
 var currently_open_screen: GameScreen
 
@@ -11,7 +13,8 @@ enum ScreenName {
 	PauseMenu,
 	LoadingScreen,
 	CreditScreen,
-	WastedScreen
+	WastedScreen,
+	SplashScreen
 	}
 
 func _ready() -> void:
@@ -21,7 +24,9 @@ func _ready() -> void:
 			var screen: GameScreen = child as GameScreen
 			game_screens.append(screen)
 	
-	currently_open_screen = get_screen_from_name(ScreenName.MainMenu)
+	currently_open_screen = get_screen_from_name(ScreenName.SplashScreen)
+	splash_screen.on_completed.connect(func():
+		open_screen(ScreenName.MainMenu))
 
 func close_all_screens() -> void:
 	for screen in game_screens: 

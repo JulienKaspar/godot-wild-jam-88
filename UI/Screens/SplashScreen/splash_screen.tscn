@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://du56hbeyj1i46"]
+
+[ext_resource type="Script" uid="uid://bsgxhfrdb7a1l" path="res://UI/Screens/SplashScreen/splash_screen.gd" id="1_jhl0o"]
+[ext_resource type="Texture2D" uid="uid://dsgvlljbtvq72" path="res://Assets/2D_Assets/Team_Party_Fowl/team_party_fowl.png" id="2_t3b0c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ux1bl"]
+
+[node name="SplashScreen" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ux1bl")
+script = ExtResource("1_jhl0o")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.09411765)
+layout_mode = 2
+texture = ExtResource("2_t3b0c")
+stretch_mode = 5

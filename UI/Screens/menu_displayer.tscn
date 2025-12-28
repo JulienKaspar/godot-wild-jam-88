@@ -1,4 +1,4 @@
-[gd_scene load_steps=174 format=3 uid="uid://i81c6hyopfog"]
+[gd_scene load_steps=175 format=3 uid="uid://i81c6hyopfog"]
 
 [ext_resource type="Theme" uid="uid://co1s85nypo7on" path="res://UI/Themes/default_font_theme.tres" id="1_pecd2"]
 [ext_resource type="PackedScene" uid="uid://betq65km7cbe3" path="res://UI/Screens/SettingsMenu/settings_menu.tscn" id="2_b1m0g"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://chgudc7s6r01n" path="res://UI/Screens/CreditScreen/credit.gd" id="8_v7oft"]
 [ext_resource type="PackedScene" uid="uid://b05fcm4kyx5od" path="res://UI/Screens/CreditScreen/credit.tscn" id="9_rhkxu"]
 [ext_resource type="PackedScene" uid="uid://ccfupjsy6hv33" path="res://UI/Screens/WastedScreen/wasted_screen.tscn" id="10_bxbxt"]
+[ext_resource type="PackedScene" uid="uid://du56hbeyj1i46" path="res://UI/Screens/SplashScreen/splash_screen.tscn" id="12_t7sx8"]
 
 [sub_resource type="Resource" id="Resource_kjk0m"]
 script = ExtResource("8_v7oft")
@@ -1007,6 +1008,7 @@ mouse_filter = 2
 [node name="MainMenu" parent="." instance=ExtResource("3_r8i0x")]
 unique_name_in_owner = true
 process_mode = 3
+visible = false
 layout_mode = 2
 mouse_filter = 2
 
@@ -1036,4 +1038,8 @@ credit_scene = ExtResource("9_rhkxu")
 [node name="WastedScreen" parent="." instance=ExtResource("10_bxbxt")]
 unique_name_in_owner = true
 visible = false
+layout_mode = 2
+
+[node name="SplashScreen" parent="." instance=ExtResource("12_t7sx8")]
+unique_name_in_owner = true
 layout_mode = 2
