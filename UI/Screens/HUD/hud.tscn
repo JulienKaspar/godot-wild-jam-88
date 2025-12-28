@@ -1,0 +1,71 @@
+[gd_scene load_steps=26 format=3 uid="uid://oklexjbph231"]
+
+[ext_resource type="Script" uid="uid://dpfibn6rvgqgy" path="res://UI/Screens/HUD/hud.gd" id="1_ne75i"]
+[ext_resource type="Texture2D" uid="uid://bxwq8k3qy44bt" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_frame.png" id="2_phrgc"]
+[ext_resource type="Script" uid="uid://bwlkqvsm2d4vs" path="res://UI/Screens/HUD/drunkness_meter.gd" id="4_rnl6m"]
+[ext_resource type="Texture2D" uid="uid://7rmgr237ysdp" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_liquid_1.png" id="5_23s3h"]
+[ext_resource type="Texture2D" uid="uid://clgu6ny11phb" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_liquid_2.png" id="6_phrgc"]
+[ext_resource type="Texture2D" uid="uid://eftimly4kovu" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_liquid_3.png" id="7_8nmcf"]
+[ext_resource type="Texture2D" uid="uid://i8bp6aqg2mfp" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_liquid_4.png" id="8_sab3h"]
+[ext_resource type="Texture2D" uid="uid://8sedvt3xf75w" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_liquid_5.png" id="9_vdnig"]
+[ext_resource type="Texture2D" uid="uid://7buwjgvvg6m5" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_liquid_6.png" id="10_pueji"]
+[ext_resource type="Texture2D" uid="uid://dwjuywqlqy7x1" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_liquid_rising_1.png" id="11_4evux"]
+[ext_resource type="Texture2D" uid="uid://ctg2i3nlj3kjo" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_frame_blink.png" id="11_8nmcf"]
+[ext_resource type="Texture2D" uid="uid://bp4y26irbcs44" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_liquid_rising_2.png" id="12_508rn"]
+[ext_resource type="Texture2D" uid="uid://bojmssfm45syf" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_liquid_rising_3.png" id="13_4lx80"]
+[ext_resource type="Texture2D" uid="uid://dex3joicmy4ni" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_liquid_rising_4.png" id="14_hjmqc"]
+[ext_resource type="Texture2D" uid="uid://cclekh2jlkfyb" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_liquid_rising_5.png" id="15_2pa52"]
+[ext_resource type="Texture2D" uid="uid://jd8tbqagg6vd" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_liquid_rising_6.png" id="16_xiih7"]
+[ext_resource type="Texture2D" uid="uid://bdw4wjl6mv4lm" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_liquid_red_1.png" id="17_0mm64"]
+[ext_resource type="Texture2D" uid="uid://bosl40aw01kc1" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_liquid_red_2.png" id="18_x8e40"]
+[ext_resource type="Texture2D" uid="uid://dcsbba2l6h677" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_liquid_red_3.png" id="19_lgfjo"]
+[ext_resource type="Texture2D" uid="uid://vn5bgpjyj3km" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_liquid_red_4.png" id="20_87l0j"]
+[ext_resource type="Texture2D" uid="uid://bk67q73q35g1v" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_liquid_red_5.png" id="21_sf3w6"]
+[ext_resource type="Texture2D" uid="uid://d2tp72r6pfuid" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_liquid_red_6.png" id="22_lgp2o"]
+[ext_resource type="Texture2D" uid="uid://b163pdpm1rygr" path="res://Assets/2D_Assets/GUI/Drunkmeter/drunkness_frame_blink_red.png" id="23_0mm64"]
+[ext_resource type="Texture2D" uid="uid://cdx6ybpshgxao" path="res://Assets/2D_Assets/GUI/Drunkmeter/current_drunkness_marker.png" id="24_x8e40"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x8e40"]
+
+[node name="HUD" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_x8e40")
+script = ExtResource("1_ne75i")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+
+[node name="DrunknessMeter" type="TextureProgressBar" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+step = 0.001
+texture_over = ExtResource("2_phrgc")
+script = ExtResource("4_rnl6m")
+frames = Array[Texture2D]([ExtResource("5_23s3h"), ExtResource("6_phrgc"), ExtResource("7_8nmcf"), ExtResource("8_sab3h"), ExtResource("9_vdnig"), ExtResource("10_pueji")])
+excited_frames = Array[Texture2D]([ExtResource("11_4evux"), ExtResource("12_508rn"), ExtResource("13_4lx80"), ExtResource("14_hjmqc"), ExtResource("15_2pa52"), ExtResource("16_xiih7")])
+hurt_frames = Array[Texture2D]([ExtResource("17_0mm64"), ExtResource("18_x8e40"), ExtResource("19_lgfjo"), ExtResource("20_87l0j"), ExtResource("21_sf3w6"), ExtResource("22_lgp2o")])
+base_framerate = 12.0
+base_frame_sprite = ExtResource("2_phrgc")
+flashing_frame_sprite = ExtResource("11_8nmcf")
+hurt_frame_sprite = ExtResource("23_0mm64")
+
+[node name="DrunknessMarker" type="TextureRect" parent="MarginContainer/DrunknessMeter"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 89.0
+offset_top = 43.0
+offset_right = 89.0
+offset_bottom = 43.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("24_x8e40")
+expand_mode = 1
+stretch_mode = 3

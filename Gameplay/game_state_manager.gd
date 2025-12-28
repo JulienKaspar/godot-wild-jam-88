@@ -19,7 +19,6 @@ var current_state: GameState = GameState.MainMenu
 var post_processing: ColorRect
 var player_drunkness: PlayerDrunkness = PlayerDrunkness.new()
 
-var dialogue_system: DialogueSystem
 var game_camera: GameCamera
 var current_player: Player
 var current_level_index: int
@@ -72,9 +71,6 @@ func cache_shaders() -> void:
 
 func set_follow_camera(player: Player) -> void:
 	game_camera.follow_target = player.get_node("PlayerController/RigidBally3D")
-
-func show_dialogue(text: String) -> void:
-	dialogue_system.display_dialogue(text)
 
 func toggle_pause() -> void:
 	match current_state:

@@ -190,7 +190,7 @@ func _on_change_movement(state: Player.MoveStates) -> void:
 		MoveStates.FELL:
 			inFeetState = FeetIKTargeting.RIGIDBODY
 			if doPunishFall: GameStateManager.player_drunkness.current_drunkness += DrunkCost_StandUp
-			GameStateManager.dialogue_system.handle_quip_event(DialogueSystem.QuipType.Falling)
+			DialogueSystem.handle_quip_event(DialogueSystem.QuipType.Falling)
 		_: inFeetState = FeetIKTargeting.STEPPING
 		
 	match state:
