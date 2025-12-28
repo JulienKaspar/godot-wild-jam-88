@@ -13,8 +13,8 @@ signal hide_wasted_screen()
 @export var levels: Array[PackedScene]
 @export var shader_cashing_level: PackedScene
 
-enum GameState {Main_Menu, Paused, Game, Loading_Screen, Settings}
-var current_state: GameState = GameState.Main_Menu
+enum GameState {MainMenu, Game, Paused}
+var current_state: GameState = GameState.MainMenu
 
 var post_processing: ColorRect
 var player_drunkness: PlayerDrunkness = PlayerDrunkness.new()
@@ -52,6 +52,7 @@ func start_game() -> void:
 	AudioManager.player_sounds.play_voice(AudioManager.player_sounds.break_fence)
 	get_tree().paused = false
 	AudioManager.ui_sounds.game_started = true
+	current_state = GameState.Game
 	
 func cache_shaders() -> void:
 	if !shader_cache_before_start: return

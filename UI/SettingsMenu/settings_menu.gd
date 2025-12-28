@@ -1,4 +1,4 @@
-extends PanelContainer
+extends GameScreen
 class_name SettingsMenu
 
 @onready var control_tab_button: TextureButton = %ControlTabButton
@@ -25,9 +25,11 @@ func _ready() -> void:
 func show_tab(index:int ) -> void:
 	tab_container.current_tab = index
 
-func open(open_fence_background: bool) -> void:
+func open() -> void:
 	#AudioManager.ui_sounds.play_sound(AudioManager.ui_sounds.focus_element)
+	show()
 	tab_buttons[0].grab_focus()
+	var open_fence_background: bool = GameStateManager.current_state == GameStateManager.GameState.MainMenu
 	
 	if open_fence_background:
 		fence_background.show()
@@ -35,6 +37,11 @@ func open(open_fence_background: bool) -> void:
 	else:
 		fence_background.hide()
 		game_background.show()
+		
+
+func close()-> void:
+	hide()
+
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action_pressed("open_debug_menu"):
 		print(get_viewport().gui_get_focus_owner())
