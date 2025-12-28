@@ -1,8 +1,8 @@
 extends Camera2D
 
 var scroll_sensitivity: float = 0.25
-@export var max_x: float = 1150
-@export var min_x: float = 300
+@export var max_x: float = 1250
+@export var min_x: float = 500
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:

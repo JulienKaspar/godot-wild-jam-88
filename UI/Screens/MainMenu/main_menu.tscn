@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://copb1h0542sta" path="res://UI/Screens/MainMenu/menu_button.tscn" id="8_ejg71"]
 [ext_resource type="AudioStream" uid="uid://fq0vj2ffsvip" path="res://Assets/Audio/Music/PartyTheme/Theme_A.ogg" id="8_iau2q"]
 
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kf43y"]
 
 [sub_resource type="Theme" id="Theme_u0e1r"]
@@ -32,28 +31,28 @@ position = Vector2(958, 574)
 scale = Vector2(0.68, 0.68)
 
 [node name="SkyLayer" type="Parallax2D" parent="ParallaxBackground"]
-scroll_scale = Vector2(0.9, 0.9)
+scroll_scale = Vector2(0.89, 0.89)
 scroll_offset = Vector2(44.565, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/SkyLayer"]
 texture = ExtResource("2_iyy2y")
 
 [node name="HouseLayer" type="Parallax2D" parent="ParallaxBackground"]
-scroll_scale = Vector2(0.82, 0.82)
+scroll_scale = Vector2(0.9, 0.9)
 scroll_offset = Vector2(68.675, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/HouseLayer"]
 texture = ExtResource("2_h8rmy")
 
 [node name="TableLayer" type="Parallax2D" parent="ParallaxBackground"]
-scroll_scale = Vector2(0.86, 0.86)
+scroll_scale = Vector2(0.93, 0.93)
 scroll_offset = Vector2(108.865, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/TableLayer"]
 texture = ExtResource("3_iyy2y")
 
 [node name="FenceLayer" type="Parallax2D" parent="ParallaxBackground"]
-scroll_scale = Vector2(0.93, 0.93)
+scroll_scale = Vector2(0.96, 0.96)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/FenceLayer"]
 texture = ExtResource("2_t17p2")
