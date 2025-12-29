@@ -21,8 +21,8 @@ func handle_body_entered(body: Node3D) -> void:
 	if GameStateManager.current_state == GameStateManager.GameState.Paused:
 		await GameStateManager.on_unpaused
 		
-	if GameStateManager.loading_screen.open:
-		await GameStateManager.loading_screen.on_completed
+	if GameStateManager.loading_screen.visible:
+		await GameStateManager.loading_screen.on_ready_to_proceed
 	DialogueSystem.display_dialogue(dialogue_text)
 	displayed_already = true
 	

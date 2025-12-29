@@ -1,13 +1,6 @@
 extends Control
 
 
-@onready var dialogue_prompt: Control = %DialoguePrompt
-@onready var dialogue_text: Label = %DialogueText
-@onready var flasky_base: TextureRect = %FlaskyBase
-@onready var gradient: TextureRect = %Gradient
-
-@onready var dialogue_starting_position: Vector2 = dialogue_prompt.position
-
 @export var display_time_seconds: float = 13
 @export var text_bubble_up_delay: float = 1.5
 @export var text_bubble_up_time_seconds_initial: float = 2
@@ -34,8 +27,25 @@ extends Control
 enum QuipType{Falling,Drinking,Dying}
 var displayed_time: float = 0
 
+# Display
+var dialogue_display: DialogueDisplay
+var dialogue_prompt: Control
+var dialogue_text: Label
+var flasky_base: TextureRect
+var gradient: TextureRect
+var dialogue_starting_position: Vector2 
+
 func _ready() -> void:
+	setup_display.call_deferred()
+
+func setup_display() -> void:
+	dialogue_prompt = dialogue_display.get_node("%DialoguePrompt")
+	dialogue_text= dialogue_display.get_node("%DialogueText")
+	flasky_base = dialogue_display.get_node("%FlaskyBase")
+	gradient = dialogue_display.get_node("%Gradient")
+	dialogue_starting_position = dialogue_prompt.position
 	gradient.self_modulate = gradient_start_transparency
+	dialogue_display.show()
 
 func handle_quip_event(type: QuipType) -> void:
 	match type:
@@ -50,6 +60,7 @@ func handle_quip_event(type: QuipType) -> void:
 				display_random_dying_quip()
 				
 func display_dialogue(text: String) -> void:
+
 	gradient.show()
 	dialogue_prompt.show()
 	dialogue_prompt.position = dialogue_starting_position

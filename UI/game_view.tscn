@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://7v5jiybjrlkl"]
+[gd_scene load_steps=18 format=3 uid="uid://7v5jiybjrlkl"]
 
 [ext_resource type="Script" uid="uid://bexi8qx87vns3" path="res://UI/game_view.gd" id="1_lqkpn"]
 [ext_resource type="Theme" uid="uid://co1s85nypo7on" path="res://UI/Themes/default_font_theme.tres" id="2_ri753"]
@@ -6,12 +6,13 @@
 [ext_resource type="Script" uid="uid://dvx2g3kq3biae" path="res://UI/VFX/post_processing.gd" id="3_dgskv"]
 [ext_resource type="Shader" uid="uid://c7jc6g65ws5pi" path="res://Shaders/post_process.gdshader" id="4_u3b6e"]
 [ext_resource type="Script" uid="uid://lhxpah8mvpgj" path="res://Gameplay/LevelTransitions/level_loader.gd" id="5_4eh1a"]
-[ext_resource type="PackedScene" uid="uid://drwswyc7ed01p" path="res://UI/DialogueSystem/dialogue_system.tscn" id="5_4fmj7"]
 [ext_resource type="PackedScene" uid="uid://lgsnoy1y1gsg" path="res://Debug/debug_master_menu.tscn" id="6_ri6ga"]
 [ext_resource type="Texture2D" uid="uid://d0y21i35gd2rk" path="res://Assets/2D_Assets/Menu_Art/settings_fence.png" id="7_yww0m"]
 [ext_resource type="PackedScene" uid="uid://i81c6hyopfog" path="res://UI/Screens/menu_displayer.tscn" id="8_77qhn"]
 [ext_resource type="Script" uid="uid://bx8wkgx47tjj6" path="res://Camera/game_camera.gd" id="8_gjcnd"]
+[ext_resource type="PackedScene" uid="uid://eii7fhigacem" path="res://UI/DialogueSystem/dialogue_display.tscn" id="8_ri753"]
 [ext_resource type="PackedScene" uid="uid://bc3p2wg2lxxy1" path="res://Audio/Music/music_manager.tscn" id="9_4eh1a"]
+[ext_resource type="Script" uid="uid://qbqo45dsh5i8" path="res://UI/DialogueSystem/dialogue_display.gd" id="9_ri753"]
 [ext_resource type="PackedScene" uid="uid://ceygtcy2sj7uq" path="res://Characters/Player/player_spawner.tscn" id="11_qrf3k"]
 [ext_resource type="PackedScene" uid="uid://d01verpwnpp0o" path="res://Audio/UI/ui_sounds.tscn" id="12_k7f6d"]
 [ext_resource type="PackedScene" uid="uid://c46y87jtli80e" path="res://Audio/SFX/sound_effects_pool.tscn" id="17_27j1k"]
@@ -31,6 +32,7 @@ default_font_theme = ExtResource("2_ri753")
 readability_font_theme = ExtResource("3_27j1k")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
 
 [node name="PostProcessing" type="ColorRect" parent="CanvasLayer"]
 unique_name_in_owner = true
@@ -43,13 +45,6 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("3_dgskv")
 
-[node name="DialogueSystem" parent="CanvasLayer" instance=ExtResource("5_4fmj7")]
-unique_name_in_owner = true
-process_mode = 3
-mouse_filter = 2
-theme = ExtResource("2_ri753")
-script = null
-
 [node name="SchmearFrame" type="TextureRect" parent="CanvasLayer"]
 unique_name_in_owner = true
 visible = false
@@ -58,6 +53,11 @@ offset_top = -306.0
 offset_right = 2458.0
 offset_bottom = 1386.0
 texture = ExtResource("7_yww0m")
+
+[node name="DialogueDisplay" parent="CanvasLayer" instance=ExtResource("8_ri753")]
+unique_name_in_owner = true
+theme = ExtResource("2_ri753")
+script = ExtResource("9_ri753")
 
 [node name="MenuDisplayer" parent="CanvasLayer" instance=ExtResource("8_77qhn")]
 unique_name_in_owner = true

@@ -7,12 +7,14 @@ extends Node
 @onready var wasted_screen: WastedScreen = %MenuDisplayer/%WastedScreen
 @onready var menu_displayer: MenuDisplayer = %MenuDisplayer
 @onready var pause_menu: PauseMenu = %MenuDisplayer/%PauseMenu
+@onready var canvas_layer: CanvasLayer = %CanvasLayer
 @export var default_font_theme: Theme
 @export var readability_font_theme: Theme
 
 var game_started: bool = false
 func _ready() -> void:
 	connect_signals.call_deferred()
+	
 func connect_signals() -> void:
 	main_menu.settings_menu_button_pressed.connect(show_settings_menu)
 	main_menu.start_button_pressed.connect(handle_game_started)
@@ -30,8 +32,8 @@ func connect_signals() -> void:
 func switch_font(readability_font: bool) -> void:
 	menu_displayer.theme = readability_font_theme if readability_font else default_font_theme
 	menu_displayer.queue_redraw()
-	DialogueSystem.theme = readability_font_theme if readability_font else default_font_theme
-	DialogueSystem.queue_redraw()
+	DialogueSystem.dialogue_display.theme = readability_font_theme if readability_font else default_font_theme
+	DialogueSystem.dialogue_display.queue_redraw()
 	
 func show_settings_menu() -> void:
 	var show_transition = menu_displayer.currently_open_screen == menu_displayer.get_screen_from_name(MenuDisplayer.ScreenName.MainMenu)
