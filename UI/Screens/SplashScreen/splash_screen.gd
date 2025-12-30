@@ -14,12 +14,19 @@ func _ready() -> void:
 	var opacity_tween: Tween = create_tween()
 	opacity_tween.tween_property(texture_rect, "modulate:a", 1, splash_screen_fade_in_time)
 
+
 func _process(delta: float) -> void:
+	if OS.is_debug_build(): 
+		splash_screen_fade_out_time = 0
+		fade_out()
+		
 	time_elapsed += delta
-	if time_elapsed > splash_screen_display_time_total && !fade_out_started:
+	if time_elapsed > splash_screen_display_time_total:
 		fade_out()
 
 func fade_out() -> void:
+	if fade_out_started: return
+	
 	fade_out_started = true
 	var opacity_tween: Tween = create_tween()
 	opacity_tween.tween_property(texture_rect, "modulate:a", 0, splash_screen_fade_out_time)

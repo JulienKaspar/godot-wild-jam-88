@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://bghga4ea8s7hn" path="res://UI/Screens/SettingsMenu/OK_button.png" id="10_368j8"]
 [ext_resource type="Texture2D" uid="uid://euqhdd2yukdo" path="res://UI/Screens/SettingsMenu/OK_button_hovered.png" id="11_h552v"]
 
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v4uo1"]
 
 [sub_resource type="Gradient" id="Gradient_35kds"]
