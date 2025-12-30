@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://b6vbg26wkrdh3"]
+[gd_scene load_steps=75 format=3 uid="uid://b6vbg26wkrdh3"]
 
 [ext_resource type="Script" uid="uid://blqvicje3efcj" path="res://Levels/Util/lvl_0_backyard_mission_flow.gd" id="1_jtswe"]
 [ext_resource type="Script" uid="uid://42mf003bq52u" path="res://Gameplay/LevelTransitions/level_teleporter.gd" id="2_jtswe"]
@@ -11,12 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://brhckpuqlnhm6" path="res://Objects/Architypes/Props/bbq.tscn" id="5_xweag"]
 [ext_resource type="PackedScene" uid="uid://byi1vrdra1og3" path="res://Objects/Architypes/Props/radio.tscn" id="6_8wfei"]
 [ext_resource type="PackedScene" uid="uid://j1b5yvs8pnux" path="res://Objects/Architypes/Furniture/table_round1.tscn" id="6_d4xos"]
-[ext_resource type="Script" path="res://Objects/slopes.gd" id="6_mr8n6"]
+[ext_resource type="Script" uid="uid://b6j4xt2oyttve" path="res://Objects/slopes.gd" id="6_mr8n6"]
 [ext_resource type="PackedScene" uid="uid://d3unw205fanv5" path="res://Objects/Loot/pickup_beer.tscn" id="9_22u0x"]
 [ext_resource type="AudioStream" uid="uid://b0agua7xlrot5" path="res://Assets/Audio/Ambience/ambience_wind.ogg" id="10_5g7ny"]
 [ext_resource type="AudioStream" uid="uid://fq0vj2ffsvip" path="res://Assets/Audio/Music/PartyTheme/Theme_A.ogg" id="11_cw6dl"]
 [ext_resource type="PackedScene" uid="uid://c50jjcmdyr7vp" path="res://Objects/Loot/pickup_beer_cup.tscn" id="13_c33jy"]
-[ext_resource type="Script" path="res://dialogue_trigger_area.gd" id="14_cya5t"]
+[ext_resource type="Script" uid="uid://c786nbmcn6vxf" path="res://dialogue_trigger_area.gd" id="14_cya5t"]
 [ext_resource type="AudioStream" uid="uid://brc0gdp873p3j" path="res://Assets/Audio/Ambience/ambience_crickets1.ogg" id="15_kfoxe"]
 [ext_resource type="PackedScene" uid="uid://di5fte2dqxs0c" path="res://Assets/Furniture/window1.gltf" id="15_tao4m"]
 [ext_resource type="AudioStream" uid="uid://t2yngijmupfi" path="res://Assets/Audio/SFX/Props/bbq_fire.ogg" id="19_fkcxp"]
@@ -26,7 +26,6 @@
 [ext_resource type="Material" uid="uid://b0yapmto6mf3m" path="res://Particles/Moth/proc_gpu_moths.tres" id="24_k3ksw"]
 [ext_resource type="QuadMesh" uid="uid://dc3s4t3oon4gi" path="res://Particles/Moth/draw_moths_a.tres" id="25_go0n3"]
 [ext_resource type="PackedScene" uid="uid://dllg3pgdjal2i" path="res://Particles/Glass_Shards/pfx_glassdoor_break.tscn" id="26_go0n3"]
-
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mr8n6"]
 size = Vector3(7.2036743, 3.3790894, 0.18530273)
@@ -59,30 +58,33 @@ size = Vector3(3.53125, 5.9207764, 3.6943207)
 [sub_resource type="BoxShape3D" id="BoxShape3D_cya5t"]
 size = Vector3(5.201294, 5.9207764, 3.762146)
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_tao4m"]
-height = 0.2
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_qdrlg"]
+height = 3.4982421
 radius = 2.51
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_mr8n6"]
+height = 4.370117
 radius = 3.5058594
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_jaoye"]
+height = 3.7299805
 radius = 2.069336
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_kfoxe"]
+height = 4.517578
 radius = 5.6586914
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kfoxe"]
 size = Vector3(1.118042, 2.7145996, 2.6523438)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c33jy"]
-size = Vector3(1.118042, 2.7145996, 4.1436157)
+size = Vector3(1.118042, 5.513092, 4.1436157)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tup4f"]
-size = Vector3(1.118042, 2.7145996, 2.6523438)
+size = Vector3(1.118042, 4.1448975, 2.6523438)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fkcxp"]
-size = Vector3(1.2667236, 2.7145996, 4.441162)
+size = Vector3(1.2667236, 4.006592, 4.441162)
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_c33jy"]
 stream_count = 2
@@ -112,6 +114,10 @@ emission_energy_multiplier = 2.03
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_c33jy"]
 height = 0.2
 radius = 0.78808594
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_tao4m"]
+height = 0.2
+radius = 2.51
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_tup4f"]
 height = 0.2
@@ -357,22 +363,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8432574, 2.4603882, -23.366
 shape = SubResource("BoxShape3D_cya5t")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Layout" groups=["HelperShape"]]
-collision_layer = 257
+collision_layer = 264
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.396027, 0, -0.50434065)
-shape = SubResource("CylinderShape3D_tao4m")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.396027, 1.649121, -0.50434065)
+shape = SubResource("CylinderShape3D_qdrlg")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Layout/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.639167, 0, -5.8691015)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.639167, 1.1850586, -5.8691015)
 shape = SubResource("CylinderShape3D_mr8n6")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Layout/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.092602, 0, -15.129244)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.092602, 0.86499023, -15.129244)
 shape = SubResource("CylinderShape3D_jaoye")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="Layout/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.052448, 0, -13.82794)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.052448, 1.2587891, -13.82794)
 shape = SubResource("CylinderShape3D_kfoxe")
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="Layout/StaticBody3D"]
@@ -380,15 +387,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1727185, 0, -2.7658577)
 shape = SubResource("BoxShape3D_kfoxe")
 
 [node name="CollisionShape3D8" type="CollisionShape3D" parent="Layout/StaticBody3D"]
-transform = Transform3D(0.7574283, 0, 0.6529184, 0, 1, 0, -0.6529184, 0, 0.7574283, -3.9694588, 0, -17.29943)
+transform = Transform3D(0.7574283, 0, 0.6529184, 0, 1, 0, -0.6529184, 0, 0.7574283, -3.9694588, 0.7036743, -17.29943)
 shape = SubResource("BoxShape3D_c33jy")
 
 [node name="CollisionShape3D9" type="CollisionShape3D" parent="Layout/StaticBody3D"]
-transform = Transform3D(0.96441454, 0, -0.26439485, 0, 1, 0, 0.26439485, 0, 0.96441454, -4.621748, 0, -20.155481)
+transform = Transform3D(0.96441454, 0, -0.26439485, 0, 1, 0, 0.26439485, 0, 0.96441454, -4.621748, 0.47836304, -20.155481)
 shape = SubResource("BoxShape3D_c33jy")
 
 [node name="CollisionShape3D10" type="CollisionShape3D" parent="Layout/StaticBody3D"]
-transform = Transform3D(0.66849476, 0, 0.7437169, 0, 1, 0, -0.7437169, 0, 0.66849476, 5.2080064, 0, -21.218143)
+transform = Transform3D(0.66849476, 0, 0.7437169, 0, 1, 0, -0.7437169, 0, 0.66849476, 5.2080064, 0.21720886, -21.218143)
 shape = SubResource("BoxShape3D_c33jy")
 
 [node name="CollisionShape3D11" type="CollisionShape3D" parent="Layout/StaticBody3D"]
@@ -396,11 +403,11 @@ transform = Transform3D(0.99989235, 0, 0.014677785, 0, 1, 0, -0.014677785, 0, 0.
 shape = SubResource("BoxShape3D_c33jy")
 
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="Layout/StaticBody3D"]
-transform = Transform3D(0.9353082, 0, 0.353834, 0, 1, 0, -0.353834, 0, 0.9353082, -4.9134355, 0, -9.075657)
+transform = Transform3D(0.9353082, 0, 0.353834, 0, 1, 0, -0.353834, 0, 0.9353082, -4.9134355, 0.7151489, -9.075657)
 shape = SubResource("BoxShape3D_tup4f")
 
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="Layout/StaticBody3D"]
-transform = Transform3D(0.93860155, 0, -0.3450034, 0, 1, 0, 0.3450034, 0, 0.93860155, -4.9858294, 0, -11.831284)
+transform = Transform3D(0.93860155, 0, -0.3450034, 0, 1, 0, 0.3450034, 0, 0.93860155, -4.9858294, 0.6459961, -11.831284)
 shape = SubResource("BoxShape3D_fkcxp")
 
 [node name="Furniture" type="Node3D" parent="."]
