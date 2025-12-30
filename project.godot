@@ -27,6 +27,7 @@ AudioManager="*res://Audio/audio_manager.tscn"
 ImGuiRoot="*res://addons/imgui-godot/data/ImGuiRoot.tscn"
 LevelLoader="*res://Gameplay/LevelTransitions/level_loader.gd"
 DialogueSystem="*res://UI/DialogueSystem/dialogue_system.tscn"
+AchievementSystem="*res://Gameplay/Achievements/achievement_system.tscn"
 
 [display]
 
@@ -36,7 +37,11 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/imgui-godot/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot_resource_groups/plugin.cfg", "res://addons/imgui-godot/plugin.cfg")
+
+[godot_resource_groups]
+
+auto_rebuild=true
 
 [importer_defaults]
 

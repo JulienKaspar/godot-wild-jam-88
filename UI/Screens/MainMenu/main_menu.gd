@@ -30,6 +30,7 @@ func open() -> void:
 	start_button.grab_focus.call_deferred()
 	GameStateManager.current_state = GameStateManager.GameState.MainMenu
 	enter_menu_sounds()
+	
 
 func close() -> void:
 	hide()

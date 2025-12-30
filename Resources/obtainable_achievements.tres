@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ResourceGroup" load_steps=2 format=3 uid="uid://dgrl2axiak40h"]
+
+[ext_resource type="Script" uid="uid://8hoqu7q3rhn1" path="res://addons/godot_resource_groups/resource_group.gd" id="1_b30rd"]
+
+[resource]
+script = ExtResource("1_b30rd")
+base_folder = "res://Resources/Achievements"
+includes = Array[String](["*.tres"])
+paths = Array[String](["res://Resources/Achievements/ac_touch_grass.tres"])
+metadata/_custom_type_script = "uid://8hoqu7q3rhn1"
