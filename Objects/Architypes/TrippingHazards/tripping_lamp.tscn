@@ -4,10 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://bfvmktf6bn5sj" path="res://Assets/Furniture/lamp_standing1.gltf" id="2_xyjv1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e2oio"]
-size = Vector3(0.111328125, 0.5541992, 1.8164063)
+size = Vector3(0.111328125, 0.5541992, 1.6452637)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xyjv1"]
-size = Vector3(0.28027344, 0.52783203, 0.27734375)
+size = Vector3(0.28027344, 0.35913086, 0.1796875)
 
 [node name="TriperyTest" type="Node3D"]
 script = ExtResource("1_xyjv1")
@@ -18,15 +18,15 @@ metadata/_custom_type_script = "uid://04nw6yd3gy23"
 collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1652832, 0.0357666)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1652832, 0.0075683594)
 shape = SubResource("BoxShape3D_e2oio")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.028808594, 0.727417)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.055541992, 0.7625614)
 shape = SubResource("BoxShape3D_xyjv1")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1784668, -0.7491468)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1784668, -0.7003187)
 shape = SubResource("BoxShape3D_xyjv1")
 
 [node name="lamp_standing1" parent="." instance=ExtResource("2_xyjv1")]
