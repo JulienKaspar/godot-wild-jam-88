@@ -46,8 +46,8 @@ _subresources={
 },
 "magnet": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://Assets/Materials/kitchen_magnets.tres",
-"use_external/path": "uid://csra786mbrx6m"
+"use_external/fallback_path": "res://Assets/Kitchen/kitchen_magnets.tres",
+"use_external/path": "uid://vqby6adrpdrp"
 },
 "vertex colors": {
 "use_external/enabled": true,
