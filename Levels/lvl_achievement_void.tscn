@@ -1,0 +1,74 @@
+[gd_scene load_steps=9 format=3 uid="uid://cwm1is8kd74sm"]
+
+[ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="1_7fjsa"]
+[ext_resource type="Material" uid="uid://emu50xlsdc3q" path="res://Assets/Materials/soil_ground.tres" id="1_bbwon"]
+[ext_resource type="PackedScene" uid="uid://c3mxieqw7sfql" path="res://Objects/Architypes/Environment/street_lamp.tscn" id="2_7fjsa"]
+[ext_resource type="PackedScene" uid="uid://dmr7mu4ucpcce" path="res://Objects/Architypes/Environment/fence.tscn" id="3_qhyyr"]
+
+[sub_resource type="Environment" id="Environment_r762m"]
+background_mode = 1
+ambient_light_source = 2
+ambient_light_color = Color(0.28800002, 0.48959997, 0.96, 1)
+ambient_light_energy = 1.89
+tonemap_mode = 2
+fog_enabled = true
+fog_light_color = Color(0, 0, 0, 1)
+fog_density = 0.0661
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vr21b"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_bbwon"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7fjsa"]
+
+[node name="lvl_achievement_void" type="Node3D"]
+
+[node name="PlayerSpawnPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7884429, 4.7683716e-07, 1.3029504)
+script = ExtResource("1_7fjsa")
+metadata/_custom_type_script = "uid://cm1uqdo37kpmi"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_r762m")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(0.9730974, 0.040799826, -0.22675313, 0.16090032, 0.584081, 0.7955881, 0.16490208, -0.81066936, 0.561803, 3.2260087, 0.55014753, -3.7791426)
+visible = false
+light_color = Color(0, 1.2853369, 1.1084508, 1)
+light_energy = 0.35
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WorldEnvironment"]
+transform = Transform3D(66.40614, 0, 0, 0, 1.0000005, 0, 0, 0, 42.05623, 8.618962, 0, -12.096064)
+material_override = ExtResource("1_bbwon")
+mesh = SubResource("PlaneMesh_vr21b")
+
+[node name="layout" type="Node3D" parent="."]
+
+[node name="StreetLamp" parent="layout" instance=ExtResource("2_7fjsa")]
+transform = Transform3D(0.99595684, 0, 0.089833006, 0, 1, 0, -0.089833006, 0, 0.99595684, 2.5652661, 0, 0)
+
+[node name="StreetLamp2" parent="layout" instance=ExtResource("2_7fjsa")]
+transform = Transform3D(0.99595684, 0, 0.08983302, 0, 1, 0, -0.08983302, 0, 0.99595684, 12.524226, 0, 0)
+
+[node name="StreetLamp3" parent="layout" instance=ExtResource("2_7fjsa")]
+transform = Transform3D(0.99595684, 0, 0.08983302, 0, 1, 0, -0.08983302, 0, 0.99595684, 21.060665, 0, 0)
+
+[node name="Fence2" parent="layout" instance=ExtResource("3_qhyyr")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 0.8418474, 0, -1, 0, -4.371139e-08, -4.1005116, 0, -0.030488968)
+
+[node name="Boundary" type="StaticBody3D" parent="."]
+
+[node name="GroundPlane" type="StaticBody3D" parent="Boundary"]
+collision_layer = 65
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Boundary/GroundPlane"]
+shape = SubResource("WorldBoundaryShape3D_bbwon")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Boundary"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 2.7128131)
+shape = SubResource("WorldBoundaryShape3D_7fjsa")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Boundary"]
+transform = Transform3D(-1, 8.742278e-08, 3.821371e-15, 0, -4.371139e-08, 1, 8.742278e-08, 1, 4.371139e-08, 0, 0, -3.5852792)
+shape = SubResource("WorldBoundaryShape3D_7fjsa")

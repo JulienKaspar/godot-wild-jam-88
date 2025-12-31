@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3mxieqw7sfql"]
+
+[ext_resource type="PackedScene" uid="uid://bnl132to1ggr4" path="res://Assets/Backyard/stree_lamp.gltf" id="1_8d82q"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8d82q"]
+height = 6.0202637
+radius = 0.17333984
+
+[node name="StreetLamp" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0125732, 0)
+shape = SubResource("CylinderShape3D_8d82q")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.95792276, 1.2546312e-08, -0.28702617, 0.28702617, -4.1872134e-08, 0.95792276, 0, -1, -4.371139e-08, 0.3744216, 6.061025, 0)
+light_color = Color(0.99, 0.8085, 0, 1)
+light_energy = 0.338
+light_specular = 8.149
+shadow_enabled = true
+shadow_bias = 0.102
+spot_range = 15.215
+spot_attenuation = -1.02
+spot_angle = 44.81
+
+[node name="street_lamp" parent="." instance=ExtResource("1_8d82q")]
