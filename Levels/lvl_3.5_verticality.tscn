@@ -119,7 +119,7 @@ point_count = 5
 [node name="Node3D" type="Node3D"]
 
 [node name="PlayerSpawnPoint" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.045752, 3.3922899, 1.0398751)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.31704825, 2.3841858e-07, 0.6255208)
 script = ExtResource("1_bygm1")
 metadata/_custom_type_script = "uid://cm1uqdo37kpmi"
 
