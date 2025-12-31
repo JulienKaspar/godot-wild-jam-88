@@ -1,6 +1,6 @@
 {
 	"asset":{
-		"generator":"Khronos glTF Blender I/O v5.0.21",
+		"generator":"Khronos glTF Blender I/O v5.1.8",
 		"version":"2.0"
 	},
 	"scene":0,
@@ -452,42 +452,42 @@
 		{
 			"bufferView":29,
 			"componentType":5126,
-			"count":195,
+			"count":534,
 			"max":[
-				1.289705753326416,
-				0.12158511579036713,
-				0.3517581820487976
+				1.2810983657836914,
+				0.06029371917247772,
+				0.3113563060760498
 			],
 			"min":[
 				-0.016161764040589333,
-				-0.633734941482544,
-				-0.5190640091896057
+				-0.5912595391273499,
+				-0.4800952076911926
 			],
 			"type":"VEC3"
 		},
 		{
 			"bufferView":30,
 			"componentType":5126,
-			"count":195,
+			"count":534,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":31,
 			"componentType":5126,
-			"count":195,
+			"count":534,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":32,
 			"componentType":5123,
-			"count":195,
+			"count":534,
 			"normalized":true,
 			"type":"VEC4"
 		},
 		{
 			"bufferView":33,
 			"componentType":5123,
-			"count":450,
+			"count":2508,
 			"type":"SCALAR"
 		}
 	],
@@ -668,38 +668,38 @@
 		},
 		{
 			"buffer":0,
-			"byteLength":2340,
+			"byteLength":6408,
 			"byteOffset":38072,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":2340,
-			"byteOffset":40412,
+			"byteLength":6408,
+			"byteOffset":44480,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":1560,
-			"byteOffset":42752,
+			"byteLength":4272,
+			"byteOffset":50888,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":1560,
-			"byteOffset":44312,
+			"byteLength":4272,
+			"byteOffset":55160,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":900,
-			"byteOffset":45872,
+			"byteLength":5016,
+			"byteOffset":59432,
 			"target":34963
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":46772,
+			"byteLength":64448,
 			"uri":"plant_cactus1.bin"
 		}
 	]
