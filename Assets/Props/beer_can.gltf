@@ -1,6 +1,6 @@
 {
 	"asset":{
-		"generator":"Khronos glTF Blender I/O v5.0.21",
+		"generator":"Khronos glTF Blender I/O v5.1.8",
 		"version":"2.0"
 	},
 	"scene":0,
@@ -15,12 +15,7 @@
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"Can",
-			"scale":[
-				2.200000047683716,
-				2.200000047683716,
-				2.200000047683716
-			]
+			"name":"Can"
 		}
 	],
 	"materials":[
@@ -54,79 +49,79 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":58,
+			"count":166,
 			"max":[
-				0.03835779428482056,
-				0.15985871851444244,
-				0.044291768223047256
+				0.08182398974895477,
+				0.30342617630958557,
+				0.08234265446662903
 			],
 			"min":[
-				-0.03835779428482056,
-				0.00036945915780961514,
-				-0.044291768223047256
+				-0.08182398974895477,
+				0.000686860119458288,
+				-0.08234265446662903
 			],
 			"type":"VEC3"
 		},
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":58,
+			"count":166,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":58,
+			"count":166,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":3,
 			"componentType":5126,
-			"count":58,
+			"count":166,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":4,
 			"componentType":5123,
-			"count":138,
+			"count":540,
 			"type":"SCALAR"
 		}
 	],
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":696,
+			"byteLength":1992,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":696,
-			"byteOffset":696,
+			"byteLength":1992,
+			"byteOffset":1992,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":464,
-			"byteOffset":1392,
+			"byteLength":1328,
+			"byteOffset":3984,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":696,
-			"byteOffset":1856,
+			"byteLength":1992,
+			"byteOffset":5312,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":276,
-			"byteOffset":2552,
+			"byteLength":1080,
+			"byteOffset":7304,
 			"target":34963
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":2828,
+			"byteLength":8384,
 			"uri":"beer_can.bin"
 		}
 	]
