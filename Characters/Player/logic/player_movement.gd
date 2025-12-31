@@ -8,7 +8,7 @@ class_name PlayerController
 @export var DebugDraw = false
 @export var DebugStats =  false
 @onready var PlayerBodyCollider = %UpperBody
-@onready var PlayerBallCollider = $RigidBally3D
+@onready var PlayerBallCollider : RigidBally = $RigidBally3D
 @onready var PlayerRoot = $"../"
 @onready var StairsRay = $NoRotateBall/StairsRay
 
@@ -122,10 +122,9 @@ func sendStatsToPlayer() -> void:
 	PlayerRoot.player_global_pos = player_global_mass_pos
 	PlayerRoot.player_global_mass_pos = player_global_mass_pos
 
-func check_furniture_contact() -> void:
-	for body in PlayerBallCollider.get_colliding_bodies():
-		if body is FurniturePlayerCollider:
-			body.on_player_collision(PlayerBallCollider.linear_velocity)
+func check_furniture_contact(body : Node3D) -> void:
+	if body is FurniturePlayerCollider:
+		body.on_player_collision(PlayerBallCollider.linear_velocity)
 
 func executeRoll() -> void:
 	$"AnimationPlayer".play("roll")
@@ -143,6 +142,9 @@ func _ready() -> void:
 		showHelpers()
 	else:
 		hideelpers()
+	
+	# Connect signals
+	PlayerBallCollider.body_entered.connect(check_furniture_contact)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("debug_DrawHelpers"):
@@ -213,7 +215,6 @@ func _physics_process(delta: float) -> void:
 	
 	particlePlacement()
 	sendStatsToPlayer()
-	check_furniture_contact()
 
 #------------------ Signals Receivers ------------------------------------------
 
