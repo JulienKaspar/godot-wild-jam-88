@@ -1,8 +1,8 @@
-[gd_scene load_steps=30 format=3 uid="uid://cx2qst5txs1af"]
+[gd_scene load_steps=34 format=3 uid="uid://cx2qst5txs1af"]
 
 [ext_resource type="Script" uid="uid://cdppyptuftkiw" path="res://Characters/Player/logic/player_movement.gd" id="1_jkj6u"]
 [ext_resource type="PackedScene" uid="uid://cyksrihj0achx" path="res://Particles/Player/pfx_falling_indicator.tscn" id="2_6yvek"]
-[ext_resource type="Script" path="res://Characters/Player/logic/rigid_bally.gd" id="2_fy1gk"]
+[ext_resource type="Script" uid="uid://b5ewjdm5d53je" path="res://Characters/Player/logic/rigid_bally.gd" id="2_fy1gk"]
 [ext_resource type="PackedScene" uid="uid://bhvwgh4ef0sj6" path="res://Particles/Player/pfx_bodyfall.tscn" id="3_on8bp"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_on8bp"]
@@ -61,15 +61,32 @@ albedo_color = Color(0, 0.1882353, 0.9098039, 0.59607846)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_jkj6u"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_25ved"]
+transparency = 1
+albedo_color = Color(0, 0, 1, 0.63529414)
+
+[sub_resource type="QuadMesh" id="QuadMesh_fy1gk"]
+material = SubResource("StandardMaterial3D_25ved")
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jkj6u"]
 radius = 0.25
 height = 1.634668
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y2fgx"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.7137255)
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_6yvek"]
+material = SubResource("StandardMaterial3D_y2fgx")
 radius = 0.25
 height = 1.2
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y7knw"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.7137255)
+
 [sub_resource type="PrismMesh" id="PrismMesh_6yvek"]
+material = SubResource("StandardMaterial3D_y7knw")
 size = Vector3(0.525, 0.505, 0.12)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_fy1gk"]
@@ -81,6 +98,7 @@ radius = 0.08203125
 height = 0.76420593
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_on8bp"]
+material = SubResource("StandardMaterial3D_y7knw")
 radius = 0.082
 height = 0.764
 
@@ -261,10 +279,15 @@ outline_size = 50
 
 [node name="StairsRay" type="RayCast3D" parent="NoRotateBall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+target_position = Vector3(0, -0.6, 0)
 collision_mask = 128
 
 [node name="PfxBodyfall" parent="NoRotateBall" instance=ExtResource("3_on8bp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.91440105, 0)
+
+[node name="helper_stairs_plane" type="MeshInstance3D" parent="NoRotateBall"]
+visible = false
+mesh = SubResource("QuadMesh_fy1gk")
 
 [node name="UpperBody" type="RigidBody3D" parent="."]
 unique_name_in_owner = true

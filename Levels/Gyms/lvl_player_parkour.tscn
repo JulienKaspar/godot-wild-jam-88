@@ -1,15 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://csh7g60ebb2xa"]
+[gd_scene load_steps=12 format=3 uid="uid://csh7g60ebb2xa"]
 
 [ext_resource type="Script" uid="uid://dik2vrqjv0rts" path="res://Levels/Util/lvl_player_parkour_mission_flow.gd" id="1_8y3n1"]
 [ext_resource type="PackedScene" uid="uid://b32xnjnsc6xts" path="res://Levels/Gyms/Wall/wooden_wall.tscn" id="2_g78i3"]
 [ext_resource type="PackedScene" uid="uid://vyau441cbd2o" path="res://Levels/Gyms/Wall/yellow_floral_wall.tscn" id="3_jvag8"]
-[ext_resource type="PackedScene" uid="uid://fhev4d48q1qy" path="res://Objects/Architypes/LivingRoom/stairs_wide.tscn" id="4_2ryr4"]
+[ext_resource type="Material" uid="uid://c5e3ou8as7bf0" path="res://Assets/Materials/purple_carpet.tres" id="4_8y3n1"]
 [ext_resource type="PackedScene" uid="uid://b7ee7to73wtp6" path="res://Levels/Gyms/Floor/floor1.tscn" id="4_g78i3"]
-[ext_resource type="Texture2D" uid="uid://djpkkont0tpva" path="res://Assets/Maps/Walls/yellow_floral_wallpaper/atlas.png" id="5_onn2k"]
-[ext_resource type="PackedScene" uid="uid://d62n5s8htyn7" path="res://Characters/Teens/logic/TeenStanding.tscn" id="6_cqxer"]
+[ext_resource type="PackedScene" uid="uid://dci81bvxxl4nx" path="res://Objects/Architypes/LivingRoom/stairs_thin.tscn" id="5_aek51"]
 [ext_resource type="PackedScene" uid="uid://3kn1j5376oof" path="res://Objects/Architypes/Furniture/table2.tscn" id="7_ioif7"]
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="9_b8gvx"]
-[ext_resource type="PackedScene" uid="uid://duarfe60umd1m" path="res://Gameplay/level_teleporter.tscn" id="10_8y3n1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g5tv7"]
 size = Vector3(1, 4.13562, 10.459595)
@@ -21,20 +19,6 @@ size = Vector3(1, 4.13562, 10.459595)
 ambient_light_source = 2
 ambient_light_color = Color(0.51386654, 0.29520002, 0.82, 1)
 ambient_light_energy = 1.05
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b8gvx"]
-resource_local_to_scene = true
-diffuse_mode = 3
-specular_mode = 2
-albedo_color = Color(0.49747366, 0.49747366, 0.49747366, 0)
-albedo_texture = ExtResource("5_onn2k")
-rim = 0.47
-subsurf_scatter_strength = 1.0
-subsurf_scatter_skin_mode = true
-uv1_scale = Vector3(0.45, 0.298, 0.45)
-uv1_offset = Vector3(0.02, 0, 0)
-uv1_triplanar = true
-uv1_world_triplanar = true
 
 [node name="LvlPlayerParkour" type="Node3D"]
 script = ExtResource("1_8y3n1")
@@ -54,15 +38,56 @@ visible = false
 mesh = SubResource("BoxMesh_g5tv7")
 
 [node name="wall3" parent="Obsticles/Walls" instance=ExtResource("2_g78i3")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.049, 1.89, -5.117)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.069224566, 1.89, -5.117)
+
+[node name="wall5" parent="Obsticles/Walls" instance=ExtResource("2_g78i3")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.888502, 1.89, -5.117)
 
 [node name="wall2" parent="Obsticles/Walls" instance=ExtResource("3_jvag8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.16, 1.89, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1225395, 0.52396977, 0)
 
 [node name="wall1" parent="Obsticles/Walls" instance=ExtResource("3_jvag8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.05, 1.89, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8956776, 1.89, 0)
 
 [node name="Stairs" type="Node3D" parent="Obsticles"]
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="Obsticles/Stairs"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.428188, 3.0150743, -4.5461764)
+material_override = ExtResource("4_8y3n1")
+use_collision = true
+collision_layer = 65
+size = Vector3(2.3155165, 1.5273438, 2.0718796)
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="Obsticles/Stairs"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.5503001, 0.41595316, -2.7134564)
+material_override = ExtResource("4_8y3n1")
+use_collision = true
+collision_layer = 65
+size = Vector3(2.372602, 0.8955078, 5.018537)
+
+[node name="Stairs_thin" parent="Obsticles/Stairs" instance=ExtResource("5_aek51")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8130136, -0.6544063, -2.8186812)
+ground_material = ExtResource("4_8y3n1")
+
+[node name="Stairs_thin2" parent="Obsticles/Stairs" instance=ExtResource("5_aek51")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.2646499, 0.12641048, -4.15542)
+ground_material = ExtResource("4_8y3n1")
+
+[node name="Stairs_thin4" parent="Obsticles/Stairs" instance=ExtResource("5_aek51")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.6482138, -0.96517396, -0.65709305)
+ground_material = ExtResource("4_8y3n1")
+
+[node name="Stairs_thin5" parent="Obsticles/Stairs" instance=ExtResource("5_aek51")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.4326501, 0.92324543, -4.151317)
+ground_material = ExtResource("4_8y3n1")
+
+[node name="Stairs_thin8" parent="Obsticles/Stairs" instance=ExtResource("5_aek51")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.8268075, 1.9889934, -4.151317)
+ground_material = ExtResource("4_8y3n1")
+
+[node name="Stairs_thin3" parent="Obsticles/Stairs" instance=ExtResource("5_aek51")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.928976, 0.3423592, -4.15542)
+ground_material = ExtResource("4_8y3n1")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_f1dn2")
@@ -90,39 +115,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4041052, 1.5085213, -4.2164
 light_color = Color(0.7083334, 1, 0.3, 1)
 
 [node name="Floor" parent="." instance=ExtResource("4_g78i3")]
-
-[node name="Teens" type="Node3D" parent="."]
-visible = false
-
-[node name="TeenStanding" parent="Teens" instance=ExtResource("6_cqxer")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7744911, 9.536743e-07, -0.9332844)
-wobble = true
-
-[node name="TeenStanding3" parent="Teens" instance=ExtResource("6_cqxer")]
-transform = Transform3D(-0.4095249, 0, -0.912299, 0, 1, 0, 0.912299, 0, -0.4095249, 1.8271258, 0, 0.7171595)
-
-[node name="TeenStanding2" parent="Teens" instance=ExtResource("6_cqxer")]
-transform = Transform3D(0.2759729, 0, 0.9611654, 0, 1, 0, -0.9611654, 0, 0.2759729, -2.8194213, 4.7683716e-07, -0.15503109)
-wobble = true
-has_loot = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.966187, 0, 0)
 
 [node name="Table2" parent="." instance=ExtResource("7_ioif7")]
-transform = Transform3D(0.9954512, 0, 0.09527243, 0, 1, 0, -0.09527243, 0, 0.9954512, 2.5229864, 0, 3.315428)
+transform = Transform3D(0.9954512, 0, 0.09527243, 0, 1, 0, -0.09527243, 0, 0.9954512, -4.1020126, 0, 3.5659177)
 
 [node name="Loot" type="Node3D" parent="."]
 
-[node name="LevelTeleporter" parent="." instance=ExtResource("10_8y3n1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22855115, 0, 3.7291195)
-
-[node name="Stairs_wide" parent="." instance=ExtResource("4_2ryr4")]
-transform = Transform3D(0.9999925, 0, 0.0038746211, 0, 1, 0, -0.0038746211, 0, 0.9999925, -3.5180523, -0.64262295, -2.939535)
-wall_material = SubResource("StandardMaterial3D_b8gvx")
-
-[node name="Stairs_wide2" parent="." instance=ExtResource("4_2ryr4")]
-transform = Transform3D(-0.003874665, 0, 0.9999925, 0, 1, 0, -0.9999925, 0, -0.003874665, 0.06194234, -0.64262295, -4.0203066)
-wall_material = SubResource("StandardMaterial3D_b8gvx")
-
 [node name="PlayerSpawnPoint" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06631327, 1.9073486e-06, -1.3069847)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.652408, 1.9073486e-06, 0.009387732)
 script = ExtResource("9_b8gvx")
 metadata/_custom_type_script = "uid://cm1uqdo37kpmi"
