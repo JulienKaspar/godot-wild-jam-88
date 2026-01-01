@@ -21,7 +21,6 @@ var player_drunkness: PlayerDrunkness = PlayerDrunkness.new()
 
 var game_camera: GameCamera
 var current_player: Player
-var current_level_index: int
 var loading_into_level_index: int # need this to be set before level starts loading
 var loading_screen: LoadingScreen
 var precacheCam: Camera3D
@@ -94,4 +93,4 @@ func unpause_game() -> void:
 func reset_level() -> void:
 	player_drunkness.paused = false
 	player_drunkness.reset_drunkness()
-	LevelLoader.load_level_by_index(current_level_index, false)
+	LevelLoader.reload_current_level()
