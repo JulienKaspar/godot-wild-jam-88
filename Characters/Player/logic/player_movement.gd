@@ -177,8 +177,8 @@ func pushBody(delta: float,  playerInputDir: Vector2) -> void:
 	body_offset.x += player_move_dir.x * (body_leaning_force)
 	body_offset.z += player_move_dir.y * (body_leaning_force)
 	# leaning from input
-	body_offset.x += player_input_lerped.x * (body_leaning_force)
-	body_offset.z += player_input_lerped.y * (body_leaning_force)
+	body_offset.x += player_input_lerped.x * (body_leaning_force *0.75)
+	body_offset.z += player_input_lerped.y * (body_leaning_force *0.75)
 	
 	if isOnStairs:
 		body_offset.x += player_input_lerped.x * stair_lean_offset
