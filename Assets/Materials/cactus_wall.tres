@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://w74y02gq4n0d"]
+
+[ext_resource type="Shader" uid="uid://bfg8h8d77mbao" path="res://Shaders/tileable_wall.gdshader" id="1_giowg"]
+[ext_resource type="Texture2D" uid="uid://bdta226fnd3kr" path="res://Assets/Maps/Walls/cactus_wallpaper/atlas.png" id="2_giowg"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_giowg")
+shader_parameter/albedo = Color(0.5, 0.5, 0.5, 1)
+shader_parameter/texture_albedo = ExtResource("2_giowg")
+shader_parameter/top_color = Color(0.5059, 0.451, 0.2588, 1)
+shader_parameter/wall_height = 4.26
+shader_parameter/stretch = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/uv_offset = Vector2(0, 0.075)
+shader_parameter/tile = 4
+shader_parameter/random_seed = 100
+shader_parameter/flip_x = false
+shader_parameter/hue_shift = 0.0
