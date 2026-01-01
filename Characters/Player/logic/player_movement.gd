@@ -40,6 +40,7 @@ static var stair_lean_offset = 0.13
 @onready var player_global_pos = Vector3(0,0,0)
 @onready var player_global_mass_pos = Vector3(0,0,0)
 
+var player_input_lerped := Vector2.ZERO
 var upper_body_stiffness_current = upper_body_stiffness
 var drunk_noise_vector = Vector2(0,0)
 var player_move_dir = Vector2(0,0)
@@ -169,12 +170,16 @@ func pushBody(delta: float,  playerInputDir: Vector2) -> void:
 		# -------- push upper body ----------
 	var body_offset = PlayerBallCollider.global_position - PlayerBodyCollider.global_position
 	body_offset.y = 0.0
-	body_offset.x += player_move_dir.x * body_leaning_force
-	body_offset.z += player_move_dir.y * body_leaning_force
+	# leaning from movement
+	body_offset.x += player_move_dir.x * (body_leaning_force)
+	body_offset.z += player_move_dir.y * (body_leaning_force)
+	# leaning from input
+	body_offset.x += player_input_lerped.x * (body_leaning_force)
+	body_offset.z += player_input_lerped.y * (body_leaning_force)
 	
 	if isOnStairs:
-		body_offset.x += playerInputDir.x * stair_lean_offset
-		body_offset.z += playerInputDir.y * stair_lean_offset
+		body_offset.x += player_input_lerped.x * stair_lean_offset
+		body_offset.z += player_input_lerped.y * stair_lean_offset
 	
 	body_offset = body_offset * upper_body_stiffness_current
 	PlayerBodyCollider.apply_impulse(body_offset)
@@ -219,6 +224,7 @@ func pushBally(delta: float, playerInputDir: Vector2) -> void:
 func _physics_process(delta: float) -> void:
 	# -------- player input ------------
 	var playerInputDir = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
+	player_input_lerped = lerp(player_input_lerped, playerInputDir, 1.75 * delta)
 	var cameraYRotation = GameStateManager.game_camera.global_rotation_degrees.y
 	playerInputDir = playerInputDir.rotated(deg_to_rad(-cameraYRotation))
 
