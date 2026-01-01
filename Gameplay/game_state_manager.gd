@@ -94,3 +94,4 @@ func reset_level() -> void:
 	player_drunkness.paused = false
 	player_drunkness.reset_drunkness()
 	LevelLoader.reload_current_level()
+	unpause_game()
