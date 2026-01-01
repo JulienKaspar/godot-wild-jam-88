@@ -191,7 +191,13 @@ func pushBody(delta: float,  playerInputDir: Vector2) -> void:
 
 func pushBally(delta: float, playerInputDir: Vector2) -> void:
 	
-	var move_force = playerInputDir * player_input_strength
+	var move_force : Vector2
+	# Apply input or slowly dampen movement
+	if playerInputDir != Vector2.ZERO:
+		move_force = playerInputDir * (player_input_strength * 1.5)
+	else:
+		var velocity := PlayerBallCollider.linear_velocity
+		move_force = Vector2(velocity.x, velocity.z) * -0.1
 	move_force += drunk_noise_vector * drunk_input_strength
 	move_force *= delta * move_force_multiplier
 	var impulse = Vector3(move_force.x, 0.0, move_force.y)
