@@ -84,7 +84,7 @@ func hideelpers() -> void:
 func update_drunk_vector(delta) -> void:
 	var new_noise = Vector2(randf() - 0.5,randf() - 0.5)
 	drunk_noise_vector += player_move_dir * delta * drunk_fall_factor
-	drunk_noise_vector = lerp(drunk_noise_vector, new_noise, drunk_chaos_strength)
+	drunk_noise_vector = lerp(drunk_noise_vector, new_noise * 3.0, drunk_chaos_strength)
 	
 
 func update_body_pose(_delta) -> void:
