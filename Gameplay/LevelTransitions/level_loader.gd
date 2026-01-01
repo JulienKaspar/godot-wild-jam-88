@@ -55,8 +55,8 @@ func load_level_by_index(index: int, show_loading_screen: bool) -> void:
 	
 	if show_loading_screen:
 		await loading_screen.on_completed
-		GameStateManager.unpause_game()
-		
+
+	GameStateManager.unpause_game()
 	on_level_loaded.emit(index)
 	
 func reload_current_level() -> void:
