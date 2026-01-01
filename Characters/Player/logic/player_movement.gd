@@ -217,8 +217,12 @@ func pushBally(delta: float, playerInputDir: Vector2) -> void:
 	PlayerBallCollider.apply_central_impulse(impulse)
 	
 	# Max out linear velocity
-	if PlayerBallCollider.linear_velocity.length() > 2.0:
-		PlayerBallCollider.linear_velocity = (PlayerBallCollider.linear_velocity.normalized() * 2.0)
+	if PlayerBallCollider.linear_velocity.length() > 2.0 and not isOnStairs:
+		PlayerBallCollider.linear_velocity = lerp(
+			PlayerBallCollider.linear_velocity,
+			PlayerBallCollider.linear_velocity.normalized() * 2.0,
+			delta
+		)
 	
 
 func _physics_process(delta: float) -> void:
