@@ -167,6 +167,9 @@ func _process(delta: float) -> void:
 	%up_aligned/helper_leaning.position = Vector3(player_move_dir.x,-0.22,player_move_dir.y)
 
 func pushBody(delta: float,  playerInputDir: Vector2) -> void:
+	var inactivity_factor := 1.0
+	if playerInputDir == Vector2.ZERO:
+		inactivity_factor = 0.75
 		# -------- push upper body ----------
 	var body_offset = PlayerBallCollider.global_position - PlayerBodyCollider.global_position
 	body_offset.y = 0.0
@@ -181,7 +184,7 @@ func pushBody(delta: float,  playerInputDir: Vector2) -> void:
 		body_offset.x += player_input_lerped.x * stair_lean_offset
 		body_offset.z += player_input_lerped.y * stair_lean_offset
 	
-	body_offset = body_offset * upper_body_stiffness_current
+	body_offset = body_offset * (upper_body_stiffness_current * inactivity_factor)
 	PlayerBodyCollider.apply_impulse(body_offset)
 	
 	# -------- rotate upper body ----------
