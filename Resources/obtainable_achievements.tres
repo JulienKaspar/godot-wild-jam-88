@@ -6,5 +6,5 @@
 script = ExtResource("1_b30rd")
 base_folder = "res://Resources/Achievements"
 includes = Array[String](["*.tres"])
-paths = Array[String](["res://Resources/Achievements/ac_touch_grass.tres"])
+paths = Array[String](["res://Resources/Achievements/ac_touch_grass.tres", "res://Resources/Achievements/ac_test_achievement.tres"])
 metadata/_custom_type_script = "uid://8hoqu7q3rhn1"

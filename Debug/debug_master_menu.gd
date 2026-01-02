@@ -12,7 +12,7 @@ var selected_level_name: String = "None Selected"
 var dialogue_menu_open: bool = false
 var dialogue_text: Array[String] = ["Howdy partner lets get wasted"]
 var fail_state: Array[bool]
-
+var achievement_menu_open: bool = false
 
 func _process(_delta: float) -> void:
 	if displayed:
@@ -37,6 +37,7 @@ func _process(_delta: float) -> void:
 		if dialogue_menu_open: 
 			display_dialogue_debug()
 		
+		display_achievement_menu()
 		ImGui.End()
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -83,3 +84,14 @@ func display_dialogue_debug() -> void:
 		DialogueSystem.display_random_falling_quip()
 	if ImGui.Button("Send text"):
 		DialogueSystem.display_dialogue(dialogue_text[0])
+
+func display_achievement_menu() -> void:
+	if ImGui.Button("Achievement Menu"):
+		achievement_menu_open = !achievement_menu_open
+	if achievement_menu_open:
+		for achievement in AchievementSystem.obtainable_achievements:
+			if achievement.obtained:
+				ImGui.TextColored(Color.GREEN, achievement.name)
+			else:
+				ImGui.TextColored(Color.RED, achievement.name)
+	

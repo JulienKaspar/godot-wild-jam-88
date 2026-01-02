@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bdud3u5wpy4g4" path="res://Gameplay/Achievements/achievement_system.gd" id="1_mdgtf"]
 [ext_resource type="Resource" uid="uid://dgrl2axiak40h" path="res://Resources/obtainable_achievements.tres" id="2_yimkb"]
 
+
 [node name="AchievementSystem" type="Node"]
 script = ExtResource("1_mdgtf")
 achievements_resource_group = ExtResource("2_yimkb")
