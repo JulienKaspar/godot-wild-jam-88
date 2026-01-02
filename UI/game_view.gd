@@ -18,6 +18,7 @@ func _ready() -> void:
 func connect_signals() -> void:
 	main_menu.settings_menu_button_pressed.connect(show_settings_menu)
 	main_menu.start_button_pressed.connect(handle_game_started)
+	main_menu.achievement_button.pressed.connect(handle_game_started)
 	GameStateManager.on_unpaused.connect(show_game_ui)
 	GameStateManager.show_credits.connect(end_credits)
 	UserSettings.on_font_toggled.connect(switch_font)

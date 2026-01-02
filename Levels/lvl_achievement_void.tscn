@@ -24,7 +24,7 @@ fog_density = 0.0661
 [node name="lvl_achievement_void" type="Node3D"]
 
 [node name="PlayerSpawnPoint" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7884429, 4.7683716e-07, 1.3029504)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1885378, 4.7683716e-07, 2.900703)
 script = ExtResource("1_7fjsa")
 metadata/_custom_type_script = "uid://cm1uqdo37kpmi"
 

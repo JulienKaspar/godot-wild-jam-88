@@ -3,6 +3,7 @@ class_name MainMenu
 @onready var start_button: Button = %StartButton
 @onready var settings_button: Button = %SettingsButton
 @onready var exit_button: Button = %ExitButton
+@onready var achievement_button: AchievementMenuButton = %AchievementButton
 
 signal settings_menu_button_pressed()
 signal start_button_pressed()
@@ -11,7 +12,7 @@ func _ready() -> void:
 	settings_button.pressed.connect(handle_settings_menu_button_pressed)
 	start_button.pressed.connect(handle_start_button_pressed)
 	exit_button.pressed.connect(handle_exit_button_pressed)
-	
+	achievement_button.pressed.connect(handle_achievements_button_pressed)
 	
 	
 func handle_start_button_pressed() -> void:
@@ -22,6 +23,10 @@ func handle_start_button_pressed() -> void:
 func handle_settings_menu_button_pressed() -> void:
 	settings_menu_button_pressed.emit()
 
+func handle_achievements_button_pressed() -> void:
+	close()
+	LevelLoader.load_achievement_level()
+	
 func handle_exit_button_pressed() -> void:
 	get_tree().quit(0)
 
@@ -31,7 +36,6 @@ func open() -> void:
 	GameStateManager.current_state = GameStateManager.GameState.MainMenu
 	enter_menu_sounds()
 	
-
 func close() -> void:
 	hide()
 	exit_menu_sounds()

@@ -65,5 +65,21 @@ func find_spawn_point_in_level(level: Node3D) -> Vector3:
 			return child.position
 	return Vector3(0,0,0)
 
+func load_achievement_level() -> void:
+	var loaded_level = load_level(GameStateManager.achievement_scene)
+	var spawn_point = find_spawn_point_in_level(loaded_level)
+	
+	var player = player_spawner.respawn(spawn_point)
+	var current_player = GameStateManager.current_player
+	if current_player != null:
+		current_player.queue_free()
+	current_player = player
+	GameStateManager.current_player = player
+	
+	call_deferred(set_follow_camera.get_method(), player)
+	get_tree().paused = false
+	GameStateManager.player_drunkness.paused = true
+	GameStateManager.current_state = GameStateManager.GameState.Game
+
 func set_follow_camera(player: Player) -> void:
 	GameStateManager.game_camera.follow_target = player.get_node("PlayerController/RigidBally3D")
