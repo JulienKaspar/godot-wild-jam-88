@@ -227,7 +227,6 @@ func _process(delta: float) -> void:
 	# add .pick_point when targeting drunk itemas
 	match PlayerRoot.HandLState:
 		Player.HandStates.REACHING:
-			print("reaching")
 			if PlayerRoot.closestLeft:	
 				moveHand(left_shoulder_ray, left_hand_target, PlayerRoot.closestLeft, true)
 				if checkDistance(left_shoulder_ray, PlayerRoot.closestLeft):

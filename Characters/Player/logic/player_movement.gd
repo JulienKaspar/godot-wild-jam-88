@@ -118,7 +118,7 @@ func updateDebugHelpers(playerInputDir):
 	else: $NoRotateBall/Label3D.text += "\nLeftHand: "
 	$NoRotateBall/Label3D.text += Player.HandStates.keys()[PlayerRoot.HandLState] + "\nRightHand: "
 	$NoRotateBall/Label3D.text += Player.HandStates.keys()[PlayerRoot.HandRState]
-	$NoRotateBall/helper_stairs_plane.look_at($NoRotateBall/helper_stairs_plane.global_position - stairs_normal)
+	#$NoRotateBall/helper_stairs_plane.look_at($NoRotateBall/helper_stairs_plane.global_position - stairs_normal)
 	
 func sendStatsToPlayer() -> void:
 	PlayerRoot.player_speed = player_speed
