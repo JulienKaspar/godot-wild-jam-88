@@ -1,12 +1,12 @@
 {
 	"asset":{
-		"generator":"Khronos glTF Blender I/O v5.0.21",
+		"generator":"Khronos glTF Blender I/O v5.1.8",
 		"version":"2.0"
 	},
 	"scene":0,
 	"scenes":[
 		{
-			"name":"banana_peel",
+			"name":"street_lamp",
 			"nodes":[
 				0
 			]
@@ -15,33 +15,27 @@
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"Banana.001",
+			"name":"Cylinder.004",
 			"rotation":[
-				0.5,
-				0.5,
-				-0.5,
-				0.5
-			],
-			"translation":[
-				0.0014910006430000067,
-				0.042484644800424576,
-				0
+				0,
+				0.10308735817670822,
+				0,
+				0.9946722984313965
 			]
 		}
 	],
 	"materials":[
 		{
 			"doubleSided":true,
-			"name":"props",
+			"name":"vertex_colors",
 			"pbrMetallicRoughness":{
-				"metallicFactor":0,
-				"roughnessFactor":0.5
+				"metallicFactor":0
 			}
 		}
 	],
 	"meshes":[
 		{
-			"name":"Cylinder.007",
+			"name":"Cylinder.001",
 			"primitives":[
 				{
 					"attributes":{
@@ -60,80 +54,80 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":230,
+			"count":310,
 			"max":[
-				0.17847876250743866,
-				0.19699916243553162,
-				0.053177811205387115
+				0.7516136169433594,
+				6.2417311668396,
+				0.2524057626724243
 			],
 			"min":[
-				-0.23708605766296387,
-				-0.20492441952228546,
-				-0.16292335093021393
+				-0.11785104870796204,
+				0,
+				-0.2524057626724243
 			],
 			"type":"VEC3"
 		},
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":230,
+			"count":310,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":230,
+			"count":310,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":3,
 			"componentType":5126,
-			"count":230,
+			"count":310,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":4,
 			"componentType":5123,
-			"count":600,
+			"count":984,
 			"type":"SCALAR"
 		}
 	],
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":2760,
+			"byteLength":3720,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":2760,
-			"byteOffset":2760,
+			"byteLength":3720,
+			"byteOffset":3720,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":1840,
-			"byteOffset":5520,
+			"byteLength":2480,
+			"byteOffset":7440,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":2760,
-			"byteOffset":7360,
+			"byteLength":3720,
+			"byteOffset":9920,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":1200,
-			"byteOffset":10120,
+			"byteLength":1968,
+			"byteOffset":13640,
 			"target":34963
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":11320,
-			"uri":"banana_peel.bin"
+			"byteLength":15608,
+			"uri":"stree_lamp.bin"
 		}
 	]
 }

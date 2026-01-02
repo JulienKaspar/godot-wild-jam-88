@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dhfyssjtwfl14" path="res://Levels/lvl_3.5_verticality.tscn" id="6_528ii"]
 [ext_resource type="PackedScene" uid="uid://d2a7apkvocsew" path="res://Levels/lvl_4_disco.tscn" id="6_ygpte"]
 [ext_resource type="PackedScene" uid="uid://et2abtkee7pw" path="res://Levels/lvl_end_kitchen.tscn" id="7_dfbfs"]
-[ext_resource type="PackedScene" uid="uid://csh7g60ebb2xa" path="res://Levels/Gyms/lvl_player_parkour.tscn" id="9_ygpte"]
+[ext_resource type="PackedScene" uid="uid://cwm1is8kd74sm" path="res://Levels/lvl_achievement_void.tscn" id="9_ygpte"]
 [ext_resource type="PackedScene" uid="uid://b20exoh7acsdf" path="res://Levels/Util/lvl_shader_caching.tscn" id="12_2ik6d"]
 
 [node name="GameStateManager" type="Node"]

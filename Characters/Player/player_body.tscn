@@ -1,9 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://b86lbtpyigxs5"]
+[gd_scene load_steps=11 format=3 uid="uid://b86lbtpyigxs5"]
 
 [ext_resource type="Script" uid="uid://din06hqtbjn7p" path="res://Characters/Player/logic/player_body.gd" id="1_codw7"]
 [ext_resource type="PackedScene" uid="uid://wfy3mktwjjp1" path="res://Assets/Characters/Drunk/drunk.gltf" id="1_wnhn1"]
 [ext_resource type="Script" uid="uid://26b81t0og4ju" path="res://Characters/Player/logic/player_armature.gd" id="2_codw7"]
-[ext_resource type="Script" uid="uid://bofc06yletic2" path="res://Characters/Player/logic/foot_ik_target.gd" id="4_wsmry"]
 [ext_resource type="Script" uid="uid://disdusnw84h82" path="res://Characters/Player/logic/look_at_target.gd" id="5_wsmry"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_hu15c"]
@@ -18,8 +17,8 @@ height = 0.1
 albedo_color = Color(0.25567532, 0.15522826, 1, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_wsmry"]
-radius = 0.18
-height = 0.1
+radius = 0.25
+height = 0.05
 radial_segments = 5
 rings = 2
 
@@ -92,7 +91,6 @@ outline_size = 50
 [node name="LeftFootIKTarget" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49884745, 0.21737695, 0)
 top_level = true
-script = ExtResource("4_wsmry")
 
 [node name="debug_left_foot" type="MeshInstance3D" parent="LeftFootIKTarget"]
 material_override = SubResource("StandardMaterial3D_3aftw")
@@ -101,8 +99,6 @@ mesh = SubResource("SphereMesh_wsmry")
 [node name="RightFootIKTarget" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4941189, 0.228172, 0)
 top_level = true
-script = ExtResource("4_wsmry")
-isSide = 1
 
 [node name="debug_right_foot" type="MeshInstance3D" parent="RightFootIKTarget"]
 material_override = SubResource("StandardMaterial3D_3aftw")

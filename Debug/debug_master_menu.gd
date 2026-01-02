@@ -50,15 +50,15 @@ func display_player_info() -> void:
 		if ImGui.Button("Add Drunkness"):
 			GameStateManager.player_drunkness.current_drunkness += 4
 		ImGui.Text("Drunkness: " + str(player_drunkness.current_drunkness))
-		ImGui.Text("Player State" + str(player.inMoveState))
-		ImGui.Text("Player L Hand state " + str(player.HandLState))
-		ImGui.Text("Player R Hand State " + str(player.HandRState))
-		ImGui.Text("Player Facing Vector" + str(player.player_facing_dir))
-		ImGui.Text("Player Move Direction" + str(player.player_move_dir))
-		ImGui.Text("Player Pos" + str(player.player_global_pos))
-		ImGui.Text("Player Mass Pos" + str(player.player_global_mass_pos))
-		ImGui.Text("Player leaning" + str(player.leaning))
-		ImGui.Text("Player Speed" + str(player.player_speed))
+		ImGui.Text("Player Facing Vector: " + str(player.player_facing_dir))
+		ImGui.Text("Player Move Direction: " + str(player.player_move_dir))
+		ImGui.Text("Player Pos: " + str(player.player_global_pos))
+		ImGui.Text("Player Mass Pos: " + str(player.player_global_mass_pos))
+		ImGui.Text("Player leaning: " + str(player.leaning))
+		ImGui.Text("Player Speed: " + str(player.player_speed))
+		ImGui.Text("Camera Rotation: " + str(GameStateManager.game_camera.global_rotation_degrees.y))
+		ImGui.Text("Camera State: " + str(GameStateManager.game_camera.inState))
+		
 
 func display_level_selector() -> void:
 	if ImGui.BeginCombo("Select a level", selected_level_name):

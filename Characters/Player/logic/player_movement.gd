@@ -8,7 +8,7 @@ class_name PlayerController
 @export var DebugDraw = false
 @export var DebugStats =  false
 @onready var PlayerBodyCollider = %UpperBody
-@onready var PlayerBallCollider = $RigidBally3D
+@onready var PlayerBallCollider : RigidBally = $RigidBally3D
 @onready var PlayerRoot = $"../"
 @onready var StairsRay = $NoRotateBall/StairsRay
 
@@ -29,7 +29,9 @@ static var refUpVector = Vector3(0,1,0)
 static var move_force_multiplier = 100.0 # phys impulse scale
 static var upper_body_stiffness = 1.5 # scales impulse to bring body back to target
 static var body_leaning_force = 0.1 # how much move direction is added to pose correction
-static var stair_up_impulse = 350 # how much force should be added to go up stairs
+static var stair_up_impulse_idle = 4100 # how much force should be added to go up stair
+static var stair_up_impulse_push = 5000 # how much force should be added to go up stair
+static var stair_lean_offset = 0.13
  
 
 #---------------- State -----------------------------------
@@ -44,6 +46,9 @@ var player_move_dir = Vector2(0,0)
 var player_speed = 0.0
 var leaning = 0.0
 var isOnStairs = false
+var stairs_normal: Vector3
+var stairs_up_dir: Vector3
+var stairs_side_dir: Vector3
 
 var keepUpright = true
 var moveUpForce = 0.0
@@ -113,6 +118,7 @@ func updateDebugHelpers(playerInputDir):
 	else: $NoRotateBall/Label3D.text += "\nLeftHand: "
 	$NoRotateBall/Label3D.text += Player.HandStates.keys()[PlayerRoot.HandLState] + "\nRightHand: "
 	$NoRotateBall/Label3D.text += Player.HandStates.keys()[PlayerRoot.HandRState]
+	#$NoRotateBall/helper_stairs_plane.look_at($NoRotateBall/helper_stairs_plane.global_position - stairs_normal)
 	
 func sendStatsToPlayer() -> void:
 	PlayerRoot.player_speed = player_speed
@@ -122,10 +128,9 @@ func sendStatsToPlayer() -> void:
 	PlayerRoot.player_global_pos = player_global_mass_pos
 	PlayerRoot.player_global_mass_pos = player_global_mass_pos
 
-func check_furniture_contact() -> void:
-	for body in PlayerBallCollider.get_colliding_bodies():
-		if body is FurniturePlayerCollider:
-			body.on_player_collision(PlayerBallCollider.linear_velocity)
+func check_furniture_contact(body : Node3D) -> void:
+	if body is FurniturePlayerCollider:
+		body.on_player_collision(PlayerBallCollider.linear_velocity)
 
 func executeRoll() -> void:
 	$"AnimationPlayer".play("roll")
@@ -143,6 +148,9 @@ func _ready() -> void:
 		showHelpers()
 	else:
 		hideelpers()
+	
+	# Connect signals
+	PlayerBallCollider.body_entered.connect(check_furniture_contact)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("debug_DrawHelpers"):
@@ -157,12 +165,17 @@ func _process(delta: float) -> void:
 
 	%up_aligned/helper_leaning.position = Vector3(player_move_dir.x,-0.22,player_move_dir.y)
 
-func pushBody(delta: float) -> void:
+func pushBody(delta: float,  playerInputDir: Vector2) -> void:
 		# -------- push upper body ----------
 	var body_offset = PlayerBallCollider.global_position - PlayerBodyCollider.global_position
 	body_offset.y = 0.0
 	body_offset.x += player_move_dir.x * body_leaning_force
 	body_offset.z += player_move_dir.y * body_leaning_force
+	
+	if isOnStairs:
+		body_offset.x += playerInputDir.x * stair_lean_offset
+		body_offset.z += playerInputDir.y * stair_lean_offset
+	
 	body_offset = body_offset * upper_body_stiffness_current
 	PlayerBodyCollider.apply_impulse(body_offset)
 	
@@ -176,15 +189,22 @@ func pushBody(delta: float) -> void:
 	body_torque.y = body_fwd_2D.dot(player_facing_dir) * 10 * delta
 	PlayerBodyCollider.apply_torque_impulse(body_torque)
 
-func pushBally(delta: float, playerInputDir) -> void:
-	if isOnStairs: moveUpForce = stair_up_impulse * delta
-	else: moveUpForce = 0.0
+func pushBally(delta: float, playerInputDir: Vector2) -> void:
 	
 	var move_force = playerInputDir * player_input_strength
 	move_force += drunk_noise_vector * drunk_input_strength
 	move_force *= delta * move_force_multiplier
-	var impulse = Vector3(move_force.x, moveUpForce, move_force.y)
+	var impulse = Vector3(move_force.x, 0.0, move_force.y)
+	
+	# keep ball on stairs
+	if isOnStairs:
+		var input_in_stair_space = playerInputDir.dot(Vector2(stairs_up_dir.x, stairs_up_dir.z))
+		var stairsScaler = lerp(stair_up_impulse_idle, stair_up_impulse_push, input_in_stair_space)
+		var stair_force = stairs_up_dir * stairsScaler * delta * (1 - stairs_normal.dot(refUpVector))
+		impulse += stair_force
+	
 	PlayerBallCollider.apply_central_impulse(impulse)
+	
 
 func _physics_process(delta: float) -> void:
 	# -------- player input ------------
@@ -194,9 +214,15 @@ func _physics_process(delta: float) -> void:
 
 	# stairs check
 	var normalInput = playerInputDir.normalized()
-	StairsRay.target_position.x = normalInput.x * 0.2
-	StairsRay.target_position.z = normalInput.y * 0.2
+	StairsRay.target_position.x = normalInput.x * 0.01
+	StairsRay.target_position.z = normalInput.y * 0.01
 	isOnStairs = StairsRay.is_colliding()
+	if isOnStairs:
+		stairs_normal = StairsRay.get_collision_normal()
+		stairs_side_dir = stairs_normal.cross(refUpVector)
+		stairs_up_dir = stairs_side_dir.cross(stairs_normal)
+	else:
+		stairs_normal = refUpVector
 	
 	# -------- update targets ----------
 	update_vectors()
@@ -206,14 +232,13 @@ func _physics_process(delta: float) -> void:
 
 	match PlayerRoot.inMoveState:
 		Player.MoveStates.FELL: 
-			if keepUpright:pushBody(delta)
+			if keepUpright:pushBody(delta, playerInputDir)
 		_:
 			if keepUpright:pushBally(delta, playerInputDir)
-			if keepUpright:pushBody(delta)
+			if keepUpright:pushBody(delta, playerInputDir)
 	
 	particlePlacement()
 	sendStatsToPlayer()
-	check_furniture_contact()
 
 #------------------ Signals Receivers ------------------------------------------
 

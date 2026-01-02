@@ -40,7 +40,7 @@ var holdingRight: Object
 enum MoveStates {STANDUP, MOVING, FALLING, ROLLING, FLASKY, FELL}
 enum HandStates {DANGLY, REACHING, HOLD, DRINKING, ROLLING, FIXED, USED}
 enum FeetIKTargeting {STEPPING, RIGIDBODY}
-enum Hands {LEFT, RIGHT}
+enum Sides {LEFT, RIGHT}
 
 # input states
 var grabbingL = false
@@ -110,7 +110,7 @@ func checkFalling() -> void:
 	elif inMoveState != MoveStates.MOVING:
 		setMoveState(MoveStates.MOVING)
 
-func AttachItem(item: Object, attachTo: Object, hand: Hands) -> void:
+func AttachItem(item: Object, attachTo: Object, hand: Sides) -> void:
 	print(item)
 	if item is DrunknessPickup:
 		item.pickup(attachTo)
@@ -208,13 +208,13 @@ func _on_change_movement(state: Player.MoveStates) -> void:
 func _on_change_hand_left(state: Player.HandStates, item: Object) -> void:
 	match state:
 		HandStates.DRINKING: 
-			AttachItem(item, $PlayerBody.left_hand_target ,Hands.LEFT)
+			AttachItem(item, $PlayerBody.left_hand_target ,Sides.LEFT)
 		_: pass
 
 func _on_change_hand_right(state: Player.HandStates, item: Object) -> void:
 	match state:
 		HandStates.DRINKING:
-			AttachItem(item, $PlayerBody.right_hand_target, Hands.RIGHT)
+			AttachItem(item, $PlayerBody.right_hand_target, Sides.RIGHT)
 		_: pass
 
 func _on_change_feet(state: FeetIKTargeting) -> void:

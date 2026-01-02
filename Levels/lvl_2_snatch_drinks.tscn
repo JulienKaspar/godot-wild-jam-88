@@ -1,9 +1,10 @@
-[gd_scene load_steps=68 format=3 uid="uid://bn4n02t1b2gf3"]
+[gd_scene load_steps=69 format=3 uid="uid://bn4n02t1b2gf3"]
 
+[ext_resource type="Script" uid="uid://cb85w2tt5h1uv" path="res://Levels/Util/lvl_2_snatch_drinks_mission_flow.gd" id="1_ed3ej"]
 [ext_resource type="Material" uid="uid://dxy5f3akktyqu" path="res://Assets/Materials/green_carpet.tres" id="1_g3cye"]
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="1_qbre8"]
 [ext_resource type="PackedScene" uid="uid://cdrpgw2um6m6i" path="res://Objects/safety_plane.tscn" id="2_x8cmt"]
-[ext_resource type="Script" path="res://Objects/hideable_wall.gd" id="3_kknvj"]
+[ext_resource type="Script" uid="uid://dogbj3gtx3mxu" path="res://Objects/hideable_wall.gd" id="3_kknvj"]
 [ext_resource type="Material" uid="uid://c5e3ou8as7bf0" path="res://Assets/Materials/purple_carpet.tres" id="3_t4a3y"]
 [ext_resource type="Texture2D" uid="uid://cdu2wjhgj7mo2" path="res://Assets/Maps/Carpet_tiles/green_carpet/atlas.PNG" id="4_h8bwv"]
 [ext_resource type="Material" uid="uid://l1sgod1lv1b6" path="res://Assets/Materials/yellow_floral_wall.tres" id="4_jwfug"]
@@ -42,7 +43,7 @@
 [ext_resource type="PackedScene" uid="uid://k0584mty7u68" path="res://Assets/LivingRoom/door_sides.gltf" id="38_u6low"]
 [ext_resource type="PackedScene" uid="uid://cq2dax3g44gvp" path="res://Objects/Architypes/Props/chair1.tscn" id="39_vx8r6"]
 [ext_resource type="PackedScene" uid="uid://ooe78twecepq" path="res://Assets/Furniture/fireplace.gltf" id="41_4f1ei"]
-[ext_resource type="Script" path="res://Assets/Furniture/fireplace.gd" id="42_csti4"]
+[ext_resource type="Script" uid="uid://dlv1uit3dif5m" path="res://Assets/Furniture/fireplace.gd" id="42_csti4"]
 [ext_resource type="Texture2D" uid="uid://ttnt843dqh5f" path="res://Assets/2D_Assets/Fire_Anim/fire_anim_atlas.png" id="42_qsgyk"]
 [ext_resource type="PackedScene" uid="uid://cksssdqb3x0hy" path="res://Objects/Architypes/Furniture/frame.tscn" id="42_uyt62"]
 [ext_resource type="PackedScene" uid="uid://wrdfnbkf7w2k" path="res://Objects/Architypes/Props/candle1.tscn" id="45_csti4"]
@@ -93,7 +94,7 @@ size = Vector3(1.8151245, 3.45717, 0.2)
 [sub_resource type="BoxShape3D" id="BoxShape3D_17q8k"]
 size = Vector3(3.1295853, 3.45717, 0.09472656)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x8cmt"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e46qe"]
 resource_local_to_scene = true
 diffuse_mode = 3
 specular_mode = 2
@@ -169,6 +170,7 @@ _data = {
 point_count = 5
 
 [node name="Node3D2" type="Node3D"]
+script = ExtResource("1_ed3ej")
 
 [node name="PlayerSpawnPoint" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17149347, 0, -0.6237271)
@@ -504,7 +506,7 @@ shape = SubResource("BoxShape3D_17q8k")
 
 [node name="Stairs_wide" parent="Layout/Stairs" instance=ExtResource("17_iy3ty")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12.69914, -0.7660129, -12.728362)
-wall_material = SubResource("StandardMaterial3D_x8cmt")
+wall_material = SubResource("StandardMaterial3D_e46qe")
 ground_material = ExtResource("3_t4a3y")
 
 [node name="Stairs_wide2" parent="Layout/Stairs" instance=ExtResource("17_iy3ty")]

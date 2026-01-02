@@ -1,18 +1,21 @@
-[gd_scene load_steps=9 format=3 uid="uid://dci81bvxxl4nx"]
+[gd_scene load_steps=10 format=3 uid="uid://dci81bvxxl4nx"]
 
 [ext_resource type="Script" uid="uid://buuayjnejq81w" path="res://Objects/Architypes/LivingRoom/stairs.gd" id="1_e1ufy"]
 [ext_resource type="Material" uid="uid://b23iqfg3em6ty" path="res://Assets/Materials/wooden_wall.tres" id="2_3cf7q"]
-[ext_resource type="Material" path="res://Assets/Materials/green_carpet.tres" id="3_57ya7"]
+[ext_resource type="Material" uid="uid://dxy5f3akktyqu" path="res://Assets/Materials/green_carpet.tres" id="3_57ya7"]
 [ext_resource type="PackedScene" uid="uid://0hygty4adh3m" path="res://Assets/LivingRoom/stairs_thin.gltf" id="3_e1ufy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uixye"]
-size = Vector3(1.7751465, 1, 2.9658203)
+size = Vector3(1.7751465, 0.5708618, 2.9510689)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_57ya7"]
+size = Vector3(1.7751465, 0.9243164, 0.37765503)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4shsl"]
-size = Vector3(1.7751465, 1, 1.8283691)
+size = Vector3(1.7751465, 1, 1.7695313)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e1ufy"]
-size = Vector3(1.9423828, 5.0369873, 1.8283691)
+size = Vector3(1.9423828, 5.0369873, 1.6152344)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3cf7q"]
 size = Vector3(1.9423828, 4.1903687, 1.8283691)
@@ -29,20 +32,25 @@ metadata/_custom_type_script = "uid://b6j4xt2oyttve"
 [node name="stair_thin" parent="." instance=ExtResource("3_e1ufy")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.90348506, -0.4286199, 0, 0.4286199, 0.90348506, 0, 0.705218, 0.78774136)
+transform = Transform3D(1, 0, 0, 0, 0.90348506, -0.4286199, 0, 0.4286199, 0.90348506, 0, 0.9076987, 0.7681592)
 shape = SubResource("BoxShape3D_uixye")
+debug_color = Color(0, 0.5950001, 0.7, 1)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 1.3391511, -0.60553205)
+shape = SubResource("BoxShape3D_57ya7")
 debug_color = Color(0, 0.5950001, 0.7, 1)
 
 [node name="IKCollider" type="StaticBody3D" parent="."]
 collision_layer = 65
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="IKCollider"]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 1.3071983, -1.2742009)
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 1.2798222, -1.3288844)
 shape = SubResource("BoxShape3D_4shsl")
 debug_color = Color(0, 0.5950001, 0.7, 1)
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="IKCollider"]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 1.0326788, -0.7368263)
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 1.0259551, -0.76624525)
 shape = SubResource("BoxShape3D_4shsl")
 debug_color = Color(0, 0.5950001, 0.7, 1)
 
@@ -52,18 +60,18 @@ shape = SubResource("BoxShape3D_4shsl")
 debug_color = Color(0, 0.5950001, 0.7, 1)
 
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="IKCollider"]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0.4990958, 0.39518)
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0.4792651, 0.39518)
 shape = SubResource("BoxShape3D_4shsl")
 debug_color = Color(0, 0.5950001, 0.7, 1)
 
 [node name="regular_floor" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="regular_floor"]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, -0.71129555, -1.2742009)
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, -0.71129555, -1.3807683)
 shape = SubResource("BoxShape3D_e1ufy")
 debug_color = Color(0, 0.5950001, 0.7, 1)
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="regular_floor"]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, -1.1104143, 0.36095893)
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, -1.1243042, 0.36095893)
 shape = SubResource("BoxShape3D_3cf7q")
 debug_color = Color(0, 0.5950001, 0.7, 1)

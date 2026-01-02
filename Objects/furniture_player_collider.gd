@@ -59,11 +59,28 @@ func on_player_collision(collision_velocity : Vector3) -> void:
 		if ramming_tween.is_running():
 			return
 	
-	# NOTE: This doesn't take the direction into account where the character is moving towards.
-	if collision_velocity.length() < 1.0:
-		return
+	# Triggered at the end of the frame to compare player speed before and after impact
+	try_trigger_wobble.call_deferred(collision_velocity.length())
+
+
+func try_trigger_wobble(impact_speed : float) -> void:
 	
-	wobble_strength = 1.0
+	var imapct_speed_loss : float = (
+		impact_speed
+		- GameStateManager.current_player.player_speed
+	)
+	
+	var impact_strength := remap(
+		imapct_speed_loss,
+		0.0,
+		0.25,
+		0.0,
+		1.0
+	)
+	impact_strength = clampf(impact_strength, 0.0, 1.0)
+	print("furniture impact_strength = " + str(impact_strength))
+	
+	wobble_strength = impact_strength
 	
 	ramming_tween = get_tree().create_tween()
 	#ramming_tween.set_trans(Tween.TRANS_QUART)

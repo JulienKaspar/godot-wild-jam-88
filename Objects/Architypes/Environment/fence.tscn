@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmr7mu4ucpcce"]
+
+[ext_resource type="PackedScene" uid="uid://mbirdkvvjk1t" path="res://Assets/Backyard/fence.gltf" id="1_nomjk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uh6y5"]
+size = Vector3(0.123291016, 2.9805908, 24.398682)
+
+[node name="Fence" type="StaticBody3D"]
+
+[node name="fence" parent="." instance=ExtResource("1_nomjk")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4668579, -8.661255)
+shape = SubResource("BoxShape3D_uh6y5")

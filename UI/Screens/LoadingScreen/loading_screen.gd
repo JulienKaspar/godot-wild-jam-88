@@ -44,6 +44,11 @@ func close() -> void:
 	hide()
 	
 func _process(delta: float) -> void:
+	if OS.is_debug_build():
+		hide()
+		on_completed.emit()
+		return
+		
 	if open:
 		time_elapsed += delta
 		if time_elapsed > duration:
