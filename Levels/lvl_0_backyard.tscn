@@ -113,38 +113,38 @@ emission_energy_multiplier = 2.03
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_c33jy"]
 height = 0.2
-radius = 0.78808594
+radius = 0.63378906
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_tao4m"]
 height = 0.2
-radius = 2.51
+radius = 1.7436523
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_tup4f"]
 height = 0.2
-radius = 0.81640625
+radius = 0.38671875
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_fkcxp"]
 height = 0.2
-radius = 0.40429688
+radius = 0.27685547
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_dgmkc"]
 height = 0.2
-radius = 0.2626953
+radius = 0.2421875
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_avm5o"]
 height = 0.2
-radius = 0.71972656
+radius = 0.70703125
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_22u0x"]
 height = 0.2
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_k3ksw"]
 height = 0.2
-radius = 0.4555664
+radius = 0.44335938
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_go0n3"]
 height = 0.2
-radius = 0.77246094
+radius = 0.5366211
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_23oor"]
 height = 0.2
@@ -171,7 +171,7 @@ radius = 0.37890625
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_uxir3"]
 height = 0.2
-radius = 0.63427734
+radius = 0.5986328
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_vn2lc"]
 height = 0.2
@@ -179,7 +179,7 @@ radius = 1.1655273
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_enq1m"]
 height = 0.2
-radius = 0.6855469
+radius = 0.8310547
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_22u0x"]
 size = Vector3(5.0132446, 0.2, 0.64819336)
@@ -574,39 +574,83 @@ collision_layer = 256
 collision_mask = 0
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="HelperCollisionShapes/Stone"]
-transform = Transform3D(0.6673083, 0, 0.6073758, 0, 1, 0, -0.5101957, 0, 0.79441464, 1.7207378, 0, -10.655854)
+transform = Transform3D(0.79441464, 0, 0.6073758, 0, 1, 0, -0.6073758, 0, 0.79441464, 1.6401268, 0, -10.757299)
+shape = SubResource("CylinderShape3D_c33jy")
+
+[node name="CollisionShape3D20" type="CollisionShape3D" parent="HelperCollisionShapes/Stone"]
+transform = Transform3D(0.6990849, 0, 0.5344907, 0, 0.88, 0, -0.5344907, 0, 0.6990849, 1.8395678, 0, -10.444977)
 shape = SubResource("CylinderShape3D_c33jy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HelperCollisionShapes/Stone"]
-transform = Transform3D(0.5962206, 0, 0.71510434, 0, 1, 0, -0.51828665, 0, 0.8226335, 3.61, 0.03, -7.195)
+transform = Transform3D(0.7547096, 0, 0.656059, 0, 1, 0, -0.656059, 0, 0.7547096, 3.0114927, 0.03, -7.8970957)
+shape = SubResource("CylinderShape3D_tao4m")
+
+[node name="CollisionShape3D21" type="CollisionShape3D" parent="HelperCollisionShapes/Stone"]
+transform = Transform3D(0.7547096, 0, 0.656059, 0, 1, 0, -0.656059, 0, 0.7547096, 4.280848, 0.03, -6.414999)
+shape = SubResource("CylinderShape3D_tao4m")
+
+[node name="CollisionShape3D22" type="CollisionShape3D" parent="HelperCollisionShapes/Stone"]
+transform = Transform3D(0.8301806, 0, 0.72166497, 0, 1.1, 0, -0.72166497, 0, 0.8301806, 3.737091, 0.03, -7.063797)
 shape = SubResource("CylinderShape3D_tao4m")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="HelperCollisionShapes/Stone" groups=["HelperShape"]]
-transform = Transform3D(-0.21918556, 0, 0.89879405, 0, 1, 0, -0.44939703, 0, -0.43837112, -1.3553691, 0, -9.656084)
+transform = Transform3D(-0.43837112, 0, 0.89879405, 0, 1, 0, -0.89879405, 0, -0.43837112, -1.683048, 0, -9.50573)
+shape = SubResource("CylinderShape3D_tup4f")
+
+[node name="CollisionShape3D23" type="CollisionShape3D" parent="HelperCollisionShapes/Stone" groups=["HelperShape"]]
+transform = Transform3D(-0.43837112, 0, 0.89879405, 0, 1, 0, -0.89879405, 0, -0.43837112, -1.3592345, 0, -9.663561)
+shape = SubResource("CylinderShape3D_tup4f")
+
+[node name="CollisionShape3D24" type="CollisionShape3D" parent="HelperCollisionShapes/Stone" groups=["HelperShape"]]
+transform = Transform3D(-0.35946432, 0, 0.73701113, 0, 0.82, 0, -0.73701113, 0, -0.35946432, -0.9368727, 0, -9.862219)
 shape = SubResource("CylinderShape3D_tup4f")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="HelperCollisionShapes/Stone"]
-transform = Transform3D(0.13891858, 0, 0.9848077, 0, 1, 0, -0.7878462, 0, 0.17364822, -0.06150675, 0, -10.536883)
+transform = Transform3D(0.17364822, 0, 0.9848077, 0, 1, 0, -0.9848077, 0, 0.17364822, -0.16176829, 0, -10.540146)
+shape = SubResource("CylinderShape3D_fkcxp")
+
+[node name="CollisionShape3D25" type="CollisionShape3D" parent="HelperCollisionShapes/Stone"]
+transform = Transform3D(0.17364822, 0, 0.9848077, 0, 1, 0, -0.9848077, 0, 0.17364822, 0.053826064, 0, -10.523803)
 shape = SubResource("CylinderShape3D_fkcxp")
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="HelperCollisionShapes/Stone"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.82, -2.5565383, 0, -9.201558)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5534735, 0, -9.194836)
 shape = SubResource("CylinderShape3D_dgmkc")
 
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="HelperCollisionShapes/Stone"]
-transform = Transform3D(0.7864704, 0, 0.7349248, 0, 1, 0, -0.6013021, 0, 0.96124166, -1.8290436, 0, -11.089824)
+transform = Transform3D(0.7944145, 0, 0.607376, 0, 1, 0, -0.607376, 0, 0.7944145, -1.7331531, -1.1920929e-07, -10.948586)
+shape = SubResource("CylinderShape3D_avm5o")
+
+[node name="CollisionShape3D26" type="CollisionShape3D" parent="HelperCollisionShapes/Stone"]
+transform = Transform3D(0.7944145, 0, 0.607376, 0, 1, 0, -0.607376, 0, 0.7944145, -1.9124205, -1.1920929e-07, -11.238972)
 shape = SubResource("CylinderShape3D_avm5o")
 
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="HelperCollisionShapes/Stone"]
-transform = Transform3D(1.2787338, 0, -0.32061297, 0, 1, 0, 0.4328275, 0, 0.94721025, 0.3728826, 0, -11.799289)
+transform = Transform3D(0.94721025, 0, -0.320613, 0, 1, 0, 0.320613, 0, 0.94721025, 0.21427831, 0, -11.835153)
+shape = SubResource("CylinderShape3D_22u0x")
+
+[node name="CollisionShape3D27" type="CollisionShape3D" parent="HelperCollisionShapes/Stone"]
+transform = Transform3D(0.94721025, 0, -0.320613, 0, 1, 0, 0.320613, 0, 0.94721025, 0.5383448, 0, -11.756714)
 shape = SubResource("CylinderShape3D_22u0x")
 
 [node name="CollisionShape3D8" type="CollisionShape3D" parent="HelperCollisionShapes/Stone"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.88, 0.6711891, 0, -13.11)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6711891, 0, -13.11)
+shape = SubResource("CylinderShape3D_k3ksw")
+
+[node name="CollisionShape3D30" type="CollisionShape3D" parent="HelperCollisionShapes/Stone"]
+transform = Transform3D(0.83, 0, 0, 0, 0.83, 0, 0, 0, 0.83, 1.7783595, 0, -14.168792)
 shape = SubResource("CylinderShape3D_k3ksw")
 
 [node name="CollisionShape3D9" type="CollisionShape3D" parent="HelperCollisionShapes/Stone"]
-transform = Transform3D(0.3127375, 0, 0.9063078, 0, 1, 0, -0.67066777, 0, 0.42261824, 0.3132217, 0, -14.614746)
+transform = Transform3D(0.42261824, 0, 0.9063078, 0, 1, 0, -0.9063078, 0, 0.42261824, 0.47375488, 0, -14.520598)
+shape = SubResource("CylinderShape3D_go0n3")
+
+[node name="CollisionShape3D29" type="CollisionShape3D" parent="HelperCollisionShapes/Stone"]
+transform = Transform3D(0.42261824, 0, 0.9063078, 0, 1, 0, -0.9063078, 0, 0.42261824, 0.26780146, 0, -14.573101)
+shape = SubResource("CylinderShape3D_go0n3")
+
+[node name="CollisionShape3D28" type="CollisionShape3D" parent="HelperCollisionShapes/Stone"]
+transform = Transform3D(0.31696367, 0, 0.6797309, 0, 0.75, 0, -0.6797309, 0, 0.31696367, -0.023911178, 0, -14.74631)
 shape = SubResource("CylinderShape3D_go0n3")
 
 [node name="CollisionShape3D10" type="CollisionShape3D" parent="HelperCollisionShapes/Stone"]
@@ -614,7 +658,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.69207025, 0, -15.69)
 shape = SubResource("CylinderShape3D_23oor")
 
 [node name="CollisionShape3D11" type="CollisionShape3D" parent="HelperCollisionShapes/Stone"]
-transform = Transform3D(0.33175462, 0, 0.9099613, 0, 1, 0, -0.72796905, 0, 0.41469327, 0.4122212, 0, -15.95595)
+transform = Transform3D(0.41469327, 0, 0.9099613, 0, 1, 0, -0.9099613, 0, 0.41469327, 0.4122212, 0, -15.95595)
 shape = SubResource("CylinderShape3D_3unou")
 
 [node name="CollisionShape3D12" type="CollisionShape3D" parent="HelperCollisionShapes/Stone"]
@@ -634,15 +678,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.059956312, 0, -18.56439)
 shape = SubResource("CylinderShape3D_s1bjy")
 
 [node name="CollisionShape3D16" type="CollisionShape3D" parent="HelperCollisionShapes/Stone"]
-transform = Transform3D(0.6831966, 0, -0.6073758, 0, 1, 0, 0.5223432, 0, 0.79441464, -1.3909769, 0, -19.241266)
+transform = Transform3D(0.79441464, 0, -0.6073758, 0, 1, 0, 0.6073758, 0, 0.79441464, -1.37713, 0, -19.241371)
 shape = SubResource("CylinderShape3D_uxir3")
 
 [node name="CollisionShape3D17" type="CollisionShape3D" parent="HelperCollisionShapes/Stone"]
-transform = Transform3D(0.21499518, 0, 1.0422179, 0, 1, 0, -0.7913135, 0, 0.28316438, -0.6945585, 0, -21.166143)
+transform = Transform3D(0.26218924, 0, 0.9650165, 0, 1, 0, -0.9650165, 0, 0.26218924, -0.8076364, 2.3841858e-07, -21.448235)
 shape = SubResource("CylinderShape3D_vn2lc")
 
 [node name="CollisionShape3D18" type="CollisionShape3D" parent="HelperCollisionShapes/Stone"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15218925, 0, -20.71)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23063436, -7.1525574e-07, -20.81587)
 shape = SubResource("CylinderShape3D_enq1m")
 
 [node name="CollisionShape3D19" type="CollisionShape3D" parent="HelperCollisionShapes/Stone"]
