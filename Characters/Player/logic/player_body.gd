@@ -7,7 +7,7 @@ signal ReachedTargetLeft(item: Object)
 signal ReachedTargetRight(item: Object)
 signal ConsumedLeft(item: Object)
 signal ConsumedRight(item: Object)
-signal FeetStateChanged(state: FeetStates, foot: Player.Hands)
+signal FeetStateChanged(state: FeetStates, foot: Player.Sides)
 
 enum FeetStates {FIXED, ACTIVE, MOVING_LEFT, MOVING_RIGHT, PLANTED_LEFT, PLANTED_RIGHT}
 
@@ -56,7 +56,7 @@ var stepping := false
 # ---------------------- Dynamics ----------------------------------------------
 var inFeetState = FeetStates.ACTIVE
 var inFeetTargeting = Player.FeetIKTargeting.STEPPING
-var lastStepWas = Player.Hands.LEFT
+var lastStepWas = Player.Sides.LEFT
 var LeftFootGotoPos = Vector3(0,0,0)
 var RightFootGotoPos = Vector3(0,0,0)
 var LeftFootWasPos = Vector3(0,0,0)
@@ -86,7 +86,7 @@ $RightFootStepTarget, $LeftHandTarget, $RightHandTarget]
 func updateDebugHelpers():
 	$Label3D.look_at(GameStateManager.game_camera.global_position, UP, true)
 	$Label3D.text = FeetStates.keys()[inFeetState] +  " - LastStep: "
-	$Label3D.text += str(Player.Hands.keys()[lastStepWas])
+	$Label3D.text += str(Player.Sides.keys()[lastStepWas])
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -177,14 +177,14 @@ func updateClosestPos() -> void:
 	pass
 	
 
-func moveFeet(activFoot: Player.Hands) -> void:
+func moveFeet(activFoot: Player.Sides) -> void:
 	match activFoot:
-		Player.Hands.LEFT:
+		Player.Sides.LEFT:
 			var mov = lerp(LeftFootWasPos, LeftFootGotoPos, stepLerp)
 			mov += StepHighPoint * sin(3.14 * stepLerp)
 			left_foot_ik_target.global_position = mov
 			right_foot_ik_target.global_position = RightFootWasPos
-		Player.Hands.RIGHT:
+		Player.Sides.RIGHT:
 			var mov =  lerp(RightFootWasPos, RightFootGotoPos, stepLerp)
 			mov += StepHighPoint * sin(3.14 * stepLerp)
 			right_foot_ik_target.global_position = mov
@@ -197,11 +197,11 @@ func moveFeetToRigidBody() -> void:
 func updateStepLerp() -> void:
 	stepLerp = ($StepInProgress.wait_time - $StepInProgress.time_left) / $StepInProgress.wait_time 
 
-func drinkTimingUpdate(hand: Player.Hands) -> void:
+func drinkTimingUpdate(hand: Player.Sides) -> void:
 	match hand:
-		Player.Hands.LEFT:
+		Player.Sides.LEFT:
 			leftDrinkLerp = ($LeftDrink.wait_time - $LeftDrink.time_left) / $LeftDrink.wait_time
-		Player.Hands.RIGHT:
+		Player.Sides.RIGHT:
 			rightDrinkLerp = ($RightDrink.wait_time - $RightDrink.time_left) / $RightDrink.wait_time
 	 
 
@@ -234,7 +234,7 @@ func _process(delta: float) -> void:
 					ReachedTargetLeft.emit(PlayerRoot.closestLeft)
 			else: moveHand(left_shoulder_ray, left_hand_target, rb_arm_l)
 		Player.HandStates.DRINKING:
-			drinkTimingUpdate(Player.Hands.LEFT)
+			drinkTimingUpdate(Player.Sides.LEFT)
 			drinkHandInterpolation(HandL_pick_location, left_hand_target, drink_hole_left, PlayerRoot.holdingLeft, leftDrinkLerp, triggeredConsumableL)
 		_: moveHand(left_shoulder_ray, left_hand_target, rb_arm_l)
 			
@@ -247,7 +247,7 @@ func _process(delta: float) -> void:
 					ReachedTargetRight.emit(PlayerRoot.closestRight)
 			else: moveHand(right_shoulder_ray, right_hand_target, rb_arm_r)
 		Player.HandStates.DRINKING:
-			drinkTimingUpdate(Player.Hands.RIGHT)
+			drinkTimingUpdate(Player.Sides.RIGHT)
 			drinkHandInterpolation(HandR_pick_location, right_hand_target, drink_hole_right, PlayerRoot.holdingRight, rightDrinkLerp, triggeredConsumableR)
 		_: moveHand(right_shoulder_ray, right_hand_target, rb_arm_r)
 	
@@ -256,32 +256,38 @@ func _process(delta: float) -> void:
 		Player.FeetIKTargeting.RIGIDBODY:
 			moveFeetToRigidBody()
 		Player.FeetIKTargeting.STEPPING:
+			var rot = atan2(-PlayerRoot.player_facing_dir.x, -PlayerRoot.player_facing_dir.y)
+			left_foot_ik_target.global_rotation = Vector3(-2,rot + 0.2,0)
+			right_foot_ik_target.global_rotation = Vector3(-2,rot - 0.2,0)	
+			
 			match inFeetState:
 				FeetStates.FIXED: pass
 				FeetStates.ACTIVE: 
 					update_step_targets()
 					match lastStepWas:
-						Player.Hands.LEFT: 
+						Player.Sides.LEFT: 
 							if checkStepStart(RightFootWasPos, RightFootGotoPos):
-								setFeetState(FeetStates.MOVING_RIGHT, Player.Hands.RIGHT)
+								setFeetState(FeetStates.MOVING_RIGHT, Player.Sides.RIGHT)
 							elif checkStepStart(LeftFootWasPos, LeftFootGotoPos):
-								setFeetState(FeetStates.MOVING_LEFT, Player.Hands.LEFT)
-						Player.Hands.RIGHT: 
+								setFeetState(FeetStates.MOVING_LEFT, Player.Sides.LEFT)
+						Player.Sides.RIGHT: 
 							if checkStepStart(LeftFootWasPos, LeftFootGotoPos):
-								setFeetState(FeetStates.MOVING_LEFT, Player.Hands.LEFT)
+								setFeetState(FeetStates.MOVING_LEFT, Player.Sides.LEFT)
 							elif checkStepStart(RightFootWasPos, RightFootGotoPos):
-								setFeetState(FeetStates.MOVING_RIGHT, Player.Hands.RIGHT)
+								setFeetState(FeetStates.MOVING_RIGHT, Player.Sides.RIGHT)
 				FeetStates.MOVING_LEFT:
 					updateStepLerp()
 					hip_step_uptade(stepLerp)
-					moveFeet(Player.Hands.LEFT)
+					moveFeet(Player.Sides.LEFT)
 				FeetStates.MOVING_RIGHT: 
 					updateStepLerp()
 					hip_step_uptade(stepLerp)
-					moveFeet(Player.Hands.RIGHT)
+					moveFeet(Player.Sides.RIGHT)
 				FeetStates.PLANTED_LEFT: pass
 				FeetStates.PLANTED_RIGHT: pass
 	#move feet targets
+
+	
 	if debugDraw: updateDebugHelpers()
 	
 func _physics_process(delta: float) -> void:
@@ -293,7 +299,7 @@ func _on_player_change_feet(state: Player.FeetIKTargeting) -> void:
 		Player.FeetIKTargeting.STEPPING: pass
 		Player.FeetIKTargeting.RIGIDBODY: pass
 
-func setFeetState(state: FeetStates, foot: Player.Hands):
+func setFeetState(state: FeetStates, foot: Player.Sides):
 	inFeetState = state
 	self.FeetStateChanged.emit(state, foot)
 
@@ -301,12 +307,12 @@ func _on_step_in_progress_timeout() -> void:
 	match inFeetState:
 		FeetStates.MOVING_LEFT: 
 			LeftFootWasPos = LeftFootGotoPos
-			setFeetState(FeetStates.PLANTED_LEFT, Player.Hands.LEFT)
+			setFeetState(FeetStates.PLANTED_LEFT, Player.Sides.LEFT)
 		FeetStates.MOVING_RIGHT: 
 			RightFootWasPos = RightFootGotoPos
-			setFeetState(FeetStates.PLANTED_RIGHT, Player.Hands.RIGHT)
+			setFeetState(FeetStates.PLANTED_RIGHT, Player.Sides.RIGHT)
 
-func _on_feet_state_changed(state: int, foot: Player.Hands) -> void:
+func _on_feet_state_changed(state: int, foot: Player.Sides) -> void:
 	match state:
 		FeetStates.FIXED: $StepInProgress.stop()
 		FeetStates.ACTIVE: pass
