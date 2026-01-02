@@ -55,10 +55,13 @@ func load_level_by_index(index: int, show_loading_screen: bool) -> void:
 	
 	if show_loading_screen:
 		await loading_screen.on_completed
-		GameStateManager.unpause_game()
-		
+
+	GameStateManager.unpause_game()
 	on_level_loaded.emit(index)
 	
+func reload_current_level() -> void:
+	load_level_by_index(current_level_index, false)
+
 func find_spawn_point_in_level(level: Node3D) -> Vector3:
 	for child in level.get_children():
 		if child is PlayerSpawnPoint:
