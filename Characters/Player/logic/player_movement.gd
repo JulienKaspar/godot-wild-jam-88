@@ -21,9 +21,9 @@ static var player_turn_speed = 2.0 # how fast character should turn
 static var drunk_input_strength = 1.0 # how much drunk has control
 static var drunk_chaos_speed = 1.0 # how fast drunk changes direction
 static var drunk_chaos_strength = 0.2 # how strong is drunk input
-static var drunk_fall_factor = 4.0 #how fast the falling will escalate
 static var min_speed_to_turn = 0.35 #at what velocity should player start turning
 static var refUpVector = Vector3(0,1,0)
+static var drunk_fall_factor = 3.0 # how fast the falling will escalate
 
 #---------------- Physic Settings -------------------------
 static var move_force_multiplier = 100.0 # phys impulse scale
@@ -40,7 +40,8 @@ static var stair_lean_offset = 0.13
 @onready var player_global_pos = Vector3(0,0,0)
 @onready var player_global_mass_pos = Vector3(0,0,0)
 
-var player_input_lerped := Vector2.ZERO
+var player_input_lerped := 0.0 ## Factor for continuous input strength
+var player_input_dir_lerped := Vector2.ZERO ## Factor for continous input direction
 var upper_body_stiffness_current = upper_body_stiffness
 var drunk_noise_vector = Vector2(0,0)
 var player_move_dir = Vector2(0,0)
@@ -51,6 +52,7 @@ var stairs_normal: Vector3
 var stairs_up_dir: Vector3
 var stairs_side_dir: Vector3
 
+var force_upright_factor := 0.0
 var keepUpright = true
 var moveUpForce = 0.0
 
@@ -140,6 +142,7 @@ func executeRoll() -> void:
 func standUp() -> void:
 	PlayerBodyCollider.apply_impulse(Vector3(0,7,0))
 	keepUpright = true
+	force_upright_factor = 1.0
 
 #----------------Process--------------------------------------------------------
 #-------------------------------------------------------------------------------
@@ -166,25 +169,35 @@ func _process(delta: float) -> void:
 
 	%up_aligned/helper_leaning.position = Vector3(player_move_dir.x,-0.22,player_move_dir.y)
 
-func pushBody(delta: float,  playerInputDir: Vector2) -> void:
-	var inactivity_factor := 1.0
+func pushBody(delta: float, playerInputDir: Vector2) -> void:
+	
+	# Degrade this over time. Only used after standing up
+	force_upright_factor = lerp(force_upright_factor, 0.0, 0.2 * delta)
+	
+	var stiffness_strength := 1.0
 	if playerInputDir == Vector2.ZERO:
-		inactivity_factor = 0.75
+		stiffness_strength = lerp(0.6, 1.0, player_input_lerped)
+	stiffness_strength = lerp(stiffness_strength, 1.0, force_upright_factor)
 		# -------- push upper body ----------
 	var body_offset = PlayerBallCollider.global_position - PlayerBodyCollider.global_position
 	body_offset.y = 0.0
+	
 	# leaning from movement
-	body_offset.x += player_move_dir.x * (body_leaning_force)
-	body_offset.z += player_move_dir.y * (body_leaning_force)
-	# leaning from input
-	body_offset.x += player_input_lerped.x * (body_leaning_force *0.75)
-	body_offset.z += player_input_lerped.y * (body_leaning_force *0.75)
+	body_offset.x += player_move_dir.x * body_leaning_force
+	body_offset.z += player_move_dir.y * body_leaning_force
 	
-	if isOnStairs:
-		body_offset.x += player_input_lerped.x * stair_lean_offset
-		body_offset.z += player_input_lerped.y * stair_lean_offset
+	# leaning from input if its in the opposite direction of leaning
+	var input_body_scalar := Vector2(body_offset.normalized().x, body_offset.normalized().z).dot(playerInputDir)
+	input_body_scalar = max(input_body_scalar, 0.0)
+	body_offset.x += playerInputDir.x * (body_leaning_force * input_body_scalar)
+	body_offset.z += playerInputDir.y * (body_leaning_force * input_body_scalar)
 	
-	body_offset = body_offset * (upper_body_stiffness_current * inactivity_factor)
+	# NOTE: Not sure if this is needed?
+	# if isOnStairs:
+	# 	body_offset.x += player_input_dir_lerped.x * stair_lean_offset
+	# 	body_offset.z += player_input_dir_lerped.y * stair_lean_offset
+	
+	body_offset = body_offset * (upper_body_stiffness_current * stiffness_strength)
 	PlayerBodyCollider.apply_impulse(body_offset)
 	
 	# -------- rotate upper body ----------
@@ -200,12 +213,14 @@ func pushBody(delta: float,  playerInputDir: Vector2) -> void:
 func pushBally(delta: float, playerInputDir: Vector2) -> void:
 	
 	var move_force : Vector2
+	
 	# Apply input or slowly dampen movement
 	if playerInputDir != Vector2.ZERO:
 		move_force = playerInputDir * (player_input_strength * 1.5)
 	else:
 		var velocity := PlayerBallCollider.linear_velocity
 		move_force = Vector2(velocity.x, velocity.z) * -0.3
+	
 	move_force += drunk_noise_vector * drunk_input_strength
 	move_force *= delta * move_force_multiplier
 	var impulse = Vector3(move_force.x, 0.0, move_force.y)
@@ -231,7 +246,15 @@ func pushBally(delta: float, playerInputDir: Vector2) -> void:
 func _physics_process(delta: float) -> void:
 	# -------- player input ------------
 	var playerInputDir = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
-	player_input_lerped = lerp(player_input_lerped, playerInputDir, 1.75 * delta)
+	# Increase input strength. Controller stick is then always more aggressive. Less fine tuning in input.
+	playerInputDir = playerInputDir.normalized() * (min(playerInputDir.length() * 2.0, 1.0))
+	player_input_dir_lerped = lerp(player_input_dir_lerped, playerInputDir, 1.75 * delta)
+	
+	var lerp_strength := 3.0
+	if playerInputDir == Vector2.ZERO:
+		lerp_strength = 1.0
+	player_input_lerped = lerp(player_input_lerped, playerInputDir.length(), lerp_strength * delta)
+	
 	var cameraYRotation = GameStateManager.game_camera.global_rotation_degrees.y
 	playerInputDir = playerInputDir.rotated(deg_to_rad(-cameraYRotation))
 
