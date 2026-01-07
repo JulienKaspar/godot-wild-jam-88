@@ -14,8 +14,8 @@ shape = SubResource("CylinderShape3D_8d82q")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(0.95792276, 1.2546312e-08, -0.28702617, 0.28702617, -4.1872134e-08, 0.95792276, 0, -1, -4.371139e-08, 0.3744216, 6.061025, 0)
-light_color = Color(0.99, 0.8085, 0, 1)
-light_energy = 0.338
+light_color = Color(0.99, 0.948255, 0.7623, 1)
+light_energy = 0.243
 light_specular = 8.149
 shadow_enabled = true
 shadow_bias = 0.102
