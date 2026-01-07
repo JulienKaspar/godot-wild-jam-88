@@ -1,8 +1,8 @@
 [gd_scene load_steps=58 format=3 uid="uid://d2a7apkvocsew"]
 
-[ext_resource type="Script" path="res://Levels/lvl_4_disco.gd" id="1_n28pq"]
+[ext_resource type="Script" uid="uid://bc8urqgpnntuw" path="res://Levels/lvl_4_disco.gd" id="1_n28pq"]
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="1_u88v8"]
-[ext_resource type="Script" path="res://Levels/disco_light.gd" id="2_0me7d"]
+[ext_resource type="Script" uid="uid://cplcsgmwkxa3h" path="res://Levels/disco_light.gd" id="2_0me7d"]
 [ext_resource type="PackedScene" uid="uid://j1b5yvs8pnux" path="res://Objects/Architypes/Furniture/table_round1.tscn" id="3_6td24"]
 [ext_resource type="Script" uid="uid://ddci75ik2j7ul" path="res://Camera/camera_of_interest.gd" id="3_8dcp4"]
 [ext_resource type="PackedScene" uid="uid://cdrpgw2um6m6i" path="res://Objects/safety_plane.tscn" id="3_p3124"]
@@ -10,10 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://d3unw205fanv5" path="res://Objects/Loot/pickup_beer.tscn" id="4_n28pq"]
 [ext_resource type="Script" uid="uid://dbaf2uf6cx0uy" path="res://Camera/camera_area_trigger.gd" id="4_smwtj"]
 [ext_resource type="Material" uid="uid://c5e3ou8as7bf0" path="res://Assets/Materials/purple_carpet.tres" id="7_4rx7x"]
-[ext_resource type="Script" path="res://Levels/accessibility_light.gd" id="7_08ply"]
+[ext_resource type="Script" uid="uid://ehyaq5ux2v2s" path="res://Levels/accessibility_light.gd" id="7_08ply"]
 [ext_resource type="PackedScene" uid="uid://dhy34qs7pvk36" path="res://Gameplay/Interactables/interact_switch.tscn" id="8_0mfmk"]
 [ext_resource type="Material" uid="uid://dma21o2hw2ihv" path="res://Assets/Materials/kitchen_tiles_fg.tres" id="8_4rx7x"]
-[ext_resource type="Script" path="res://Objects/hideable_wall.gd" id="8_6pvw3"]
+[ext_resource type="Script" uid="uid://dogbj3gtx3mxu" path="res://Objects/hideable_wall.gd" id="8_6pvw3"]
 [ext_resource type="PackedScene" uid="uid://cbj1xsvngkbla" path="res://Assets/LivingRoom/door_closed.gltf" id="9_enbb8"]
 [ext_resource type="PackedScene" uid="uid://3kn1j5376oof" path="res://Objects/Architypes/Furniture/table2.tscn" id="10_v1l8h"]
 [ext_resource type="PackedScene" uid="uid://c3exm36djed3o" path="res://Assets/Furniture/window_1_curtain.gltf" id="11_lkepb"]
@@ -29,7 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://c0gyul67lvgh6" path="res://Assets/Furniture/rug_rose_gold.gltf" id="20_n8q5n"]
 [ext_resource type="PackedScene" uid="uid://c5xjwe237ug3y" path="res://Objects/Architypes/LivingRoom/door.tscn" id="21_0mfmk"]
 [ext_resource type="PackedScene" uid="uid://c50jjcmdyr7vp" path="res://Objects/Loot/pickup_beer_cup.tscn" id="21_2ernl"]
-[ext_resource type="PackedScene" uid="uid://0citmm75hpfv" path="res://Objects/Architypes/Furniture/couch4.tscn" id="21_oa7ln"]
+[ext_resource type="PackedScene" uid="uid://caon4iaxe5wiw" path="res://Objects/Architypes/Furniture/couch4.tscn" id="21_oa7ln"]
 [ext_resource type="PackedScene" uid="uid://dh3i5uan6dujl" path="res://Objects/Architypes/Props/plant_palm1.tscn" id="23_u1rm7"]
 [ext_resource type="PackedScene" uid="uid://dq8pax2pwl72a" path="res://Objects/Architypes/Props/plant_algae1.tscn" id="23_xnhyx"]
 [ext_resource type="PackedScene" uid="uid://k0584mty7u68" path="res://Assets/LivingRoom/door_sides.gltf" id="24_4rx7x"]
@@ -44,7 +44,6 @@
 [ext_resource type="PackedScene" uid="uid://tca4a42pryu5" path="res://Objects/Architypes/Hurtiture/hurtitire_cactus.tscn" id="38_8is7g"]
 [ext_resource type="PackedScene" uid="uid://d3padysgagsbx" path="res://Objects/Architypes/TrippingHazards/tripping_rug.tscn" id="41_u5imr"]
 [ext_resource type="PackedScene" uid="uid://djvhkhmcy0tn5" path="res://Shaders/shader_caching_onpath.tscn" id="42_fysx5"]
-
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0qex1"]
 size = Vector3(1.4931641, 2.268921, 0.77711105)
@@ -127,8 +126,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.784853, -0.46528602, 10.57
 transform = Transform3D(0.9996855, -0.00999977, 0.022997888, -0.004958106, 0.8201467, 0.5721319, -0.02458283, -0.57206595, 0.8198392, -0.025934935, 3.5278144, 26.290264)
 fov = 55.0
 script = ExtResource("3_8dcp4")
-blendInTime = 1.5
-blendOutTime = 0.5
+blendInTime = 0.0
+blendOutTime = 0.7
 
 [node name="CameraSwitch" type="Camera3D" parent="."]
 transform = Transform3D(0.73693043, -0.42043844, 0.5293063, -0.0049581025, 0.77965075, 0.626195, -0.67595047, -0.4640865, 0.57246375, 0.6419407, 3.5278153, 20.016249)
@@ -137,15 +136,13 @@ script = ExtResource("3_8dcp4")
 blendInTime = 1.5
 blendOutTime = 1.5
 
-[node name="EnterCameraTrigger" type="Area3D" parent="." node_paths=PackedStringArray("ExitCam")]
+[node name="EnterCameraTrigger" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45708, 0, 21.444717)
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("4_smwtj")
-ExitCam = NodePath("../CameraEnter")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="EnterCameraTrigger"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2612791, 2.2004395, 1.6066513)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2612791, 2.2004395, 1.9877319)
 shape = SubResource("BoxShape3D_2ernl")
 
 [node name="CameraExit" type="Camera3D" parent="."]
@@ -814,3 +811,5 @@ curve = SubResource("Curve3D_p3124")
 
 [node name="ShaderCachingOnpath" parent="AutoShaderCache/Path3D" instance=ExtResource("42_fysx5")]
 visible = false
+
+[connection signal="body_exited" from="EnterCameraTrigger" to="." method="_on_enter_camera_trigger_body_exited"]

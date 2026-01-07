@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://0yyl2ujs8y2i"]
+
+[ext_resource type="Shader" uid="uid://bfg8h8d77mbao" path="res://Shaders/tileable_wall.gdshader" id="1_p8m6w"]
+[ext_resource type="Texture2D" uid="uid://ceacb7o4ys203" path="res://Assets/Maps/Walls/fake_brick/atlas.png" id="2_p8m6w"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_p8m6w")
+shader_parameter/albedo = Color(0.5, 0.5, 0.5, 1)
+shader_parameter/texture_albedo = ExtResource("2_p8m6w")
+shader_parameter/top_color = Color(0.5059, 0.451, 0.2588, 1)
+shader_parameter/wall_height = 4.26
+shader_parameter/stretch = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/tile = 3
+shader_parameter/random_seed = 100
+shader_parameter/flip_x = false
+shader_parameter/hue_shift = 0.0

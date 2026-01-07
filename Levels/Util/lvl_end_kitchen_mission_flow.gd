@@ -5,7 +5,7 @@ var isProgress = Progress.START
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	isProgress = Progress.START
-	$CameraRoot/Camera3D.viewThis()
+	$CameraRoot/CameraFridgeFrame.viewThis()
 	$AnimationPlayer.play("RESET")
 	$Fridge/fridge_trap_wall/CollisionShape3D.disabled = true
 	GameStateManager.player_drunkness.paused = true

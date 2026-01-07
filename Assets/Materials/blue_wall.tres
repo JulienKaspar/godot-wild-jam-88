@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cj317pjofwy3c"]
+
+[ext_resource type="Shader" uid="uid://bfg8h8d77mbao" path="res://Shaders/tileable_wall.gdshader" id="1_yyy60"]
+[ext_resource type="Texture2D" uid="uid://m8gifx5w0gvt" path="res://Assets/Maps/Walls/blue_borders_wallpaper/atlas.png" id="2_vw308"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_yyy60")
+shader_parameter/albedo = Color(0.5, 0.5, 0.5, 1)
+shader_parameter/texture_albedo = ExtResource("2_vw308")
+shader_parameter/top_color = Color(0.5059, 0.451, 0.2588, 1)
+shader_parameter/wall_height = 4.26
+shader_parameter/stretch = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/tile = 3
+shader_parameter/random_seed = 100
+shader_parameter/flip_x = false
+shader_parameter/hue_shift = 0.0

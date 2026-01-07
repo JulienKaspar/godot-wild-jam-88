@@ -1,8 +1,9 @@
-[gd_scene load_steps=63 format=3 uid="uid://dhfyssjtwfl14"]
+[gd_scene load_steps=64 format=3 uid="uid://dhfyssjtwfl14"]
 
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="1_bygm1"]
 [ext_resource type="Script" uid="uid://cy572sir651f7" path="res://Levels/indi_trap.gd" id="1_d7yk7"]
 [ext_resource type="Script" uid="uid://ddci75ik2j7ul" path="res://Camera/camera_of_interest.gd" id="1_qacnp"]
+[ext_resource type="Script" uid="uid://ceivledpb5qk1" path="res://Levels/Util/lvl_3.5_verticality_mission_flow.gd" id="1_qbw1f"]
 [ext_resource type="Script" uid="uid://dbaf2uf6cx0uy" path="res://Camera/camera_area_trigger.gd" id="2_bygm1"]
 [ext_resource type="PackedScene" uid="uid://j1b5yvs8pnux" path="res://Objects/Architypes/Furniture/table_round1.tscn" id="2_hhcad"]
 [ext_resource type="PackedScene" uid="uid://dti38qt8jgdmc" path="res://Assets/Furniture/beer_keg.gltf" id="2_l5t6x"]
@@ -46,7 +47,7 @@
 [ext_resource type="PackedScene" uid="uid://djvhkhmcy0tn5" path="res://Shaders/shader_caching_onpath.tscn" id="43_p2eq5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p2eq5"]
-size = Vector3(3.8541222, 5.400879, 5.9180145)
+size = Vector3(4.807045, 5.400879, 6.5504265)
 
 [sub_resource type="Environment" id="Environment_4tm1v"]
 background_mode = 1
@@ -117,6 +118,7 @@ _data = {
 point_count = 5
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_qbw1f")
 
 [node name="PlayerSpawnPoint" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.31704825, 2.3841858e-07, 0.6255208)
@@ -138,14 +140,18 @@ blendInTime = 3.0
 blendOutTime = 1.5
 
 [node name="ExitCameraTrigger" type="Area3D" parent="." node_paths=PackedStringArray("ExitCam")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.761703, 0, -2.5107827)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.694485, 4.7683716e-07, -2.1154132)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("2_bygm1")
 ExitCam = NodePath("../CameraExit")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ExitCameraTrigger"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0289154, 2.2004395, -0.18342113)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17400742, 2.2004395, -0.37988758)
+shape = SubResource("BoxShape3D_p2eq5")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="ExitCameraTrigger"]
+transform = Transform3D(0.5510197, 0, 0.8344922, 0, 1, 0, -0.8344922, 0, 0.5510197, -3.132759, 2.2004395, -4.0559072)
 shape = SubResource("BoxShape3D_p2eq5")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

@@ -36,7 +36,9 @@ func _ready() -> void:
 	
 	var left_leg_ik = SkeletonIK3D.new()
 	left_leg_ik.root_bone = "Leg_L"
-	left_leg_ik.tip_bone = "Leg_IK_target-L"
+	left_leg_ik.tip_bone = "Foot_L"
+	#left_leg_ik.tip_bone = "Leg_IK_target-L"
+	left_leg_ik.override_tip_basis = true
 	left_leg_ik.target_node = left_foot_target.get_path()
 	left_leg_ik.use_magnet = true
 	left_leg_ik.magnet = Vector3(2, 0, 5)
@@ -45,17 +47,22 @@ func _ready() -> void:
 	
 	var right_leg_ik = SkeletonIK3D.new()
 	right_leg_ik.root_bone = "Leg_R"
-	right_leg_ik.tip_bone = "Leg_IK_target-R"
+	right_leg_ik.tip_bone = "Foot_R"
+	#right_leg_ik.tip_bone = "Leg_IK_target-R"
+	right_leg_ik.override_tip_basis = true
 	right_leg_ik.target_node = right_foot_target.get_path()
 	right_leg_ik.use_magnet = true
 	right_leg_ik.magnet = Vector3(-2, 0, 5)
 	right_leg_ik.start()
 	skeleton_3d.add_child(right_leg_ik)
 	
-	#var hair_wobble = SpringBoneSimulator3D.new()
-	#hair_wobble.set_end_bone_name(1, "Hair")
-	#hair_wobble.set_root_bone_name(0, "Head")
-	#skeleton_3d.add_child(hair_wobble)
+	var hair_wobble = SpringBoneSimulator3D.new()
+	hair_wobble.setting_count = 1
+	hair_wobble.set_stiffness(0, 0.5)	
+	hair_wobble.set_extend_end_bone(0, true)
+	hair_wobble.set_root_bone_name(0, "Head")
+	hair_wobble.set_end_bone_name(0, "HairTip")
+	skeleton_3d.add_child(hair_wobble)
 	
 	var head_lookat = LookAtModifier3D.new()
 	head_lookat.bone_name = "Head"
