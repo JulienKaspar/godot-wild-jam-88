@@ -27,6 +27,14 @@ func setSwitch() -> void:
 			tween.tween_property(switchPivot, "rotation_degrees:x", onAngle, 0.2)
 		else:
 			tween.tween_property(switchPivot, "rotation_degrees:x", offAngle, 0.2)
+		
+		var sound : AudioStreamPlayer3D = AudioManager.sfx_manager.get_item()
+		var stream : AudioStreamRandomizer = AudioManager.sfx_manager.switch_sounds
+		stream.set_stream_probability_weight(0, float(!OnOff)) # set OFF sound probability
+		stream.set_stream_probability_weight(1, float(OnOff)) # set ON sound probability
+		sound.stream = stream
+		sound.position = self.global_position
+		sound.play()
 
 func _ready() -> void:
 	hide_prompt()
