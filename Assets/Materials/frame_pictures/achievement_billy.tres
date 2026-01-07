@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://byd8cq35gtkaj"]
+
+[ext_resource type="Texture2D" uid="uid://dvpd1b38w1u46" path="res://Assets/2D_Assets/Achievements_Gallery/it_s_billy.png" id="1_1vbsp"]
+
+[resource]
+diffuse_mode = 3
+albedo_texture = ExtResource("1_1vbsp")
+uv1_world_triplanar = true

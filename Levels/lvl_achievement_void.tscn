@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cwm1is8kd74sm"]
+[gd_scene load_steps=11 format=3 uid="uid://cwm1is8kd74sm"]
 
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="1_7fjsa"]
 [ext_resource type="PackedScene" uid="uid://c3mxieqw7sfql" path="res://Objects/Architypes/Environment/street_lamp.tscn" id="2_7fjsa"]
 [ext_resource type="PackedScene" uid="uid://dmr7mu4ucpcce" path="res://Objects/Architypes/Environment/fence.tscn" id="3_qhyyr"]
+[ext_resource type="Material" uid="uid://byd8cq35gtkaj" path="res://Assets/Materials/frame_pictures/achievement_billy.tres" id="5_qhyyr"]
 [ext_resource type="PackedScene" uid="uid://cksssdqb3x0hy" path="res://Objects/Architypes/Furniture/frame.tscn" id="6_3mupi"]
 
 [sub_resource type="Environment" id="Environment_r762m"]
@@ -84,6 +85,7 @@ shape = SubResource("WorldBoundaryShape3D_7fjsa")
 
 [node name="Frame" parent="." instance=ExtResource("6_3mupi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8715067, 2.487448, -0.5608647)
+picture_material = ExtResource("5_qhyyr")
 model_index = 4
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Frame"]
