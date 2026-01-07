@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://beanjm24b3p1t"]
+
+[ext_resource type="Texture2D" uid="uid://b7hesi43b27mc" path="res://Assets/2D_Assets/Achievements_Gallery/another_one_finds_the_fridge.png" id="1_8iomo"]
+
+[resource]
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 1
+disable_ambient_light = true
+disable_fog = true
+disable_specular_occlusion = true
+albedo_texture = ExtResource("1_8iomo")
+uv1_world_triplanar = true
