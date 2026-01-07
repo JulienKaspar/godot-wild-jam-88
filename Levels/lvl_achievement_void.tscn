@@ -1,19 +1,24 @@
-[gd_scene load_steps=9 format=3 uid="uid://cwm1is8kd74sm"]
+[gd_scene load_steps=10 format=3 uid="uid://cwm1is8kd74sm"]
 
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="1_7fjsa"]
-[ext_resource type="Material" uid="uid://emu50xlsdc3q" path="res://Assets/Materials/soil_ground.tres" id="1_bbwon"]
 [ext_resource type="PackedScene" uid="uid://c3mxieqw7sfql" path="res://Objects/Architypes/Environment/street_lamp.tscn" id="2_7fjsa"]
 [ext_resource type="PackedScene" uid="uid://dmr7mu4ucpcce" path="res://Objects/Architypes/Environment/fence.tscn" id="3_qhyyr"]
+[ext_resource type="PackedScene" uid="uid://cksssdqb3x0hy" path="res://Objects/Architypes/Furniture/frame.tscn" id="6_3mupi"]
 
 [sub_resource type="Environment" id="Environment_r762m"]
 background_mode = 1
 ambient_light_source = 2
 ambient_light_color = Color(0.28800002, 0.48959997, 0.96, 1)
-ambient_light_energy = 1.89
+ambient_light_energy = 0.63
 tonemap_mode = 2
 fog_enabled = true
 fog_light_color = Color(0, 0, 0, 1)
-fog_density = 0.0661
+fog_density = 0.1973
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7fjsa"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.34012055, 0.31823272, 0.29269168, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vr21b"]
 
@@ -40,13 +45,16 @@ shadow_enabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WorldEnvironment"]
 transform = Transform3D(66.40614, 0, 0, 0, 1.0000005, 0, 0, 0, 42.05623, 8.618962, 0, -12.096064)
-material_override = ExtResource("1_bbwon")
+material_override = SubResource("StandardMaterial3D_7fjsa")
 mesh = SubResource("PlaneMesh_vr21b")
 
 [node name="layout" type="Node3D" parent="."]
 
 [node name="StreetLamp" parent="layout" instance=ExtResource("2_7fjsa")]
 transform = Transform3D(0.99595684, 0, 0.089833006, 0, 1, 0, -0.089833006, 0, 0.99595684, 2.5652661, 0, 0)
+
+[node name="SpotLight3D" parent="layout/StreetLamp" index="1"]
+shadow_opacity = 0.71
 
 [node name="StreetLamp2" parent="layout" instance=ExtResource("2_7fjsa")]
 transform = Transform3D(0.99595684, 0, 0.08983302, 0, 1, 0, -0.08983302, 0, 0.99595684, 12.524226, 0, 0)
@@ -60,6 +68,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 0.8418474, 0, -1, 0, -4.371139e-
 [node name="Boundary" type="StaticBody3D" parent="."]
 
 [node name="GroundPlane" type="StaticBody3D" parent="Boundary"]
+visible = false
 collision_layer = 65
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Boundary/GroundPlane"]
@@ -72,3 +81,18 @@ shape = SubResource("WorldBoundaryShape3D_7fjsa")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Boundary"]
 transform = Transform3D(-1, 8.742278e-08, 3.821371e-15, 0, -4.371139e-08, 1, 8.742278e-08, 1, 4.371139e-08, 0, 0, -3.5852792)
 shape = SubResource("WorldBoundaryShape3D_7fjsa")
+
+[node name="Frame" parent="." instance=ExtResource("6_3mupi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8715067, 2.487448, -0.5608647)
+model_index = 4
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Frame"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5615046)
+light_energy = 1.465
+spot_range = 3.18
+
+[node name="Frame2" parent="." instance=ExtResource("6_3mupi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.14973, 2.487448, -0.5608647)
+model_index = 5
+
+[editable path="layout/StreetLamp"]

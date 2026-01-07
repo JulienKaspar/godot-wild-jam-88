@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvpd1b38w1u46"
-path.s3tc="res://.godot/imported/it_s_billy.png-da1bbb485eb359819e66880bf00e0aad.s3tc.ctex"
-path.etc2="res://.godot/imported/it_s_billy.png-da1bbb485eb359819e66880bf00e0aad.etc2.ctex"
+uid="uid://cr4ccid6jt2i6"
+path.s3tc="res://.godot/imported/painting_cloth.png-a4202c0940725b263221306c7356eb48.s3tc.ctex"
+path.etc2="res://.godot/imported/painting_cloth.png-a4202c0940725b263221306c7356eb48.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/2D_Assets/Achievements_Gallery/it_s_billy.png"
-dest_files=["res://.godot/imported/it_s_billy.png-da1bbb485eb359819e66880bf00e0aad.s3tc.ctex", "res://.godot/imported/it_s_billy.png-da1bbb485eb359819e66880bf00e0aad.etc2.ctex"]
+source_file="res://Assets/Furniture/painting_cloth.png"
+dest_files=["res://.godot/imported/painting_cloth.png-a4202c0940725b263221306c7356eb48.s3tc.ctex", "res://.godot/imported/painting_cloth.png-a4202c0940725b263221306c7356eb48.etc2.ctex"]
 
 [params]
 
