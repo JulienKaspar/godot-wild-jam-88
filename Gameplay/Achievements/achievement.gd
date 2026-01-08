@@ -7,5 +7,6 @@ enum ID {Touch_Grass, Test_Achievement}
 @export var name : String
 @export var description: String
 @export var icon: Texture2D
+@export var material: Material
 @export var id: ID
 var obtained: bool

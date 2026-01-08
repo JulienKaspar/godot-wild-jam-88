@@ -17,7 +17,7 @@ run/max_fps=60
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/fullsize=false
 boot_splash/image="uid://doj5mkedsb2fw"
-config/icon="uid://cmu1lptxybtls"
+config/icon="uid://c40kn0pvycf2w"
 
 [autoload]
 
