@@ -27,6 +27,9 @@ fog_density = 0.1157
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vr21b"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_3mupi"]
+radius = 10.0
+
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_bbwon"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7fjsa"]
