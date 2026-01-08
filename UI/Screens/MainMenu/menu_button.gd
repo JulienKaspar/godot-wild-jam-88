@@ -22,3 +22,4 @@ func make_small() -> void:
 	var size_tween: Tween = create_tween()
 	size_tween.tween_property(self, 'scale', Vector2(1, 1), 0.2)
 	add_theme_constant_override("outline_size", 0) 
+	release_focus()

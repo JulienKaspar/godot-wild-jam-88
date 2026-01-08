@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=3 format=3 uid="uid://co1efm3yrb4va"]
+
+[ext_resource type="Texture2D" uid="uid://c40kn0pvycf2w" path="res://better_than_RV_there_yet.png" id="1_axhyq"]
+[ext_resource type="Script" uid="uid://bqat8ihyupi7l" path="res://Gameplay/Achievements/achievement.gd" id="1_j6kdt"]
+
+[resource]
+script = ExtResource("1_j6kdt")
+name = "Test Achievement"
+description = "you entered the achievement menu"
+icon = ExtResource("1_axhyq")
+id = 1
+metadata/_custom_type_script = "uid://bqat8ihyupi7l"
