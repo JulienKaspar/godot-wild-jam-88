@@ -1,20 +1,31 @@
-[gd_scene load_steps=11 format=3 uid="uid://cwm1is8kd74sm"]
+[gd_scene load_steps=21 format=3 uid="uid://cwm1is8kd74sm"]
 
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="1_7fjsa"]
-[ext_resource type="Material" uid="uid://emu50xlsdc3q" path="res://Assets/Materials/soil_ground.tres" id="1_bbwon"]
+[ext_resource type="Script" uid="uid://bjne3eyyq68sc" path="res://Levels/lvl_achievement_void.gd" id="1_ucqg3"]
+[ext_resource type="Material" uid="uid://dl7bi0q2fe7qf" path="res://Assets/Materials/sidewalk.tres" id="2_3mupi"]
+[ext_resource type="PackedScene" uid="uid://boel7ylijdqup" path="res://Objects/Architypes/Props/grass.tscn" id="2_5jf17"]
 [ext_resource type="PackedScene" uid="uid://c3mxieqw7sfql" path="res://Objects/Architypes/Environment/street_lamp.tscn" id="2_7fjsa"]
+[ext_resource type="Material" uid="uid://clfkhujfs4xxg" path="res://Assets/Materials/lawn_grass.tres" id="2_r8u75"]
 [ext_resource type="PackedScene" uid="uid://dmr7mu4ucpcce" path="res://Objects/Architypes/Environment/fence.tscn" id="3_qhyyr"]
-[ext_resource type="Script" uid="uid://xaxmpe6rwxet" path="res://Gameplay/Achievements/Triggers/achievement_object.gd" id="5_qhyyr"]
+[ext_resource type="Script" uid="uid://ddci75ik2j7ul" path="res://Camera/camera_of_interest.gd" id="4_5jf17"]
+[ext_resource type="Material" uid="uid://0lsh3ca2cabm" path="res://Assets/Materials/pavement.tres" id="5_bfq8q"]
+[ext_resource type="Material" uid="uid://byd8cq35gtkaj" path="res://Assets/Materials/frame_pictures/achievement_billy.tres" id="5_qhyyr"]
+[ext_resource type="PackedScene" uid="uid://cksssdqb3x0hy" path="res://Objects/Architypes/Furniture/frame.tscn" id="6_3mupi"]
+[ext_resource type="Material" uid="uid://deyvxcpdrwiq7" path="res://Assets/Materials/maschendrahtzaun.tres" id="10_crhpg"]
+[ext_resource type="Material" uid="uid://o8ar7lo2i2hp" path="res://Assets/Materials/frame_pictures/achievement_dual_wielding.tres" id="13_3uhje"]
+[ext_resource type="Material" uid="uid://uvsgqj7aq03v" path="res://Assets/Materials/frame_pictures/achievement_outkonged.tres" id="14_bi5gf"]
+[ext_resource type="Material" uid="uid://beanjm24b3p1t" path="res://Assets/Materials/frame_pictures/achievement_fridge.tres" id="15_31ece"]
 
 [sub_resource type="Environment" id="Environment_r762m"]
 background_mode = 1
 ambient_light_source = 2
 ambient_light_color = Color(0.28800002, 0.48959997, 0.96, 1)
-ambient_light_energy = 1.89
+ambient_light_energy = 0.63
 tonemap_mode = 2
 fog_enabled = true
-fog_light_color = Color(0, 0, 0, 1)
-fog_density = 0.0661
+fog_light_color = Color(0.011999988, 0, 0.12, 1)
+fog_light_energy = 0.75
+fog_density = 0.1157
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vr21b"]
 
@@ -25,12 +36,26 @@ radius = 10.0
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7fjsa"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_5jf17"]
+size = Vector3(4.8740234, 3.290039, 1)
+
 [node name="lvl_achievement_void" type="Node3D"]
+script = ExtResource("1_ucqg3")
+grass_scene = ExtResource("2_5jf17")
 
 [node name="PlayerSpawnPoint" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1885378, 4.7683716e-07, 2.900703)
 script = ExtResource("1_7fjsa")
 metadata/_custom_type_script = "uid://cm1uqdo37kpmi"
+
+[node name="CameraRoot" type="Node3D" parent="."]
+transform = Transform3D(-1, 2.4965434e-08, 8.378227e-08, 0, 0.95835745, -0.28557128, -8.742278e-08, -0.28557128, -0.95835745, 8.434549, 0.025043055, -0.06530204)
+
+[node name="Camera" type="Camera3D" parent="CameraRoot"]
+transform = Transform3D(-1, 6.495509e-09, 8.718112e-08, 3.5527137e-15, 0.9972361, -0.07429996, -8.742279e-08, -0.07429996, -0.9972361, 0, 0.58984613, -9.878787)
+fov = 28.4
+script = ExtResource("4_5jf17")
+blendInTime = 0.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_r762m")
@@ -42,38 +67,59 @@ light_color = Color(0, 1.2853369, 1.1084508, 1)
 light_energy = 0.35
 shadow_enabled = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="WorldEnvironment"]
-transform = Transform3D(66.40614, 0, 0, 0, 1.0000005, 0, 0, 0, 42.05623, 8.618962, 0, -12.096064)
-material_override = ExtResource("1_bbwon")
-mesh = SubResource("PlaneMesh_vr21b")
-
 [node name="layout" type="Node3D" parent="."]
 
 [node name="StreetLamp" parent="layout" instance=ExtResource("2_7fjsa")]
 transform = Transform3D(0.99595684, 0, 0.089833006, 0, 1, 0, -0.089833006, 0, 0.99595684, 2.5652661, 0, 0)
 
+[node name="SpotLight3D" parent="layout/StreetLamp" index="1"]
+shadow_opacity = 0.71
+
 [node name="StreetLamp2" parent="layout" instance=ExtResource("2_7fjsa")]
-transform = Transform3D(0.99595684, 0, 0.08983302, 0, 1, 0, -0.08983302, 0, 0.99595684, 12.524226, 0, 0)
+transform = Transform3D(0.99595684, 0, 0.08983302, 0, 1, 0, -0.08983302, 0, 0.99595684, 12.754067, 0, 0)
 
 [node name="StreetLamp3" parent="layout" instance=ExtResource("2_7fjsa")]
-transform = Transform3D(0.99595684, 0, 0.08983302, 0, 1, 0, -0.08983302, 0, 0.99595684, 21.060665, 0, 0)
+transform = Transform3D(0.99595684, 0, 0.08983302, 0, 1, 0, -0.08983302, 0, 0.99595684, 21.48053, 0, 0)
 
 [node name="Fence2" parent="layout" instance=ExtResource("3_qhyyr")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 0.8418474, 0, -1, 0, -4.371139e-08, -4.1005116, 0, -0.030488968)
 
-[node name="AchievementArea" type="Area3D" parent="layout"]
-collision_mask = 3
-script = ExtResource("5_qhyyr")
-achievement_to_grand_id = 1
-metadata/_custom_type_script = "uid://xaxmpe6rwxet"
+[node name="CSGBox3D" type="CSGBox3D" parent="layout"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.625404, 0.05715245, 0.6900135)
+material_override = ExtResource("2_3mupi")
+use_collision = true
+collision_layer = 64
+size = Vector3(52.49752, 0.07324219, 1.3778076)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="layout/AchievementArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.080526, 0, 2.0174599)
-shape = SubResource("SphereShape3D_3mupi")
+[node name="CSGBox3D2" type="CSGBox3D" parent="layout"]
+transform = Transform3D(1, 0, 0, 0, 0.65679634, -0.754068, 0, 0.754068, 0.65679634, 16.393085, -0.037078723, 1.4467974)
+material_override = ExtResource("2_3mupi")
+use_collision = true
+collision_layer = 64
+size = Vector3(52.032883, 0.07324219, 0.2854004)
+
+[node name="street" type="MeshInstance3D" parent="layout"]
+transform = Transform3D(66.40614, 0, 0, 0, 1.0000005, 0, 0, 0, 8.352472, 8.618962, 0, 9.215814)
+material_override = ExtResource("5_bfq8q")
+mesh = SubResource("PlaneMesh_vr21b")
+skeleton = NodePath("../../WorldEnvironment")
+
+[node name="lawn" type="MeshInstance3D" parent="layout"]
+transform = Transform3D(66.40614, 0, 0, 0, 1.0000005, 0, 0, 0, 8.352472, 8.619, 0, -7.452)
+material_override = ExtResource("2_r8u75")
+mesh = SubResource("PlaneMesh_vr21b")
+skeleton = NodePath("../../WorldEnvironment")
+
+[node name="wire_fence" type="MeshInstance3D" parent="layout"]
+transform = Transform3D(66.40614, 0, 0, 0, -4.3711406e-08, -1.547051, 0, 1.0000004, -6.7623745e-08, 14.851543, -0.2480846, -5.2597513)
+material_override = ExtResource("10_crhpg")
+mesh = SubResource("PlaneMesh_vr21b")
+skeleton = NodePath("../../WorldEnvironment")
 
 [node name="Boundary" type="StaticBody3D" parent="."]
 
 [node name="GroundPlane" type="StaticBody3D" parent="Boundary"]
+visible = false
 collision_layer = 65
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Boundary/GroundPlane"]
@@ -84,5 +130,52 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0
 shape = SubResource("WorldBoundaryShape3D_7fjsa")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Boundary"]
-transform = Transform3D(-1, 8.742278e-08, 3.821371e-15, 0, -4.371139e-08, 1, 8.742278e-08, 1, 4.371139e-08, 0, 0, -3.5852792)
+transform = Transform3D(-1, 8.742278e-08, 3.821371e-15, 0, -4.371139e-08, 1, 8.742278e-08, 1, 4.371139e-08, 0, 0, -2.0492222)
 shape = SubResource("WorldBoundaryShape3D_7fjsa")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Boundary"]
+transform = Transform3D(0.84945095, 0, 0.52766764, 0, 1, 0, -0.52766764, 0, 0.84945095, 1.2494134, 1.1450195, -1.7199041)
+shape = SubResource("BoxShape3D_5jf17")
+
+[node name="Frame" parent="." instance=ExtResource("6_3mupi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8715067, 1.7687509, -2.2690763)
+picture_material = ExtResource("5_qhyyr")
+model_index = 4
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Frame"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5615046)
+light_energy = 1.465
+spot_range = 3.18
+
+[node name="Frame2" parent="." instance=ExtResource("6_3mupi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.286319, 1.7687509, -2.2690763)
+picture_material = ExtResource("13_3uhje")
+model_index = 4
+
+[node name="Frame3" parent="." instance=ExtResource("6_3mupi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.516139, 1.7687509, -2.2690763)
+picture_material = ExtResource("14_bi5gf")
+model_index = 4
+
+[node name="Frame4" parent="." instance=ExtResource("6_3mupi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.891934, 1.7687509, -2.2690763)
+picture_material = ExtResource("15_31ece")
+model_index = 4
+
+[node name="Frame5" parent="." instance=ExtResource("6_3mupi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.858889, 1.7687509, -2.2690763)
+model_index = 5
+
+[node name="Frame6" parent="." instance=ExtResource("6_3mupi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.553526, 1.7687509, -2.2690763)
+model_index = 5
+
+[node name="Frame7" parent="." instance=ExtResource("6_3mupi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.302069, 1.7687509, -2.2690763)
+model_index = 5
+
+[node name="Frame8" parent="." instance=ExtResource("6_3mupi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.20017, 1.7687509, -2.2690763)
+model_index = 5
+
+[editable path="layout/StreetLamp"]

@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dwipt20n2mnf8"]
+
+[ext_resource type="Texture2D" uid="uid://cr4ccid6jt2i6" path="res://Assets/Furniture/painting_cloth.png" id="1_nk3ii"]
+
+[resource]
+diffuse_mode = 3
+albedo_color = Color(0.7964864, 0.71629024, 0.5883278, 1)
+albedo_texture = ExtResource("1_nk3ii")

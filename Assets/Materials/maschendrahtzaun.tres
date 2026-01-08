@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://deyvxcpdrwiq7"]
+
+[ext_resource type="Texture2D" uid="uid://ccfd702v3qm01" path="res://Assets/Maps/Achievement_Gallery_tiles/maschendrahtzaun.png" id="1_nohn2"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("1_nohn2")
+uv1_scale = Vector3(1.566, 0.785, 0.785)
+uv1_triplanar = true
+uv1_world_triplanar = true
