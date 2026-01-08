@@ -1,7 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://cwm1is8kd74sm"]
+[gd_scene load_steps=19 format=3 uid="uid://cwm1is8kd74sm"]
 
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="1_7fjsa"]
-[ext_resource type="Script" uid="uid://bjne3eyyq68sc" path="res://Levels/lvl_achievement_void.gd" id="1_ucqg3"]
+[ext_resource type="Script" path="res://Levels/lvl_achievement_void.gd" id="1_ucqg3"]
 [ext_resource type="Material" uid="uid://dl7bi0q2fe7qf" path="res://Assets/Materials/sidewalk.tres" id="2_3mupi"]
 [ext_resource type="PackedScene" uid="uid://boel7ylijdqup" path="res://Objects/Architypes/Props/grass.tscn" id="2_5jf17"]
 [ext_resource type="PackedScene" uid="uid://c3mxieqw7sfql" path="res://Objects/Architypes/Environment/street_lamp.tscn" id="2_7fjsa"]
@@ -9,12 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://dmr7mu4ucpcce" path="res://Objects/Architypes/Environment/fence.tscn" id="3_qhyyr"]
 [ext_resource type="Script" uid="uid://ddci75ik2j7ul" path="res://Camera/camera_of_interest.gd" id="4_5jf17"]
 [ext_resource type="Material" uid="uid://0lsh3ca2cabm" path="res://Assets/Materials/pavement.tres" id="5_bfq8q"]
-[ext_resource type="Material" uid="uid://byd8cq35gtkaj" path="res://Assets/Materials/frame_pictures/achievement_billy.tres" id="5_qhyyr"]
 [ext_resource type="PackedScene" uid="uid://cksssdqb3x0hy" path="res://Objects/Architypes/Furniture/frame.tscn" id="6_3mupi"]
 [ext_resource type="Material" uid="uid://deyvxcpdrwiq7" path="res://Assets/Materials/maschendrahtzaun.tres" id="10_crhpg"]
-[ext_resource type="Material" uid="uid://o8ar7lo2i2hp" path="res://Assets/Materials/frame_pictures/achievement_dual_wielding.tres" id="13_3uhje"]
-[ext_resource type="Material" uid="uid://uvsgqj7aq03v" path="res://Assets/Materials/frame_pictures/achievement_outkonged.tres" id="14_bi5gf"]
-[ext_resource type="Material" uid="uid://beanjm24b3p1t" path="res://Assets/Materials/frame_pictures/achievement_fridge.tres" id="15_31ece"]
+[ext_resource type="Resource" uid="uid://b88grwmgy4hld" path="res://Resources/Achievements/ac_double_fisting.tres" id="12_krjoo"]
+[ext_resource type="Resource" uid="uid://co1efm3yrb4va" path="res://Resources/Achievements/ac_test_achievement.tres" id="13_3uhje"]
 
 [sub_resource type="Environment" id="Environment_r762m"]
 background_mode = 1
@@ -139,7 +137,7 @@ shape = SubResource("BoxShape3D_5jf17")
 
 [node name="Frame" parent="." instance=ExtResource("6_3mupi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8715067, 1.7687509, -2.2690763)
-picture_material = ExtResource("5_qhyyr")
+achievement = ExtResource("12_krjoo")
 model_index = 4
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Frame"]
@@ -149,17 +147,15 @@ spot_range = 3.18
 
 [node name="Frame2" parent="." instance=ExtResource("6_3mupi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.286319, 1.7687509, -2.2690763)
-picture_material = ExtResource("13_3uhje")
+achievement = ExtResource("13_3uhje")
 model_index = 4
 
 [node name="Frame3" parent="." instance=ExtResource("6_3mupi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.516139, 1.7687509, -2.2690763)
-picture_material = ExtResource("14_bi5gf")
 model_index = 4
 
 [node name="Frame4" parent="." instance=ExtResource("6_3mupi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.891934, 1.7687509, -2.2690763)
-picture_material = ExtResource("15_31ece")
 model_index = 4
 
 [node name="Frame5" parent="." instance=ExtResource("6_3mupi")]
