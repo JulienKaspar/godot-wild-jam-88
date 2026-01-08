@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://0lsh3ca2cabm"]
 
-[ext_resource type="Shader" uid="uid://bg4owxt8roht6" path="res://Shaders/tileable_floor.gdshader" id="1_ev0my"]
+[ext_resource type="Shader" path="res://Shaders/tileable_floor.gdshader" id="1_ev0my"]
 [ext_resource type="Texture2D" uid="uid://sdlr642xcjqy" path="res://Assets/Maps/Achievement_Gallery_tiles/pavement.png" id="2_ev0my"]
 
 [resource]
