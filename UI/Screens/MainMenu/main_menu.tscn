@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bcredxkb7jfdu"]
+[gd_scene load_steps=16 format=3 uid="uid://bcredxkb7jfdu"]
 
 [ext_resource type="Script" uid="uid://c3pnv4i4pub4u" path="res://UI/Screens/MainMenu/main_menu.gd" id="1_jld46"]
 [ext_resource type="Texture2D" uid="uid://frr2qsjtumwm" path="res://Assets/2D_Assets/Menu_Art/house_1.png" id="2_h8rmy"]
@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://bd1ff5rsfvtm4" path="res://UI/Screens/MainMenu/title.png" id="7_pbebc"]
 [ext_resource type="PackedScene" uid="uid://copb1h0542sta" path="res://UI/Screens/MainMenu/menu_button.tscn" id="8_ejg71"]
 [ext_resource type="AudioStream" uid="uid://fq0vj2ffsvip" path="res://Assets/Audio/Music/PartyTheme/Theme_A.ogg" id="8_iau2q"]
+[ext_resource type="Texture2D" uid="uid://bia0sbof7osga" path="res://Assets/2D_Assets/Menu_Art/achievements_button.png" id="9_bft6e"]
+[ext_resource type="Texture2D" uid="uid://d3iclkssbpocb" path="res://Assets/2D_Assets/Menu_Art/achievements_button_selected.png" id="10_xxhd1"]
+[ext_resource type="Script" uid="uid://cggdsmg0amahy" path="res://UI/Screens/MainMenu/achievement_button.gd" id="11_xxhd1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kf43y"]
 
@@ -74,6 +77,7 @@ mouse_filter = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.66
 mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
@@ -98,6 +102,7 @@ size_flags_vertical = 3
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_right = NodePath("../../../../VBoxContainer2/CenterContainer/AchievementButton")
 theme = SubResource("Theme_u0e1r")
 
 [node name="CenterContainer2" type="CenterContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
@@ -108,6 +113,7 @@ size_flags_vertical = 3
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_right = NodePath("../../../../VBoxContainer2/CenterContainer/AchievementButton")
 text = "SETTINGS"
 
 [node name="CenterContainer3" type="CenterContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
@@ -118,6 +124,7 @@ size_flags_vertical = 3
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_right = NodePath("../../../../VBoxContainer2/CenterContainer/AchievementButton")
 text = "EXIT"
 
 [node name="Control" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
@@ -128,7 +135,36 @@ size_flags_stretch_ratio = 2.8
 [node name="Control" type="Control" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 1.5
+size_flags_stretch_ratio = 1.06
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.44
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="AchievementButton" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer2/CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_left = NodePath("../../../VBoxContainer/VBoxContainer/CenterContainer/StartButton")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+texture_normal = ExtResource("9_bft6e")
+texture_hover = ExtResource("10_xxhd1")
+texture_focused = ExtResource("10_xxhd1")
+script = ExtResource("11_xxhd1")
+
+[node name="Control2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.15
 
 [node name="TitleScreenAmbience" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true

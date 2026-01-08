@@ -29,6 +29,9 @@ fog_density = 0.1157
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vr21b"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_3mupi"]
+radius = 10.0
+
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_bbwon"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7fjsa"]
@@ -41,7 +44,7 @@ script = ExtResource("1_ucqg3")
 grass_scene = ExtResource("2_5jf17")
 
 [node name="PlayerSpawnPoint" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7884429, 4.7683716e-07, 1.3029504)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1885378, 4.7683716e-07, 2.900703)
 script = ExtResource("1_7fjsa")
 metadata/_custom_type_script = "uid://cm1uqdo37kpmi"
 

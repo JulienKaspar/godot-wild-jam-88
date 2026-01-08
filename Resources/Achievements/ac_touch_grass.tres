@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=3 format=3 uid="uid://ddoxa8x8iyi6b"]
+
+[ext_resource type="Texture2D" uid="uid://boydy153a6gym" path="res://Assets/Maps/Exterior/grass_1.png" id="1_oyqr0"]
+[ext_resource type="Script" uid="uid://bqat8ihyupi7l" path="res://Gameplay/Achievements/achievement.gd" id="2_5iqu7"]
+
+[resource]
+script = ExtResource("2_5iqu7")
+name = "Touch Grass!"
+description = "Fall in the garden and finally touch some (virtual) grass"
+icon = ExtResource("1_oyqr0")
+metadata/_custom_type_script = "uid://bqat8ihyupi7l"

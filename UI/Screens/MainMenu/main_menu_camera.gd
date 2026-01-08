@@ -1,6 +1,6 @@
 extends Camera2D
 
-var scroll_sensitivity: float = 0.25
+var scroll_sensitivity: float = 0.1
 @export var max_x: float = 1250
 @export var min_x: float = 500
 
