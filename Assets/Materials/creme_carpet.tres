@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://c20xc8e5t6yna"]
 
-[ext_resource type="Shader" uid="uid://bg4owxt8roht6" path="res://Shaders/tileable_floor.gdshader" id="1_famt2"]
+[ext_resource type="Shader" path="res://Shaders/tileable_floor.gdshader" id="1_famt2"]
 [ext_resource type="Texture2D" uid="uid://qgchunjyyhgo" path="res://Assets/Maps/Carpet_tiles/creme_carpet/atlas.png" id="2_m18m2"]
 
 [resource]

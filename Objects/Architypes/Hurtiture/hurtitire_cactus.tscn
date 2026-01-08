@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://d1ns4f8nsxmyd" path="res://Objects/furniture_player_collider.gd" id="1_838oo"]
 [ext_resource type="PackedScene" uid="uid://wjyfhps2jw7i" path="res://Assets/Furniture/plant_cactus1.gltf" id="2_tunyq"]
 [ext_resource type="Script" uid="uid://67ac8n4ituj5" path="res://Gameplay/Obstacles/hurt_furniture.gd" id="3_tunyq"]
-[ext_resource type="Script" uid="uid://ba7ivu8jcrsue" path="res://UI/texture_rect_animation.gd" id="4_f8uo2"]
+[ext_resource type="Script" uid="uid://ba7ivu8jcrsue" path="res://UI/VFX/texture_rect_animation.gd" id="4_f8uo2"]
 [ext_resource type="Texture2D" uid="uid://yk5qec41jpgo" path="res://Assets/2D_Assets/Cactus_Emote_Spikes/cactus_spikes_1.png" id="5_qlxq3"]
 [ext_resource type="Texture2D" uid="uid://ca4lshhanphyc" path="res://Assets/2D_Assets/Cactus_Emote_Spikes/cactus_spikes_2.png" id="6_x8uy1"]
 [ext_resource type="Texture2D" uid="uid://e40exx13eucx" path="res://Assets/2D_Assets/Cactus_Emote_Spikes/cactus_spikes_3.png" id="7_iceuh"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="1_2o66m"]
 [ext_resource type="Material" uid="uid://c5e3ou8as7bf0" path="res://Assets/Materials/purple_carpet.tres" id="2_4djw3"]
-[ext_resource type="PackedScene" uid="uid://caon4iaxe5wiw" path="res://Objects/Architypes/Furniture/couch4.tscn" id="2_fgeje"]
+[ext_resource type="PackedScene" uid="uid://0citmm75hpfv" path="res://Objects/Architypes/Furniture/couch4.tscn" id="2_fgeje"]
 [ext_resource type="PackedScene" uid="uid://fhev4d48q1qy" path="res://Objects/Architypes/LivingRoom/stairs_wide.tscn" id="3_cc2k6"]
 [ext_resource type="PackedScene" uid="uid://cdrpgw2um6m6i" path="res://Objects/safety_plane.tscn" id="4_1c67v"]
 [ext_resource type="Material" uid="uid://c20xc8e5t6yna" path="res://Assets/Materials/creme_carpet.tres" id="4_fgeje"]

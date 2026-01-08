@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://42mf003bq52u" path="res://Gameplay/LevelTransitions/level_teleporter.gd" id="2_3tb1t"]
 [ext_resource type="Material" uid="uid://l1sgod1lv1b6" path="res://Assets/Materials/yellow_floral_wall.tres" id="2_rhni8"]
 
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_kw20h"]
 size = Vector3(0.31262207, 2.5540771, 1.6123962)
 

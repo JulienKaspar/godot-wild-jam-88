@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://ces05xsfebcpv" path="res://UI/Screens/SettingsMenu/box_unchecked_unfocused.png" id="4_frhxi"]
 [ext_resource type="Texture2D" uid="uid://rdsefvper3bl" path="res://UI/Screens/SettingsMenu/box_checked_focused.png" id="5_3bv7n"]
 
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u8hap"]
 
 [node name="CheckBoxSetting" type="HBoxContainer" node_paths=PackedStringArray("label", "checkbox")]

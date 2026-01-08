@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://copb1h0542sta" path="res://UI/Screens/MainMenu/menu_button.tscn" id="1_t3iro"]
 [ext_resource type="Texture2D" uid="uid://der26hksvgrjr" path="res://UI/Screens/SettingsMenu/pause_menu_backdrop.png" id="1_w5vkt"]
 
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l24xb"]
 
 [node name="PauseMenu" type="PanelContainer"]

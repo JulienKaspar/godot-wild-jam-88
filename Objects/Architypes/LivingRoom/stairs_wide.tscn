@@ -27,7 +27,6 @@ script = ExtResource("1_x6br2")
 wall_material = ExtResource("2_nkaw3")
 ground_material = ExtResource("3_pwpps")
 stair_asset = NodePath("stair_wide")
-metadata/_custom_type_script = "uid://b6j4xt2oyttve"
 
 [node name="stair_wide" parent="." instance=ExtResource("3_x6br2")]
 

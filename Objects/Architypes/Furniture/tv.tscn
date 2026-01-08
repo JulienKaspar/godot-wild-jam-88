@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://btva13m4bq3h8"]
+[gd_scene load_steps=5 format=3 uid="uid://cc65tohjn11qo"]
 
 [ext_resource type="Script" uid="uid://d1ns4f8nsxmyd" path="res://Objects/furniture_player_collider.gd" id="1_pll1s"]
 [ext_resource type="PackedScene" uid="uid://dmbtw8ig27uxe" path="res://Assets/Furniture/tv.gltf" id="2_g86et"]

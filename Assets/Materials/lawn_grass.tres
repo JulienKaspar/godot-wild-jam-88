@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://clfkhujfs4xxg"]
 
-[ext_resource type="Shader" uid="uid://bg4owxt8roht6" path="res://Shaders/tileable_floor.gdshader" id="1_swcyk"]
+[ext_resource type="Shader" path="res://Shaders/tileable_floor.gdshader" id="1_swcyk"]
 [ext_resource type="Texture2D" uid="uid://cwbfh2o0ajxif" path="res://Assets/Maps/Exterior/grass_tile_atlas.png" id="2_swcyk"]
 
 [resource]

@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://l1sgod1lv1b6"]
 
-[ext_resource type="Shader" uid="uid://bfg8h8d77mbao" path="res://Shaders/tileable_wall.gdshader" id="1_f8q65"]
+[ext_resource type="Shader" path="res://Shaders/tileable_wall.gdshader" id="1_f8q65"]
 [ext_resource type="Texture2D" uid="uid://djpkkont0tpva" path="res://Assets/Maps/Walls/yellow_floral_wallpaper/atlas.png" id="2_dd0lt"]
 
 [resource]

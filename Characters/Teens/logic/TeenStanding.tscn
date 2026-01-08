@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://csh5kgfnsuy4w" path="res://Assets/Characters/Teens/teen2.gltf" id="3_tr3k2"]
 [ext_resource type="PackedScene" uid="uid://bh3nxhhyrdo07" path="res://Assets/Characters/Teens/teen3.gltf" id="4_1xrl0"]
 [ext_resource type="Texture2D" uid="uid://dl8fbqc3s0yse" path="res://Assets/2D_Assets/Emotes/kid_bubbles_1_1.png" id="4_6mc1t"]
-[ext_resource type="Script" uid="uid://bcjcsa8nw5iec" path="res://Characters/Teens/logic/speech_bubble_animation.gd" id="5_ijlkk"]
+[ext_resource type="Script" path="res://Characters/Teens/logic/speech_bubble_animation.gd" id="5_ijlkk"]
 [ext_resource type="Texture2D" uid="uid://cey5i71wmjmur" path="res://Assets/2D_Assets/Emotes/kid_bubbles_1_2.png" id="6_ksggn"]
 [ext_resource type="AudioStream" uid="uid://8t4w60ovuely" path="res://Audio/SFX/NPCs/teen_voice_sounds.tres" id="7_3ww2l"]
 

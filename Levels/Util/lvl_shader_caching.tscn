@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://b20exoh7acsdf"]
 
-[ext_resource type="Script" uid="uid://t7errwn3tg1x" path="res://Shaders/shader_caching.gd" id="1_2k25d"]
+[ext_resource type="Script" path="res://Shaders/shader_caching.gd" id="1_2k25d"]
 [ext_resource type="PackedScene" uid="uid://bhvwgh4ef0sj6" path="res://Particles/Player/pfx_bodyfall.tscn" id="2_5wqvq"]
 [ext_resource type="PackedScene" uid="uid://cyksrihj0achx" path="res://Particles/Player/pfx_falling_indicator.tscn" id="3_1oix3"]
 [ext_resource type="PackedScene" uid="uid://cpegwj8uc0kq5" path="res://Particles/DrunknessPickups/pfx_beer_break.tscn" id="4_obf1n"]
