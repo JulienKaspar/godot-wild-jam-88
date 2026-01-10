@@ -1,8 +1,8 @@
-[gd_scene load_steps=58 format=3 uid="uid://d2a7apkvocsew"]
+[gd_scene load_steps=59 format=3 uid="uid://d2a7apkvocsew"]
 
 [ext_resource type="Script" uid="uid://bc8urqgpnntuw" path="res://Levels/lvl_4_disco.gd" id="1_n28pq"]
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="1_u88v8"]
-[ext_resource type="Script" path="res://Levels/disco_light.gd" id="2_0me7d"]
+[ext_resource type="Script" uid="uid://cplcsgmwkxa3h" path="res://Levels/disco_light.gd" id="2_0me7d"]
 [ext_resource type="PackedScene" uid="uid://j1b5yvs8pnux" path="res://Objects/Architypes/Furniture/table_round1.tscn" id="3_6td24"]
 [ext_resource type="Script" uid="uid://ddci75ik2j7ul" path="res://Camera/camera_of_interest.gd" id="3_8dcp4"]
 [ext_resource type="PackedScene" uid="uid://cdrpgw2um6m6i" path="res://Objects/safety_plane.tscn" id="3_p3124"]
@@ -44,6 +44,7 @@
 [ext_resource type="PackedScene" uid="uid://tca4a42pryu5" path="res://Objects/Architypes/Hurtiture/hurtitire_cactus.tscn" id="38_8is7g"]
 [ext_resource type="PackedScene" uid="uid://d3padysgagsbx" path="res://Objects/Architypes/TrippingHazards/tripping_rug.tscn" id="41_u5imr"]
 [ext_resource type="PackedScene" uid="uid://djvhkhmcy0tn5" path="res://Shaders/shader_caching_onpath.tscn" id="42_fysx5"]
+[ext_resource type="AudioStream" uid="uid://by7crtendnovh" path="res://Assets/Audio/Music/DiscoTheme/DerpnoTheme.ogg" id="45_lxk6h"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0qex1"]
 size = Vector3(1.4931641, 2.268921, 0.77711105)
@@ -811,5 +812,12 @@ curve = SubResource("Curve3D_p3124")
 
 [node name="ShaderCachingOnpath" parent="AutoShaderCache/Path3D" instance=ExtResource("42_fysx5")]
 visible = false
+
+[node name="DerpnoMusic" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+stream = ExtResource("45_lxk6h")
+autoplay = true
+max_distance = 35.0
+bus = &"Music"
 
 [connection signal="body_exited" from="EnterCameraTrigger" to="." method="_on_enter_camera_trigger_body_exited"]
