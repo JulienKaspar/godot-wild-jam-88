@@ -13,7 +13,7 @@ enum FeetStates {FIXED, ACTIVE, MOVING_LEFT, MOVING_RIGHT, PLANTED_LEFT, PLANTED
 
 var UP = Vector3(0,1,0)
 var RAYDIR = Vector3(0,0,-4)
-var RAYDIR_LEG = Vector3(0,0,-2)
+var RAYDIR_LEG = Vector3(0,0,-1.6)
 var ARM_LENGTH = 0.666
 var FOOT_CORRECTION = Vector3(0,0.1,0)
 var StepTriggerDistance = 0.37
@@ -291,8 +291,15 @@ func _process(delta: float) -> void:
 	if debugDraw: updateDebugHelpers()
 	
 func _physics_process(delta: float) -> void:
-	LeftFootGotoPos = left_foot_ray.get_collision_point() + FOOT_CORRECTION
-	RightFootGotoPos = right_foot_ray.get_collision_point() + FOOT_CORRECTION
+	
+	LeftFootGotoPos = left_foot_ray.get_collision_point()
+	RightFootGotoPos = right_foot_ray.get_collision_point()
+	# TODO: This is to keep the feet on raised platforms. 
+	#		Could get a better solution isnce feet trail behind then.
+	if left_foot_ray.is_colliding():
+		LeftFootGotoPos += FOOT_CORRECTION
+	if right_foot_ray.is_colliding():
+		RightFootGotoPos += FOOT_CORRECTION
 
 func _on_player_change_feet(state: Player.FeetIKTargeting) -> void:
 	match state:
