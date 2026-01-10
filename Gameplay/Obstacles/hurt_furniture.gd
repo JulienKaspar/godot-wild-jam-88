@@ -4,7 +4,7 @@ class_name HurtFurniture
 @onready var texture_rect_animaton: TextureRectAnimaton = %TextureRectAnimaton
 
 
-@export var force_multiplier: float = 50
+@export var force_multiplier: float = 100
 @export var drunkness_pentalty: float = 1
 @export var visual_effect: bool = false
 const max_parent_check_depth: int = 3
