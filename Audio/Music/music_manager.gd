@@ -9,6 +9,7 @@ class_name MusicManager
 # _update_drunkness_effect() - called when "drunkness_intensity" is updated
 
 @onready var music_player : AudioStreamPlayer = %MusicPlayer
+
 const VOLUME_DB_DEFAULT : float = -3.0
 const VOLUME_DB_DUCKING : float = -6.0
 
@@ -53,11 +54,11 @@ func _on_level_change(level_index : int) -> void:
 				start_music()
 				chord_change_timer.start()
 		
-		2, 3, 4, 5: # house
+		2, 3, 4: # house
 			var target_volume_db = VOLUME_DB_DEFAULT
 			AudioManager.tween_volume_db(music_player, target_volume_db)
 			
-		6: # fridge
+		5, 6: # fridge
 			chord_change_timer.stop()
 			stop_music()
 

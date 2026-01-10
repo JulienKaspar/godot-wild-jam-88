@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dl7bi0q2fe7qf"]
 
-[ext_resource type="Shader" uid="uid://bg4owxt8roht6" path="res://Shaders/tileable_floor.gdshader" id="1_4etrq"]
+[ext_resource type="Shader" path="res://Shaders/tileable_floor.gdshader" id="1_4etrq"]
 [ext_resource type="Texture2D" uid="uid://br0hq67ioycqw" path="res://Assets/Maps/Achievement_Gallery_tiles/sidewalk_atlas.png" id="2_4etrq"]
 
 [resource]
@@ -8,11 +8,11 @@ render_priority = 0
 shader = ExtResource("1_4etrq")
 shader_parameter/albedo = Vector4(0.8, 0.8, 0.8, 0)
 shader_parameter/texture_albedo = ExtResource("2_4etrq")
-shader_parameter/scale = 1.4849999999999999
+shader_parameter/scale = 1.485
 shader_parameter/roughness = 1.0
 shader_parameter/uv_offset = Vector2(0, 0)
 shader_parameter/tile = 4
-shader_parameter/random_seed = 130
+shader_parameter/random_seed = 131
 shader_parameter/flip_x = true
 shader_parameter/flip_y = false
 shader_parameter/hue_shift = 0.0

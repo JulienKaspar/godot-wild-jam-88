@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://sdgm4fbp6t2j" path="res://UI/Screens/WastedScreen/wasted_screen.gd" id="1_ar8h3"]
 [ext_resource type="Texture2D" uid="uid://llwu6fb5wffp" path="res://Assets/2D_Assets/Sober_Fail_Message/sober_fail_state_message.png" id="1_oeppo"]
 
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6pwi6"]
 
 [node name="WastedScreen" type="PanelContainer"]

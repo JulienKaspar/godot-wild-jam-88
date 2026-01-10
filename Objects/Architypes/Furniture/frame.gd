@@ -1,8 +1,7 @@
 @tool
 extends Node3D
 
-@export var picture_material : Material
-
+@export var achievement: Achievement
 @export_category("Swappable Models")
 @export var models: Array[PackedScene] = []
 @export var model_index: int = 0: 
@@ -20,9 +19,9 @@ func change_material() -> void:
 	for child in model_slot.get_children():
 		print(child)
 		if child is MeshInstance3D:
-			child.set_surface_override_material(1, picture_material)
+			child.set_surface_override_material(1, achievement.material)
 		elif child.get_child(0) is MeshInstance3D:
-			child.get_child(0).set_surface_override_material(1, picture_material)
+			child.get_child(0).set_surface_override_material(1, achievement.material)
 
 func change_model(index: int) -> void:
 	for child in model_slot.get_children():

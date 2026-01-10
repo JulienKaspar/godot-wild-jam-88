@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cj317pjofwy3c"]
 
-[ext_resource type="Shader" uid="uid://bfg8h8d77mbao" path="res://Shaders/tileable_wall.gdshader" id="1_yyy60"]
+[ext_resource type="Shader" path="res://Shaders/tileable_wall.gdshader" id="1_yyy60"]
 [ext_resource type="Texture2D" uid="uid://m8gifx5w0gvt" path="res://Assets/Maps/Walls/blue_borders_wallpaper/atlas.png" id="2_vw308"]
 
 [resource]

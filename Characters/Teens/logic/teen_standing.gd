@@ -74,9 +74,6 @@ func _process(delta: float) -> void:
 		if angry_time <= 0.0:
 			animation_player.play(animation)
 			speech_bubble_animation.hide()
-	
-
-@onready var teen_voice_player: AudioStreamPlayer3D = %TeenVoicePlayer
 
 func on_pushed() -> void:
 	
@@ -87,7 +84,11 @@ func on_pushed() -> void:
 	animation_player.play("SuprizedMad")
 	currently_angry = true
 	angry_time = 3.0
-	if !teen_voice_player.playing: teen_voice_player.play()
+	
+	var sound : AudioStreamPlayer3D = AudioManager.sfx_manager.get_item()
+	sound.position = self.global_position
+	sound.stream = AudioManager.sfx_manager.teen_sounds
+	sound.play()
 
 func change_model(index: int) -> void:
 	for child in model_slot.get_children():

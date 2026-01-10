@@ -12,6 +12,7 @@ var shrink_timer : Timer
 
 
 @export_category("Sounds")
+@export var teen_sounds : AudioStreamRandomizer
 @export var wobble_sounds : AudioStreamRandomizer
 @export var banana_slip_sounds : AudioStreamRandomizer
 @export var keg_sounds : AudioStreamRandomizer
@@ -48,10 +49,9 @@ func get_item() -> Variant:
 			return null
 	
 	# pause shrinking while items are being requested
-	if shrink_timer:
-		reset_shrink_timer()
+	reset_shrink_timer()
 	
-	var item : AudioStreamPlayer3D
+	var item : AudioStreamPlayer3D # Variant that applies here now
 	
 	if pool_items.is_empty():
 		item = item_scene.instantiate()

@@ -18,7 +18,6 @@
 [ext_resource type="Texture2D" uid="uid://t8gfw8xq7ncf" path="res://UI/Screens/SettingsMenu/back_button.png" id="16_ae4it"]
 [ext_resource type="Texture2D" uid="uid://ch7axjgacui1i" path="res://UI/Screens/SettingsMenu/back_button_excited.png" id="17_mkyk3"]
 
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aw4dm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_43lif"]
@@ -85,6 +84,7 @@ alignment = 1
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 mouse_filter = 2
+theme_override_constants/margin_bottom = 12
 
 [node name="ControlTabButton" type="TextureButton" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/MarginContainer"]
 unique_name_in_owner = true
@@ -103,6 +103,7 @@ script = ExtResource("4_qvif0")
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 mouse_filter = 2
+theme_override_constants/margin_bottom = 12
 
 [node name="VisualTabButton" type="TextureButton" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/MarginContainer2"]
 unique_name_in_owner = true
@@ -119,6 +120,7 @@ script = ExtResource("4_qvif0")
 [node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 mouse_filter = 2
+theme_override_constants/margin_bottom = 12
 
 [node name="AudioTabButton" type="TextureButton" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/MarginContainer3"]
 unique_name_in_owner = true
@@ -135,6 +137,7 @@ script = ExtResource("4_qvif0")
 [node name="MarginContainer4" type="MarginContainer" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 mouse_filter = 2
+theme_override_constants/margin_bottom = 12
 
 [node name="AccesibilityTabButton" type="TextureButton" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/MarginContainer4"]
 unique_name_in_owner = true
@@ -160,11 +163,12 @@ theme_override_styles/tab_hovered = SubResource("StyleBoxEmpty_a0nqm")
 theme_override_styles/tab_selected = SubResource("StyleBoxEmpty_tky1e")
 theme_override_styles/tab_disabled = SubResource("StyleBoxEmpty_6ycxt")
 theme_override_styles/tab_focus = SubResource("StyleBoxEmpty_ojh45")
-current_tab = 0
+current_tab = 3
 tabs_visible = false
 tab_focus_mode = 0
 
 [node name="Controls" type="PanelContainer" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer"]
+visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_b25i1")
 metadata/_tab_index = 0
@@ -174,7 +178,7 @@ layout_mode = 2
 size_flags_stretch_ratio = 0.9
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer/Controls/VBoxContainer"]
-custom_minimum_size = Vector2(500, 650)
+custom_minimum_size = Vector2(500, 600)
 layout_mode = 2
 texture = ExtResource("14_ojxai")
 expand_mode = 1
@@ -256,8 +260,12 @@ layout_mode = 2
 setting_name = "Disorienting Sounds"
 property_name = &"disorienting_sounds_enabled"
 
+[node name="CheckBoxSetting2" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer/Audio/VBoxContainer" instance=ExtResource("11_3iwun")]
+layout_mode = 2
+setting_name = "Mono"
+property_name = &"mono_enabled"
+
 [node name="Accesibility" type="PanelContainer" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer"]
-visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_b25i1")
 metadata/_tab_index = 3

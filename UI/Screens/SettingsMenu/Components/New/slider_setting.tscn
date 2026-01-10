@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://368o4sqfxfqp" path="res://UI/Screens/SettingsMenu/settings_slider_fill_bg.png" id="3_cl5xb"]
 [ext_resource type="Texture2D" uid="uid://dve3oot116bpq" path="res://UI/Screens/SettingsMenu/settings_slider_frame_selected.png" id="7_arimu"]
 
-
 [sub_resource type="ImageTexture" id="ImageTexture_gabah"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_cjbty"]

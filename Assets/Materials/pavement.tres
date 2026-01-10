@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://0lsh3ca2cabm"]
+
+[ext_resource type="Shader" path="res://Shaders/tileable_floor.gdshader" id="1_ev0my"]
+[ext_resource type="Texture2D" uid="uid://sdlr642xcjqy" path="res://Assets/Maps/Achievement_Gallery_tiles/pavement.png" id="2_ev0my"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ev0my")
+shader_parameter/albedo = Vector4(1, 1, 1, 0)
+shader_parameter/texture_albedo = ExtResource("2_ev0my")
+shader_parameter/scale = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/tile = 1
+shader_parameter/random_seed = 130
+shader_parameter/flip_x = false
+shader_parameter/flip_y = false
+shader_parameter/hue_shift = 0.0

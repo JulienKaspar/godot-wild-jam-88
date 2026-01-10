@@ -74,6 +74,7 @@ func update_audio_settings() -> void:
 	AudioServer.set_bus_volume_linear(BUS.UI, UserSettings.ui_volume)
 	
 	set_drunk_fx(UserSettings.disorienting_sounds_enabled)
+	AudioServer.set_bus_effect_enabled(BUS.MASTER, FX.STEREO_ENHANCE, UserSettings.mono_enabled)
 	ui_sounds.select_burps(UserSettings.burp_nastiness)
 
 

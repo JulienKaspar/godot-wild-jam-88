@@ -1,4 +1,8 @@
-[gd_resource type="AudioBusLayout" load_steps=10 format=3 uid="uid://c6p02v462orsm"]
+[gd_resource type="AudioBusLayout" load_steps=11 format=3 uid="uid://c6p02v462orsm"]
+
+[sub_resource type="AudioEffectStereoEnhance" id="AudioEffectStereoEnhance_g28q7"]
+resource_name = "StereoEnhance"
+pan_pullout = 0.0
 
 [sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_j3pel"]
 resource_name = "Limiter"
@@ -56,8 +60,10 @@ resource_name = "Panner"
 pan = 0.25
 
 [resource]
-bus/0/effect/0/effect = SubResource("AudioEffectLimiter_j3pel")
-bus/0/effect/0/enabled = true
+bus/0/effect/0/effect = SubResource("AudioEffectStereoEnhance_g28q7")
+bus/0/effect/0/enabled = false
+bus/0/effect/1/effect = SubResource("AudioEffectLimiter_j3pel")
+bus/0/effect/1/enabled = true
 bus/1/name = &"Drunk_FX"
 bus/1/solo = false
 bus/1/mute = false
