@@ -163,11 +163,12 @@ theme_override_styles/tab_hovered = SubResource("StyleBoxEmpty_a0nqm")
 theme_override_styles/tab_selected = SubResource("StyleBoxEmpty_tky1e")
 theme_override_styles/tab_disabled = SubResource("StyleBoxEmpty_6ycxt")
 theme_override_styles/tab_focus = SubResource("StyleBoxEmpty_ojh45")
-current_tab = 0
+current_tab = 3
 tabs_visible = false
 tab_focus_mode = 0
 
 [node name="Controls" type="PanelContainer" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer"]
+visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_b25i1")
 metadata/_tab_index = 0
@@ -259,8 +260,12 @@ layout_mode = 2
 setting_name = "Disorienting Sounds"
 property_name = &"disorienting_sounds_enabled"
 
+[node name="CheckBoxSetting2" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer/Audio/VBoxContainer" instance=ExtResource("11_3iwun")]
+layout_mode = 2
+setting_name = "Mono"
+property_name = &"mono_enabled"
+
 [node name="Accesibility" type="PanelContainer" parent="MarginContainer/PanelContainer/VBoxContainer/TabContainer"]
-visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_b25i1")
 metadata/_tab_index = 3

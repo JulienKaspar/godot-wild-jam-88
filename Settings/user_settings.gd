@@ -16,6 +16,7 @@ var sfx_volume: float = .8
 var ambience_volume : float = .8
 var ui_volume: float = .8
 var disorienting_sounds_enabled: bool = true
+var mono_enabled: bool = false
 var burp_nastiness: float = 0.5:
 	set(value):
 		burp_nastiness = value
