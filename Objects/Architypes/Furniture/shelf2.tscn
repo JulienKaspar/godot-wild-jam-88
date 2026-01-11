@@ -8,10 +8,10 @@
 size = Vector3(1.975, 1.8794861, 0.6017456)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hgmj5"]
-size = Vector3(1.975, 0.8772583, 0.41033936)
+size = Vector3(1.975, 0.8772583, 0.4230652)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vkk2i"]
-size = Vector3(2.038086, 0.04107666, 0.38006592)
+size = Vector3(2.038086, 0.04107666, 0.4604187)
 
 [node name="Shelf2" type="StaticBody3D"]
 script = ExtResource("1_hgmj5")
@@ -32,12 +32,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5435791, 0.30230713)
 shape = SubResource("BoxShape3D_hgmj5")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Furniture_PropCollider"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9806967, 0.17929077)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9806967, 0.18565369)
 shape = SubResource("BoxShape3D_hgmj5")
 
 [node name="TopWalk" type="StaticBody3D" parent="."]
 collision_layer = 65
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="TopWalk"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4027405, 0.16415405)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4027405, 0.20433044)
 shape = SubResource("BoxShape3D_vkk2i")
