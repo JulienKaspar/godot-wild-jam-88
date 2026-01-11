@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=4 format=3 uid="uid://vu8hwn17wgbl"]
+
+[ext_resource type="Texture2D" uid="uid://b33jwx71n2wpe" path="res://Assets/2D_Assets/Achievements_Gallery/outkonged_the_keg.png" id="1_ekbtc"]
+[ext_resource type="Script" uid="uid://bqat8ihyupi7l" path="res://Gameplay/Achievements/achievement.gd" id="1_j1mmc"]
+[ext_resource type="Material" uid="uid://uvsgqj7aq03v" path="res://Assets/Materials/frame_pictures/achievement_outkonged.tres" id="2_kjtuv"]
+
+[resource]
+script = ExtResource("1_j1mmc")
+name = "Dodged the Kong"
+description = "Evade the keg"
+icon = ExtResource("1_ekbtc")
+material = ExtResource("2_kjtuv")
+id = 4
+metadata/_custom_type_script = "uid://bqat8ihyupi7l"

@@ -12,7 +12,7 @@ func unlock_achievement(id: Achievement.ID) -> void:
 		if achievement.id != id: continue
 		if achievement.obtained == true: return
 		
-		achievement.obtained = true
+		achievement.unlock()
 		display_effects(achievement)
 
 
