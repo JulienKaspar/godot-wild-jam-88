@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://3tl2dwe4usjp"]
+[gd_scene load_steps=31 format=3 uid="uid://3tl2dwe4usjp"]
 
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="1_g22on"]
 [ext_resource type="PackedScene" uid="uid://cdrpgw2um6m6i" path="res://Objects/safety_plane.tscn" id="2_y0oxw"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://cs4digbuoekpl" path="res://Objects/Architypes/Furniture/shelf2.tscn" id="17_vencv"]
 [ext_resource type="PackedScene" uid="uid://cq2dax3g44gvp" path="res://Objects/Architypes/Props/chair1.tscn" id="18_ovso1"]
 [ext_resource type="Script" uid="uid://b6j4xt2oyttve" path="res://Objects/slopes.gd" id="19_me1dj"]
+[ext_resource type="PackedScene" uid="uid://0citmm75hpfv" path="res://Objects/Architypes/Furniture/couch4.tscn" id="21_b3mk0"]
 
 [sub_resource type="Environment" id="Environment_pe6vu"]
 background_mode = 1
@@ -62,11 +63,6 @@ size = Vector3(1.6542969, 2.0072021, 0.110961914)
 size = Vector3(1.9570313, 3.0013733, 0.2197876)
 
 [node name="LvlTestFloorIsLava" type="Node3D"]
-
-[node name="PlayerSpawnPoint" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.822655, 0.57600445, 2.6112623)
-script = ExtResource("1_g22on")
-metadata/_custom_type_script = "uid://cm1uqdo37kpmi"
 
 [node name="PlayerSpawnPoint_main" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6025809, 0.57600445, -9.42642)
@@ -366,9 +362,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6747463, 0.48048496, -9.910
 [node name="Shelf1" parent="." instance=ExtResource("14_cbkav")]
 transform = Transform3D(0.90020484, 0.14851692, -0.40935805, 3.7252903e-09, 0.9400443, 0.34105235, 0.4354667, -0.30701697, 0.8462324, 5.85643, 0.41089344, -2.0393763)
 
-[node name="Shelf5" parent="." instance=ExtResource("14_cbkav")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.2317204, 0.41089344, -4.033638)
-
 [node name="Couch1" parent="." instance=ExtResource("15_vencv")]
 transform = Transform3D(0.36386907, 0, 0.9314501, 0, 1, 0, -0.9314501, 0, 0.36386907, 5.759935, 0.50593793, 1.9403689)
 
@@ -412,3 +405,6 @@ transform = Transform3D(-0.63571453, 0, 0.77192426, 0, 1, 0, -0.77192426, 0, -0.
 
 [node name="Table3" parent="." instance=ExtResource("8_sbnyw")]
 transform = Transform3D(0.9448689, 0, -0.3274488, 0, 1, 0, 0.3274488, 0, 0.9448689, 13.330853, 0.5067982, -10.720097)
+
+[node name="Couch4" parent="." instance=ExtResource("21_b3mk0")]
+transform = Transform3D(-0.7294582, 0, -0.68402535, 0, 1, 0, 0.68402535, 0, -0.7294582, 3.8464844, 0.5058508, -5.0192285)
