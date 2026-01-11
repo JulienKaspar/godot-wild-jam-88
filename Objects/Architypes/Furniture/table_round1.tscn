@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://j1b5yvs8pnux"]
+[gd_scene load_steps=8 format=3 uid="uid://j1b5yvs8pnux"]
 
 [ext_resource type="PackedScene" uid="uid://dxvnrp0252dr0" path="res://Assets/Furniture/table_round1.gltf" id="1_ghiql"]
 [ext_resource type="Script" uid="uid://d1ns4f8nsxmyd" path="res://Objects/furniture_player_collider.gd" id="1_qsuv7"]
@@ -15,6 +15,10 @@ radius = 0.5629883
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ojjn2"]
 height = 1.0
 radius = 0.18
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_qsuv7"]
+height = 0.06933594
+radius = 0.51
 
 [node name="TableRound1" type="StaticBody3D"]
 script = ExtResource("1_qsuv7")
@@ -35,3 +39,10 @@ shape = SubResource("CylinderShape3D_du7jq")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PropCollider"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CylinderShape3D_ojjn2")
+
+[node name="TopWalk" type="StaticBody3D" parent="."]
+collision_layer = 65
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="TopWalk"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.97802734, 0)
+shape = SubResource("CylinderShape3D_qsuv7")

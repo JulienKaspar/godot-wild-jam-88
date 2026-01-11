@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://d2fq258dik5oo"]
+[gd_scene load_steps=9 format=3 uid="uid://d2fq258dik5oo"]
 
 [ext_resource type="Script" uid="uid://d1ns4f8nsxmyd" path="res://Objects/furniture_player_collider.gd" id="1_l1lum"]
 [ext_resource type="PackedScene" uid="uid://7tyvuy44pyob" path="res://Assets/Furniture/table1.gltf" id="2_l1lum"]
@@ -9,6 +9,15 @@ height = 0.8466797
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5iult"]
 size = Vector3(1.6049805, 0.81689453, 0.9484863)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_5iult"]
+height = 0.054056153
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_153qr"]
+height = 0.049560547
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fvu3x"]
+size = Vector3(1.6049805, 0.058410645, 0.9484863)
 
 [node name="Table1" type="StaticBody3D"]
 script = ExtResource("1_l1lum")
@@ -41,3 +50,18 @@ shape = SubResource("CylinderShape3D_l1lum")
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.020263672, 0.40844727, 0.0020751953)
 shape = SubResource("BoxShape3D_5iult")
+
+[node name="TopWalk" type="StaticBody3D" parent="."]
+collision_layer = 65
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="TopWalk"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.80264866, 0.80831754, 0)
+shape = SubResource("CylinderShape3D_5iult")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="TopWalk"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8170483, 0.82228404, 0)
+shape = SubResource("CylinderShape3D_153qr")
+
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="TopWalk"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.020263672, 0.8177369, 0.0020751953)
+shape = SubResource("BoxShape3D_fvu3x")

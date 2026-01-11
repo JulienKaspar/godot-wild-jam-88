@@ -1,14 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://cs4digbuoekpl"]
+[gd_scene load_steps=7 format=3 uid="uid://cs4digbuoekpl"]
 
 [ext_resource type="Script" uid="uid://d1ns4f8nsxmyd" path="res://Objects/furniture_player_collider.gd" id="1_hgmj5"]
 [ext_resource type="PackedScene" uid="uid://d0bpm6wis2oi4" path="res://Assets/Furniture/shelf2.gltf" id="2_hgmj5"]
 [ext_resource type="PackedScene" uid="uid://bcsr7n75rjc4x" path="res://Objects/Furniture_PropCollider.tscn" id="3_nln22"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c46ya"]
-size = Vector3(1.975, 2.9770508, 0.6563721)
+size = Vector3(1.975, 1.8794861, 0.6017456)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hgmj5"]
 size = Vector3(1.975, 0.8772583, 0.41033936)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vkk2i"]
+size = Vector3(2.038086, 0.04107666, 0.38006592)
 
 [node name="Shelf2" type="StaticBody3D"]
 script = ExtResource("1_hgmj5")
@@ -17,7 +20,7 @@ wobble_angle = 8.0
 metadata/_custom_type_script = "uid://d1ns4f8nsxmyd"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4885254, 0.30230713)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.93974304, 0.2749939)
 shape = SubResource("BoxShape3D_c46ya")
 
 [node name="shelf2" parent="." instance=ExtResource("2_hgmj5")]
@@ -31,3 +34,10 @@ shape = SubResource("BoxShape3D_hgmj5")
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Furniture_PropCollider"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9806967, 0.17929077)
 shape = SubResource("BoxShape3D_hgmj5")
+
+[node name="TopWalk" type="StaticBody3D" parent="."]
+collision_layer = 65
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="TopWalk"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4027405, 0.16415405)
+shape = SubResource("BoxShape3D_vkk2i")
