@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://dhfyssjtwfl14"]
+[gd_scene load_steps=66 format=3 uid="uid://dhfyssjtwfl14"]
 
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="1_bygm1"]
 [ext_resource type="Script" path="res://Levels/indi_trap.gd" id="1_d7yk7"]
@@ -45,6 +45,8 @@
 [ext_resource type="PackedScene" uid="uid://bwm23c42sbbui" path="res://Objects/Architypes/Props/lamp_table1.tscn" id="38_3g13s"]
 [ext_resource type="PackedScene" uid="uid://cbvs0j36cba72" path="res://Assets/Furniture/rug_orange_geometrical.gltf" id="40_7phss"]
 [ext_resource type="PackedScene" uid="uid://djvhkhmcy0tn5" path="res://Shaders/shader_caching_onpath.tscn" id="43_p2eq5"]
+[ext_resource type="PackedScene" uid="uid://cgcmpcflv6tp5" path="res://Gameplay/Achievements/Triggers/keg_monitor.tscn" id="46_ssr0p"]
+[ext_resource type="Script" uid="uid://css1e45kehxc8" path="res://Gameplay/Achievements/Triggers/keg_monitor.gd" id="47_48hvc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p2eq5"]
 size = Vector3(4.807045, 5.400879, 6.5504265)
@@ -904,3 +906,6 @@ curve = SubResource("Curve3D_ho8xf")
 
 [node name="ShaderCachingOnpath" parent="AutoShaderCache/Path3D" instance=ExtResource("43_p2eq5")]
 visible = false
+
+[node name="KegMonitor" parent="." instance=ExtResource("46_ssr0p")]
+script = ExtResource("47_48hvc")
