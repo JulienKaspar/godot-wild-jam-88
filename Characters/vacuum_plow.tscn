@@ -8,17 +8,23 @@ height = 0.75
 radius = 0.38134766
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jhq6o"]
-size = Vector3(0.75, 0.754, 0.75)
+size = Vector3(1.2358398, 0.754, 1.2421875)
 
-[node name="VacuumPlow" type="Node3D" node_paths=PackedStringArray("plow_body", "path", "path_follow")]
+[node name="VacuumPlow" type="Node3D" node_paths=PackedStringArray("plow_body")]
 script = ExtResource("1_jhq6o")
 plow_body = NodePath("PlowBody")
-path = NodePath("")
-path_follow = NodePath("")
 
-[node name="PlowBody" type="RigidBody3D" parent="."]
-freeze = true
-freeze_mode = 1
+[node name="PlowBody" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlowBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.375, 0)
+shape = SubResource("CylinderShape3D_8kvoa")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="PlowBody"]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0.002244234, 0.3768921, 0.25523734)
+shape = SubResource("BoxShape3D_jhq6o")
 
 [node name="Model" type="Node3D" parent="PlowBody"]
 transform = Transform3D(0.9999836, 0, 0, 0, 1, 0, 0, 0, 0.9999836, 0, 0, 0)
@@ -43,11 +49,3 @@ sides = 12
 [node name="CSGBox3D" type="CSGBox3D" parent="PlowBody/Model"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.045684814, 0.7649047)
 size = Vector3(0.55249023, 0.09136963, 0.1875)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PlowBody"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.375, 0)
-shape = SubResource("CylinderShape3D_8kvoa")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="PlowBody"]
-transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0, 0.3768921, 0.45879918)
-shape = SubResource("BoxShape3D_jhq6o")
