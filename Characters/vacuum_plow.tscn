@@ -8,7 +8,7 @@ height = 0.75
 radius = 0.38134766
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jhq6o"]
-size = Vector3(1.2358398, 0.754, 1.2421875)
+size = Vector3(1.107666, 0.754, 1.1411133)
 
 [node name="VacuumPlow" type="Node3D" node_paths=PackedStringArray("plow_body")]
 script = ExtResource("1_jhq6o")
@@ -23,7 +23,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.375, 0)
 shape = SubResource("CylinderShape3D_8kvoa")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="PlowBody"]
-transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0.002244234, 0.3768921, 0.25523734)
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0.011825394, 0.3768921, 0.33628875)
 shape = SubResource("BoxShape3D_jhq6o")
 
 [node name="Model" type="Node3D" parent="PlowBody"]
