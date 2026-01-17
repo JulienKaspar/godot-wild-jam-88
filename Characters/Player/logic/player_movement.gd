@@ -275,10 +275,10 @@ func _physics_process(delta: float) -> void:
 	# Increase input strength. Controller stick is then always more aggressive. Less fine tuning in input.
 	playerInputDir = playerInputDir.normalized() * (min(playerInputDir.length() * 2.0, 1.0))
 	
-	var lerp_strength := 3.0
+	var lerp_strength := 5.0
 	if playerInputDir == Vector2.ZERO:
 		lerp_strength = 1.0
-	player_input_lerped = lerp(player_input_lerped, playerInputDir.length(), lerp_strength * delta)
+	player_input_lerped = move_toward(player_input_lerped, playerInputDir.length(), lerp_strength * delta)
 	
 	var cameraYRotation = GameStateManager.game_camera.global_rotation_degrees.y
 	playerInputDir = playerInputDir.rotated(deg_to_rad(-cameraYRotation))
