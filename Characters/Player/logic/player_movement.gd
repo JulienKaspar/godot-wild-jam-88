@@ -187,7 +187,7 @@ func pushBody(delta: float, playerInputDir: Vector2) -> void:
 	# -------- bounce upper body after impact ----------
 	var direction_shift_factor := player_move_dir.normalized().dot(player_move_dir_previous.normalized()) * -1
 	direction_shift_factor = clamp(direction_shift_factor, 0.0, 1.0)
-	var max_bounce_strength := 12.0
+	var max_bounce_strength := 15.0
 	var bounce_speed_factor := remap(
 		player_move_dir_previous.length(),
 		2.0,
