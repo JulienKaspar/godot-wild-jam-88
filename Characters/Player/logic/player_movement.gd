@@ -55,7 +55,6 @@ var stairs_normal: Vector3
 var stairs_up_dir: Vector3
 var stairs_side_dir: Vector3
 
-var force_upright_factor := 0.0
 var keepUpright = true
 var moveUpForce = 0.0
 
@@ -148,7 +147,7 @@ func executeRoll() -> void:
 func standUp() -> void:
 	PlayerBodyCollider.apply_impulse(Vector3(0,7,0))
 	keepUpright = true
-	force_upright_factor = 1.0
+	upper_body_stiffness_current = 5.0
 
 #----------------Process--------------------------------------------------------
 #-------------------------------------------------------------------------------
@@ -177,6 +176,14 @@ func _process(delta: float) -> void:
 
 func pushBody(delta: float, playerInputDir: Vector2) -> void:
 	
+	# Degrade this over time in case the player stood up
+	var standup_stiffness_decay_speed := 2.0
+	upper_body_stiffness_current = move_toward(
+		upper_body_stiffness_current,
+		upper_body_stiffness,
+		standup_stiffness_decay_speed * delta
+	)
+	
 	# -------- bounce upper body after impact ----------
 	var direction_shift_factor := player_move_dir.normalized().dot(player_move_dir_previous.normalized()) * -1
 	direction_shift_factor = clamp(direction_shift_factor, 0.0, 1.0)
@@ -196,13 +203,10 @@ func pushBody(delta: float, playerInputDir: Vector2) -> void:
 			direction_shift_factor
 		)
 	
-	# Degrade this over time. Only used after standing up
-	force_upright_factor = lerp(force_upright_factor, 0.0, 0.1 * delta)
-	
 	var stiffness_strength := 1.0
 	if playerInputDir == Vector2.ZERO:
 		stiffness_strength = lerp(0.6, 1.0, player_input_lerped)
-	stiffness_strength = lerp(stiffness_strength, 1.0, force_upright_factor)
+	
 	# -------- push upper body ----------
 	var body_offset = PlayerBallCollider.global_position - PlayerBodyCollider.global_position
 	body_offset.y = 0.0
