@@ -42,7 +42,6 @@ static var speed_cap = 2.5
 @onready var player_global_mass_pos = Vector3(0,0,0)
 
 var player_input_lerped := 0.0 ## Factor for continuous input strength
-var player_input_dir_lerped := Vector2.ZERO ## Factor for continous input direction
 var upper_body_stiffness_current = upper_body_stiffness
 var drunk_noise_vector = Vector2(0,0)
 var player_y_dir_previous : float
@@ -275,7 +274,6 @@ func _physics_process(delta: float) -> void:
 	var playerInputDir = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	# Increase input strength. Controller stick is then always more aggressive. Less fine tuning in input.
 	playerInputDir = playerInputDir.normalized() * (min(playerInputDir.length() * 2.0, 1.0))
-	player_input_dir_lerped = lerp(player_input_dir_lerped, playerInputDir, 1.75 * delta)
 	
 	var lerp_strength := 3.0
 	if playerInputDir == Vector2.ZERO:
