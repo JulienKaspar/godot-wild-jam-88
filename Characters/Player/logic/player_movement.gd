@@ -180,7 +180,7 @@ func pushBody(delta: float, playerInputDir: Vector2) -> void:
 	# -------- bounce upper body after impact ----------
 	var direction_shift_factor := player_move_dir.normalized().dot(player_move_dir_previous.normalized()) * -1
 	direction_shift_factor = clamp(direction_shift_factor, 0.0, 1.0)
-	var max_bounce_strength := 10.0
+	var max_bounce_strength := 12.0
 	var bounce_speed_factor := remap(
 		player_move_dir_previous.length(),
 		2.0,
@@ -190,7 +190,11 @@ func pushBody(delta: float, playerInputDir: Vector2) -> void:
 	)
 	max_bounce_strength = clamp(max_bounce_strength, 0.0, max_bounce_strength)
 	direction_shift_factor *= bounce_speed_factor
-	PlayerMovementUtils.force_body_towards(Vector3(player_move_dir.x, 0.0, player_move_dir.y).normalized(), direction_shift_factor)
+	if direction_shift_factor > 0.0:
+		PlayerMovementUtils.force_body_towards(
+			Vector3(player_move_dir.x, 0.0, player_move_dir.y).normalized(),
+			direction_shift_factor
+		)
 	
 	# Degrade this over time. Only used after standing up
 	force_upright_factor = lerp(force_upright_factor, 0.0, 0.1 * delta)
