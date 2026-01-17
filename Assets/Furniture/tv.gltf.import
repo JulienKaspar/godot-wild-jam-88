@@ -42,12 +42,12 @@ _subresources={
 "tv": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://Assets/Furniture/tv.tres",
-"use_external/path": "uid://bqei7f8ukytoo"
+"use_external/path": "uid://c8v3y620nql8g"
 },
 "tv_screen": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://Assets/Furniture/yv_screen.tres",
-"use_external/path": "uid://bcp8l2q3oa8te"
+"use_external/path": "uid://c2v72iius1t0j"
 }
 }
 }
