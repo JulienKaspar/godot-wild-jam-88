@@ -10,6 +10,7 @@ signal show_wasted_screen()
 signal hide_wasted_screen()
 
 @export var export_preview: bool = false
+@export var skip_shader_caching: bool = false
 @export var starting_level_index: int = 0
 @export var levels: Array[PackedScene]
 @export var achievement_scene: PackedScene
@@ -40,7 +41,8 @@ func start_game() -> void:
 	get_tree().paused = false
 	loading_screen.display(0.2, "Preparing Shader Caching")
 	await loading_screen.on_completed
-	await cache_shaders()
+	if !skip_shader_caching && OS.is_debug_build():
+		await cache_shaders()
 	LevelLoader.load_level_by_index(starting_level_index,false)
 	current_state = GameState.Game
 	PlayerMovementUtils.knock_player_down.call_deferred()
