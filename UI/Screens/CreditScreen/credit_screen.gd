@@ -30,7 +30,7 @@ func _process(delta: float) -> void:
 		scrolled += delta * scroll_speed
 		scroll_container.scroll_vertical = roundi(scrolled)
 
-func _unhandled_key_input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action("move_back") || event.is_action("move_forward") || event.is_action("move_left") || event.is_action("move_right"):
 		return
 	if event.is_pressed():
