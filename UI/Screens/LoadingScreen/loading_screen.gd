@@ -44,7 +44,7 @@ func close() -> void:
 	hide()
 	
 func _process(delta: float) -> void:
-	if OS.is_debug_build():
+	if GameStateManager.should_show_debug():
 		hide()
 		on_completed.emit()
 		return

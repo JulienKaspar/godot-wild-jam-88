@@ -13,6 +13,7 @@ signal hide_wasted_screen()
 @export var levels: Array[PackedScene]
 @export var achievement_scene: PackedScene
 @export var shader_cashing_level: PackedScene
+@export var export_preview: bool = false
 
 enum GameState {MainMenu, Game, Paused}
 var current_state: GameState = GameState.MainMenu
@@ -97,3 +98,6 @@ func reset_level() -> void:
 	player_drunkness.reset_drunkness()
 	LevelLoader.reload_current_level()
 	unpause_game()
+
+func should_show_debug() -> bool:
+	return OS.is_debug_build() && !export_preview

@@ -16,7 +16,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if OS.is_debug_build(): 
+	if GameStateManager.should_show_debug(): 
 		splash_screen_fade_out_time = 0
 		fade_out()
 		
