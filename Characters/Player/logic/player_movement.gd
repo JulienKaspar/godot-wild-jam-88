@@ -25,13 +25,16 @@ static var drunk_fall_factor = 4.0 #how fast the falling will escalate
 static var min_speed_to_turn = 0.35 #at what velocity should player start turning
 static var refUpVector = Vector3(0,1,0)
 
+
 #---------------- Physic Settings -------------------------
 static var move_force_multiplier = 100.0 # phys impulse scale
 static var upper_body_stiffness = 1.5 # scales impulse to bring body back to target
-static var body_leaning_force = 0.1 # how much move direction is added to pose correction
-static var stair_up_impulse_idle = 4100 # how much force should be added to go up stair
-static var stair_up_impulse_push = 5000 # how much force should be added to go up stair
-static var stair_lean_offset = 0.13
+static var body_lean_force_move = 0.1 # move direction added to pose correction
+var body_lean_force_input = 0.0 # input direction added to pose correction
+static var body_lean_force_stair = 0.13 # input direction added to pose correction while on stairs
+static var stair_up_impulse_idle = 4100 # force added to go up stair
+static var stair_up_impulse_push = 5000 # force added to go up stair
+
 static var stand_up_force = 7.0
  
 
@@ -184,12 +187,15 @@ func pushBody(delta: float,  playerInputDir: Vector2) -> void:
 	else:
 		body_offset.y = 0.0
 	
-	body_offset.x += player_move_dir.x * body_leaning_force
-	body_offset.z += player_move_dir.y * body_leaning_force
+	body_offset.x += player_move_dir.x * body_lean_force_move
+	body_offset.z += player_move_dir.y * body_lean_force_move
 	
 	if isOnStairs:
-		body_offset.x += playerInputDir.x * stair_lean_offset
-		body_offset.z += playerInputDir.y * stair_lean_offset
+		body_offset.x += playerInputDir.x * body_lean_force_stair
+		body_offset.z += playerInputDir.y * body_lean_force_stair
+	else:
+		body_offset.x += playerInputDir.x * body_lean_force_input
+		body_offset.z += playerInputDir.y * body_lean_force_input
 	
 	body_offset = body_offset * upper_body_stiffness_current
 	PlayerBodyCollider.apply_impulse(body_offset)
@@ -311,3 +317,12 @@ func _on_timer_falling_timeout() -> void:
 
 func _on_timer_stand_up_timeout() -> void:
 	PlayerRoot.setMoveState(Player.MoveStates.MOVING)
+
+# ------------------ debug -----------------------------------------------------
+
+func toggleMovementMode() -> void:
+	match PlayerRoot.MovementMode:
+		Player.MovementModes.ORIGINAL:
+			body_lean_force_input = 0.0
+		Player.MovementModes.EXPERIMENTAL:
+			body_lean_force_input = 0.1
