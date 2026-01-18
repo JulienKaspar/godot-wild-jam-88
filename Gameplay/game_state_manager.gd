@@ -38,10 +38,14 @@ func _process(delta: float) -> void:
 
 
 func start_game() -> void:
+	if !OS.is_debug_build():
+		skip_shader_caching = false
+		starting_level_index = 0
+	
 	get_tree().paused = false
 	loading_screen.display(0.2, "Preparing Shader Caching")
 	await loading_screen.on_completed
-	if !skip_shader_caching && OS.is_debug_build():
+	if skip_shader_caching:
 		await cache_shaders()
 	LevelLoader.load_level_by_index(starting_level_index,false)
 	current_state = GameState.Game
