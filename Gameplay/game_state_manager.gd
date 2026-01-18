@@ -9,11 +9,11 @@ signal show_wasted_screen()
 @warning_ignore("unused_signal")
 signal hide_wasted_screen()
 
+@export var export_preview: bool = false
 @export var starting_level_index: int = 0
 @export var levels: Array[PackedScene]
 @export var achievement_scene: PackedScene
 @export var shader_cashing_level: PackedScene
-@export var export_preview: bool = false
 
 enum GameState {MainMenu, Game, Paused}
 var current_state: GameState = GameState.MainMenu
