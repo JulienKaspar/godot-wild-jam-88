@@ -16,20 +16,20 @@ class_name PlayerController
 				%ArmR,	$LegL,	$LegR]
 	
 #---------------- Movement Settings -----------------------
-static var player_input_strength = 1.2 # how much player has control
+static var player_input_strength = 1.0 # how much player has control
 static var player_turn_speed = 2.0 # how fast character should turn
 static var drunk_input_strength = 1.0 # how much drunk has control
 static var drunk_chaos_speed = 1.0 # how fast drunk changes direction
+static var drunk_fall_factor = 4.0 # how fast the falling will escalate
 static var drunk_chaos_strength = 0.2 # how strong is drunk input
 static var min_speed_to_turn = 0.35 #at what velocity should player start turning
 static var refUpVector = Vector3(0,1,0)
 
-static var drunk_fall_factor = 2.5 # how fast the falling will escalate
 
 #---------------- Physic Settings -------------------------
 static var move_force_multiplier = 100.0 # phys impulse scale
 static var upper_body_stiffness = 1.5 # scales impulse to bring body back to target
-static var body_lean_force_move = 0.08 # move direction added to pose correction
+static var body_lean_force_move = 0.1 # move direction added to pose correction
 var body_lean_force_input = 0.0 # input direction added to pose correction
 static var body_lean_force_stair = 0.13 # input direction added to pose correction while on stairs
 static var stair_up_impulse_idle = 4100 # force added to go up stair
@@ -91,7 +91,7 @@ func hideelpers() -> void:
 
 # generate some noise direction but tend to fall in one direction
 func update_drunk_vector(delta) -> void:
-	var new_noise = Vector2(randf() - 0.5, randf() - 0.5) * 4.0
+	var new_noise = Vector2(randf() - 0.5, randf() - 0.5)
 	drunk_noise_vector += player_move_dir * delta * drunk_fall_factor
 	drunk_noise_vector = lerp(drunk_noise_vector, new_noise , drunk_chaos_strength)
 
@@ -159,7 +159,8 @@ func standUp() -> void:
 	#else:
 	#	PlayerBodyCollider.apply_impulse(Vector3(0,stand_up_force,0))
 	keepUpright = true
-	upper_body_stiffness_current = 5.0
+	if PlayerRoot.MovementMode == Player.MovementModes.EXPERIMENTAL:
+		upper_body_stiffness_current = 5.0
 
 #----------------Process--------------------------------------------------------
 #-------------------------------------------------------------------------------
@@ -188,36 +189,39 @@ func _process(delta: float) -> void:
 
 func pushBody(delta: float, playerInputDir: Vector2) -> void:
 	
-	# Degrade this over time in case the player stood up
-	var standup_stiffness_decay_speed := 2.0
-	upper_body_stiffness_current = move_toward(
-		upper_body_stiffness_current,
-		upper_body_stiffness,
-		standup_stiffness_decay_speed * delta
-	)
+	var stiffness_strength := 1.0
 	
-	# -------- bounce upper body after impact ----------
-	var direction_shift_factor := player_move_dir.normalized().dot(player_move_dir_previous.normalized()) * -1
-	direction_shift_factor = clamp(direction_shift_factor, 0.0, 1.0)
-	var max_bounce_strength := 15.0
-	var bounce_speed_factor := remap(
-		player_move_dir_previous.length(),
-		2.0,
-		speed_cap,
-		0.0,
-		max_bounce_strength
-	)
-	max_bounce_strength = clamp(max_bounce_strength, 0.0, max_bounce_strength)
-	direction_shift_factor *= bounce_speed_factor
-	if direction_shift_factor > 0.0:
-		PlayerMovementUtils.force_body_towards(
-			Vector3(player_move_dir.x, 0.0, player_move_dir.y).normalized(),
-			direction_shift_factor
+	if PlayerRoot.MovementMode == Player.MovementModes.EXPERIMENTAL:
+		
+		# Degrade this over time in case the player stood up
+		var standup_stiffness_decay_speed := 2.0
+		upper_body_stiffness_current = move_toward(
+			upper_body_stiffness_current,
+			upper_body_stiffness,
+			standup_stiffness_decay_speed * delta
 		)
 	
-	var stiffness_strength := 1.0
-	if playerInputDir == Vector2.ZERO:
-		stiffness_strength = lerp(0.6, 1.0, player_input_lerped)
+		# -------- bounce upper body after impact ----------
+		var direction_shift_factor := player_move_dir.normalized().dot(player_move_dir_previous.normalized()) * -1
+		direction_shift_factor = clamp(direction_shift_factor, 0.0, 1.0)
+		var max_bounce_strength := 15.0
+		var bounce_speed_factor := remap(
+			player_move_dir_previous.length(),
+			2.0,
+			speed_cap,
+			0.0,
+			max_bounce_strength
+		)
+		max_bounce_strength = clamp(max_bounce_strength, 0.0, max_bounce_strength)
+		direction_shift_factor *= bounce_speed_factor
+		if direction_shift_factor > 0.0:
+			PlayerMovementUtils.force_body_towards(
+				Vector3(player_move_dir.x, 0.0, player_move_dir.y).normalized(),
+				direction_shift_factor
+			)
+	
+		if playerInputDir == Vector2.ZERO:
+			stiffness_strength = lerp(0.6, 1.0, player_input_lerped)
 	
 	# -------- push upper body ----------
 	var body_offset = PlayerBallCollider.global_position - PlayerBodyCollider.global_position
@@ -228,24 +232,20 @@ func pushBody(delta: float, playerInputDir: Vector2) -> void:
 	else:
 		body_offset.y = 0.0
 	
-	
 	# leaning from movement
 	body_offset.x += player_move_dir.x * body_lean_force_move
 	body_offset.z += player_move_dir.y * body_lean_force_move
-	
-	# leaning from input if its in the opposite direction of leaning
-	var input_body_scalar := Vector2(body_offset.normalized().x, body_offset.normalized().z).dot(playerInputDir)
-	input_body_scalar = max(input_body_scalar, 0.0)
-	var body_balancing_force := 0.03
-	body_offset.x += playerInputDir.x * (body_balancing_force * input_body_scalar)
-	body_offset.z += playerInputDir.y * (body_balancing_force * input_body_scalar)
 	
 	if isOnStairs:
 		body_offset.x += playerInputDir.x * body_lean_force_stair
 		body_offset.z += playerInputDir.y * body_lean_force_stair
 	else:
-		body_offset.x += playerInputDir.x * body_lean_force_input
-		body_offset.z += playerInputDir.y * body_lean_force_input
+		# leaning from input if its in the opposite direction of leaning
+		var input_body_scalar := Vector2(body_offset.normalized().x, body_offset.normalized().z).dot(playerInputDir)
+		input_body_scalar = max(input_body_scalar, 0.0)
+		
+		body_offset.x += playerInputDir.x * body_lean_force_input * input_body_scalar
+		body_offset.z += playerInputDir.y * body_lean_force_input * input_body_scalar
 	
 	body_offset = body_offset * (upper_body_stiffness_current * stiffness_strength)
 	PlayerBodyCollider.apply_impulse(body_offset)
@@ -267,7 +267,7 @@ func pushBally(delta: float, playerInputDir: Vector2) -> void:
 	# Apply input or slowly dampen movement
 	if playerInputDir != Vector2.ZERO:
 		move_force = playerInputDir * player_input_strength
-	else:
+	elif PlayerRoot.MovementMode == Player.MovementModes.EXPERIMENTAL:
 		var velocity := PlayerBallCollider.linear_velocity
 		move_force = Vector2(velocity.x, velocity.z) * -0.3
 	
@@ -284,18 +284,19 @@ func pushBally(delta: float, playerInputDir: Vector2) -> void:
 	
 	PlayerBallCollider.apply_central_impulse(impulse)
 	
-	# Cancel vertical bouncing after a fall
-	var y_difference := player_y_dir - player_y_dir_previous
-	if y_difference > 0.5:
-		PlayerBallCollider.linear_velocity.y = 0.0
-	
-	# Max out linear velocity
-	if PlayerBallCollider.linear_velocity.length() > speed_cap and not isOnStairs:
-		PlayerBallCollider.linear_velocity = lerp(
-			PlayerBallCollider.linear_velocity,
-			PlayerBallCollider.linear_velocity.normalized() * 2.0,
-			delta
-		)
+	if PlayerRoot.MovementMode == Player.MovementModes.EXPERIMENTAL:
+		# Cancel vertical bouncing after a fall
+		var y_difference := player_y_dir - player_y_dir_previous
+		if y_difference > 0.5:
+			PlayerBallCollider.linear_velocity.y = 0.0
+		
+		# Max out linear velocity
+		if PlayerBallCollider.linear_velocity.length() > speed_cap and not isOnStairs:
+			PlayerBallCollider.linear_velocity = lerp(
+				PlayerBallCollider.linear_velocity,
+				PlayerBallCollider.linear_velocity.normalized() * 2.0,
+				delta
+			)
 	
 
 func _physics_process(delta: float) -> void:
@@ -403,5 +404,13 @@ func toggleMovementMode() -> void:
 	match PlayerRoot.MovementMode:
 		Player.MovementModes.ORIGINAL:
 			body_lean_force_input = 0.0
+			player_input_strength = 1.0
+			drunk_fall_factor = 4.0
+			drunk_chaos_strength = 0.2
+			PlayerBallCollider.physics_material_override.bounce = 0.0
 		Player.MovementModes.EXPERIMENTAL:
-			body_lean_force_input = 0.1
+			body_lean_force_input = 0.05
+			player_input_strength = 1.2
+			drunk_fall_factor = 2.5
+			drunk_chaos_strength = 0.8
+			PlayerBallCollider.physics_material_override.bounce = 0.7
