@@ -23,15 +23,19 @@ static var drunk_chaos_speed = 1.0 # how fast drunk changes direction
 static var drunk_chaos_strength = 0.2 # how strong is drunk input
 static var min_speed_to_turn = 0.35 #at what velocity should player start turning
 static var refUpVector = Vector3(0,1,0)
+
 static var drunk_fall_factor = 2.5 # how fast the falling will escalate
 
 #---------------- Physic Settings -------------------------
 static var move_force_multiplier = 100.0 # phys impulse scale
 static var upper_body_stiffness = 1.5 # scales impulse to bring body back to target
-static var body_leaning_force = 0.08 # how much move direction is added to pose correction
-static var stair_up_impulse_idle = 4100 # how much force should be added to go up stair
-static var stair_up_impulse_push = 5000 # how much force should be added to go up stair
-static var stair_lean_offset = 0.13
+static var body_lean_force_move = 0.08 # move direction added to pose correction
+var body_lean_force_input = 0.0 # input direction added to pose correction
+static var body_lean_force_stair = 0.13 # input direction added to pose correction while on stairs
+static var stair_up_impulse_idle = 4100 # force added to go up stair
+static var stair_up_impulse_push = 5000 # force added to go up stair
+
+static var stand_up_force = 7.0
 static var speed_cap = 2.5
  
 
@@ -145,7 +149,15 @@ func executeRoll() -> void:
 	$"TimerRoll".start()
 
 func standUp() -> void:
-	PlayerBodyCollider.apply_impulse(Vector3(0,7,0))
+	#if PlayerBodyCollider.global_position.y < PlayerBallCollider.global_position.y:
+	var sideVec = Vector3(PlayerBodyCollider.global_position - PlayerBallCollider.global_position)
+	sideVec.x = 1.0 - sideVec.x
+	sideVec.z = 1.0 - sideVec.z
+	sideVec.y = stand_up_force - sideVec.y
+	print(sideVec)
+	PlayerBodyCollider.apply_impulse(sideVec)
+	#else:
+	#	PlayerBodyCollider.apply_impulse(Vector3(0,stand_up_force,0))
 	keepUpright = true
 	upper_body_stiffness_current = 5.0
 
@@ -209,11 +221,17 @@ func pushBody(delta: float, playerInputDir: Vector2) -> void:
 	
 	# -------- push upper body ----------
 	var body_offset = PlayerBallCollider.global_position - PlayerBodyCollider.global_position
-	body_offset.y = 0.0
+	if body_offset.y > 0.0:
+		#body is below ball, fell on a slope
+		body_offset *= -1.0
+		body_offset.y = 50.0 * delta
+	else:
+		body_offset.y = 0.0
+	
 	
 	# leaning from movement
-	body_offset.x += player_move_dir.x * body_leaning_force
-	body_offset.z += player_move_dir.y * body_leaning_force
+	body_offset.x += player_move_dir.x * body_lean_force_move
+	body_offset.z += player_move_dir.y * body_lean_force_move
 	
 	# leaning from input if its in the opposite direction of leaning
 	var input_body_scalar := Vector2(body_offset.normalized().x, body_offset.normalized().z).dot(playerInputDir)
@@ -223,8 +241,11 @@ func pushBody(delta: float, playerInputDir: Vector2) -> void:
 	body_offset.z += playerInputDir.y * (body_balancing_force * input_body_scalar)
 	
 	if isOnStairs:
-		body_offset.x += playerInputDir.x * stair_lean_offset
-		body_offset.z += playerInputDir.y * stair_lean_offset
+		body_offset.x += playerInputDir.x * body_lean_force_stair
+		body_offset.z += playerInputDir.y * body_lean_force_stair
+	else:
+		body_offset.x += playerInputDir.x * body_lean_force_input
+		body_offset.z += playerInputDir.y * body_lean_force_input
 	
 	body_offset = body_offset * (upper_body_stiffness_current * stiffness_strength)
 	PlayerBodyCollider.apply_impulse(body_offset)
@@ -348,6 +369,7 @@ func _on_player_change_movement(state: Player.MoveStates) -> void:
 			PlayerBallCollider.linear_damp = 5
 		Player.MoveStates.STANDUP: 
 			$TimerStandUp.start()
+			standUp()
 			AudioManager.player_sounds.play_voice(AudioManager.player_sounds.getting_up_sounds)
 		_: 
 			keepUpright = true
@@ -374,3 +396,12 @@ func _on_timer_falling_timeout() -> void:
 
 func _on_timer_stand_up_timeout() -> void:
 	PlayerRoot.setMoveState(Player.MoveStates.MOVING)
+
+# ------------------ debug -----------------------------------------------------
+
+func toggleMovementMode() -> void:
+	match PlayerRoot.MovementMode:
+		Player.MovementModes.ORIGINAL:
+			body_lean_force_input = 0.0
+		Player.MovementModes.EXPERIMENTAL:
+			body_lean_force_input = 0.1

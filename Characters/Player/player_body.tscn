@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://din06hqtbjn7p" path="res://Characters/Player/logic/player_body.gd" id="1_codw7"]
 [ext_resource type="PackedScene" uid="uid://wfy3mktwjjp1" path="res://Assets/Characters/Drunk/drunk.gltf" id="1_wnhn1"]
 [ext_resource type="Script" uid="uid://26b81t0og4ju" path="res://Characters/Player/logic/player_armature.gd" id="2_codw7"]
-[ext_resource type="Script" path="res://Characters/Player/logic/look_at_target.gd" id="5_wsmry"]
+[ext_resource type="Script" uid="uid://disdusnw84h82" path="res://Characters/Player/logic/look_at_target.gd" id="5_wsmry"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_hu15c"]
 radius = 0.05
