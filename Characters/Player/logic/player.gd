@@ -82,7 +82,6 @@ func goRoll() -> void:
 	setMoveState(MoveStates.ROLLING)
 	
 func riseAndShine() -> void:
-	$PlayerController.standUp()
 	setMoveState(MoveStates.STANDUP)
 	
 func setHandLState(state: HandStates, item: Object = null):

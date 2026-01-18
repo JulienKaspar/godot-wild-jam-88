@@ -32,6 +32,7 @@ static var body_leaning_force = 0.1 # how much move direction is added to pose c
 static var stair_up_impulse_idle = 4100 # how much force should be added to go up stair
 static var stair_up_impulse_push = 5000 # how much force should be added to go up stair
 static var stair_lean_offset = 0.13
+static var stand_up_force = 7.0
  
 
 #---------------- State -----------------------------------
@@ -137,7 +138,15 @@ func executeRoll() -> void:
 	$"TimerRoll".start()
 
 func standUp() -> void:
-	PlayerBodyCollider.apply_impulse(Vector3(0,7,0))
+	#if PlayerBodyCollider.global_position.y < PlayerBallCollider.global_position.y:
+	var sideVec = Vector3(PlayerBodyCollider.global_position - PlayerBallCollider.global_position)
+	sideVec.x = 1.0 - sideVec.x
+	sideVec.z = 1.0 - sideVec.z
+	sideVec.y = stand_up_force - sideVec.y
+	print(sideVec)
+	PlayerBodyCollider.apply_impulse(sideVec)
+	#else:
+	#	PlayerBodyCollider.apply_impulse(Vector3(0,stand_up_force,0))
 	keepUpright = true
 
 #----------------Process--------------------------------------------------------
@@ -168,7 +177,13 @@ func _process(delta: float) -> void:
 func pushBody(delta: float,  playerInputDir: Vector2) -> void:
 		# -------- push upper body ----------
 	var body_offset = PlayerBallCollider.global_position - PlayerBodyCollider.global_position
-	body_offset.y = 0.0
+	if body_offset.y > 0.0:
+		#body is below ball, fell on a slope
+		body_offset *= -1.0
+		body_offset.y = 50.0 * delta
+	else:
+		body_offset.y = 0.0
+	
 	body_offset.x += player_move_dir.x * body_leaning_force
 	body_offset.z += player_move_dir.y * body_leaning_force
 	
@@ -269,6 +284,7 @@ func _on_player_change_movement(state: Player.MoveStates) -> void:
 			PlayerBallCollider.linear_damp = 5
 		Player.MoveStates.STANDUP: 
 			$TimerStandUp.start()
+			standUp()
 			AudioManager.player_sounds.play_voice(AudioManager.player_sounds.getting_up_sounds)
 		_: 
 			keepUpright = true

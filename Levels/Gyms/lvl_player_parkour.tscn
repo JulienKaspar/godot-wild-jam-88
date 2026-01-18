@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://csh7g60ebb2xa"]
+[gd_scene load_steps=13 format=3 uid="uid://csh7g60ebb2xa"]
 
 [ext_resource type="Script" uid="uid://dik2vrqjv0rts" path="res://Levels/Util/lvl_player_parkour_mission_flow.gd" id="1_8y3n1"]
 [ext_resource type="PackedScene" uid="uid://b32xnjnsc6xts" path="res://Levels/Gyms/Wall/wooden_wall.tscn" id="2_g78i3"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b7ee7to73wtp6" path="res://Levels/Gyms/Floor/floor1.tscn" id="4_g78i3"]
 [ext_resource type="PackedScene" uid="uid://dci81bvxxl4nx" path="res://Objects/Architypes/LivingRoom/stairs_thin.tscn" id="5_aek51"]
 [ext_resource type="PackedScene" uid="uid://3kn1j5376oof" path="res://Objects/Architypes/Furniture/table2.tscn" id="7_ioif7"]
+[ext_resource type="PackedScene" uid="uid://dnn6p65hj813g" path="res://Objects/Architypes/TrippingHazards/tripping_lamp.tscn" id="9_8y3n1"]
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="9_b8gvx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g5tv7"]
@@ -47,7 +48,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.8
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1225395, 0.52396977, 0)
 
 [node name="wall1" parent="Obsticles/Walls" instance=ExtResource("3_jvag8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8956776, 1.89, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.628532, 1.89, 0)
 
 [node name="Stairs" type="Node3D" parent="Obsticles"]
 
@@ -89,6 +90,18 @@ ground_material = ExtResource("4_8y3n1")
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.928976, 0.3423592, -4.15542)
 ground_material = ExtResource("4_8y3n1")
 
+[node name="Stairs_thin6" parent="Obsticles/Stairs" instance=ExtResource("5_aek51")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.804002, 1.3872935, -4.1517563)
+ground_material = ExtResource("4_8y3n1")
+
+[node name="Stairs_thin7" parent="Obsticles/Stairs" instance=ExtResource("5_aek51")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.99763, 2.1644666, -4.15542)
+ground_material = ExtResource("4_8y3n1")
+
+[node name="Stairs_thin9" parent="Obsticles/Stairs" instance=ExtResource("5_aek51")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -13.872656, 3.209401, -4.1517563)
+ground_material = ExtResource("4_8y3n1")
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_f1dn2")
 
@@ -117,6 +130,9 @@ light_color = Color(0.7083334, 1, 0.3, 1)
 [node name="Floor" parent="." instance=ExtResource("4_g78i3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.966187, 0, 0)
 
+[node name="Floor2" parent="." instance=ExtResource("4_g78i3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.935667, 0, 0)
+
 [node name="Table2" parent="." instance=ExtResource("7_ioif7")]
 transform = Transform3D(0.9954512, 0, 0.09527243, 0, 1, 0, -0.09527243, 0, 0.9954512, -4.1020126, 0, 3.5659177)
 
@@ -126,3 +142,6 @@ transform = Transform3D(0.9954512, 0, 0.09527243, 0, 1, 0, -0.09527243, 0, 0.995
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.652408, 1.9073486e-06, 0.009387732)
 script = ExtResource("9_b8gvx")
 metadata/_custom_type_script = "uid://cm1uqdo37kpmi"
+
+[node name="TriperyTest" parent="." instance=ExtResource("9_8y3n1")]
+transform = Transform3D(0.99979365, 0.020314235, 0, -0.020314235, 0.99979365, 0, 0, 0, 1, -8.841971, 3.1890483, -4.0786476)
