@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bhvwgh4ef0sj6" path="res://Particles/Player/pfx_bodyfall.tscn" id="3_on8bp"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_on8bp"]
-bounce = 0.7
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_056gf"]
 margin = 0.0
