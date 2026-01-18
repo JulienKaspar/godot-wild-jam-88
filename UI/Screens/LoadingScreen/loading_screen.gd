@@ -44,7 +44,7 @@ func close() -> void:
 	hide()
 	
 func _process(delta: float) -> void:
-	if OS.is_debug_build():
+	if GameStateManager.should_show_debug():
 		hide()
 		on_completed.emit()
 		return
@@ -55,7 +55,7 @@ func _process(delta: float) -> void:
 			hide()
 			on_completed.emit()
 
-func _unhandled_key_input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("loading_screen_confirm"):
 		signal_closed()
 

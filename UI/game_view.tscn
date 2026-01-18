@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://eii7fhigacem" path="res://UI/DialogueSystem/dialogue_display.tscn" id="8_ri753"]
 [ext_resource type="PackedScene" uid="uid://bc3p2wg2lxxy1" path="res://Audio/Music/music_manager.tscn" id="9_4eh1a"]
 [ext_resource type="Script" uid="uid://qbqo45dsh5i8" path="res://UI/DialogueSystem/dialogue_display.gd" id="9_ri753"]
-[ext_resource type="PackedScene" uid="uid://ci283iyst43yj" path="res://Characters/Player/player_spawner.tscn" id="11_qrf3k"]
+[ext_resource type="PackedScene" uid="uid://ceygtcy2sj7uq" path="res://Characters/Player/player_spawner.tscn" id="11_qrf3k"]
 [ext_resource type="PackedScene" uid="uid://d01verpwnpp0o" path="res://Audio/UI/ui_sounds.tscn" id="12_k7f6d"]
 [ext_resource type="PackedScene" uid="uid://c46y87jtli80e" path="res://Audio/SFX/sound_effects_pool.tscn" id="17_27j1k"]
 

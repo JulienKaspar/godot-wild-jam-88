@@ -42,6 +42,6 @@ func open() -> void:
 func close()-> void:
 	hide()
 
-func _unhandled_key_input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("open_debug_menu"):
 		print(get_viewport().gui_get_focus_owner())
