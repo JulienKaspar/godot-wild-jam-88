@@ -8,6 +8,7 @@ var drunkness_decay_per_second: float = 0.15
 var threshold: float = 0.1
 var is_resetting: bool = false
 var paused: bool = false
+var post_processing: ColorRect
 
 signal on_drunkness_changed(new_value: float)
 
@@ -29,6 +30,7 @@ var current_drunkness: float:
 
 func set_drunkness(_new_value: float) -> void:
 	on_drunkness_changed.emit(_new_value)
+	update_drunk_visual_effect()
 	if current_drunkness < min_drunkness:
 		handle_sobriety()
 		current_drunkness = min_drunkness
@@ -61,3 +63,12 @@ func handle_sobriety() -> void:
 		
 		DialogueSystem.handle_quip_event(DialogueSystem.QuipType.Falling)
 		GameStateManager.show_wasted_screen.emit()
+
+func update_drunk_visual_effect() -> void:
+	if post_processing == null: return
+	var effect_intensity: float = 0.05
+	var sobriety_threshold: float = 2.
+	var drunk_effect_intensity = max(current_drunkness, sobriety_threshold) * effect_intensity * clampf(UserSettings.drunk_visual_effect_intensity, 0.1, 1)
+	post_processing.material.set('shader_parameter/drunkness', drunk_effect_intensity)
+	var bleak_effect_intensity = clampf(1. - (current_drunkness / sobriety_threshold), 0., 1.)
+	post_processing.material.set('shader_parameter/bleakness', bleak_effect_intensity)
