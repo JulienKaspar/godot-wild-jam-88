@@ -2,11 +2,7 @@
 
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
-<<<<<<< HEAD
-uid="uid://xgwu1x543edy"
-=======
-uid="uid://cca1r6c1g7r74"
->>>>>>> deeff95 (found the import files)
+uid="uid://d1nxm58qp32qk"
 path="res://.godot/imported/bottle_collision_08.ogg-aa81207de1c0c7c809732623df9a3213.oggvorbisstr"
 
 [deps]

@@ -2,11 +2,7 @@
 
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
-<<<<<<< HEAD
-uid="uid://bqu82dbygtn0t"
-=======
-uid="uid://d2hw6ekb70sya"
->>>>>>> deeff95 (found the import files)
+uid="uid://baww7p46c81es"
 path="res://.godot/imported/can_collision_07.ogg-34d441a545d799448ec84b35c6ffed0a.oggvorbisstr"
 
 [deps]
