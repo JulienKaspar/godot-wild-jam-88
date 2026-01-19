@@ -816,8 +816,10 @@ visible = false
 [node name="DerpnoMusic" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
 stream = ExtResource("45_lxk6h")
+unit_size = 15.0
 autoplay = true
-max_distance = 35.0
+max_distance = 45.0
+panning_strength = 0.5
 bus = &"Music"
 
 [connection signal="body_exited" from="EnterCameraTrigger" to="." method="_on_enter_camera_trigger_body_exited"]
