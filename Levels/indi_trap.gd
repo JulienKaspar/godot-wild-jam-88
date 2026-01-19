@@ -12,6 +12,7 @@ func on_trap_triggered(_body : Node3D) -> void:
 	indie_ball.body_entered.connect(keg_noise)
 
 func keg_noise(_body) -> void:
+	if indie_ball.linear_velocity.length() < 0.5: return
 	var sound : AudioStreamPlayer3D = AudioManager.sfx_manager.get_item()
 	sound.position = indie_ball.global_position
 	sound.reparent(indie_ball)
