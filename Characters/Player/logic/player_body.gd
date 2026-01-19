@@ -25,8 +25,8 @@ var StepTriggerDistance = 0.37
 @onready var sound_effects : PlayerSounds = AudioManager.player_sounds
 
 # hands
-@onready var left_shoulder_ray: RayCast3D = $RayCastShouldderL
-@onready var right_shoulder_ray: RayCast3D = $RayCastShouldderR
+@onready var left_shoulder_ray: RayCast3D = $PlayerArmature/RayCastShouldderL
+@onready var right_shoulder_ray: RayCast3D = $PlayerArmature/RayCastShouldderR
 @onready var left_hand_target: Marker3D = $LeftHandTarget
 @onready var right_hand_target: Marker3D = $RightHandTarget
 @onready var drink_hole_left: Marker3D = $DrinkHoleL
@@ -52,6 +52,15 @@ var StepTriggerDistance = 0.37
 @onready var pickup_radius: ShapeCast3D
 
 var stepping := false
+
+# ---------------------- Settings ----------------------------------------------
+
+var stepTimeStd = Vector2(0.15, 0.2) # Vec2 used as min/max values
+var stepTimeFalling = Vector2(0.08, 0.11) # Vec2 used as min/max values
+var bodyOffsetMax = -0.5
+
+
+
 
 # ---------------------- Dynamics ----------------------------------------------
 var inFeetState = FeetStates.ACTIVE
@@ -327,15 +336,20 @@ func _on_feet_state_changed(state: int, foot: Player.Sides) -> void:
 		FeetStates.MOVING_RIGHT: $StepInProgress.start()
 		FeetStates.PLANTED_LEFT:
 			AudioManager.player_sounds.footstep_player.play()
-			$StepInProgress.wait_time = randf_range(0.15, 0.2)
+			setFeetSpeed()
 			setFeetState(FeetStates.ACTIVE, foot)
 			lastStepWas = foot
 		FeetStates.PLANTED_RIGHT:
-	# sounds
 			AudioManager.player_sounds.footstep_player.play()
-			$StepInProgress.wait_time = randf_range(0.15, 0.2)
+			setFeetSpeed()
 			setFeetState(FeetStates.ACTIVE, foot)
 			lastStepWas = foot
+
+func setFeetSpeed() -> void:
+	if PlayerRoot.inMoveState == Player.MoveStates.FALLING:
+		$StepInProgress.wait_time = randf_range(stepTimeFalling.x, stepTimeFalling.y)
+	else:
+		$StepInProgress.wait_time = randf_range(stepTimeStd.x, stepTimeStd.y)
 
 func _on_left_drink_timeout() -> void:
 	ConsumedLeft.emit(PlayerRoot.holdingLeft)

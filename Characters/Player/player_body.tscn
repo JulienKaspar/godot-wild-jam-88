@@ -45,6 +45,14 @@ left_hand_target = NodePath("../LeftHandTarget")
 right_hand_target = NodePath("../RightHandTarget")
 lookat_target = NodePath("../LookAtTarget")
 
+[node name="RayCastShouldderL" type="RayCast3D" parent="PlayerArmature"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12601905, 1.4514477, 0)
+collision_mask = 61
+
+[node name="RayCastShouldderR" type="RayCast3D" parent="PlayerArmature"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.126, 1.4519423, 0)
+collision_mask = 61
+
 [node name="RightHandTarget" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.33, 1.3, 0)
 top_level = true
@@ -58,14 +66,6 @@ top_level = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="LeftHandTarget"]
 mesh = SubResource("SphereMesh_0q1wx")
-
-[node name="RayCastShouldderL" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12601905, 1.3595054, 0)
-collision_mask = 61
-
-[node name="RayCastShouldderR" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.126, 1.36, 0)
-collision_mask = 61
 
 [node name="LeftRayCast" type="RayCast3D" parent="."]
 transform = Transform3D(0.99968547, -0.025077749, 0, 0.025077749, 0.99968547, 0, 0, 0, 1, 0.112, 1.115, 0.026)

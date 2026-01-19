@@ -41,7 +41,7 @@ func _ready() -> void:
 	left_leg_ik.override_tip_basis = true
 	left_leg_ik.target_node = left_foot_target.get_path()
 	left_leg_ik.use_magnet = true
-	left_leg_ik.magnet = Vector3(2, 0, 5)
+	left_leg_ik.magnet = Vector3(2, 2, 5)
 	left_leg_ik.start()
 	skeleton_3d.add_child(left_leg_ik)
 	
@@ -52,7 +52,7 @@ func _ready() -> void:
 	right_leg_ik.override_tip_basis = true
 	right_leg_ik.target_node = right_foot_target.get_path()
 	right_leg_ik.use_magnet = true
-	right_leg_ik.magnet = Vector3(-2, 0, 5)
+	right_leg_ik.magnet = Vector3(-2, 2, 5)
 	right_leg_ik.start()
 	skeleton_3d.add_child(right_leg_ik)
 	
