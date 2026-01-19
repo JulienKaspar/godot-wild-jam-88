@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://c0d87wbdbi2al"]
+[gd_scene load_steps=10 format=3 uid="uid://c0d87wbdbi2al"]
 
 [ext_resource type="PackedScene" uid="uid://dyikas4t0pffl" path="res://Assets/Furniture/couch1.gltf" id="1_d3q6s"]
 [ext_resource type="Script" uid="uid://d1ns4f8nsxmyd" path="res://Objects/furniture_player_collider.gd" id="1_ihdhw"]
 [ext_resource type="PackedScene" uid="uid://bcsr7n75rjc4x" path="res://Objects/Furniture_PropCollider.tscn" id="3_3gjot"]
+[ext_resource type="Script" uid="uid://bube6qx22i7lp" path="res://Gameplay/Interactables/touchy_curve.gd" id="4_3gjot"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d3q6s"]
 size = Vector3(2.15, 0.68237305, 1.03)
@@ -15,6 +16,13 @@ size = Vector3(2.15, 0.7930977, 0.3338086)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c0q2b"]
 size = Vector3(0.285, 0.6469795, 1.03)
+
+[sub_resource type="Curve3D" id="Curve3D_c0q2b"]
+_data = {
+"points": PackedVector3Array(-0.03697455, 0.006176293, 0.35589582, 0.03697455, -0.006176293, -0.35589582, 1.075, -0.008302808, 0.39089358, 0.104089916, 0.004062474, 0.071430475, -0.104089916, -0.004062474, -0.071430475, 0.9139548, 0.0030792952, -0.3501435, 0.13393527, -0.0133497715, 0.080809, -0.13393527, 0.0133497715, -0.080809, 0.80097705, 0.113972485, -0.4310267, 0, 0, 0, 0, 0, 0, -0.006851686, 0.105691314, -0.4903744, 0.16607177, -0.007822335, -0.043037057, -0.16607177, 0.007822335, 0.043037057, -0.80547035, 0.12997735, -0.4204979, 0.06841016, 0.009454131, -0.13589203, -0.06841016, -0.009454131, 0.13589203, -0.9621636, -0.0048196316, -0.34080163, -0.00785017, 0.0071664453, -0.34263828, 0.00785017, -0.0071664453, 0.34263828, -1.0760247, 0, 0.38615644),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 7
 
 [node name="Couch1" type="StaticBody3D"]
 script = ExtResource("1_ihdhw")
@@ -43,3 +51,9 @@ shape = SubResource("BoxShape3D_c0q2b")
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="Furniture_PropCollider"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9418772, 0.32372704, -0.042870194)
 shape = SubResource("BoxShape3D_c0q2b")
+
+[node name="TouchPath" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.64400727, 0)
+curve = SubResource("Curve3D_c0q2b")
+debug_custom_color = Color(0.82131606, 0.0005723709, 0.8295107, 1)
+script = ExtResource("4_3gjot")

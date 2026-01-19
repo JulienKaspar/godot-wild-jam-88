@@ -1,13 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://cq2dax3g44gvp"]
+[gd_scene load_steps=7 format=3 uid="uid://cq2dax3g44gvp"]
 
 [ext_resource type="PackedScene" uid="uid://142xvokhmr2g" path="res://Objects/PropCollider.tscn" id="1_x0xy4"]
 [ext_resource type="PackedScene" uid="uid://c7wjbfh7jn1l4" path="res://Assets/Furniture/chair1.gltf" id="2_x0xy4"]
+[ext_resource type="Script" uid="uid://bube6qx22i7lp" path="res://Gameplay/Interactables/touchy_curve.gd" id="3_42ryc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x0xy4"]
 size = Vector3(0.60546875, 0.65148926, 0.63687134)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_42ryc"]
 size = Vector3(0.5671692, 0.8570404, 0.10839844)
+
+[sub_resource type="Curve3D" id="Curve3D_qyy2l"]
+_data = {
+"points": PackedVector3Array(-0.017718822, -0.07815969, 0.0043669045, 0.017718822, 0.07815969, -0.0043669045, 0.34348115, -0.007823229, 0.0017997026, 0.12218845, 0.0034942627, 0.0037863553, -0.12218845, -0.0034942627, -0.0037863553, 0.23068911, 0.19125307, -0.015832484, 0.10410373, 0.017956853, 0.0047492683, -0.10410373, -0.017956853, -0.0047492683, -0.25266737, 0.17945433, -0.012012422, -0.009920061, 0.06431842, -0.0064878464, 0.009920061, -0.06431842, 0.0064878464, -0.3464352, 0, -0.017326683),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
 
 [node name="LampStanding1" type="Node3D"]
 
@@ -22,3 +30,10 @@ transform = Transform3D(1, -3.7230508e-09, -1.5883964e-10, 3.72305e-09, 0.996366
 shape = SubResource("BoxShape3D_42ryc")
 
 [node name="chair1" parent="PropCollider" instance=ExtResource("2_x0xy4")]
+
+[node name="TouchPath" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2039316, -0.31534424)
+curve = SubResource("Curve3D_qyy2l")
+debug_custom_color = Color(0.82131606, 0.0005723709, 0.8295107, 1)
+script = ExtResource("3_42ryc")
+Slideable = true

@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://j1b5yvs8pnux"]
+[gd_scene load_steps=10 format=3 uid="uid://j1b5yvs8pnux"]
 
 [ext_resource type="PackedScene" uid="uid://dxvnrp0252dr0" path="res://Assets/Furniture/table_round1.gltf" id="1_ghiql"]
 [ext_resource type="Script" uid="uid://d1ns4f8nsxmyd" path="res://Objects/furniture_player_collider.gd" id="1_qsuv7"]
 [ext_resource type="PackedScene" uid="uid://bcsr7n75rjc4x" path="res://Objects/Furniture_PropCollider.tscn" id="3_qsuv7"]
+[ext_resource type="Script" uid="uid://bube6qx22i7lp" path="res://Gameplay/Interactables/touchy_curve.gd" id="4_gpwm2"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_pvixw"]
 height = 1.0
@@ -19,6 +20,14 @@ radius = 0.18
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_qsuv7"]
 height = 0.06933594
 radius = 0.51
+
+[sub_resource type="Curve3D" id="Curve3D_eyece"]
+closed = true
+_data = {
+"points": PackedVector3Array(-0.7, 0, 0, 0.71, 0, 0, 0, 0, -0.53988427, 0.7, 0, 0, -0.7, 0, 0, 0, 0, 0.54196936),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
 
 [node name="TableRound1" type="StaticBody3D"]
 script = ExtResource("1_qsuv7")
@@ -46,3 +55,10 @@ collision_layer = 65
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="TopWalk"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.97802734, 0)
 shape = SubResource("CylinderShape3D_qsuv7")
+
+[node name="TouchPath" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0068645, 0)
+curve = SubResource("Curve3D_eyece")
+debug_custom_color = Color(0.82131606, 0.0005723709, 0.8295107, 1)
+script = ExtResource("4_gpwm2")
+Slideable = true

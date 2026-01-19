@@ -1,11 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkm1uu37o63vq"]
+[gd_scene load_steps=7 format=3 uid="uid://bkm1uu37o63vq"]
 
 [ext_resource type="Script" uid="uid://d1ns4f8nsxmyd" path="res://Objects/furniture_player_collider.gd" id="1_c46ya"]
 [ext_resource type="PackedScene" uid="uid://cva3qsuy7piry" path="res://Assets/Furniture/shelf1.gltf" id="1_r8bb5"]
 [ext_resource type="PackedScene" uid="uid://bcsr7n75rjc4x" path="res://Objects/Furniture_PropCollider.tscn" id="3_nstji"]
+[ext_resource type="Script" uid="uid://bube6qx22i7lp" path="res://Gameplay/Interactables/touchy_curve.gd" id="4_nstji"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c46ya"]
 size = Vector3(1.975, 2.9770508, 0.5258789)
+
+[sub_resource type="Curve3D" id="Curve3D_7cgtt"]
+_data = {
+"points": PackedVector3Array(0.7, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, -0.71, 0, 0, -1, 0, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
 
 [node name="Shelf1" type="StaticBody3D"]
 script = ExtResource("1_c46ya")
@@ -24,3 +32,10 @@ shape = SubResource("BoxShape3D_c46ya")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4885254, 0.23706055)
 shape = SubResource("BoxShape3D_c46ya")
+
+[node name="TouchPath" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9678703, 0.49323148)
+curve = SubResource("Curve3D_7cgtt")
+debug_custom_color = Color(0.82131606, 0.0005723709, 0.8295107, 1)
+script = ExtResource("4_nstji")
+Slideable = true
