@@ -80,9 +80,28 @@ func consumed() -> float:
 
 		if broken_mesh: 
 			broken_mesh.show()
-			if pristine_mesh: pristine_mesh.hide()
+			get_tree().create_timer(.8).timeout.connect(collision_noise)
+			body_entered.connect(collision_noise)
+			
 		dispose_pfx.do_emit()
+		
 	return drunkness_increase
+
+
+func collision_noise() -> void:
+	var sound : AudioStreamPlayer3D = AudioManager.sfx_manager.get_item()
+	print(broken_mesh.name)
+	
+	match broken_mesh.name:
+		"bottle_broken":
+			sound.stream = AudioManager.sfx_manager.bottle_sounds
+		"can_broken":
+			sound.stream = AudioManager.sfx_manager.can_sounds
+	if pristine_mesh: pristine_mesh.hide()
+	
+	sound.position = self.global_position
+	sound.play()
+	
 
 func doBreak(silentSwitch: bool = false) -> void:
 	inState = PickupStates.BROKEN

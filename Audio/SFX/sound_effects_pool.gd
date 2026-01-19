@@ -17,6 +17,8 @@ var shrink_timer : Timer
 @export var banana_slip_sounds : AudioStreamRandomizer
 @export var keg_sounds : AudioStreamRandomizer
 @export var switch_sounds : AudioStreamRandomizer
+@export var bottle_sounds : AudioStreamRandomizer
+@export var can_sounds : AudioStreamRandomizer
 
 
 func _ready():

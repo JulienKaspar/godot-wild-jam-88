@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c46y87jtli80e"]
+[gd_scene load_steps=30 format=3 uid="uid://c46y87jtli80e"]
 
 [ext_resource type="Script" uid="uid://c7hneeofvntpl" path="res://Audio/SFX/sound_effects_pool.gd" id="1_5noex"]
 [ext_resource type="PackedScene" uid="uid://c582dhy7jbej6" path="res://Audio/SFX/sfx_player.tscn" id="2_kecfh"]
@@ -8,6 +8,22 @@
 [ext_resource type="AudioStream" uid="uid://bhogek5lud7b1" path="res://Assets/Audio/SFX/Props/keg_collision_sound.ogg" id="5_mxvxv"]
 [ext_resource type="AudioStream" uid="uid://bqneyjxr1amjy" path="res://Assets/Audio/SFX/Props/light_switch_off.ogg" id="6_ljvjk"]
 [ext_resource type="AudioStream" uid="uid://cu4n4ulhoxa1c" path="res://Assets/Audio/UI/checkbox_on.ogg" id="7_yckv0"]
+[ext_resource type="AudioStream" uid="uid://dnhl1qbsxgyrr" path="res://Assets/Audio/SFX/Props/bottle_collision_01.ogg" id="9_te828"]
+[ext_resource type="AudioStream" uid="uid://cq72uy0vawxqw" path="res://Assets/Audio/SFX/Props/bottle_collision_02.ogg" id="10_1d4nh"]
+[ext_resource type="AudioStream" uid="uid://dadqiqd3jgx2i" path="res://Assets/Audio/SFX/Props/bottle_collision_03.ogg" id="11_reeqw"]
+[ext_resource type="AudioStream" uid="uid://b4pg4besv0s2v" path="res://Assets/Audio/SFX/Props/bottle_collision_04.ogg" id="12_ap1ed"]
+[ext_resource type="AudioStream" uid="uid://cf6g8c7c46ynx" path="res://Assets/Audio/SFX/Props/bottle_collision_05.ogg" id="13_h57ik"]
+[ext_resource type="AudioStream" uid="uid://6athuvgls5v1" path="res://Assets/Audio/SFX/Props/bottle_collision_06.ogg" id="14_a2ngc"]
+[ext_resource type="AudioStream" uid="uid://connekeanqq7q" path="res://Assets/Audio/SFX/Props/bottle_collision_07.ogg" id="15_yk453"]
+[ext_resource type="AudioStream" uid="uid://d1nxm58qp32qk" path="res://Assets/Audio/SFX/Props/bottle_collision_08.ogg" id="16_gxvgt"]
+[ext_resource type="AudioStream" uid="uid://dir0yjbvtccbo" path="res://Assets/Audio/SFX/Props/can_collision_01.ogg" id="17_y7mne"]
+[ext_resource type="AudioStream" uid="uid://dhx3p0weyqw7e" path="res://Assets/Audio/SFX/Props/can_collision_02.ogg" id="18_kt80n"]
+[ext_resource type="AudioStream" uid="uid://d215r8hlsgafx" path="res://Assets/Audio/SFX/Props/can_collision_03.ogg" id="19_swhri"]
+[ext_resource type="AudioStream" uid="uid://cb3bd0cnrx7fj" path="res://Assets/Audio/SFX/Props/can_collision_04.ogg" id="20_kmkt6"]
+[ext_resource type="AudioStream" uid="uid://bi0rcuvsjs3x2" path="res://Assets/Audio/SFX/Props/can_collision_05.ogg" id="21_eih6t"]
+[ext_resource type="AudioStream" uid="uid://imdju8g6y81g" path="res://Assets/Audio/SFX/Props/can_collision_06.ogg" id="22_31fmt"]
+[ext_resource type="AudioStream" uid="uid://baww7p46c81es" path="res://Assets/Audio/SFX/Props/can_collision_07.ogg" id="23_50xac"]
+[ext_resource type="AudioStream" uid="uid://dxa35elcu6ikq" path="res://Assets/Audio/SFX/Props/can_collision_08.ogg" id="24_milor"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_mxvxv"]
 random_pitch = 1.5
@@ -28,6 +44,29 @@ stream_0/weight = 0.0
 stream_1/stream = ExtResource("7_yckv0")
 stream_1/weight = 0.0
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_y7mne"]
+random_pitch = 1.2
+streams_count = 8
+stream_0/stream = ExtResource("9_te828")
+stream_1/stream = ExtResource("10_1d4nh")
+stream_2/stream = ExtResource("11_reeqw")
+stream_3/stream = ExtResource("12_ap1ed")
+stream_4/stream = ExtResource("13_h57ik")
+stream_5/stream = ExtResource("14_a2ngc")
+stream_6/stream = ExtResource("15_yk453")
+stream_7/stream = ExtResource("16_gxvgt")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_kt80n"]
+streams_count = 8
+stream_0/stream = ExtResource("17_y7mne")
+stream_1/stream = ExtResource("18_kt80n")
+stream_2/stream = ExtResource("19_swhri")
+stream_3/stream = ExtResource("20_kmkt6")
+stream_4/stream = ExtResource("21_eih6t")
+stream_5/stream = ExtResource("22_31fmt")
+stream_6/stream = ExtResource("23_50xac")
+stream_7/stream = ExtResource("24_milor")
+
 [node name="SoundEffectsPool" type="Node"]
 script = ExtResource("1_5noex")
 item_scene = ExtResource("2_kecfh")
@@ -36,3 +75,5 @@ wobble_sounds = ExtResource("3_rk4f4")
 banana_slip_sounds = SubResource("AudioStreamRandomizer_mxvxv")
 keg_sounds = SubResource("AudioStreamRandomizer_7d5my")
 switch_sounds = SubResource("AudioStreamRandomizer_h08pl")
+bottle_sounds = SubResource("AudioStreamRandomizer_y7mne")
+can_sounds = SubResource("AudioStreamRandomizer_kt80n")
