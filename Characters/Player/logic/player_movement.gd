@@ -160,7 +160,7 @@ func standUp() -> void:
 	#	PlayerBodyCollider.apply_impulse(Vector3(0,stand_up_force,0))
 	keepUpright = true
 	if PlayerRoot.MovementMode == Player.MovementModes.EXPERIMENTAL:
-		upper_body_stiffness_current = 5.0
+		upper_body_stiffness_current = 3.0
 
 #----------------Process--------------------------------------------------------
 #-------------------------------------------------------------------------------
