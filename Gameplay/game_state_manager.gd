@@ -9,8 +9,11 @@ signal show_wasted_screen()
 @warning_ignore("unused_signal")
 signal hide_wasted_screen()
 
+enum MovementModes {ORIGINAL, EXPERIMENTAL}
+
 @export var export_preview: bool = false
 @export var shader_caching: bool = false
+@export var MovementMode = MovementModes.ORIGINAL
 @export var starting_level_index: int = 0
 @export var levels: Array[PackedScene]
 @export var achievement_scene: PackedScene
@@ -29,9 +32,6 @@ var loading_screen: LoadingScreen
 var precacheCam: Camera3D
 var inCacheMode = false
 var shader_cache_before_start = true # turn this one on for release
-
-enum MovementModes {ORIGINAL, EXPERIMENTAL}
-var MovementMode = MovementModes.ORIGINAL
 
 func _ready() -> void:
 	get_tree().paused = true
