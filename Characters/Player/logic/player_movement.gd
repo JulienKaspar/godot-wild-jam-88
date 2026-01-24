@@ -237,7 +237,15 @@ func pushBody(delta: float, playerInputDir: Vector2) -> void:
 		body_offset.x += playerInputDir.x * body_lean_force_input * input_body_scalar
 		body_offset.z += playerInputDir.y * body_lean_force_input * input_body_scalar
 	
-	body_offset = body_offset * (upper_body_stiffness_current * stiffness_strength)
+	print("upper_body_stiffness_current = " + str(upper_body_stiffness_current))
+	if (
+		GameStateManager.MovementMode == GameStateManager.MovementModes.EXPERIMENTAL
+		and upper_body_stiffness_current == upper_body_stiffness
+	):
+		body_offset = body_offset * (upper_body_stiffness_current * stiffness_strength)
+	else:
+		body_offset = body_offset * upper_body_stiffness_current
+	
 	PlayerBodyCollider.apply_impulse(body_offset)
 	
 	# -------- rotate upper body ----------
