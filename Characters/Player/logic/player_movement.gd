@@ -237,7 +237,6 @@ func pushBody(delta: float, playerInputDir: Vector2) -> void:
 		body_offset.x += playerInputDir.x * body_lean_force_input * input_body_scalar
 		body_offset.z += playerInputDir.y * body_lean_force_input * input_body_scalar
 	
-	print("upper_body_stiffness_current = " + str(upper_body_stiffness_current))
 	if (
 		GameStateManager.MovementMode == GameStateManager.MovementModes.EXPERIMENTAL
 		and upper_body_stiffness_current == upper_body_stiffness
