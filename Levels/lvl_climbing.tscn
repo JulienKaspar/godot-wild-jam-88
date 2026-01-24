@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://3tl2dwe4usjp"]
+[gd_scene load_steps=36 format=3 uid="uid://3tl2dwe4usjp"]
 
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="1_uecxq"]
 [ext_resource type="PackedScene" uid="uid://cdrpgw2um6m6i" path="res://Objects/safety_plane.tscn" id="2_ft2f1"]
@@ -49,6 +49,9 @@ albedo_color = Color(0.1254902, 0.02745098, 0.10980392, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rka2e"]
 size = Vector3(0.19628906, 3.1706543, 21.61621)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cxqf5"]
+size = Vector3(2.0517654, 2.6317139, 1.9054909)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cbkav"]
 size = Vector3(0.7578125, 0.7158203, 0.048950195)
@@ -156,6 +159,16 @@ collision_mask = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Walls/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0853271, 0)
 shape = SubResource("BoxShape3D_rka2e")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Layout/Walls"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.274454, 0.3885193, -2.8934774)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Walls/StaticBody3D2"]
+transform = Transform3D(0.88152605, 0, -0.47213542, 0, 1, 0, 0.47213542, 0, 0.88152605, 0.120168686, 1.3547974, 1.0768113)
+shape = SubResource("BoxShape3D_cxqf5")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CSG_ReddishWall2" type="CSGBox3D" parent="Layout/Walls"]
@@ -344,16 +357,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4966917, 1.3042393, -3.7435
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7886572, 1.525914, -0.520769)
 
 [node name="DrunknessPickup6" parent="Layout/Trail" instance=ExtResource("17_cxqf5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4184, 1.3679712, 3.1984432)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4294877, 1.3679712, 3.2270772)
 
 [node name="DrunknessPickup7" parent="Layout/Trail" instance=ExtResource("15_e6ao1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0732512, 1.3690703, 2.4024649)
 
 [node name="DrunknessPickup8" parent="Layout/Trail" instance=ExtResource("16_cxqf5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.018086, 1.3387952, 1.9952338)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4395695, 1.3387952, 2.0863924)
 
 [node name="DrunknessPickup9" parent="Layout/Trail" instance=ExtResource("17_cxqf5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15075505, 1.36907, 2.69885)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.201255, 1.36907, 2.4134834)
 
 [node name="DrunknessPickup10" parent="Layout/Trail" instance=ExtResource("15_e6ao1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.776907, 1.2959199, -0.89221525)
@@ -407,6 +420,7 @@ metadata/_custom_type_script = "uid://b6j4xt2oyttve"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Shelf3/Slope"]
 transform = Transform3D(0.9999937, -6.2584877e-07, 5.364418e-07, -1.3709068e-06, 0.99999976, -1.937151e-07, 2.4437904e-06, -9.3877316e-07, 0.9999867, -7.6293945e-06, 0.89104366, 0.3983382)
 shape = SubResource("BoxShape3D_b3mk0")
+debug_color = Color(0, 0.96790946, 1.1331486, 1)
 
 [node name="Shelf5" parent="." instance=ExtResource("16_iivb2")]
 transform = Transform3D(0.9836595, -0.16263512, 0.077224836, -2.5102572e-08, 0.42893523, 0.9033353, -0.1800386, -0.8885745, 0.42192614, 15.189649, 1.1758802, -0.20923615)
@@ -421,6 +435,7 @@ metadata/_custom_type_script = "uid://b6j4xt2oyttve"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Shelf5/Slope"]
 transform = Transform3D(0.99999946, -6.854534e-07, -2.9802322e-07, 5.811453e-07, 0.99999964, -5.9604645e-08, 4.172325e-07, 0, 0.9999937, 0.20604515, 0.9777576, 0.3983376)
 shape = SubResource("BoxShape3D_pfjnv")
+debug_color = Color(0, 0.96790946, 1.1331486, 1)
 
 [node name="TableRound1" parent="." instance=ExtResource("12_n4smu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.675609, 0.994642, -8.270148)
