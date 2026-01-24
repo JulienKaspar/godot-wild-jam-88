@@ -13,10 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://diwc4y24nvoo2" path="res://Levels/lvl_house_cleaning.tscn" id="11_n18aq"]
 [ext_resource type="PackedScene" uid="uid://b20exoh7acsdf" path="res://Levels/Util/lvl_shader_caching.tscn" id="12_2ik6d"]
 [ext_resource type="PackedScene" uid="uid://ydarxr2mrkjd" path="res://Levels/Gyms/lvl_test_stairs.tscn" id="12_dvh3j"]
-[ext_resource type="PackedScene" uid="uid://3tl2dwe4usjp" path="res://Levels/Gyms/lvl_test_floor_is_lava.tscn" id="13_njnb3"]
+[ext_resource type="PackedScene" uid="uid://3tl2dwe4usjp" path="res://Levels/lvl_climbing.tscn" id="13_njnb3"]
 
 [node name="GameStateManager" type="Node"]
 script = ExtResource("1_fnjh8")
-levels = Array[PackedScene]([ExtResource("2_ww4k4"), ExtResource("3_w34dl"), ExtResource("4_avf66"), ExtResource("2_528ii"), ExtResource("6_528ii"), ExtResource("6_ygpte"), ExtResource("7_dfbfs"), ExtResource("9_ygpte"), ExtResource("10_dfbfs"), ExtResource("11_n18aq"), ExtResource("12_dvh3j"), ExtResource("13_njnb3")])
+levels = Array[PackedScene]([ExtResource("2_ww4k4"), ExtResource("3_w34dl"), ExtResource("4_avf66"), ExtResource("2_528ii"), ExtResource("6_528ii"), ExtResource("11_n18aq"), ExtResource("13_njnb3"), ExtResource("6_ygpte"), ExtResource("7_dfbfs"), ExtResource("9_ygpte"), ExtResource("10_dfbfs"), ExtResource("12_dvh3j")])
 achievement_scene = ExtResource("9_ygpte")
 shader_cashing_level = ExtResource("12_2ik6d")
