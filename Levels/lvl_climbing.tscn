@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://3tl2dwe4usjp"]
+[gd_scene load_steps=35 format=3 uid="uid://3tl2dwe4usjp"]
 
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="1_uecxq"]
 [ext_resource type="PackedScene" uid="uid://cdrpgw2um6m6i" path="res://Objects/safety_plane.tscn" id="2_ft2f1"]
@@ -15,7 +15,10 @@
 [ext_resource type="PackedScene" uid="uid://cc65tohjn11qo" path="res://Objects/Architypes/Furniture/tv.tscn" id="13_b4g1i"]
 [ext_resource type="PackedScene" uid="uid://cq2dax3g44gvp" path="res://Objects/Architypes/Props/chair1.tscn" id="14_mxgcj"]
 [ext_resource type="PackedScene" uid="uid://cbj1xsvngkbla" path="res://Assets/LivingRoom/door_closed.gltf" id="15_arc07"]
+[ext_resource type="PackedScene" uid="uid://d3unw205fanv5" path="res://Objects/Loot/pickup_beer.tscn" id="15_e6ao1"]
+[ext_resource type="PackedScene" uid="uid://c50jjcmdyr7vp" path="res://Objects/Loot/pickup_beer_cup.tscn" id="16_cxqf5"]
 [ext_resource type="PackedScene" uid="uid://bkm1uu37o63vq" path="res://Objects/Architypes/Furniture/shelf1.tscn" id="16_iivb2"]
+[ext_resource type="PackedScene" uid="uid://ctkeed4oy5kjx" path="res://Objects/Loot/pickup_beer_bottle.tscn" id="17_cxqf5"]
 [ext_resource type="PackedScene" uid="uid://c0d87wbdbi2al" path="res://Objects/Architypes/Furniture/couch1.tscn" id="17_ni0e5"]
 [ext_resource type="PackedScene" uid="uid://bakknr3opo6gq" path="res://Objects/Architypes/Furniture/couch3.tscn" id="18_tl0hn"]
 [ext_resource type="PackedScene" uid="uid://cs4digbuoekpl" path="res://Objects/Architypes/Furniture/shelf2.tscn" id="19_mnxre"]
@@ -317,13 +320,55 @@ debug_color = Color(0, 0.6, 0.7, 0.42)
 transform = Transform3D(0.12647605, 0, 0.9919697, 0, 1, 0, -0.9919697, 0, 0.12647605, 0.13177955, 0.5020224, -4.039332)
 
 [node name="LampStanding2" parent="Layout/Trail" instance=ExtResource("14_mxgcj")]
-transform = Transform3D(-0.013560832, 0, -0.999908, 0, 1, 0, 0.999908, 0, -0.013560832, 3.3621051, 0.5020219, -8.989361)
+transform = Transform3D(-0.013560832, 0, -0.999908, 0, 1, 0, 0.999908, 0, -0.013560832, 3.8004558, 0.5020219, -8.989361)
 
 [node name="LampStanding3" parent="Layout/Trail" instance=ExtResource("14_mxgcj")]
 transform = Transform3D(0.37645066, 0, 0.9264366, 0, 1, 0, -0.9264366, 0, 0.37645066, 0.08061814, 0.5020224, -7.8158364)
 
 [node name="LampStanding4" parent="Layout/Trail" instance=ExtResource("14_mxgcj")]
 transform = Transform3D(-0.9941057, -0.081214786, -0.0718199, -8.142727e-09, 0.6624501, -0.749106, 0.10841572, -0.74469084, -0.6585455, 3.374411, 0.6656612, -2.9535918)
+
+[node name="DrunknessPickup2" parent="Layout/Trail" instance=ExtResource("15_e6ao1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8282225, 1.3031409, -3.7316413)
+
+[node name="DrunknessPickup3" parent="Layout/Trail" instance=ExtResource("15_e6ao1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9304621, 1.3031409, -4.133438)
+
+[node name="DrunknessPickup4" parent="Layout/Trail" instance=ExtResource("16_cxqf5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12757933, 1.197253, -7.8568854)
+
+[node name="DrunknessPickup5" parent="Layout/Trail" instance=ExtResource("15_e6ao1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4966917, 1.3042393, -3.7435923)
+
+[node name="DrunknessPickup" parent="Layout/Trail" instance=ExtResource("17_cxqf5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7886572, 1.525914, -0.520769)
+
+[node name="DrunknessPickup6" parent="Layout/Trail" instance=ExtResource("17_cxqf5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4184, 1.3679712, 3.1984432)
+
+[node name="DrunknessPickup7" parent="Layout/Trail" instance=ExtResource("15_e6ao1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0732512, 1.3690703, 2.4024649)
+
+[node name="DrunknessPickup8" parent="Layout/Trail" instance=ExtResource("16_cxqf5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.018086, 1.3387952, 1.9952338)
+
+[node name="DrunknessPickup9" parent="Layout/Trail" instance=ExtResource("17_cxqf5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15075505, 1.36907, 2.69885)
+
+[node name="DrunknessPickup10" parent="Layout/Trail" instance=ExtResource("15_e6ao1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.776907, 1.2959199, -0.89221525)
+
+[node name="DrunknessPickup11" parent="Layout/Trail" instance=ExtResource("15_e6ao1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.82293, 1.2959199, -0.52455366)
+
+[node name="DrunknessPickup12" parent="Layout/Trail" instance=ExtResource("17_cxqf5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.453056, 1.5057374, -4.1544943)
+
+[node name="DrunknessPickup13" parent="Layout/Trail" instance=ExtResource("17_cxqf5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.356522, 1.5057374, -3.6846747)
+
+[node name="DrunknessPickup14" parent="Layout/Trail" instance=ExtResource("17_cxqf5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.75672, 1.5057377, -6.4477735)
 
 [node name="door_closed" parent="." instance=ExtResource("15_arc07")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.9430275, 1.2455074, 0.5)
@@ -401,3 +446,6 @@ transform = Transform3D(-0.7294582, 0, -0.68402535, 0, 1, 0, 0.68402535, 0, -0.7
 
 [node name="Stairs_thin" parent="." instance=ExtResource("22_eeg3a")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.5369574, -0.4996916, -6.320496)
+
+[node name="DrunknessPickup2" parent="." instance=ExtResource("15_e6ao1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.430899, 1.3538623, -10.868314)
