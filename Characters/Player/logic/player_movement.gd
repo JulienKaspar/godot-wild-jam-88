@@ -159,8 +159,6 @@ func standUp() -> void:
 	#else:
 	#	PlayerBodyCollider.apply_impulse(Vector3(0,stand_up_force,0))
 	keepUpright = true
-	if PlayerRoot.MovementMode == Player.MovementModes.EXPERIMENTAL:
-		upper_body_stiffness_current = 3.0
 
 #----------------Process--------------------------------------------------------
 #-------------------------------------------------------------------------------
@@ -191,15 +189,7 @@ func pushBody(delta: float, playerInputDir: Vector2) -> void:
 	
 	var stiffness_strength := 1.0
 	
-	if PlayerRoot.MovementMode == Player.MovementModes.EXPERIMENTAL:
-		
-		# Degrade this over time in case the player stood up
-		var standup_stiffness_decay_speed := 2.0
-		upper_body_stiffness_current = move_toward(
-			upper_body_stiffness_current,
-			upper_body_stiffness,
-			standup_stiffness_decay_speed * delta
-		)
+	if GameStateManager.MovementMode == GameStateManager.MovementModes.EXPERIMENTAL:
 	
 		# -------- bounce upper body after impact ----------
 		var direction_shift_factor := player_move_dir.normalized().dot(player_move_dir_previous.normalized()) * -1
@@ -267,7 +257,7 @@ func pushBally(delta: float, playerInputDir: Vector2) -> void:
 	# Apply input or slowly dampen movement
 	if playerInputDir != Vector2.ZERO:
 		move_force = playerInputDir * player_input_strength
-	elif PlayerRoot.MovementMode == Player.MovementModes.EXPERIMENTAL:
+	elif GameStateManager.MovementMode == GameStateManager.MovementModes.EXPERIMENTAL:
 		var velocity := PlayerBallCollider.linear_velocity
 		move_force = Vector2(velocity.x, velocity.z) * -0.3
 	
@@ -284,7 +274,7 @@ func pushBally(delta: float, playerInputDir: Vector2) -> void:
 	
 	PlayerBallCollider.apply_central_impulse(impulse)
 	
-	if PlayerRoot.MovementMode == Player.MovementModes.EXPERIMENTAL:
+	if GameStateManager.MovementMode == GameStateManager.MovementModes.EXPERIMENTAL:
 		# Cancel vertical bouncing after a fall
 		var y_difference := player_y_dir - player_y_dir_previous
 		if y_difference > 0.5:
@@ -357,6 +347,9 @@ func stateTransitionTo(_targetState: Player.MoveStates):
 func _on_player_change_movement(state: Player.MoveStates) -> void:
 	match state:
 		Player.MoveStates.ROLLING: upper_body_stiffness_current = 10
+		Player.MoveStates.STANDUP: 
+			if GameStateManager.MovementMode == GameStateManager.MovementModes.EXPERIMENTAL:
+				upper_body_stiffness_current = 3.0
 		_: upper_body_stiffness_current = upper_body_stiffness
 		
 	match state:
@@ -397,20 +390,3 @@ func _on_timer_falling_timeout() -> void:
 
 func _on_timer_stand_up_timeout() -> void:
 	PlayerRoot.setMoveState(Player.MoveStates.MOVING)
-
-# ------------------ debug -----------------------------------------------------
-
-func toggleMovementMode() -> void:
-	match PlayerRoot.MovementMode:
-		Player.MovementModes.ORIGINAL:
-			body_lean_force_input = 0.0
-			player_input_strength = 1.0
-			drunk_fall_factor = 4.0
-			drunk_chaos_strength = 0.2
-			PlayerBallCollider.physics_material_override.bounce = 0.0
-		Player.MovementModes.EXPERIMENTAL:
-			body_lean_force_input = 0.05
-			player_input_strength = 1.2
-			drunk_fall_factor = 2.5
-			drunk_chaos_strength = 0.8
-			PlayerBallCollider.physics_material_override.bounce = 0.7

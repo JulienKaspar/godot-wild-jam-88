@@ -26,7 +26,6 @@ var DrunkCost_StandUp = -1.2
 var PickupThreshold = 0.25
 var DrinkTime = 1.5 
 var canRoll = false
-var MovementMode = MovementModes.ORIGINAL
 
 #---------------- IK ----------------------------------------------------------
 
@@ -42,7 +41,6 @@ enum MoveStates {STANDUP, MOVING, FALLING, ROLLING, FLASKY, FELL}
 enum HandStates {DANGLY, REACHING, HOLD, DRINKING, ROLLING, FIXED, USED}
 enum FeetIKTargeting {STEPPING, RIGIDBODY}
 enum Sides {LEFT, RIGHT}
-enum MovementModes {ORIGINAL, EXPERIMENTAL}
 
 # input states
 var grabbingL = false
@@ -231,13 +229,3 @@ func _on_player_body_consumed_right(item: Object) -> void:
 
 func _on_fall_punish_reset_timeout() -> void:
 	doPunishFall = true
-
-# ------------------ debug -----------------------------------------------------
-func toggleMovementMode() -> void:
-	match MovementMode:
-		MovementModes.ORIGINAL:
-			MovementMode = MovementModes.EXPERIMENTAL
-			$PlayerController.toggleMovementMode()
-		MovementModes.EXPERIMENTAL:
-			MovementMode = MovementModes.ORIGINAL
-			$PlayerController.toggleMovementMode()

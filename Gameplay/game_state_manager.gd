@@ -30,6 +30,9 @@ var precacheCam: Camera3D
 var inCacheMode = false
 var shader_cache_before_start = true # turn this one on for release
 
+enum MovementModes {ORIGINAL, EXPERIMENTAL}
+var MovementMode = MovementModes.ORIGINAL
+
 func _ready() -> void:
 	get_tree().paused = true
 	
@@ -51,6 +54,7 @@ func start_game() -> void:
 	current_state = GameState.Game
 	PlayerMovementUtils.knock_player_down.call_deferred()
 	await GameStateManager.current_player.ChangeMovement
+	applyMovementMode()
 	get_tree().paused = true
 	loading_screen.display_indefinite(true)
 	loading_screen.label.text = "Press enter / start to continue..."
@@ -107,3 +111,32 @@ func reset_level() -> void:
 
 func should_show_debug() -> bool:
 	return OS.is_debug_build() && !export_preview
+
+
+# ------------------ debug -----------------------------------------------------
+
+func toggleMovementMode() -> void:
+	match MovementMode:
+		MovementModes.EXPERIMENTAL:
+			MovementMode = MovementModes.ORIGINAL
+		MovementModes.ORIGINAL:
+			MovementMode = MovementModes.EXPERIMENTAL
+	applyMovementMode()
+
+func applyMovementMode() -> void:
+	var player_controller := current_player.get_node("PlayerController")
+	match MovementMode:
+		MovementModes.ORIGINAL:
+			player_controller.body_lean_force_input = 0.0
+			player_controller.player_input_strength = 1.0
+			player_controller.drunk_fall_factor = 4.0
+			player_controller.drunk_chaos_strength = 0.2
+			player_controller.PlayerBallCollider.physics_material_override.bounce = 0.0
+			player_controller.get_node("TimerStandUp").wait_time = 1.0
+		MovementModes.EXPERIMENTAL:
+			player_controller.body_lean_force_input = 0.05
+			player_controller.player_input_strength = 1.2
+			player_controller.drunk_fall_factor = 2.5
+			player_controller.drunk_chaos_strength = 0.8
+			player_controller.PlayerBallCollider.physics_material_override.bounce = 0.7
+			player_controller.get_node("TimerStandUp").wait_time = 2.0

@@ -51,8 +51,8 @@ func display_player_info() -> void:
 		if ImGui.Button("Add Drunkness"):
 			GameStateManager.player_drunkness.current_drunkness += 4
 		if ImGui.Button("Toggle Move Mode"):
-			GameStateManager.current_player.toggleMovementMode()
-		ImGui.Text("Movement Mode: " + str(Player.MovementModes.find_key(GameStateManager.current_player.MovementMode)))
+			GameStateManager.toggleMovementMode()
+		ImGui.Text("Movement Mode: " + str(GameStateManager.MovementModes.find_key(GameStateManager.MovementMode)))
 		ImGui.Text("Drunkness: " + str(player_drunkness.current_drunkness))
 		ImGui.Text("Player Facing Vector: " + str(player.player_facing_dir))
 		ImGui.Text("Player Move Direction: " + str(player.player_move_dir))
