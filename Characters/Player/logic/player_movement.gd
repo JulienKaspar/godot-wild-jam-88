@@ -10,7 +10,7 @@ class_name PlayerController
 @onready var PlayerBodyCollider = %UpperBody
 @onready var PlayerBallCollider : RigidBally = $RigidBally3D
 @onready var PlayerRoot = $"../"
-@onready var StairsRay = $NoRotateBall/StairsRay
+@onready var StairsRay : StairsRayCast = $NoRotateBall/StairsRay
 
 @onready var debugHelpers = [%RigidBally3D,	$UpperBody/helper_body_col,	%ArmL,	
 				%ArmR,	$LegL,	$LegR]
@@ -314,7 +314,7 @@ func _physics_process(delta: float) -> void:
 	var normalInput = playerInputDir.normalized()
 	StairsRay.target_position.x = normalInput.x * 0.01
 	StairsRay.target_position.z = normalInput.y * 0.01
-	isOnStairs = StairsRay.is_colliding()
+	isOnStairs = StairsRay.is_colliding_with_stairs()
 	if isOnStairs:
 		stairs_normal = StairsRay.get_collision_normal()
 		stairs_side_dir = stairs_normal.cross(refUpVector)

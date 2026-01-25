@@ -1,9 +1,10 @@
-[gd_scene load_steps=34 format=3 uid="uid://cx2qst5txs1af"]
+[gd_scene load_steps=35 format=3 uid="uid://cx2qst5txs1af"]
 
 [ext_resource type="Script" uid="uid://cdppyptuftkiw" path="res://Characters/Player/logic/player_movement.gd" id="1_jkj6u"]
 [ext_resource type="PackedScene" uid="uid://cyksrihj0achx" path="res://Particles/Player/pfx_falling_indicator.tscn" id="2_6yvek"]
 [ext_resource type="Script" uid="uid://b5ewjdm5d53je" path="res://Characters/Player/logic/rigid_bally.gd" id="2_fy1gk"]
 [ext_resource type="PackedScene" uid="uid://bhvwgh4ef0sj6" path="res://Particles/Player/pfx_bodyfall.tscn" id="3_on8bp"]
+[ext_resource type="Script" uid="uid://cp7cvcymqxfyt" path="res://Characters/Player/ray_cast_stairs.gd" id="3_vokij"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_on8bp"]
 
@@ -281,6 +282,8 @@ outline_size = 50
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 target_position = Vector3(0, -0.6, 0)
 collision_mask = 128
+script = ExtResource("3_vokij")
+metadata/_custom_type_script = "uid://cp7cvcymqxfyt"
 
 [node name="PfxBodyfall" parent="NoRotateBall" instance=ExtResource("3_on8bp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.91440105, 0)
