@@ -28,7 +28,7 @@ func _get_configuration_warnings():
 	if get_collision_mask_value(2) == false:
 		return ["CollisionShape3D collision mask needs to be set to 2 to detect the player!"]
 
-func has_player_as_parent(body: Node3D) -> bool:
+static func has_player_as_parent(body: Node3D) -> bool:
 	var current_node_checked: Node
 	for i in max_parent_check_depth:
 		@warning_ignore("unassigned_variable")

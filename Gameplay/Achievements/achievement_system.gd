@@ -15,6 +15,11 @@ func unlock_achievement(id: Achievement.ID) -> void:
 		achievement.unlock()
 		display_effects(achievement)
 
+func is_achievement_already_unlocked(id: Achievement.ID) -> bool:
+	for achievement in obtainable_achievements:
+		if achievement.id == id:
+			return achievement.obtained
+	return false
 
 @warning_ignore("unused_parameter")
 func display_effects(achievement: Achievement) -> void:
