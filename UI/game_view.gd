@@ -11,6 +11,7 @@ extends Node
 @export var default_font_theme: Theme
 @export var readability_font_theme: Theme
 
+var credits_started: bool = false
 var game_started: bool = false
 func _ready() -> void:
 	connect_signals.call_deferred()
@@ -71,6 +72,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func show_game_ui() -> void:
 	menu_displayer.open_screen(MenuDisplayer.ScreenName.HUD)
+	if credits_started:
+		menu_displayer.open_screen(MenuDisplayer.ScreenName.CreditScreen)
 	
 func show_paused_menu() -> void:
 	menu_displayer.open_screen(MenuDisplayer.ScreenName.PauseMenu)
@@ -78,6 +81,7 @@ func show_paused_menu() -> void:
 func end_credits() -> void:
 	menu_displayer.open_screen(MenuDisplayer.ScreenName.CreditScreen)
 	DialogueSystem.hide()
+	credits_started = true
 	
 func show_wasted_screen() -> void:
 	menu_displayer.open_screen(MenuDisplayer.ScreenName.WastedScreen)
