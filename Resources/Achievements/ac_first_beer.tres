@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=4 format=3 uid="uid://dsd3xuq6ab2c1"]
+
+[ext_resource type="Texture2D" uid="uid://dvpd1b38w1u46" path="res://Assets/2D_Assets/Achievements_Gallery/it_s_billy.png" id="1_hxa2x"]
+[ext_resource type="Script" uid="uid://bqat8ihyupi7l" path="res://Gameplay/Achievements/achievement.gd" id="1_kmlt8"]
+[ext_resource type="Material" uid="uid://byd8cq35gtkaj" path="res://Assets/Materials/frame_pictures/achievement_billy.tres" id="2_7ggp2"]
+
+[resource]
+script = ExtResource("1_kmlt8")
+name = "First Taste"
+description = "'Acuire' your first beer"
+icon = ExtResource("1_hxa2x")
+material = ExtResource("2_7ggp2")
+id = 7
+metadata/_custom_type_script = "uid://bqat8ihyupi7l"

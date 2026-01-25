@@ -29,7 +29,7 @@ func _on_drank_first() -> void:
 	for collider in StartBlockers:
 		collider.disabled = true
 	GameStateManager.player_drunkness.paused = false
-
+	AchievementSystem.unlock_achievement(Achievement.ID.FirstBeer)
 
 var glass_alive = true
 func _on_glass_trigger_body_entered(body: Node3D) -> void:

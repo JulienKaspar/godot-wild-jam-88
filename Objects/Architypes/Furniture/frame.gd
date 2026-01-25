@@ -13,8 +13,12 @@ extends Node3D
 @export var model_slot: Node3D
 
 func _ready() -> void:
-	change_model(model_index)
+	if achievement != null:
+		@warning_ignore("standalone_ternary")
+		change_model(model_index) if achievement.obtained else change_model(5)
+
 	change_material()
+	
 
 func change_material() -> void:
 	for child in model_slot.get_children():
