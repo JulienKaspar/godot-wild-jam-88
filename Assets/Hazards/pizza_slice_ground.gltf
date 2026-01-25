@@ -6,20 +6,30 @@
 	"scene":0,
 	"scenes":[
 		{
-			"name":"pizza_slice",
+			"name":"pizza_slice_ground",
 			"nodes":[
-				0
+				0,
+				1
 			]
 		}
 	],
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"Cylinder.002",
+			"name":"Cylinder.001",
 			"translation":[
-				0.011332999914884567,
+				0,
 				0.029972059652209282,
-				0.006353408098220825
+				-0.17214134335517883
+			]
+		},
+		{
+			"mesh":1,
+			"name":"Plane",
+			"translation":[
+				0,
+				0.010332390666007996,
+				0
 			]
 		}
 	],
@@ -35,7 +45,7 @@
 	],
 	"meshes":[
 		{
-			"name":"Cylinder.005",
+			"name":"Cylinder.003",
 			"primitives":[
 				{
 					"attributes":{
@@ -45,6 +55,21 @@
 						"COLOR_0":3
 					},
 					"indices":4,
+					"material":0
+				}
+			]
+		},
+		{
+			"name":"Plane.001",
+			"primitives":[
+				{
+					"attributes":{
+						"POSITION":5,
+						"NORMAL":6,
+						"TEXCOORD_0":7,
+						"COLOR_0":8
+					},
+					"indices":9,
 					"material":0
 				}
 			]
@@ -90,6 +115,46 @@
 			"componentType":5123,
 			"count":540,
 			"type":"SCALAR"
+		},
+		{
+			"bufferView":5,
+			"componentType":5126,
+			"count":74,
+			"max":[
+				0.5720370411872864,
+				0.003708141390234232,
+				0.3163334131240845
+			],
+			"min":[
+				-0.4973117411136627,
+				0,
+				-0.11825469136238098
+			],
+			"type":"VEC3"
+		},
+		{
+			"bufferView":6,
+			"componentType":5126,
+			"count":74,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":7,
+			"componentType":5126,
+			"count":74,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":8,
+			"componentType":5126,
+			"count":74,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":9,
+			"componentType":5123,
+			"count":210,
+			"type":"SCALAR"
 		}
 	],
 	"bufferViews":[
@@ -122,12 +187,42 @@
 			"byteLength":1080,
 			"byteOffset":6072,
 			"target":34963
+		},
+		{
+			"buffer":0,
+			"byteLength":888,
+			"byteOffset":7152,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":888,
+			"byteOffset":8040,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":592,
+			"byteOffset":8928,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":888,
+			"byteOffset":9520,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":420,
+			"byteOffset":10408,
+			"target":34963
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":7152,
-			"uri":"pizza_slice.bin"
+			"byteLength":10828,
+			"uri":"pizza_slice_ground.bin"
 		}
 	]
 }
