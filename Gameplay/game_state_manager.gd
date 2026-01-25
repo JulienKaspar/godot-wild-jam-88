@@ -38,7 +38,7 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	player_drunkness.current_drunkness -= player_drunkness.drunkness_decay_per_second * delta
-
+	
 
 func start_game() -> void:
 	if !OS.is_debug_build():

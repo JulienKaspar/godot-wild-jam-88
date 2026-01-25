@@ -61,7 +61,7 @@ func handle_game_started() -> void:
 	game_started = true
 	
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("pause") && !main_menu.visible && !settings_menu.visible:
+	if event.is_action_pressed("pause") && !main_menu.visible && !settings_menu.visible && !GameStateManager.loading_screen.visible:
 		GameStateManager.toggle_pause()
 		
 		if get_tree().paused:
