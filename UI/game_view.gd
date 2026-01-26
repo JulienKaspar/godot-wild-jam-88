@@ -80,7 +80,7 @@ func show_paused_menu() -> void:
 	
 func end_credits() -> void:
 	menu_displayer.open_screen(MenuDisplayer.ScreenName.CreditScreen)
-	DialogueSystem.hide()
+	DialogueSystem.dialogue_display.hide()
 	credits_started = true
 	
 func show_wasted_screen() -> void:
