@@ -85,6 +85,7 @@ func set_follow_camera(player: Player) -> void:
 	game_camera.follow_target = player.get_node("PlayerController/RigidBally3D")
 
 func toggle_pause() -> void:
+	
 	match current_state:
 		GameState.Paused:
 			unpause_game()

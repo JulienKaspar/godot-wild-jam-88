@@ -14,6 +14,12 @@ func _ready() -> void:
 	var opacity_tween: Tween = create_tween()
 	opacity_tween.tween_property(texture_rect, "modulate:a", 1, splash_screen_fade_in_time)
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouse: return
+	
+	splash_screen_fade_out_time = 0
+	fade_out()
+
 
 func _process(delta: float) -> void:
 	if GameStateManager.should_show_debug(): 
