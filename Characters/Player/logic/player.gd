@@ -229,3 +229,8 @@ func _on_player_body_consumed_right(item: Object) -> void:
 
 func _on_fall_punish_reset_timeout() -> void:
 	doPunishFall = true
+
+func is_holding_beer() -> bool:
+	var is_holding_beer_left: bool = HandLState == Player.HandStates.DRINKING
+	var is_holding_beer_right: bool = HandRState == Player.HandStates.DRINKING
+	return is_holding_beer_left || is_holding_beer_right

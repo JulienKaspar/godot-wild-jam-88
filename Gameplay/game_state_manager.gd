@@ -41,7 +41,7 @@ func _process(delta: float) -> void:
 	
 
 func start_game() -> void:
-	if !OS.is_debug_build():
+	if !should_show_debug():
 		shader_caching = false
 		starting_level_index = 0
 	
