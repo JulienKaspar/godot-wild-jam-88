@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://d1ns4f8nsxmyd" path="res://Objects/furniture_player_collider.gd" id="1_c46ya"]
 [ext_resource type="PackedScene" uid="uid://cva3qsuy7piry" path="res://Assets/Furniture/shelf1.gltf" id="1_r8bb5"]
 [ext_resource type="PackedScene" uid="uid://bcsr7n75rjc4x" path="res://Objects/Furniture_PropCollider.tscn" id="3_nstji"]
-[ext_resource type="Script" uid="uid://bube6qx22i7lp" path="res://Gameplay/Interactables/touchy_curve.gd" id="4_nstji"]
+[ext_resource type="Script" path="res://Gameplay/Interactables/touchy_curve.gd" id="4_nstji"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c46ya"]
 size = Vector3(1.975, 2.9770508, 0.5258789)

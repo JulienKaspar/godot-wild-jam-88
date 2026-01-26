@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://142xvokhmr2g" path="res://Objects/PropCollider.tscn" id="1_x0xy4"]
 [ext_resource type="PackedScene" uid="uid://c7wjbfh7jn1l4" path="res://Assets/Furniture/chair1.gltf" id="2_x0xy4"]
-[ext_resource type="Script" uid="uid://bube6qx22i7lp" path="res://Gameplay/Interactables/touchy_curve.gd" id="3_42ryc"]
+[ext_resource type="Script" path="res://Gameplay/Interactables/touchy_curve.gd" id="3_42ryc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x0xy4"]
 size = Vector3(0.60546875, 0.65148926, 0.63687134)

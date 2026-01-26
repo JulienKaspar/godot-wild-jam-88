@@ -1,7 +1,7 @@
 [gd_scene load_steps=66 format=3 uid="uid://dhfyssjtwfl14"]
 
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="1_bygm1"]
-[ext_resource type="Script" path="res://Levels/indi_trap.gd" id="1_d7yk7"]
+[ext_resource type="Script" uid="uid://cy572sir651f7" path="res://Levels/indi_trap.gd" id="1_d7yk7"]
 [ext_resource type="Script" uid="uid://ddci75ik2j7ul" path="res://Camera/camera_of_interest.gd" id="1_qacnp"]
 [ext_resource type="Script" uid="uid://ceivledpb5qk1" path="res://Levels/Util/lvl_3.5_verticality_mission_flow.gd" id="1_qbw1f"]
 [ext_resource type="Script" uid="uid://dbaf2uf6cx0uy" path="res://Camera/camera_area_trigger.gd" id="2_bygm1"]

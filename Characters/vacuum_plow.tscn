@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://br6gi16wuxrj1"]
 
 [ext_resource type="PackedScene" uid="uid://d62n5s8htyn7" path="res://Characters/Teens/logic/TeenStanding.tscn" id="1_8kvoa"]
-[ext_resource type="Script" uid="uid://bw6ektqcmgwb3" path="res://Characters/vacuum_plow.gd" id="1_jhq6o"]
+[ext_resource type="Script" path="res://Characters/vacuum_plow.gd" id="1_jhq6o"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_8kvoa"]
 height = 0.75

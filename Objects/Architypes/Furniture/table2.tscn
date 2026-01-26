@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://d1ns4f8nsxmyd" path="res://Objects/furniture_player_collider.gd" id="1_wxtwn"]
 [ext_resource type="PackedScene" uid="uid://w3a7ylbcyorp" path="res://Assets/Furniture/table2.gltf" id="2_wxtwn"]
 [ext_resource type="PackedScene" uid="uid://bcsr7n75rjc4x" path="res://Objects/Furniture_PropCollider.tscn" id="3_2x3ad"]
-[ext_resource type="Script" uid="uid://bube6qx22i7lp" path="res://Gameplay/Interactables/touchy_curve.gd" id="4_ttlm1"]
+[ext_resource type="Script" path="res://Gameplay/Interactables/touchy_curve.gd" id="4_ttlm1"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_l1lum"]
 height = 0.17675781

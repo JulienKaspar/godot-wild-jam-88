@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://brhckpuqlnhm6" path="res://Objects/Architypes/Props/bbq.tscn" id="5_xweag"]
 [ext_resource type="PackedScene" uid="uid://byi1vrdra1og3" path="res://Objects/Architypes/Props/radio.tscn" id="6_8wfei"]
 [ext_resource type="PackedScene" uid="uid://j1b5yvs8pnux" path="res://Objects/Architypes/Furniture/table_round1.tscn" id="6_d4xos"]
-[ext_resource type="Script" path="res://Objects/slopes.gd" id="6_mr8n6"]
+[ext_resource type="Script" uid="uid://b6j4xt2oyttve" path="res://Objects/slopes.gd" id="6_mr8n6"]
 [ext_resource type="PackedScene" uid="uid://d3unw205fanv5" path="res://Objects/Loot/pickup_beer.tscn" id="9_22u0x"]
 [ext_resource type="AudioStream" uid="uid://b0agua7xlrot5" path="res://Assets/Audio/Ambience/ambience_wind.ogg" id="10_5g7ny"]
 [ext_resource type="AudioStream" uid="uid://fq0vj2ffsvip" path="res://Assets/Audio/Music/PartyTheme/Theme_A.ogg" id="11_cw6dl"]

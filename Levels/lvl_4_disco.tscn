@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bc8urqgpnntuw" path="res://Levels/lvl_4_disco.gd" id="1_n28pq"]
 [ext_resource type="Script" uid="uid://cm1uqdo37kpmi" path="res://Gameplay/LogicObjects/player_spawner.gd" id="1_u88v8"]
-[ext_resource type="Script" uid="uid://cplcsgmwkxa3h" path="res://Levels/disco_light.gd" id="2_0me7d"]
+[ext_resource type="Script" path="res://Levels/disco_light.gd" id="2_0me7d"]
 [ext_resource type="PackedScene" uid="uid://j1b5yvs8pnux" path="res://Objects/Architypes/Furniture/table_round1.tscn" id="3_6td24"]
 [ext_resource type="Script" uid="uid://ddci75ik2j7ul" path="res://Camera/camera_of_interest.gd" id="3_8dcp4"]
 [ext_resource type="PackedScene" uid="uid://cdrpgw2um6m6i" path="res://Objects/safety_plane.tscn" id="3_p3124"]

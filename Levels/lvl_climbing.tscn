@@ -159,7 +159,6 @@ collision_mask = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Walls/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0853271, 0)
 shape = SubResource("BoxShape3D_rka2e")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Layout/Walls"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.274454, 0.3885193, -2.8934774)
@@ -169,7 +168,6 @@ collision_mask = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Walls/StaticBody3D2"]
 transform = Transform3D(0.88152605, 0, -0.47213542, 0, 1, 0, 0.47213542, 0, 0.88152605, 0.120168686, 1.3547974, 1.0768113)
 shape = SubResource("BoxShape3D_cxqf5")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CSG_ReddishWall2" type="CSGBox3D" parent="Layout/Walls"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.25, 2.25, -3.5000002)
@@ -274,7 +272,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.72804e-11, -1.4551915e-11, 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Trail/Frame/TopWalk"]
 transform = Transform3D(1, -3.330669e-16, 0, 0, 1, 0, 0, -8.1712415e-14, 1, 4.7683716e-07, 0, 0.01263392)
 shape = SubResource("BoxShape3D_cbkav")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Frame3" parent="Layout/Trail" instance=ExtResource("11_ftjbw")]
 transform = Transform3D(-1.1404935, 0.71425647, 3.837165e-08, 6.182553e-08, -1.01556905e-08, 0.9792017, 0.8846577, 0.9208137, -1.8964453e-08, 13.009143, 2.9157498, -6.9258018)
@@ -286,7 +283,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.72804e-11, -1.4551915e-11, 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Trail/Frame3/StaticBody3D"]
 transform = Transform3D(1, -3.330669e-16, 0, 0, 1, 0, 0, -8.1712415e-14, 1, 4.7683716e-07, 1.3877788e-17, -0.0044264197)
 shape = SubResource("BoxShape3D_cbkav")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="TableRound1" parent="Layout/Trail" instance=ExtResource("12_n4smu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7421362, 0.5, -0.16943192)
@@ -327,7 +323,6 @@ collision_layer = 65
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Trail/tv_huge/TopWalk"]
 transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 1.0728836e-06, 1.0039434, 0.37645078)
 shape = SubResource("BoxShape3D_sbnyw")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="LampStanding1" parent="Layout/Trail" instance=ExtResource("14_mxgcj")]
 transform = Transform3D(0.12647605, 0, 0.9919697, 0, 1, 0, -0.9919697, 0, 0.12647605, 0.13177955, 0.5020224, -4.039332)

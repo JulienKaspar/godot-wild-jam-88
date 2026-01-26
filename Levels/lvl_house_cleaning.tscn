@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://fhev4d48q1qy" path="res://Objects/Architypes/LivingRoom/stairs_wide.tscn" id="11_3xghb"]
 [ext_resource type="PackedScene" uid="uid://dci81bvxxl4nx" path="res://Objects/Architypes/LivingRoom/stairs_thin.tscn" id="12_bn6ol"]
 [ext_resource type="Material" uid="uid://l1sgod1lv1b6" path="res://Assets/Materials/yellow_floral_wall.tres" id="13_io70e"]
-[ext_resource type="Script" uid="uid://dogbj3gtx3mxu" path="res://Objects/hideable_wall.gd" id="14_88g2c"]
+[ext_resource type="Script" path="res://Objects/hideable_wall.gd" id="14_88g2c"]
 [ext_resource type="PackedScene" uid="uid://tca4a42pryu5" path="res://Objects/Architypes/Hurtiture/hurtitire_cactus.tscn" id="15_6fa00"]
 [ext_resource type="PackedScene" uid="uid://j1b5yvs8pnux" path="res://Objects/Architypes/Furniture/table_round1.tscn" id="16_yvd7p"]
 [ext_resource type="PackedScene" uid="uid://ctkeed4oy5kjx" path="res://Objects/Loot/pickup_beer_bottle.tscn" id="17_s4jkd"]
@@ -575,7 +575,6 @@ material_override = ExtResource("13_io70e")
 use_collision = true
 size = Vector3(0.2, 5.5, 7)
 script = ExtResource("14_88g2c")
-metadata/_custom_type_script = "uid://dogbj3gtx3mxu"
 
 [node name="door_sides" parent="Layout/HideableWalls/CSG_ReddishWall14" instance=ExtResource("35_lufv1")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1.2720966, 0, 1, 0, -4.371139e-08, 0.044384122, -1.7499995, 3.4966226)
@@ -586,12 +585,10 @@ collision_mask = 3
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/HideableWalls/CSG_ReddishWall14/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5359493, 0, 2.2285173)
 shape = SubResource("BoxShape3D_2wb27")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Layout/HideableWalls/CSG_ReddishWall14/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.228487, 0, 0.5745652)
 shape = SubResource("BoxShape3D_6pg5t")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CSG_ReddishWall29" type="CSGBox3D" parent="Layout/HideableWalls"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 22.25, 2.25, -3.1215966)
@@ -599,7 +596,6 @@ material_override = ExtResource("13_io70e")
 use_collision = true
 size = Vector3(0.2, 5.5, 2.5)
 script = ExtResource("14_88g2c")
-metadata/_custom_type_script = "uid://dogbj3gtx3mxu"
 
 [node name="Area3D" type="Area3D" parent="Layout/HideableWalls/CSG_ReddishWall29"]
 collision_mask = 3
@@ -607,7 +603,6 @@ collision_mask = 3
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/HideableWalls/CSG_ReddishWall29/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9396055, 0, 0.07431221)
 shape = SubResource("BoxShape3D_6mj60")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CSG_ReddishWall40" type="CSGBox3D" parent="Layout/HideableWalls"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 16.277588, 2.25, -9)
@@ -615,7 +610,6 @@ material_override = ExtResource("13_io70e")
 use_collision = true
 size = Vector3(0.2, 5.5, 3.3950195)
 script = ExtResource("14_88g2c")
-metadata/_custom_type_script = "uid://dogbj3gtx3mxu"
 
 [node name="Area3D" type="Area3D" parent="Layout/HideableWalls/CSG_ReddishWall40"]
 collision_mask = 3
@@ -623,7 +617,6 @@ collision_mask = 3
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/HideableWalls/CSG_ReddishWall40/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4088287, 0, -0.033826828)
 shape = SubResource("BoxShape3D_4q2vc")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CSG_ReddishWall45" type="CSGBox3D" parent="Layout/HideableWalls"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7.239212, 2.25, -10.842)
@@ -631,7 +624,6 @@ material_override = ExtResource("13_io70e")
 use_collision = true
 size = Vector3(0.2, 5.5, 14.329773)
 script = ExtResource("14_88g2c")
-metadata/_custom_type_script = "uid://dogbj3gtx3mxu"
 
 [node name="CSG_ReddishWall20" type="CSGBox3D" parent="Layout/HideableWalls/CSG_ReddishWall45"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.0874867, 0, 3.755774)
@@ -657,7 +649,6 @@ collision_mask = 3
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/HideableWalls/CSG_ReddishWall45/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.497383, 0, -0.013813496)
 shape = SubResource("BoxShape3D_145cf")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CSG_ReddishWall35" type="CSGBox3D" parent="Layout/HideableWalls"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 23.464111, 2.25, -11.037376)
@@ -665,7 +656,6 @@ material_override = ExtResource("13_io70e")
 use_collision = true
 size = Vector3(0.2, 5.5, 5.0717773)
 script = ExtResource("14_88g2c")
-metadata/_custom_type_script = "uid://dogbj3gtx3mxu"
 
 [node name="Area3D" type="Area3D" parent="Layout/HideableWalls/CSG_ReddishWall35"]
 collision_mask = 3
@@ -673,7 +663,6 @@ collision_mask = 3
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/HideableWalls/CSG_ReddishWall35/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9661064, -0.8446045, 0.008451462)
 shape = SubResource("BoxShape3D_nwjy8")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CSG_ReddishWall16" type="CSGBox3D" parent="Layout/HideableWalls"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9.013733, 2.25, -4.4999995)
@@ -681,7 +670,6 @@ material_override = ExtResource("13_io70e")
 use_collision = true
 size = Vector3(0.2, 5.5, 4.161255)
 script = ExtResource("14_88g2c")
-metadata/_custom_type_script = "uid://dogbj3gtx3mxu"
 
 [node name="door_sides3" parent="Layout/HideableWalls/CSG_ReddishWall16" instance=ExtResource("35_lufv1")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1.2720966, 0, 1, 0, -4.371139e-08, 0.015595913, -1.7499995, -1.9274464)
@@ -692,7 +680,6 @@ collision_mask = 3
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/HideableWalls/CSG_ReddishWall16/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2209473, 0.033203125, -0.99047565)
 shape = SubResource("BoxShape3D_8aexh")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CSG_ReddishWall23" type="CSGBox3D" parent="Layout/HideableWalls"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12.065521, 2.25, -4.4999995)
@@ -700,7 +687,6 @@ material_override = ExtResource("13_io70e")
 use_collision = true
 size = Vector3(0.2, 5.5, 2.3486938)
 script = ExtResource("14_88g2c")
-metadata/_custom_type_script = "uid://dogbj3gtx3mxu"
 
 [node name="door_sides5" parent="Layout/HideableWalls/CSG_ReddishWall23" instance=ExtResource("35_lufv1")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1.2720966, 0, 1, 0, -4.371139e-08, 0.015595913, -1.7499995, 1.0836678)
@@ -712,7 +698,6 @@ collision_mask = 3
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/HideableWalls/CSG_ReddishWall23/Area3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2209473, 0.033203125, 0.5775385)
 shape = SubResource("BoxShape3D_dhgs5")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CSG_ReddishWall17" type="CSGBox3D" parent="Layout/HideableWalls"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 16.433105, 2.25, -4.4999995)
@@ -720,7 +705,6 @@ material_override = ExtResource("13_io70e")
 use_collision = true
 size = Vector3(0.2, 5.5, 3)
 script = ExtResource("14_88g2c")
-metadata/_custom_type_script = "uid://dogbj3gtx3mxu"
 
 [node name="door_sides6" parent="Layout/HideableWalls/CSG_ReddishWall17" instance=ExtResource("35_lufv1")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1.2720966, 0, 1, 0, -4.371139e-08, 0.01559639, -1.7499995, -1.4267845)
@@ -732,7 +716,6 @@ collision_mask = 3
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/HideableWalls/CSG_ReddishWall17/Area3D3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2209473, 0.033203125, 0.5775385)
 shape = SubResource("BoxShape3D_dhgs5")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CSG_ReddishWall44" type="CSGBox3D" parent="Layout/HideableWalls"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 14.748047, 2.25, -15.80566)
@@ -740,7 +723,6 @@ material_override = ExtResource("13_io70e")
 use_collision = true
 size = Vector3(0.2, 5.5, 6.370117)
 script = ExtResource("14_88g2c")
-metadata/_custom_type_script = "uid://dogbj3gtx3mxu"
 
 [node name="door_sides11" parent="Layout/HideableWalls/CSG_ReddishWall44" instance=ExtResource("35_lufv1")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1.2720966, 0, -8.742278e-08, 0, -1, -2.9529467, -1.7499995, 3.2612581)
@@ -776,7 +758,6 @@ collision_mask = 3
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/HideableWalls/CSG_ReddishWall44/Area3D3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2481241, 0.033203125, 1.1578856)
 shape = SubResource("BoxShape3D_5x4ac")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="InvisbleWalls" type="Node3D" parent="Layout"]
 
@@ -788,7 +769,6 @@ collision_mask = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/InvisbleWalls/LeftBlocker"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1.4755249, 0.5757446)
 shape = SubResource("BoxShape3D_7c1gy")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="InvisibleWall" type="StaticBody3D" parent="Layout/InvisbleWalls"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.349121, 0.3885193, -2.1010633)
@@ -798,7 +778,6 @@ collision_mask = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/InvisbleWalls/InvisibleWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1525574e-07, 1.0853271, 6.9418945)
 shape = SubResource("BoxShape3D_qy27l")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CSG_ReddishWall9" type="CSGBox3D" parent="Layout/InvisbleWalls/InvisibleWall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.053848267, 6.900879)
@@ -814,7 +793,6 @@ collision_mask = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/InvisbleWalls/InvisibleWall2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7683716e-07, 1.0853271, 2.6918945)
 shape = SubResource("BoxShape3D_h4xtr")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CSG_ReddishWall9" type="CSGBox3D" parent="Layout/InvisbleWalls/InvisibleWall2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7683716e-07, 0, 2.650879)
@@ -859,7 +837,6 @@ transform = Transform3D(0.55234444, -0.833616, -3.6438514e-08, 0, -4.371139e-08,
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Furniture/beer_keg/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, -4.3711395e-08, 1, 0, -1, -4.3711385e-08, 0, 0, -0.09277344)
 shape = SubResource("CylinderShape3D_2wb27")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Couch3" parent="Furniture" instance=ExtResource("30_mab7j")]
 transform = Transform3D(0.8350208, 0, -0.55021846, 0, 1, 0, 0.55021846, 0, 0.8350208, 17.313564, 0.50585055, -14.943984)
