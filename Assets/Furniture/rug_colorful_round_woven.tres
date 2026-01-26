@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dxivupyfhcp3y"]
+
+[ext_resource type="Texture2D" uid="uid://dweo3ecjbcaku" path="res://Assets/Maps/Rugs/colorful_round_woven_rug.png" id="1_5103p"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+diffuse_mode = 3
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_5103p")
