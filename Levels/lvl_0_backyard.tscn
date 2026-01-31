@@ -41,6 +41,7 @@ ssao_radius = 2.01
 ssao_power = 1.8467174
 ssil_enabled = true
 volumetric_fog_enabled = true
+volumetric_fog_density = 0.03
 volumetric_fog_albedo = Color(0.7075, 0.61, 1, 1)
 volumetric_fog_temporal_reprojection_enabled = false
 
