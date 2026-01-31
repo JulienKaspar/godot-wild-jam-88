@@ -1,10 +1,10 @@
-[gd_scene load_steps=35 format=3 uid="uid://cx2qst5txs1af"]
+[gd_scene format=3 uid="uid://cx2qst5txs1af"]
 
 [ext_resource type="Script" uid="uid://cdppyptuftkiw" path="res://Characters/Player/logic/player_movement.gd" id="1_jkj6u"]
 [ext_resource type="PackedScene" uid="uid://cyksrihj0achx" path="res://Particles/Player/pfx_falling_indicator.tscn" id="2_6yvek"]
-[ext_resource type="Script" path="res://Characters/Player/logic/rigid_bally.gd" id="2_fy1gk"]
+[ext_resource type="Script" uid="uid://b5ewjdm5d53je" path="res://Characters/Player/logic/rigid_bally.gd" id="2_fy1gk"]
 [ext_resource type="PackedScene" uid="uid://bhvwgh4ef0sj6" path="res://Particles/Player/pfx_bodyfall.tscn" id="3_on8bp"]
-[ext_resource type="Script" path="res://Characters/Player/ray_cast_stairs.gd" id="3_vokij"]
+[ext_resource type="Script" uid="uid://cp7cvcymqxfyt" path="res://Characters/Player/ray_cast_stairs.gd" id="3_vokij"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_on8bp"]
 
@@ -185,242 +185,240 @@ _data = {
 &"roll": SubResource("Animation_jkj6u")
 }
 
-[node name="PlayerController" type="Node3D"]
+[node name="PlayerController" type="Node3D" unique_id=1863399684]
 script = ExtResource("1_jkj6u")
 
-[node name="RigidBally3D" type="RigidBody3D" parent="."]
+[node name="RigidBally3D" type="RigidBody3D" parent="." unique_id=1272812279]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.251, 0)
 collision_layer = 2
-collision_mask = 189
+collision_mask = 61
 mass = 50.0
 physics_material_override = SubResource("PhysicsMaterial_on8bp")
 contact_monitor = true
 max_contacts_reported = 10
 script = ExtResource("2_fy1gk")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBally3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBally3D" unique_id=297698290]
 shape = SubResource("SphereShape3D_056gf")
 
-[node name="helper_ball" type="MeshInstance3D" parent="RigidBally3D"]
+[node name="helper_ball" type="MeshInstance3D" parent="RigidBally3D" unique_id=1474866864]
 transform = Transform3D(0.52, 0, 0, 0, 0.52, 0, 0, 0, 0.52, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_056gf")
 mesh = SubResource("SphereMesh_jkj6u")
 
-[node name="upper_body_pivot" type="Node3D" parent="RigidBally3D"]
+[node name="upper_body_pivot" type="Node3D" parent="RigidBally3D" unique_id=1965223384]
 unique_name_in_owner = true
 
-[node name="helper_Body" type="MeshInstance3D" parent="RigidBally3D/upper_body_pivot"]
+[node name="helper_Body" type="MeshInstance3D" parent="RigidBally3D/upper_body_pivot" unique_id=734761277]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7315148, 0)
 mesh = SubResource("CapsuleMesh_jkj6u")
 
-[node name="helper_BodyDir" type="MeshInstance3D" parent="RigidBally3D/upper_body_pivot"]
+[node name="helper_BodyDir" type="MeshInstance3D" parent="RigidBally3D/upper_body_pivot" unique_id=1331345130]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.15997481, 0.047753245)
 mesh = SubResource("PrismMesh_jkj6u")
 surface_material_override/0 = SubResource("StandardMaterial3D_t5fyq")
 
-[node name="up_aligned" type="Node3D" parent="RigidBally3D"]
+[node name="up_aligned" type="Node3D" parent="RigidBally3D" unique_id=2022668629]
 unique_name_in_owner = true
 
-[node name="helper_leaning" type="MeshInstance3D" parent="RigidBally3D/up_aligned"]
+[node name="helper_leaning" type="MeshInstance3D" parent="RigidBally3D/up_aligned" unique_id=80492305]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2206907, 0)
 mesh = SubResource("CylinderMesh_jkj6u")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_jkj6u")
 
-[node name="helper_drunk_dir" type="MeshInstance3D" parent="RigidBally3D/up_aligned"]
+[node name="helper_drunk_dir" type="MeshInstance3D" parent="RigidBally3D/up_aligned" unique_id=1735142715]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2206907, 0)
 mesh = SubResource("CylinderMesh_jkj6u")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_on8bp")
 
-[node name="helper_player_dir" type="MeshInstance3D" parent="RigidBally3D/up_aligned"]
+[node name="helper_player_dir" type="MeshInstance3D" parent="RigidBally3D/up_aligned" unique_id=350376147]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2206907, 0)
 mesh = SubResource("CylinderMesh_jkj6u")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_fy1gk")
 
-[node name="helper_player_facing" type="MeshInstance3D" parent="RigidBally3D/up_aligned"]
+[node name="helper_player_facing" type="MeshInstance3D" parent="RigidBally3D/up_aligned" unique_id=1078139327]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2206907, 0.9966068)
 mesh = SubResource("CylinderMesh_6yvek")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_vokij")
 
-[node name="RayCastStairs" type="RayCast3D" parent="RigidBally3D"]
+[node name="RayCastStairs" type="RayCast3D" parent="RigidBally3D" unique_id=1771707014]
 collision_mask = 128
 
-[node name="PinJoint3D_NoRotate" type="PinJoint3D" parent="."]
+[node name="PinJoint3D_NoRotate" type="PinJoint3D" parent="." unique_id=1911799445]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 node_a = NodePath("../RigidBally3D")
 node_b = NodePath("../NoRotateBall")
 
-[node name="PinJoint3D_UpperBody" type="PinJoint3D" parent="."]
+[node name="PinJoint3D_UpperBody" type="PinJoint3D" parent="." unique_id=1439811937]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.27, 0)
 node_a = NodePath("../NoRotateBall")
 node_b = NodePath("../UpperBody")
 
-[node name="NoRotateBall" type="RigidBody3D" parent="."]
+[node name="NoRotateBall" type="RigidBody3D" parent="." unique_id=658002114]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 collision_layer = 0
 collision_mask = 0
 lock_rotation = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NoRotateBall"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NoRotateBall" unique_id=1130868106]
 shape = SubResource("SphereShape3D_jkj6u")
 
-[node name="PfxFallingIndicator" parent="NoRotateBall" instance=ExtResource("2_6yvek")]
+[node name="PfxFallingIndicator" parent="NoRotateBall" unique_id=829164658 instance=ExtResource("2_6yvek")]
 amount_ratio = 0.0
 
-[node name="Label3D" type="Label3D" parent="NoRotateBall"]
+[node name="Label3D" type="Label3D" parent="NoRotateBall" unique_id=162831983]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8597615, 0)
 visible = false
 pixel_size = 0.004
 text = "JA"
 outline_size = 50
 
-[node name="StairsRay" type="RayCast3D" parent="NoRotateBall"]
+[node name="StairsRay" type="RayCast3D" parent="NoRotateBall" unique_id=386290008]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 target_position = Vector3(0, -0.6, 0)
 collision_mask = 128
 script = ExtResource("3_vokij")
 
-[node name="PfxBodyfall" parent="NoRotateBall" instance=ExtResource("3_on8bp")]
+[node name="PfxBodyfall" parent="NoRotateBall" unique_id=13556913 instance=ExtResource("3_on8bp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.91440105, 0)
 
-[node name="helper_stairs_plane" type="MeshInstance3D" parent="NoRotateBall"]
+[node name="helper_stairs_plane" type="MeshInstance3D" parent="NoRotateBall" unique_id=740259245]
 visible = false
 mesh = SubResource("QuadMesh_fy1gk")
 
-[node name="UpperBody" type="RigidBody3D" parent="."]
+[node name="UpperBody" type="RigidBody3D" parent="." unique_id=1679798018]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.164401, 0)
 collision_layer = 2
 collision_mask = 61
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="UpperBody"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="UpperBody" unique_id=1874481268]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.21733397, 0)
 shape = SubResource("CapsuleShape3D_jkj6u")
 
-[node name="helper_body_col" type="MeshInstance3D" parent="UpperBody"]
+[node name="helper_body_col" type="MeshInstance3D" parent="UpperBody" unique_id=473755568]
 mesh = SubResource("CapsuleMesh_6yvek")
 
-[node name="helper_body_hat" type="MeshInstance3D" parent="UpperBody/helper_body_col"]
+[node name="helper_body_hat" type="MeshInstance3D" parent="UpperBody/helper_body_col" unique_id=1413689108]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.570469, 0.02934675)
 mesh = SubResource("PrismMesh_6yvek")
 
-[node name="joint_arm_left" type="ConeTwistJoint3D" parent="UpperBody"]
+[node name="joint_arm_left" type="ConeTwistJoint3D" parent="UpperBody" unique_id=703885703]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1701982, 0.23231983, 0)
 node_a = NodePath("..")
 node_b = NodePath("../../ArmL")
 swing_span = 1.3229595
 
-[node name="joint_arm_right" type="ConeTwistJoint3D" parent="UpperBody"]
+[node name="joint_arm_right" type="ConeTwistJoint3D" parent="UpperBody" unique_id=1585752533]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17, 0.232, 0)
 node_a = NodePath("..")
 node_b = NodePath("../../ArmR")
 swing_span = 1.3229595
 
-[node name="joint_leg_left" type="ConeTwistJoint3D" parent="UpperBody"]
+[node name="joint_leg_left" type="ConeTwistJoint3D" parent="UpperBody" unique_id=1592158664]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1692875, -0.392967, -0.004346937)
 node_a = NodePath("..")
 node_b = NodePath("../../LegL")
 twist_span = 0.0
 
-[node name="joint_leg_right" type="ConeTwistJoint3D" parent="UpperBody"]
+[node name="joint_leg_right" type="ConeTwistJoint3D" parent="UpperBody" unique_id=1048280026]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.169, -0.393, -0.004)
 node_a = NodePath("..")
 node_b = NodePath("../../LegR")
 twist_span = 0.0
 
-[node name="BodyAttachPoint" type="Node3D" parent="UpperBody"]
+[node name="BodyAttachPoint" type="Node3D" parent="UpperBody" unique_id=356508253]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.164, 0)
 
-[node name="body_ref_mesh" type="MeshInstance3D" parent="UpperBody/BodyAttachPoint"]
+[node name="body_ref_mesh" type="MeshInstance3D" parent="UpperBody/BodyAttachPoint" unique_id=132787262]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0583978, 0)
 visible = false
 mesh = SubResource("CapsuleMesh_fy1gk")
 
-[node name="AttachPointFootR" type="Marker3D" parent="UpperBody/BodyAttachPoint"]
+[node name="AttachPointFootR" type="Marker3D" parent="UpperBody/BodyAttachPoint" unique_id=1458694236]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.16933973, 0.42215487, 0.001949653)
 
-[node name="AttachPointFootL" type="Marker3D" parent="UpperBody/BodyAttachPoint"]
+[node name="AttachPointFootL" type="Marker3D" parent="UpperBody/BodyAttachPoint" unique_id=1568696838]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.169, 0.422, 0.002)
 
-[node name="ArmL" type="RigidBody3D" parent="."]
+[node name="ArmL" type="RigidBody3D" parent="." unique_id=833876877]
 unique_name_in_owner = true
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.802604, 1.3483973, 2.3841858e-07)
 collision_layer = 2
 collision_mask = 61
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ArmL"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ArmL" unique_id=1211974976]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23290259, 0)
 shape = SubResource("CapsuleShape3D_6yvek")
 
-[node name="helper_arm_left" type="MeshInstance3D" parent="ArmL"]
+[node name="helper_arm_left" type="MeshInstance3D" parent="ArmL" unique_id=1259838114]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23290259, 0)
 mesh = SubResource("CapsuleMesh_on8bp")
 
-[node name="ArmR" type="RigidBody3D" parent="."]
+[node name="ArmR" type="RigidBody3D" parent="." unique_id=64383070]
 unique_name_in_owner = true
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -0.803, 1.348, 0)
 collision_layer = 2
 collision_mask = 61
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ArmR"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ArmR" unique_id=2039561459]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23290259, 0)
 shape = SubResource("CapsuleShape3D_6yvek")
 
-[node name="helper_arm_right" type="MeshInstance3D" parent="ArmR"]
+[node name="helper_arm_right" type="MeshInstance3D" parent="ArmR" unique_id=16419988]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23290259, 0)
 mesh = SubResource("CapsuleMesh_on8bp")
 
-[node name="LegL" type="RigidBody3D" parent="."]
+[node name="LegL" type="RigidBody3D" parent="." unique_id=2120314476]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16108675, 0.015062436, 4.7683716e-07)
 collision_layer = 2
 collision_mask = 61
 mass = 0.3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LegL"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LegL" unique_id=1660133147]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39960164, 0)
 shape = SubResource("CapsuleShape3D_6yvek")
 
-[node name="helper_arm_left" type="MeshInstance3D" parent="LegL"]
+[node name="helper_arm_left" type="MeshInstance3D" parent="LegL" unique_id=976751473]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39960164, 0)
 mesh = SubResource("CapsuleMesh_on8bp")
 
-[node name="LegR" type="RigidBody3D" parent="."]
+[node name="LegR" type="RigidBody3D" parent="." unique_id=798205741]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.161, 0.015, 0)
 collision_layer = 2
 collision_mask = 61
 mass = 0.3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LegR"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LegR" unique_id=590027720]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39960164, 0)
 shape = SubResource("CapsuleShape3D_6yvek")
 
-[node name="helper_arm_left" type="MeshInstance3D" parent="LegR"]
+[node name="helper_arm_left" type="MeshInstance3D" parent="LegR" unique_id=204747846]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39960164, 0)
 mesh = SubResource("CapsuleMesh_on8bp")
 
-[node name="TimerRoll" type="Timer" parent="."]
+[node name="TimerRoll" type="Timer" parent="." unique_id=1886142283]
 one_shot = true
 
-[node name="TimerStandUp" type="Timer" parent="."]
+[node name="TimerStandUp" type="Timer" parent="." unique_id=2144292621]
 one_shot = true
 
-[node name="TimerFalling" type="Timer" parent="."]
+[node name="TimerFalling" type="Timer" parent="." unique_id=795248096]
 wait_time = 5.0
 one_shot = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_on8bp")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1939243115]
+libraries/ = SubResource("AnimationLibrary_on8bp")
 
 [connection signal="timeout" from="TimerRoll" to="." method="_on_timer_roll_timeout"]
 [connection signal="timeout" from="TimerStandUp" to="." method="_on_timer_stand_up_timeout"]

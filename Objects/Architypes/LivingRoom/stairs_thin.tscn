@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dci81bvxxl4nx"]
+[gd_scene format=3 uid="uid://dci81bvxxl4nx"]
 
 [ext_resource type="Script" uid="uid://buuayjnejq81w" path="res://Objects/Architypes/LivingRoom/stairs.gd" id="1_e1ufy"]
 [ext_resource type="Material" uid="uid://b23iqfg3em6ty" path="res://Assets/Materials/wooden_wall.tres" id="2_3cf7q"]
@@ -20,57 +20,57 @@ size = Vector3(1.9423828, 5.0369873, 1.6152344)
 [sub_resource type="BoxShape3D" id="BoxShape3D_3cf7q"]
 size = Vector3(1.9423828, 4.1903687, 1.8283691)
 
-[node name="Stairs_thin" type="StaticBody3D" node_paths=PackedStringArray("stair_asset")]
-collision_layer = 128
+[node name="Stairs_thin" type="StaticBody3D" unique_id=1769939352 node_paths=PackedStringArray("stair_asset")]
+collision_layer = 129
 collision_mask = 0
 script = ExtResource("1_e1ufy")
 wall_material = ExtResource("2_3cf7q")
 ground_material = ExtResource("3_57ya7")
 stair_asset = NodePath("stair_thin")
 
-[node name="stair_thin" parent="." instance=ExtResource("3_e1ufy")]
+[node name="stair_thin" parent="." unique_id=123296751 instance=ExtResource("3_e1ufy")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=842023920]
 transform = Transform3D(1, 0, 0, 0, 0.90348506, -0.4286199, 0, 0.4286199, 0.90348506, 0, 0.9076987, 0.7681592)
 shape = SubResource("BoxShape3D_uixye")
 debug_color = Color(0, 0.5950001, 0.7, 1)
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=2109416345]
 transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 1.3391511, -0.60553205)
 shape = SubResource("BoxShape3D_57ya7")
 debug_color = Color(0, 0.5950001, 0.7, 1)
 
-[node name="IKCollider" type="StaticBody3D" parent="."]
+[node name="IKCollider" type="StaticBody3D" parent="." unique_id=649001572]
 collision_layer = 65
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="IKCollider"]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="IKCollider" unique_id=1256762659]
 transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 1.2798222, -1.3288844)
 shape = SubResource("BoxShape3D_4shsl")
 debug_color = Color(0, 0.5950001, 0.7, 1)
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="IKCollider"]
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="IKCollider" unique_id=1349893172]
 transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 1.0259551, -0.76624525)
 shape = SubResource("BoxShape3D_4shsl")
 debug_color = Color(0, 0.5950001, 0.7, 1)
 
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="IKCollider"]
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="IKCollider" unique_id=112890175]
 transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0.7369773, -0.16570449)
 shape = SubResource("BoxShape3D_4shsl")
 debug_color = Color(0, 0.5950001, 0.7, 1)
 
-[node name="CollisionShape3D6" type="CollisionShape3D" parent="IKCollider"]
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="IKCollider" unique_id=1487927169]
 transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0.4792651, 0.39518)
 shape = SubResource("BoxShape3D_4shsl")
 debug_color = Color(0, 0.5950001, 0.7, 1)
 
-[node name="regular_floor" type="StaticBody3D" parent="."]
+[node name="regular_floor" type="StaticBody3D" parent="." unique_id=1960025930]
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="regular_floor"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="regular_floor" unique_id=1555601655]
 transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, -0.71129555, -1.3807683)
 shape = SubResource("BoxShape3D_e1ufy")
 debug_color = Color(0, 0.5950001, 0.7, 1)
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="regular_floor"]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="regular_floor" unique_id=1025229698]
 transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, -1.1243042, 0.36095893)
 shape = SubResource("BoxShape3D_3cf7q")
 debug_color = Color(0, 0.5950001, 0.7, 1)
