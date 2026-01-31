@@ -18,6 +18,8 @@ func _get_configuration_warnings():
 
 
 func _ready() -> void:
+	show()
+	
 	for child in get_children():
 		if child is Area3D:
 			player_detector = child
