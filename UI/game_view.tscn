@@ -73,6 +73,7 @@ process_mode = 3
 [node name="GameCamera" type="Camera3D" parent="."]
 current = true
 fov = 55.0
+far = 40.0
 script = ExtResource("8_gjcnd")
 follow_distance = 4.0
 
