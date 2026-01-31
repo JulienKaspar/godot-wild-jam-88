@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwm23c42sbbui"]
+[gd_scene format=3 uid="uid://bwm23c42sbbui"]
 
 [ext_resource type="PackedScene" uid="uid://ci7fwckf813io" path="res://Assets/Furniture/lamp_table1.gltf" id="1_711gm"]
 [ext_resource type="PackedScene" uid="uid://142xvokhmr2g" path="res://Objects/PropCollider.tscn" id="2_syqg0"]
@@ -7,18 +7,19 @@
 height = 0.40234375
 radius = 0.22460938
 
-[node name="LampTable1" type="Node3D"]
+[node name="LampTable1" type="Node3D" unique_id=1777140093]
 
-[node name="PropCollider" parent="." instance=ExtResource("2_syqg0")]
+[node name="PropCollider" parent="." unique_id=2011569449 instance=ExtResource("2_syqg0")]
 
-[node name="lamp_table1" parent="PropCollider" instance=ExtResource("1_711gm")]
+[node name="lamp_table1" parent="PropCollider" unique_id=1206173997 instance=ExtResource("1_711gm")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PropCollider"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PropCollider" unique_id=785021077]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.20117188, 0)
 shape = SubResource("CylinderShape3D_20fxu")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=241197063]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44384336, 0)
 light_color = Color(1, 0.9866667, 0.19999999, 1)
-light_energy = 1.58
+light_energy = 0.415
 omni_range = 1.886
+omni_attenuation = 0.545

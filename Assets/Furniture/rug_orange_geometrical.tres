@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://csby6qlbgfibh"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://csby6qlbgfibh"]
 
 [ext_resource type="Texture2D" uid="uid://ckvbgw5kqwen" path="res://Assets/Maps/Rugs/small_orange_geometrical_pattern_rug.png" id="1_c5yqi"]
 

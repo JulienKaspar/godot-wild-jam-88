@@ -1,12 +1,12 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://b23iqfg3em6ty"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://b23iqfg3em6ty"]
 
-[ext_resource type="Shader" path="res://Shaders/tileable_wall.gdshader" id="1_gxwrj"]
+[ext_resource type="Shader" uid="uid://bfg8h8d77mbao" path="res://Shaders/tileable_wall.gdshader" id="1_gxwrj"]
 [ext_resource type="Texture2D" uid="uid://d0w2ft0m7ecpb" path="res://Assets/Maps/Walls/wood_paneling/atlas_flipped.PNG" id="2_7a2y2"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_gxwrj")
-shader_parameter/albedo = Color(0.5, 0.5, 0.5, 1)
+shader_parameter/albedo = Color(1, 1, 1, 1)
 shader_parameter/texture_albedo = ExtResource("2_7a2y2")
 shader_parameter/top_color = Color(0.2784, 0.2196, 0.1569, 1)
 shader_parameter/wall_height = 6.0

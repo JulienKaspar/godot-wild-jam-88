@@ -2,9 +2,9 @@
 extends Node3D
 
 @export var wall_material : Material
+@export var energy := 1.5
 
 @onready var lamp : SpotLight3D = $SpotLight3D
-@onready var original_brighness := lamp.light_energy
 
 
 func _ready() -> void:
@@ -31,4 +31,4 @@ func _process(_delta: float) -> void:
 		1.0
 	)
 	sine_factor = clampf(sine_factor, 0.0, 1.0)
-	lamp.light_energy = original_brighness * sine_factor
+	lamp.light_energy = energy * sine_factor

@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bomfddlwcw2ns"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bomfddlwcw2ns"]
 
 [ext_resource type="Texture2D" uid="uid://cc4bkbladhwup" path="res://Assets/Maps/Rugs/black_floral_rug.png" id="1_uli2d"]
 
@@ -7,5 +7,4 @@ transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 diffuse_mode = 3
-albedo_color = Color(0.5201213, 0.613352, 0.68254286, 1)
 albedo_texture = ExtResource("1_uli2d")

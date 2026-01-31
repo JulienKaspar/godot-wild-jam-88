@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://0xl2hvp8lpd8"]
+[gd_scene format=3 uid="uid://0xl2hvp8lpd8"]
 
 [ext_resource type="Script" uid="uid://b3w4gu3se7vnv" path="res://Gameplay/Pickups/drunkness_pickup.gd" id="1_oecnb"]
 [ext_resource type="Script" path="res://Gameplay/Pickups/pick_point.gd" id="2_jprtf"]
@@ -14,7 +14,7 @@ viewport_path = NodePath("PickupPrompt/SubViewport")
 [sub_resource type="SphereShape3D" id="SphereShape3D_fwtl3"]
 radius = 0.1
 
-[node name="DrunknessPickup2" type="RigidBody3D" node_paths=PackedStringArray("pick_point", "pristine_mesh", "consume_pfx")]
+[node name="DrunknessPickup2" type="RigidBody3D" unique_id=32622651 node_paths=PackedStringArray("pick_point", "pristine_mesh", "consume_pfx")]
 collision_layer = 32
 collision_mask = 55
 script = ExtResource("1_oecnb")
@@ -24,21 +24,24 @@ pristine_mesh = NodePath("pizza_slice")
 consume_pfx = NodePath("PfxConsuming")
 fully_consumable = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="pizza_slice" parent="." unique_id=1382371138 instance=ExtResource("6_cryrt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0055479035, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1713498120]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0007324219, 0.025243878, 0.15459663)
 shape = SubResource("BoxShape3D_f3k6e")
 
-[node name="PickupPrompt" type="Sprite3D" parent="."]
+[node name="PickupPrompt" type="Sprite3D" parent="." unique_id=55163934]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0013433695, 0.34856614, 0.000672698)
 billboard = 1
 texture = SubResource("ViewportTexture_fwtl3")
 
-[node name="SubViewport" type="SubViewport" parent="PickupPrompt"]
+[node name="SubViewport" type="SubViewport" parent="PickupPrompt" unique_id=1579528367]
 transparent_bg = true
 size = Vector2i(200, 50)
 
-[node name="Label" type="Label" parent="PickupPrompt/SubViewport"]
+[node name="Label" type="Label" parent="PickupPrompt/SubViewport" unique_id=397212670]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -51,16 +54,13 @@ text = "*
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PickPoint" type="Area3D" parent="."]
+[node name="PickPoint" type="Area3D" parent="." unique_id=515995538]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02576831, -0.0078573525)
 monitoring = false
 script = ExtResource("2_jprtf")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PickPoint"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PickPoint" unique_id=162246156]
 shape = SubResource("SphereShape3D_fwtl3")
 
-[node name="PfxConsuming" parent="." instance=ExtResource("3_f3k6e")]
+[node name="PfxConsuming" parent="." unique_id=1440655924 instance=ExtResource("3_f3k6e")]
 emitting = false
-
-[node name="pizza_slice" parent="." instance=ExtResource("6_cryrt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.019324124, 0)

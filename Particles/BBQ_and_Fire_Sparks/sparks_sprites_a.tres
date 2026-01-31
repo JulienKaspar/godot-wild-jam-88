@@ -1,4 +1,4 @@
-[gd_resource type="QuadMesh" load_steps=3 format=3 uid="uid://d3kn1qm3shxtu"]
+[gd_resource type="QuadMesh" format=3 uid="uid://d3kn1qm3shxtu"]
 
 [ext_resource type="Texture2D" uid="uid://cjw4tsuo4fi52" path="res://Particles/BBQ_and_Fire_Sparks/BBQ_and_Fire_Sparks_1.png" id="1_dpmrc"]
 
