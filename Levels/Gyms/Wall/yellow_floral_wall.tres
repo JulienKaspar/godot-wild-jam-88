@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cf6v2ddtk8ckb"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cf6v2ddtk8ckb"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_qyp24"]
 viewport_path = NodePath("SubViewport")

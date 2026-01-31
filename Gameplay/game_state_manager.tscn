@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ddjihknalfmo6"]
+[gd_scene format=3 uid="uid://ddjihknalfmo6"]
 
 [ext_resource type="Script" uid="uid://nq3n22eyxno3" path="res://Gameplay/game_state_manager.gd" id="1_fnjh8"]
 [ext_resource type="PackedScene" uid="uid://cfeukfanfm516" path="res://Levels/lvl_3_v2_tight_corridor.tscn" id="2_528ii"]
@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://3tl2dwe4usjp" path="res://Levels/lvl_climbing.tscn" id="13_njnb3"]
 [ext_resource type="PackedScene" uid="uid://bbbx66u5r3wdp" path="res://Levels/lvl_ascention.tscn" id="14_dvh3j"]
 
-[node name="GameStateManager" type="Node"]
+[node name="GameStateManager" type="Node" unique_id=491845168]
 script = ExtResource("1_fnjh8")
 levels = Array[PackedScene]([ExtResource("2_ww4k4"), ExtResource("3_w34dl"), ExtResource("4_avf66"), ExtResource("2_528ii"), ExtResource("6_528ii"), ExtResource("14_dvh3j"), ExtResource("13_njnb3"), ExtResource("11_n18aq"), ExtResource("6_ygpte"), ExtResource("7_dfbfs"), ExtResource("9_ygpte"), ExtResource("10_dfbfs"), ExtResource("12_dvh3j")])
 achievement_scene = ExtResource("9_ygpte")
