@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ddjihknalfmo6"]
+[gd_scene format=3 uid="uid://ddjihknalfmo6"]
 
 [ext_resource type="Script" uid="uid://nq3n22eyxno3" path="res://Gameplay/game_state_manager.gd" id="1_fnjh8"]
 [ext_resource type="PackedScene" uid="uid://cfeukfanfm516" path="res://Levels/lvl_3_v2_tight_corridor.tscn" id="2_528ii"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://7v5jiybjrlkl"]
+[gd_scene format=3 uid="uid://7v5jiybjrlkl"]
 
 [ext_resource type="Script" uid="uid://bexi8qx87vns3" path="res://UI/game_view.gd" id="1_lqkpn"]
 [ext_resource type="Theme" uid="uid://co1s85nypo7on" path="res://UI/Themes/default_font_theme.tres" id="2_ri753"]
@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://eii7fhigacem" path="res://UI/DialogueSystem/dialogue_display.tscn" id="8_ri753"]
 [ext_resource type="PackedScene" uid="uid://bc3p2wg2lxxy1" path="res://Audio/Music/music_manager.tscn" id="9_4eh1a"]
 [ext_resource type="Script" uid="uid://qbqo45dsh5i8" path="res://UI/DialogueSystem/dialogue_display.gd" id="9_ri753"]
-[ext_resource type="PackedScene" uid="uid://ceygtcy2sj7uq" path="res://Characters/Player/player_spawner.tscn" id="11_qrf3k"]
+[ext_resource type="PackedScene" uid="uid://ci283iyst43yj" path="res://Characters/Player/player_spawner.tscn" id="11_qrf3k"]
 [ext_resource type="PackedScene" uid="uid://d01verpwnpp0o" path="res://Audio/UI/ui_sounds.tscn" id="12_k7f6d"]
 [ext_resource type="PackedScene" uid="uid://c46y87jtli80e" path="res://Audio/SFX/sound_effects_pool.tscn" id="17_27j1k"]
 
@@ -25,16 +25,16 @@ shader_parameter/distortion_samples = 8
 shader_parameter/drunkness = 0.150000007125
 shader_parameter/bleakness = 0.0
 
-[node name="GameView" type="Node"]
+[node name="GameView" type="Node" unique_id=1367791172]
 process_mode = 3
 script = ExtResource("1_lqkpn")
 default_font_theme = ExtResource("2_ri753")
 readability_font_theme = ExtResource("3_27j1k")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=181530234]
 unique_name_in_owner = true
 
-[node name="PostProcessing" type="ColorRect" parent="CanvasLayer"]
+[node name="PostProcessing" type="ColorRect" parent="CanvasLayer" unique_id=372078625]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_gjcnd")
 anchors_preset = 15
@@ -45,7 +45,7 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("3_dgskv")
 
-[node name="SchmearFrame" type="TextureRect" parent="CanvasLayer"]
+[node name="SchmearFrame" type="TextureRect" parent="CanvasLayer" unique_id=1575083280]
 unique_name_in_owner = true
 visible = false
 offset_left = -538.0
@@ -54,40 +54,40 @@ offset_right = 2458.0
 offset_bottom = 1386.0
 texture = ExtResource("7_yww0m")
 
-[node name="DialogueDisplay" parent="CanvasLayer" instance=ExtResource("8_ri753")]
+[node name="DialogueDisplay" parent="CanvasLayer" unique_id=1437919000 instance=ExtResource("8_ri753")]
 unique_name_in_owner = true
 theme = ExtResource("2_ri753")
 script = ExtResource("9_ri753")
 
-[node name="MenuDisplayer" parent="CanvasLayer" instance=ExtResource("8_77qhn")]
+[node name="MenuDisplayer" parent="CanvasLayer" unique_id=1277966360 instance=ExtResource("8_77qhn")]
 unique_name_in_owner = true
 
-[node name="LoadedLevel" type="Node" parent="."]
+[node name="LoadedLevel" type="Node" parent="." unique_id=1925790467]
 script = ExtResource("5_4eh1a")
 
-[node name="Debug" type="Node" parent="."]
+[node name="Debug" type="Node" parent="." unique_id=1428998489]
 process_mode = 3
 
-[node name="DebugMasterMenu" parent="Debug" instance=ExtResource("6_ri6ga")]
+[node name="DebugMasterMenu" parent="Debug" unique_id=1892430990 instance=ExtResource("6_ri6ga")]
 
-[node name="GameCamera" type="Camera3D" parent="."]
+[node name="GameCamera" type="Camera3D" parent="." unique_id=1951573124]
 current = true
 fov = 55.0
 far = 40.0
 script = ExtResource("8_gjcnd")
 follow_distance = 4.0
 
-[node name="AudioListener3D" type="AudioListener3D" parent="GameCamera"]
+[node name="AudioListener3D" type="AudioListener3D" parent="GameCamera" unique_id=490380722]
 process_mode = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, -2)
 
-[node name="PlayerSpawner" parent="." instance=ExtResource("11_qrf3k")]
+[node name="PlayerSpawner" parent="." unique_id=1100284589 instance=ExtResource("11_qrf3k")]
 
-[node name="UI_Sounds" parent="." instance=ExtResource("12_k7f6d")]
+[node name="UI_Sounds" parent="." unique_id=1055082595 instance=ExtResource("12_k7f6d")]
 process_mode = 3
 bus = &"Master"
 
-[node name="MusicManager" parent="." instance=ExtResource("9_4eh1a")]
+[node name="MusicManager" parent="." unique_id=1983714965 instance=ExtResource("9_4eh1a")]
 process_mode = 3
 
-[node name="SoundEffectsPool" parent="." instance=ExtResource("17_27j1k")]
+[node name="SoundEffectsPool" parent="." unique_id=174861354 instance=ExtResource("17_27j1k")]

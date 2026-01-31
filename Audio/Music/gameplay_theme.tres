@@ -1,4 +1,4 @@
-[gd_resource type="AudioStreamInteractive" load_steps=21 format=3 uid="uid://dtacw7imirjsy"]
+[gd_resource type="AudioStreamInteractive" format=3 uid="uid://dtacw7imirjsy"]
 
 [ext_resource type="AudioStream" uid="uid://fq0vj2ffsvip" path="res://Assets/Audio/Music/PartyTheme/Theme_A.ogg" id="1_32pgm"]
 [ext_resource type="AudioStream" uid="uid://by207q4xm3tb1" path="res://Assets/Audio/Music/PartyTheme/Theme_A0.ogg" id="2_ap1ox"]
