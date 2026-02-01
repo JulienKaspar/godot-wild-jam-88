@@ -7,7 +7,9 @@ var time_elapsed_since_unfrozen: float = 0
 var has_collided_with_player: bool = false
 
 func _ready() -> void:
+	disable_barrel()
 	body_entered.connect(on_trap_triggered)
+	indie_ball.body_entered.connect(keg_noise)
 	
 func _process(delta: float) -> void:
 	if indie_ball.freeze: return
@@ -23,8 +25,7 @@ func handle_keg_collision(body: Node3D) -> void:
 		has_collided_with_player = true
 
 func on_trap_triggered(_body : Node3D) -> void:
-	indie_ball.freeze = false
-	indie_ball.body_entered.connect(keg_noise)
+	roll_barrel()
 	
 func keg_noise(_body) -> void:
 	if indie_ball.linear_velocity.length() < 0.5: return
@@ -34,4 +35,15 @@ func keg_noise(_body) -> void:
 	sound.stream = AudioManager.sfx_manager.keg_sounds
 	sound.play()
 	print("BOOM!")
-	
+
+
+func disable_barrel() -> void:
+	indie_ball.hide()
+	indie_ball.freeze = true
+	indie_ball.set_collision_layer_value(1, false)
+
+
+func roll_barrel() -> void:
+	indie_ball.show()
+	indie_ball.freeze = false
+	indie_ball.set_collision_layer_value(1, true)
