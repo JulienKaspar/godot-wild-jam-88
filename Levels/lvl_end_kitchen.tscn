@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://brcfjg73kkfmc" path="res://Gameplay/Interactables/interact_fridge.tscn" id="11_477ct"]
 [ext_resource type="PackedScene" uid="uid://b6wygim3drvis" path="res://Particles/Environment/pfx_fridge_bottom_mist.tscn" id="12_2c0cr"]
 [ext_resource type="PackedScene" uid="uid://d3unw205fanv5" path="res://Objects/Loot/pickup_beer.tscn" id="13_k7okp"]
-[ext_resource type="Material" uid="uid://dma21o2hw2ihv" path="res://Assets/Materials/kitchen_tiles_fg.tres" id="15_bv1kn"]
+[ext_resource type="Material" uid="uid://dma21o2hw2ihv" path="res://Assets/Materials/floors/kitchen_tiles_fg.tres" id="15_bv1kn"]
 
 [sub_resource type="Environment" id="Environment_v85wt"]
 background_mode = 1

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://u5gcrhq7gh1s"]
 
 [ext_resource type="Script" uid="uid://buuayjnejq81w" path="res://Objects/Architypes/LivingRoom/stairs.gd" id="1_0o3m1"]
-[ext_resource type="Material" uid="uid://b23iqfg3em6ty" path="res://Assets/Materials/wooden_wall.tres" id="2_6yb0c"]
-[ext_resource type="Material" uid="uid://dxy5f3akktyqu" path="res://Assets/Materials/green_carpet.tres" id="3_nafk8"]
+[ext_resource type="Material" uid="uid://b23iqfg3em6ty" path="res://Assets/Materials/walls/wooden_wall.tres" id="2_6yb0c"]
+[ext_resource type="Material" uid="uid://dxy5f3akktyqu" path="res://Assets/Materials/floors/green_carpet.tres" id="3_nafk8"]
 [ext_resource type="PackedScene" uid="uid://dxm7roj4ppccg" path="res://Assets/LivingRoom/stairs_thin_steps.gltf" id="4_0o3m1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uixye"]

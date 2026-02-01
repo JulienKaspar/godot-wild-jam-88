@@ -1,9 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://csh7g60ebb2xa"]
+[gd_scene format=3 uid="uid://csh7g60ebb2xa"]
 
 [ext_resource type="Script" uid="uid://dik2vrqjv0rts" path="res://Levels/Util/lvl_player_parkour_mission_flow.gd" id="1_8y3n1"]
 [ext_resource type="PackedScene" uid="uid://b32xnjnsc6xts" path="res://Levels/Gyms/Wall/wooden_wall.tscn" id="2_g78i3"]
 [ext_resource type="PackedScene" uid="uid://vyau441cbd2o" path="res://Levels/Gyms/Wall/yellow_floral_wall.tscn" id="3_jvag8"]
-[ext_resource type="Material" uid="uid://c5e3ou8as7bf0" path="res://Assets/Materials/purple_carpet.tres" id="4_8y3n1"]
+[ext_resource type="Material" uid="uid://c5e3ou8as7bf0" path="res://Assets/Materials/floors/purple_carpet.tres" id="4_8y3n1"]
 [ext_resource type="PackedScene" uid="uid://b7ee7to73wtp6" path="res://Levels/Gyms/Floor/floor1.tscn" id="4_g78i3"]
 [ext_resource type="PackedScene" uid="uid://dci81bvxxl4nx" path="res://Objects/Architypes/LivingRoom/stairs_thin.tscn" id="5_aek51"]
 [ext_resource type="PackedScene" uid="uid://3kn1j5376oof" path="res://Objects/Architypes/Furniture/table2.tscn" id="7_ioif7"]

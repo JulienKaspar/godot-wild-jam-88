@@ -1,7 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://e3iygjxhg00v"]
+[gd_scene format=3 uid="uid://e3iygjxhg00v"]
 
 [ext_resource type="PackedScene" uid="uid://d62n5s8htyn7" path="res://Characters/Teens/logic/TeenStanding.tscn" id="1_heiu2"]
-[ext_resource type="Material" uid="uid://dmxe2qlk68jn" path="res://Assets/Materials/reddish_floral_wall.tres" id="1_hlpl7"]
+[ext_resource type="Material" uid="uid://dmxe2qlk68jn" path="res://Assets/Materials/walls/reddish_floral_wall.tres" id="1_hlpl7"]
 [ext_resource type="PackedScene" uid="uid://csh5kgfnsuy4w" path="res://Assets/Characters/Teens/teen2.gltf" id="2_nl8db"]
 [ext_resource type="PackedScene" uid="uid://cksssdqb3x0hy" path="res://Objects/Architypes/Furniture/frame.tscn" id="3_5xgo6"]
 [ext_resource type="PackedScene" uid="uid://l4nbchy8y1g1" path="res://Objects/Architypes/Props/flowers1.tscn" id="4_55vo0"]
