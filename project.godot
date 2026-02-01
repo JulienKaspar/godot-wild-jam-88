@@ -19,7 +19,7 @@ run/main_scene="uid://7v5jiybjrlkl"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 run/max_fps=60
 boot_splash/bg_color=Color(0, 0, 0, 1)
-boot_splash/fullsize=false
+boot_splash/stretch_mode=0
 boot_splash/image="uid://doj5mkedsb2fw"
 config/icon="uid://c40kn0pvycf2w"
 

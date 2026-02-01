@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dh0rqo7uiycua"]
+
+[ext_resource type="Texture2D" uid="uid://bv81fbqeckvap" path="res://Assets/Maps/Footprints/footsteps_1.png" id="1_4bhgn"]
+[ext_resource type="Script" uid="uid://q3wjykfmtt0v" path="res://Objects/Decals/footsteps.gd" id="1_k2i5x"]
+[ext_resource type="Texture2D" uid="uid://dtua6dss3rya" path="res://Assets/Maps/Footprints/footsteps_2.png" id="3_mqqf0"]
+[ext_resource type="Texture2D" uid="uid://bewjqhmnkoiau" path="res://Assets/Maps/Footprints/footsteps_3.png" id="4_y1xbx"]
+[ext_resource type="Texture2D" uid="uid://duuvvp88f145a" path="res://Assets/Maps/Footprints/footsteps_4.png" id="5_53ouu"]
+[ext_resource type="Texture2D" uid="uid://bgrsubwe3ir0" path="res://Assets/Maps/Footprints/footsteps_5.png" id="6_842rh"]
+[ext_resource type="Texture2D" uid="uid://2aesy53t8ebt" path="res://Assets/Maps/Footprints/footsteps_6.png" id="7_rug60"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k2i5x"]
+resource_local_to_scene = true
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+diffuse_mode = 3
+albedo_texture = ExtResource("6_842rh")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_knkbo"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_k2i5x")
+
+[node name="Footsteps" type="Node3D" unique_id=1734010983]
+script = ExtResource("1_k2i5x")
+textures = Array[CompressedTexture2D]([ExtResource("1_4bhgn"), ExtResource("3_mqqf0"), ExtResource("4_y1xbx"), ExtResource("5_53ouu"), ExtResource("6_842rh"), ExtResource("7_rug60")])
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1176600622]
+transform = Transform3D(0.24441218, 0, 0, 0, 0.24441218, 0, 0, 0, 0.24441218, 0, 0.0057533085, 0)
+mesh = SubResource("PlaneMesh_knkbo")

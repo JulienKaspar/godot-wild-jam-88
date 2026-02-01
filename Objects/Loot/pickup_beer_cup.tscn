@@ -1,13 +1,16 @@
-[gd_scene load_steps=12 format=3 uid="uid://c50jjcmdyr7vp"]
+[gd_scene format=3 uid="uid://c50jjcmdyr7vp"]
 
 [ext_resource type="Script" uid="uid://b3w4gu3se7vnv" path="res://Gameplay/Pickups/drunkness_pickup.gd" id="1_1ac8f"]
-[ext_resource type="Script" path="res://Gameplay/Pickups/pick_point.gd" id="2_t35mh"]
+[ext_resource type="Script" uid="uid://dov4lhtuyrycf" path="res://Gameplay/Pickups/pick_point.gd" id="2_t35mh"]
 [ext_resource type="PackedScene" uid="uid://digw728iiuyg2" path="res://Particles/DrunknessPickups/pfx_beer_consuming.tscn" id="3_jbig5"]
 [ext_resource type="PackedScene" uid="uid://cpegwj8uc0kq5" path="res://Particles/DrunknessPickups/pfx_beer_break.tscn" id="4_rbkuy"]
-[ext_resource type="Script" path="res://Gameplay/Pickups/pfx_trigger_childs.gd" id="5_rbkuy"]
+[ext_resource type="Script" uid="uid://bcct1aqhnv1r" path="res://Gameplay/Pickups/pfx_trigger_childs.gd" id="5_rbkuy"]
 [ext_resource type="PackedScene" uid="uid://bw1ewj0l1c71n" path="res://Particles/DrunknessPickups/pfx_beer_dispose.tscn" id="5_u18ou"]
 [ext_resource type="PackedScene" uid="uid://do1w53g6gv4v7" path="res://Assets/Props/beer_cup.gltf" id="6_t35mh"]
 [ext_resource type="PackedScene" uid="uid://dsxj8qcelbum7" path="res://Assets/Props/beer_cup_broken.gltf" id="7_jbig5"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rbkuy"]
+friction = 0.4
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_px5wb"]
 height = 0.30083007
@@ -19,9 +22,10 @@ viewport_path = NodePath("PickupPrompt/SubViewport")
 [sub_resource type="SphereShape3D" id="SphereShape3D_fwtl3"]
 radius = 0.1
 
-[node name="DrunknessPickup2" type="RigidBody3D" node_paths=PackedStringArray("pick_point", "pristine_mesh", "consume_pfx", "dispose_pfx", "break_pfx", "broken_mesh")]
+[node name="DrunknessPickup2" type="RigidBody3D" unique_id=686264790 node_paths=PackedStringArray("pick_point", "pristine_mesh", "consume_pfx", "dispose_pfx", "break_pfx", "broken_mesh")]
 collision_layer = 32
 collision_mask = 55
+physics_material_override = SubResource("PhysicsMaterial_rbkuy")
 script = ExtResource("1_1ac8f")
 pick_point = NodePath("PickPoint")
 drunkness_increase = 2.5
@@ -32,21 +36,21 @@ can_break = true
 break_pfx = NodePath("cup/PfxBeerBreak")
 broken_mesh = NodePath("cup_broken")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=721827648]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0007324219, 0.15249817, 0)
 shape = SubResource("CylinderShape3D_px5wb")
 
-[node name="PickupPrompt" type="Sprite3D" parent="."]
+[node name="PickupPrompt" type="Sprite3D" parent="." unique_id=69286834]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0013433695, 0.34856614, 0.000672698)
 billboard = 1
 texture = SubResource("ViewportTexture_fwtl3")
 
-[node name="SubViewport" type="SubViewport" parent="PickupPrompt"]
+[node name="SubViewport" type="SubViewport" parent="PickupPrompt" unique_id=218228658]
 transparent_bg = true
 size = Vector2i(200, 50)
 
-[node name="Label" type="Label" parent="PickupPrompt/SubViewport"]
+[node name="Label" type="Label" parent="PickupPrompt/SubViewport" unique_id=964210197]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -59,29 +63,29 @@ text = "*
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PickPoint" type="Area3D" parent="."]
+[node name="PickPoint" type="Area3D" parent="." unique_id=1315093546]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15536867, 0)
 monitoring = false
 script = ExtResource("2_t35mh")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PickPoint"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PickPoint" unique_id=366512090]
 shape = SubResource("SphereShape3D_fwtl3")
 
-[node name="cup" parent="." instance=ExtResource("6_t35mh")]
+[node name="cup" parent="." unique_id=1039766431 instance=ExtResource("6_t35mh")]
 
-[node name="PfxBeerConsuming" parent="cup" instance=ExtResource("3_jbig5")]
+[node name="PfxBeerConsuming" parent="cup" unique_id=881479118 instance=ExtResource("3_jbig5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29612786, 0)
 visible = false
 emitting = false
 
-[node name="PfxBeerBreak" parent="cup" instance=ExtResource("4_rbkuy")]
+[node name="PfxBeerBreak" parent="cup" unique_id=819915316 instance=ExtResource("4_rbkuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2697593, 0)
 visible = false
 script = ExtResource("5_rbkuy")
 
-[node name="PfxBeerDispose" parent="cup" instance=ExtResource("5_u18ou")]
+[node name="PfxBeerDispose" parent="cup" unique_id=728069486 instance=ExtResource("5_u18ou")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.264432, 0)
 visible = false
 
-[node name="cup_broken" parent="." instance=ExtResource("7_jbig5")]
+[node name="cup_broken" parent="." unique_id=566142531 instance=ExtResource("7_jbig5")]
 transform = Transform3D(0.07426519, 0.9972385, 0, -0.9972385, 0.07426519, 0, 0, 0, 1, -0.05959561, 0.11651543, 0)

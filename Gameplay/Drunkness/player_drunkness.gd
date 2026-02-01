@@ -57,7 +57,7 @@ func reset_drunkness() -> void:
 	is_resetting = false
 
 func handle_sobriety() -> void:
-	if UserSettings.fail_state:
+	if UserSettings.fail_state && !GameStateManager.current_player.is_holding_beer():
 		paused = true
 		PlayerMovementUtils.knock_player_down()
 		

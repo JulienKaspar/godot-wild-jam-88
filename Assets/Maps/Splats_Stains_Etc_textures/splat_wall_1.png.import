@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2aesy53t8ebt"
-path.s3tc="res://.godot/imported/footsteps_6.png-05b533f59cc4fbb962a7d26e26714d27.s3tc.ctex"
-path.etc2="res://.godot/imported/footsteps_6.png-05b533f59cc4fbb962a7d26e26714d27.etc2.ctex"
+uid="uid://bwuyaejx8a58t"
+path.s3tc="res://.godot/imported/splat_wall_1.png-8d4252990b5c95bcab16149fd34b8ecc.s3tc.ctex"
+path.etc2="res://.godot/imported/splat_wall_1.png-8d4252990b5c95bcab16149fd34b8ecc.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Maps/Footprints/footsteps_6.png"
-dest_files=["res://.godot/imported/footsteps_6.png-05b533f59cc4fbb962a7d26e26714d27.s3tc.ctex", "res://.godot/imported/footsteps_6.png-05b533f59cc4fbb962a7d26e26714d27.etc2.ctex"]
+source_file="res://Assets/Maps/Splats_Stains_Etc_textures/splat_wall_1.png"
+dest_files=["res://.godot/imported/splat_wall_1.png-8d4252990b5c95bcab16149fd34b8ecc.s3tc.ctex", "res://.godot/imported/splat_wall_1.png-8d4252990b5c95bcab16149fd34b8ecc.etc2.ctex"]
 
 [params]
 
@@ -39,4 +39,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
