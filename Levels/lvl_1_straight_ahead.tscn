@@ -797,17 +797,21 @@ curve = SubResource("Curve3D_na4ed")
 visible = false
 
 [node name="Footsteps" parent="." unique_id=1734010983 instance=ExtResource("45_na4ed")]
-transform = Transform3D(0.654015, 0, -0.75648165, 0, 1, 0, 0.75648165, 0, 0.654015, 0.18351482, -0.00012207031, -0.25517666)
-modulate_color = Color(1, 0.79583335, 0.51, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15372413, 0.028065309, -0.40705916)
+modulate_color = Color(0.8, 0.7296, 0.27199998, 1)
 
-[node name="Footsteps2" parent="." unique_id=1001518005 instance=ExtResource("45_na4ed")]
-transform = Transform3D(0.11462507, 0, -0.993409, 0, 1, 0, 0.993409, 0, 0.11462507, 0.69841164, -0.00012207031, -0.4371128)
-modulate_color = Color(1, 0.79583335, 0.51, 1)
+[node name="Footsteps3" parent="." unique_id=1327810624 instance=ExtResource("45_na4ed")]
+transform = Transform3D(0.976616, 0, 0.21499102, 0, 1, 0, -0.21499102, 0, 0.976616, -0.08588946, 0.028065309, 0.09521827)
+modulate_color = Color(0.8, 0.7296, 0.27199998, 1)
 
-[node name="Footsteps4" parent="." unique_id=477039740 instance=ExtResource("45_na4ed")]
-transform = Transform3D(-0.23288532, 0, -0.97250426, 0, 1, 0, 0.97250426, 0, -0.23288532, 1.2028505, -0.00012207031, -0.4118415)
-modulate_color = Color(1, 0.79583335, 0.51, 1)
+[node name="Footsteps2" parent="." unique_id=1630757141 instance=ExtResource("45_na4ed")]
+transform = Transform3D(0.85904926, -0.006754073, -0.51184845, 0, 0.999913, -0.013194307, 0.511893, 0.01133456, 0.8589745, 0.21791184, 0.027093038, -0.7179688)
+modulate_color = Color(0.8, 0.7296, 0.27199998, 1)
 
-[node name="Footsteps3" parent="." unique_id=1676935950 instance=ExtResource("45_na4ed")]
-transform = Transform3D(0.97300607, 0, -0.23078004, 0, 1, 0, 0.23078004, 0, 0.97300607, -0.11693016, -0.000121831894, 0.14110982)
-modulate_color = Color(1, 0.79583335, 0.51, 1)
+[node name="Footsteps4" parent="." unique_id=625750896 instance=ExtResource("45_na4ed")]
+transform = Transform3D(0.3159431, -0.0067540733, -0.9487542, -0.008620387, 0.999913, -0.009988926, 0.94873905, 0.011334561, 0.31585735, 0.6808871, 0.032058105, -0.88011324)
+modulate_color = Color(0.8, 0.7296, 0.27199998, 1)
+
+[node name="Footsteps5" parent="." unique_id=724937375 instance=ExtResource("45_na4ed")]
+transform = Transform3D(-0.27253962, -0.0067540742, -0.96212107, -0.012746391, 0.999913, -0.0034087067, 0.9620602, 0.011334561, -0.272602, 1.1273496, 0.033879265, -0.77474594)
+modulate_color = Color(0.8, 0.7296, 0.27199998, 1)
