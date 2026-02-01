@@ -182,6 +182,9 @@ open_debug_menu={
 
 [layer_names]
 
+3d_render/layer_1="General"
+3d_render/layer_2="Floors"
+3d_render/layer_3="Walls"
 3d_physics/layer_1="House"
 3d_physics/layer_2="Player"
 3d_physics/layer_3="PropCollider"
