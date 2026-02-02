@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://r275y8gl7rcs"]
+
+[ext_resource type="Script" uid="uid://04nw6yd3gy23" path="res://Gameplay/Obstacles/slip_obstacle.gd" id="1_kkn5e"]
+[ext_resource type="PackedScene" uid="uid://be3qaqkeby70r" path="res://Assets/Furniture/fallen_fan.gltf" id="2_kkn5e"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e2oio"]
+size = Vector3(0.033203125, 0.38519287, 1.4331169)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kkn5e"]
+size = Vector3(0.37109375, 0.38519287, 0.37695313)
+
+[node name="TriperyTest" type="Node3D" unique_id=1958715694]
+script = ExtResource("1_kkn5e")
+force_multiplier = -30.0
+metadata/_custom_type_script = "uid://04nw6yd3gy23"
+
+[node name="Area3D" type="Area3D" parent="." unique_id=338974624]
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1947185049]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00029747933, 0.17007458, -0.060068432)
+shape = SubResource("BoxShape3D_e2oio")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D" unique_id=779102793]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00029747933, 0.17007458, 0.43289)
+shape = SubResource("BoxShape3D_kkn5e")
+
+[node name="fallen_fan" parent="." unique_id=1909044237 instance=ExtResource("2_kkn5e")]
+transform = Transform3D(-0.92533547, -0.052020263, 0.3755638, 0.37910342, -0.11150522, 0.9186116, -0.0059090946, 0.9924014, 0.12290077, 0.0015378594, 0.23850921, -0.7902503)

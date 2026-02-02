@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cp2bku4scmspv"]
+
+[ext_resource type="Texture2D" uid="uid://ba0uvpjflw7ng" path="res://Assets/Furniture/fan_head.png" id="1_sfa5n"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+diffuse_mode = 3
+albedo_texture = ExtResource("1_sfa5n")
