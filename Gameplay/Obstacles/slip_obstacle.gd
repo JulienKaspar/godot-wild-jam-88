@@ -39,6 +39,7 @@ func _process(delta: float) -> void:
 
 func handle_player_collision(body: Node3D) -> void:
 	if has_player_as_parent(body):
+		
 		if single_use:
 			#player_detector.monitorable = false
 			#player_detector.monitoring = false
@@ -47,11 +48,8 @@ func handle_player_collision(body: Node3D) -> void:
 			player_detector.queue_free() # non of the above doe sactually stop the area to trigger, always give up
 			PlayerMovementUtils.slip_player(GameStateManager.current_player.player_global_pos, force_multiplier)
 			play_slip_sound()
+			spawn_particles()
 			
-			var player_facing_dir = GameStateManager.current_player.player_move_dir.normalized()
-			var angle = atan2(player_facing_dir.x, player_facing_dir.y)
-			disable_pfx.global_rotation = Vector3(0,angle,0)
-			disable_pfx.emitting = true
 			for mesh in hide_meshes:
 				mesh.hide()
 			
@@ -59,7 +57,16 @@ func handle_player_collision(body: Node3D) -> void:
 			time_elapsed_since_activation = 0
 			PlayerMovementUtils.slip_player(GameStateManager.current_player.player_global_pos, force_multiplier)
 			play_slip_sound()
-	
+			spawn_particles()
+
+
+func spawn_particles() -> void:
+	var player_facing_dir = GameStateManager.current_player.player_move_dir.normalized()
+	var angle = atan2(player_facing_dir.x, player_facing_dir.y)
+	disable_pfx.global_rotation = Vector3(0,angle,0)
+	disable_pfx.emitting = true
+
+
 func has_player_as_parent(body: Node3D) -> bool:
 	var current_node_checked: Node
 	for i in max_parent_check_depth:
