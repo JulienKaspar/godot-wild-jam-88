@@ -1,12 +1,12 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dxy5f3akktyqu"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dxy5f3akktyqu"]
 
-[ext_resource type="Shader" path="res://Shaders/tileable_floor.gdshader" id="1_m7bmx"]
+[ext_resource type="Shader" uid="uid://bg4owxt8roht6" path="res://Shaders/tileable_floor.gdshader" id="1_m7bmx"]
 [ext_resource type="Texture2D" uid="uid://cdu2wjhgj7mo2" path="res://Assets/Maps/Carpet_tiles/green_carpet/atlas.PNG" id="2_4n0s6"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_m7bmx")
-shader_parameter/albedo = Vector4(0.8, 0.8, 0.4, 0)
+shader_parameter/albedo = Vector4(1, 1, 0.5, 0)
 shader_parameter/texture_albedo = ExtResource("2_4n0s6")
 shader_parameter/scale = 2.0
 shader_parameter/roughness = 1.0
