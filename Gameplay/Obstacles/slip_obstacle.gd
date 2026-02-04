@@ -61,6 +61,9 @@ func handle_player_collision(body: Node3D) -> void:
 
 
 func spawn_particles() -> void:
+	if not disable_pfx:
+		return
+	
 	var player_facing_dir = GameStateManager.current_player.player_move_dir.normalized()
 	var angle = atan2(player_facing_dir.x, player_facing_dir.y)
 	disable_pfx.global_rotation = Vector3(0,angle,0)
