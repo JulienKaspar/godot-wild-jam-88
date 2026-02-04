@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://34iklrp3b0p0"]
+
+[ext_resource type="Script" uid="uid://04nw6yd3gy23" path="res://Gameplay/Obstacles/slip_obstacle.gd" id="1_py2em"]
+[ext_resource type="PackedScene" uid="uid://thjvntog6edp" path="res://Assets/Props/book_pile_02.gltf" id="2_py2em"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pq50p"]
+size = Vector3(0.3260498, 0.111572266, 0.20227051)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_byjfc"]
+size = Vector3(0.20085144, 0.111572266, 0.3086548)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_58ir0"]
+size = Vector3(0.48703003, 0.111572266, 0.20903516)
+
+[node name="RugHazard" type="Node3D" unique_id=434682282]
+script = ExtResource("1_py2em")
+force_multiplier = -30.0
+metadata/_custom_type_script = "uid://04nw6yd3gy23"
+
+[node name="book_pile_2" parent="." unique_id=1481790396 instance=ExtResource("2_py2em")]
+
+[node name="Area3D" type="Area3D" parent="." unique_id=568344266]
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=648075755]
+transform = Transform3D(0.989005, 0, -1.1995882, 0, 1.5547159, 0, 1.1995882, 0, 0.989005, 0.3913704, 0.0826416, 0.25123844)
+shape = SubResource("BoxShape3D_pq50p")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Area3D" unique_id=1807079035]
+transform = Transform3D(1.517734, 0, -0.33708483, 0, 1.5547159, 0, 0.33708483, 0, 1.517734, 0.027659677, 0.0826416, 0.49374744)
+shape = SubResource("BoxShape3D_byjfc")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D" unique_id=2078338323]
+transform = Transform3D(1.5539387, 0, 0.04916036, 0, 1.554716, 0, -0.04916036, 0, 1.5539387, -0.21241328, 0.0826416, 0.20616244)
+shape = SubResource("BoxShape3D_58ir0")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://8jsl1k2fwjho"]
+[gd_scene format=3 uid="uid://8jsl1k2fwjho"]
 
 [ext_resource type="Script" uid="uid://04nw6yd3gy23" path="res://Gameplay/Obstacles/slip_obstacle.gd" id="1_r4kwa"]
 [ext_resource type="PackedScene" uid="uid://de4ybhxhy2q8x" path="res://Assets/Furniture/banana_peel.gltf" id="2_8fpav"]
@@ -8,7 +8,7 @@
 height = 0.79003906
 radius = 0.18017578
 
-[node name="SlipperyTest" type="Node3D" node_paths=PackedStringArray("disable_pfx", "hide_meshes")]
+[node name="SlipperyTest" type="Node3D" unique_id=806726901 node_paths=PackedStringArray("disable_pfx", "hide_meshes")]
 script = ExtResource("1_r4kwa")
 force_multiplier = 75.0
 single_use = true
@@ -16,13 +16,13 @@ disable_pfx = NodePath("PfxBananaSlip")
 hide_meshes = [NodePath("banana_peel")]
 metadata/_custom_type_script = "uid://04nw6yd3gy23"
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Area3D" type="Area3D" parent="." unique_id=1022677662]
 collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1065778314]
 shape = SubResource("CylinderShape3D_6orly")
 
-[node name="banana_peel" parent="." instance=ExtResource("2_8fpav")]
+[node name="banana_peel" parent="." unique_id=437762338 instance=ExtResource("2_8fpav")]
 transform = Transform3D(1.4339478, 0, 0, 0, 1.4339478, 0, 0, 0, 1.4339478, 0, 0, 0)
 
-[node name="PfxBananaSlip" parent="." instance=ExtResource("3_8fpav")]
+[node name="PfxBananaSlip" parent="." unique_id=1059918237 instance=ExtResource("3_8fpav")]

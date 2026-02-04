@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://k4sy01h4qss8"]
+
+[ext_resource type="Script" uid="uid://04nw6yd3gy23" path="res://Gameplay/Obstacles/slip_obstacle.gd" id="1_1q2vt"]
+[ext_resource type="Texture2D" uid="uid://c80w80b4j2dq4" path="res://Assets/Maps/Splats_Stains_Etc_textures/splat_ground_1.png" id="2_1q2vt"]
+[ext_resource type="PackedScene" uid="uid://ipb5qq76r2qn" path="res://Particles/Banana_Slip/pfx_banana_slip.tscn" id="3_6klt5"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6orly"]
+height = 0.79003906
+radius = 0.1640625
+
+[node name="SlipperyTest" type="Node3D" unique_id=1943904206 node_paths=PackedStringArray("disable_pfx", "hide_meshes")]
+script = ExtResource("1_1q2vt")
+force_multiplier = 75.0
+disable_pfx = NodePath("PfxBananaSlip")
+hide_meshes = [null]
+metadata/_custom_type_script = "uid://04nw6yd3gy23"
+
+[node name="Decal_TrashPaper3" type="Decal" parent="." unique_id=1982868397]
+transform = Transform3D(0.43758655, 0, 0, 0, 0.43758652, 0, 0, 0, 0.43758678, 0, 0, 0)
+size = Vector3(2, 2.4487305, 2)
+texture_albedo = ExtResource("2_1q2vt")
+modulate = Color(0.64, 0.552, 0.288, 1)
+upper_fade = 0.04459525
+lower_fade = 0.049481563
+cull_mask = 2
+
+[node name="Area3D" type="Area3D" parent="." unique_id=949441996]
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1153314674]
+shape = SubResource("CylinderShape3D_6orly")
+
+[node name="PfxBananaSlip" parent="." unique_id=422178062 instance=ExtResource("3_6klt5")]

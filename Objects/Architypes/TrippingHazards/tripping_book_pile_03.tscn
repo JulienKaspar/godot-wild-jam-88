@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://cwmabbs7xkbbi"]
+
+[ext_resource type="Script" uid="uid://04nw6yd3gy23" path="res://Gameplay/Obstacles/slip_obstacle.gd" id="1_rjiti"]
+[ext_resource type="PackedScene" uid="uid://cq0e278b22hsc" path="res://Assets/Props/book_pile_03.gltf" id="2_rjiti"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pq50p"]
+size = Vector3(0.32110596, 0.111572266, 0.23242188)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xs5yq"]
+size = Vector3(0.32110596, 0.111572266, 0.36914063)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_byjfc"]
+size = Vector3(0.3393364, 0.111572266, 0.49612427)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_58ir0"]
+size = Vector3(0.2705078, 0.111572266, 0.20903516)
+
+[node name="RugHazard" type="Node3D" unique_id=434682282]
+script = ExtResource("1_rjiti")
+force_multiplier = -30.0
+metadata/_custom_type_script = "uid://04nw6yd3gy23"
+
+[node name="book_pile_3" parent="." unique_id=919435617 instance=ExtResource("2_rjiti")]
+
+[node name="Area3D" type="Area3D" parent="." unique_id=568344266]
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=648075755]
+transform = Transform3D(1.5270509, 4.3383416e-08, -0.29199103, -3.9672326e-08, 1.5547156, 2.3518725e-08, 0.29199103, -1.564936e-08, 1.5270509, 0.38906357, 0.0826416, 0.27253392)
+shape = SubResource("BoxShape3D_pq50p")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Area3D" unique_id=349954776]
+transform = Transform3D(1.071003, 4.7843463e-09, -1.1269851, -3.173565e-09, 1.5547155, 3.5842351e-09, 1.1269851, -1.686189e-10, 1.071003, 0.23030989, 0.0826416, 0.5213479)
+shape = SubResource("BoxShape3D_xs5yq")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Area3D" unique_id=1807079035]
+transform = Transform3D(1.4552115, 0, -0.5472677, 0, 1.5547159, 0, 0.5472677, 0, 1.4552115, -0.022271067, 0.0826416, 0.27865678)
+shape = SubResource("BoxShape3D_byjfc")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D" unique_id=2078338323]
+transform = Transform3D(1.0239531, 0, -1.1698992, 0, 1.5547167, 0, 1.1698996, 0, 1.023953, -0.49816728, 0.0826416, 0.46412206)
+shape = SubResource("BoxShape3D_58ir0")
