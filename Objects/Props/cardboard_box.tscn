@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c2trfbf56e2o6"]
+
+[ext_resource type="PackedScene" uid="uid://142xvokhmr2g" path="res://Objects/PropCollider.tscn" id="1_fq0io"]
+[ext_resource type="PackedScene" uid="uid://d15qvjg6bv856" path="res://Assets/Props/cardboard_box.gltf" id="2_6nyi0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5wthw"]
+size = Vector3(1, 0.6664429, 0.63183594)
+
+[node name="CardboardBox" type="Node3D" unique_id=551021445]
+
+[node name="PropCollider" parent="." unique_id=1013094739 instance=ExtResource("1_fq0io")]
+
+[node name="cardboard_box" parent="PropCollider" unique_id=452391085 instance=ExtResource("2_6nyi0")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PropCollider" unique_id=176497774]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.341156, 0)
+shape = SubResource("BoxShape3D_5wthw")

@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://d3q08ibtt3hv"]
+
+[ext_resource type="Texture2D" uid="uid://diqsfxfi7t4m7" path="res://Assets/Maps/Cardboard_Box/cardboard_outside_tape_dark.png" id="1_iny28"]
+
+[resource]
+resource_name = "cardboard box inner"
+cull_mode = 2
+diffuse_mode = 3
+albedo_texture = ExtResource("1_iny28")

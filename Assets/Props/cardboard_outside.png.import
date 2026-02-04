@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://diqsfxfi7t4m7"
-path.s3tc="res://.godot/imported/cardboard_outside_tape_dark.png-f6bded8d799c90b3d099a824497d5991.s3tc.ctex"
-path.etc2="res://.godot/imported/cardboard_outside_tape_dark.png-f6bded8d799c90b3d099a824497d5991.etc2.ctex"
+uid="uid://br44m0exngwf6"
+path.s3tc="res://.godot/imported/cardboard_outside.png-0c4b07d01707d4f37e8b4ed342094be4.s3tc.ctex"
+path.etc2="res://.godot/imported/cardboard_outside.png-0c4b07d01707d4f37e8b4ed342094be4.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Maps/Cardboard_Box/cardboard_outside_tape_dark.png"
-dest_files=["res://.godot/imported/cardboard_outside_tape_dark.png-f6bded8d799c90b3d099a824497d5991.s3tc.ctex", "res://.godot/imported/cardboard_outside_tape_dark.png-f6bded8d799c90b3d099a824497d5991.etc2.ctex"]
+source_file="res://Assets/Props/cardboard_outside.png"
+dest_files=["res://.godot/imported/cardboard_outside.png-0c4b07d01707d4f37e8b4ed342094be4.s3tc.ctex", "res://.godot/imported/cardboard_outside.png-0c4b07d01707d4f37e8b4ed342094be4.etc2.ctex"]
 
 [params]
 
