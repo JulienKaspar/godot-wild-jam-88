@@ -52,11 +52,6 @@ size = Vector3(1.7758789, 2.334961, 2.6558838)
 
 [node name="LvlTestFloorIsLava" type="Node3D" unique_id=780381452]
 
-[node name="PlayerSpawnPoint_main2" type="Node3D" parent="." unique_id=839116160]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.919648, 8.727953, -2.5710297)
-script = ExtResource("1_f50n2")
-metadata/_custom_type_script = "uid://cm1uqdo37kpmi"
-
 [node name="PlayerSpawnPoint_main" type="Node3D" parent="." unique_id=397169674]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.389385, 0, -12.31708)
 script = ExtResource("1_f50n2")
