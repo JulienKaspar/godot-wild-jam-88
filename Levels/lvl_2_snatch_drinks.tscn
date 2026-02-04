@@ -50,6 +50,7 @@
 [ext_resource type="PackedScene" uid="uid://wrdfnbkf7w2k" path="res://Objects/Architypes/Props/candle1.tscn" id="45_csti4"]
 [ext_resource type="AudioStream" uid="uid://t2yngijmupfi" path="res://Assets/Audio/SFX/Props/bbq_fire.ogg" id="46_pmix6"]
 [ext_resource type="PackedScene" uid="uid://djvhkhmcy0tn5" path="res://Shaders/shader_caching_onpath.tscn" id="47_10cov"]
+[ext_resource type="PackedScene" uid="uid://mfnhnn5ln7du" path="res://Objects/Architypes/TrippingHazards/slippery_pizza_slice.tscn" id="51_eltgc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t4a3y"]
 shading_mode = 0
@@ -81,7 +82,7 @@ size = Vector3(1.8151245, 3.45717, 0.2)
 [sub_resource type="BoxShape3D" id="BoxShape3D_17q8k"]
 size = Vector3(3.1295853, 3.45717, 0.09472656)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e46qe"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b0yta"]
 resource_local_to_scene = true
 diffuse_mode = 3
 specular_mode = 2
@@ -524,7 +525,7 @@ shape = SubResource("BoxShape3D_17q8k")
 
 [node name="Stairs_wide" parent="Layout/Stairs" unique_id=1441565839 instance=ExtResource("17_iy3ty")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12.69914, -0.7660129, -12.728362)
-wall_material = SubResource("StandardMaterial3D_e46qe")
+wall_material = SubResource("StandardMaterial3D_b0yta")
 ground_material = ExtResource("3_t4a3y")
 
 [node name="Stairs_wide2" parent="Layout/Stairs" unique_id=735994930 instance=ExtResource("17_iy3ty")]
@@ -942,3 +943,6 @@ curve = SubResource("Curve3D_ed3ej")
 
 [node name="ShaderCachingOnpath" parent="AutoShaderCache/Path3D" unique_id=1554469749 instance=ExtResource("47_10cov")]
 visible = false
+
+[node name="SlipperyTest" parent="." unique_id=1943904206 instance=ExtResource("51_eltgc")]
+transform = Transform3D(0.6507875, 0, -0.75925994, 0, 1, 0, 0.75925994, 0, 0.6507875, 4.6544867, 0.0006952286, -3.2586284)

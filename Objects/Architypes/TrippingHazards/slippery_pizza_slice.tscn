@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://mfnhnn5ln7du"]
+
+[ext_resource type="Script" uid="uid://04nw6yd3gy23" path="res://Gameplay/Obstacles/slip_obstacle.gd" id="1_s81ku"]
+[ext_resource type="PackedScene" uid="uid://b88x04dtrswcp" path="res://Assets/Hazards/pizza_slice_ground.gltf" id="2_s81ku"]
+[ext_resource type="PackedScene" uid="uid://ipb5qq76r2qn" path="res://Particles/Banana_Slip/pfx_banana_slip.tscn" id="3_38iyv"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6orly"]
+height = 0.79003906
+radius = 0.1640625
+
+[node name="SlipperyTest" type="Node3D" unique_id=1943904206 node_paths=PackedStringArray("disable_pfx", "hide_meshes")]
+script = ExtResource("1_s81ku")
+force_multiplier = 75.0
+disable_pfx = NodePath("PfxBananaSlip")
+hide_meshes = [null]
+metadata/_custom_type_script = "uid://04nw6yd3gy23"
+
+[node name="pizza_slice_ground" parent="." unique_id=1846266882 instance=ExtResource("2_s81ku")]
+
+[node name="Area3D" type="Area3D" parent="." unique_id=949441996]
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1153314674]
+shape = SubResource("CylinderShape3D_6orly")
+
+[node name="PfxBananaSlip" parent="." unique_id=422178062 instance=ExtResource("3_38iyv")]

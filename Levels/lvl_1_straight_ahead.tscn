@@ -49,9 +49,12 @@
 [ext_resource type="Texture2D" uid="uid://bwuyaejx8a58t" path="res://Assets/Maps/Splats_Stains_Etc_textures/splat_wall_1.png" id="46_pigw5"]
 [ext_resource type="Texture2D" uid="uid://ci7dshurc6kfo" path="res://Assets/Maps/Trash_textures/trash_box.png" id="47_2fb4f"]
 [ext_resource type="Texture2D" uid="uid://d2t5nrcx0m53r" path="res://Assets/Maps/Wallpaper_Rips/wallpaper_rip_1.png" id="47_dhj1e"]
+[ext_resource type="Texture2D" uid="uid://dv4a8naxaitkv" path="res://Assets/Maps/Wallpaper_Rips/wallpaper_rips_2.png" id="48_71d78"]
 [ext_resource type="Texture2D" uid="uid://c0advvckwcmw6" path="res://Assets/Maps/Trash_textures/trash_glass_1.png" id="48_v8ufa"]
+[ext_resource type="Texture2D" uid="uid://cg5wuape63evk" path="res://Assets/Maps/Wallpaper_Rips/wallpaper_rips_3.png" id="49_es7c4"]
 [ext_resource type="Texture2D" uid="uid://dc6h6lp6dv03r" path="res://Assets/Maps/Trash_textures/trash_glass_2.png" id="49_etdsd"]
 [ext_resource type="Texture2D" uid="uid://6hjgslkl60bs" path="res://Assets/Maps/Trash_textures/trash_glass_3.png" id="50_ex2fv"]
+[ext_resource type="Texture2D" uid="uid://cnw5b6rom6fqm" path="res://Assets/Maps/Wallpaper_Rips/wallpaper_rips_4.png" id="50_w6laf"]
 [ext_resource type="Texture2D" uid="uid://b6w6yqm6sy4d0" path="res://Assets/Maps/Trash_textures/trash_paper_1.png" id="51_etdsd"]
 [ext_resource type="Texture2D" uid="uid://c6ro3txpb3nga" path="res://Assets/Maps/Trash_textures/trash_paper_2.png" id="52_ex2fv"]
 [ext_resource type="Texture2D" uid="uid://dpe1cbytfdjdx" path="res://Assets/Maps/Trash_textures/trash_ripped_purple.png" id="53_8s10x"]
@@ -59,6 +62,7 @@
 [ext_resource type="PackedScene" uid="uid://34iklrp3b0p0" path="res://Objects/Architypes/TrippingHazards/tripping_book_pile_02.tscn" id="58_khj4u"]
 [ext_resource type="PackedScene" uid="uid://k4sy01h4qss8" path="res://Objects/Architypes/TrippingHazards/slippery_puddle.tscn" id="59_emwwe"]
 [ext_resource type="PackedScene" uid="uid://cwmabbs7xkbbi" path="res://Objects/Architypes/TrippingHazards/tripping_book_pile_03.tscn" id="59_khj4u"]
+[ext_resource type="PackedScene" uid="uid://b2rny3w0qdj7n" path="res://Assets/Props/beer_can_broken.gltf" id="60_emwwe"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_736oy"]
 size = Vector3(6.11322, 5.400879, 2.0011597)
@@ -547,7 +551,7 @@ transform = Transform3D(0.10707964, 0, 0.9942504, 0, 1, 0, -0.9942504, 0, 0.1070
 transform = Transform3D(0.10532623, 0.85697997, -0.50447184, -0.019298678, -0.50543654, -0.862648, -0.99425066, 0.10059511, -0.03669714, 13.596507, 1.591107, -14.613977)
 
 [node name="ToppledTableRound" type="StaticBody3D" parent="Furniture" unique_id=1399193581]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.152313, 0, -0.2843883)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3739543, 0, -0.2843883)
 collision_layer = 13
 collision_mask = 3
 
@@ -561,7 +565,7 @@ transform = Transform3D(0.63828427, -0.6485712, -0.41466692, 0, 0.53866786, -0.8
 transform = Transform3D(0.07562266, 0, -0.99713653, 0, 1, 0, 0.99713653, 0, 0.07562266, 15.943466, 0.0002758503, -7.3124943)
 
 [node name="Flowers4" parent="Furniture" unique_id=545615252 instance=ExtResource("29_736oy")]
-transform = Transform3D(0.06955148, -0.97859526, -0.19368504, 0.3307319, 0.20579433, -0.92101306, 0.9411583, 0, 0.337966, 5.4672956, 0.11695795, -0.4644703)
+transform = Transform3D(0.06955148, -0.97859526, -0.19368504, 0.3307319, 0.20579433, -0.92101306, 0.9411583, 0, 0.337966, 5.6889367, 0.11695795, -0.4644703)
 
 [node name="Teens" type="Node3D" parent="." unique_id=713805393]
 
@@ -821,7 +825,7 @@ model_index = 1
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 16.466175, 1.7709706, -7.23631)
 
 [node name="bottle_broken" parent="Decor" unique_id=1132514674 instance=ExtResource("41_y6674")]
-transform = Transform3D(0.36575407, 0, 0.9307115, 0, 1, 0, -0.9307115, 0, 0.36575407, 5.1008205, 0.0024975436, -0.074827775)
+transform = Transform3D(0.36575407, 0, 0.9307115, 0, 1, 0, -0.9307115, 0, 0.36575407, 5.3224616, 0.0024975436, -0.074827775)
 
 [node name="Footsteps" parent="Decor" unique_id=1734010983 instance=ExtResource("45_na4ed")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15372413, 0.028065309, -0.40705916)
@@ -844,7 +848,7 @@ transform = Transform3D(-0.27253962, -0.0067540742, -0.96212107, -0.012746391, 0
 modulate_color = Color(0.8, 0.7296, 0.27199998, 1)
 
 [node name="cup_broken" parent="Decor" unique_id=1172530161 instance=ExtResource("42_pcqx0")]
-transform = Transform3D(0.96556807, 0, 0.26015058, 0, 1, 0, -0.26015058, 0, 0.96556807, 5.557924, 0.0022555622, -0.1784645)
+transform = Transform3D(0.96556807, 0, 0.26015058, 0, 1, 0, -0.26015058, 0, 0.96556807, 5.779565, 0.0022555622, -0.1784645)
 
 [node name="Decal_WallStain" type="Decal" parent="Decor" unique_id=1375663813]
 transform = Transform3D(0.5045426, -0.001459136, -0.110579856, -0.110589474, -0.0066570234, -0.5044988, 2.6093743e-09, 0.5164751, -0.0068150554, 13.638197, 1.4680654, -8.846072)
@@ -855,9 +859,45 @@ lower_fade = 0.049481563
 cull_mask = 4
 
 [node name="Decal_WallpaperRips" type="Decal" parent="Decor" unique_id=1493493206]
-transform = Transform3D(-0.99999994, 8.742277e-08, 0, 3.8213705e-15, 4.3711385e-08, -1, -8.742277e-08, -0.99999994, -4.371139e-08, 13.527984, 3.239109, -17.209015)
+transform = Transform3D(-0.99999994, 8.742277e-08, 0, 3.8213705e-15, 4.3711385e-08, -1, -8.742277e-08, -0.99999994, -4.371139e-08, 13.527984, 3.239109, -17.04624)
 size = Vector3(0.5, 0.3, 2)
 texture_albedo = ExtResource("47_dhj1e")
+modulate = Color(0.7468333, 1, 0.69, 1)
+upper_fade = 0.04459525
+lower_fade = 0.049481563
+cull_mask = 4
+
+[node name="Decal_WallpaperRips6" type="Decal" parent="Decor" unique_id=1776064642]
+transform = Transform3D(-4.3711378e-08, -4.3711378e-08, -0.9999999, -0.9999999, 8.7422755e-08, 4.371138e-08, 8.742277e-08, 0.9999999, -4.371138e-08, 15.573704, 3.765654, -8.829571)
+size = Vector3(0.5, 0.3, 2)
+texture_albedo = ExtResource("47_dhj1e")
+modulate = Color(0.7468333, 1, 0.69, 1)
+upper_fade = 0.04459525
+lower_fade = 0.049481563
+cull_mask = 4
+
+[node name="Decal_WallpaperRips3" type="Decal" parent="Decor" unique_id=912849827]
+transform = Transform3D(-0.76077414, 6.650899e-08, 0, 2.9072e-15, 3.3254494e-08, -0.7607742, -6.650899e-08, -0.76077414, -3.3254498e-08, 15.844798, 3.4619915, -20.743473)
+size = Vector3(0.5, 0.3, 2)
+texture_albedo = ExtResource("48_71d78")
+modulate = Color(0.7468333, 1, 0.69, 1)
+upper_fade = 0.04459525
+lower_fade = 0.049481563
+cull_mask = 4
+
+[node name="Decal_WallpaperRips4" type="Decal" parent="Decor" unique_id=1444628794]
+transform = Transform3D(-0.6521906, 5.7016315e-08, 0, 2.4922623e-15, 2.8508158e-08, -0.6521907, -5.7016315e-08, -0.6521906, -2.8508161e-08, 19.88113, 3.6912136, -20.743473)
+size = Vector3(0.5, 0.3, 2)
+texture_albedo = ExtResource("49_es7c4")
+modulate = Color(0.7468333, 1, 0.69, 1)
+upper_fade = 0.04459525
+lower_fade = 0.049481563
+cull_mask = 4
+
+[node name="Decal_WallpaperRips5" type="Decal" parent="Decor" unique_id=182600632]
+transform = Transform3D(-0.99999994, 8.742277e-08, 0, 3.8213705e-15, 4.3711385e-08, -1, -8.742277e-08, -0.99999994, -4.371139e-08, 18.043951, 3.512218, -20.743473)
+size = Vector3(0.5, 0.3, 2)
+texture_albedo = ExtResource("50_w6laf")
 modulate = Color(0.7468333, 1, 0.69, 1)
 upper_fade = 0.04459525
 lower_fade = 0.049481563
@@ -929,12 +969,18 @@ lower_fade = 0.049481563
 cull_mask = 2
 
 [node name="Decal_TrashRippedPurple" type="Decal" parent="Decor" unique_id=196400504]
-transform = Transform3D(0.32271603, 0.00047226367, 0.03579039, 7.596647e-09, 0.32466668, -0.0042840694, -0.03579341, 0.0042579602, 0.32268804, 6.4518175, 0.043895356, -0.15763223)
+transform = Transform3D(0.32271603, 0.00047226367, 0.03579039, 7.596647e-09, 0.32466668, -0.0042840694, -0.03579341, 0.0042579602, 0.32268804, 6.6734586, 0.043895356, -0.15763223)
 size = Vector3(2, 2.4487305, 2)
 texture_albedo = ExtResource("53_8s10x")
 upper_fade = 0.04459525
 lower_fade = 0.049481563
 cull_mask = 2
+
+[node name="cup_broken2" parent="Decor" unique_id=1878949551 instance=ExtResource("42_pcqx0")]
+transform = Transform3D(0.70615584, 0, 0.70805645, 0, 1, 0, -0.70805645, 0, 0.70615584, 13.753378, 0.0022546086, -7.960578)
+
+[node name="cup_broken3" parent="Decor" unique_id=1811258728 instance=ExtResource("42_pcqx0")]
+transform = Transform3D(0.34757403, 0, -0.9376526, 0, 1, 0, 0.9376526, 0, 0.34757403, 14.008041, 0.002254847, -8.387555)
 
 [node name="AutoShaderCache" type="Node3D" parent="." unique_id=1934945725]
 
@@ -956,3 +1002,6 @@ transform = Transform3D(0.9904181, 0, 0.13810144, 0, 1, 0, -0.13810144, 0, 0.990
 
 [node name="SlipperyTest" parent="." unique_id=1943904206 instance=ExtResource("59_emwwe")]
 transform = Transform3D(0.818571, 0, -0.5744054, 0, 1, 0, 0.5744054, 0, 0.818571, 13.507124, 0.046710372, -7.5462155)
+
+[node name="can_broken" parent="." unique_id=2139335552 instance=ExtResource("60_emwwe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.349601, -2.3841858e-07, -7.932796)
