@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://04nw6yd3gy23" path="res://Gameplay/Obstacles/slip_obstacle.gd" id="1_py2em"]
 [ext_resource type="PackedScene" uid="uid://thjvntog6edp" path="res://Assets/Props/book_pile_02.gltf" id="2_py2em"]
+[ext_resource type="PackedScene" uid="uid://dlnhns3vx4ehr" path="res://Particles/Book_Papers/pfx_book_slip.tscn" id="3_byjfc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pq50p"]
 size = Vector3(0.3260498, 0.111572266, 0.20227051)
@@ -12,9 +13,10 @@ size = Vector3(0.20085144, 0.111572266, 0.3086548)
 [sub_resource type="BoxShape3D" id="BoxShape3D_58ir0"]
 size = Vector3(0.48703003, 0.111572266, 0.20903516)
 
-[node name="RugHazard" type="Node3D" unique_id=434682282]
+[node name="RugHazard" type="Node3D" unique_id=434682282 node_paths=PackedStringArray("disable_pfx")]
 script = ExtResource("1_py2em")
 force_multiplier = -30.0
+disable_pfx = NodePath("PfxBookSlip")
 metadata/_custom_type_script = "uid://04nw6yd3gy23"
 
 [node name="book_pile_2" parent="." unique_id=1481790396 instance=ExtResource("2_py2em")]
@@ -33,3 +35,5 @@ shape = SubResource("BoxShape3D_byjfc")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D" unique_id=2078338323]
 transform = Transform3D(1.5539387, 0, 0.04916036, 0, 1.554716, 0, -0.04916036, 0, 1.5539387, -0.21241328, 0.0826416, 0.20616244)
 shape = SubResource("BoxShape3D_58ir0")
+
+[node name="PfxBookSlip" parent="." unique_id=2069981182 instance=ExtResource("3_byjfc")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ipb5qq76r2qn"]
+[gd_scene format=3 uid="uid://ipb5qq76r2qn"]
 
 [ext_resource type="Texture2D" uid="uid://deloli0k1huka" path="res://Particles/Banana_Slip/banana_atlas_2.png" id="1_ctnkg"]
 
@@ -23,6 +23,7 @@ anim_offset_max = 1.0
 transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
+diffuse_mode = 3
 vertex_color_use_as_albedo = true
 vertex_color_is_srgb = true
 albedo_color = Color(0.699487, 0.7119775, 0.5166526, 1)
@@ -37,7 +38,7 @@ particles_anim_loop = false
 material = SubResource("StandardMaterial3D_s5x81")
 size = Vector2(1, 0.4)
 
-[node name="PfxBananaSlip" type="GPUParticles3D"]
+[node name="PfxBananaSlip" type="GPUParticles3D" unique_id=2069981182]
 emitting = false
 amount = 5
 one_shot = true
