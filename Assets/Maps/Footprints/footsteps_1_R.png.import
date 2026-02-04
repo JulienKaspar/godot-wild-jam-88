@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bv81fbqeckvap"
-path.s3tc="res://.godot/imported/footsteps_1.png-ca02787af828f184134d62f7d4d9810d.s3tc.ctex"
-path.etc2="res://.godot/imported/footsteps_1.png-ca02787af828f184134d62f7d4d9810d.etc2.ctex"
+uid="uid://di4w2cg77hdwj"
+path.s3tc="res://.godot/imported/footsteps_1_R.png-08d30fb5cb3cc128ce8b23a9cfdf5145.s3tc.ctex"
+path.etc2="res://.godot/imported/footsteps_1_R.png-08d30fb5cb3cc128ce8b23a9cfdf5145.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Maps/Footprints/footsteps_1.png"
-dest_files=["res://.godot/imported/footsteps_1.png-ca02787af828f184134d62f7d4d9810d.s3tc.ctex", "res://.godot/imported/footsteps_1.png-ca02787af828f184134d62f7d4d9810d.etc2.ctex"]
+source_file="res://Assets/Maps/Footprints/footsteps_1_R.png"
+dest_files=["res://.godot/imported/footsteps_1_R.png-08d30fb5cb3cc128ce8b23a9cfdf5145.s3tc.ctex", "res://.godot/imported/footsteps_1_R.png-08d30fb5cb3cc128ce8b23a9cfdf5145.etc2.ctex"]
 
 [params]
 
@@ -39,4 +39,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
