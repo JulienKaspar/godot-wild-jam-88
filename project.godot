@@ -37,10 +37,6 @@ LevelLoader="*res://Gameplay/LevelTransitions/level_loader.gd"
 DialogueSystem="*res://UI/DialogueSystem/dialogue_system.tscn"
 AchievementSystem="*res://Gameplay/Achievements/achievement_system.tscn"
 
-[debug]
-
-settings/stdout/print_fps=true
-
 [display]
 
 window/size/viewport_width=1920
