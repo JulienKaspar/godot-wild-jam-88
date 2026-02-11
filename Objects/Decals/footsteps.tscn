@@ -1,21 +1,27 @@
 [gd_scene format=3 uid="uid://dh0rqo7uiycua"]
 
-[ext_resource type="Texture2D" uid="uid://bv81fbqeckvap" path="res://Assets/Maps/Footprints/footsteps_1.png" id="1_4bhgn"]
 [ext_resource type="Script" uid="uid://q3wjykfmtt0v" path="res://Objects/Decals/footsteps.gd" id="1_k2i5x"]
-[ext_resource type="Texture2D" uid="uid://dtua6dss3rya" path="res://Assets/Maps/Footprints/footsteps_2.png" id="3_mqqf0"]
-[ext_resource type="Texture2D" uid="uid://bewjqhmnkoiau" path="res://Assets/Maps/Footprints/footsteps_3.png" id="4_y1xbx"]
-[ext_resource type="Texture2D" uid="uid://duuvvp88f145a" path="res://Assets/Maps/Footprints/footsteps_4.png" id="5_53ouu"]
-[ext_resource type="Texture2D" uid="uid://bgrsubwe3ir0" path="res://Assets/Maps/Footprints/footsteps_5.png" id="6_842rh"]
-[ext_resource type="Texture2D" uid="uid://2aesy53t8ebt" path="res://Assets/Maps/Footprints/footsteps_6.png" id="7_rug60"]
+[ext_resource type="Texture2D" uid="uid://ck47i66ygk51" path="res://Assets/Maps/Footprints/footsteps_1_L.png" id="2_lemhp"]
+[ext_resource type="Texture2D" uid="uid://di4w2cg77hdwj" path="res://Assets/Maps/Footprints/footsteps_1_R.png" id="3_nmt68"]
+[ext_resource type="Texture2D" uid="uid://ehfqtfecajkn" path="res://Assets/Maps/Footprints/footsteps_2_L.png" id="4_oy5mw"]
+[ext_resource type="Texture2D" uid="uid://ccik2dk8b5yic" path="res://Assets/Maps/Footprints/footsteps_2_R.png" id="5_cof85"]
+[ext_resource type="Texture2D" uid="uid://bdd5w4b6prgth" path="res://Assets/Maps/Footprints/footsteps_3_L.png" id="6_qy66l"]
+[ext_resource type="Texture2D" uid="uid://b0cs2ffkpaetc" path="res://Assets/Maps/Footprints/footsteps_3_R.png" id="7_ho3rc"]
+[ext_resource type="Texture2D" uid="uid://b4tqblmehohy1" path="res://Assets/Maps/Footprints/footsteps_4_L.png" id="8_lcdjt"]
+[ext_resource type="Texture2D" uid="uid://het56pxfop00" path="res://Assets/Maps/Footprints/footsteps_4_R.png" id="9_2vdae"]
+[ext_resource type="Texture2D" uid="uid://bjifnbo27d4m3" path="res://Assets/Maps/Footprints/footsteps_5_L.png" id="10_smwg2"]
+[ext_resource type="Texture2D" uid="uid://cf0com03776n4" path="res://Assets/Maps/Footprints/footsteps_5_R.png" id="11_f3fyo"]
+[ext_resource type="Texture2D" uid="uid://bhph2ijetfyuh" path="res://Assets/Maps/Footprints/footsteps_6_L.png" id="12_u7xwe"]
+[ext_resource type="Texture2D" uid="uid://cbjd4in68cddj" path="res://Assets/Maps/Footprints/footsteps_6_R.png" id="13_dmnik"]
 
 [node name="Footsteps" type="Node3D" unique_id=1734010983]
 script = ExtResource("1_k2i5x")
-textures = Array[CompressedTexture2D]([ExtResource("1_4bhgn"), ExtResource("3_mqqf0"), ExtResource("4_y1xbx"), ExtResource("5_53ouu"), ExtResource("6_842rh"), ExtResource("7_rug60")])
+textures = Array[CompressedTexture2D]([ExtResource("2_lemhp"), ExtResource("3_nmt68"), ExtResource("4_oy5mw"), ExtResource("5_cof85"), ExtResource("6_qy66l"), ExtResource("7_ho3rc"), ExtResource("8_lcdjt"), ExtResource("9_2vdae"), ExtResource("10_smwg2"), ExtResource("11_f3fyo"), ExtResource("12_u7xwe"), ExtResource("13_dmnik")])
 
 [node name="Decal" type="Decal" parent="." unique_id=2027051745]
 transform = Transform3D(0.23138243, 0, 0, 0, 0.23138243, 0, 0, 0, 0.23138243, 0, 0, 0)
 size = Vector3(2, 1.3417969, 2)
-texture_albedo = ExtResource("1_4bhgn")
+texture_albedo = ExtResource("2_lemhp")
 upper_fade = 0.01576674
 lower_fade = 0.02308386
 cull_mask = 6
