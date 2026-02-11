@@ -65,61 +65,61 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":24,
+			"count":28,
 			"max":[
-				0.8297176957130432,
-				0.05240831896662712,
+				1.4740856885910034,
+				0.0025348570197820663,
 				0.3913608193397522
 			],
 			"min":[
-				-0.8888490200042725,
-				-0.011926042847335339,
-				-0.39643117785453796
+				-0.016829129308462143,
+				-0.7865457534790039,
+				-0.3954010307788849
 			],
 			"type":"VEC3"
 		},
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":24,
+			"count":28,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":24,
+			"count":28,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":3,
 			"componentType":5123,
-			"count":48,
+			"count":78,
 			"type":"SCALAR"
 		}
 	],
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":288,
+			"byteLength":336,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":288,
-			"byteOffset":288,
+			"byteLength":336,
+			"byteOffset":336,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":192,
-			"byteOffset":576,
+			"byteLength":224,
+			"byteOffset":672,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":96,
-			"byteOffset":768,
+			"byteLength":156,
+			"byteOffset":896,
 			"target":34963
 		}
 	],
@@ -133,7 +133,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":864,
+			"byteLength":1052,
 			"uri":"cardboard_light_tape.bin"
 		}
 	]

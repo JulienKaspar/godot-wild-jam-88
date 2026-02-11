@@ -65,61 +65,61 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":28,
+			"count":36,
 			"max":[
-				0.9970914125442505,
-				0.05880291387438774,
+				1.571837306022644,
+				0.046164169907569885,
 				0.4035111367702484
 			],
 			"min":[
-				-0.9955129623413086,
-				-0.015189814381301403,
-				-0.39017757773399353
+				-0.30747905373573303,
+				-0.7810038328170776,
+				-0.3901776373386383
 			],
 			"type":"VEC3"
 		},
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":28,
+			"count":36,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":28,
+			"count":36,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":3,
 			"componentType":5123,
-			"count":54,
+			"count":102,
 			"type":"SCALAR"
 		}
 	],
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":336,
+			"byteLength":432,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":336,
-			"byteOffset":336,
+			"byteLength":432,
+			"byteOffset":432,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":224,
-			"byteOffset":672,
+			"byteLength":288,
+			"byteOffset":864,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":108,
-			"byteOffset":896,
+			"byteLength":204,
+			"byteOffset":1152,
 			"target":34963
 		}
 	],
@@ -133,7 +133,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":1004,
+			"byteLength":1356,
 			"uri":"cardboard_dark_tape.bin"
 		}
 	]

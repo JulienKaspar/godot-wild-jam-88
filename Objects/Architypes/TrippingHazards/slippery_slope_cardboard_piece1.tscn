@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://iih1jkhaygbs"]
+
+[ext_resource type="PackedScene" uid="uid://cnp1q1f2hriad" path="res://Assets/Props/cardboard_piece_1.gltf" id="1_h6g7k"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1gamp"]
+size = Vector3(0.68361664, 0.22521973, 0.70410156)
+
+[node name="CardboardSlipperySlope_Dark" type="Node3D" unique_id=1517490489]
+
+[node name="cardboard_piece_1" parent="." unique_id=1067394662 instance=ExtResource("1_h6g7k")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=115892046]
+collision_layer = 192
+collision_mask = 0
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=1022373620]
+transform = Transform3D(0.8912204, 0.45357051, 0, -0.45357051, 0.8912204, 0, 0, 0, 1, 0.24827766, -0.19038342, 0)
+shape = SubResource("BoxShape3D_1gamp")
