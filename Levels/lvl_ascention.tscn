@@ -454,55 +454,6 @@ transform = Transform3D(0.9674093, 0, 0.2532177, 0, 1, 0, -0.2532177, 0, 0.96740
 
 [node name="Hazards" type="Node3D" parent="." unique_id=156530936]
 
-[node name="CSGBox3D10" type="CSGBox3D" parent="Hazards" unique_id=1062042799]
-transform = Transform3D(1, 9.2690655e-10, -4.2570392e-10, -1.0199166e-09, 0.9038063, -0.42794162, -1.1894485e-11, 0.42794162, 0.9038063, 7.8410077, 2.5778768, -7.5665035)
-use_collision = true
-collision_layer = 192
-collision_priority = 2.0
-size = Vector3(0.7583008, 0.41192627, 1.0556641)
-
-[node name="CSGBox3D14" type="CSGBox3D" parent="Hazards" unique_id=1937716292]
-transform = Transform3D(1, 9.2690655e-10, -4.2570392e-10, -1.0199166e-09, 0.9038063, -0.42794162, -1.1894485e-11, 0.42794162, 0.9038063, 7.6839213, 3.0066843, -8.665446)
-use_collision = true
-collision_layer = 192
-collision_priority = 2.0
-size = Vector3(1.1069946, 0.41192627, 0.8156128)
-
-[node name="CSGBox3D15" type="CSGBox3D" parent="Hazards" unique_id=1966435706]
-transform = Transform3D(1, 9.2690655e-10, -4.2570392e-10, -1.0199166e-09, 0.9038063, -0.42794162, -1.1894485e-11, 0.42794162, 0.9038063, 7.0943995, 4.1238813, -11.02495)
-use_collision = true
-collision_layer = 192
-collision_priority = 2.0
-size = Vector3(1.0158997, 0.41192627, 0.8156128)
-
-[node name="CSGBox3D16" type="CSGBox3D" parent="Hazards" unique_id=1597037868]
-transform = Transform3D(1, 9.2690655e-10, -4.2570392e-10, -1.0199166e-09, 0.9038063, -0.42794162, -1.1894485e-11, 0.42794162, 0.9038063, 6.840799, 3.691641, -10.112066)
-use_collision = true
-collision_layer = 192
-collision_priority = 2.0
-size = Vector3(0.5821686, 0.41192627, 1.1908417)
-
-[node name="CSGBox3D11" type="CSGBox3D" parent="Hazards" unique_id=1673797380]
-transform = Transform3D(1, 9.2690655e-10, -4.2570392e-10, -1.0199166e-09, 0.9038063, -0.42794162, -1.1894485e-11, 0.42794162, 0.9038063, 7.8844495, 1.0039518, -4.288681)
-use_collision = true
-collision_layer = 192
-collision_priority = 2.0
-size = Vector3(0.65930176, 0.41192627, 1.2490234)
-
-[node name="CSGBox3D12" type="CSGBox3D" parent="Hazards" unique_id=1574937026]
-transform = Transform3D(1, 9.2690655e-10, -4.2570392e-10, -1.0199166e-09, 0.9038063, -0.42794162, -1.1894485e-11, 0.42794162, 0.9038063, 7.4452004, 1.4217596, -5.1710844)
-use_collision = true
-collision_layer = 192
-collision_priority = 2.0
-size = Vector3(0.65930176, 0.41192627, 0.6394043)
-
-[node name="CSGBox3D13" type="CSGBox3D" parent="Hazards" unique_id=1504309064]
-transform = Transform3D(1, 9.2690655e-10, -4.2570392e-10, -1.0199166e-09, 0.9038063, -0.42794162, -1.1894485e-11, 0.42794162, 0.9038063, 7.212179, 1.9331996, -6.2512383)
-use_collision = true
-collision_layer = 192
-collision_priority = 2.0
-size = Vector3(1.1670532, 0.41192627, 0.6394043)
-
 [node name="RugHazard" parent="Hazards" unique_id=24597406 instance=ExtResource("19_1hhqf")]
 transform = Transform3D(0.09155376, 0, 0.99580026, 0, 1, 0, -0.99580026, 0, 0.09155376, 5.729887, 4.5335603, -12.64883)
 
@@ -564,7 +515,7 @@ transform = Transform3D(0.99452734, 0, 0.10447639, 0, 1, 0, -0.10447639, 0, 0.99
 transform = Transform3D(0.9974321, 0, -0.071619295, 0, 1, 0, 0.071619295, 0, 0.9974321, -0.62091494, 2.375419, -10.848433)
 
 [node name="CardboardSlipperySlope_Dark8" parent="Hazards" unique_id=2073094803 instance=ExtResource("32_yxo3s")]
-transform = Transform3D(0.9971982, 0, -0.074804686, 0, 1, 0, 0.074804686, 0, 0.9971982, 1.9264966, 1.2676151, -11.6319685)
+transform = Transform3D(0.9971982, 0, -0.074804686, 0, 1, 0, 0.074804686, 0, 0.9971982, 1.948042, 1.2827085, -11.630353)
 
 [node name="CardboardSlipperySlope_Dark9" parent="Hazards" unique_id=1875656781 instance=ExtResource("31_yxo3s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49914575, 1.8182254, -11.275604)
@@ -577,6 +528,24 @@ transform = Transform3D(1, 0, 0, 0, 0.9997879, 0.020593429, 0, -0.020593429, 0.9
 
 [node name="CardboardSlipperySlope_Dark13" parent="Hazards" unique_id=1627029935 instance=ExtResource("31_yxo3s")]
 transform = Transform3D(-0.98901844, 0, -0.14779206, 0, 1, 0, 0.14779206, 0, -0.98901844, -14.62843, 2.8587523, -17.036974)
+
+[node name="CardboardSlipperySlope_Dark14" parent="Hazards" unique_id=264589043 instance=ExtResource("30_0re2t")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.8501673, 1.534253, -4.8156195)
+
+[node name="CardboardSlipperySlope_Dark15" parent="Hazards" unique_id=1568944512 instance=ExtResource("31_yxo3s")]
+transform = Transform3D(0.10612521, 0, -0.99435276, 0, 1, 0, 0.99435276, 0, 0.10612521, 7.404508, 1.7578337, -5.3805833)
+
+[node name="CardboardSlipperySlope_Dark16" parent="Hazards" unique_id=2094851465 instance=ExtResource("32_6ad42")]
+transform = Transform3D(-0.088233724, 0, -0.9960998, 0, 1, 0, 0.9960998, 0, -0.088233724, 7.5093374, 2.2138515, -6.4396806)
+
+[node name="CardboardSlipperySlope_Dark17" parent="Hazards" unique_id=1040501676 instance=ExtResource("32_6ad42")]
+transform = Transform3D(0.13127033, -0.05805488, -0.98964524, 0.00027754833, 0.9982859, -0.058524944, 0.9913466, 0.007407911, 0.13106145, 6.908192, 2.2234251, -6.4379654)
+
+[node name="CardboardSlipperySlope_Dark18" parent="Hazards" unique_id=825726996 instance=ExtResource("32_yxo3s")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.801161, 3.3017259, -8.683955)
+
+[node name="CardboardSlipperySlope_Dark19" parent="Hazards" unique_id=1051843004 instance=ExtResource("31_yxo3s")]
+transform = Transform3D(-0.09749611, 0, -0.9952359, 0, 1, 0, 0.9952359, 0, -0.09749611, 7.2603245, 3.2226725, -8.696378)
 
 [node name="Consumables" type="Node3D" parent="." unique_id=124697457]
 
@@ -751,3 +720,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.959071, 0.7275727, -16.07
 
 [node name="door_closed2" parent="Decor" unique_id=1415606935 instance=ExtResource("15_hgt8c")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -16.033543, -0.038847446, -12.235643)
+
+[node name="CardboardSlipperySlope_Dark" parent="." unique_id=938397742 instance=ExtResource("30_0re2t")]
+transform = Transform3D(-0.06799792, 0, -0.9976855, 0, 1, 0, 0.9976855, 0, -0.06799792, 6.94237, 4.3070607, -10.9985485)
+
+[node name="CardboardSlipperySlope_Dark2" parent="." unique_id=1547090059 instance=ExtResource("32_6ad42")]
+transform = Transform3D(0.008063294, 0, -0.99996746, 0, 1, 0, 0.99996746, 0, 0.008063294, 6.970233, 4.529677, -11.531274)
+
+[node name="CardboardSlipperySlope_Dark3" parent="." unique_id=1213364173 instance=ExtResource("31_yxo3s")]
+transform = Transform3D(0.19063762, 0, -0.9816605, 0, 1, 0, 0.9816605, 0, 0.19063762, 7.21706, 4.577575, -11.455474)
