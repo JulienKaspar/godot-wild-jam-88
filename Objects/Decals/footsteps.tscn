@@ -20,7 +20,7 @@ textures = Array[CompressedTexture2D]([ExtResource("2_lemhp"), ExtResource("3_nm
 
 [node name="Decal" type="Decal" parent="." unique_id=2027051745]
 transform = Transform3D(0.23138243, 0, 0, 0, 0.23138243, 0, 0, 0, 0.23138243, 0, 0, 0)
-size = Vector3(2, 1.3417969, 2)
+size = Vector3(1, 1.342, 2)
 texture_albedo = ExtResource("2_lemhp")
 upper_fade = 0.01576674
 lower_fade = 0.02308386
