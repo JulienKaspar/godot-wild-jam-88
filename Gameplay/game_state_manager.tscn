@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b6vbg26wkrdh3" path="res://Levels/lvl_0_backyard.tscn" id="2_ww4k4"]
 [ext_resource type="PackedScene" uid="uid://dpy3h6kf53s5j" path="res://Levels/lvl_1_straight_ahead.tscn" id="3_w34dl"]
 [ext_resource type="PackedScene" uid="uid://bn4n02t1b2gf3" path="res://Levels/lvl_2_snatch_drinks.tscn" id="4_avf66"]
+[ext_resource type="PackedScene" uid="uid://bara74vtouwyw" path="res://Levels/lvl_buffet.tscn" id="5_njnb3"]
 [ext_resource type="PackedScene" uid="uid://d2a7apkvocsew" path="res://Levels/lvl_4_disco.tscn" id="6_ygpte"]
 [ext_resource type="PackedScene" uid="uid://et2abtkee7pw" path="res://Levels/lvl_end_kitchen.tscn" id="7_dfbfs"]
 [ext_resource type="PackedScene" uid="uid://b4b5m1g6ed5my" path="res://Levels/lvl_traps.tscn" id="9_dvh3j"]
@@ -18,6 +19,6 @@
 
 [node name="GameStateManager" type="Node" unique_id=491845168]
 script = ExtResource("1_fnjh8")
-levels = Array[PackedScene]([ExtResource("2_ww4k4"), ExtResource("3_w34dl"), ExtResource("4_avf66"), ExtResource("2_528ii"), ExtResource("14_dvh3j"), ExtResource("13_njnb3"), ExtResource("11_n18aq"), ExtResource("9_dvh3j"), ExtResource("6_ygpte"), ExtResource("7_dfbfs"), ExtResource("9_ygpte"), ExtResource("10_dfbfs"), ExtResource("12_dvh3j")])
+levels = Array[PackedScene]([ExtResource("2_ww4k4"), ExtResource("3_w34dl"), ExtResource("4_avf66"), ExtResource("5_njnb3"), ExtResource("2_528ii"), ExtResource("14_dvh3j"), ExtResource("13_njnb3"), ExtResource("11_n18aq"), ExtResource("9_dvh3j"), ExtResource("6_ygpte"), ExtResource("7_dfbfs"), ExtResource("9_ygpte"), ExtResource("10_dfbfs"), ExtResource("12_dvh3j")])
 achievement_scene = ExtResource("9_ygpte")
 shader_cashing_level = ExtResource("12_2ik6d")

@@ -19,7 +19,6 @@
 [ext_resource type="PackedScene" uid="uid://d3unw205fanv5" path="res://Objects/Loot/pickup_beer.tscn" id="11_2icu1"]
 [ext_resource type="Material" uid="uid://l1sgod1lv1b6" path="res://Assets/Materials/walls/yellow_floral_wall.tres" id="11_y6gv2"]
 [ext_resource type="PackedScene" uid="uid://d2fq258dik5oo" path="res://Objects/Architypes/Furniture/table1.tscn" id="12_gh4oo"]
-[ext_resource type="PackedScene" uid="uid://8jsl1k2fwjho" path="res://Objects/Architypes/TrippingHazards/slippery_banana_peel.tscn" id="16_y345g"]
 [ext_resource type="PackedScene" uid="uid://dnn6p65hj813g" path="res://Objects/Architypes/TrippingHazards/tripping_lamp.tscn" id="17_1arg0"]
 [ext_resource type="PackedScene" uid="uid://d62n5s8htyn7" path="res://Characters/Teens/logic/TeenStanding.tscn" id="18_mdsrj"]
 [ext_resource type="PackedScene" uid="uid://c0d87wbdbi2al" path="res://Objects/Architypes/Furniture/couch1.tscn" id="20_fs7fc"]
@@ -46,7 +45,6 @@
 [ext_resource type="PackedScene" uid="uid://dxvnrp0252dr0" path="res://Assets/Furniture/table_round1.gltf" id="43_pcqx0"]
 [ext_resource type="PackedScene" uid="uid://djvhkhmcy0tn5" path="res://Shaders/shader_caching_onpath.tscn" id="44_6pn5q"]
 [ext_resource type="PackedScene" uid="uid://dh0rqo7uiycua" path="res://Objects/Decals/footsteps.tscn" id="45_na4ed"]
-[ext_resource type="Texture2D" uid="uid://bwuyaejx8a58t" path="res://Assets/Maps/Splats_Stains_Etc_textures/splat_wall_1.png" id="46_pigw5"]
 [ext_resource type="Texture2D" uid="uid://ci7dshurc6kfo" path="res://Assets/Maps/Trash_textures/trash_box.png" id="47_2fb4f"]
 [ext_resource type="Texture2D" uid="uid://d2t5nrcx0m53r" path="res://Assets/Maps/Wallpaper_Rips/wallpaper_rip_1.png" id="47_dhj1e"]
 [ext_resource type="Texture2D" uid="uid://dv4a8naxaitkv" path="res://Assets/Maps/Wallpaper_Rips/wallpaper_rips_2.png" id="48_71d78"]
@@ -60,7 +58,6 @@
 [ext_resource type="Texture2D" uid="uid://dpe1cbytfdjdx" path="res://Assets/Maps/Trash_textures/trash_ripped_purple.png" id="53_8s10x"]
 [ext_resource type="PackedScene" uid="uid://b67d56dh36a5c" path="res://Objects/Architypes/TrippingHazards/tripping_book_pile_01.tscn" id="57_yb00h"]
 [ext_resource type="PackedScene" uid="uid://34iklrp3b0p0" path="res://Objects/Architypes/TrippingHazards/tripping_book_pile_02.tscn" id="58_khj4u"]
-[ext_resource type="PackedScene" uid="uid://k4sy01h4qss8" path="res://Objects/Architypes/TrippingHazards/slippery_puddle.tscn" id="59_emwwe"]
 [ext_resource type="PackedScene" uid="uid://cwmabbs7xkbbi" path="res://Objects/Architypes/TrippingHazards/tripping_book_pile_03.tscn" id="59_khj4u"]
 [ext_resource type="PackedScene" uid="uid://b2rny3w0qdj7n" path="res://Assets/Props/beer_can_broken.gltf" id="60_emwwe"]
 
@@ -467,7 +464,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.0
 transform = Transform3D(0.40715143, 0.62427163, 0.6667175, -0.03900339, 0.74117845, -0.67017365, -0.9125275, 0.24685797, 0.32612067, 2.41404, 0.39598918, -3.2726815)
 
 [node name="TableRound2" parent="Furniture" unique_id=1853289354 instance=ExtResource("9_82upk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.220282, 0.9424968, -15.726966)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.22132, 0.9424968, -15.825534)
 
 [node name="Table4" parent="Furniture" unique_id=819441375 instance=ExtResource("12_gh4oo")]
 transform = Transform3D(0.1056566, 0, 0.99440265, 0, 1, 0, -0.99440265, 0, 0.1056566, 9.985751, 0.986674, -14.245832)
@@ -485,7 +482,7 @@ pushy = false
 model_index = 2
 
 [node name="Couch2" parent="Furniture" unique_id=1957074322 instance=ExtResource("20_fs7fc")]
-transform = Transform3D(0.16790438, 0, 0.9858033, 0, 1, 0, -0.9858033, 0, 0.16790438, 14.579728, 0.985814, -18.417105)
+transform = Transform3D(0.16790438, 0, 0.9858033, 0, 1, 0, -0.9858033, 0, 0.16790438, 14.554571, 0.985814, -17.667818)
 
 [node name="LampStanding2" parent="Furniture" unique_id=373353808 instance=ExtResource("1_buw6o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8127756, 0.053318262, -1.5698526)
@@ -567,6 +564,12 @@ transform = Transform3D(0.07562266, 0, -0.99713653, 0, 1, 0, 0.99713653, 0, 0.07
 [node name="Flowers4" parent="Furniture" unique_id=545615252 instance=ExtResource("29_736oy")]
 transform = Transform3D(0.06955148, -0.97859526, -0.19368504, 0.3307319, 0.20579433, -0.92101306, 0.9411583, 0, 0.337966, 5.6889367, 0.11695795, -0.4644703)
 
+[node name="Shelf3" parent="Furniture" unique_id=1189865020 instance=ExtResource("5_crrcm")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 20.666384, 0.97987556, -16.12999)
+
+[node name="Shelf5" parent="Furniture" unique_id=256893774 instance=ExtResource("5_crrcm")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 11.931706, -4.7683716e-07, -4.8587146)
+
 [node name="Teens" type="Node3D" parent="." unique_id=713805393]
 
 [node name="TeenStanding4" parent="Teens" unique_id=777850887 instance=ExtResource("18_mdsrj")]
@@ -580,17 +583,17 @@ animation = "HeavyHead"
 model_index = 2
 
 [node name="TeenStanding12" parent="Teens" unique_id=1429424890 instance=ExtResource("18_mdsrj")]
-transform = Transform3D(0.30752268, 0, 0.95154077, 0, 1, 0, -0.95154077, 0, 0.30752268, 14.520045, 0.9798758, -18.056473)
+transform = Transform3D(0.30752268, 0, 0.95154077, 0, 1, 0, -0.95154077, 0, 0.30752268, 14.494888, 0.9798758, -17.307186)
 animation = "CouchThinking"
 pushy = false
 model_index = 1
 
 [node name="TeenStanding6" parent="Teens" unique_id=2097325884 instance=ExtResource("18_mdsrj")]
-transform = Transform3D(0.8702353, 0, 0.49263632, 0, 1, 0, -0.49263632, 0, 0.8702353, 20.058645, 0.97987604, -16.981026)
+transform = Transform3D(0.8702353, 0, 0.49263632, 0, 1, 0, -0.49263632, 0, 0.8702353, 19.32466, 0.97987604, -17.080738)
 animation = "Chatting"
 
 [node name="TeenStanding7" parent="Teens" unique_id=383412802 instance=ExtResource("18_mdsrj")]
-transform = Transform3D(-0.08978075, 0, -0.99596155, 0, 1, 0, 0.99596155, 0, -0.08978075, 20.692694, 0.97987604, -16.157745)
+transform = Transform3D(-0.08978075, 0, -0.99596155, 0, 1, 0, 0.99596155, 0, -0.08978075, 19.977724, 0.97987604, -16.157745)
 animation = "Wall"
 model_index = 2
 
@@ -661,30 +664,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.473598, 0.99999976, -6.554
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.720036, 0.99999976, -6.910654)
 
 [node name="DrunknessPickup9" parent="Drinks" unique_id=1320784497 instance=ExtResource("36_xhek1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.928411, 1.7200726, -19.32768)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.903254, 1.7200726, -18.578394)
 
 [node name="Hazards" type="Node3D" parent="." unique_id=1282542046]
-
-[node name="SlipperyTest" parent="Hazards" unique_id=1700349529 instance=ExtResource("16_y345g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.325787, 0, -3.9603667)
-
-[node name="SlipperyTest2" parent="Hazards" unique_id=50037099 instance=ExtResource("16_y345g")]
-transform = Transform3D(0.44404104, 0, -0.89600646, 0, 1, 0, 0.89600646, 0, 0.44404104, 10.778705, 0, -4.752968)
-
-[node name="SlipperyTest3" parent="Hazards" unique_id=603941457 instance=ExtResource("16_y345g")]
-transform = Transform3D(0.13830893, 0, 0.9903891, 0, 1, 0, -0.9903891, 0, 0.13830893, 10.356729, 0, -7.320364)
-
-[node name="SlipperyTest6" parent="Hazards" unique_id=1060951540 instance=ExtResource("16_y345g")]
-transform = Transform3D(0.66735375, -0.0027968062, 0.74473566, 0.0017252566, 0.99999607, 0.0022094287, -0.74473894, -0.00018963189, 0.66735595, 9.743783, -4.7683716e-07, -6.7581863)
-
-[node name="SlipperyTest19" parent="Hazards" unique_id=1326149561 instance=ExtResource("17_1arg0")]
-transform = Transform3D(0.9999093, 0, -0.013473481, 0, 1, 0, 0.013473481, 0, 0.9999093, 14.228429, 1.0690612, -14.063383)
-
-[node name="SlipperyTest20" parent="Hazards" unique_id=1267516618 instance=ExtResource("17_1arg0")]
-transform = Transform3D(-0.74622, 0, -0.6656995, 0, 1, 0, 0.6656995, 0, -0.74622, 16.17888, 1.0690607, -15.895019)
-
-[node name="SlipperyTest14" parent="Hazards" unique_id=1739217426 instance=ExtResource("16_y345g")]
-transform = Transform3D(-0.15824424, 0, -0.9874, 0, 1, 0, 0.9874, 0, -0.15824424, 13.432447, 0.98197424, -11.68908)
 
 [node name="RugHazard5" parent="Hazards" unique_id=1844396338 instance=ExtResource("22_ra8ms")]
 transform = Transform3D(0.58023393, 0, -0.81444985, 0, 1, 0, 0.81444985, 0, 0.58023393, 15.786369, 0.97987556, -15.509441)
@@ -697,6 +679,15 @@ transform = Transform3D(-0.752185, 0, -0.658952, 0, 1, 0, 0.658952, 0, -0.752185
 
 [node name="TriperyTest" parent="Hazards" unique_id=793791489 instance=ExtResource("39_0kbtn")]
 transform = Transform3D(-0.62671256, 0, -0.7792505, 0, 1, 0, 0.7792505, 0, -0.62671256, 19.707659, 1.0920076, -11.907728)
+
+[node name="RugHazard" parent="Hazards" unique_id=434682282 instance=ExtResource("59_khj4u")]
+transform = Transform3D(0.99921805, 0, -0.039538853, 0, 1, 0, 0.039538853, 0, 0.99921805, 16.154222, 1.0313302, -13.387888)
+
+[node name="RugHazard2" parent="Hazards" unique_id=621073337 instance=ExtResource("57_yb00h")]
+transform = Transform3D(0.9982013, 0, -0.059950996, 0, 1, 0, 0.059950996, 0, 0.9982013, 14.570818, 0.9900686, -12.614333)
+
+[node name="TriperyTest3" parent="Hazards" unique_id=3418534 instance=ExtResource("17_1arg0")]
+transform = Transform3D(-0.2582458, 0, -0.96607924, 0, 1, 0, 0.96607924, 0, -0.2582458, 14.433742, 1, -13.224079)
 
 [node name="Decor" type="Node3D" parent="." unique_id=158503109]
 
@@ -757,10 +748,6 @@ model_index = 1
 transform = Transform3D(-0.99793357, -0.06425377, -2.8086216e-09, 0, -4.371139e-08, 1, -0.06425377, 0.99793357, 4.362106e-08, 9.7524395, 0.021677494, -4.8962817)
 model_index = 1
 
-[node name="Frame25" parent="Decor" unique_id=791478343 instance=ExtResource("5_y6gv2")]
-transform = Transform3D(-0.9819158, 0.18931821, 8.275362e-09, 0, -4.371139e-08, 1, 0.18931821, 0.9819158, 4.2920902e-08, 11.650247, 0.021677494, -5.859029)
-model_index = 1
-
 [node name="Frame11" parent="Decor" unique_id=682368469 instance=ExtResource("5_y6gv2")]
 transform = Transform3D(-4.362003e-08, -2.8246014e-09, 1, -0.06461935, 0.99790996, 0, -0.99790996, -0.06461935, -4.371139e-08, 9.320403, 1.7729261, -7.5467653)
 
@@ -778,18 +765,6 @@ model_index = 1
 
 [node name="Frame27" parent="Decor" unique_id=264120800 instance=ExtResource("5_y6gv2")]
 transform = Transform3D(1.0379926, -0.06692786, 9.355308e-10, 0.09234627, 0.75228393, -2.0650509e-08, 9.359234e-10, 1.559766e-08, 1, 16.87287, 3.6379979, -20.62046)
-model_index = 1
-
-[node name="Frame17" parent="Decor" unique_id=410666100 instance=ExtResource("5_y6gv2")]
-transform = Transform3D(6.284455e-08, 4.5037307e-09, -0.8187412, 0.10071546, 0.81252295, 1.2200196e-08, 0.81252295, -0.10071546, 6.181324e-08, 11.955133, 2.0103087, -5.4554286)
-model_index = 1
-
-[node name="Frame18" parent="Decor" unique_id=1783277443 instance=ExtResource("5_y6gv2")]
-transform = Transform3D(7.534011e-08, 4.8786255e-09, -1, -0.06461934, 0.99790996, 6.703958e-16, 0.99790996, 0.06461934, 7.54979e-08, 11.955133, 1.3961861, -4.8051014)
-model_index = 1
-
-[node name="Frame19" parent="Decor" unique_id=670494848 instance=ExtResource("5_y6gv2")]
-transform = Transform3D(-3.6095932e-11, -7.549933e-08, -1, 0.9999838, 0.0056896657, -4.656613e-10, 0.0056896657, -0.9999838, 7.54979e-08, 11.955133, 2.0395987, -3.956358)
 model_index = 1
 
 [node name="Frame20" parent="Decor" unique_id=60126407 instance=ExtResource("5_y6gv2")]
@@ -822,35 +797,39 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 16.4
 transform = Transform3D(0.36575407, 0, 0.9307115, 0, 1, 0, -0.9307115, 0, 0.36575407, 5.3224616, 0.0024975436, -0.074827775)
 
 [node name="Footsteps" parent="Decor" unique_id=1734010983 instance=ExtResource("45_na4ed")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15372413, 0.028065309, -0.40705916)
+transform = Transform3D(0.9138363, 0, -0.40608284, 0, 1, 0, 0.40608284, 0, 0.9138363, -0.021138787, 0.028065309, -0.44986382)
 modulate_color = Color(0.8, 0.7296, 0.27199998, 1)
 
 [node name="Footsteps3" parent="Decor" unique_id=1327810624 instance=ExtResource("45_na4ed")]
 transform = Transform3D(0.976616, 0, 0.21499102, 0, 1, 0, -0.21499102, 0, 0.976616, -0.08588946, 0.028065309, 0.09521827)
 modulate_color = Color(0.8, 0.7296, 0.27199998, 1)
 
+[node name="Footsteps6" parent="Decor" unique_id=793501793 instance=ExtResource("45_na4ed")]
+transform = Transform3D(0.99938715, 0, 0.035004154, 0, 1, 0, -0.035004154, 0, 0.99938715, -0.34318686, 0.028065309, -0.1568636)
+modulate_color = Color(0.8, 0.7296, 0.27199998, 1)
+
 [node name="Footsteps2" parent="Decor" unique_id=1630757141 instance=ExtResource("45_na4ed")]
-transform = Transform3D(0.85904926, -0.006754073, -0.51184845, 0, 0.999913, -0.013194307, 0.511893, 0.01133456, 0.8589745, 0.21791184, 0.027093038, -0.7179688)
+transform = Transform3D(0.29138333, -0.006754074, -0.95658255, -0.008874995, 0.999913, -0.009763412, 0.9565652, 0.011334561, 0.29129803, 0.034389794, 0.025815591, -0.7146235)
 modulate_color = Color(0.8, 0.7296, 0.27199998, 1)
 
 [node name="Footsteps4" parent="Decor" unique_id=625750896 instance=ExtResource("45_na4ed")]
-transform = Transform3D(0.3159431, -0.0067540733, -0.9487542, -0.008620387, 0.999913, -0.009988926, 0.94873905, 0.011334561, 0.31585735, 0.6808871, 0.032058105, -0.88011324)
+transform = Transform3D(0.25508878, -0.006754074, -0.9668941, -0.009237003, 0.999913, -0.009421651, 0.9668736, 0.01133456, 0.2550042, 0.6559903, 0.032438263, -0.9284855)
 modulate_color = Color(0.8, 0.7296, 0.27199998, 1)
 
 [node name="Footsteps5" parent="Decor" unique_id=724937375 instance=ExtResource("45_na4ed")]
-transform = Transform3D(-0.27253962, -0.0067540742, -0.96212107, -0.012746391, 0.999913, -0.0034087067, 0.9620602, 0.011334561, -0.272602, 1.1273496, 0.033879265, -0.77474594)
+transform = Transform3D(-0.27253962, -0.0067540742, -0.96212107, -0.012746391, 0.999913, -0.0034087067, 0.9620602, 0.011334561, -0.272602, 0.8596877, 0.031074747, -0.68684995)
+modulate_color = Color(0.8, 0.7296, 0.27199998, 1)
+
+[node name="Footsteps7" parent="Decor" unique_id=1566937081 instance=ExtResource("45_na4ed")]
+transform = Transform3D(-0.5890957, -0.0067540742, -0.8080352, -0.013137771, 0.999913, 0.0012201455, 0.8079566, 0.011334562, -0.58913326, 1.4904824, 0.032905802, -0.46721396)
+modulate_color = Color(0.8, 0.7296, 0.27199998, 1)
+
+[node name="Footsteps8" parent="Decor" unique_id=945956609 instance=ExtResource("45_na4ed")]
+transform = Transform3D(-0.26313993, -0.0067540747, -0.9647342, -0.012712528, 0.999913, -0.0035329019, 0.964674, 0.011334562, -0.26320302, 1.5443507, 0.029365763, -0.119763285)
 modulate_color = Color(0.8, 0.7296, 0.27199998, 1)
 
 [node name="cup_broken" parent="Decor" unique_id=1987189005 instance=ExtResource("42_pcqx0")]
 transform = Transform3D(0.96556807, 0, 0.26015058, 0, 1, 0, -0.26015058, 0, 0.96556807, 5.779565, 0.0022555622, -0.1784645)
-
-[node name="Decal_WallStain" type="Decal" parent="Decor" unique_id=1375663813]
-transform = Transform3D(0.5045426, -0.001459136, -0.110579856, -0.110589474, -0.0066570234, -0.5044988, 2.6093743e-09, 0.5164751, -0.0068150554, 13.638197, 1.4680654, -8.846072)
-texture_albedo = ExtResource("46_pigw5")
-modulate = Color(0.6217616, 0.66578746, 4.7168134e-05, 1)
-upper_fade = 0.04459525
-lower_fade = 0.049481563
-cull_mask = 4
 
 [node name="Decal_WallpaperRips" type="Decal" parent="Decor" unique_id=1493493206]
 transform = Transform3D(-0.99999994, 8.742277e-08, 0, 3.8213705e-15, 4.3711385e-08, -1, -8.742277e-08, -0.99999994, -4.371139e-08, 13.527984, 3.239109, -17.04624)
@@ -955,7 +934,7 @@ lower_fade = 0.049481563
 cull_mask = 2
 
 [node name="Decal_TrashPaper2" type="Decal" parent="Decor" unique_id=1517007829]
-transform = Transform3D(0.08631639, -0.004333419, -0.32840663, 7.760589e-09, 0.33955863, -0.004480574, 0.3284351, 0.0011388713, 0.086309016, 14.003761, 0.043895237, -6.702843)
+transform = Transform3D(0.08631639, -0.004333419, -0.32840663, 7.760589e-09, 0.33955863, -0.004480574, 0.3284351, 0.0011388713, 0.086309016, 14.055781, 0.044064514, -6.5554385)
 size = Vector3(2, 2.4487305, 2)
 texture_albedo = ExtResource("52_ex2fv")
 upper_fade = 0.04459525
@@ -970,12 +949,6 @@ upper_fade = 0.04459525
 lower_fade = 0.049481563
 cull_mask = 2
 
-[node name="cup_broken2" parent="Decor" unique_id=519037121 instance=ExtResource("42_pcqx0")]
-transform = Transform3D(0.70615584, 0, 0.70805645, 0, 1, 0, -0.70805645, 0, 0.70615584, 13.753378, 0.0022546086, -7.960578)
-
-[node name="cup_broken3" parent="Decor" unique_id=354429757 instance=ExtResource("42_pcqx0")]
-transform = Transform3D(0.34757403, 0, -0.9376526, 0, 1, 0, 0.9376526, 0, 0.34757403, 14.008041, 0.002254847, -8.387555)
-
 [node name="AutoShaderCache" type="Node3D" parent="." unique_id=1934945725]
 
 [node name="Path3D" type="Path3D" parent="AutoShaderCache" unique_id=1957784295]
@@ -985,7 +958,7 @@ curve = SubResource("Curve3D_na4ed")
 [node name="ShaderCachingOnpath" parent="AutoShaderCache/Path3D" unique_id=1173721549 instance=ExtResource("44_6pn5q")]
 visible = false
 
-[node name="RugHazard" parent="." unique_id=434682282 instance=ExtResource("57_yb00h")]
+[node name="RugHazard" parent="." unique_id=451756528 instance=ExtResource("57_yb00h")]
 transform = Transform3D(0.9616026, 0, 0.27444595, 0, 1, 0, -0.27444595, 0, 0.9616026, 3.879328, 0.0037121326, -0.9611446)
 
 [node name="RugHazard2" parent="." unique_id=1578882181 instance=ExtResource("58_khj4u")]
@@ -994,20 +967,20 @@ transform = Transform3D(0.05726777, 0, -0.99835885, 0, 1, 0, 0.99835885, 0, 0.05
 [node name="RugHazard3" parent="." unique_id=287487072 instance=ExtResource("59_khj4u")]
 transform = Transform3D(0.9904181, 0, 0.13810144, 0, 1, 0, -0.13810144, 0, 0.9904181, 2.405315, 0.05145319, -2.0005734)
 
-[node name="SlipperyTest" parent="." unique_id=1943904206 instance=ExtResource("59_emwwe")]
-transform = Transform3D(0.818571, 0, -0.5744054, 0, 1, 0, 0.5744054, 0, 0.818571, 13.507124, 0.046710372, -7.5462155)
-
-[node name="can_broken" parent="." unique_id=1936491675 instance=ExtResource("60_emwwe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.349601, -2.3841858e-07, -7.932796)
-
-[node name="SlipperyTest2" parent="." unique_id=582248650 instance=ExtResource("59_emwwe")]
-transform = Transform3D(1.1942542, 0, -0.46430004, 0, 1.2813344, 0, 0.46430004, 0, 1.1942542, 14.747865, 0.99067855, -16.757954)
-
 [node name="can_broken2" parent="." unique_id=733401743 instance=ExtResource("60_emwwe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.30131, 0.97987604, -16.982975)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.276153, 0.97987604, -16.233688)
 
 [node name="bottle_broken" parent="." unique_id=405276898 instance=ExtResource("41_y6674")]
 transform = Transform3D(0.9121773, 0.0048276796, -0.40976724, 0, 0.9999306, 0.0117807, 0.40979567, -0.010746087, 0.912114, 15.0303135, 0.98199713, -16.165329)
 
 [node name="cup_broken" parent="." unique_id=95697831 instance=ExtResource("42_pcqx0")]
 transform = Transform3D(-0.7463943, 0, -0.66550404, 0, 1, 0, 0.66550404, 0, -0.7463943, 14.246213, 1.9706665, -16.089893)
+
+[node name="RugHazard4" parent="." unique_id=1730241120 instance=ExtResource("57_yb00h")]
+transform = Transform3D(0.008970827, 0, 0.9999598, 0, 1, 0, -0.9999598, 0, 0.008970827, 9.744013, 0.010191351, -5.4150076)
+
+[node name="RugHazard5" parent="." unique_id=1475750895 instance=ExtResource("58_khj4u")]
+transform = Transform3D(-0.0154106915, 0, -0.99988127, 0, 1, 0, 0.99988127, 0, -0.0154106915, 11.933924, 0.010190867, -3.0046597)
+
+[node name="RugHazard6" parent="." unique_id=1478275740 instance=ExtResource("59_khj4u")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9.470848, 0.05145367, -6.8613157)
