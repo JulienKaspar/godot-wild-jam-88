@@ -16,7 +16,7 @@ func _process(_delta: float) -> void:
 
 func checkLevelIssues() -> void:
 	if GameStateManager.current_player:
-		if GameStateManager.current_player.player_global_pos.y < -100: GameStateManager.next_level()
+		if GameStateManager.current_player.player_global_pos.y < -20: LevelLoader.next_level()
 
 func next_level() -> void:
 	if current_level_index == levels.size() - 1:
