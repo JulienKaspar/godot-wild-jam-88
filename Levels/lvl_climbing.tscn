@@ -37,15 +37,24 @@ albedo_color = Color(0.1254902, 0.02745098, 0.10980392, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_rka2e"]
 size = Vector3(0.19628906, 3.1706543, 21.61621)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_cxqf5"]
-size = Vector3(2.0517654, 2.6317139, 1.9054909)
+[sub_resource type="BoxShape3D" id="BoxShape3D_8h32r"]
+size = Vector3(2.1046145, 1.9212303, 1.4262161)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dm67a"]
+size = Vector3(2.4308014, 0.685874, 1.331109)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cbkav"]
 size = Vector3(0.7578125, 0.7158203, 0.048950195)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_mg5gq"]
+size = Vector3(0.9065571, 0.55117416, 1.2612898)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pe6vu"]
 diffuse_mode = 3
 albedo_color = Color(0.25767228, 0.24890408, 0.087536536, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cxqf5"]
+size = Vector3(2.8794255, 0.8141403, 0.5791626)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sbnyw"]
 size = Vector3(1.6542969, 2.0072021, 0.110961914)
@@ -67,24 +76,76 @@ metadata/_custom_type_script = "uid://cm1uqdo37kpmi"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.190267, -0.96139044, 3.0220318)
 
 [node name="FinalDoor" parent="." unique_id=2074192099 instance=ExtResource("3_e6ao1")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 14.23781, 1.4957404, -15.012162)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 14.029545, 1.4957404, -15.012162)
 wall_material = ExtResource("4_cxqf5")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1516423663]
 environment = ExtResource("5_8h32r")
 
-[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=1224068240]
-transform = Transform3D(0.88635564, -0.4242888, -0.18534556, 0.044352204, -0.32066292, 0.9461544, -0.46087617, -0.84684956, -0.26540318, 0.0097785, 2.921007, 0.23615861)
-light_color = Color(1, 0.6039216, 0.56078434, 1)
-light_energy = 2.5
-light_indirect_energy = 1.804
-shadow_enabled = true
-shadow_opacity = 0.5
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WorldEnvironment" unique_id=1272919429]
 transform = Transform3D(81.41497, 0, 0, 0, 1, 0, 0, 0, 74.872604, 13.908428, -0.63890386, -21.465534)
 material_override = SubResource("StandardMaterial3D_msvgg")
 mesh = SubResource("PlaneMesh_ahp8p")
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="WorldEnvironment" unique_id=396722450]
+transform = Transform3D(-0.32896605, 0.9131322, 0.24077223, 0.5946969, 0.0022636317, 0.80394685, 0.7335646, 0.40765768, -0.5437816, 3.0504735, 4.879355, -9.917279)
+light_color = Color(1, 0.5411765, 0.1882353, 1)
+light_energy = 12.0
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_opacity = 0.6
+spot_range = 18.208
+spot_angle = 41.104908
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="WorldEnvironment" unique_id=1455712093]
+transform = Transform3D(0.5891529, 0.6912373, -0.41843757, 0.63156754, -0.07092619, 0.7720698, 0.5040052, -0.7191388, -0.4783494, -4.5027213, 4.76804, -2.8602986)
+light_color = Color(1, 0.5411765, 0.1882353, 1)
+light_energy = 12.0
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_opacity = 0.6
+spot_range = 18.208
+spot_angle = 41.104908
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="WorldEnvironment" unique_id=2047243960]
+transform = Transform3D(-0.263272, 0.96283364, -0.060327634, 0.5321418, 0.1970969, 0.82339406, 0.80468184, 0.184674, -0.5642541, 5.7291226, 4.76804, -2.679411)
+light_color = Color(1, 0.5411765, 0.1882353, 1)
+light_energy = 12.0
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_opacity = 0.6
+spot_range = 20.224
+spot_angle = 41.104908
+
+[node name="SpotLight3D6" type="SpotLight3D" parent="WorldEnvironment" unique_id=1368627447]
+transform = Transform3D(0.17821138, -0.9759511, 0.1255397, 0.43282726, 0.19232556, 0.8807221, -0.8836862, -0.10261769, 0.45669284, 14.745824, 4.76804, 3.5239735)
+light_color = Color(1, 0.5411765, 0.1882353, 1)
+light_energy = 12.0
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_opacity = 0.6
+spot_range = 18.208
+spot_angle = 41.104908
+
+[node name="SpotLight3D7" type="SpotLight3D" parent="WorldEnvironment" unique_id=222614077]
+transform = Transform3D(-0.58665556, 0.801886, 0.11319957, 0.43282726, 0.19232555, 0.8807221, 0.68446755, 0.5656764, -0.45990697, 15.194392, 6.0687723, -10.092691)
+light_color = Color(1, 0.5411765, 0.1882353, 1)
+light_energy = 12.0
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_opacity = 0.6
+spot_range = 18.208
+spot_angle = 41.104908
+
+[node name="SpotLight3D8" type="SpotLight3D" parent="WorldEnvironment" unique_id=1486780464]
+transform = Transform3D(0.5988223, 0.66894543, -0.44036803, 0.43282723, 0.19232558, 0.88072217, 0.67384905, -0.7179993, -0.17436896, 12.569938, 4.8110175, -15.094029)
+light_color = Color(1, 0.5411765, 0.1882353, 1)
+light_energy = 12.0
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_opacity = 0.6
+spot_range = 18.208
+spot_angle = 41.104908
 
 [node name="Layout" type="Node3D" parent="." unique_id=1029866644]
 
@@ -115,12 +176,12 @@ collision_layer = 65
 size = Vector3(5, 1, 7.5)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Layout/Floors" unique_id=847710593]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.25, 1.0132416, -16.249195)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.089783, 1.0132416, -16.249195)
 layers = 2
 material_override = ExtResource("5_mg5gq")
 use_collision = true
 collision_layer = 65
-size = Vector3(1.3513184, 1, 1.8748856)
+size = Vector3(1.6717529, 1, 1.8748856)
 
 [node name="Stairs" type="Node3D" parent="Layout" unique_id=442208200]
 
@@ -131,7 +192,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8763504, -0.5198847, 2.506
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -4.8763504, -0.5198847, -1.4590709)
 
 [node name="Stairs_wide" parent="Layout/Stairs" unique_id=2016012008 instance=ExtResource("7_dm67a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.173867, -0.27276945, -13.260334)
+transform = Transform3D(1.3605264, 0, 0, 0, 1, 0, 0, 0, 1, 14.053063, -0.27276945, -13.260334)
 
 [node name="Walls" type="Node3D" parent="Layout" unique_id=1379277618]
 
@@ -150,8 +211,17 @@ collision_layer = 8
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Walls/StaticBody3D2" unique_id=1270986222]
-transform = Transform3D(0.88152605, 0, -0.47213542, 0, 1, 0, 0.47213542, 0, 0.88152605, 0.120168686, 1.3547974, 1.0768113)
-shape = SubResource("BoxShape3D_cxqf5")
+transform = Transform3D(0.88152605, 0, -0.47213542, 0, 1, 0, 0.47213542, 0, 0.88152605, 0.23371029, 0.80125237, 0.9373565)
+shape = SubResource("BoxShape3D_8h32r")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="Layout/Walls" unique_id=785505222]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 13.181369, 0.3885193, 1.0743804)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Walls/StaticBody3D3" unique_id=945563068]
+transform = Transform3D(0.88152605, 0, -0.47213542, 0, 1, 0, 0.47213542, 0, 0.88152605, 0.06748819, 0.1835742, 0.9022732)
+shape = SubResource("BoxShape3D_dm67a")
 
 [node name="CSG_ReddishWall2" type="CSGBox3D" parent="Layout/Walls" unique_id=119146262]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.25, 2.25, -3.5000002)
@@ -182,25 +252,25 @@ use_collision = true
 size = Vector3(0.2, 0.57366943, 21.698242)
 
 [node name="CSG_ReddishWall6" type="CSGBox3D" parent="Layout/Walls" unique_id=1359241079]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12.75, 2.25, -15.5)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12.669006, 2.25, -15.5)
 layers = 4
 material_override = ExtResource("8_kttp0")
 use_collision = true
-size = Vector3(0.2, 5.5, 1.5)
+size = Vector3(0.2, 5.5, 1.3380127)
 
 [node name="CSG_ReddishWall7" type="CSGBox3D" parent="Layout/Walls" unique_id=584388082]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15.75, 2.25, -15.5)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15.626709, 2.25, -15.5)
 layers = 4
 material_override = ExtResource("8_kttp0")
 use_collision = true
-size = Vector3(0.2, 5.5, 1.5)
+size = Vector3(0.2, 5.5, 1.746582)
 
 [node name="CSG_ReddishWall8" type="CSGBox3D" parent="Layout/Walls" unique_id=637558555]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 14.25, 4.5, -15.5)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 14.03772, 4.5, -15.5)
 layers = 4
 material_override = ExtResource("8_kttp0")
 use_collision = true
-size = Vector3(0.2, 1, 1.5)
+size = Vector3(0.2, 1, 1.5002441)
 
 [node name="CSG_ReddishWall3" type="CSGBox3D" parent="Layout/Walls" unique_id=1562619475]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5.5, 2.25, 0.5)
@@ -269,6 +339,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.72804e-11, -1.4551915e-11, 
 transform = Transform3D(1, -3.330669e-16, 0, 0, 1, 0, 0, -8.1712415e-14, 1, 4.7683716e-07, 0, 0.01263392)
 shape = SubResource("BoxShape3D_cbkav")
 
+[node name="StaticBody3D4" type="StaticBody3D" parent="Layout/Trail/Frame" unique_id=1139490414]
+transform = Transform3D(0.85021317, 1.4901161e-08, -6.9849193e-10, -1.4901161e-08, 1.0207282, 9.313226e-10, 1.3969839e-09, 0, 0.873687, -0.15485358, -0.47353292, -0.9247777)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Trail/Frame/StaticBody3D4" unique_id=292035095]
+transform = Transform3D(0.9999947, 8.940697e-08, -7.741619e-09, -1.4901161e-08, 0.9999902, -9.313226e-10, 5.416805e-07, -1.0756776e-07, 1.0000001, 0.16247356, 0.44872022, 0.37463856)
+shape = SubResource("BoxShape3D_mg5gq")
+
 [node name="Frame3" parent="Layout/Trail" unique_id=384885849 instance=ExtResource("11_ftjbw")]
 transform = Transform3D(-1.1404935, 0.71425647, 3.837165e-08, 6.182553e-08, -1.01556905e-08, 0.9792017, 0.8846577, 0.9208137, -1.8964453e-08, 13.009143, 2.9157498, -6.9258018)
 model_index = 1
@@ -295,6 +374,15 @@ use_collision = true
 collision_layer = 65
 size = Vector3(3.2854004, 0.031066895, 0.8720703)
 
+[node name="StaticBody3D3" type="StaticBody3D" parent="Layout/Trail/CSGBox3D" unique_id=629944223]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1, -0.47758526, -1.0081704, -0.7305926)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Trail/CSGBox3D/StaticBody3D3" unique_id=1577636417]
+transform = Transform3D(1, 0, 0, -3.3527613e-08, 1, -1.8626451e-09, -2.9802322e-08, 0, 1.0000002, 0.59383255, 0.40457934, 0.7391708)
+shape = SubResource("BoxShape3D_cxqf5")
+
 [node name="CSGBox3D3" type="CSGBox3D" parent="Layout/Trail" unique_id=518465266]
 transform = Transform3D(0.7935764, 0, -0.6084706, 0, 1, 0, 0.6084706, 0, 0.7935764, 14.065282, 2.9109442, -4.6856985)
 material_override = SubResource("StandardMaterial3D_pe6vu")
@@ -308,6 +396,15 @@ material_override = SubResource("StandardMaterial3D_pe6vu")
 use_collision = true
 collision_layer = 193
 size = Vector3(2.8934937, 0.05859375, 0.65600586)
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="Layout/Trail/CSGBox3D4" unique_id=189582826]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.99999994, 0, 0, 0, 1.0000002, -0.6643257, -0.8016138, -0.37715137)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Trail/CSGBox3D4/StaticBody3D4" unique_id=550978626]
+transform = Transform3D(1.0000006, -5.430484e-07, 3.7252903e-09, -1.7267303e-07, 1.000001, 0, -2.3283064e-08, -9.4249845e-07, 1.0000002, 0.7682543, 0.3441453, 0.39919984)
+shape = SubResource("BoxShape3D_cxqf5")
 
 [node name="tv_huge" parent="Layout/Trail" unique_id=647993823 instance=ExtResource("13_b4g1i")]
 transform = Transform3D(-0.25296444, -0.96747553, 0, -4.2289702e-08, 1.1057427e-08, 1, -0.96747553, 0.25296444, -4.371139e-08, 6.211242, 0.93465805, -0.5186925)
@@ -364,7 +461,6 @@ metadata/_custom_type_script = "uid://b6j4xt2oyttve"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Trail/Shelf3/Slope" unique_id=1250727774]
 transform = Transform3D(0.9999937, -6.2584877e-07, 5.364418e-07, -1.3709068e-06, 0.99999976, -1.937151e-07, 2.4437904e-06, -9.3877316e-07, 0.9999867, -7.6293945e-06, 0.89104366, 0.3983382)
 shape = SubResource("BoxShape3D_b3mk0")
-debug_color = Color(0, 0.96790946, 1.1331486, 1)
 
 [node name="Shelf5" parent="Layout/Trail" unique_id=1321714273 instance=ExtResource("16_iivb2")]
 transform = Transform3D(0.9836595, -0.16263512, 0.077224836, -2.5102572e-08, 0.42893523, 0.9033353, -0.1800386, -0.8885745, 0.42192614, 15.189649, 1.1758802, 0.26411963)
@@ -379,7 +475,6 @@ metadata/_custom_type_script = "uid://b6j4xt2oyttve"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Trail/Shelf5/Slope" unique_id=225007376]
 transform = Transform3D(0.99999946, -6.854534e-07, -2.9802322e-07, 5.811453e-07, 0.99999964, -5.9604645e-08, 4.172325e-07, 0, 0.9999937, 0.20604515, 0.9777576, 0.3983376)
 shape = SubResource("BoxShape3D_pfjnv")
-debug_color = Color(0, 0.96790946, 1.1331486, 1)
 
 [node name="Shelf4" parent="Layout/Trail" unique_id=294559453 instance=ExtResource("19_mnxre")]
 transform = Transform3D(0.08106856, 0, 0.99670845, 0, 1, 0, -0.99670845, 0, 0.08106856, 12.339934, 0.5000005, -5.7777796)
@@ -431,6 +526,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4294877, 1.3679712, 2.7537
 
 [node name="DrunknessPickup8" parent="Conusmables" unique_id=882908896 instance=ExtResource("15_e6ao1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0732512, 1.3690703, 1.9291091)
+
+[node name="DrunknessPickup16" parent="Conusmables" unique_id=1843250732 instance=ExtResource("15_e6ao1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.072525, 1.3690703, 0.64584565)
+
+[node name="DrunknessPickup17" parent="Conusmables" unique_id=1784486033 instance=ExtResource("15_e6ao1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.360242, 1.3690702, 0.91262305)
 
 [node name="DrunknessPickup9" parent="Conusmables" unique_id=1098742925 instance=ExtResource("16_cxqf5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4395695, 1.3387952, 1.6130366)
