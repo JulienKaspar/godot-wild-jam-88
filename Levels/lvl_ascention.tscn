@@ -89,18 +89,100 @@ shape = SubResource("BoxShape3D_b2oc4")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1408143787]
 environment = ExtResource("4_mxhbp")
 
-[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=1333199486]
-transform = Transform3D(0.88635564, -0.4242888, -0.18534556, 0.044352204, -0.32066292, 0.9461544, -0.46087617, -0.84684956, -0.26540318, 0.0097785, 2.921007, 0.23615861)
-light_color = Color(1, 0.6039216, 0.56078434, 1)
-light_energy = 2.5
-light_indirect_energy = 1.804
-shadow_enabled = true
-shadow_opacity = 0.5
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WorldEnvironment" unique_id=271799723]
 transform = Transform3D(81.41497, 0, 0, 0, 1, 0, 0, 0, 74.872604, 1.8171492, -0.63890386, -18.390184)
 material_override = SubResource("StandardMaterial3D_msvgg")
 mesh = SubResource("PlaneMesh_ahp8p")
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="WorldEnvironment" unique_id=861276435]
+transform = Transform3D(0.2521265, 0.9121623, -0.3230979, 0.43282735, 0.19232568, 0.8807221, 0.86550146, -0.361899, -0.34631836, -15.786635, 6.8044333, -17.627254)
+light_color = Color(1, 0.5411765, 0.1882353, 1)
+light_energy = 12.0
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_opacity = 0.6
+spot_range = 18.208
+spot_angle = 41.104908
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="WorldEnvironment" unique_id=1301018901]
+transform = Transform3D(-0.05721978, -0.9691456, 0.23975536, 0.43282738, 0.19232562, 0.8807221, -0.8996591, 0.1541674, 0.40846792, -7.582326, 8.142701, -11.072305)
+light_color = Color(1, 0.5411765, 0.1882353, 1)
+light_energy = 12.0
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_opacity = 0.6
+spot_range = 18.208
+spot_angle = 41.104908
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="WorldEnvironment" unique_id=1775784943]
+transform = Transform3D(-0.7066138, -0.18742408, -0.6823263, -0.57170594, -0.41698447, 0.7065949, -0.41695237, 0.8893797, 0.18749547, -8.434004, 8.133609, -11.41173)
+light_color = Color(1, 0.5411765, 0.1882353, 1)
+light_energy = 12.0
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_opacity = 0.6
+spot_range = 18.208
+spot_angle = 41.104908
+
+[node name="SpotLight3D6" type="SpotLight3D" parent="WorldEnvironment" unique_id=2010560263]
+transform = Transform3D(0.76005244, -0.59350467, 0.26471224, -0.571706, -0.4169845, 0.7065948, -0.30898643, -0.6883867, -0.6562402, 5.889406, 4.287161, -11.6958)
+light_color = Color(1, 0.5411765, 0.1882353, 1)
+light_energy = 12.0
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_opacity = 0.6
+spot_range = 18.208
+spot_angle = 41.104908
+
+[node name="SpotLight3D9" type="SpotLight3D" parent="WorldEnvironment" unique_id=842495098]
+transform = Transform3D(0.46373516, -0.8850876, -0.039618134, -0.5178701, -0.30707422, 0.798446, -0.7188604, -0.34975052, -0.6007616, 6.942089, 8.745365, -13.338836)
+light_color = Color(1, 0.5411765, 0.1882353, 1)
+light_energy = 12.0
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_opacity = 0.6
+spot_range = 18.208
+spot_angle = 41.104908
+
+[node name="SpotLight3D10" type="SpotLight3D" parent="WorldEnvironment" unique_id=838862132]
+transform = Transform3D(0.68959755, -0.7021733, 0.17722262, -0.5178701, -0.3070742, 0.79844606, -0.5062269, -0.64238477, -0.5753922, 7.4478745, 16.527874, -13.948624)
+light_color = Color(1, 0.5411765, 0.1882353, 1)
+light_energy = 12.0
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_opacity = 0.6
+spot_range = 18.208
+spot_angle = 41.104908
+
+[node name="SpotLight3D7" type="SpotLight3D" parent="WorldEnvironment" unique_id=237035328]
+transform = Transform3D(0.58138216, -0.8135726, -0.009719202, -0.72975355, -0.52669275, 0.43595254, -0.35979804, -0.24636239, -0.89991724, 5.6434784, 6.8649917, -13.947417)
+light_color = Color(0.5757391, 0.7086926, 0.7309257, 1)
+light_energy = 2.631
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_opacity = 0.6
+spot_range = 7.732
+spot_angle = 69.09
+
+[node name="SpotLight3D8" type="SpotLight3D" parent="WorldEnvironment" unique_id=778312037]
+transform = Transform3D(0.58138216, -0.8135726, -0.009719202, -0.72975355, -0.52669275, 0.43595254, -0.35979804, -0.24636239, -0.89991724, 5.6434784, 14.80508, -13.947417)
+light_color = Color(0.5757391, 0.7086926, 0.7309257, 1)
+light_energy = 2.631
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_opacity = 0.6
+spot_range = 7.732
+spot_angle = 69.09
+
+[node name="SpotLight3D11" type="SpotLight3D" parent="WorldEnvironment" unique_id=1162721834]
+transform = Transform3D(-0.58138216, 0.8135726, 0.009719121, -0.5583422, -0.4076254, 0.72256184, 0.5918183, 0.41465795, 0.691238, 5.6434784, 11.608856, -1.4414749)
+light_color = Color(0.5757391, 0.7086926, 0.7309257, 1)
+light_energy = 2.631
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_opacity = 0.6
+spot_range = 7.732
+spot_angle = 69.09
 
 [node name="Layout" type="Node3D" parent="." unique_id=1930487134]
 
@@ -544,6 +626,15 @@ transform = Transform3D(0.13127033, -0.05805488, -0.98964524, 0.00027754833, 0.9
 [node name="CardboardSlipperySlope_Dark18" parent="Hazards" unique_id=825726996 instance=ExtResource("32_yxo3s")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.801161, 3.3017259, -8.683955)
 
+[node name="CardboardSlipperySlope_Dark20" parent="Hazards" unique_id=938397742 instance=ExtResource("30_0re2t")]
+transform = Transform3D(-0.06799792, 0, -0.9976855, 0, 1, 0, 0.9976855, 0, -0.06799792, 6.94237, 4.3070607, -10.9985485)
+
+[node name="CardboardSlipperySlope_Dark21" parent="Hazards" unique_id=1547090059 instance=ExtResource("32_6ad42")]
+transform = Transform3D(0.008063294, 0, -0.99996746, 0, 1, 0, 0.99996746, 0, 0.008063294, 6.970233, 4.529677, -11.531274)
+
+[node name="CardboardSlipperySlope_Dark22" parent="Hazards" unique_id=1213364173 instance=ExtResource("31_yxo3s")]
+transform = Transform3D(0.19063762, 0, -0.9816605, 0, 1, 0, 0.9816605, 0, 0.19063762, 7.21706, 4.577575, -11.455474)
+
 [node name="CardboardSlipperySlope_Dark19" parent="Hazards" unique_id=1051843004 instance=ExtResource("31_yxo3s")]
 transform = Transform3D(-0.09749611, 0, -0.9952359, 0, 1, 0, 0.9952359, 0, -0.09749611, 7.2603245, 3.2226725, -8.696378)
 
@@ -720,12 +811,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.959071, 0.7275727, -16.07
 
 [node name="door_closed2" parent="Decor" unique_id=1415606935 instance=ExtResource("15_hgt8c")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -16.033543, -0.038847446, -12.235643)
-
-[node name="CardboardSlipperySlope_Dark" parent="." unique_id=938397742 instance=ExtResource("30_0re2t")]
-transform = Transform3D(-0.06799792, 0, -0.9976855, 0, 1, 0, 0.9976855, 0, -0.06799792, 6.94237, 4.3070607, -10.9985485)
-
-[node name="CardboardSlipperySlope_Dark2" parent="." unique_id=1547090059 instance=ExtResource("32_6ad42")]
-transform = Transform3D(0.008063294, 0, -0.99996746, 0, 1, 0, 0.99996746, 0, 0.008063294, 6.970233, 4.529677, -11.531274)
-
-[node name="CardboardSlipperySlope_Dark3" parent="." unique_id=1213364173 instance=ExtResource("31_yxo3s")]
-transform = Transform3D(0.19063762, 0, -0.9816605, 0, 1, 0, 0.9816605, 0, 0.19063762, 7.21706, 4.577575, -11.455474)
