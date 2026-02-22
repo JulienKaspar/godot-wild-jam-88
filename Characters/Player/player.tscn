@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cqjqmhnbk3ssj"]
+[gd_scene format=3 uid="uid://cqjqmhnbk3ssj"]
 
 [ext_resource type="PackedScene" uid="uid://cx2qst5txs1af" path="res://Characters/Player/player_controller.tscn" id="1_j341n"]
 [ext_resource type="PackedScene" uid="uid://b86lbtpyigxs5" path="res://Characters/Player/player_body.tscn" id="2_cue0d"]
@@ -10,37 +10,37 @@
 height = 5.0
 radius = 4.0
 
-[node name="Player" type="Node3D"]
+[node name="Player" type="Node3D" unique_id=1811232926]
 process_mode = 1
 script = ExtResource("3_cue0d")
 
-[node name="PlayerController" parent="." instance=ExtResource("1_j341n")]
+[node name="PlayerController" parent="." unique_id=1903704966 instance=ExtResource("1_j341n")]
 
-[node name="PlayerBody" parent="." instance=ExtResource("2_cue0d")]
+[node name="PlayerBody" parent="." unique_id=652667019 instance=ExtResource("2_cue0d")]
 
-[node name="PlayerSounds" parent="PlayerBody" instance=ExtResource("4_xf5fp")]
+[node name="PlayerSounds" parent="PlayerBody" unique_id=888041050 instance=ExtResource("4_xf5fp")]
 
-[node name="PickupTracker" type="Node3D" parent="."]
+[node name="PickupTracker" type="Node3D" parent="." unique_id=2040517032]
 unique_name_in_owner = true
 script = ExtResource("5_xf5fp")
 
-[node name="grab_area_left" type="Area3D" parent="PickupTracker"]
+[node name="grab_area_left" type="Area3D" parent="PickupTracker" unique_id=1071378075]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 1.8, 1.313, 0.606)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PickupTracker/grab_area_left"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PickupTracker/grab_area_left" unique_id=858790177]
 transform = Transform3D(1, 0, 0, 0, 0.81915206, 0.57357645, 0, -0.57357645, 0.81915206, 0, 0, 0)
 shape = SubResource("CylinderShape3D_klx3t")
 debug_color = Color(0.8627451, 0, 0.45882353, 0.8784314)
 
-[node name="grab_area_right" type="Area3D" parent="PickupTracker"]
+[node name="grab_area_right" type="Area3D" parent="PickupTracker" unique_id=274993312]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -1.8, 1.313, 0.606)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PickupTracker/grab_area_right"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PickupTracker/grab_area_right" unique_id=876406368]
 transform = Transform3D(1, 0, 0, 0, 0.819152, -0.5735764, 0, 0.5735764, 0.819152, 0, 0, 0)
 shape = SubResource("CylinderShape3D_klx3t")
 debug_color = Color(0.8627451, 0, 0.45882353, 0.8784314)
 
-[node name="FallPunishReset" type="Timer" parent="."]
+[node name="FallPunishReset" type="Timer" parent="." unique_id=1077029427]
 wait_time = 2.0
 one_shot = true
 

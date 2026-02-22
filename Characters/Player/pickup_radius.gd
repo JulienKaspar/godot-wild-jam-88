@@ -17,12 +17,21 @@ var NeedsSortRight = true
 func _ready() -> void:
 	pass # Replace with function body.
 
-func getClosest(inRange: Array) -> Object:
+func getClosest(inRange: Array, side:  Player.Sides ) -> Object:
+	
 	var shortestDist = 50.0
 	var currentDist = 0.0
 	var closestObject: Object
+	var referencePoint: Vector3
+	
+	match side:
+		Player.Sides.LEFT:
+			referencePoint = $"../PlayerBody".left_shoulder_ray.global_position
+		Player.Sides.RIGHT:
+			referencePoint = $"../PlayerBody".right_shoulder_ray.global_position
+	
 	for item in inRange:
-		currentDist = (item.global_position - $"..".player_global_pos).length()
+		currentDist = (item.global_position - referencePoint).length()
 		if currentDist < shortestDist:
 			shortestDist = currentDist
 			closestObject = item
@@ -39,14 +48,14 @@ func _physics_process(delta: float) -> void:
 			$"..".closestLeft = null
 			ItemsinReachLeft = false
 		else:
-			$"..".closestLeft = getClosest(inRangeLeft)
+			$"..".closestLeft = getClosest(inRangeLeft, Player.Sides.LEFT)
 			ItemsinReachLeft = true
 	if NeedsSortRight:
 		if inRangeRight.is_empty():
 			$"..".closestRight = null
 			ItemsinReachRight = false
 		else:
-			$"..".closestRight = getClosest(inRangeRight)
+			$"..".closestRight = getClosest(inRangeRight, Player.Sides.RIGHT)
 			ItemsinReachRight = true
 
 func _on_grab_area_left_area_entered(area: Area3D) -> void:

@@ -1,9 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://b86lbtpyigxs5"]
+[gd_scene format=3 uid="uid://b86lbtpyigxs5"]
 
 [ext_resource type="Script" uid="uid://din06hqtbjn7p" path="res://Characters/Player/logic/player_body.gd" id="1_codw7"]
 [ext_resource type="PackedScene" uid="uid://wfy3mktwjjp1" path="res://Assets/Characters/Drunk/drunk.gltf" id="1_wnhn1"]
 [ext_resource type="Script" uid="uid://26b81t0og4ju" path="res://Characters/Player/logic/player_armature.gd" id="2_codw7"]
-[ext_resource type="Script" path="res://Characters/Player/logic/look_at_target.gd" id="5_wsmry"]
+[ext_resource type="Script" uid="uid://disdusnw84h82" path="res://Characters/Player/logic/look_at_target.gd" id="5_wsmry"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_hu15c"]
 radius = 0.05
@@ -28,7 +28,7 @@ albedo_color = Color(0.7828577, 0.24109468, 0, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_3aftw"]
 size = Vector3(0.1, 0.1, 0.1)
 
-[node name="PlayerBody" type="Node3D" node_paths=PackedStringArray("animation_player", "left_foot_ik_target", "right_foot_ik_target", "left_foot_goto", "right_foot_goto")]
+[node name="PlayerBody" type="Node3D" unique_id=2017969130 node_paths=PackedStringArray("animation_player", "left_foot_ik_target", "right_foot_ik_target", "left_foot_goto", "right_foot_goto")]
 script = ExtResource("1_codw7")
 animation_player = NodePath("PlayerArmature/AnimationPlayer")
 left_foot_ik_target = NodePath("LeftFootIKTarget")
@@ -36,7 +36,7 @@ right_foot_ik_target = NodePath("RightFootIKTarget")
 left_foot_goto = NodePath("LeftFootStepTarget")
 right_foot_goto = NodePath("RightFootStepTarget")
 
-[node name="PlayerArmature" parent="." node_paths=PackedStringArray("left_foot_target", "right_foot_target", "left_hand_target", "right_hand_target", "lookat_target") instance=ExtResource("1_wnhn1")]
+[node name="PlayerArmature" parent="." unique_id=1900190612 node_paths=PackedStringArray("left_foot_target", "right_foot_target", "left_hand_target", "right_hand_target", "lookat_target") instance=ExtResource("1_wnhn1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.09194231, 0)
 script = ExtResource("2_codw7")
 left_foot_target = NodePath("../LeftFootIKTarget")
@@ -45,109 +45,111 @@ left_hand_target = NodePath("../LeftHandTarget")
 right_hand_target = NodePath("../RightHandTarget")
 lookat_target = NodePath("../LookAtTarget")
 
-[node name="RayCastShouldderL" type="RayCast3D" parent="PlayerArmature"]
+[node name="RayCastShouldderL" type="RayCast3D" parent="PlayerArmature" unique_id=266229357]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12601905, 1.4514477, 0)
 collision_mask = 61
 
-[node name="RayCastShouldderR" type="RayCast3D" parent="PlayerArmature"]
+[node name="RayCastShouldderR" type="RayCast3D" parent="PlayerArmature" unique_id=838340184]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.126, 1.4519423, 0)
 collision_mask = 61
 
-[node name="RightHandTarget" type="Marker3D" parent="."]
+[node name="RightHandTarget" type="Marker3D" parent="." unique_id=2020633602]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.33, 1.3, 0)
 top_level = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RightHandTarget"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RightHandTarget" unique_id=1439272412]
 mesh = SubResource("SphereMesh_hu15c")
 
-[node name="LeftHandTarget" type="Marker3D" parent="."]
+[node name="LeftHandTarget" type="Marker3D" parent="." unique_id=534524673]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 1.3, 0)
 top_level = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="LeftHandTarget"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LeftHandTarget" unique_id=649615482]
 mesh = SubResource("SphereMesh_0q1wx")
 
-[node name="LeftRayCast" type="RayCast3D" parent="."]
+[node name="LeftRayCast" type="RayCast3D" parent="." unique_id=872133478]
 transform = Transform3D(0.99968547, -0.025077749, 0, 0.025077749, 0.99968547, 0, 0, 0, 1, 0.112, 1.115, 0.026)
 target_position = Vector3(0, -4, 0)
 collision_mask = 64
 
-[node name="RightRayCast" type="RayCast3D" parent="."]
+[node name="RightRayCast" type="RayCast3D" parent="." unique_id=2015565632]
 transform = Transform3D(0.9995044, 0.031480536, 0, -0.031480536, 0.9995044, 0, 0, 0, 1, -0.112326205, 1.1150669, 0)
 target_position = Vector3(0, -4, 0)
 collision_mask = 64
 
-[node name="StepInProgress" type="Timer" parent="."]
+[node name="StepInProgress" type="Timer" parent="." unique_id=1842175696]
 wait_time = 0.17
 one_shot = true
 
-[node name="Label3D" type="Label3D" parent="."]
+[node name="Label3D" type="Label3D" parent="." unique_id=1202090675]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0574298, 0)
 visible = false
 pixel_size = 0.004
 text = "JA"
 outline_size = 50
 
-[node name="LeftFootIKTarget" type="Marker3D" parent="."]
+[node name="LeftFootIKTarget" type="Marker3D" parent="." unique_id=1164756405]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49884745, 0.21737695, 0)
 top_level = true
 
-[node name="debug_left_foot" type="MeshInstance3D" parent="LeftFootIKTarget"]
+[node name="debug_left_foot" type="MeshInstance3D" parent="LeftFootIKTarget" unique_id=208302415]
 material_override = SubResource("StandardMaterial3D_3aftw")
 mesh = SubResource("SphereMesh_wsmry")
 
-[node name="RightFootIKTarget" type="Marker3D" parent="."]
+[node name="RightFootIKTarget" type="Marker3D" parent="." unique_id=1204895728]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4941189, 0.228172, 0)
 top_level = true
 
-[node name="debug_right_foot" type="MeshInstance3D" parent="RightFootIKTarget"]
+[node name="debug_right_foot" type="MeshInstance3D" parent="RightFootIKTarget" unique_id=585476598]
 material_override = SubResource("StandardMaterial3D_3aftw")
 mesh = SubResource("SphereMesh_wsmry")
 
-[node name="LeftFootStepTarget" type="Marker3D" parent="."]
+[node name="LeftFootStepTarget" type="Marker3D" parent="." unique_id=1532416242]
 transform = Transform3D(0.9996856, -0.025077753, 0, 0.025077753, 0.9996856, 0, 0, 0, 1, 0.5381553, -0.03468337, 0.026)
 
-[node name="debug_fs_L" type="MeshInstance3D" parent="LeftFootStepTarget"]
+[node name="debug_fs_L" type="MeshInstance3D" parent="LeftFootStepTarget" unique_id=1924933260]
 material_override = SubResource("StandardMaterial3D_hu15c")
 mesh = SubResource("SphereMesh_wsmry")
 
-[node name="RightFootStepTarget" type="Marker3D" parent="."]
+[node name="RightFootStepTarget" type="Marker3D" parent="." unique_id=16054398]
 transform = Transform3D(0.9995044, 0.031480536, 0, -0.031480536, 0.9995044, 0, 0, 0, 1, -0.5100664, -0.033323746, 0)
 
-[node name="debug_fs_R" type="MeshInstance3D" parent="RightFootStepTarget"]
+[node name="debug_fs_R" type="MeshInstance3D" parent="RightFootStepTarget" unique_id=904407299]
 material_override = SubResource("StandardMaterial3D_hu15c")
 mesh = SubResource("SphereMesh_wsmry")
 
-[node name="DrinkHoleR" type="Marker3D" parent="."]
+[node name="DrinkHoleR" type="Marker3D" parent="." unique_id=586144060]
 transform = Transform3D(0.89503556, 0.42385972, 0.13875979, 0, -0.31112427, 0.95036924, 0.44599476, -0.85061425, -0.27846727, -0.12888776, 1.5619794, 0.29331946)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="DrinkHoleR"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="DrinkHoleR" unique_id=1680098300]
 visible = false
 mesh = SubResource("BoxMesh_3aftw")
 
-[node name="DrinkHoleL" type="Marker3D" parent="."]
+[node name="DrinkHoleL" type="Marker3D" parent="." unique_id=1156364650]
 transform = Transform3D(0.9057317, -0.40281564, -0.13187057, 1.329168e-08, -0.31112432, 0.95036936, -0.42385173, -0.8607795, -0.2817951, 0.114841804, 1.5619794, 0.29331946)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="DrinkHoleL"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="DrinkHoleL" unique_id=565541213]
 visible = false
 mesh = SubResource("BoxMesh_3aftw")
 
-[node name="LeftDrink" type="Timer" parent="."]
+[node name="LeftDrink" type="Timer" parent="." unique_id=757956961]
 unique_name_in_owner = true
 wait_time = 1.5
 one_shot = true
 
-[node name="RightDrink" type="Timer" parent="."]
+[node name="RightDrink" type="Timer" parent="." unique_id=2039740501]
 unique_name_in_owner = true
 wait_time = 1.5
 one_shot = true
 
-[node name="LookAtTarget" type="Marker3D" parent="."]
+[node name="LookAtTarget" type="Marker3D" parent="." unique_id=1547671586]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.058761835, 2.5956798, -0.80368567)
 script = ExtResource("5_wsmry")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="LookAtTarget"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LookAtTarget" unique_id=1018475951]
 visible = false
 mesh = SubResource("BoxMesh_3aftw")
 
