@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://b86lbtpyigxs5"]
 
 [ext_resource type="Script" uid="uid://din06hqtbjn7p" path="res://Characters/Player/logic/player_body.gd" id="1_codw7"]
-[ext_resource type="PackedScene" uid="uid://wfy3mktwjjp1" path="res://Assets/Characters/Drunk/drunk.gltf" id="1_wnhn1"]
-[ext_resource type="Script" uid="uid://26b81t0og4ju" path="res://Characters/Player/logic/player_armature.gd" id="2_codw7"]
+[ext_resource type="PackedScene" uid="uid://wfy3mktwjjp1" path="res://Assets/Characters/Drunk/drunk.gltf" id="4_3aftw"]
 [ext_resource type="Script" uid="uid://disdusnw84h82" path="res://Characters/Player/logic/look_at_target.gd" id="5_wsmry"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_hu15c"]
@@ -28,32 +27,17 @@ albedo_color = Color(0.7828577, 0.24109468, 0, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_3aftw"]
 size = Vector3(0.1, 0.1, 0.1)
 
-[node name="PlayerBody" type="Node3D" unique_id=2017969130 node_paths=PackedStringArray("animation_player", "left_foot_ik_target", "right_foot_ik_target", "left_foot_goto", "right_foot_goto")]
+[node name="PlayerBody" type="Node3D" unique_id=2017969130 node_paths=PackedStringArray("animation_player", "left_shoulder_ray", "right_shoulder_ray", "left_foot_ray", "right_foot_ray", "left_foot_ik_target", "right_foot_ik_target", "left_foot_goto", "right_foot_goto")]
 script = ExtResource("1_codw7")
-animation_player = NodePath("PlayerArmature/AnimationPlayer")
+animation_player = NodePath("drunk/AnimationPlayer")
+left_shoulder_ray = NodePath("drunk/Armature/Skeleton3D/ShoulderL_Pos/ShoulderRayL")
+right_shoulder_ray = NodePath("drunk/Armature/Skeleton3D/ShoulderR_Pos/ShoulderRayR")
+left_foot_ray = NodePath("LeftRayCast")
+right_foot_ray = NodePath("RightRayCast")
 left_foot_ik_target = NodePath("LeftFootIKTarget")
 right_foot_ik_target = NodePath("RightFootIKTarget")
 left_foot_goto = NodePath("LeftFootStepTarget")
 right_foot_goto = NodePath("RightFootStepTarget")
-
-[node name="PlayerArmature" parent="." unique_id=1900190612 node_paths=PackedStringArray("left_foot_target", "right_foot_target", "left_hand_target", "right_hand_target", "lookat_target") instance=ExtResource("1_wnhn1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.09194231, 0)
-script = ExtResource("2_codw7")
-left_foot_target = NodePath("../LeftFootIKTarget")
-right_foot_target = NodePath("../RightFootIKTarget")
-left_hand_target = NodePath("../LeftHandTarget")
-right_hand_target = NodePath("../RightHandTarget")
-lookat_target = NodePath("../LookAtTarget")
-
-[node name="RayCastShouldderL" type="RayCast3D" parent="PlayerArmature" unique_id=266229357]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12601905, 1.4514477, 0)
-collision_mask = 61
-
-[node name="RayCastShouldderR" type="RayCast3D" parent="PlayerArmature" unique_id=838340184]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.126, 1.4519423, 0)
-collision_mask = 61
 
 [node name="RightHandTarget" type="Marker3D" parent="." unique_id=2020633602]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.33, 1.3, 0)
@@ -91,18 +75,20 @@ text = "JA"
 outline_size = 50
 
 [node name="LeftFootIKTarget" type="Marker3D" parent="." unique_id=1164756405]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49884745, 0.21737695, 0)
+transform = Transform3D(-0.9659258, 0.24163333, 0.092739835, 0, -0.35831907, 0.9335992, 0.25881913, 0.9017875, 0.34610963, 0.49884745, 0.18655942, 0.005039128)
 top_level = true
 
 [node name="debug_left_foot" type="MeshInstance3D" parent="LeftFootIKTarget" unique_id=208302415]
+transform = Transform3D(1, 0, 0, 0, 0.33653647, 0.9416704, 0, -0.9416704, 0.33653647, 0, 0.14100692, -0.055178452)
 material_override = SubResource("StandardMaterial3D_3aftw")
 mesh = SubResource("SphereMesh_wsmry")
 
 [node name="RightFootIKTarget" type="Marker3D" parent="." unique_id=1204895728]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4941189, 0.228172, 0)
+transform = Transform3D(-0.9659258, -0.24163333, -0.092739835, 0, -0.35831907, 0.9335992, -0.25881913, 0.9017875, 0.34610963, -0.4941189, 0.18269135, -0.005039128)
 top_level = true
 
 [node name="debug_right_foot" type="MeshInstance3D" parent="RightFootIKTarget" unique_id=585476598]
+transform = Transform3D(1, 0, 0, 0, 0.33653647, 0.9416704, 0, -0.9416704, 0.33653647, 0, 0.13384476, -0.06534384)
 material_override = SubResource("StandardMaterial3D_3aftw")
 mesh = SubResource("SphereMesh_wsmry")
 
@@ -146,14 +132,197 @@ one_shot = true
 
 [node name="LookAtTarget" type="Marker3D" parent="." unique_id=1547671586]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.058761835, 2.5956798, -0.80368567)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01942712, 1.4530503, 2.227501)
 script = ExtResource("5_wsmry")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="LookAtTarget" unique_id=1018475951]
 visible = false
 mesh = SubResource("BoxMesh_3aftw")
 
+[node name="drunk" parent="." unique_id=556918988 instance=ExtResource("4_3aftw")]
+
+[node name="Skeleton3D" parent="drunk/Armature" index="0"]
+bones/1/position = Vector3(-0.006342318, 0.80879027, 0.010572979)
+bones/1/rotation = Quaternion(0.011466796, 1.1920146e-07, 1.3669378e-09, 0.99993426)
+
+[node name="LookAtModifier3D" type="LookAtModifier3D" parent="drunk/Armature/Skeleton3D" index="16" unique_id=150976141]
+target_node = NodePath("../../../../LookAtTarget")
+bone_name = "Head"
+bone = 11
+duration = 0.5
+transition_type = 3
+ease_type = 2
+use_angle_limitation = true
+symmetry_limitation = true
+primary_limit_angle = 2.9670596
+primary_damp_threshold = 0.0
+secondary_limit_angle = 1.5707964
+secondary_damp_threshold = 1.0
+
+[node name="TwoBoneIK" type="TwoBoneIK3D" parent="drunk/Armature/Skeleton3D" index="17" unique_id=1179994689]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0.022145838, 0.064663224, 0)
+setting_count = 4
+settings/0/target_node = NodePath("../../../../RightFootIKTarget")
+settings/0/pole_node = NodePath("../../../Pole_FootR")
+settings/0/root_bone_name = "Leg_R"
+settings/0/root_bone = 17
+settings/0/middle_bone_name = "LegLower_R"
+settings/0/middle_bone = 18
+settings/0/pole_direction = 0
+settings/0/end_bone_name = "Foot_R"
+settings/0/end_bone = 19
+settings/0/use_virtual_end = false
+settings/0/extend_end_bone = false
+settings/1/target_node = NodePath("../../../../LeftFootIKTarget")
+settings/1/pole_node = NodePath("../../../Pole_FootL")
+settings/1/root_bone_name = "Leg_L"
+settings/1/root_bone = 2
+settings/1/middle_bone_name = "LegLower_L"
+settings/1/middle_bone = 3
+settings/1/pole_direction = 0
+settings/1/end_bone_name = "Leg_IK_target-L"
+settings/1/end_bone = 5
+settings/1/use_virtual_end = false
+settings/1/extend_end_bone = false
+settings/2/target_node = NodePath("../../../../LeftHandTarget")
+settings/2/pole_node = NodePath("../../../Pole_ArmL")
+settings/2/root_bone_name = "Arm_L"
+settings/2/root_bone = 7
+settings/2/middle_bone_name = "Forearm_L"
+settings/2/middle_bone = 8
+settings/2/pole_direction = 0
+settings/2/end_bone_name = "Hand_L"
+settings/2/end_bone = 9
+settings/2/use_virtual_end = false
+settings/2/extend_end_bone = false
+settings/3/target_node = NodePath("../../../../RightHandTarget")
+settings/3/pole_node = NodePath("../../../Pole_ArmR")
+settings/3/root_bone_name = "Arm_R"
+settings/3/root_bone = 14
+settings/3/middle_bone_name = "Forearm_R"
+settings/3/middle_bone = 15
+settings/3/pole_direction = 0
+settings/3/end_bone_name = "Hand_R"
+settings/3/end_bone = 16
+settings/3/use_virtual_end = false
+settings/3/extend_end_bone = false
+
+[node name="PelvisPos" type="BoneAttachment3D" parent="drunk/Armature/Skeleton3D" index="18" unique_id=568561482]
+transform = Transform3D(1, 3.996803e-15, 2.384186e-07, 5.467413e-09, 0.999737, -0.022932082, -2.383559e-07, 0.022932082, 0.999737, -0.006342318, 0.80879027, 0.010572979)
+bone_name = "Pelvis"
+bone_idx = 1
+override_pose = true
+
+[node name="Spring_Head" type="SpringBoneSimulator3D" parent="drunk/Armature/Skeleton3D" index="19" unique_id=1423621454]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.032716572, -0.0001129508, 0)
+setting_count = 1
+settings/0/root_bone_name = "Head"
+settings/0/root_bone = 11
+settings/0/end_bone_name = "HairTip"
+settings/0/end_bone = 13
+settings/0/extend_end_bone = false
+settings/0/center_from = 0
+settings/0/individual_config = false
+settings/0/rotation_axis = 3
+settings/0/radius/value = 0.02
+settings/0/radius/damping_curve = null
+settings/0/stiffness/value = 1.0
+settings/0/stiffness/damping_curve = null
+settings/0/drag/value = 0.4
+settings/0/drag/damping_curve = null
+settings/0/gravity/value = 0.0
+settings/0/gravity/damping_curve = null
+settings/0/gravity/direction = Vector3(0, -1, 0)
+settings/0/joints/0/bone_name = "Head"
+settings/0/joints/0/bone = 11
+settings/0/joints/1/bone_name = "Hair"
+settings/0/joints/1/bone = 12
+settings/0/joints/2/bone_name = "HairTip"
+settings/0/joints/2/bone = 13
+settings/0/enable_all_child_collisions = true
+settings/0/exclude_collision_count = 0
+
+[node name="Spring_Spline" type="SpringBoneSimulator3D" parent="drunk/Armature/Skeleton3D" index="20" unique_id=2139771768]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.062546015, -0.08468467, 0)
+setting_count = 1
+settings/0/root_bone_name = "Chest"
+settings/0/root_bone = 6
+settings/0/end_bone_name = "Neck"
+settings/0/end_bone = 10
+settings/0/extend_end_bone = false
+settings/0/center_from = 0
+settings/0/individual_config = false
+settings/0/rotation_axis = 3
+settings/0/radius/value = 0.2
+settings/0/radius/damping_curve = null
+settings/0/stiffness/value = 2.0
+settings/0/stiffness/damping_curve = null
+settings/0/drag/value = 0.2
+settings/0/drag/damping_curve = null
+settings/0/gravity/value = 0.0
+settings/0/gravity/damping_curve = null
+settings/0/gravity/direction = Vector3(0, -1, 0)
+settings/0/joints/0/bone_name = "Chest"
+settings/0/joints/0/bone = 6
+settings/0/joints/1/bone_name = "Neck"
+settings/0/joints/1/bone = 10
+settings/0/enable_all_child_collisions = false
+settings/0/collision_count = 0
+
+[node name="ShoulderR_Pos" type="BoneAttachment3D" parent="drunk/Armature/Skeleton3D" index="21" unique_id=332456203]
+transform = Transform3D(-0.0010679907, -0.9997701, -0.021413103, 0.99897045, -9.5478084e-05, -0.045364477, 0.045352012, -0.021439504, 0.99874085, -0.13921349, 1.3001139, 0.025535751)
+bone_name = "Arm_R"
+bone_idx = 14
+
+[node name="ShoulderRayR" type="RayCast3D" parent="drunk/Armature/Skeleton3D/ShoulderR_Pos" unique_id=1083458475]
+transform = Transform3D(0.99968547, -0.025077749, 0, 0.025077749, 0.99968547, 0, 0, 0, 1, 0.112, 1.115, 0.026)
+collision_mask = 61
+
+[node name="ShoulderL_Pos" type="BoneAttachment3D" parent="drunk/Armature/Skeleton3D" index="22" unique_id=639041020]
+transform = Transform3D(-0.0011324936, 0.9997418, 0.022695465, -0.9989704, -0.00010179839, -0.045364194, -0.04535017, -0.022723474, 0.9987126, 0.12652884, 1.3001139, 0.025535753)
+bone_name = "Arm_L"
+bone_idx = 7
+
+[node name="ShoulderRayL" type="RayCast3D" parent="drunk/Armature/Skeleton3D/ShoulderL_Pos" unique_id=341007348]
+transform = Transform3D(0.99968547, -0.025077749, 0, 0.025077749, 0.99968547, 0, 0, 0, 1, 0.112, 1.115, 0.026)
+collision_mask = 61
+
+[node name="CopyTransformModifier3D" type="CopyTransformModifier3D" parent="drunk/Armature/Skeleton3D" index="23" unique_id=2061521906]
+setting_count = 2
+settings/0/amount = 1.0
+settings/0/apply_bone_name = "Foot_R"
+settings/0/apply_bone = 19
+settings/0/reference_type = 1
+settings/0/reference_node = NodePath("../../../../RightFootIKTarget")
+settings/1/amount = 1.0
+settings/1/apply_bone_name = "Foot_L"
+settings/1/apply_bone = 4
+settings/1/reference_type = 1
+settings/1/reference_node = NodePath("../../../../LeftFootIKTarget")
+settings/0/copy = 2
+settings/0/axes = 7
+settings/0/invert = 0
+settings/0/additive = false
+settings/1/copy = 2
+settings/1/axes = 7
+settings/1/invert = 0
+settings/1/additive = false
+
+[node name="Pole_FootL" type="Marker3D" parent="drunk" unique_id=268182589]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4479223, 2.493257, 1.8146456)
+
+[node name="Pole_FootR" type="Marker3D" parent="drunk" unique_id=1291168452]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17375726, 2.5688033, 1.6485293)
+
+[node name="Pole_ArmL" type="Marker3D" parent="drunk" unique_id=1203701993]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.58927995, 0.20413855, -0.7773348)
+
+[node name="Pole_ArmR" type="Marker3D" parent="drunk" unique_id=317537649]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.69472444, 0.21589863, -0.7749078)
+
 [connection signal="FeetStateChanged" from="." to="." method="_on_feet_state_changed"]
 [connection signal="timeout" from="StepInProgress" to="." method="_on_step_in_progress_timeout"]
 [connection signal="timeout" from="LeftDrink" to="." method="_on_left_drink_timeout"]
 [connection signal="timeout" from="RightDrink" to="." method="_on_right_drink_timeout"]
+
+[editable path="drunk"]

@@ -19,26 +19,27 @@ var FOOT_CORRECTION = Vector3(0,0.1,0)
 var StepTriggerDistance = 0.37
 
 @onready var PlayerRoot = $"../"
-@onready var player_armature: Node3D = $PlayerArmature
-@onready var skeleton: Skeleton3D = $PlayerArmature/Armature/Skeleton3D
+@onready var player_armature: Node3D = $drunk
+@onready var skeleton: Skeleton3D = $drunk/Armature/Skeleton3D
 @export var animation_player: AnimationPlayer
 @onready var sound_effects : PlayerSounds = AudioManager.player_sounds
 
 # hands
-@onready var left_shoulder_ray: RayCast3D = $PlayerArmature/RayCastShouldderL
-@onready var right_shoulder_ray: RayCast3D = $PlayerArmature/RayCastShouldderR
+@export var left_shoulder_ray: RayCast3D
+@export var right_shoulder_ray: RayCast3D
 @onready var left_hand_target: Marker3D = $LeftHandTarget
 @onready var right_hand_target: Marker3D = $RightHandTarget
 @onready var drink_hole_left: Marker3D = $DrinkHoleL
 @onready var drink_hole_right: Marker3D = $DrinkHoleR
 
 #feet
-@onready var left_foot_ray: RayCast3D = $LeftRayCast
-@onready var right_foot_ray: RayCast3D = $RightRayCast
+@export var left_foot_ray: RayCast3D
+@export var right_foot_ray: RayCast3D
 @export var left_foot_ik_target: Marker3D
 @export var right_foot_ik_target: Marker3D
 @export var left_foot_goto: Marker3D
 @export var right_foot_goto: Marker3D
+
 
 # ---------------------- External Targets --------------------------------------
 @onready var player_rb: RigidBody3D
