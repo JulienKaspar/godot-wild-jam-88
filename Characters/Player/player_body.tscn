@@ -27,7 +27,7 @@ albedo_color = Color(0.7828577, 0.24109468, 0, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_3aftw"]
 size = Vector3(0.1, 0.1, 0.1)
 
-[node name="PlayerBody" type="Node3D" unique_id=2017969130 node_paths=PackedStringArray("animation_player", "left_shoulder_ray", "right_shoulder_ray", "left_foot_ray", "right_foot_ray", "left_foot_ik_target", "right_foot_ik_target", "left_foot_goto", "right_foot_goto")]
+[node name="PlayerBody" type="Node3D" unique_id=2017969130 node_paths=PackedStringArray("animation_player", "left_shoulder_ray", "right_shoulder_ray", "left_foot_ray", "right_foot_ray", "left_foot_ik_target", "right_foot_ik_target", "left_foot_goto", "right_foot_goto", "pelvis")]
 script = ExtResource("1_codw7")
 animation_player = NodePath("drunk/AnimationPlayer")
 left_shoulder_ray = NodePath("drunk/Armature/Skeleton3D/ShoulderL_Pos/ShoulderRayL")
@@ -38,6 +38,7 @@ left_foot_ik_target = NodePath("LeftFootIKTarget")
 right_foot_ik_target = NodePath("RightFootIKTarget")
 left_foot_goto = NodePath("LeftFootStepTarget")
 right_foot_goto = NodePath("RightFootStepTarget")
+pelvis = NodePath("drunk/Armature/Skeleton3D/PelvisPos")
 
 [node name="RightHandTarget" type="Marker3D" parent="." unique_id=2020633602]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.33, 1.3, 0)
@@ -307,6 +308,16 @@ settings/1/copy = 2
 settings/1/axes = 7
 settings/1/invert = 0
 settings/1/additive = false
+
+[node name="FootL_Pos" type="BoneAttachment3D" parent="drunk/Armature/Skeleton3D" index="24" unique_id=992633488]
+transform = Transform3D(-0.965926, 0.24163307, 0.09273978, -3.5390258e-08, -0.35831934, 0.9335992, 0.25881913, 0.901788, 0.34611052, 0.4988476, 0.18655944, 0.005038947)
+bone_name = "Foot_L"
+bone_idx = 4
+
+[node name="FootR_Pos" type="BoneAttachment3D" parent="drunk/Armature/Skeleton3D" index="25" unique_id=452820676]
+transform = Transform3D(-0.9659258, -0.24163306, -0.092739746, 7.450581e-09, -0.35831928, 0.9335992, -0.25881916, 0.901788, 0.3461105, -0.49411893, 0.18269134, -0.005039297)
+bone_name = "Foot_R"
+bone_idx = 19
 
 [node name="Pole_FootL" type="Marker3D" parent="drunk" unique_id=268182589]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4479223, 2.493257, 1.8146456)

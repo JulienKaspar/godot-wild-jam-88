@@ -6,28 +6,25 @@
 [ext_resource type="PackedScene" uid="uid://dxm7roj4ppccg" path="res://Assets/LivingRoom/stairs_thin_steps.gltf" id="4_0o3m1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uixye"]
-size = Vector3(1.7751465, 0.36453247, 2.6681871)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_57ya7"]
-size = Vector3(1.7751465, 0.9243164, 0.5818939)
+size = Vector3(1.7751465, 0.36453247, 2.689996)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6yb0c"]
-size = Vector3(1.7751465, 1, 0.55804443)
+size = Vector3(1.7751465, 0.3310547, 0.58810425)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nafk8"]
-size = Vector3(1.7751465, 0.8286133, 0.9663086)
+size = Vector3(1.7751465, 0.30773926, 0.6102295)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p2hkw"]
-size = Vector3(1.7751465, 0.51904297, 1.5683594)
+size = Vector3(1.7751465, 0.26290894, 0.576416)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4shsl"]
-size = Vector3(1.7751465, 0.27148438, 1.7695313)
+size = Vector3(1.7751465, 0.296875, 0.5675049)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e1ufy"]
-size = Vector3(1.9423828, 1.0928345, 0.41253662)
+size = Vector3(1.9423828, 1.1211243, 0.5229111)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3cf7q"]
-size = Vector3(1.9423828, 0.28378296, 1.8283691)
+size = Vector3(1.9423828, 0.28378296, 1.8560791)
 
 [node name="Stairs_thin" type="StaticBody3D" unique_id=1097530889 node_paths=PackedStringArray("stair_asset")]
 collision_layer = 129
@@ -40,46 +37,42 @@ stair_asset = NodePath("stair_thin_steps")
 [node name="stair_thin_steps" parent="." unique_id=103336700 instance=ExtResource("4_0o3m1")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=315080567]
-transform = Transform3D(1, 0, 0, 0, 0.90348506, -0.4286199, 0, 0.4286199, 0.90348506, 0, 1.0615307, 0.68458796)
+transform = Transform3D(1, 0, 0, 0, 0.90348506, -0.4286199, 0, 0.4286199, 0.90348506, 0, 1.0662045, 0.67473596)
 shape = SubResource("BoxShape3D_uixye")
-debug_color = Color(0, 0.5950001, 0.7, 1)
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=970176078]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 1.3391511, -0.7076515)
-shape = SubResource("BoxShape3D_57ya7")
-debug_color = Color(0, 0.5950001, 0.7, 1)
+debug_color = Color(0.8943724, 0.00017615854, 0.7643219, 1)
 
 [node name="IKCollider" type="StaticBody3D" parent="." unique_id=1043974113]
 collision_layer = 65
+collision_mask = 0
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="IKCollider" unique_id=1439753268]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 1.2798222, -0.7231409)
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 1.6142949, -0.708111)
 shape = SubResource("BoxShape3D_6yb0c")
-debug_color = Color(0, 0.5950001, 0.7, 1)
+debug_color = Color(0.7528287, 0.4500627, 0.12829679, 1)
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="IKCollider" unique_id=1680744435]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 1.1116484, -0.36463386)
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 1.3618642, -0.1550757)
 shape = SubResource("BoxShape3D_nafk8")
-debug_color = Color(0, 0.5950001, 0.7, 1)
+debug_color = Color(0.7528287, 0.4500627, 0.12829679, 1)
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="IKCollider" unique_id=934807948]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0.97745585, -0.06511854)
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 1.0981104, 0.42934263)
 shape = SubResource("BoxShape3D_p2hkw")
-debug_color = Color(0, 0.5950001, 0.7, 1)
+debug_color = Color(0.7528287, 0.4500627, 0.12829679, 1)
 
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="IKCollider" unique_id=729063122]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0.8435229, 0.39518)
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0.8308276, 0.99619323)
 shape = SubResource("BoxShape3D_4shsl")
-debug_color = Color(0, 0.5950001, 0.7, 1)
+debug_color = Color(0.7528287, 0.4500627, 0.12829679, 1)
 
 [node name="regular_floor" type="StaticBody3D" parent="." unique_id=59983688]
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="regular_floor" unique_id=21438500]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 1.260781, -0.77941936)
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 1.2466362, -0.72423214)
 shape = SubResource("BoxShape3D_e1ufy")
 debug_color = Color(0, 0.5950001, 0.7, 1)
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="regular_floor" unique_id=1642908754]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0.8289889, 0.36095893)
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0.8289889, 0.34710395)
 shape = SubResource("BoxShape3D_3cf7q")
 debug_color = Color(0, 0.5950001, 0.7, 1)

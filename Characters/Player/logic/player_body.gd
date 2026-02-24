@@ -39,6 +39,7 @@ var StepTriggerDistance = 0.37
 @export var right_foot_ik_target: Marker3D
 @export var left_foot_goto: Marker3D
 @export var right_foot_goto: Marker3D
+@export var pelvis: Node3D
 
 
 # ---------------------- External Targets --------------------------------------
