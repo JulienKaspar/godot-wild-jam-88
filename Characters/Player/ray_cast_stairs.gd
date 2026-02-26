@@ -7,7 +7,12 @@ func is_colliding_with_stairs() -> bool:
 		return false
 	
 	if get_collider() is not Slope:
-		return false
+		if get_collider() is SlipperySurface:
+			get_collider().slide()
+			return false
+		else:
+			return false
+	
 
 	# finding backside stair collider is easy if we limit stairs to be 45deg max!
 	# invalid normal will always be > 45deg while valid stair top will be < 45deg

@@ -1,18 +1,248 @@
 [gd_scene format=3 uid="uid://iih1jkhaygbs"]
 
 [ext_resource type="PackedScene" uid="uid://cnp1q1f2hriad" path="res://Assets/Props/cardboard_piece_1.gltf" id="1_h6g7k"]
+[ext_resource type="Script" uid="uid://he6c2glgjk3y" path="res://Objects/Architypes/TrippingHazards/slippery_surface.gd" id="2_mj7lh"]
+[ext_resource type="PackedScene" uid="uid://ipb5qq76r2qn" path="res://Particles/Banana_Slip/pfx_banana_slip.tscn" id="3_0g58m"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1gamp"]
 size = Vector3(0.68361664, 0.22521973, 0.70410156)
 
+[sub_resource type="Animation" id="Animation_mj7lh"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cardboard_piece_1:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("cardboard_piece_1:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("cardboard_piece_1:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("cardboard_piece_1:rotation:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("cardboard_piece_1:rotation:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("cardboard_piece_1:rotation:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PfxBananaSlip:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("cardboard_piece_1:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_0g58m"]
+resource_name = "slide"
+length = 2.6666667
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cardboard_piece_1:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.1, 0.00513424, 0.08497641, -0.045499466, 0.013622911, 0.13333333, -0.039921086, 0.13232768, -0.0465712, 0.018463958, 0.06908709, -0.02739077, 0.10896592, -0.076666676, -0.024704065, 0.1661111, 0.053525466, 0.60170484, -0.2317971, -0.24476609, 0, 0),
+"times": PackedFloat32Array(0, 0.3, 0.61, 1.07, 1.5999999)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("cardboard_piece_1:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.13333334, 0.010124376, 0.022599716, -0.13333334, 0.024950678, 0.042088065, -0.007875943, 0.03257999, -0.06666666, 0.029940814, 0.072015524, -0.032343052, 0.010124376, -0.10333341, 0.059583902, 0.10079846, -0.0581222, -0.17975044, -0.15424609, 0.05015096, 0, 0.0077348053),
+"times": PackedFloat32Array(0, 0.3, 0.56666666, 1.0666667, 1.5999999)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("cardboard_piece_1:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.16666667, 0.020104647, -0.014826303, -0.050000004, 0, 0.05166667, 0, 0.060025733, -0.05166667, 0, 0.076666676, 0, 0, -0.073707215, 0.025831731, 0.1633333, -0.057242457, 0.052540526, -0.20000005, -0.014970403, 0.46820283, 0.02758979),
+"times": PackedFloat32Array(0, 0.3, 0.6333333, 1.07, 1.6)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("cardboard_piece_1:rotation:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.17319693, -0.019816423, 0.18466507, -0.08401325, -0.062262625, 0.12493369, 0.09258895, -0.2051001, -0.05166667, 0.025611795, 0.076666676, -0.0380046, -0.19703329, -0.07276842, -0.031464163, 0.1444161, 0.062443733, 0.09745177, -0.24702632, -0.052396428, 0, 0),
+"times": PackedFloat32Array(0, 0.3, 0.61, 1.07, 1.6)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("cardboard_piece_1:rotation:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.11614382, -0.02231149, 0.013871747, -0.050000004, 0.007182083, 0.05166667, -0.0074214856, -0.08762141, -0.05166667, 0.0037118795, 0.076666676, -0.0055079507, -0.04144723, -0.076666676, -0.004611654, 0.1661111, 0.009991915, 0, -0.51111114, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.3, 0.61, 1.07, 1.5999999)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("cardboard_piece_1:rotation:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.15689604, -0.0048460155, 0.14236304, -0.13333334, 0.14471394, 0.069146, -0.075047925, 0.19725452, -0.16666666, -0.15968435, 0.26473364, 0.25364292, 0.11198365, -0.076882325, -0.006078685, 0.1633333, 0.012913913, 0.4156676, -0.26666653, 0.05354935, 0.568203, -0.14855129),
+"times": PackedFloat32Array(0, 0.26666668, 0.6333333, 1.07, 1.5999999)
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("cardboard_piece_1")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("StaticBody3D")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(2.6666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"animCallbackDone"
+}]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("PfxBananaSlip:emitting")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("cardboard_piece_1:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ghlf4"]
+_data = {
+&"RESET": SubResource("Animation_mj7lh"),
+&"slide": SubResource("Animation_0g58m")
+}
+
 [node name="CardboardSlipperySlope_Dark" type="Node3D" unique_id=1517490489]
 
 [node name="cardboard_piece_1" parent="." unique_id=1067394662 instance=ExtResource("1_h6g7k")]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999998, 0, 0, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=115892046]
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=115892046 node_paths=PackedStringArray("AnimPlayer")]
 collision_layer = 192
 collision_mask = 0
+script = ExtResource("2_mj7lh")
+AnimPlayer = NodePath("../AnimationPlayer")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=1022373620]
 transform = Transform3D(0.8912204, 0.45357051, 0, -0.45357051, 0.8912204, 0, 0, 0, 1, 0.24827766, -0.19038342, 0)
 shape = SubResource("BoxShape3D_1gamp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=235111297]
+libraries/ = SubResource("AnimationLibrary_ghlf4")
+
+[node name="PfxBananaSlip" parent="." unique_id=2069981182 instance=ExtResource("3_0g58m")]
+transform = Transform3D(-3.6094416e-08, 0.56404495, 0.8257441, 2.4655188e-08, 0.8257441, -0.56404495, -0.99999994, 0, -4.371139e-08, 0.52178174, -0.2452076, 0)
+amount = 15
