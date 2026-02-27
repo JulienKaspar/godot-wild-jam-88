@@ -1,18 +1,89 @@
-[gd_scene load_steps=4 format=3 uid="uid://l4nbchy8y1g1"]
+[gd_scene format=3 uid="uid://l4nbchy8y1g1"]
 
 [ext_resource type="PackedScene" uid="uid://bhl3yc3cmsqrc" path="res://Assets/Furniture/flower1.gltf" id="1_ec8ns"]
+[ext_resource type="Script" uid="uid://b3w4gu3se7vnv" path="res://Gameplay/Pickups/drunkness_pickup.gd" id="2_5qx2b"]
 [ext_resource type="PackedScene" uid="uid://142xvokhmr2g" path="res://Objects/PropCollider.tscn" id="2_f1tku"]
+[ext_resource type="Script" uid="uid://dov4lhtuyrycf" path="res://Gameplay/Pickups/pick_point.gd" id="4_yu57h"]
+[ext_resource type="PackedScene" uid="uid://digw728iiuyg2" path="res://Particles/DrunknessPickups/pfx_beer_consuming.tscn" id="5_pa5w1"]
+[ext_resource type="PackedScene" uid="uid://cpegwj8uc0kq5" path="res://Particles/DrunknessPickups/pfx_beer_break.tscn" id="6_jupx2"]
+[ext_resource type="Script" uid="uid://bcct1aqhnv1r" path="res://Gameplay/Pickups/pfx_trigger_childs.gd" id="7_k6xyp"]
+[ext_resource type="PackedScene" uid="uid://bw1ewj0l1c71n" path="res://Particles/DrunknessPickups/pfx_beer_dispose.tscn" id="8_44n8u"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ec8ns"]
 height = 0.5761719
 radius = 0.119628906
 
-[node name="Flowers1" type="Node3D"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_3sue1"]
+radius = 0.1
 
-[node name="PropCollider" parent="." instance=ExtResource("2_f1tku")]
+[sub_resource type="ViewportTexture" id="ViewportTexture_5qx2b"]
+viewport_path = NodePath("PickupPrompt/SubViewport")
 
-[node name="flowers" parent="PropCollider" instance=ExtResource("1_ec8ns")]
+[node name="Flowers1" type="Node3D" unique_id=1684408373]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PropCollider"]
+[node name="PropCollider" parent="." unique_id=607692643 node_paths=PackedStringArray("pick_point", "pristine_mesh", "consume_pfx", "dispose_pfx", "break_pfx", "broken_mesh") instance=ExtResource("2_f1tku")]
+script = ExtResource("2_5qx2b")
+pick_point = NodePath("PickPoint")
+drunkness_increase = -2.0
+pristine_mesh = NodePath("flowers")
+consume_pfx = NodePath("PfxBeerConsuming")
+dispose_pfx = NodePath("PfxBeerDispose")
+break_pfx = NodePath("PfxBeerBreak")
+broken_mesh = NodePath("flowers2")
+
+[node name="flowers" parent="PropCollider" unique_id=1093144685 instance=ExtResource("1_ec8ns")]
+
+[node name="flowers2" parent="PropCollider" unique_id=1247689090 instance=ExtResource("1_ec8ns")]
+
+[node name="Flower_004" parent="PropCollider/flowers2" index="0"]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PropCollider" unique_id=119593913]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.28808594, 0)
 shape = SubResource("CylinderShape3D_ec8ns")
+
+[node name="PickPoint" type="Area3D" parent="PropCollider" unique_id=721810666]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25845188, 0)
+monitoring = false
+script = ExtResource("4_yu57h")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PropCollider/PickPoint" unique_id=1879387005]
+shape = SubResource("SphereShape3D_3sue1")
+
+[node name="PickupPrompt" type="Sprite3D" parent="PropCollider" unique_id=1674247116]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.002987504, 0.58469856, 0.003801167)
+billboard = 1
+texture = SubResource("ViewportTexture_5qx2b")
+
+[node name="SubViewport" type="SubViewport" parent="PropCollider/PickupPrompt" unique_id=500197346]
+transparent_bg = true
+size = Vector2i(200, 50)
+
+[node name="Label" type="Label" parent="PropCollider/PickupPrompt/SubViewport" unique_id=333674611]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+text = "*
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PfxBeerConsuming" parent="PropCollider" unique_id=663161605 instance=ExtResource("5_pa5w1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3237982, 0.016996935)
+visible = false
+
+[node name="PfxBeerBreak" parent="PropCollider" unique_id=846268265 instance=ExtResource("6_jupx2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34591833, 0)
+visible = false
+script = ExtResource("7_k6xyp")
+
+[node name="PfxBeerDispose" parent="PropCollider" unique_id=1033085514 instance=ExtResource("8_44n8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34305182, 0)
+visible = false
+
+[editable path="PropCollider/flowers2"]
