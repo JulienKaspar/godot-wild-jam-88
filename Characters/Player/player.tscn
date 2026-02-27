@@ -10,6 +10,10 @@
 height = 5.0
 radius = 4.0
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_xf5fp"]
+height = 1.5
+radius = 3.0
+
 [node name="Player" type="Node3D" unique_id=1811232926]
 process_mode = 1
 script = ExtResource("3_cue0d")
@@ -40,6 +44,14 @@ transform = Transform3D(1, 0, 0, 0, 0.819152, -0.5735764, 0, 0.5735764, 0.819152
 shape = SubResource("CylinderShape3D_klx3t")
 debug_color = Color(0.8627451, 0, 0.45882353, 0.8784314)
 
+[node name="touch_area" type="Area3D" parent="PickupTracker" unique_id=1159418288]
+collision_layer = 1024
+collision_mask = 1024
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PickupTracker/touch_area" unique_id=1870386844]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1619334, 0)
+shape = SubResource("CylinderShape3D_xf5fp")
+
 [node name="FallPunishReset" type="Timer" parent="." unique_id=1077029427]
 wait_time = 2.0
 one_shot = true
@@ -60,4 +72,6 @@ one_shot = true
 [connection signal="area_exited" from="PickupTracker/grab_area_left" to="PickupTracker" method="_on_grab_area_left_area_exited"]
 [connection signal="area_entered" from="PickupTracker/grab_area_right" to="PickupTracker" method="_on_grab_area_right_area_entered"]
 [connection signal="area_exited" from="PickupTracker/grab_area_right" to="PickupTracker" method="_on_grab_area_right_area_exited"]
+[connection signal="area_entered" from="PickupTracker/touch_area" to="PickupTracker" method="_on_touch_area_area_entered"]
+[connection signal="area_exited" from="PickupTracker/touch_area" to="PickupTracker" method="_on_touch_area_area_exited"]
 [connection signal="timeout" from="FallPunishReset" to="." method="_on_fall_punish_reset_timeout"]

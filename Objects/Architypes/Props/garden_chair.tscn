@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cyrgcx64104qc"]
+[gd_scene format=3 uid="uid://cyrgcx64104qc"]
 
 [ext_resource type="Script" uid="uid://d1ns4f8nsxmyd" path="res://Objects/furniture_player_collider.gd" id="1_422ut"]
 [ext_resource type="PackedScene" uid="uid://bctmoem1dvblc" path="res://Assets/Furniture/garden_chair.gltf" id="2_hlnuj"]
 [ext_resource type="PackedScene" uid="uid://bcsr7n75rjc4x" path="res://Objects/Furniture_PropCollider.tscn" id="3_je0gr"]
+[ext_resource type="Script" uid="uid://bube6qx22i7lp" path="res://Gameplay/Interactables/touchy_curve.gd" id="4_je0gr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ilxpg"]
 size = Vector3(1.1601563, 1.2470703, 1.2878418)
@@ -16,30 +17,44 @@ size = Vector3(1.0412598, 0.9844971, 0.068359375)
 [sub_resource type="BoxShape3D" id="BoxShape3D_sssrd"]
 size = Vector3(0.23266602, 0.14941406, 0.63964844)
 
-[node name="GardenChair" type="StaticBody3D"]
+[sub_resource type="Curve3D" id="Curve3D_ilxpg"]
+_data = {
+"points": PackedVector3Array(-0.005722165, -0.14579666, 0.036168873, 0.005722165, 0.14579666, -0.036168873, 0.51723623, 0.026684344, -0.03635186, 0.20904851, -0.035396934, 0.025521696, -0.20904851, 0.035396934, -0.025521696, 0.32067212, 0.25340444, -0.122914255, 0.17939174, 0.02747941, -0.005629003, -0.17939174, -0.02747941, 0.005629003, -0.3587628, 0.25352496, -0.115202844, 0.0002322197, 0.15095294, -0.06220895, -0.0002322197, -0.15095294, 0.06220895, -0.5197089, 0.011760175, -0.023599327),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[node name="GardenChair" type="StaticBody3D" unique_id=1649383296]
 script = ExtResource("1_422ut")
 metadata/_custom_type_script = "uid://d1ns4f8nsxmyd"
 
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="." unique_id=2099145229]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6244812, -0.17834473)
 shape = SubResource("BoxShape3D_ilxpg")
 
-[node name="garden_chair" parent="." instance=ExtResource("2_hlnuj")]
+[node name="garden_chair" parent="." unique_id=761232954 instance=ExtResource("2_hlnuj")]
 
-[node name="Furniture_PropCollider" parent="." instance=ExtResource("3_je0gr")]
+[node name="Furniture_PropCollider" parent="." unique_id=441302444 instance=ExtResource("3_je0gr")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Furniture_PropCollider"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Furniture_PropCollider" unique_id=165870755]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18795776, 0)
 shape = SubResource("BoxShape3D_422ut")
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="Furniture_PropCollider"]
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Furniture_PropCollider" unique_id=349642501]
 transform = Transform3D(1, 0, 0, 0, 0.93282783, 0.36032245, 0, -0.36032245, 0.93282783, 0, 0.80004853, -0.63138217)
 shape = SubResource("BoxShape3D_hlnuj")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Furniture_PropCollider"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Furniture_PropCollider" unique_id=1137458232]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.52905464, 0.57073534, 0)
 shape = SubResource("BoxShape3D_sssrd")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="Furniture_PropCollider"]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Furniture_PropCollider" unique_id=923187711]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46383774, 0.57073534, 0)
 shape = SubResource("BoxShape3D_sssrd")
+
+[node name="TouchPath" type="Path3D" parent="." unique_id=901079]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9823324, -0.6901242)
+curve = SubResource("Curve3D_ilxpg")
+debug_custom_color = Color(0.82131606, 0.0005723709, 0.8295107, 1)
+script = ExtResource("4_je0gr")
+Slideable = true

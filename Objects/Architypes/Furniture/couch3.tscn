@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bakknr3opo6gq"]
+[gd_scene format=3 uid="uid://bakknr3opo6gq"]
 
 [ext_resource type="Script" uid="uid://d1ns4f8nsxmyd" path="res://Objects/furniture_player_collider.gd" id="1_1ysy0"]
 [ext_resource type="PackedScene" uid="uid://c1pmr6dan0331" path="res://Assets/Furniture/couch3.gltf" id="2_1ysy0"]
 [ext_resource type="PackedScene" uid="uid://bcsr7n75rjc4x" path="res://Objects/Furniture_PropCollider.tscn" id="3_uxnmy"]
+[ext_resource type="Script" uid="uid://bube6qx22i7lp" path="res://Gameplay/Interactables/touchy_curve.gd" id="4_vaimg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d3q6s"]
 size = Vector3(2.23, 0.682, 0.81)
@@ -16,30 +17,43 @@ size = Vector3(1.785, 0.6632236, 0.15833105)
 [sub_resource type="BoxShape3D" id="BoxShape3D_c0q2b"]
 size = Vector3(0.269, 0.145, 0.78)
 
-[node name="Couch3" type="StaticBody3D"]
+[sub_resource type="Curve3D" id="Curve3D_uxnmy"]
+_data = {
+"points": PackedVector3Array(-0.00508523, -0.0126543045, 0.3700149, 0.00508523, 0.0126543045, -0.3700149, 1.099952, -0.20711309, 0.35753453, 0.104089916, 0.004062474, 0.071430475, -0.104089916, -0.004062474, -0.071430475, 1.07001, -0.21415788, -0.33819497, 0.22441542, 0.007364273, -0.005019039, -0.22441542, -0.007364273, 0.005019039, 0.8391848, -0.043400347, -0.39155924, 0.55082834, 0.01591605, -0.006776452, -0.55082834, -0.01591605, 0.006776452, -0.0019369125, 0.117265046, -0.39102793, 0.16531688, 0.0070471764, -0.0066461563, -0.16531688, -0.0070471764, 0.0066461563, -0.8720149, -0.05577594, -0.3889433, 0.042984724, -0.00058856606, -0.1643891, -0.042984724, 0.00058856606, 0.1643891, -1.0983465, -0.20231524, -0.31144774, 0.04080856, 0.025796115, -0.28504077, -0.04080856, -0.025796115, 0.28504077, -1.1097338, -0.18434513, 0.35031748),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 7
+
+[node name="Couch3" type="StaticBody3D" unique_id=1078444508]
 script = ExtResource("1_1ysy0")
 metadata/_custom_type_script = "uid://d1ns4f8nsxmyd"
 
-[node name="couch3" parent="." instance=ExtResource("2_1ysy0")]
+[node name="couch3" parent="." unique_id=630975359 instance=ExtResource("2_1ysy0")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1127546684]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34118652, -0.042870194)
 shape = SubResource("BoxShape3D_d3q6s")
 
-[node name="Furniture_PropCollider" parent="." instance=ExtResource("3_uxnmy")]
+[node name="Furniture_PropCollider" parent="." unique_id=984806440 instance=ExtResource("3_uxnmy")]
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Furniture_PropCollider"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Furniture_PropCollider" unique_id=2034491080]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1932373, -0.03139192)
 shape = SubResource("BoxShape3D_ihdhw")
 
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="Furniture_PropCollider"]
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Furniture_PropCollider" unique_id=1641149383]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33189794, -0.3685876)
 shape = SubResource("BoxShape3D_3gjot")
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="Furniture_PropCollider"]
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Furniture_PropCollider" unique_id=383017154]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0306721, 0.38750145, -0.042870194)
 shape = SubResource("BoxShape3D_c0q2b")
 
-[node name="CollisionShape3D6" type="CollisionShape3D" parent="Furniture_PropCollider"]
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="Furniture_PropCollider" unique_id=852349038]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0254898, 0.38750145, -0.042870194)
 shape = SubResource("BoxShape3D_c0q2b")
+
+[node name="TouchPath" type="Path3D" parent="." unique_id=610270413]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.64400727, 0)
+curve = SubResource("Curve3D_uxnmy")
+debug_custom_color = Color(0.82131606, 0.0005723709, 0.8295107, 1)
+script = ExtResource("4_vaimg")

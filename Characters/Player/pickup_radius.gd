@@ -4,6 +4,9 @@ extends Node3D
 @warning_ignore_start('unused_variable')
 @warning_ignore_start('unused_parameter')
 
+@export var playerBody: Node3D 
+
+
 #object
 var inRangeLeft = []
 var inRangeRight = []
@@ -13,12 +16,16 @@ var ItemsinReachRight = false
 var NeedsSortLeft = true
 var NeedsSortRight = true
 
+#touchpoints
+var inRangeTouch = []
+var touchPoint: Vector3
+var touchPointValid = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
-func getClosest(inRange: Array, side:  Player.Sides ) -> Object:
-	
+func getClosestPickup(inRange: Array, side:  Player.Sides ) -> Object:
 	var shortestDist = 50.0
 	var currentDist = 0.0
 	var closestObject: Object
@@ -37,6 +44,20 @@ func getClosest(inRange: Array, side:  Player.Sides ) -> Object:
 			closestObject = item
 	return closestObject
 	
+	
+func getClosestTouchPoint() -> void:
+	#check all near splines for nearest point then check what is closest point
+	# touchPointValid = false if no paths close
+	#inRangeTouch = []
+	#touchPoint: Vector3
+	#touchPointValid = false
+	pass
+
+	
+func getClosestHand(pos: Vector3 ) -> Vector3:
+	var tPoint: Vector3
+	return tPoint
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	self.global_position = $"..".player_global_pos
@@ -48,15 +69,17 @@ func _physics_process(delta: float) -> void:
 			$"..".closestLeft = null
 			ItemsinReachLeft = false
 		else:
-			$"..".closestLeft = getClosest(inRangeLeft, Player.Sides.LEFT)
+			$"..".closestLeft = getClosestPickup(inRangeLeft, Player.Sides.LEFT)
 			ItemsinReachLeft = true
 	if NeedsSortRight:
 		if inRangeRight.is_empty():
 			$"..".closestRight = null
 			ItemsinReachRight = false
 		else:
-			$"..".closestRight = getClosest(inRangeRight, Player.Sides.RIGHT)
+			$"..".closestRight = getClosestPickup(inRangeRight, Player.Sides.RIGHT)
 			ItemsinReachRight = true
+	
+	getClosestTouchPoint()
 
 func _on_grab_area_left_area_entered(area: Area3D) -> void:
 	if area is PickPoint:
@@ -81,3 +104,13 @@ func _on_grab_area_right_area_exited(area: Area3D) -> void:
 	if area.get_parent() is DrunknessPickup:
 		if area.get_parent() in inRangeLeft: pass
 		else: area.get_parent().hide_prompt()
+
+
+func _on_touch_area_area_entered(area: Area3D) -> void:
+	if area.get_parent() is TouchyCurve:
+		if not area.get_parent() in inRangeTouch:
+			inRangeTouch.append(area.get_parent())
+
+
+func _on_touch_area_area_exited(area: Area3D) -> void:
+	inRangeTouch.erase(area.get_parent())

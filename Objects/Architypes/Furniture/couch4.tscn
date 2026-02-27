@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://0citmm75hpfv"]
+[gd_scene format=3 uid="uid://0citmm75hpfv"]
 
 [ext_resource type="Script" uid="uid://d1ns4f8nsxmyd" path="res://Objects/furniture_player_collider.gd" id="1_t1t5c"]
 [ext_resource type="PackedScene" uid="uid://byqqielm2jptn" path="res://Assets/Furniture/couch4.gltf" id="2_t1t5c"]
 [ext_resource type="PackedScene" uid="uid://bcsr7n75rjc4x" path="res://Objects/Furniture_PropCollider.tscn" id="3_wjxxj"]
+[ext_resource type="Script" uid="uid://bube6qx22i7lp" path="res://Gameplay/Interactables/touchy_curve.gd" id="4_5acro"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d3q6s"]
 size = Vector3(0.87, 0.682, 0.81)
@@ -13,22 +14,35 @@ size = Vector3(0.9, 0.4985674, 0.893)
 [sub_resource type="BoxShape3D" id="BoxShape3D_3gjot"]
 size = Vector3(0.95, 0.47106397, 0.5025127)
 
-[node name="Couch3" type="StaticBody3D"]
+[sub_resource type="Curve3D" id="Curve3D_wjxxj"]
+_data = {
+"points": PackedVector3Array(0.01939702, -0.08932191, 0.17282307, -0.01939702, 0.08932191, -0.17282307, 0.38755673, -0.17767584, 0.41659635, -0.07589024, -0.025658488, 0.19900638, 0.07589024, 0.025658488, -0.19900638, 0.44188446, -0.12831146, -0.1206041, 0.10633299, -0.077759445, 0.056594044, -0.10633299, 0.077759445, -0.056594044, 0.3575539, 0.121907234, -0.41690058, 0.14462072, -0.0023169518, 0.00614053, -0.14462072, 0.0023169518, -0.00614053, 0.025344566, 0.2243318, -0.49003023, 0.101277426, 0.07382411, -0.03423071, -0.101277426, -0.07382411, 0.03423071, -0.3618931, 0.10996699, -0.42081106, -0.060487002, 0.073919415, -0.109080404, 0.060487002, -0.073919415, 0.109080404, -0.37463766, -0.08658397, -0.1313676, 0.043940008, 0.08479479, -0.2063205, -0.043940008, -0.08479479, 0.2063205, -0.44256222, -0.18635055, 0.3908236),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 7
+
+[node name="Couch3" type="StaticBody3D" unique_id=529421208]
 script = ExtResource("1_t1t5c")
 metadata/_custom_type_script = "uid://d1ns4f8nsxmyd"
 
-[node name="couch4" parent="." instance=ExtResource("2_t1t5c")]
+[node name="couch4" parent="." unique_id=247054308 instance=ExtResource("2_t1t5c")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=115579086]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34118652, -0.042870194)
 shape = SubResource("BoxShape3D_d3q6s")
 
-[node name="Furniture_PropCollider" parent="." instance=ExtResource("3_wjxxj")]
+[node name="Furniture_PropCollider" parent="." unique_id=1946248457 instance=ExtResource("3_wjxxj")]
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Furniture_PropCollider"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Furniture_PropCollider" unique_id=1266778997]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24952099, -0.03139192)
 shape = SubResource("BoxShape3D_ihdhw")
 
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="Furniture_PropCollider"]
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Furniture_PropCollider" unique_id=1297616265]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.59943384, -0.37319064)
 shape = SubResource("BoxShape3D_3gjot")
+
+[node name="TouchPath" type="Path3D" parent="." unique_id=756816470]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.64400727, 0)
+curve = SubResource("Curve3D_wjxxj")
+debug_custom_color = Color(0.82131606, 0.0005723709, 0.8295107, 1)
+script = ExtResource("4_5acro")

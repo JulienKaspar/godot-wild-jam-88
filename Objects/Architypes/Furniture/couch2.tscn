@@ -1,9 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://mwfrt4uj4wpy"]
+[gd_scene format=3 uid="uid://mwfrt4uj4wpy"]
 
 [ext_resource type="Script" uid="uid://d1ns4f8nsxmyd" path="res://Objects/furniture_player_collider.gd" id="1_5driq"]
 [ext_resource type="PackedScene" uid="uid://dslryaow6821f" path="res://Assets/Furniture/couch2.gltf" id="2_5driq"]
 [ext_resource type="PackedScene" uid="uid://bcsr7n75rjc4x" path="res://Objects/Furniture_PropCollider.tscn" id="3_p1h7u"]
-[ext_resource type="Script" path="res://Gameplay/Interactables/touchy_curve.gd" id="4_5wwbt"]
+[ext_resource type="Script" uid="uid://bube6qx22i7lp" path="res://Gameplay/Interactables/touchy_curve.gd" id="4_5wwbt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d3q6s"]
 size = Vector3(1.195, 0.682, 1.03)
@@ -24,35 +24,35 @@ _data = {
 }
 point_count = 7
 
-[node name="Couch2" type="StaticBody3D"]
+[node name="Couch2" type="StaticBody3D" unique_id=326930997]
 script = ExtResource("1_5driq")
 metadata/_custom_type_script = "uid://d1ns4f8nsxmyd"
 
-[node name="couch2" parent="." instance=ExtResource("2_5driq")]
+[node name="couch2" parent="." unique_id=1445014905 instance=ExtResource("2_5driq")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=576506365]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34118652, -0.042870194)
 shape = SubResource("BoxShape3D_d3q6s")
 
-[node name="Furniture_PropCollider" parent="." instance=ExtResource("3_p1h7u")]
+[node name="Furniture_PropCollider" parent="." unique_id=451020098 instance=ExtResource("3_p1h7u")]
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Furniture_PropCollider"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Furniture_PropCollider" unique_id=330308454]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1932373, -0.042870194)
 shape = SubResource("BoxShape3D_ihdhw")
 
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="Furniture_PropCollider"]
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Furniture_PropCollider" unique_id=1489049756]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39678612, -0.3754875)
 shape = SubResource("BoxShape3D_3gjot")
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="Furniture_PropCollider"]
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Furniture_PropCollider" unique_id=1915056141]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48882204, 0.25017712, -0.042870194)
 shape = SubResource("BoxShape3D_c0q2b")
 
-[node name="CollisionShape3D6" type="CollisionShape3D" parent="Furniture_PropCollider"]
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="Furniture_PropCollider" unique_id=74639359]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5043159, 0.25017712, -0.042870194)
 shape = SubResource("BoxShape3D_c0q2b")
 
-[node name="TouchPath" type="Path3D" parent="."]
+[node name="TouchPath" type="Path3D" parent="." unique_id=1369211776]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.64400727, 0)
 curve = SubResource("Curve3D_p1h7u")
 debug_custom_color = Color(0.82131606, 0.0005723709, 0.8295107, 1)

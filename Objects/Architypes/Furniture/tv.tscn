@@ -1,25 +1,42 @@
-[gd_scene load_steps=5 format=3 uid="uid://cc65tohjn11qo"]
+[gd_scene format=3 uid="uid://cc65tohjn11qo"]
 
 [ext_resource type="Script" uid="uid://d1ns4f8nsxmyd" path="res://Objects/furniture_player_collider.gd" id="1_pll1s"]
 [ext_resource type="PackedScene" uid="uid://dmbtw8ig27uxe" path="res://Assets/Furniture/tv.gltf" id="2_g86et"]
 [ext_resource type="PackedScene" uid="uid://bcsr7n75rjc4x" path="res://Objects/Furniture_PropCollider.tscn" id="3_x36nu"]
+[ext_resource type="Script" uid="uid://bube6qx22i7lp" path="res://Gameplay/Interactables/touchy_curve.gd" id="4_g86et"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h0557"]
 size = Vector3(1.7150879, 2.0038147, 0.90234375)
 
-[node name="tv_huge" type="StaticBody3D"]
+[sub_resource type="Curve3D" id="Curve3D_x36nu"]
+closed = true
+bake_interval = 0.4
+_data = {
+"points": PackedVector3Array(-0.060603738, 1.4066696e-05, 0.003881663, 0.060603738, -1.4066696e-05, -0.003881663, 0.81915593, 0, -0.42380327, 0.061789036, 0, -0.005373001, -0.061789036, 0, 0.005373001, 0.80943733, -1.4066696e-05, 0.41306528, 0.12895072, 0, 0.0026865602, -0.12895072, 0, -0.0026865602, -0.7621499, -1.4066696e-05, 0.41843817, -0.08490378, -1.4066696e-05, 0.0150951445, 0.08490378, 1.4066696e-05, -0.0150951445, -0.80190563, 0, -0.41283846),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[node name="tv_huge" type="StaticBody3D" unique_id=1465077784]
 script = ExtResource("1_pll1s")
 wobble_angle = 6.0
 metadata/_custom_type_script = "uid://d1ns4f8nsxmyd"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1436942573]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.003006, 0)
 shape = SubResource("BoxShape3D_h0557")
 
-[node name="tv" parent="." instance=ExtResource("2_g86et")]
+[node name="tv" parent="." unique_id=311919615 instance=ExtResource("2_g86et")]
 
-[node name="Furniture_PropCollider" parent="." instance=ExtResource("3_x36nu")]
+[node name="Furniture_PropCollider" parent="." unique_id=295279382 instance=ExtResource("3_x36nu")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Furniture_PropCollider"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Furniture_PropCollider" unique_id=545992241]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.003006, 0)
 shape = SubResource("BoxShape3D_h0557")
+
+[node name="TouchPath" type="Path3D" parent="." unique_id=1060727103]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.999892, 0)
+curve = SubResource("Curve3D_x36nu")
+debug_custom_color = Color(0.82131606, 0.0005723709, 0.8295107, 1)
+script = ExtResource("4_g86et")
+Slideable = true

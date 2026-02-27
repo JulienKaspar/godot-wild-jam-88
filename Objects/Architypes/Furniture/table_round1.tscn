@@ -1,9 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://j1b5yvs8pnux"]
+[gd_scene format=3 uid="uid://j1b5yvs8pnux"]
 
 [ext_resource type="PackedScene" uid="uid://dxvnrp0252dr0" path="res://Assets/Furniture/table_round1.gltf" id="1_ghiql"]
 [ext_resource type="Script" uid="uid://d1ns4f8nsxmyd" path="res://Objects/furniture_player_collider.gd" id="1_qsuv7"]
 [ext_resource type="PackedScene" uid="uid://bcsr7n75rjc4x" path="res://Objects/Furniture_PropCollider.tscn" id="3_qsuv7"]
-[ext_resource type="Script" path="res://Gameplay/Interactables/touchy_curve.gd" id="4_gpwm2"]
+[ext_resource type="Script" uid="uid://bube6qx22i7lp" path="res://Gameplay/Interactables/touchy_curve.gd" id="4_gpwm2"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_pvixw"]
 height = 1.0
@@ -29,34 +29,34 @@ _data = {
 }
 point_count = 2
 
-[node name="TableRound1" type="StaticBody3D"]
+[node name="TableRound1" type="StaticBody3D" unique_id=622704251]
 script = ExtResource("1_qsuv7")
 metadata/_custom_type_script = "uid://d1ns4f8nsxmyd"
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." unique_id=1033042543]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CylinderShape3D_pvixw")
 
-[node name="table_round1" parent="." instance=ExtResource("1_ghiql")]
+[node name="table_round1" parent="." unique_id=409079853 instance=ExtResource("1_ghiql")]
 
-[node name="PropCollider" parent="." instance=ExtResource("3_qsuv7")]
+[node name="PropCollider" parent="." unique_id=1954919025 instance=ExtResource("3_qsuv7")]
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="PropCollider"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="PropCollider" unique_id=650309236]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8909142, 0)
 shape = SubResource("CylinderShape3D_du7jq")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PropCollider"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PropCollider" unique_id=1061414436]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CylinderShape3D_ojjn2")
 
-[node name="TopWalk" type="StaticBody3D" parent="."]
+[node name="TopWalk" type="StaticBody3D" parent="." unique_id=195507205]
 collision_layer = 65
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="TopWalk"]
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="TopWalk" unique_id=328079346]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.97802734, 0)
 shape = SubResource("CylinderShape3D_qsuv7")
 
-[node name="TouchPath" type="Path3D" parent="."]
+[node name="TouchPath" type="Path3D" parent="." unique_id=1819152053]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0068645, 0)
 curve = SubResource("Curve3D_eyece")
 debug_custom_color = Color(0.82131606, 0.0005723709, 0.8295107, 1)

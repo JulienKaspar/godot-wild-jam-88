@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://brhckpuqlnhm6"]
+[gd_scene format=3 uid="uid://brhckpuqlnhm6"]
 
 [ext_resource type="Script" uid="uid://d1ns4f8nsxmyd" path="res://Objects/furniture_player_collider.gd" id="1_vco27"]
 [ext_resource type="PackedScene" uid="uid://d2eq7vvvrjy06" path="res://Assets/Furniture/bbq.gltf" id="2_3f086"]
 [ext_resource type="PackedScene" uid="uid://bcsr7n75rjc4x" path="res://Objects/Furniture_PropCollider.tscn" id="3_vco27"]
 [ext_resource type="PackedScene" uid="uid://crkjmth4q1t3o" path="res://Particles/BBQ_and_Fire_Sparks/pfx_bbq_idle.tscn" id="4_mk5px"]
+[ext_resource type="Script" uid="uid://bube6qx22i7lp" path="res://Gameplay/Interactables/touchy_curve.gd" id="5_juq0p"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sssrd"]
 size = Vector3(1.9248047, 1.0048828, 1.0986328)
@@ -14,25 +15,55 @@ size = Vector3(1.9248047, 0.2503662, 1.0986328)
 [sub_resource type="BoxShape3D" id="BoxShape3D_juq0p"]
 size = Vector3(1.0686035, 0.7899399, 0.8154297)
 
-[node name="BBQ" type="StaticBody3D"]
+[sub_resource type="Curve3D" id="Curve3D_ffriq"]
+bake_interval = 0.4
+_data = {
+"points": PackedVector3Array(0.7, 0, 0, 0, 0, 0, -0.20364809, -3.4034252e-05, -0.52490836, -0.0355435, 0, -0.09478259, 0.0355435, 0, 0.09478259, 0.1517868, -0.029753268, -0.5308323, -0.02567029, 0.005126953, -0.1046558, 0.026, 0, 0.105, 0.15376163, -0.026088178, 0.5137518, 0.149, 0, 0.002, -0.14920795, 0.25930572, -0.0024883747, -0.22211134, 0, 0.513),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve3D" id="Curve3D_j8die"]
+bake_interval = 0.4
+_data = {
+"points": PackedVector3Array(0.7, 0, 0, 0, 0, 0, 0.20095032, -3.4034252e-05, -0.52490836, -0.0355435, 0, -0.09478259, 0.0355435, 0, 0.09478259, -0.19667757, -0.029753268, -0.5308323, -0.02567029, 0.005126953, -0.1046558, 0.026, 0, 0.105, -0.19945014, -0.026088178, 0.5137518, 0.149, 0, 0.002, -0.14920795, 0.25930572, -0.0024883747, 0.20744598, 0, 0.513),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[node name="BBQ" type="StaticBody3D" unique_id=1137418698]
 script = ExtResource("1_vco27")
 metadata/_custom_type_script = "uid://d1ns4f8nsxmyd"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1951096049]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.51464844, 0)
 shape = SubResource("BoxShape3D_sssrd")
 
-[node name="bbq" parent="." instance=ExtResource("2_3f086")]
+[node name="bbq" parent="." unique_id=99940220 instance=ExtResource("2_3f086")]
 
-[node name="Furniture_PropCollider" parent="." instance=ExtResource("3_vco27")]
+[node name="Furniture_PropCollider" parent="." unique_id=2113981086 instance=ExtResource("3_vco27")]
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Furniture_PropCollider"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Furniture_PropCollider" unique_id=648966296]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.89190674, 0)
 shape = SubResource("BoxShape3D_mk5px")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="Furniture_PropCollider"]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Furniture_PropCollider" unique_id=932695278]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3741722, 0)
 shape = SubResource("BoxShape3D_juq0p")
 
-[node name="PfxBananaSlip" parent="." instance=ExtResource("4_mk5px")]
+[node name="PfxBananaSlip" parent="." unique_id=631091207 instance=ExtResource("4_mk5px")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.90056324, 0.006709054)
+
+[node name="TouchPath" type="Path3D" parent="." unique_id=1795868511]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.77249444, 0.9746806, 0)
+curve = SubResource("Curve3D_ffriq")
+debug_custom_color = Color(0.82131606, 0.0005723709, 0.8295107, 1)
+script = ExtResource("5_juq0p")
+Slideable = true
+
+[node name="TouchPath2" type="Path3D" parent="." unique_id=1882680781]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7533008, 0.9746806, 0)
+curve = SubResource("Curve3D_j8die")
+debug_custom_color = Color(0.82131606, 0.0005723709, 0.8295107, 1)
+script = ExtResource("5_juq0p")
+Slideable = true
