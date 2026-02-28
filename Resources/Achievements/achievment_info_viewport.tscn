@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cd1ph8f3pj5gk"]
+
+[ext_resource type="FontFile" uid="uid://b76wycypcgyc" path="res://Assets/Fonts/dillonardo17.otf" id="1_m6tp6"]
+
+[node name="VBoxContainer" type="VBoxContainer" unique_id=952823340]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = -4
+
+[node name="AchievementName" type="Label" parent="." unique_id=1021460188]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_m6tp6")
+theme_override_font_sizes/font_size = 25
+text = "Hello everyoine"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AchievementDescription" type="Label" parent="." unique_id=1812656630]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_m6tp6")
+theme_override_font_sizes/font_size = 16
+text = "Descrimption
+"
+horizontal_alignment = 1
+vertical_alignment = 1

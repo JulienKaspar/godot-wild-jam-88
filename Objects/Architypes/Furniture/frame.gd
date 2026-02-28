@@ -1,5 +1,8 @@
 @tool
 extends Node3D
+@onready var achievement_info: Node3D = %AchievementInfo
+@onready var achievement_name: Label = $AchievementInfo/Sprite3D/SubViewport/VBoxContainer/AchievementName
+@onready var achievement_description: Label = $AchievementInfo/Sprite3D/SubViewport/VBoxContainer/AchievementDescription
 
 @export var achievement: Achievement
 @export var picture_material: Material
@@ -16,7 +19,7 @@ func _ready() -> void:
 	if achievement != null:
 		@warning_ignore("standalone_ternary")
 		change_model(model_index) if achievement.obtained else change_model(5)
-
+		initialize_achievement_info()
 	change_material()
 	
 
@@ -35,3 +38,9 @@ func change_model(index: int) -> void:
 	
 	var instance = models[index % models.size()].instantiate()
 	model_slot.add_child(instance)
+
+func initialize_achievement_info() -> void:
+	achievement_name.text = achievement.name
+	achievement_description.text = achievement.description
+	achievement_info.show()
+	
