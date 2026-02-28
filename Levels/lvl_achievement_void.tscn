@@ -14,6 +14,7 @@
 [ext_resource type="Resource" uid="uid://vu8hwn17wgbl" path="res://Resources/Achievements/ac_dodge_keg.tres" id="12_crhpg"]
 [ext_resource type="Resource" uid="uid://dsd3xuq6ab2c1" path="res://Resources/Achievements/ac_first_beer.tres" id="13_3uhje"]
 [ext_resource type="Material" uid="uid://byd8cq35gtkaj" path="res://Assets/Materials/frame_pictures/achievement_billy.tres" id="14_bi5gf"]
+[ext_resource type="Resource" uid="uid://cfbjjgadjeflj" path="res://Resources/Achievements/ac_finish_game.tres" id="15_31ece"]
 
 [sub_resource type="Environment" id="Environment_r762m"]
 background_mode = 1
@@ -153,6 +154,7 @@ model_index = 4
 
 [node name="Frame3" parent="." unique_id=904189761 instance=ExtResource("6_3mupi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.516139, 1.7687509, -2.2690763)
+achievement = ExtResource("15_31ece")
 model_index = 4
 
 [node name="Frame4" parent="." unique_id=1263742709 instance=ExtResource("6_3mupi")]

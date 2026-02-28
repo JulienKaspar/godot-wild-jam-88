@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Achievement" format=3 uid="uid://cfbjjgadjeflj"]
+
+[ext_resource type="Texture2D" uid="uid://b7hesi43b27mc" path="res://Assets/2D_Assets/Achievements_Gallery/another_one_finds_the_fridge.png" id="1_gpptk"]
+[ext_resource type="Script" uid="uid://bqat8ihyupi7l" path="res://Gameplay/Achievements/achievement.gd" id="1_xijvy"]
+[ext_resource type="Material" uid="uid://beanjm24b3p1t" path="res://Assets/Materials/frame_pictures/achievement_fridge.tres" id="2_ovr6l"]
+
+[resource]
+script = ExtResource("1_xijvy")
+name = "Another one finds the fridge"
+description = "Finish the game!"
+icon = ExtResource("1_gpptk")
+material = ExtResource("2_ovr6l")
+id = 3
+metadata/_custom_type_script = "uid://bqat8ihyupi7l"

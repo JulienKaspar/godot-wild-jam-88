@@ -44,7 +44,7 @@ func _on_inside_fridge_time_timeout() -> void:
 func _on_timer_credits_timeout() -> void:
 	print("roll them credits")
 	GameStateManager.show_credits.emit()
-
+	AchievementSystem.unlock_achievement(Achievement.ID.FinishGame)
 
 func _on_pickup_beer_picked_up() -> void:
 	if isProgress == Progress.OPEN:
