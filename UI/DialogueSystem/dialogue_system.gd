@@ -35,8 +35,21 @@ var flasky_base: TextureRect
 var gradient: TextureRect
 var dialogue_starting_position: Vector2 
 
+var dialogue_queue: Array[String]
+
 func _ready() -> void:
 	setup_display.call_deferred()
+
+func _process(delta: float) -> void:
+	if dialogue_prompt.visible:
+		displayed_time += delta
+		
+		if displayed_time >= display_time_seconds:
+			dialogue_prompt.hide()
+			babble_sounds.stop()
+		if displayed_time + fade_out_duration >= display_time_seconds && dialogue_queue.size() > 0:
+			handle_quip_finished()
+
 
 func setup_display() -> void:
 	dialogue_prompt = dialogue_display.get_node("%DialoguePrompt")
@@ -59,11 +72,15 @@ func handle_quip_event(type: QuipType) -> void:
 			if randf() < dying_quip_chance:
 				display_random_dying_quip()
 				
-func display_dialogue(text: String) -> void:
+func add_to_dialogue_queue(text: String) -> void:
+	var quips_waiting_to_be_displayed: bool = dialogue_queue.size() > 0
+	dialogue_queue.append(text)
+	if !quips_waiting_to_be_displayed:
+		display_dialogue(text)
 
+func display_dialogue(text: String) -> void:
 	gradient.show()
 	dialogue_prompt.show()
-	dialogue_prompt.position = dialogue_starting_position
 	dialogue_text.text = text
 	dialogue_text.visible_ratio = 0
 	displayed_time = 0
@@ -89,7 +106,7 @@ func display_random_falling_quip() -> void:
 	
 	for quip in falling_quips:
 		if falling_quips[quip] == lowest_number_seen:
-			display_dialogue(quip)
+			add_to_dialogue_queue(quip)
 			falling_quips[quip] += 1
 			return
 	
@@ -101,7 +118,7 @@ func display_random_drinking_quip() -> void:
 	
 	for quip in drinking_quips:
 		if drinking_quips[quip] == lowest_number_seen:
-			display_dialogue(quip)
+			add_to_dialogue_queue(quip)
 			drinking_quips[quip] += 1
 			return
 	
@@ -113,20 +130,17 @@ func display_random_dying_quip() -> void:
 	
 	for quip in dying_quips:
 		if dying_quips[quip] == lowest_number_seen:
-			display_dialogue(quip)
+			add_to_dialogue_queue(quip)
 			dying_quips[quip] += 1
 			return
 	
-func _process(delta: float) -> void:
-	if dialogue_prompt.visible:
-		displayed_time += delta
-		
-		if displayed_time >= display_time_seconds:
-			dialogue_prompt.hide()
-			babble_sounds.stop()
-		if displayed_time + fade_out_duration >= display_time_seconds:
-			fade_out_flasky()
-
+func handle_quip_finished() -> void:
+	dialogue_queue.remove_at(0)
+	if dialogue_queue.size() > 0:
+		display_dialogue(dialogue_queue[0])
+	else:
+		fade_out_flasky()
+	
 func wobble_flasky() -> void:
 	var flasky_wobble_tween: Tween = create_tween()
 	for i in flasky_wobble_amount:
@@ -144,6 +158,7 @@ func fade_out_flasky() -> void:
 	
 	var gradient_tween: Tween = create_tween()
 	gradient_tween.tween_property(gradient, "self_modulate", gradient_start_transparency, fade_out_duration).set_ease(Tween.EASE_IN_OUT)
+	fade_out_tween.finished.connect(func(): dialogue_prompt.position = dialogue_starting_position)
 
 func start_showing_text() -> void:
 	var visible_ratio_tween: Tween = create_tween()
