@@ -1,5 +1,10 @@
 [gd_scene format=3 uid="uid://142xvokhmr2g"]
 
-[node name="PropCollider" type="RigidBody3D"]
+[ext_resource type="Script" uid="uid://dwjya0e4mvdwa" path="res://Objects/prop_collider.gd" id="1_vjmf7"]
+
+[node name="PropCollider" type="RigidBody3D" unique_id=795950022]
 collision_layer = 4
 collision_mask = 63
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_vjmf7")

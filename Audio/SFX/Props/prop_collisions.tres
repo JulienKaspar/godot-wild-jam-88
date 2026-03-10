@@ -1,0 +1,11 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://bb3li1m4gmmxi"]
+
+[ext_resource type="AudioStream" uid="uid://cyter2dsb32t6" path="res://Assets/Audio/SFX/Props/prop_collision_01.ogg" id="1_ssxl2"]
+[ext_resource type="AudioStream" uid="uid://6buwnar0q6mt" path="res://Assets/Audio/SFX/Props/prop_collision_02.ogg" id="2_ltqy6"]
+[ext_resource type="AudioStream" uid="uid://c3gsnelswjx7j" path="res://Assets/Audio/SFX/Props/prop_collision_03.ogg" id="3_awy8g"]
+
+[resource]
+streams_count = 3
+stream_0/stream = ExtResource("1_ssxl2")
+stream_1/stream = ExtResource("2_ltqy6")
+stream_2/stream = ExtResource("3_awy8g")
