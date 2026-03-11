@@ -218,8 +218,8 @@ speed = 9.5
 curve = SubResource("Curve3D_xptnk")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="VacuumPlow/Path3D" unique_id=2072594994]
-transform = Transform3D(-0.91547424, 0, 0.40197366, 0, 0.9998247, 0, -0.40197366, 0, -0.91547424, -3.56192, 5.429983e-05, -8.23753)
-progress = 77.13671
+transform = Transform3D(0.0060654744, 0, 0.9998158, 0, 0.9998247, 0, -0.9998158, 0, 0.0060654744, 12.283003, 5.429983e-05, -15.24511)
+progress = 28.73777
 
 [node name="Layout" type="Node3D" parent="." unique_id=31441067]
 
