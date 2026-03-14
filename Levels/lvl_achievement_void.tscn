@@ -139,6 +139,7 @@ shape = SubResource("BoxShape3D_5jf17")
 [node name="Frame" parent="." unique_id=877223381 instance=ExtResource("6_3mupi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8715067, 2.0712621, -2.2690763)
 achievement = ExtResource("12_crhpg")
+model_index = 4
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Frame" unique_id=758810682]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5615046)
