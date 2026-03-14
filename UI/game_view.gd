@@ -55,6 +55,7 @@ func show_main_menu() -> void:
 	if !game_started:
 		handle_settings_to_main_menu_transition()
 	game_started = false
+	credits_started = false
 
 func handle_game_started() -> void:
 	show_game_ui()
