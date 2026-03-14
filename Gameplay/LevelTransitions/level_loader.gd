@@ -84,5 +84,10 @@ func load_achievement_level() -> void:
 	GameStateManager.player_drunkness.paused = true
 	GameStateManager.current_state = GameStateManager.GameState.Game
 
+func get_name_of_loaded_level() -> String:
+	if get_child_count() > 0:
+		return get_child(0).name
+	else: return "invalid"
+
 func set_follow_camera(player: Player) -> void:
 	GameStateManager.game_camera.follow_target = player.get_node("PlayerController/RigidBally3D")
