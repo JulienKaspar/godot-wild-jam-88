@@ -9,6 +9,8 @@ func _ready() -> void:
 	$AnimationPlayer.play("RESET")
 	$Fridge/fridge_trap_wall/CollisionShape3D.disabled = true
 	GameStateManager.player_drunkness.paused = true
+	GameStateManager.player_drunkness.current_drunkness = 7
+	GameStateManager.hide_hud.emit()
 	$Fridge/fridge_door_right_rendering.show()
 	$Fridge.show()
 

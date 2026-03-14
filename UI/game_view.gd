@@ -30,6 +30,7 @@ func connect_signals() -> void:
 	pause_menu.on_main_menu_opened.connect(show_main_menu)
 	pause_menu.on_restarted.connect(GameStateManager.reset_level)
 	pause_menu.on_settings_opened.connect(show_settings_menu)
+	GameStateManager.hide_hud.connect(func(): menu_displayer.close_all_screens())
 	
 func switch_font(readability_font: bool) -> void:
 	menu_displayer.theme = readability_font_theme if readability_font else default_font_theme
