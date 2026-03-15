@@ -270,7 +270,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4241753, 2.7500606, -11.074
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.9241753, 4.6734667, -8.943254)
 
 [node name="Stairs_thin9" parent="Layout/Stairs" unique_id=2019765759 instance=ExtResource("14_brc66")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.9241753, 3.6734667, -11.079626)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.9241753, 3.6601872, -11.079626)
 
 [node name="Stairs_thin7" parent="Layout/Stairs" unique_id=715310817 instance=ExtResource("14_brc66")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.9241753, 5.7187943, -6.730709)
@@ -295,7 +295,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.998334, -1.0485462, -14.3
 ground_material = ExtResource("10_njivl")
 
 [node name="Stairs_thin14" parent="Layout/Stairs" unique_id=2105660367 instance=ExtResource("6_v5kqv")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -13.803756, 1.6060022, -17.412579)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -13.803756, 1.5973469, -17.412579)
 ground_material = ExtResource("10_njivl")
 
 [node name="Stairs_thin15" parent="Layout/Stairs" unique_id=948421896 instance=ExtResource("6_v5kqv")]
@@ -303,15 +303,15 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12.
 ground_material = ExtResource("10_njivl")
 
 [node name="Stairs_thin16" parent="Layout/Stairs" unique_id=991109366 instance=ExtResource("6_v5kqv")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.21018648, 0.5364026, -11.265713)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.23443282, 0.48102438, -11.265713)
 ground_material = ExtResource("10_njivl")
 
 [node name="Stairs_thin17" parent="Layout/Stairs" unique_id=139859935 instance=ExtResource("6_v5kqv")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.9792609, -0.4819051, -11.265713)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.9231548, -0.54124236, -11.265713)
 ground_material = ExtResource("10_njivl")
 
 [node name="Stairs_thin18" parent="Layout/Stairs" unique_id=1547543179 instance=ExtResource("6_v5kqv")]
-transform = Transform3D(-0.0010883346, -0.0014505307, 0.99999833, -8.031288e-05, 0.9999989, 0.001450443, -0.9999994, -7.8713514e-05, -0.0010884515, -2.5771174, 1.595102, -11.254948)
+transform = Transform3D(-0.0010883346, -0.0014505307, 0.99999833, -8.031288e-05, 0.9999989, 0.001450443, -0.9999994, -7.8713514e-05, -0.0010884515, -2.585076, 1.595102, -11.254948)
 ground_material = ExtResource("10_njivl")
 
 [node name="Stairs_thin19" parent="Layout/Stairs" unique_id=918972248 instance=ExtResource("6_v5kqv")]
@@ -323,7 +323,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -12.
 ground_material = ExtResource("10_njivl")
 
 [node name="Stairs_thin21" parent="Layout/Stairs" unique_id=386668370 instance=ExtResource("6_v5kqv")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -14.643558, 0.53890383, -15.653414)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -14.641778, 0.55246806, -15.653414)
 ground_material = ExtResource("10_njivl")
 
 [node name="Walls" type="Node3D" parent="Layout" unique_id=1202164813]
