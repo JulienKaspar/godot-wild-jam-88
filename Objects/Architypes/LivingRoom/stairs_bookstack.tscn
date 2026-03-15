@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://uydtucf7ok8a" path="res://Assets/LivingRoom/stairs_bookstack.gltf" id="4_gx60t"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uixye"]
-size = Vector3(1.1386719, 0.13788605, 1.9565172)
+size = Vector3(1.1386719, 0.13788605, 1.9804034)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4shsl"]
 size = Vector3(1.0518494, 0.4113617, 0.5300369)
@@ -19,7 +19,10 @@ size = Vector3(1.0776367, 0.35362244, 0.5300369)
 size = Vector3(0.9486084, 0.22570038, 0.5300369)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5fegc"]
-size = Vector3(1, 0.34368896, 0.8738861)
+size = Vector3(1, 0.34368896, 0.8895798)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2pgsb"]
+size = Vector3(1, 0.8473339, 0.20824766)
 
 [node name="Stairs_thin" type="StaticBody3D" unique_id=1769939352]
 collision_layer = 129
@@ -30,7 +33,7 @@ script = ExtResource("1_gx60t")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.045602217, 0.391711)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=842023920]
-transform = Transform3D(1, 0, 0, 0, 0.90348506, -0.4286199, 0, 0.4286199, 0.90348506, -0.020507813, 0.3465857, 0.38437358)
+transform = Transform3D(1, 0, 0, 0, 0.90348506, -0.4286199, 0, 0.4286199, 0.90348506, -0.020507813, 0.354213, 0.61031115)
 shape = SubResource("BoxShape3D_uixye")
 debug_color = Color(0.8943724, 0.00017615854, 0.7643219, 1)
 
@@ -63,5 +66,9 @@ debug_color = Color(0.7528287, 0.4500627, 0.12829679, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0644777, 0.47021207)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="regular_floor" unique_id=445324499]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2292325, -0.42588198)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2292325, -0.41803515)
 shape = SubResource("BoxShape3D_5fegc")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="regular_floor" unique_id=1900992995]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.481055, -0.82755744)
+shape = SubResource("BoxShape3D_2pgsb")
