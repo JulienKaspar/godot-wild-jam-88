@@ -48,6 +48,7 @@
 [ext_resource type="PackedScene" uid="uid://condbl401lonp" path="res://Assets/Furniture/rug_big_shaggy.gltf" id="45_av7nl"]
 [ext_resource type="PackedScene" uid="uid://di5fte2dqxs0c" path="res://Assets/Furniture/window1.gltf" id="46_4oxlo"]
 [ext_resource type="PackedScene" uid="uid://c3exm36djed3o" path="res://Assets/Furniture/window_1_curtain.gltf" id="48_3vmak"]
+[ext_resource type="PackedScene" uid="uid://bbwoj06xtuwoh" path="res://Objects/Architypes/Props/plant_monstera1.tscn" id="49_3vmak"]
 
 [sub_resource type="Environment" id="Environment_j6wb6"]
 background_mode = 1
@@ -471,7 +472,7 @@ shadow_enabled = true
 omni_range = 2.349
 
 [node name="LampStanding3" parent="Furniture" unique_id=328660764 instance=ExtResource("14_mxgcj")]
-transform = Transform3D(0.12647605, 0, 0.9919697, 0, 1, 0, -0.9919697, 0, 0.12647605, 0.13177955, 0.5020224, -4.5126877)
+transform = Transform3D(0.12647605, 0, 0.9919697, 0, 1, 0, -0.9919697, 0, 0.12647605, 0.17773923, 0.5020224, -3.6782293)
 
 [node name="LampStanding6" parent="Furniture" unique_id=813812034 instance=ExtResource("14_mxgcj")]
 transform = Transform3D(-0.93012947, 0, -0.36723188, 0, 1, 0, 0.36723188, 0, -0.93012947, 1.1534562, 0.5020224, 3.1881893)
@@ -631,7 +632,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6714666, 0.5, -0.61000025)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.507497, 0.5, -3.063613)
 
 [node name="plant_palm2" parent="Furniture" unique_id=1212664769 instance=ExtResource("23_n4smu")]
-transform = Transform3D(1.0215394, 0, -0.81539667, 0, 1.3070633, 0, 0.81539667, 0, 1.0215394, -4.4325123, 0.5, -2.2557278)
+transform = Transform3D(1.0215394, 0, -0.81539667, 0, 1.3070633, 0, 0.81539667, 0, 1.0215394, -4.740252, 0.5, -2.815858)
 
 [node name="plant_palm8" parent="Furniture" unique_id=1615058883 instance=ExtResource("23_n4smu")]
 transform = Transform3D(1.0215394, 0, -0.81539667, 0, 1.3070633, 0, 0.81539667, 0, 1.0215394, 3.335298, 0.5, -9.873604)
@@ -644,6 +645,9 @@ transform = Transform3D(1.0215394, 0, -0.81539667, 0, 1.3070633, 0, 0.81539667, 
 
 [node name="plant_palm6" parent="Furniture" unique_id=2030706263 instance=ExtResource("23_n4smu")]
 transform = Transform3D(1.0215394, 0, -0.81539667, 0, 1.3070633, 0, 0.81539667, 0, 1.0215394, 8.562644, 0.49999952, -2.666722)
+
+[node name="plant_palm10" parent="Furniture" unique_id=952207829 instance=ExtResource("23_n4smu")]
+transform = Transform3D(1.0215394, 0, -0.81539667, 0, 1.3070633, 0, 0.81539667, 0, 1.0215394, 10.476013, 0.49999905, -2.1671422)
 
 [node name="plant_palm5" parent="Furniture" unique_id=1651191514 instance=ExtResource("23_n4smu")]
 transform = Transform3D(1.1442987, 0, 0.6316607, 0, 1.3070633, 0, -0.6316607, 0, 1.1442987, 2.0359144, 0.51007843, 3.4182978)
@@ -876,6 +880,9 @@ transform = Transform3D(3.2374814, 0, 0, 0, 3.2374814, 0, 0, 0, 3.2374814, -1.15
 [node name="lightchain1" parent="Decor" unique_id=1094089303 instance=ExtResource("38_ni0e5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1057131, 1.6224523, -3.255225)
 
+[node name="lightchain12" parent="Decor" unique_id=143143756 instance=ExtResource("38_ni0e5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.930041, 1.6224523, -3.255225)
+
 [node name="lightchain10" parent="Decor" unique_id=808443602 instance=ExtResource("38_ni0e5")]
 transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 4.1729975, 1.6224523, -7.8155746)
 
@@ -934,6 +941,27 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 15.9
 
 [node name="rug_big_shaggy" parent="." unique_id=1991813 instance=ExtResource("45_av7nl")]
 transform = Transform3D(0.873339, 0, -0.48711297, 0, 1, 0, 0.48711297, 0, 0.873339, 9.155033, 0.5170808, 2.677374)
+
+[node name="PlantMonstera" parent="." unique_id=1778142788 instance=ExtResource("49_3vmak")]
+transform = Transform3D(1.2425014, 0, 1.034552, 0, 1.6168202, 0, -1.034552, 0, 1.2425014, 9.565764, 0.5, -2.7226174)
+
+[node name="PlantMonstera7" parent="." unique_id=1894515371 instance=ExtResource("49_3vmak")]
+transform = Transform3D(0.9916738, 0, 1.2769849, 0, 1.6168202, 0, -1.2769849, 0, 0.9916738, 15.302579, 0.49999952, 3.6918118)
+
+[node name="PlantMonstera6" parent="." unique_id=1030254976 instance=ExtResource("49_3vmak")]
+transform = Transform3D(-0.53331673, 0, -1.5263292, 0, 1.6168202, 0, 1.5263292, 0, -0.53331673, 4.256781, 0.5, 3.436937)
+
+[node name="PlantMonstera3" parent="." unique_id=2097562661 instance=ExtResource("49_3vmak")]
+transform = Transform3D(-0.34506586, 0, 1.5795689, 0, 1.6168202, 0, -1.5795689, 0, -0.34506586, 0.1420393, 0.5, -9.3363285)
+
+[node name="PlantMonstera4" parent="." unique_id=140379667 instance=ExtResource("49_3vmak")]
+transform = Transform3D(0.9315699, 0, 1.0048069, 0, 1.3702041, 0, -1.0048069, 0, 0.9315699, -2.628435, 0.5, -3.0478387)
+
+[node name="PlantMonstera5" parent="." unique_id=163169871 instance=ExtResource("49_3vmak")]
+transform = Transform3D(-0.88990456, 0, 1.3066572, 0, 1.5809121, 0, -1.3066572, 0, -0.88990456, -4.313347, 0.49999952, -2.1536555)
+
+[node name="PlantMonstera2" parent="." unique_id=1450608713 instance=ExtResource("49_3vmak")]
+transform = Transform3D(1.1950723, 0, 0.2406866, 0, 1.2190686, 0, -0.2406866, 0, 1.1950723, 11.267021, 0.5, -2.7858424)
 
 [editable path="Furniture/LampTable2"]
 [editable path="Furniture/LampTable4"]

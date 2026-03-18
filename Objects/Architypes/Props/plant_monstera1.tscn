@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bbwoj06xtuwoh"]
+
+[ext_resource type="PackedScene" uid="uid://142xvokhmr2g" path="res://Objects/PropCollider.tscn" id="1_vel1o"]
+[ext_resource type="PackedScene" uid="uid://b2pre5ashuf83" path="res://Assets/Furniture/plant_monstera1.gltf" id="2_vel1o"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_0vm3a"]
+height = 1.1246338
+radius = 0.19921875
+
+[node name="PlantMonstera" type="Node3D" unique_id=1778142788]
+
+[node name="PropCollider" parent="." unique_id=1470794590 instance=ExtResource("1_vel1o")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PropCollider" unique_id=1029032544]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5623169, 0)
+shape = SubResource("CylinderShape3D_0vm3a")
+
+[node name="plant_monstera" parent="PropCollider" unique_id=388179444 instance=ExtResource("2_vel1o")]
