@@ -335,7 +335,7 @@ size = Vector3(3.4951172, 1, 2.3257966)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Layout/Floor" unique_id=727841845]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.769519, -0.5000005, -10.768299)
-layers = 2
+layers = 3
 material_override = ExtResource("8_4rx7x")
 use_collision = true
 collision_layer = 65

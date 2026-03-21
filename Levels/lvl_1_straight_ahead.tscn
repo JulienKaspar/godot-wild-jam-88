@@ -573,9 +573,6 @@ transform = Transform3D(0.06955148, -0.97859526, -0.19368504, 0.3307319, 0.20579
 [node name="Shelf3" parent="Furniture" unique_id=1189865020 instance=ExtResource("5_crrcm")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 20.666384, 0.97987556, -16.12999)
 
-[node name="Shelf5" parent="Furniture" unique_id=256893774 instance=ExtResource("5_crrcm")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 11.931706, -4.7683716e-07, -4.8587146)
-
 [node name="Teens" type="Node3D" parent="." unique_id=713805393]
 
 [node name="TeenStanding4" parent="Teens" unique_id=777850887 instance=ExtResource("18_mdsrj")]
@@ -1033,7 +1030,7 @@ transform = Transform3D(0.9121773, 0.0048276796, -0.40976724, 0, 0.9999306, 0.01
 transform = Transform3D(-0.7463943, 0, -0.66550404, 0, 1, 0, 0.66550404, 0, -0.7463943, 14.246213, 1.9706665, -16.089893)
 
 [node name="RugHazard4" parent="." unique_id=1730241120 instance=ExtResource("57_yb00h")]
-transform = Transform3D(0.008970827, 0, 0.9999598, 0, 1, 0, -0.9999598, 0, 0.008970827, 9.744013, 0.010191351, -5.4150076)
+transform = Transform3D(0.008970827, 0, 0.9999598, 0, 1, 0, -0.9999598, 0, 0.008970827, 9.953643, 0.010191351, -5.4150076)
 
 [node name="RugHazard5" parent="." unique_id=1475750895 instance=ExtResource("58_khj4u")]
 transform = Transform3D(-0.0154106915, 0, -0.99988127, 0, 1, 0, 0.99988127, 0, -0.0154106915, 11.933924, 0.010190867, -3.0046597)

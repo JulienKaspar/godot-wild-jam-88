@@ -220,8 +220,8 @@ speed = 9.5
 curve = SubResource("Curve3D_xptnk")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="VacuumPlow/Path3D" unique_id=2072594994]
-transform = Transform3D(-0.0069380156, 0, -0.99981093, 0, 0.9998247, 0, 0.99981093, 0, -0.0069380156, 2.5782669, 5.429983e-05, -0.46700323)
-progress = 90.42869
+transform = Transform3D(0.43138397, 0, -0.9019844, 0, 0.9998247, 0, 0.9019844, 0, 0.43138397, 17.401583, 5.429983e-05, -0.5480252)
+progress = 9.402021
 
 [node name="Layout" type="Node3D" parent="." unique_id=31441067]
 
@@ -1001,7 +1001,7 @@ transform = Transform3D(-0.075674884, 0, 0.99713254, 0, 1, 0, -0.99713254, 0, -0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.648104, 0.5059988, -4.0262814)
 
 [node name="RugHazard2" parent="Hazards" unique_id=1777229991 instance=ExtResource("25_iv3gl")]
-transform = Transform3D(0.8971042, 0, -0.44181907, 0, 1, 0, 0.44181907, 0, 0.8971042, 19.088108, 0.5, -11.527712)
+transform = Transform3D(0.8971042, 0, -0.44181907, 0, 1, 0, 0.44181907, 0, 0.8971042, 19.119808, 0.5, -11.542951)
 
 [node name="SlipperyTest2" parent="Hazards" unique_id=1674006049 instance=ExtResource("28_fg20k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.805984, 0.5059984, -5.70043)
@@ -1182,7 +1182,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.92347, 1.5546446, -17.21174
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 25.437147, -0.5, -12.007181)
 
 [node name="rug_black_flora" parent="Decor" unique_id=1974837276 instance=ExtResource("31_mab7j")]
-transform = Transform3D(0.98944503, 0, 0.14490883, 0, 1, 0, -0.14490883, 0, 0.98944503, 16.298536, 0.49999952, -11.997604)
+transform = Transform3D(0.6845471, 0, 0.7289687, 0, 1, 0, -0.7289687, 0, 0.6845471, 16.640636, 0.49999952, -12.359462)
 
 [node name="door_closed2" parent="Decor" unique_id=1095220480 instance=ExtResource("9_vt5qa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3717878, 0.5, -3.9220934)
