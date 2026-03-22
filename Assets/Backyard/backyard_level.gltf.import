@@ -51,7 +51,7 @@ _subresources={
 },
 "grass": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://Assets/Materials/lawn_grass.tres",
+"use_external/fallback_path": "res://Assets/Materials/floors/lawn_grass.tres",
 "use_external/path": "uid://clfkhujfs4xxg"
 },
 "ground_sides": {
@@ -61,12 +61,12 @@ _subresources={
 },
 "outer_wall": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://Assets/Materials/outer_wall.tres",
+"use_external/fallback_path": "res://Assets/Materials/walls/outer_wall.tres",
 "use_external/path": "uid://bbr27jlagb1vw"
 },
 "soil": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://Assets/Materials/soil_ground.tres",
+"use_external/fallback_path": "res://Assets/Materials/floors/soil_ground.tres",
 "use_external/path": "uid://emu50xlsdc3q"
 },
 "vertex_colors": {

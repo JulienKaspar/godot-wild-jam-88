@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://br6gi16wuxrj1"]
+[gd_scene format=3 uid="uid://br6gi16wuxrj1"]
 
 [ext_resource type="PackedScene" uid="uid://d62n5s8htyn7" path="res://Characters/Teens/logic/TeenStanding.tscn" id="1_8kvoa"]
-[ext_resource type="Script" path="res://Characters/vacuum_plow.gd" id="1_jhq6o"]
+[ext_resource type="Script" uid="uid://bw6ektqcmgwb3" path="res://Characters/vacuum_plow.gd" id="1_jhq6o"]
+[ext_resource type="QuadMesh" uid="uid://jxvi58utf2ih" path="res://Particles/Dust_Poof_Falling/draw_sprite_dust_1_a.tres" id="2_y2h3q"]
+[ext_resource type="PackedScene" uid="uid://c8skllordwky" path="res://Assets/Characters/Vaccuum Plow/vaccuum_plow.gltf" id="3_438eg"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_8kvoa"]
 height = 0.75
@@ -10,42 +12,154 @@ radius = 0.38134766
 [sub_resource type="BoxShape3D" id="BoxShape3D_jhq6o"]
 size = Vector3(1.107666, 0.754, 1.1411133)
 
-[node name="VacuumPlow" type="Node3D" node_paths=PackedStringArray("plow_body")]
+[sub_resource type="Curve" id="Curve_36tqh"]
+_data = [Vector2(0, 0.32584274), 0.0, 2.3113966, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_mwxx4"]
+curve = SubResource("Curve_36tqh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hd1gh"]
+lifetime_randomness = 0.4
+emission_shape_offset = Vector3(0, 0, -0.5)
+emission_shape_scale = Vector3(0.2, 0.1, 1)
+emission_shape = 2
+emission_sphere_radius = 1.0
+angle_min = -44.99999
+angle_max = 45.00001
+inherit_velocity_ratio = 0.5
+direction = Vector3(0, 0, -1)
+spread = 30.0
+flatness = 1.0
+initial_velocity_min = 3.0
+initial_velocity_max = 5.0
+angular_velocity_min = -5.000016
+angular_velocity_max = 4.999984
+gravity = Vector3(0, 3, 0)
+damping_min = 4.0
+damping_max = 7.0000005
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_mwxx4")
+anim_speed_min = 0.79999995
+anim_speed_max = 0.9
+
+[node name="VacuumPlow" type="Node3D" unique_id=771572633 node_paths=PackedStringArray("plow_body")]
 script = ExtResource("1_jhq6o")
 plow_body = NodePath("PlowBody")
 
-[node name="PlowBody" type="Area3D" parent="."]
+[node name="PlowBody" type="Area3D" parent="." unique_id=1985382412]
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PlowBody"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlowBody" unique_id=1221819821]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.375, 0)
 shape = SubResource("CylinderShape3D_8kvoa")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="PlowBody"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="PlowBody" unique_id=2092446340]
 transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0.011825394, 0.3768921, 0.33628875)
 shape = SubResource("BoxShape3D_jhq6o")
 
-[node name="Model" type="Node3D" parent="PlowBody"]
+[node name="PfxPuffs" type="GPUParticles3D" parent="PlowBody" unique_id=779047588]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.33645785)
+amount = 4
+lifetime = 0.6
+speed_scale = 0.8
+explosiveness = 0.9
+fixed_fps = 24
+interpolate = false
+process_material = SubResource("ParticleProcessMaterial_hd1gh")
+draw_pass_1 = ExtResource("2_y2h3q")
+
+[node name="PfxPuffs2" type="GPUParticles3D" parent="PlowBody" unique_id=429390659]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.33645785)
+amount = 4
+lifetime = 0.6
+speed_scale = 0.6
+explosiveness = 0.9
+fixed_fps = 24
+interpolate = false
+process_material = SubResource("ParticleProcessMaterial_hd1gh")
+draw_pass_1 = ExtResource("2_y2h3q")
+
+[node name="PfxPuffs3" type="GPUParticles3D" parent="PlowBody" unique_id=264537861]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.33645785)
+amount = 4
+lifetime = 0.6
+speed_scale = 0.7
+explosiveness = 0.9
+fixed_fps = 24
+interpolate = false
+process_material = SubResource("ParticleProcessMaterial_hd1gh")
+draw_pass_1 = ExtResource("2_y2h3q")
+
+[node name="PfxPuffs4" type="GPUParticles3D" parent="PlowBody" unique_id=175600633]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.33645785)
+amount = 4
+lifetime = 0.6
+speed_scale = 0.5
+explosiveness = 0.9
+fixed_fps = 24
+interpolate = false
+process_material = SubResource("ParticleProcessMaterial_hd1gh")
+draw_pass_1 = ExtResource("2_y2h3q")
+
+[node name="Model" type="Node3D" parent="PlowBody" unique_id=655141017]
 transform = Transform3D(0.9999836, 0, 0, 0, 1, 0, 0, 0, 0.9999836, 0, 0, 0)
 
-[node name="TeenStanding" parent="PlowBody/Model" instance=ExtResource("1_8kvoa")]
+[node name="TeenStanding" parent="PlowBody/Model" unique_id=660516245 instance=ExtResource("1_8kvoa")]
 transform = Transform3D(1, 0, 0, 0, 0.7818144, 0.62351125, 0, -0.62351125, 0.7818144, 2.3841858e-07, -0.21186188, -0.00983189)
+visible = false
 animation = "CouchThinking"
 pushy = false
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="PlowBody/Model"]
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="PlowBody/Model" unique_id=1542030538]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15325928, 0)
+visible = false
 radius = 0.29638672
 height = 0.30651855
 sides = 12
 
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="PlowBody/Model"]
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="PlowBody/Model" unique_id=328260457]
 transform = Transform3D(1, 0, 0, 0, 0.7840836, 0.62065524, 0, -0.62065524, 0.7840836, 0, 0.37686744, 0.4884827)
+visible = false
 radius = 0.041992188
 height = 0.8713379
 sides = 12
 
-[node name="CSGBox3D" type="CSGBox3D" parent="PlowBody/Model"]
+[node name="CSGBox3D" type="CSGBox3D" parent="PlowBody/Model" unique_id=1564238706]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.045684814, 0.7649047)
+visible = false
 size = Vector3(0.55249023, 0.09136963, 0.1875)
+
+[node name="vaccum plow" parent="PlowBody/Model" unique_id=1946775643 instance=ExtResource("3_438eg")]
+
+[node name="Skeleton3D" parent="PlowBody/Model/vaccum plow/Armature" parent_id_path=PackedInt32Array(1946775643, 620656725) index="0" unique_id=1234687995]
+bones/1/position = Vector3(3.01904e-08, 0.3227858, 0.3978925)
+bones/1/rotation = Quaternion(-0.39106172, 0.00031765053, -0.0047982535, 0.920352)
+bones/2/position = Vector3(0.046700142, 0.054934457, 0.008174159)
+bones/2/rotation = Quaternion(0.1918172, 0.7504248, 0.55997205, -0.2941089)
+bones/3/rotation = Quaternion(-0.7972903, 0.079419784, -0.00068154786, 0.59834796)
+bones/4/rotation = Quaternion(0.23450372, -0.18818644, 0.016069857, 0.95359087)
+bones/5/rotation = Quaternion(0.26419947, -0.007905973, 0.030578483, 0.96395075)
+bones/5/scale = Vector3(1.0000001, 0.9999998, 1)
+bones/6/position = Vector3(0.121791475, 0.1839188, 0.0027886797)
+bones/6/rotation = Quaternion(-0.0718637, 0.21331178, -0.47357842, 0.85150284)
+bones/7/rotation = Quaternion(0.2875289, -0.09664643, 0.16595808, 0.93832004)
+bones/8/rotation = Quaternion(0.0323758, -0.52693695, 0.13210112, 0.8389509)
+bones/9/rotation = Quaternion(-0.01668182, 0.0010275128, -7.745203e-06, 0.99986035)
+bones/10/rotation = Quaternion(-0.0170517, 0.0009144028, -9.161475e-06, 0.9998542)
+bones/11/position = Vector3(-0.12179148, 0.18391891, 0.0027886706)
+bones/11/rotation = Quaternion(0.32077172, 0.2781027, 0.87463325, 0.23405397)
+bones/11/scale = Vector3(1.2042804, 1.2042801, 1.2042803)
+bones/12/rotation = Quaternion(0.47087246, 0.5768851, 0.24651466, 0.62025255)
+bones/13/rotation = Quaternion(-0.24158515, -0.62989396, 0.058555543, 0.73582715)
+bones/14/rotation = Quaternion(0.6912197, 0.19324161, -0.17908643, 0.67290497)
+bones/15/position = Vector3(-0.046196986, 0.03542089, 0.009852473)
+bones/15/rotation = Quaternion(-0.2022032, 0.7292917, 0.58368987, 0.29420018)
+bones/16/rotation = Quaternion(-0.8175666, -0.09484111, 0.009636066, 0.56788856)
+bones/17/rotation = Quaternion(0.23328306, 0.1882244, -0.015903434, 0.95388556)
+bones/18/position = Vector3(-5.2389026e-10, 0.27280796, 1.0430813e-07)
+bones/18/rotation = Quaternion(0.2641995, -0.007905979, 0.030578488, 0.96395075)
+bones/18/scale = Vector3(1.0000001, 1, 1.0000001)
+
+[editable path="PlowBody/Model/vaccum plow"]

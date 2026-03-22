@@ -14,5 +14,5 @@ func handle_player_entered(_player: Node3D) -> void:
 		
 	if GameStateManager.loading_screen.visible:
 		await GameStateManager.loading_screen.on_ready_to_proceed
-	DialogueSystem.display_dialogue(dialogue_text)
+	DialogueSystem.add_to_dialogue_queue(dialogue_text)
 	displayed_already = true

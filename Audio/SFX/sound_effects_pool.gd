@@ -14,6 +14,7 @@ var shrink_timer : Timer
 @export_category("Sounds")
 @export var teen_sounds : AudioStreamRandomizer
 @export var wobble_sounds : AudioStreamRandomizer
+@export var prop_collision_sounds : AudioStreamRandomizer
 @export var banana_slip_sounds : AudioStreamRandomizer
 @export var keg_sounds : AudioStreamRandomizer
 @export var switch_sounds : AudioStreamRandomizer
@@ -66,7 +67,8 @@ func get_item() -> Variant:
 	item.set_physics_process(true)
 	item.show()
 	
-	item.finished.connect(return_item)
+	# return after finishing playing
+	item.finished.connect(return_item.bind(item))
 	
 	return item
 
@@ -74,10 +76,15 @@ func get_item() -> Variant:
 func return_item(item_returned : Variant) -> void:
 	pool_items.append(item_returned)
 	
+	# class-specific reset
+	if item_returned is SoundEffectPlayer:
+		item_returned.reset()
+	
+	# object-generic reset
 	item_returned.reparent(self)
 	item_returned.set_process(false)
 	item_returned.set_physics_process(false)
-	item_returned.hide() # is this necessary for audioplayers?
+	item_returned.hide() # unneccessary for audioplayers
 	
 	shrink_timer.start()
 

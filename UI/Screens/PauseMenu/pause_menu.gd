@@ -22,5 +22,12 @@ func open() -> void:
 	show()
 	resume_button.grab_focus()
 	
+	if LevelLoader.get_name_of_loaded_level() == "lvl_achievement_void":
+		restart_button.hide()
+		restart_button.get_parent().hide()
+	else:
+		restart_button.show()
+		restart_button.get_parent().show()
+		
 func close() -> void:
 	hide()

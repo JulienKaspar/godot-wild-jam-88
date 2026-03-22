@@ -56,12 +56,12 @@ _subresources={
 },
 "floor bg": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://Assets/Materials/kitchen_tiles.tres",
+"use_external/fallback_path": "res://Assets/Materials/floors/kitchen_tiles.tres",
 "use_external/path": "uid://yaagdy5rwoee"
 },
 "floor fg": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://Assets/Materials/kitchen_tiles_fg.tres",
+"use_external/fallback_path": "res://Assets/Materials/floors/kitchen_tiles_fg.tres",
 "use_external/path": "uid://dma21o2hw2ihv"
 },
 "vertex colors": {

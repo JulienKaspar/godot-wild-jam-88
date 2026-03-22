@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://euuhb56glrfs"]
+
+[ext_resource type="Script" uid="uid://buuayjnejq81w" path="res://Objects/Architypes/LivingRoom/stairs.gd" id="1_gx60t"]
+[ext_resource type="PackedScene" uid="uid://uydtucf7ok8a" path="res://Assets/LivingRoom/stairs_bookstack.gltf" id="4_gx60t"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uixye"]
+size = Vector3(1.1386719, 0.13788605, 1.9804034)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4shsl"]
+size = Vector3(1.0518494, 0.4113617, 0.5300369)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y6j3l"]
+size = Vector3(1.0423584, 0.4113617, 0.40515518)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d5f4k"]
+size = Vector3(1.0776367, 0.35362244, 0.5300369)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gx60t"]
+size = Vector3(0.9486084, 0.22570038, 0.5300369)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5fegc"]
+size = Vector3(1, 0.34368896, 0.8895798)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2pgsb"]
+size = Vector3(1, 0.8473339, 0.20824766)
+
+[node name="Stairs_thin" type="StaticBody3D" unique_id=1769939352]
+collision_layer = 129
+collision_mask = 0
+script = ExtResource("1_gx60t")
+
+[node name="stair_book_stack" parent="." unique_id=1866891033 instance=ExtResource("4_gx60t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.045602217, 0.391711)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=842023920]
+transform = Transform3D(1, 0, 0, 0, 0.90348506, -0.4286199, 0, 0.4286199, 0.90348506, -0.020507813, 0.354213, 0.61031115)
+shape = SubResource("BoxShape3D_uixye")
+debug_color = Color(0.8943724, 0.00017615854, 0.7643219, 1)
+
+[node name="IKCollider" type="StaticBody3D" parent="." unique_id=649001572]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0644777, 0.47021207)
+collision_layer = 64
+collision_mask = 0
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="IKCollider" unique_id=1256762659]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, -0.040481567, 1.5805755, -0.3321545)
+shape = SubResource("BoxShape3D_4shsl")
+debug_color = Color(0.7528287, 0.4500627, 0.12829679, 1)
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="IKCollider" unique_id=1507308725]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, -0.05645752, 1.6962742, -0.69245905)
+shape = SubResource("BoxShape3D_y6j3l")
+debug_color = Color(0.7528287, 0.4500627, 0.12829679, 1)
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="IKCollider" unique_id=112890175]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, -0.018798828, 1.2891433, 0.10209182)
+shape = SubResource("BoxShape3D_d5f4k")
+debug_color = Color(0.7528287, 0.4500627, 0.12829679, 1)
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="IKCollider" unique_id=1487927169]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, -0.0095825195, 1.171782, 0.4847854)
+shape = SubResource("BoxShape3D_gx60t")
+debug_color = Color(0.7528287, 0.4500627, 0.12829679, 1)
+
+[node name="regular_floor" type="StaticBody3D" parent="." unique_id=1960025930]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0644777, 0.47021207)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="regular_floor" unique_id=445324499]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2292325, -0.41803515)
+shape = SubResource("BoxShape3D_5fegc")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="regular_floor" unique_id=1900992995]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.481055, -0.82755744)
+shape = SubResource("BoxShape3D_2pgsb")

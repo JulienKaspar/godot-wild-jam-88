@@ -19,6 +19,7 @@
 
 [node name="GameStateManager" type="Node" unique_id=491845168]
 script = ExtResource("1_fnjh8")
+MovementMode = 1
 levels = Array[PackedScene]([ExtResource("2_ww4k4"), ExtResource("3_w34dl"), ExtResource("4_avf66"), ExtResource("5_njnb3"), ExtResource("2_528ii"), ExtResource("14_dvh3j"), ExtResource("13_njnb3"), ExtResource("11_n18aq"), ExtResource("9_dvh3j"), ExtResource("6_ygpte"), ExtResource("7_dfbfs"), ExtResource("9_ygpte"), ExtResource("10_dfbfs"), ExtResource("12_dvh3j")])
 achievement_scene = ExtResource("9_ygpte")
 shader_cashing_level = ExtResource("12_2ik6d")

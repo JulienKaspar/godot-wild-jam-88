@@ -54,13 +54,16 @@ func _on_level_change(level_index : int) -> void:
 				start_music()
 				chord_change_timer.start()
 		
-		2, 3, 4: # house
+		2, 3, 4, 5, 6, 7, 8: # house
 			var target_volume_db = VOLUME_DB_DEFAULT
 			AudioManager.tween_volume_db(music_player, target_volume_db)
 			
-		5, 6: # fridge
+		9, 10: # disco & fridge level
 			chord_change_timer.stop()
 			stop_music()
+		11: # achievements screen
+			# TODO: implement achievements music
+			pass
 
 
 # Music themes - enum makes it easily callable from other scripts

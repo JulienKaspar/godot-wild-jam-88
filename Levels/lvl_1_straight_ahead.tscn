@@ -52,13 +52,19 @@
 [ext_resource type="Texture2D" uid="uid://cg5wuape63evk" path="res://Assets/Maps/Wallpaper_Rips/wallpaper_rips_3.png" id="49_es7c4"]
 [ext_resource type="Texture2D" uid="uid://dc6h6lp6dv03r" path="res://Assets/Maps/Trash_textures/trash_glass_2.png" id="49_etdsd"]
 [ext_resource type="Texture2D" uid="uid://6hjgslkl60bs" path="res://Assets/Maps/Trash_textures/trash_glass_3.png" id="50_ex2fv"]
+[ext_resource type="Texture2D" uid="uid://bmp7jpmjmj1re" path="res://Assets/Maps/Wallpaper_Rips/wallpaper_rips_7.png" id="50_hrqyy"]
 [ext_resource type="Texture2D" uid="uid://cnw5b6rom6fqm" path="res://Assets/Maps/Wallpaper_Rips/wallpaper_rips_4.png" id="50_w6laf"]
 [ext_resource type="Texture2D" uid="uid://b6w6yqm6sy4d0" path="res://Assets/Maps/Trash_textures/trash_paper_1.png" id="51_etdsd"]
+[ext_resource type="Texture2D" uid="uid://bc4f5qi6iwiml" path="res://Assets/Maps/Wallpaper_Rips/wallpaper_rips_6.png" id="51_xyp7n"]
 [ext_resource type="Texture2D" uid="uid://c6ro3txpb3nga" path="res://Assets/Maps/Trash_textures/trash_paper_2.png" id="52_ex2fv"]
 [ext_resource type="Texture2D" uid="uid://dpe1cbytfdjdx" path="res://Assets/Maps/Trash_textures/trash_ripped_purple.png" id="53_8s10x"]
+[ext_resource type="Texture2D" uid="uid://b0boygbpsufg3" path="res://Assets/Maps/Trash_textures/books_trashed/book_pieces_1.png" id="56_es7c4"]
+[ext_resource type="Texture2D" uid="uid://cudi7huecst4d" path="res://Assets/Maps/Trash_textures/books_trashed/book_pieces_2.png" id="57_w6laf"]
 [ext_resource type="PackedScene" uid="uid://b67d56dh36a5c" path="res://Objects/Architypes/TrippingHazards/tripping_book_pile_01.tscn" id="57_yb00h"]
+[ext_resource type="Texture2D" uid="uid://dlvnruiuc3u6m" path="res://Assets/Maps/Trash_textures/books_trashed/book_pieces_3.png" id="58_hrqyy"]
 [ext_resource type="PackedScene" uid="uid://34iklrp3b0p0" path="res://Objects/Architypes/TrippingHazards/tripping_book_pile_02.tscn" id="58_khj4u"]
 [ext_resource type="PackedScene" uid="uid://cwmabbs7xkbbi" path="res://Objects/Architypes/TrippingHazards/tripping_book_pile_03.tscn" id="59_khj4u"]
+[ext_resource type="Texture2D" uid="uid://cugraq2wiwdb1" path="res://Assets/Maps/Trash_textures/books_trashed/book_pieces_4.png" id="59_xyp7n"]
 [ext_resource type="PackedScene" uid="uid://b2rny3w0qdj7n" path="res://Assets/Props/beer_can_broken.gltf" id="60_emwwe"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_736oy"]
@@ -186,7 +192,7 @@ spot_angle = 41.6
 [node name="Floor" type="Node3D" parent="Layout" unique_id=1420737671]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Layout/Floor" unique_id=200425551]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6385899, -0.021240711, -0.79245496)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6413918, -0.021240473, -0.7924551)
 layers = 2
 material_override = ExtResource("8_y6gv2")
 use_collision = true
@@ -384,7 +390,7 @@ use_collision = true
 size = Vector3(4.470807, 5.6259313, 0.15405273)
 
 [node name="CSG_YellowlWall11" type="CSGBox3D" parent="Layout/Walls" unique_id=701826695]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 17.231926, 3.3526676, -20.843704)
+transform = Transform3D(-0.9999998, -0.0005001592, -0.0003185227, -0.0005001514, 0.9999999, -2.411052e-05, 0.00031853493, -2.3948725e-05, -0.99999994, 17.231926, 3.3526676, -20.843704)
 layers = 4
 material_override = ExtResource("11_y6gv2")
 use_collision = true
@@ -764,7 +770,7 @@ transform = Transform3D(1.2402349e-09, 3.173546e-08, 0.72653574, 0.064875424, 0.
 model_index = 1
 
 [node name="Frame27" parent="Decor" unique_id=264120800 instance=ExtResource("5_y6gv2")]
-transform = Transform3D(1.0379926, -0.06692786, 9.355308e-10, 0.09234627, 0.75228393, -2.0650509e-08, 9.359234e-10, 1.559766e-08, 1, 16.87287, 3.6379979, -20.62046)
+transform = Transform3D(1.0379926, -0.06692786, 9.355308e-10, 0.09234627, 0.75228393, -2.0650509e-08, 9.359234e-10, 1.559766e-08, 1, 16.87287, 3.6379979, -20.759127)
 model_index = 1
 
 [node name="Frame20" parent="Decor" unique_id=60126407 instance=ExtResource("5_y6gv2")]
@@ -832,7 +838,7 @@ modulate_color = Color(0.8, 0.7296, 0.27199998, 1)
 transform = Transform3D(0.96556807, 0, 0.26015058, 0, 1, 0, -0.26015058, 0, 0.96556807, 5.779565, 0.0022555622, -0.1784645)
 
 [node name="Decal_WallpaperRips" type="Decal" parent="Decor" unique_id=1493493206]
-transform = Transform3D(-0.99999994, 8.742277e-08, 0, 3.8213705e-15, 4.3711385e-08, -1, -8.742277e-08, -0.99999994, -4.371139e-08, 13.527984, 3.239109, -17.04624)
+transform = Transform3D(-0.99999994, 8.742277e-08, 0, 3.8213705e-15, 4.3711385e-08, -1, -8.742277e-08, -0.99999994, -4.371139e-08, 13.529512, 3.239109, -17.04624)
 size = Vector3(0.5, 0.3, 2)
 texture_albedo = ExtResource("47_dhj1e")
 modulate = Color(0.7468333, 1, 0.69, 1)
@@ -859,7 +865,7 @@ lower_fade = 0.049481563
 cull_mask = 4
 
 [node name="Decal_WallpaperRips4" type="Decal" parent="Decor" unique_id=1444628794]
-transform = Transform3D(-0.6521906, 5.7016315e-08, 0, 2.4922623e-15, 2.8508158e-08, -0.6521907, -5.7016315e-08, -0.6521906, -2.8508161e-08, 19.88113, 3.6912136, -20.743473)
+transform = Transform3D(-0.6521906, 5.7016315e-08, 0, 2.4922623e-15, 2.8508158e-08, -0.6521907, -5.7016315e-08, -0.6521906, -2.8508161e-08, 20.010376, 3.6912136, -20.743473)
 size = Vector3(0.5, 0.3, 2)
 texture_albedo = ExtResource("49_es7c4")
 modulate = Color(0.7468333, 1, 0.69, 1)
@@ -867,8 +873,26 @@ upper_fade = 0.04459525
 lower_fade = 0.049481563
 cull_mask = 4
 
+[node name="Decal_WallpaperRips7" type="Decal" parent="Decor" unique_id=1463601331]
+transform = Transform3D(-0.7489964, 5.701631e-08, 1.4809254e-22, 1.7591472e-23, 2.8508158e-08, -0.6521907, -6.547935e-08, -0.65219057, -2.8508161e-08, 18.896624, 3.3814468, -20.743498)
+size = Vector3(0.6845703, 0.3, 1.5117188)
+texture_albedo = ExtResource("50_hrqyy")
+modulate = Color(0.7468333, 1, 0.69, 1)
+upper_fade = 0.04459525
+lower_fade = 0.049481563
+cull_mask = 4
+
+[node name="Decal_WallpaperRips8" type="Decal" parent="Decor" unique_id=208122240]
+transform = Transform3D(-0.51756, 3.939854e-08, 0, 1.9777887e-15, 1.969927e-08, -0.4506668, -4.5246534e-08, -0.45066676, -1.9699272e-08, 14.108679, 3.775985, -20.743498)
+size = Vector3(1.56073, 0.3, 2)
+texture_albedo = ExtResource("51_xyp7n")
+modulate = Color(0.7468333, 1, 0.69, 1)
+upper_fade = 0.04459525
+lower_fade = 0.049481563
+cull_mask = 4
+
 [node name="Decal_WallpaperRips5" type="Decal" parent="Decor" unique_id=182600632]
-transform = Transform3D(-0.99999994, 8.742277e-08, 0, 3.8213705e-15, 4.3711385e-08, -1, -8.742277e-08, -0.99999994, -4.371139e-08, 18.043951, 3.512218, -20.743473)
+transform = Transform3D(-1, 1.509958e-07, 6.600236e-15, 0, 4.371139e-08, -1, -1.509958e-07, -1, -4.371139e-08, 18.043951, 3.512218, -20.743473)
 size = Vector3(0.5, 0.3, 2)
 texture_albedo = ExtResource("50_w6laf")
 modulate = Color(0.7468333, 1, 0.69, 1)
@@ -929,6 +953,38 @@ cull_mask = 2
 transform = Transform3D(0.3416899, -0.000150581, -0.011411667, 7.6902245e-09, 0.34185067, -0.004510818, 0.011412755, 0.004508303, 0.34166026, 8.14345, 0.043895237, -1.2269063)
 size = Vector3(2, 2.4487305, 2)
 texture_albedo = ExtResource("51_etdsd")
+upper_fade = 0.04459525
+lower_fade = 0.049481563
+cull_mask = 2
+
+[node name="Decal_TrashPaper3" type="Decal" parent="Decor" unique_id=817001446]
+transform = Transform3D(0.31582883, -0.0034729987, -0.26319999, 9.556963e-09, 0.41110194, -0.0054246085, 0.26322293, 0.0041670897, 0.31580153, 2.5541422, 0.043895237, -1.1675149)
+size = Vector3(2, 2.4487305, 2)
+texture_albedo = ExtResource("56_es7c4")
+upper_fade = 0.04459525
+lower_fade = 0.049481563
+cull_mask = 2
+
+[node name="Decal_TrashPaper4" type="Decal" parent="Decor" unique_id=195111201]
+transform = Transform3D(0.34856465, -0.0039023168, -0.2957357, 1.0678321e-08, 0.4570949, -0.006031499, 0.2957615, 0.0045990087, 0.3485345, 3.1592283, 0.043895356, -0.75385857)
+size = Vector3(2, 2.4487305, 2)
+texture_albedo = ExtResource("57_w6laf")
+upper_fade = 0.04459525
+lower_fade = 0.049481563
+cull_mask = 2
+
+[node name="Decal_TrashPaper5" type="Decal" parent="Decor" unique_id=1762564566]
+transform = Transform3D(0.29182625, -0.0048207208, -0.36533672, 1.11058736e-08, 0.46756673, -0.006169678, 0.36536855, 0.0038503958, 0.2918011, 1.7596126, 0.043895356, -1.2757772)
+size = Vector3(2, 2.4487305, 2)
+texture_albedo = ExtResource("58_hrqyy")
+upper_fade = 0.04459525
+lower_fade = 0.049481563
+cull_mask = 2
+
+[node name="Decal_TrashPaper6" type="Decal" parent="Decor" unique_id=997975633]
+transform = Transform3D(0.46451434, -0.0018418985, -0.13958754, 1.1330117e-08, 0.4849956, -0.0063996566, 0.13959983, 0.006128866, 0.46447408, 4.340152, 0.043895356, -0.7594619)
+size = Vector3(2, 2.4487305, 2)
+texture_albedo = ExtResource("59_xyp7n")
 upper_fade = 0.04459525
 lower_fade = 0.049481563
 cull_mask = 2

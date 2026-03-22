@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://c582dhy7jbej6"]
 
-[node name="SfxPlayer" type="AudioStreamPlayer3D"]
-unit_size = 8.0
+[ext_resource type="Script" uid="uid://c8qeu1qh808r3" path="res://Audio/SFX/sfx_player.gd" id="1_2px7f"]
+
+[node name="SfxPlayer" type="AudioStreamPlayer3D" unique_id=1006240490]
+unit_size = 9.0
 max_distance = 10.0
 panning_strength = 1.2
 bus = &"SFX"
+script = ExtResource("1_2px7f")

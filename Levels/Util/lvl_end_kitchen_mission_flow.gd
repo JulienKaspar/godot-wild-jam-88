@@ -9,6 +9,8 @@ func _ready() -> void:
 	$AnimationPlayer.play("RESET")
 	$Fridge/fridge_trap_wall/CollisionShape3D.disabled = true
 	GameStateManager.player_drunkness.paused = true
+	GameStateManager.player_drunkness.current_drunkness = 7
+	GameStateManager.hide_hud.emit()
 	$Fridge/fridge_door_right_rendering.show()
 	$Fridge.show()
 
@@ -44,7 +46,7 @@ func _on_inside_fridge_time_timeout() -> void:
 func _on_timer_credits_timeout() -> void:
 	print("roll them credits")
 	GameStateManager.show_credits.emit()
-
+	AchievementSystem.unlock_achievement(Achievement.ID.FinishGame)
 
 func _on_pickup_beer_picked_up() -> void:
 	if isProgress == Progress.OPEN:

@@ -86,7 +86,7 @@ func display_dialogue_debug() -> void:
 	if ImGui.Button("Falling Quip"):
 		DialogueSystem.display_random_falling_quip()
 	if ImGui.Button("Send text"):
-		DialogueSystem.display_dialogue(dialogue_text[0])
+		DialogueSystem.add_to_dialogue_queue(dialogue_text[0])
 
 func display_achievement_menu() -> void:
 	if ImGui.Button("Achievement Menu"):

@@ -70,7 +70,6 @@ ssao_radius = 2.65
 ssao_power = 1.7230476
 ssao_detail = 0.74
 ssil_enabled = true
-fog_enabled = true
 fog_mode = 1
 fog_light_color = Color(0.3504, 0.22079998, 0.48, 1)
 fog_light_energy = 1.1
@@ -351,7 +350,7 @@ collision_layer = 65
 size = Vector3(4.1332808, 1, 2.877647)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Layout/Floor" unique_id=118272548]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09637594, -0.5000005, 15.818445)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09637594, -0.48982042, 15.818445)
 layers = 2
 material_override = ExtResource("7_4rx7x")
 use_collision = true

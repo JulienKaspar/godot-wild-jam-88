@@ -4,6 +4,7 @@ class_name PlayerDrunkness
 var min_drunkness: float = 0
 var max_drunkness: float = 10
 var starting_drunkness: float = 9
+var minimum_drunkness_on_enter_level: float = 3
 var drunkness_decay_per_second: float = 0.15
 var threshold: float = 0.1
 var is_resetting: bool = false
@@ -72,3 +73,7 @@ func update_drunk_visual_effect() -> void:
 	post_processing.material.set('shader_parameter/drunkness', drunk_effect_intensity)
 	var bleak_effect_intensity = clampf(1. - (current_drunkness / sobriety_threshold), 0., 1.)
 	post_processing.material.set('shader_parameter/bleakness', bleak_effect_intensity)
+
+func enter_level() -> void:
+	if current_drunkness < minimum_drunkness_on_enter_level:
+		current_drunkness = minimum_drunkness_on_enter_level

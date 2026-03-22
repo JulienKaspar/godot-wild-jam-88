@@ -17,7 +17,7 @@ radius = 0.22460938
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.20117188, 0)
 shape = SubResource("CylinderShape3D_20fxu")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=241197063]
+[node name="OmniLight3D" type="OmniLight3D" parent="PropCollider" unique_id=241197063]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44384336, 0)
 light_color = Color(1, 0.9866667, 0.19999999, 1)
 light_energy = 0.415

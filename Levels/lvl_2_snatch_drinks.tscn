@@ -82,7 +82,7 @@ size = Vector3(1.8151245, 3.45717, 0.2)
 [sub_resource type="BoxShape3D" id="BoxShape3D_17q8k"]
 size = Vector3(3.1295853, 3.45717, 0.09472656)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e46qe"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eltgc"]
 resource_local_to_scene = true
 diffuse_mode = 3
 specular_mode = 2
@@ -315,7 +315,7 @@ size = Vector3(4.364832, 1, 6.4658895)
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="Layout/Floor" unique_id=2135207957]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.942027, 0.5246637, -12.832441)
-layers = 2
+layers = 3
 material_override = ExtResource("3_t4a3y")
 use_collision = true
 collision_layer = 65
@@ -525,7 +525,7 @@ shape = SubResource("BoxShape3D_17q8k")
 
 [node name="Stairs_wide" parent="Layout/Stairs" unique_id=1441565839 instance=ExtResource("17_iy3ty")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12.69914, -0.7660129, -12.728362)
-wall_material = SubResource("StandardMaterial3D_e46qe")
+wall_material = SubResource("StandardMaterial3D_eltgc")
 ground_material = ExtResource("3_t4a3y")
 
 [node name="Stairs_wide2" parent="Layout/Stairs" unique_id=735994930 instance=ExtResource("17_iy3ty")]

@@ -8,6 +8,8 @@ signal show_credits()
 signal show_wasted_screen()
 @warning_ignore("unused_signal")
 signal hide_wasted_screen()
+@warning_ignore("unused_signal")
+signal hide_hud()
 
 enum MovementModes {ORIGINAL, EXPERIMENTAL}
 

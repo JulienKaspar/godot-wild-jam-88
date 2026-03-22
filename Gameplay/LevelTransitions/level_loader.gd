@@ -49,6 +49,7 @@ func load_level_by_index(index: int, show_loading_screen: bool) -> void:
 		current_player.queue_free()
 	current_player = player
 	GameStateManager.current_player = player
+	GameStateManager.player_drunkness.enter_level()
 	call_deferred(set_follow_camera.get_method(),player)
 	
 	current_level_index = index
@@ -83,6 +84,11 @@ func load_achievement_level() -> void:
 	get_tree().paused = false
 	GameStateManager.player_drunkness.paused = true
 	GameStateManager.current_state = GameStateManager.GameState.Game
+
+func get_name_of_loaded_level() -> String:
+	if get_child_count() > 0:
+		return get_child(0).name
+	else: return "invalid"
 
 func set_follow_camera(player: Player) -> void:
 	GameStateManager.game_camera.follow_target = player.get_node("PlayerController/RigidBally3D")

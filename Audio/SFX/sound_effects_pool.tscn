@@ -1,10 +1,11 @@
-[gd_scene load_steps=30 format=3 uid="uid://c46y87jtli80e"]
+[gd_scene format=3 uid="uid://c46y87jtli80e"]
 
 [ext_resource type="Script" uid="uid://c7hneeofvntpl" path="res://Audio/SFX/sound_effects_pool.gd" id="1_5noex"]
 [ext_resource type="PackedScene" uid="uid://c582dhy7jbej6" path="res://Audio/SFX/sfx_player.tscn" id="2_kecfh"]
 [ext_resource type="AudioStream" uid="uid://dagadx8b0xrrn" path="res://Audio/SFX/Props/wobble_sounds.tres" id="3_rk4f4"]
 [ext_resource type="AudioStream" uid="uid://8t4w60ovuely" path="res://Audio/SFX/NPCs/teen_voice_sounds.tres" id="3_yckv0"]
 [ext_resource type="AudioStream" uid="uid://bk41hfuvlnxoe" path="res://Assets/Audio/SFX/Props/banana_slip_01.ogg" id="4_lrawr"]
+[ext_resource type="AudioStream" uid="uid://bb3li1m4gmmxi" path="res://Audio/SFX/Props/prop_collisions.tres" id="5_kt80n"]
 [ext_resource type="AudioStream" uid="uid://bhogek5lud7b1" path="res://Assets/Audio/SFX/Props/keg_collision_sound.ogg" id="5_mxvxv"]
 [ext_resource type="AudioStream" uid="uid://bqneyjxr1amjy" path="res://Assets/Audio/SFX/Props/light_switch_off.ogg" id="6_ljvjk"]
 [ext_resource type="AudioStream" uid="uid://cu4n4ulhoxa1c" path="res://Assets/Audio/UI/checkbox_on.ogg" id="7_yckv0"]
@@ -67,11 +68,12 @@ stream_5/stream = ExtResource("22_31fmt")
 stream_6/stream = ExtResource("23_50xac")
 stream_7/stream = ExtResource("24_milor")
 
-[node name="SoundEffectsPool" type="Node"]
+[node name="SoundEffectsPool" type="Node" unique_id=1684332484]
 script = ExtResource("1_5noex")
 item_scene = ExtResource("2_kecfh")
 teen_sounds = ExtResource("3_yckv0")
 wobble_sounds = ExtResource("3_rk4f4")
+prop_collision_sounds = ExtResource("5_kt80n")
 banana_slip_sounds = SubResource("AudioStreamRandomizer_mxvxv")
 keg_sounds = SubResource("AudioStreamRandomizer_7d5my")
 switch_sounds = SubResource("AudioStreamRandomizer_h08pl")

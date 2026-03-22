@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cksssdqb3x0hy"]
+[gd_scene format=3 uid="uid://cksssdqb3x0hy"]
 
 [ext_resource type="Script" uid="uid://bfscaiegqo0r1" path="res://Objects/Architypes/Furniture/frame.gd" id="1_4kbqo"]
 [ext_resource type="Material" uid="uid://ctmyo6fovqoco" path="res://Assets/Materials/frame_pictures/schweini.tres" id="2_26oui"]
@@ -8,11 +8,31 @@
 [ext_resource type="PackedScene" uid="uid://cqqumnpk2g13b" path="res://Assets/Furniture/frame4.gltf" id="6_vl1qm"]
 [ext_resource type="PackedScene" uid="uid://cta7e8unwhxsg" path="res://Assets/Furniture/frame_achievement.gltf" id="7_061hc"]
 [ext_resource type="PackedScene" uid="uid://cjulufd2j0pv8" path="res://Assets/Furniture/frame_achievement_covered.gltf" id="8_26oui"]
+[ext_resource type="PackedScene" uid="uid://cd1ph8f3pj5gk" path="res://Resources/Achievements/achievment_info_viewport.tscn" id="9_hgxpv"]
 
-[node name="Frame" type="Node3D" node_paths=PackedStringArray("model_slot")]
+[sub_resource type="ViewportTexture" id="ViewportTexture_26oui"]
+viewport_path = NodePath("AchievementInfo/Sprite3D/SubViewport")
+
+[node name="Frame" type="Node3D" unique_id=196184396 node_paths=PackedStringArray("model_slot")]
 script = ExtResource("1_4kbqo")
 picture_material = ExtResource("2_26oui")
 models = Array[PackedScene]([ExtResource("3_26oui"), ExtResource("4_hgxpv"), ExtResource("5_7aqnw"), ExtResource("6_vl1qm"), ExtResource("7_061hc"), ExtResource("8_26oui")])
 model_slot = NodePath("model")
 
-[node name="model" type="Node3D" parent="."]
+[node name="model" type="Node3D" parent="." unique_id=1762133377]
+
+[node name="AchievementInfo" type="Node3D" parent="." unique_id=2100254850]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.010322779, -1.5932541, 0)
+visible = false
+
+[node name="Sprite3D" type="Sprite3D" parent="AchievementInfo" unique_id=797224199]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0009371042, -2.1666384, 0.01902771)
+texture = SubResource("ViewportTexture_26oui")
+
+[node name="SubViewport" type="SubViewport" parent="AchievementInfo/Sprite3D" unique_id=500775144]
+transparent_bg = true
+
+[node name="VBoxContainer" parent="AchievementInfo/Sprite3D/SubViewport" unique_id=952823340 instance=ExtResource("9_hgxpv")]
+
+[editable path="AchievementInfo/Sprite3D/SubViewport/VBoxContainer"]

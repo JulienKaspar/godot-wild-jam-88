@@ -6,6 +6,8 @@ extends Slope
 @export var stair_asset : Node3D
 
 func _ready() -> void:
+	if stair_asset == null:
+		return
 	for node in stair_asset.get_children():
 		if node is MeshInstance3D:
 			node.set_surface_override_material(0, wall_material)
@@ -13,6 +15,9 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if not Engine.is_editor_hint():
+		return
+	
+	if stair_asset == null:
 		return
 	for node in stair_asset.get_children():
 		if node is MeshInstance3D:
