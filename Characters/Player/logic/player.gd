@@ -155,10 +155,12 @@ func _process(_delta: float) -> void:
 
 func _on_player_body_reached_target_left(item) -> void:
 	if item is DrunknessPickup:
-		setHandLState(HandStates.DRINKING, item)
-		holdingLeft = item
+		if item.inState == DrunknessPickup.PickupStates.IN_USE:
+			pass
+		else:
+			setHandLState(HandStates.DRINKING, item)
+			holdingLeft = item
 	elif item is Switch:
-		print("reached_left")
 		item.switch()
 		setHandLState(HandStates.USED)
 	else:
@@ -166,10 +168,12 @@ func _on_player_body_reached_target_left(item) -> void:
 
 func _on_player_body_reached_target_right(item) -> void:
 	if item is DrunknessPickup:
-		setHandRState(HandStates.DRINKING, item)
-		holdingRight = item
+		if item.inState == DrunknessPickup.PickupStates.IN_USE:
+			pass
+		else:
+			setHandRState(HandStates.DRINKING, item)
+			holdingRight = item
 	elif item is Switch:
-		print("reached_right")
 		item.switch()
 		setHandRState(HandStates.USED)
 	else:

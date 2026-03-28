@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bo1p1dvgr50f4"]
+[gd_scene format=3 uid="uid://bo1p1dvgr50f4"]
 
 [ext_resource type="Script" uid="uid://b3w4gu3se7vnv" path="res://Gameplay/Pickups/drunkness_pickup.gd" id="1_4iwu5"]
 [ext_resource type="PackedScene" uid="uid://dah5q3vw2jba7" path="res://Assets/Furniture/banana1.gltf" id="2_0boxb"]
-[ext_resource type="Script" path="res://Gameplay/Pickups/pick_point.gd" id="3_0boxb"]
+[ext_resource type="PackedScene" uid="uid://bf53omykk1dlb" path="res://Objects/Loot/pick_point.tscn" id="3_0boxb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fwtl3"]
 size = Vector3(0.21875, 0.15429688, 0.16601563)
@@ -10,10 +10,7 @@ size = Vector3(0.21875, 0.15429688, 0.16601563)
 [sub_resource type="ViewportTexture" id="ViewportTexture_fwtl3"]
 viewport_path = NodePath("PickupPrompt/SubViewport")
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_gbqmf"]
-radius = 0.1
-
-[node name="DrunknessPickup" type="RigidBody3D" node_paths=PackedStringArray("pick_point", "pristine_mesh", "broken_mesh")]
+[node name="DrunknessPickup" type="RigidBody3D" unique_id=1774901320 node_paths=PackedStringArray("pick_point", "pristine_mesh", "broken_mesh")]
 collision_layer = 32
 collision_mask = 63
 script = ExtResource("1_4iwu5")
@@ -22,23 +19,23 @@ drunkness_increase = -0.5
 pristine_mesh = NodePath("banana")
 broken_mesh = NodePath("banana")
 
-[node name="banana" parent="." instance=ExtResource("2_0boxb")]
+[node name="banana" parent="." unique_id=688881759 instance=ExtResource("2_0boxb")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=179036463]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0007324219, 0.036132813, 0)
 shape = SubResource("BoxShape3D_fwtl3")
 
-[node name="PickupPrompt" type="Sprite3D" parent="."]
+[node name="PickupPrompt" type="Sprite3D" parent="." unique_id=1560654734]
 unique_name_in_owner = true
 visible = false
 billboard = 1
 texture = SubResource("ViewportTexture_fwtl3")
 
-[node name="SubViewport" type="SubViewport" parent="PickupPrompt"]
+[node name="SubViewport" type="SubViewport" parent="PickupPrompt" unique_id=1084781909]
 transparent_bg = true
 size = Vector2i(200, 50)
 
-[node name="Label" type="Label" parent="PickupPrompt/SubViewport"]
+[node name="Label" type="Label" parent="PickupPrompt/SubViewport" unique_id=1493482013]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -51,10 +48,5 @@ text = "Press Space to pickup
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PickPoint" type="Area3D" parent="."]
+[node name="PickPoint" parent="." unique_id=1271018812 instance=ExtResource("3_0boxb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.017198872, 0.058005735, 0)
-monitoring = false
-script = ExtResource("3_0boxb")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PickPoint"]
-shape = SubResource("SphereShape3D_gbqmf")

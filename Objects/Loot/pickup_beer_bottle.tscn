@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ctkeed4oy5kjx"]
 
 [ext_resource type="Script" uid="uid://b3w4gu3se7vnv" path="res://Gameplay/Pickups/drunkness_pickup.gd" id="1_snpw7"]
-[ext_resource type="Script" uid="uid://dov4lhtuyrycf" path="res://Gameplay/Pickups/pick_point.gd" id="2_ia073"]
+[ext_resource type="PackedScene" uid="uid://bf53omykk1dlb" path="res://Objects/Loot/pick_point.tscn" id="2_1k5jj"]
 [ext_resource type="PackedScene" uid="uid://digw728iiuyg2" path="res://Particles/DrunknessPickups/pfx_beer_consuming.tscn" id="3_1k5jj"]
 [ext_resource type="PackedScene" uid="uid://cpegwj8uc0kq5" path="res://Particles/DrunknessPickups/pfx_beer_break.tscn" id="4_uv6dg"]
 [ext_resource type="Script" uid="uid://bcct1aqhnv1r" path="res://Gameplay/Pickups/pfx_trigger_childs.gd" id="5_1k5jj"]
@@ -18,9 +18,6 @@ radius = 0.100097656
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_fwtl3"]
 viewport_path = NodePath("PickupPrompt/SubViewport")
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_fwtl3"]
-radius = 0.1
 
 [node name="DrunknessPickup" type="RigidBody3D" unique_id=1147530279 node_paths=PackedStringArray("pick_point", "pristine_mesh", "consume_pfx", "dispose_pfx", "break_pfx", "broken_mesh")]
 collision_layer = 32
@@ -62,13 +59,8 @@ text = "*
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PickPoint" type="Area3D" parent="." unique_id=443638537]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37297317, 0)
-monitoring = false
-script = ExtResource("2_ia073")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PickPoint" unique_id=1730258020]
-shape = SubResource("SphereShape3D_fwtl3")
+[node name="PickPoint" parent="." unique_id=1271018812 instance=ExtResource("2_1k5jj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.373, 0)
 
 [node name="bottle" parent="." unique_id=1198883672 instance=ExtResource("6_ia073")]
 

@@ -30,6 +30,9 @@ script = ExtResource("5_xf5fp")
 
 [node name="grab_area_left" type="Area3D" parent="PickupTracker" unique_id=1071378075]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 1.8, 1.313, 0.606)
+collision_layer = 2048
+collision_mask = 2048
+monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PickupTracker/grab_area_left" unique_id=858790177]
 transform = Transform3D(1, 0, 0, 0, 0.81915206, 0.57357645, 0, -0.57357645, 0.81915206, 0, 0, 0)
@@ -38,6 +41,8 @@ debug_color = Color(0.8627451, 0, 0.45882353, 0.8784314)
 
 [node name="grab_area_right" type="Area3D" parent="PickupTracker" unique_id=274993312]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -1.8, 1.313, 0.606)
+collision_layer = 2048
+collision_mask = 2048
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PickupTracker/grab_area_right" unique_id=876406368]
 transform = Transform3D(1, 0, 0, 0, 0.819152, -0.5735764, 0, 0.5735764, 0.819152, 0, 0, 0)

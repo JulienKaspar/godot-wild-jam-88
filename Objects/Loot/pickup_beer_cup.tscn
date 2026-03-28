@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://c50jjcmdyr7vp"]
 
 [ext_resource type="Script" uid="uid://b3w4gu3se7vnv" path="res://Gameplay/Pickups/drunkness_pickup.gd" id="1_1ac8f"]
-[ext_resource type="Script" uid="uid://dov4lhtuyrycf" path="res://Gameplay/Pickups/pick_point.gd" id="2_t35mh"]
 [ext_resource type="PackedScene" uid="uid://digw728iiuyg2" path="res://Particles/DrunknessPickups/pfx_beer_consuming.tscn" id="3_jbig5"]
 [ext_resource type="PackedScene" uid="uid://cpegwj8uc0kq5" path="res://Particles/DrunknessPickups/pfx_beer_break.tscn" id="4_rbkuy"]
 [ext_resource type="Script" uid="uid://bcct1aqhnv1r" path="res://Gameplay/Pickups/pfx_trigger_childs.gd" id="5_rbkuy"]
 [ext_resource type="PackedScene" uid="uid://bw1ewj0l1c71n" path="res://Particles/DrunknessPickups/pfx_beer_dispose.tscn" id="5_u18ou"]
 [ext_resource type="PackedScene" uid="uid://do1w53g6gv4v7" path="res://Assets/Props/beer_cup.gltf" id="6_t35mh"]
 [ext_resource type="PackedScene" uid="uid://dsxj8qcelbum7" path="res://Assets/Props/beer_cup_broken.gltf" id="7_jbig5"]
+[ext_resource type="PackedScene" uid="uid://bf53omykk1dlb" path="res://Objects/Loot/pick_point.tscn" id="8_rbkuy"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rbkuy"]
 friction = 0.4
@@ -18,9 +18,6 @@ radius = 0.100097656
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_fwtl3"]
 viewport_path = NodePath("PickupPrompt/SubViewport")
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_fwtl3"]
-radius = 0.1
 
 [node name="DrunknessPickup2" type="RigidBody3D" unique_id=686264790 node_paths=PackedStringArray("pick_point", "pristine_mesh", "consume_pfx", "dispose_pfx", "break_pfx", "broken_mesh")]
 collision_layer = 32
@@ -63,14 +60,6 @@ text = "*
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PickPoint" type="Area3D" parent="." unique_id=1315093546]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15536867, 0)
-monitoring = false
-script = ExtResource("2_t35mh")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PickPoint" unique_id=366512090]
-shape = SubResource("SphereShape3D_fwtl3")
-
 [node name="cup" parent="." unique_id=1039766431 instance=ExtResource("6_t35mh")]
 
 [node name="PfxBeerConsuming" parent="cup" unique_id=881479118 instance=ExtResource("3_jbig5")]
@@ -89,3 +78,6 @@ visible = false
 
 [node name="cup_broken" parent="." unique_id=566142531 instance=ExtResource("7_jbig5")]
 transform = Transform3D(0.07426519, 0.9972385, 0, -0.9972385, 0.07426519, 0, 0, 0, 1, -0.05959561, 0.11651543, 0)
+
+[node name="PickPoint" parent="." unique_id=1271018812 instance=ExtResource("8_rbkuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15952465, 0)

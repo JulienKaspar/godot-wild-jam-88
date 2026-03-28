@@ -192,6 +192,7 @@ open_debug_menu={
 3d_physics/layer_9="HelperShape"
 3d_physics/layer_10="PropStopper"
 3d_physics/layer_11="Touchies"
+3d_physics/layer_12="PickPoints"
 
 [physics]
 

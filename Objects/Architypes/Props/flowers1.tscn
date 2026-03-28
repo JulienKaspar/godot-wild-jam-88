@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bhl3yc3cmsqrc" path="res://Assets/Furniture/flower1.gltf" id="1_ec8ns"]
 [ext_resource type="Script" uid="uid://b3w4gu3se7vnv" path="res://Gameplay/Pickups/drunkness_pickup.gd" id="2_5qx2b"]
 [ext_resource type="PackedScene" uid="uid://142xvokhmr2g" path="res://Objects/PropCollider.tscn" id="2_f1tku"]
-[ext_resource type="Script" uid="uid://dov4lhtuyrycf" path="res://Gameplay/Pickups/pick_point.gd" id="4_yu57h"]
+[ext_resource type="PackedScene" uid="uid://bf53omykk1dlb" path="res://Objects/Loot/pick_point.tscn" id="4_pa5w1"]
 [ext_resource type="PackedScene" uid="uid://digw728iiuyg2" path="res://Particles/DrunknessPickups/pfx_beer_consuming.tscn" id="5_pa5w1"]
 [ext_resource type="PackedScene" uid="uid://cpegwj8uc0kq5" path="res://Particles/DrunknessPickups/pfx_beer_break.tscn" id="6_jupx2"]
 [ext_resource type="Script" uid="uid://bcct1aqhnv1r" path="res://Gameplay/Pickups/pfx_trigger_childs.gd" id="7_k6xyp"]
@@ -12,9 +12,6 @@
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ec8ns"]
 height = 0.5761719
 radius = 0.119628906
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_3sue1"]
-radius = 0.1
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_5qx2b"]
 viewport_path = NodePath("PickupPrompt/SubViewport")
@@ -27,7 +24,9 @@ pick_point = NodePath("PickPoint")
 drunkness_increase = -2.0
 pristine_mesh = NodePath("flowers")
 consume_pfx = NodePath("PfxBeerConsuming")
+fully_consumable = false
 dispose_pfx = NodePath("PfxBeerDispose")
+can_break = false
 break_pfx = NodePath("PfxBeerBreak")
 broken_mesh = NodePath("flowers2")
 
@@ -42,13 +41,8 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.28808594, 0)
 shape = SubResource("CylinderShape3D_ec8ns")
 
-[node name="PickPoint" type="Area3D" parent="PropCollider" unique_id=721810666]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25845188, 0)
-monitoring = false
-script = ExtResource("4_yu57h")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PropCollider/PickPoint" unique_id=1879387005]
-shape = SubResource("SphereShape3D_3sue1")
+[node name="PickPoint" parent="PropCollider" unique_id=1271018812 instance=ExtResource("4_pa5w1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.258, 0)
 
 [node name="PickupPrompt" type="Sprite3D" parent="PropCollider" unique_id=1674247116]
 unique_name_in_owner = true
