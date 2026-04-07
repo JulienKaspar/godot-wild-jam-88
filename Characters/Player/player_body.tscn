@@ -27,7 +27,7 @@ albedo_color = Color(0.7828577, 0.24109468, 0, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_3aftw"]
 size = Vector3(0.1, 0.1, 0.1)
 
-[node name="PlayerBody" type="Node3D" unique_id=2017969130 node_paths=PackedStringArray("animation_player", "left_shoulder_ray", "right_shoulder_ray", "left_foot_ray", "right_foot_ray", "left_foot_ik_target", "right_foot_ik_target", "left_foot_goto", "right_foot_goto", "pelvis")]
+[node name="PlayerBody" type="Node3D" unique_id=2017969130 node_paths=PackedStringArray("animation_player", "left_shoulder_ray", "right_shoulder_ray", "left_foot_ray", "right_foot_ray", "left_foot_ik_target", "right_foot_ik_target", "left_foot_goto", "right_foot_goto", "pelvis", "leanLookAt", "lean_target")]
 script = ExtResource("1_codw7")
 animation_player = NodePath("drunk/AnimationPlayer")
 left_shoulder_ray = NodePath("drunk/Armature/Skeleton3D/ShoulderL_Pos/ShoulderRayL")
@@ -39,6 +39,8 @@ right_foot_ik_target = NodePath("RightFootIKTarget")
 left_foot_goto = NodePath("LeftFootStepTarget")
 right_foot_goto = NodePath("RightFootStepTarget")
 pelvis = NodePath("drunk/Armature/Skeleton3D/PelvisPos")
+leanLookAt = NodePath("drunk/Armature/Skeleton3D/PelvisLeanLookAt")
+lean_target = NodePath("LeanTarget")
 
 [node name="RightHandTarget" type="Marker3D" parent="." unique_id=2020633602]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.33, 1.3, 0)
@@ -143,10 +145,10 @@ mesh = SubResource("BoxMesh_3aftw")
 [node name="drunk" parent="." unique_id=556918988 instance=ExtResource("4_3aftw")]
 
 [node name="Skeleton3D" parent="drunk/Armature" index="0"]
-bones/1/position = Vector3(0, 0.8749975, 0.017)
+bones/1/position = Vector3(0, 0.875, 0.017)
 bones/1/rotation = Quaternion(-0.020994537, 1.1918302e-07, -2.5027465e-09, 0.9997796)
 
-[node name="LookAtModifier3D" type="LookAtModifier3D" parent="drunk/Armature/Skeleton3D" index="16" unique_id=150976141]
+[node name="HeadLookAt" type="LookAtModifier3D" parent="drunk/Armature/Skeleton3D" index="16" unique_id=150976141]
 target_node = NodePath("../../../../LookAtTarget")
 bone_name = "Head"
 bone = 11
@@ -160,7 +162,36 @@ primary_damp_threshold = 0.0
 secondary_limit_angle = 1.5707964
 secondary_damp_threshold = 1.0
 
-[node name="TwoBoneIK" type="TwoBoneIK3D" parent="drunk/Armature/Skeleton3D" index="17" unique_id=1179994689]
+[node name="PelvisPos" type="BoneAttachment3D" parent="drunk/Armature/Skeleton3D" index="17" unique_id=568561482]
+transform = Transform3D(1, 3.996803e-15, 2.384186e-07, -1.0008774e-08, 0.99911845, 0.04197982, -2.3820843e-07, -0.04197982, 0.99911845, 0, 0.875, 0.017)
+bone_name = "Pelvis"
+bone_idx = 1
+override_pose = true
+
+[node name="PelvisLeanLookAt" type="LookAtModifier3D" parent="drunk/Armature/Skeleton3D" index="18" unique_id=1534470183]
+transform = Transform3D(0.0820171, 0.7047246, -0.7047243, -0.99575233, 0.08762789, -0.028259454, 0.041838314, 0.7040486, 0.7089182, 0.004593149, 0.8879348, -0.041952588)
+target_node = NodePath("../../../../LeanTarget")
+bone_name = "Chest"
+bone = 6
+forward_axis = 2
+primary_rotation_axis = 0
+relative = false
+origin_from = 1
+origin_bone_name = "Root"
+origin_bone = 0
+duration = 0.2
+use_angle_limitation = true
+symmetry_limitation = false
+primary_positive_limit_angle = 1.3962634
+primary_positive_damp_threshold = 1.0
+primary_negative_limit_angle = 0.7853982
+primary_negative_damp_threshold = 1.0
+secondary_positive_limit_angle = 0.6981317
+secondary_positive_damp_threshold = 1.0
+secondary_negative_limit_angle = 0.6981317
+secondary_negative_damp_threshold = 1.0
+
+[node name="TwoBoneIK" type="TwoBoneIK3D" parent="drunk/Armature/Skeleton3D" index="19" unique_id=1179994689]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0.022145838, 0.064663224, 0)
 setting_count = 4
 settings/0/target_node = NodePath("../../../../RightFootIKTarget")
@@ -208,13 +239,7 @@ settings/3/end_bone = 16
 settings/3/use_virtual_end = false
 settings/3/extend_end_bone = false
 
-[node name="PelvisPos" type="BoneAttachment3D" parent="drunk/Armature/Skeleton3D" index="18" unique_id=568561482]
-transform = Transform3D(1, 3.996803e-15, 2.384186e-07, -1.0008774e-08, 0.99911845, 0.04197982, -2.3820843e-07, -0.04197982, 0.99911845, 0, 0.8749975, 0.017)
-bone_name = "Pelvis"
-bone_idx = 1
-override_pose = true
-
-[node name="Spring_Head" type="SpringBoneSimulator3D" parent="drunk/Armature/Skeleton3D" index="19" unique_id=1423621454]
+[node name="Spring_Head" type="SpringBoneSimulator3D" parent="drunk/Armature/Skeleton3D" index="20" unique_id=1423621454]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.032716572, -0.0001129508, 0)
 setting_count = 1
 settings/0/root_bone_name = "Head"
@@ -227,7 +252,7 @@ settings/0/individual_config = false
 settings/0/rotation_axis = 3
 settings/0/radius/value = 0.02
 settings/0/radius/damping_curve = null
-settings/0/stiffness/value = 1.0
+settings/0/stiffness/value = 1.3
 settings/0/stiffness/damping_curve = null
 settings/0/drag/value = 0.4
 settings/0/drag/damping_curve = null
@@ -243,7 +268,7 @@ settings/0/joints/2/bone = 13
 settings/0/enable_all_child_collisions = true
 settings/0/exclude_collision_count = 0
 
-[node name="Spring_Spline" type="SpringBoneSimulator3D" parent="drunk/Armature/Skeleton3D" index="20" unique_id=2139771768]
+[node name="Spring_Spline" type="SpringBoneSimulator3D" parent="drunk/Armature/Skeleton3D" index="21" unique_id=2139771768]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.062546015, -0.08468467, 0)
 setting_count = 1
 settings/0/root_bone_name = "Chest"
@@ -270,8 +295,8 @@ settings/0/joints/1/bone = 10
 settings/0/enable_all_child_collisions = false
 settings/0/collision_count = 0
 
-[node name="ShoulderR_Pos" type="BoneAttachment3D" parent="drunk/Armature/Skeleton3D" index="21" unique_id=332456203]
-transform = Transform3D(-0.055249806, -0.9984719, -0.0011386732, 0.99827653, -0.055261545, 0.019749876, -0.01978262, -4.5532594e-05, 0.9998042, -0.13287117, 1.3662567, 5.6539662e-05)
+[node name="ShoulderR_Pos" type="BoneAttachment3D" parent="drunk/Armature/Skeleton3D" index="22" unique_id=332456203]
+transform = Transform3D(-0.09295172, -0.99126476, -0.093564324, 0.7799672, -0.014082678, -0.62566185, 0.61887884, -0.13113347, 0.7744629, -0.12541723, 1.3171127, 0.15935148)
 bone_name = "Arm_R"
 bone_idx = 14
 
@@ -279,8 +304,8 @@ bone_idx = 14
 transform = Transform3D(0.99968547, -0.025077749, 0, 0.025077749, 0.99968547, 0, 0, 0, 1, 0, 0, 0)
 collision_mask = 61
 
-[node name="ShoulderL_Pos" type="BoneAttachment3D" parent="drunk/Armature/Skeleton3D" index="22" unique_id=639041020]
-transform = Transform3D(-0.059193496, 0.9982458, 0.001221014, -0.99805003, -0.0592061, 0.01976329, 0.019800905, -4.8772432e-05, 0.9998039, 0.13287117, 1.3662567, 5.6540128e-05)
+[node name="ShoulderL_Pos" type="BoneAttachment3D" parent="drunk/Armature/Skeleton3D" index="23" unique_id=639041020]
+transform = Transform3D(-0.093904704, 0.9904137, 0.10130471, -0.7780919, -0.0095305815, -0.62807804, -0.62109154, -0.13780387, 0.7715278, 0.1402013, 1.3106794, 0.15441275)
 bone_name = "Arm_L"
 bone_idx = 7
 
@@ -288,7 +313,7 @@ bone_idx = 7
 transform = Transform3D(0.99968547, -0.025077749, 0, 0.025077749, 0.99968547, 0, 0, 0, 1, 0, 0, 0)
 collision_mask = 61
 
-[node name="CopyTransformModifier3D" type="CopyTransformModifier3D" parent="drunk/Armature/Skeleton3D" index="23" unique_id=2061521906]
+[node name="CopyTransformModifier3D" type="CopyTransformModifier3D" parent="drunk/Armature/Skeleton3D" index="24" unique_id=2061521906]
 setting_count = 2
 settings/0/amount = 1.0
 settings/0/apply_bone_name = "Foot_R"
@@ -309,13 +334,13 @@ settings/1/axes = 7
 settings/1/invert = 0
 settings/1/additive = false
 
-[node name="FootL_Pos" type="BoneAttachment3D" parent="drunk/Armature/Skeleton3D" index="24" unique_id=992633488]
-transform = Transform3D(-0.965926, 0.24163307, 0.09273978, -3.5390258e-08, -0.35831934, 0.9335992, 0.25881913, 0.901788, 0.34611052, 0.4988476, 0.18655944, 0.005038947)
+[node name="FootL_Pos" type="BoneAttachment3D" parent="drunk/Armature/Skeleton3D" index="25" unique_id=992633488]
+transform = Transform3D(-0.9659259, 0.2416331, 0.092739716, -8.381903e-08, -0.35831922, 0.93359905, 0.25881913, 0.90178794, 0.3461104, 0.49884754, 0.18655944, 0.0050390065)
 bone_name = "Foot_L"
 bone_idx = 4
 
-[node name="FootR_Pos" type="BoneAttachment3D" parent="drunk/Armature/Skeleton3D" index="25" unique_id=452820676]
-transform = Transform3D(-0.9659258, -0.24163306, -0.092739746, 7.450581e-09, -0.35831928, 0.9335992, -0.25881916, 0.901788, 0.3461105, -0.49411893, 0.18269134, -0.005039297)
+[node name="FootR_Pos" type="BoneAttachment3D" parent="drunk/Armature/Skeleton3D" index="26" unique_id=452820676]
+transform = Transform3D(-0.9659258, -0.24163298, -0.0927397, 5.3085387e-08, -0.35831928, 0.933599, -0.25881916, 0.901788, 0.34611064, -0.49411887, 0.18269137, -0.005039327)
 bone_name = "Foot_R"
 bone_idx = 19
 
@@ -330,6 +355,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.58927995, 0.20413855, -0.77
 
 [node name="Pole_ArmR" type="Marker3D" parent="drunk" unique_id=317537649]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.69472444, 0.21589863, -0.7749078)
+
+[node name="AvaragePickTarget" type="Marker3D" parent="." unique_id=84082632]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7186279, 0.837545)
+
+[node name="LeanTarget" type="Marker3D" parent="." unique_id=1189660723]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049, 1.2729177, 0.97721434)
 
 [connection signal="FeetStateChanged" from="." to="." method="_on_feet_state_changed"]
 [connection signal="timeout" from="StepInProgress" to="." method="_on_step_in_progress_timeout"]

@@ -40,6 +40,8 @@ var StepTriggerDistance = 0.37
 @export var left_foot_goto: Marker3D
 @export var right_foot_goto: Marker3D
 @export var pelvis: Node3D
+@export var leanLookAt: LookAtModifier3D
+@export var lean_target: Marker3D
 
 
 # ---------------------- External Targets --------------------------------------
@@ -84,6 +86,9 @@ var HandR_wobble = Vector3(0,0,0)
 var Head_wobble = Vector3(0,0,0)
 var HandL_pick_location: Transform3D
 var HandR_pick_location: Transform3D
+var HandL_PickDir: Vector3
+var HandR_PickDir: Vector3
+var GrabLeaning = 0.0
 var Leg_seperaion = 0.2
 var StepHighPoint = Vector3(0, 0.3, 0)
 var StepMaxAhead = 0.5
@@ -216,11 +221,23 @@ func drinkTimingUpdate(hand: Player.Sides) -> void:
 			rightDrinkLerp = ($RightDrink.wait_time - $RightDrink.time_left) / $RightDrink.wait_time
 	 
 
-func checkDistance(bone: Object, target: Object) -> bool:
-	var d = (bone.global_position - target.pick_point.global_position).length() - ARM_LENGTH
+func checkDistance(bone: Object, target: Object, side: Player.Sides) -> bool:
+	var reachVec = bone.global_position - target.pick_point.global_position
+	var d = reachVec.length() - ARM_LENGTH
+	reachVec = reachVec.normalized()
 	if d < PlayerRoot.PickupThreshold:
+		match side:
+			Player.Sides.LEFT:
+				HandL_PickDir = reachVec
+			Player.Sides.RIGHT:
+				HandR_PickDir = reachVec
 		return true
 	else:
+		match side:
+			Player.Sides.LEFT:
+				HandL_PickDir = Vector3(0,0,0)
+			Player.Sides.RIGHT:
+				HandR_PickDir = Vector3(0,0,0)
 		return false
 
 func checkStepStart(was: Vector3, isCurrent: Vector3) -> bool:
@@ -230,9 +247,46 @@ func checkStepStart(was: Vector3, isCurrent: Vector3) -> bool:
 	else:
 		return false
 
+func updateLean(delta: float) -> void:
+	var leanTarget = Vector3(0,0,0)
+	var isReaching = false
+
+	match PlayerRoot.HandLState:
+		Player.HandStates.REACHING:
+			if PlayerRoot.closestLeft:	
+				leanTarget = PlayerRoot.closestLeft.global_position
+				isReaching = true
+	match PlayerRoot.HandRState:
+		Player.HandStates.REACHING:
+			if PlayerRoot.closestRight:
+				if isReaching:
+					leanTarget = lerp(leanTarget, PlayerRoot.closestLeft.global_position, 0.5)
+				else:
+					leanTarget = PlayerRoot.closestRight.global_position
+					isReaching = true
+
+	if isReaching:
+		if not leanLookAt.active: leanLookAt.active = true
+		var leanDist = (self.global_position - leanTarget).length()
+		leanLookAt.influence = clamp(2.0 - leanDist, 0.0, 1.0)
+		lean_target.global_position = leanTarget
+	else:
+		if leanLookAt.active: leanLookAt.active = false
+
+
 func _process(delta: float) -> void:
+	# ---------------- BODY UPDATE ----------------
 	# Make the armature follow the physics bodies
-	self.global_transform = lerp(self.global_transform, body_attach_point.global_transform, .5)
+	# shift and lean body towards reaching targets
+	self.global_transform = body_attach_point.global_transform
+	
+	# ---------------- LEANING UPDATE ----------------
+	match PlayerRoot.inMoveState:
+		Player.MoveStates.MOVING:
+			updateLean(delta)
+		_: 
+			# restore base position fast when not moving, lean damping will interpolate itself
+			if leanLookAt.active: leanLookAt.active = false
 
 	# ---------------- HAND UPDATE ----------------
 	# add .pick_point when targeting drunk itemas
@@ -240,7 +294,7 @@ func _process(delta: float) -> void:
 		Player.HandStates.REACHING:
 			if PlayerRoot.closestLeft:	
 				moveHand(left_shoulder_ray, left_hand_target, PlayerRoot.closestLeft, true)
-				if checkDistance(left_shoulder_ray, PlayerRoot.closestLeft):
+				if checkDistance(left_shoulder_ray, PlayerRoot.closestLeft, Player.Sides.LEFT):
 					HandL_pick_location = PlayerRoot.closestLeft.global_transform
 					ReachedTargetLeft.emit(PlayerRoot.closestLeft)
 			else: moveHand(left_shoulder_ray, left_hand_target, rb_arm_l)
@@ -253,7 +307,7 @@ func _process(delta: float) -> void:
 		Player.HandStates.REACHING: 
 			if PlayerRoot.closestRight: 
 				moveHand(right_shoulder_ray, right_hand_target, PlayerRoot.closestRight, true)
-				if checkDistance(right_shoulder_ray, PlayerRoot.closestRight):
+				if checkDistance(right_shoulder_ray, PlayerRoot.closestRight, Player.Sides.RIGHT):
 					HandR_pick_location = PlayerRoot.closestRight.global_transform
 					ReachedTargetRight.emit(PlayerRoot.closestRight)
 			else: moveHand(right_shoulder_ray, right_hand_target, rb_arm_r)
@@ -302,7 +356,6 @@ func _process(delta: float) -> void:
 	if debugDraw: updateDebugHelpers()
 	
 func _physics_process(delta: float) -> void:
-	
 	LeftFootGotoPos = left_foot_ray.get_collision_point()
 	RightFootGotoPos = right_foot_ray.get_collision_point()
 	# TODO: This is to keep the feet on raised platforms. 
