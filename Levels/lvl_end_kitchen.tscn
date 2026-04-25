@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://dxfu8cxtr72lt" path="res://Levels/final_fridge_theme.gd" id="8_y8nvo"]
 [ext_resource type="PackedScene" uid="uid://brcfjg73kkfmc" path="res://Gameplay/Interactables/interact_fridge.tscn" id="11_477ct"]
 [ext_resource type="PackedScene" uid="uid://b6wygim3drvis" path="res://Particles/Environment/pfx_fridge_bottom_mist.tscn" id="12_2c0cr"]
+[ext_resource type="PackedScene" uid="uid://bf53omykk1dlb" path="res://Objects/Loot/pick_point.tscn" id="12_pt5ak"]
 [ext_resource type="PackedScene" uid="uid://d3unw205fanv5" path="res://Objects/Loot/pickup_beer.tscn" id="13_k7okp"]
 [ext_resource type="Material" uid="uid://dma21o2hw2ihv" path="res://Assets/Materials/floors/kitchen_tiles_fg.tres" id="15_bv1kn"]
 
@@ -959,6 +960,9 @@ debug_color = Color(0, 0.6, 0.69803923, 1)
 
 [node name="InteractSwitch" parent="Fridge" unique_id=1409320330 instance=ExtResource("11_477ct")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.51090646, 1.2179099, -0.650681)
+function = 0
+
+[node name="PickPoint2" parent="Fridge/InteractSwitch" unique_id=1271018812 instance=ExtResource("12_pt5ak")]
 
 [node name="FridgeOutsideArea" type="Area3D" parent="Fridge" unique_id=1581484614]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4171213, 0, -0.9232366)
