@@ -39,6 +39,8 @@ var StepTriggerDistance = 0.37
 @export var right_foot_ik_target: Marker3D
 @export var left_foot_goto: Marker3D
 @export var right_foot_goto: Marker3D
+
+#bodyparts
 @export var pelvis: Node3D
 @export var leanLookAt: LookAtModifier3D
 @export var lean_target: Marker3D
@@ -55,16 +57,28 @@ var StepTriggerDistance = 0.37
 @onready var body_attach_point: Node3D
 @onready var pickup_radius: ShapeCast3D
 
-var stepping := false
+var stepping = false
 
 # ---------------------- Settings ----------------------------------------------
 
 var stepTimeStd = Vector2(0.15, 0.2) # Vec2 used as min/max values
 var stepTimeFalling = Vector2(0.08, 0.11) # Vec2 used as min/max values
-var bodyOffsetMax = -0.5
+var squatLow = 0.74
+  
+ # pelvis height when maximum squatting
 
 
-
+var HandL_wobble = Vector3(0,0,0)
+var HandR_wobble = Vector3(0,0,0)
+var Head_wobble = Vector3(0,0,0)
+var HandL_pick_location: Transform3D
+var HandR_pick_location: Transform3D
+var HandL_PickDir: Vector3
+var HandR_PickDir: Vector3
+var Leg_seperaion = 0.2
+var StepHighPoint = Vector3(0, 0.3, 0)
+var StepMaxAhead = 0.5
+var PelvisOrigin: Vector3
 
 # ---------------------- Dynamics ----------------------------------------------
 var inFeetState = FeetStates.ACTIVE
@@ -74,25 +88,20 @@ var LeftFootGotoPos = Vector3(0,0,0)
 var RightFootGotoPos = Vector3(0,0,0)
 var LeftFootWasPos = Vector3(0,0,0)
 var RightFootWasPos = Vector3(0,0,0)
+var stepLerp = 0.0 # current stepping progress
+
 var leftDrinkLerp = 0
 var rightDrinkLerp = 0
 var HoldingItemL: Object
 var HoldingItemR: Object
 var triggeredConsumableL = false
 var triggeredConsumableR = false
+var isReaching = false
 
-var HandL_wobble = Vector3(0,0,0)
-var HandR_wobble = Vector3(0,0,0)
-var Head_wobble = Vector3(0,0,0)
-var HandL_pick_location: Transform3D
-var HandR_pick_location: Transform3D
-var HandL_PickDir: Vector3
-var HandR_PickDir: Vector3
-var GrabLeaning = 0.0
-var Leg_seperaion = 0.2
-var StepHighPoint = Vector3(0, 0.3, 0)
-var StepMaxAhead = 0.5
-var stepLerp = 0.0
+var squatting = 0.0 # current squatting level
+var playerSpeedSmooth = 0.0 # avarage player speed from last ~1sec
+var leanDist = 0.0
+
 
 # ----------------- debug 
 var debugDraw = false
@@ -120,35 +129,47 @@ func _unhandled_input(event: InputEvent) -> void:
 func _ready() -> void:
 	# Temp! Used to at least have a rest pose on the character while testing IK chains
 	animation_player.current_animation = "REST"
+	PelvisOrigin = pelvis.position
 
 	for helper in debugHelpers:
 		helper.hide()
 	debugDraw = false
-	#left_foot_ik_target.has_started_stepping.connect(on_has_start_stepping)
-	#right_foot_ik_target.has_started_stepping.connect(on_has_start_stepping)
 	
 	left_shoulder_ray.target_position = RAYDIR
 	right_shoulder_ray.target_position = RAYDIR
 	left_foot_ray.target_position = RAYDIR_LEG
 	right_foot_ray.target_position = RAYDIR_LEG
-
 	
 func on_has_start_stepping():
 	if stepping:
 		return
 	stepping = true
+
+func updateSmoothSpeed(delta) -> void:
+	match PlayerRoot.inMoveState:
+		Player.MoveStates.MOVING: 
+			playerSpeedSmooth *= 9.0
+			playerSpeedSmooth += GameStateManager.current_player.player_speed
+			playerSpeedSmooth /= 10.0
+		_: playerSpeedSmooth = 0.0
+
+func hip_step_update(time):
+	# hip correction during a step, should move a bit up and down
+	pass
+
+func updatePelvisHeight(delta: float) -> void:
+	var squattingSpeed: float
 	
-	
-func hip_step_uptade(time):
-	var starting = player_armature.position
-	var target1 = starting + Vector3(0, -0.03, 0)
-	var target2 = starting + Vector3(0, 0.04, 0)
-	# Animate acring step
-	#var t = get_tree().create_tween()
-	#t.tween_property(player_armature, "position", target1, 0.2).set_ease(Tween.EASE_OUT)
-	#t.tween_property(player_armature, "position", target2, 0.15)
-	#t.tween_property(player_armature, "position", starting, 0.2).set_ease(Tween.EASE_OUT)
-	#t.tween_callback(func(): stepping = false)
+	if (GameStateManager.current_player.player_speed < 0.5) and isReaching:
+		if (lean_target.global_position.y - self.global_position.y) < 0.3:
+			squattingSpeed = delta * 0.2
+		else:
+			squattingSpeed = delta * -0.5
+	else:
+		squattingSpeed = delta * -2.0
+		
+	squatting = max(min(1.0, squatting + squattingSpeed), 0.0)
+	pelvis.position.y = lerp(PelvisOrigin.y, squatLow, squatting)	
 
 func update_step_targets():
 	# prediction vectors
@@ -163,7 +184,6 @@ func update_step_targets():
 	
 	var left_lookat_pos = PlayerRoot.player_global_mass_pos + SideVector + FwdVector
 	var right_lookat_pos = PlayerRoot.player_global_mass_pos - SideVector + FwdVector
-
 	
 	left_foot_ray.look_at(left_lookat_pos)
 	right_foot_ray.look_at(right_lookat_pos)
@@ -188,10 +208,6 @@ func moveHand(ray: Object, hand: Object, target: Object, doRaycast: bool = false
 		hand.global_position = lerp(hand.global_position, rayHit, 0.5)
 	else:
 		hand.global_position = lerp(hand.global_position, target.global_position, 0.5)
-
-func updateClosestPos() -> void:
-	pass
-	
 
 func moveFeet(activFoot: Player.Sides) -> void:
 	match activFoot:
@@ -249,7 +265,7 @@ func checkStepStart(was: Vector3, isCurrent: Vector3) -> bool:
 
 func updateLean(delta: float) -> void:
 	var leanTarget = Vector3(0,0,0)
-	var isReaching = false
+	isReaching = false
 
 	match PlayerRoot.HandLState:
 		Player.HandStates.REACHING:
@@ -267,7 +283,7 @@ func updateLean(delta: float) -> void:
 
 	if isReaching:
 		if not leanLookAt.active: leanLookAt.active = true
-		var leanDist = (self.global_position - leanTarget).length()
+		leanDist = (self.global_position - leanTarget).length()
 		leanLookAt.influence = clamp(2.0 - leanDist, 0.0, 1.0)
 		lean_target.global_position = leanTarget
 	else:
@@ -275,18 +291,20 @@ func updateLean(delta: float) -> void:
 
 
 func _process(delta: float) -> void:
+
 	# ---------------- BODY UPDATE ----------------
 	# Make the armature follow the physics bodies
-	# shift and lean body towards reaching targets
 	self.global_transform = body_attach_point.global_transform
 	
 	# ---------------- LEANING UPDATE ----------------
+	# shift and lean body towards reaching targets
+	# restore base position fast when not moving, lean damping will interpolate itself
 	match PlayerRoot.inMoveState:
-		Player.MoveStates.MOVING:
+		Player.MoveStates.MOVING: 
 			updateLean(delta)
-		_: 
-			# restore base position fast when not moving, lean damping will interpolate itself
-			if leanLookAt.active: leanLookAt.active = false
+			updatePelvisHeight(delta)
+		_: if leanLookAt.active: leanLookAt.active = false
+		
 
 	# ---------------- HAND UPDATE ----------------
 	# add .pick_point when targeting drunk itemas
@@ -342,11 +360,11 @@ func _process(delta: float) -> void:
 								setFeetState(FeetStates.MOVING_RIGHT, Player.Sides.RIGHT)
 				FeetStates.MOVING_LEFT:
 					updateStepLerp()
-					hip_step_uptade(stepLerp)
+					hip_step_update(stepLerp)
 					moveFeet(Player.Sides.LEFT)
 				FeetStates.MOVING_RIGHT: 
 					updateStepLerp()
-					hip_step_uptade(stepLerp)
+					hip_step_update(stepLerp)
 					moveFeet(Player.Sides.RIGHT)
 				FeetStates.PLANTED_LEFT: pass
 				FeetStates.PLANTED_RIGHT: pass
@@ -356,6 +374,7 @@ func _process(delta: float) -> void:
 	if debugDraw: updateDebugHelpers()
 	
 func _physics_process(delta: float) -> void:
+	updateSmoothSpeed(delta)
 	LeftFootGotoPos = left_foot_ray.get_collision_point()
 	RightFootGotoPos = right_foot_ray.get_collision_point()
 	# TODO: This is to keep the feet on raised platforms. 
@@ -375,11 +394,14 @@ func setFeetState(state: FeetStates, foot: Player.Sides):
 	self.FeetStateChanged.emit(state, foot)
 
 func _on_step_in_progress_timeout() -> void:
+	stepLerp = 1.0 #making sure feet actually reach target
 	match inFeetState:
-		FeetStates.MOVING_LEFT: 
+		FeetStates.MOVING_LEFT:
+			moveFeet(Player.Sides.LEFT)
 			LeftFootWasPos = LeftFootGotoPos
 			setFeetState(FeetStates.PLANTED_LEFT, Player.Sides.LEFT)
-		FeetStates.MOVING_RIGHT: 
+		FeetStates.MOVING_RIGHT:
+			moveFeet(Player.Sides.RIGHT)
 			RightFootWasPos = RightFootGotoPos
 			setFeetState(FeetStates.PLANTED_RIGHT, Player.Sides.RIGHT)
 
@@ -403,6 +425,8 @@ func _on_feet_state_changed(state: int, foot: Player.Sides) -> void:
 func setFeetSpeed() -> void:
 	if PlayerRoot.inMoveState == Player.MoveStates.FALLING:
 		$StepInProgress.wait_time = randf_range(stepTimeFalling.x, stepTimeFalling.y)
+	if PlayerRoot.inMoveState == Player.MoveStates.STANDUP:
+		$StepInProgress.wait_time = randf_range(stepTimeFalling.y, stepTimeFalling.y)
 	else:
 		$StepInProgress.wait_time = randf_range(stepTimeStd.x, stepTimeStd.y)
 

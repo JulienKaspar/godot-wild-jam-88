@@ -60,6 +60,9 @@ func display_player_info() -> void:
 		ImGui.Text("Player Mass Pos: " + str(player.player_global_mass_pos))
 		ImGui.Text("Player leaning: " + str(player.leaning))
 		ImGui.Text("Player Speed: " + str(player.player_speed))
+		ImGui.Text("Player Speed Smoothed: " + str(player.get_node("PlayerBody").playerSpeedSmooth))
+		ImGui.Text("Player Squatting: " + str(player.get_node("PlayerBody").squatting))
+		ImGui.Text("Player Speed: " + str(player.player_speed))
 		ImGui.Text("Camera Rotation: " + str(GameStateManager.game_camera.global_rotation_degrees.y))
 		ImGui.Text("Camera State: " + str(GameStateManager.game_camera.inState))
 		
