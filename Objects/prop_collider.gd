@@ -7,6 +7,8 @@ func _ready():
 func on_collision(_body) -> void:
 	if self.linear_velocity.length() > 0.5:
 		var sound : AudioStreamPlayer3D = AudioManager.sfx_manager.get_item()
+		if !sound: return # if no sfx available return
+		
 		sound.position = self.global_position
 		sound.reparent(self)
 		sound.stream = AudioManager.sfx_manager.prop_collision_sounds

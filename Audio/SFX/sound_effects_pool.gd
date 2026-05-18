@@ -2,8 +2,8 @@ extends Node
 class_name SoundEffectsPool
 
 var pool_items : Array
-@export var min_num_items : int = 0
-@export var max_num_items : int = 8
+@export var min_num_items : int = 4
+@export var max_num_items : int = 16
 @export var item_scene : PackedScene
 
 var shrink_timer : Timer
