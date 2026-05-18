@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bw6ektqcmgwb3" path="res://Characters/vacuum_plow.gd" id="1_jhq6o"]
 [ext_resource type="QuadMesh" uid="uid://jxvi58utf2ih" path="res://Particles/Dust_Poof_Falling/draw_sprite_dust_1_a.tres" id="2_y2h3q"]
 [ext_resource type="PackedScene" uid="uid://c8skllordwky" path="res://Assets/Characters/Vaccuum Plow/vaccuum_plow.gltf" id="3_438eg"]
+[ext_resource type="AudioStream" uid="uid://d3x6qhv8tasn3" path="res://Assets/Audio/SFX/NPCs/vacuum_plow_loop.ogg" id="5_x0xnq"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_8kvoa"]
 height = 0.75
@@ -54,6 +55,20 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlowBody" unique_id=1221819821]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.375, 0)
 shape = SubResource("CylinderShape3D_8kvoa")
+
+[node name="VacuumLoopSound" type="AudioStreamPlayer3D" parent="PlowBody/CollisionShape3D" unique_id=1447614352]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.375, 0)
+stream = ExtResource("5_x0xnq")
+volume_db = 3.0
+max_db = 1.0
+pitch_scale = 1.25
+autoplay = true
+max_distance = 18.0
+panning_strength = 1.2
+bus = &"SFX"
+attenuation_filter_cutoff_hz = 350.0
+attenuation_filter_db = -36.0
+doppler_tracking = 2
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="PlowBody" unique_id=2092446340]
 transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0.011825394, 0.3768921, 0.33628875)
@@ -133,7 +148,7 @@ size = Vector3(0.55249023, 0.09136963, 0.1875)
 
 [node name="vaccum plow" parent="PlowBody/Model" unique_id=1946775643 instance=ExtResource("3_438eg")]
 
-[node name="Skeleton3D" parent="PlowBody/Model/vaccum plow/Armature" parent_id_path=PackedInt32Array(1946775643, 620656725) index="0" unique_id=1234687995]
+[node name="Skeleton3D" parent="PlowBody/Model/vaccum plow/Armature" parent_id_path=PackedInt32Array(1946775643, 820900800) index="0" unique_id=1394546372]
 bones/1/position = Vector3(3.01904e-08, 0.3227858, 0.3978925)
 bones/1/rotation = Quaternion(-0.39106172, 0.00031765053, -0.0047982535, 0.920352)
 bones/2/position = Vector3(0.046700142, 0.054934457, 0.008174159)
