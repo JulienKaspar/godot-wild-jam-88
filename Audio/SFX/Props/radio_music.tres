@@ -1,0 +1,27 @@
+[gd_resource type="AudioStreamInteractive" format=3 uid="uid://bqxevhchd07mw"]
+
+[ext_resource type="AudioStream" uid="uid://bg1h3xiijpqik" path="res://Assets/Audio/Music/RadioTheme/radio_music_intro.ogg" id="1_f0jck"]
+[ext_resource type="AudioStream" uid="uid://ct8lrlf57x658" path="res://Assets/Audio/Music/RadioTheme/radio_music_loop.ogg" id="2_k2mvc"]
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_0srsx"]
+stream_count = 1
+stream_0/stream = ExtResource("2_k2mvc")
+stream_0/volume = 0.0
+
+[resource]
+clip_count = 2
+clip_0/name = &"intro"
+clip_0/stream = ExtResource("1_f0jck")
+clip_0/auto_advance = 1
+clip_0/next_clip = 1
+clip_1/name = &"loop"
+clip_1/stream = SubResource("AudioStreamSynchronized_0srsx")
+clip_1/auto_advance = 0
+_transitions = {
+Vector2i(1, 0): {
+"fade_beats": 0.0,
+"fade_mode": 0,
+"from_time": 0,
+"to_time": 0
+}
+}

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cofqoseqs4itl"]
+[gd_scene format=3 uid="uid://cofqoseqs4itl"]
 
 [ext_resource type="Script" uid="uid://3x4na13uxxj4" path="res://Audio/SFX/Player/player_sounds.gd" id="1_nwop1"]
 [ext_resource type="AudioStream" uid="uid://b3kpdlj57qbye" path="res://Audio/SFX/Player/player_voice_falling.tres" id="2_pfifw"]
@@ -18,7 +18,7 @@ streams_count = 2
 stream_0/stream = ExtResource("2_umc7b")
 stream_1/stream = ExtResource("3_xdpom")
 
-[node name="PlayerSounds" type="Node3D" node_paths=PackedStringArray("footstep_player", "voice_player", "singing_player")]
+[node name="PlayerSounds" type="Node3D" unique_id=1575667449 node_paths=PackedStringArray("footstep_player", "voice_player", "singing_player")]
 script = ExtResource("1_nwop1")
 break_fence = ExtResource("2_rxmia")
 footstep_player = NodePath("FootstepAudioPlayer")
@@ -31,7 +31,7 @@ chug_sounds = ExtResource("9_rjaj4")
 burp_sounds = ExtResource("7_a8uc4")
 hiccup_sounds = ExtResource("8_w2ggi")
 
-[node name="FootstepAudioPlayer" type="AudioStreamPlayer3D" parent="."]
+[node name="FootstepAudioPlayer" type="AudioStreamPlayer3D" parent="." unique_id=571503308]
 stream = SubResource("AudioStreamRandomizer_xf5fp")
 max_db = 0.0
 pitch_scale = 1.5
@@ -41,7 +41,7 @@ panning_strength = 1.2
 bus = &"Player"
 attenuation_filter_cutoff_hz = 4000.0
 
-[node name="VoiceAudioPlayer" type="AudioStreamPlayer3D" parent="."]
+[node name="VoiceAudioPlayer" type="AudioStreamPlayer3D" parent="." unique_id=81785676]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1.5, 0)
 stream = ExtResource("8_w2ggi")
 unit_size = 8.0
@@ -55,7 +55,7 @@ emission_angle_filter_attenuation_db = -6.0
 attenuation_filter_cutoff_hz = 9000.0
 attenuation_filter_db = -12.0
 
-[node name="SingingAudioPlayer" type="AudioStreamPlayer3D" parent="."]
+[node name="SingingAudioPlayer" type="AudioStreamPlayer3D" parent="." unique_id=478055961]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1.5, 0)
 stream = ExtResource("8_wdt07")
 volume_db = -80.0
